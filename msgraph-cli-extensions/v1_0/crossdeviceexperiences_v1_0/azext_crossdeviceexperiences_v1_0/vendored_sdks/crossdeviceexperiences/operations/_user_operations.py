@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -73,7 +73,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfUserActivity"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -81,7 +83,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -237,10 +238,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserActivity"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUserActivity(id=id, activation_url=activation_url, activity_source_host=activity_source_host, app_activity_id=app_activity_id, app_display_name=app_display_name, content_info=content_info, content_url=content_url, created_date_time=created_date_time, expiration_date_time=expiration_date_time, fallback_url=fallback_url, last_modified_date_time=last_modified_date_time, status=status, user_timezone=user_timezone, history_items=history_items, attribution=attribution, background_color=background_color, content=content, description=description, display_text=display_text)
+        body = models.MicrosoftGraphUserActivity(id=id, activation_url=activation_url, activity_source_host=activity_source_host, app_activity_id=app_activity_id, app_display_name=app_display_name, content_info=content_info, content_url=content_url, created_date_time=created_date_time, expiration_date_time=expiration_date_time, fallback_url=fallback_url, last_modified_date_time=last_modified_date_time, status=status, user_timezone=user_timezone, history_items=history_items, attribution=attribution, background_color=background_color, content=content, description=description, display_text=display_text)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -258,13 +261,11 @@ class UserOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserActivity')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserActivity')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -308,7 +309,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserActivity"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -330,7 +333,6 @@ class UserOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -448,10 +450,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUserActivity(id=id, activation_url=activation_url, activity_source_host=activity_source_host, app_activity_id=app_activity_id, app_display_name=app_display_name, content_info=content_info, content_url=content_url, created_date_time=created_date_time, expiration_date_time=expiration_date_time, fallback_url=fallback_url, last_modified_date_time=last_modified_date_time, status=status, user_timezone=user_timezone, history_items=history_items, attribution=attribution, background_color=background_color, content=content, description=description, display_text=display_text)
+        body = models.MicrosoftGraphUserActivity(id=id, activation_url=activation_url, activity_source_host=activity_source_host, app_activity_id=app_activity_id, app_display_name=app_display_name, content_info=content_info, content_url=content_url, created_date_time=created_date_time, expiration_date_time=expiration_date_time, fallback_url=fallback_url, last_modified_date_time=last_modified_date_time, status=status, user_timezone=user_timezone, history_items=history_items, attribution=attribution, background_color=background_color, content=content, description=description, display_text=display_text)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -472,10 +476,9 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserActivity')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserActivity')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -513,7 +516,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

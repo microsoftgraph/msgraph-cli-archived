@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._personal_contacts_async import PersonalContacts
+from ._personal_contacts import PersonalContacts
 __all__ = ['PersonalContacts']

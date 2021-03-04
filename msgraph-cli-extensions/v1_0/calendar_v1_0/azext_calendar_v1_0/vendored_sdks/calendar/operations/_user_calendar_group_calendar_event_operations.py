@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -82,7 +82,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAttachment6"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -90,7 +92,6 @@ class UserCalendarGroupCalendarEventOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -200,10 +201,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAttachment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAttachment(id=id, content_type=content_type_parameter, is_inline=is_inline, last_modified_date_time=last_modified_date_time, name=name, size=size)
+        body = models.MicrosoftGraphAttachment(id=id, content_type=content_type_parameter, is_inline=is_inline, last_modified_date_time=last_modified_date_time, name=name, size=size)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -224,13 +227,11 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAttachment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAttachment')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -283,7 +284,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAttachment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -308,7 +311,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -377,10 +379,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAttachment(id=id, content_type=content_type_parameter, is_inline=is_inline, last_modified_date_time=last_modified_date_time, name=name, size=size)
+        body = models.MicrosoftGraphAttachment(id=id, content_type=content_type_parameter, is_inline=is_inline, last_modified_date_time=last_modified_date_time, name=name, size=size)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -404,10 +408,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAttachment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAttachment')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -454,7 +457,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -525,7 +530,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCalendar"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -549,7 +556,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -658,10 +664,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
+        body = models.MicrosoftGraphCalendar(id=id, allowed_online_meeting_providers=allowed_online_meeting_providers, can_edit=can_edit, can_share=can_share, can_view_private_items=can_view_private_items, change_key=change_key, color=color, default_online_meeting_provider=default_online_meeting_provider, is_removable=is_removable, is_tallying_responses=is_tallying_responses, name=name, owner=owner, calendar_permissions=calendar_permissions, calendar_view=calendar_view, events=events, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -684,10 +692,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCalendar')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCalendar')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -731,7 +738,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -804,7 +813,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtension6"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -812,7 +823,6 @@ class UserCalendarGroupCalendarEventOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -905,10 +915,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphExtension(id=id)
+        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -929,13 +941,11 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphExtension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -988,7 +998,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1013,7 +1025,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1065,10 +1076,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphExtension(id=id)
+        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1092,10 +1105,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphExtension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1142,7 +1154,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1216,7 +1230,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEvent18"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1224,7 +1240,6 @@ class UserCalendarGroupCalendarEventOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1525,10 +1540,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, end=end, has_attachments=has_attachments, i_cal_u_id=i_cal_u_id, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, web_link=web_link, attachments=attachments, calendar=calendar, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
+        body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, end=end, has_attachments=has_attachments, i_cal_u_id=i_cal_u_id, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, web_link=web_link, attachments=attachments, calendar=calendar, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1549,13 +1566,11 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1608,7 +1623,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEvent"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1633,7 +1650,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1893,10 +1909,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, end=end, has_attachments=has_attachments, i_cal_u_id=i_cal_u_id, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, web_link=web_link, attachments=attachments, calendar=calendar, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
+        body = models.MicrosoftGraphEvent(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, allow_new_time_proposals=allow_new_time_proposals, attendees=attendees, body=body, body_preview=body_preview, end=end, has_attachments=has_attachments, i_cal_u_id=i_cal_u_id, importance=importance, is_all_day=is_all_day, is_cancelled=is_cancelled, is_online_meeting=is_online_meeting, is_organizer=is_organizer, is_reminder_on=is_reminder_on, locations=locations, online_meeting_provider=online_meeting_provider, online_meeting_url=online_meeting_url, original_end_time_zone=original_end_time_zone, original_start=original_start, original_start_time_zone=original_start_time_zone, reminder_minutes_before_start=reminder_minutes_before_start, response_requested=response_requested, response_status=response_status, sensitivity=sensitivity, series_master_id=series_master_id, show_as=show_as, start=start, subject=subject, transaction_id=transaction_id, type=type, web_link=web_link, attachments=attachments, calendar=calendar, extensions=extensions, instances=instances, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, pattern=pattern, range=range, email_address=email_address, conference_id=conference_id, join_url=join_url, phones=phones, quick_dial=quick_dial, toll_free_numbers=toll_free_numbers, toll_number=toll_number, address=address, coordinates=coordinates, display_name=display_name, location_email_address=location_email_address, location_type=location_type, location_uri=location_uri, unique_id=unique_id, unique_id_type=unique_id_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1920,10 +1938,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEvent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1970,7 +1987,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2044,7 +2063,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMultiValueLegacyExtendedProperty10"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2052,7 +2073,6 @@ class UserCalendarGroupCalendarEventOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2148,10 +2168,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2172,13 +2194,11 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2231,7 +2251,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2256,7 +2278,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2311,10 +2332,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2338,10 +2361,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2388,7 +2410,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2462,7 +2486,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSingleValueLegacyExtendedProperty10"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2470,7 +2496,6 @@ class UserCalendarGroupCalendarEventOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2566,10 +2591,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2590,13 +2617,11 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2649,7 +2674,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2674,7 +2701,6 @@ class UserCalendarGroupCalendarEventOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2729,10 +2755,12 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2756,10 +2784,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2806,7 +2833,9 @@ class UserCalendarGroupCalendarEventOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

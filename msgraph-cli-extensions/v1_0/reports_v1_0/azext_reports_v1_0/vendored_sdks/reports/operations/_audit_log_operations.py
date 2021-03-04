@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryAudit"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class AuditLogOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -197,10 +198,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryAudit"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDirectoryAudit(id=id, activity_date_time=activity_date_time, activity_display_name=activity_display_name, additional_details=additional_details, category=category, correlation_id=correlation_id, logged_by_service=logged_by_service, operation_type=operation_type, result=result, result_reason=result_reason, target_resources=target_resources, app=app, user=user)
+        body = models.MicrosoftGraphDirectoryAudit(id=id, activity_date_time=activity_date_time, activity_display_name=activity_display_name, additional_details=additional_details, category=category, correlation_id=correlation_id, logged_by_service=logged_by_service, operation_type=operation_type, result=result, result_reason=result_reason, target_resources=target_resources, app=app, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -214,13 +217,11 @@ class AuditLogOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDirectoryAudit')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDirectoryAudit')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -261,7 +262,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryAudit"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -282,7 +285,6 @@ class AuditLogOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -367,10 +369,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDirectoryAudit(id=id, activity_date_time=activity_date_time, activity_display_name=activity_display_name, additional_details=additional_details, category=category, correlation_id=correlation_id, logged_by_service=logged_by_service, operation_type=operation_type, result=result, result_reason=result_reason, target_resources=target_resources, app=app, user=user)
+        body = models.MicrosoftGraphDirectoryAudit(id=id, activity_date_time=activity_date_time, activity_display_name=activity_display_name, additional_details=additional_details, category=category, correlation_id=correlation_id, logged_by_service=logged_by_service, operation_type=operation_type, result=result, result_reason=result_reason, target_resources=target_resources, app=app, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -390,10 +394,9 @@ class AuditLogOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDirectoryAudit')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDirectoryAudit')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -428,7 +431,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -486,7 +491,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfRestrictedSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -494,7 +501,6 @@ class AuditLogOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -661,10 +667,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphRestrictedSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphRestrictedSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, target_tenant_id=target_tenant_id)
+        body = models.MicrosoftGraphRestrictedSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, target_tenant_id=target_tenant_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -678,13 +686,11 @@ class AuditLogOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphRestrictedSignIn')
+        body_content = self._serialize.body(body, 'MicrosoftGraphRestrictedSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -725,7 +731,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphRestrictedSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -746,7 +754,6 @@ class AuditLogOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -879,10 +886,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphRestrictedSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, target_tenant_id=target_tenant_id)
+        body = models.MicrosoftGraphRestrictedSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, target_tenant_id=target_tenant_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -902,10 +911,9 @@ class AuditLogOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphRestrictedSignIn')
+        body_content = self._serialize.body(body, 'MicrosoftGraphRestrictedSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -940,7 +948,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -998,7 +1008,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1006,7 +1018,6 @@ class AuditLogOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1170,10 +1181,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
+        body = models.MicrosoftGraphSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1187,13 +1200,11 @@ class AuditLogOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSignIn')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1234,7 +1245,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSignIn"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1255,7 +1268,6 @@ class AuditLogOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1385,10 +1397,12 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
+        body = models.MicrosoftGraphSignIn(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1408,10 +1422,9 @@ class AuditLogOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSignIn')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSignIn')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1446,7 +1459,9 @@ class AuditLogOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

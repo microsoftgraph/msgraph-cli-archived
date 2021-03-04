@@ -10,9 +10,9 @@
 # pylint: disable=too-many-lines
 
 
-def reports_audit_log_audit_log_root_get_audit_log_root(client,
-                                                        select=None,
-                                                        expand=None):
+def reports_audit_log_audit_log_root_show_audit_log_root(client,
+                                                         select=None,
+                                                         expand=None):
     return client.get_audit_log_root(select=select,
                                      expand=expand)
 
@@ -55,8 +55,8 @@ def reports_audit_log_create_directory_audit(client,
                                              result=None,
                                              result_reason=None,
                                              target_resources=None,
-                                             initiated_by_app=None,
-                                             initiated_by_user=None):
+                                             app=None,
+                                             user=None):
     return client.create_directory_audit(id=id_,
                                          activity_date_time=activity_date_time,
                                          activity_display_name=activity_display_name,
@@ -68,8 +68,8 @@ def reports_audit_log_create_directory_audit(client,
                                          result=result,
                                          result_reason=result_reason,
                                          target_resources=target_resources,
-                                         app=initiated_by_app,
-                                         user=initiated_by_user)
+                                         app=app,
+                                         user=user)
 
 
 def reports_audit_log_create_restricted_sign_in(client,
@@ -96,10 +96,10 @@ def reports_audit_log_create_restricted_sign_in(client,
                                                 user_display_name=None,
                                                 user_id=None,
                                                 user_principal_name=None,
-                                                location_city=None,
-                                                location_country_or_region=None,
-                                                location_geo_coordinates=None,
-                                                location_state=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
                                                 target_tenant_id=None):
     return client.create_restricted_sign_in(id=id_,
                                             app_display_name=app_display_name,
@@ -124,10 +124,10 @@ def reports_audit_log_create_restricted_sign_in(client,
                                             user_display_name=user_display_name,
                                             user_id=user_id,
                                             user_principal_name=user_principal_name,
-                                            city=location_city,
-                                            country_or_region=location_country_or_region,
-                                            geo_coordinates=location_geo_coordinates,
-                                            state=location_state,
+                                            city=city,
+                                            country_or_region=country_or_region,
+                                            geo_coordinates=geo_coordinates,
+                                            state=state,
                                             target_tenant_id=target_tenant_id)
 
 
@@ -155,10 +155,10 @@ def reports_audit_log_create_sign_in(client,
                                      user_display_name=None,
                                      user_id=None,
                                      user_principal_name=None,
-                                     location_city=None,
-                                     location_country_or_region=None,
-                                     location_geo_coordinates=None,
-                                     location_state=None):
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
     return client.create_sign_in(id=id_,
                                  app_display_name=app_display_name,
                                  app_id=app_id,
@@ -182,37 +182,10 @@ def reports_audit_log_create_sign_in(client,
                                  user_display_name=user_display_name,
                                  user_id=user_id,
                                  user_principal_name=user_principal_name,
-                                 city=location_city,
-                                 country_or_region=location_country_or_region,
-                                 geo_coordinates=location_geo_coordinates,
-                                 state=location_state)
-
-
-def reports_audit_log_get_directory_audit(client,
-                                          directory_audit_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_directory_audit(directory_audit_id=directory_audit_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def reports_audit_log_get_restricted_sign_in(client,
-                                             restricted_sign_in_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                         select=select,
-                                         expand=expand)
-
-
-def reports_audit_log_get_sign_in(client,
-                                  sign_in_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_sign_in(sign_in_id=sign_in_id,
-                              select=select,
-                              expand=expand)
+                                 city=city,
+                                 country_or_region=country_or_region,
+                                 geo_coordinates=geo_coordinates,
+                                 state=state)
 
 
 def reports_audit_log_list_directory_audit(client,
@@ -242,6 +215,33 @@ def reports_audit_log_list_sign_in(client,
                                expand=expand)
 
 
+def reports_audit_log_show_directory_audit(client,
+                                           directory_audit_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_directory_audit(directory_audit_id=directory_audit_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def reports_audit_log_show_restricted_sign_in(client,
+                                              restricted_sign_in_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
+                                         select=select,
+                                         expand=expand)
+
+
+def reports_audit_log_show_sign_in(client,
+                                   sign_in_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_sign_in(sign_in_id=sign_in_id,
+                              select=select,
+                              expand=expand)
+
+
 def reports_audit_log_update_directory_audit(client,
                                              directory_audit_id,
                                              id_=None,
@@ -255,8 +255,8 @@ def reports_audit_log_update_directory_audit(client,
                                              result=None,
                                              result_reason=None,
                                              target_resources=None,
-                                             initiated_by_app=None,
-                                             initiated_by_user=None):
+                                             app=None,
+                                             user=None):
     return client.update_directory_audit(directory_audit_id=directory_audit_id,
                                          id=id_,
                                          activity_date_time=activity_date_time,
@@ -269,8 +269,8 @@ def reports_audit_log_update_directory_audit(client,
                                          result=result,
                                          result_reason=result_reason,
                                          target_resources=target_resources,
-                                         app=initiated_by_app,
-                                         user=initiated_by_user)
+                                         app=app,
+                                         user=user)
 
 
 def reports_audit_log_update_restricted_sign_in(client,
@@ -298,10 +298,10 @@ def reports_audit_log_update_restricted_sign_in(client,
                                                 user_display_name=None,
                                                 user_id=None,
                                                 user_principal_name=None,
-                                                location_city=None,
-                                                location_country_or_region=None,
-                                                location_geo_coordinates=None,
-                                                location_state=None,
+                                                city=None,
+                                                country_or_region=None,
+                                                geo_coordinates=None,
+                                                state=None,
                                                 target_tenant_id=None):
     return client.update_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
                                             id=id_,
@@ -327,10 +327,10 @@ def reports_audit_log_update_restricted_sign_in(client,
                                             user_display_name=user_display_name,
                                             user_id=user_id,
                                             user_principal_name=user_principal_name,
-                                            city=location_city,
-                                            country_or_region=location_country_or_region,
-                                            geo_coordinates=location_geo_coordinates,
-                                            state=location_state,
+                                            city=city,
+                                            country_or_region=country_or_region,
+                                            geo_coordinates=geo_coordinates,
+                                            state=state,
                                             target_tenant_id=target_tenant_id)
 
 
@@ -359,10 +359,10 @@ def reports_audit_log_update_sign_in(client,
                                      user_display_name=None,
                                      user_id=None,
                                      user_principal_name=None,
-                                     location_city=None,
-                                     location_country_or_region=None,
-                                     location_geo_coordinates=None,
-                                     location_state=None):
+                                     city=None,
+                                     country_or_region=None,
+                                     geo_coordinates=None,
+                                     state=None):
     return client.update_sign_in(sign_in_id=sign_in_id,
                                  id=id_,
                                  app_display_name=app_display_name,
@@ -387,21 +387,21 @@ def reports_audit_log_update_sign_in(client,
                                  user_display_name=user_display_name,
                                  user_id=user_id,
                                  user_principal_name=user_principal_name,
-                                 city=location_city,
-                                 country_or_region=location_country_or_region,
-                                 geo_coordinates=location_geo_coordinates,
-                                 state=location_state)
+                                 city=city,
+                                 country_or_region=country_or_region,
+                                 geo_coordinates=geo_coordinates,
+                                 state=state)
 
 
-def reports_report_root_get_root(client,
-                                 select=None,
-                                 expand=None):
+def reports_report_root_show_report_root(client,
+                                         select=None,
+                                         expand=None):
     return client.get_report_root(select=select,
                                   expand=expand)
 
 
-def reports_report_root_update_root(client,
-                                    id_=None):
+def reports_report_root_update_report_root(client,
+                                           id_=None):
     return client.update_report_root(id=id_)
 
 
@@ -411,418 +411,6 @@ def reports_report_device_configuration_device_activity(client):
 
 def reports_report_device_configuration_user_activity(client):
     return client.device_configuration_user_activity()
-
-
-def reports_report_get_email_activity_count(client,
-                                            period):
-    return client.get_email_activity_count(period=period)
-
-
-def reports_report_get_email_activity_user_count(client,
-                                                 period):
-    return client.get_email_activity_user_count(period=period)
-
-
-def reports_report_get_email_activity_user_detail_ddb2(client,
-                                                       period):
-    return client.get_email_activity_user_detail_ddb2(period=period)
-
-
-def reports_report_get_email_activity_user_detail_fe32(client,
-                                                       date):
-    return client.get_email_activity_user_detail_fe32(date=date)
-
-
-def reports_report_get_email_app_usage_app_user_count(client,
-                                                      period):
-    return client.get_email_app_usage_app_user_count(period=period)
-
-
-def reports_report_get_email_app_usage_user_count(client,
-                                                  period):
-    return client.get_email_app_usage_user_count(period=period)
-
-
-def reports_report_get_email_app_usage_user_detail546_b(client,
-                                                        period):
-    return client.get_email_app_usage_user_detail546_b(period=period)
-
-
-def reports_report_get_email_app_usage_user_detail62_ec(client,
-                                                        date):
-    return client.get_email_app_usage_user_detail62_ec(date=date)
-
-
-def reports_report_get_email_app_usage_version_user_count(client,
-                                                          period):
-    return client.get_email_app_usage_version_user_count(period=period)
-
-
-def reports_report_get_mailbox_usage_detail(client,
-                                            period):
-    return client.get_mailbox_usage_detail(period=period)
-
-
-def reports_report_get_mailbox_usage_mailbox_count(client,
-                                                   period):
-    return client.get_mailbox_usage_mailbox_count(period=period)
-
-
-def reports_report_get_mailbox_usage_quota_status_mailbox_count(client,
-                                                                period):
-    return client.get_mailbox_usage_quota_status_mailbox_count(period=period)
-
-
-def reports_report_get_mailbox_usage_storage(client,
-                                             period):
-    return client.get_mailbox_usage_storage(period=period)
-
-
-def reports_report_get_office365_activation_count(client):
-    return client.get_office365_activation_count()
-
-
-def reports_report_get_office365_activation_user_count(client):
-    return client.get_office365_activation_user_count()
-
-
-def reports_report_get_office365_activation_user_detail(client):
-    return client.get_office365_activation_user_detail()
-
-
-def reports_report_get_office365_active_user_count(client,
-                                                   period):
-    return client.get_office365_active_user_count(period=period)
-
-
-def reports_report_get_office365_active_user_detail_d389(client,
-                                                         date):
-    return client.get_office365_active_user_detail_d389(date=date)
-
-
-def reports_report_get_office365_active_user_detail68_ad(client,
-                                                         period):
-    return client.get_office365_active_user_detail68_ad(period=period)
-
-
-def reports_report_get_office365_group_activity_count(client,
-                                                      period):
-    return client.get_office365_group_activity_count(period=period)
-
-
-def reports_report_get_office365_group_activity_detail38_f6(client,
-                                                            period):
-    return client.get_office365_group_activity_detail38_f6(period=period)
-
-
-def reports_report_get_office365_group_activity_detail81_cc(client,
-                                                            date):
-    return client.get_office365_group_activity_detail81_cc(date=date)
-
-
-def reports_report_get_office365_group_activity_file_count(client,
-                                                           period):
-    return client.get_office365_group_activity_file_count(period=period)
-
-
-def reports_report_get_office365_group_activity_group_count(client,
-                                                            period):
-    return client.get_office365_group_activity_group_count(period=period)
-
-
-def reports_report_get_office365_group_activity_storage(client,
-                                                        period):
-    return client.get_office365_group_activity_storage(period=period)
-
-
-def reports_report_get_office365_service_user_count(client,
-                                                    period):
-    return client.get_office365_service_user_count(period=period)
-
-
-def reports_report_get_one_drive_activity_file_count(client,
-                                                     period):
-    return client.get_one_drive_activity_file_count(period=period)
-
-
-def reports_report_get_one_drive_activity_user_count(client,
-                                                     period):
-    return client.get_one_drive_activity_user_count(period=period)
-
-
-def reports_report_get_one_drive_activity_user_detail_c424(client,
-                                                           period):
-    return client.get_one_drive_activity_user_detail_c424(period=period)
-
-
-def reports_report_get_one_drive_activity_user_detail05_f1(client,
-                                                           date):
-    return client.get_one_drive_activity_user_detail05_f1(date=date)
-
-
-def reports_report_get_one_drive_usage_account_count(client,
-                                                     period):
-    return client.get_one_drive_usage_account_count(period=period)
-
-
-def reports_report_get_one_drive_usage_account_detail_dd7_f(client,
-                                                            period):
-    return client.get_one_drive_usage_account_detail_dd7_f(period=period)
-
-
-def reports_report_get_one_drive_usage_account_detail_e827(client,
-                                                           date):
-    return client.get_one_drive_usage_account_detail_e827(date=date)
-
-
-def reports_report_get_one_drive_usage_file_count(client,
-                                                  period):
-    return client.get_one_drive_usage_file_count(period=period)
-
-
-def reports_report_get_one_drive_usage_storage(client,
-                                               period):
-    return client.get_one_drive_usage_storage(period=period)
-
-
-def reports_report_get_share_point_activity_file_count(client,
-                                                       period):
-    return client.get_share_point_activity_file_count(period=period)
-
-
-def reports_report_get_share_point_activity_page(client,
-                                                 period):
-    return client.get_share_point_activity_page(period=period)
-
-
-def reports_report_get_share_point_activity_user_count(client,
-                                                       period):
-    return client.get_share_point_activity_user_count(period=period)
-
-
-def reports_report_get_share_point_activity_user_detail_b778(client,
-                                                             period):
-    return client.get_share_point_activity_user_detail_b778(period=period)
-
-
-def reports_report_get_share_point_activity_user_detail_f3_be(client,
-                                                              date):
-    return client.get_share_point_activity_user_detail_f3_be(date=date)
-
-
-def reports_report_get_share_point_site_usage_detail_d27_a(client,
-                                                           date):
-    return client.get_share_point_site_usage_detail_d27_a(date=date)
-
-
-def reports_report_get_share_point_site_usage_detail204_b(client,
-                                                          period):
-    return client.get_share_point_site_usage_detail204_b(period=period)
-
-
-def reports_report_get_share_point_site_usage_file_count(client,
-                                                         period):
-    return client.get_share_point_site_usage_file_count(period=period)
-
-
-def reports_report_get_share_point_site_usage_page(client,
-                                                   period):
-    return client.get_share_point_site_usage_page(period=period)
-
-
-def reports_report_get_share_point_site_usage_site_count(client,
-                                                         period):
-    return client.get_share_point_site_usage_site_count(period=period)
-
-
-def reports_report_get_share_point_site_usage_storage(client,
-                                                      period):
-    return client.get_share_point_site_usage_storage(period=period)
-
-
-def reports_report_get_skype_for_business_activity_count(client,
-                                                         period):
-    return client.get_skype_for_business_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_activity_user_count(client,
-                                                              period):
-    return client.get_skype_for_business_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_activity_user_detail_e4_c9(client,
-                                                                     date):
-    return client.get_skype_for_business_activity_user_detail_e4_c9(date=date)
-
-
-def reports_report_get_skype_for_business_activity_user_detail744_e(client,
-                                                                    period):
-    return client.get_skype_for_business_activity_user_detail744_e(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_distribution_user_count(client,
-                                                                               period):
-    return client.get_skype_for_business_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_user_count(client,
-                                                                  period):
-    return client.get_skype_for_business_device_usage_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_device_usage_user_detail_a692(client,
-                                                                        date):
-    return client.get_skype_for_business_device_usage_user_detail_a692(date=date)
-
-
-def reports_report_get_skype_for_business_device_usage_user_detail_e753(client,
-                                                                        period):
-    return client.get_skype_for_business_device_usage_user_detail_e753(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_count(client,
-                                                                   period):
-    return client.get_skype_for_business_organizer_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_minute_count(client,
-                                                                          period):
-    return client.get_skype_for_business_organizer_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_organizer_activity_user_count(client,
-                                                                        period):
-    return client.get_skype_for_business_organizer_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_count(client,
-                                                                     period):
-    return client.get_skype_for_business_participant_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_minute_count(client,
-                                                                            period):
-    return client.get_skype_for_business_participant_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_participant_activity_user_count(client,
-                                                                          period):
-    return client.get_skype_for_business_participant_activity_user_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_count(client,
-                                                                      period):
-    return client.get_skype_for_business_peer_to_peer_activity_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_minute_count(client,
-                                                                             period):
-    return client.get_skype_for_business_peer_to_peer_activity_minute_count(period=period)
-
-
-def reports_report_get_skype_for_business_peer_to_peer_activity_user_count(client,
-                                                                           period):
-    return client.get_skype_for_business_peer_to_peer_activity_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_distribution_user_count(client,
-                                                                 period):
-    return client.get_team_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_user_count(client,
-                                                    period):
-    return client.get_team_device_usage_user_count(period=period)
-
-
-def reports_report_get_team_device_usage_user_detail7148(client,
-                                                         date):
-    return client.get_team_device_usage_user_detail7148(date=date)
-
-
-def reports_report_get_team_device_usage_user_detail7565(client,
-                                                         period):
-    return client.get_team_device_usage_user_detail7565(period=period)
-
-
-def reports_report_get_team_user_activity_count(client,
-                                                period):
-    return client.get_team_user_activity_count(period=period)
-
-
-def reports_report_get_team_user_activity_user_count(client,
-                                                     period):
-    return client.get_team_user_activity_user_count(period=period)
-
-
-def reports_report_get_team_user_activity_user_detail_a3_f1(client,
-                                                            date):
-    return client.get_team_user_activity_user_detail_a3_f1(date=date)
-
-
-def reports_report_get_team_user_activity_user_detail_eb13(client,
-                                                           period):
-    return client.get_team_user_activity_user_detail_eb13(period=period)
-
-
-def reports_report_get_yammer_activity_count(client,
-                                             period):
-    return client.get_yammer_activity_count(period=period)
-
-
-def reports_report_get_yammer_activity_user_count(client,
-                                                  period):
-    return client.get_yammer_activity_user_count(period=period)
-
-
-def reports_report_get_yammer_activity_user_detail_ac30(client,
-                                                        date):
-    return client.get_yammer_activity_user_detail_ac30(date=date)
-
-
-def reports_report_get_yammer_activity_user_detail15_a5(client,
-                                                        period):
-    return client.get_yammer_activity_user_detail15_a5(period=period)
-
-
-def reports_report_get_yammer_device_usage_distribution_user_count(client,
-                                                                   period):
-    return client.get_yammer_device_usage_distribution_user_count(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_count(client,
-                                                      period):
-    return client.get_yammer_device_usage_user_count(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_detail_cfad(client,
-                                                            period):
-    return client.get_yammer_device_usage_user_detail_cfad(period=period)
-
-
-def reports_report_get_yammer_device_usage_user_detail_d0_ac(client,
-                                                             date):
-    return client.get_yammer_device_usage_user_detail_d0_ac(date=date)
-
-
-def reports_report_get_yammer_group_activity_count(client,
-                                                   period):
-    return client.get_yammer_group_activity_count(period=period)
-
-
-def reports_report_get_yammer_group_activity_detail_da9_a(client,
-                                                          date):
-    return client.get_yammer_group_activity_detail_da9_a(date=date)
-
-
-def reports_report_get_yammer_group_activity_detail0_d7_d(client,
-                                                          period):
-    return client.get_yammer_group_activity_detail0_d7_d(period=period)
-
-
-def reports_report_get_yammer_group_activity_group_count(client,
-                                                         period):
-    return client.get_yammer_group_activity_group_count(period=period)
 
 
 def reports_report_managed_device_enrollment_failure_details027_e(client):
@@ -847,3 +435,415 @@ def reports_report_managed_device_enrollment_top_failure_afd1(client,
 
 def reports_report_managed_device_enrollment_top_failures4669(client):
     return client.managed_device_enrollment_top_failures4669()
+
+
+def reports_report_show_email_activity_count(client,
+                                             period):
+    return client.get_email_activity_count(period=period)
+
+
+def reports_report_show_email_activity_user_count(client,
+                                                  period):
+    return client.get_email_activity_user_count(period=period)
+
+
+def reports_report_show_email_activity_user_detail_ddb2(client,
+                                                        period):
+    return client.get_email_activity_user_detail_ddb2(period=period)
+
+
+def reports_report_show_email_activity_user_detail_fe32(client,
+                                                        date):
+    return client.get_email_activity_user_detail_fe32(date=date)
+
+
+def reports_report_show_email_app_usage_app_user_count(client,
+                                                       period):
+    return client.get_email_app_usage_app_user_count(period=period)
+
+
+def reports_report_show_email_app_usage_user_count(client,
+                                                   period):
+    return client.get_email_app_usage_user_count(period=period)
+
+
+def reports_report_show_email_app_usage_user_detail546_b(client,
+                                                         period):
+    return client.get_email_app_usage_user_detail546_b(period=period)
+
+
+def reports_report_show_email_app_usage_user_detail62_ec(client,
+                                                         date):
+    return client.get_email_app_usage_user_detail62_ec(date=date)
+
+
+def reports_report_show_email_app_usage_version_user_count(client,
+                                                           period):
+    return client.get_email_app_usage_version_user_count(period=period)
+
+
+def reports_report_show_mailbox_usage_detail(client,
+                                             period):
+    return client.get_mailbox_usage_detail(period=period)
+
+
+def reports_report_show_mailbox_usage_mailbox_count(client,
+                                                    period):
+    return client.get_mailbox_usage_mailbox_count(period=period)
+
+
+def reports_report_show_mailbox_usage_quota_status_mailbox_count(client,
+                                                                 period):
+    return client.get_mailbox_usage_quota_status_mailbox_count(period=period)
+
+
+def reports_report_show_mailbox_usage_storage(client,
+                                              period):
+    return client.get_mailbox_usage_storage(period=period)
+
+
+def reports_report_show_office365_activation_count(client):
+    return client.get_office365_activation_count()
+
+
+def reports_report_show_office365_activation_user_count(client):
+    return client.get_office365_activation_user_count()
+
+
+def reports_report_show_office365_activation_user_detail(client):
+    return client.get_office365_activation_user_detail()
+
+
+def reports_report_show_office365_active_user_count(client,
+                                                    period):
+    return client.get_office365_active_user_count(period=period)
+
+
+def reports_report_show_office365_active_user_detail_d389(client,
+                                                          date):
+    return client.get_office365_active_user_detail_d389(date=date)
+
+
+def reports_report_show_office365_active_user_detail68_ad(client,
+                                                          period):
+    return client.get_office365_active_user_detail68_ad(period=period)
+
+
+def reports_report_show_office365_group_activity_count(client,
+                                                       period):
+    return client.get_office365_group_activity_count(period=period)
+
+
+def reports_report_show_office365_group_activity_detail38_f6(client,
+                                                             period):
+    return client.get_office365_group_activity_detail38_f6(period=period)
+
+
+def reports_report_show_office365_group_activity_detail81_cc(client,
+                                                             date):
+    return client.get_office365_group_activity_detail81_cc(date=date)
+
+
+def reports_report_show_office365_group_activity_file_count(client,
+                                                            period):
+    return client.get_office365_group_activity_file_count(period=period)
+
+
+def reports_report_show_office365_group_activity_group_count(client,
+                                                             period):
+    return client.get_office365_group_activity_group_count(period=period)
+
+
+def reports_report_show_office365_group_activity_storage(client,
+                                                         period):
+    return client.get_office365_group_activity_storage(period=period)
+
+
+def reports_report_show_office365_service_user_count(client,
+                                                     period):
+    return client.get_office365_service_user_count(period=period)
+
+
+def reports_report_show_one_drive_activity_file_count(client,
+                                                      period):
+    return client.get_one_drive_activity_file_count(period=period)
+
+
+def reports_report_show_one_drive_activity_user_count(client,
+                                                      period):
+    return client.get_one_drive_activity_user_count(period=period)
+
+
+def reports_report_show_one_drive_activity_user_detail_c424(client,
+                                                            period):
+    return client.get_one_drive_activity_user_detail_c424(period=period)
+
+
+def reports_report_show_one_drive_activity_user_detail05_f1(client,
+                                                            date):
+    return client.get_one_drive_activity_user_detail05_f1(date=date)
+
+
+def reports_report_show_one_drive_usage_account_count(client,
+                                                      period):
+    return client.get_one_drive_usage_account_count(period=period)
+
+
+def reports_report_show_one_drive_usage_account_detail_dd7_f(client,
+                                                             period):
+    return client.get_one_drive_usage_account_detail_dd7_f(period=period)
+
+
+def reports_report_show_one_drive_usage_account_detail_e827(client,
+                                                            date):
+    return client.get_one_drive_usage_account_detail_e827(date=date)
+
+
+def reports_report_show_one_drive_usage_file_count(client,
+                                                   period):
+    return client.get_one_drive_usage_file_count(period=period)
+
+
+def reports_report_show_one_drive_usage_storage(client,
+                                                period):
+    return client.get_one_drive_usage_storage(period=period)
+
+
+def reports_report_show_share_point_activity_file_count(client,
+                                                        period):
+    return client.get_share_point_activity_file_count(period=period)
+
+
+def reports_report_show_share_point_activity_page(client,
+                                                  period):
+    return client.get_share_point_activity_page(period=period)
+
+
+def reports_report_show_share_point_activity_user_count(client,
+                                                        period):
+    return client.get_share_point_activity_user_count(period=period)
+
+
+def reports_report_show_share_point_activity_user_detail_b778(client,
+                                                              period):
+    return client.get_share_point_activity_user_detail_b778(period=period)
+
+
+def reports_report_show_share_point_activity_user_detail_f3_be(client,
+                                                               date):
+    return client.get_share_point_activity_user_detail_f3_be(date=date)
+
+
+def reports_report_show_share_point_site_usage_detail_d27_a(client,
+                                                            date):
+    return client.get_share_point_site_usage_detail_d27_a(date=date)
+
+
+def reports_report_show_share_point_site_usage_detail204_b(client,
+                                                           period):
+    return client.get_share_point_site_usage_detail204_b(period=period)
+
+
+def reports_report_show_share_point_site_usage_file_count(client,
+                                                          period):
+    return client.get_share_point_site_usage_file_count(period=period)
+
+
+def reports_report_show_share_point_site_usage_page(client,
+                                                    period):
+    return client.get_share_point_site_usage_page(period=period)
+
+
+def reports_report_show_share_point_site_usage_site_count(client,
+                                                          period):
+    return client.get_share_point_site_usage_site_count(period=period)
+
+
+def reports_report_show_share_point_site_usage_storage(client,
+                                                       period):
+    return client.get_share_point_site_usage_storage(period=period)
+
+
+def reports_report_show_skype_for_business_activity_count(client,
+                                                          period):
+    return client.get_skype_for_business_activity_count(period=period)
+
+
+def reports_report_show_skype_for_business_activity_user_count(client,
+                                                               period):
+    return client.get_skype_for_business_activity_user_count(period=period)
+
+
+def reports_report_show_skype_for_business_activity_user_detail_e4_c9(client,
+                                                                      date):
+    return client.get_skype_for_business_activity_user_detail_e4_c9(date=date)
+
+
+def reports_report_show_skype_for_business_activity_user_detail744_e(client,
+                                                                     period):
+    return client.get_skype_for_business_activity_user_detail744_e(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_distribution_user_count(client,
+                                                                                period):
+    return client.get_skype_for_business_device_usage_distribution_user_count(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_user_count(client,
+                                                                   period):
+    return client.get_skype_for_business_device_usage_user_count(period=period)
+
+
+def reports_report_show_skype_for_business_device_usage_user_detail_a692(client,
+                                                                         date):
+    return client.get_skype_for_business_device_usage_user_detail_a692(date=date)
+
+
+def reports_report_show_skype_for_business_device_usage_user_detail_e753(client,
+                                                                         period):
+    return client.get_skype_for_business_device_usage_user_detail_e753(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_count(client,
+                                                                    period):
+    return client.get_skype_for_business_organizer_activity_count(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_minute_count(client,
+                                                                           period):
+    return client.get_skype_for_business_organizer_activity_minute_count(period=period)
+
+
+def reports_report_show_skype_for_business_organizer_activity_user_count(client,
+                                                                         period):
+    return client.get_skype_for_business_organizer_activity_user_count(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_count(client,
+                                                                      period):
+    return client.get_skype_for_business_participant_activity_count(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_minute_count(client,
+                                                                             period):
+    return client.get_skype_for_business_participant_activity_minute_count(period=period)
+
+
+def reports_report_show_skype_for_business_participant_activity_user_count(client,
+                                                                           period):
+    return client.get_skype_for_business_participant_activity_user_count(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_count(client,
+                                                                       period):
+    return client.get_skype_for_business_peer_to_peer_activity_count(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_minute_count(client,
+                                                                              period):
+    return client.get_skype_for_business_peer_to_peer_activity_minute_count(period=period)
+
+
+def reports_report_show_skype_for_business_peer_to_peer_activity_user_count(client,
+                                                                            period):
+    return client.get_skype_for_business_peer_to_peer_activity_user_count(period=period)
+
+
+def reports_report_show_team_device_usage_distribution_user_count(client,
+                                                                  period):
+    return client.get_team_device_usage_distribution_user_count(period=period)
+
+
+def reports_report_show_team_device_usage_user_count(client,
+                                                     period):
+    return client.get_team_device_usage_user_count(period=period)
+
+
+def reports_report_show_team_device_usage_user_detail7148(client,
+                                                          date):
+    return client.get_team_device_usage_user_detail7148(date=date)
+
+
+def reports_report_show_team_device_usage_user_detail7565(client,
+                                                          period):
+    return client.get_team_device_usage_user_detail7565(period=period)
+
+
+def reports_report_show_team_user_activity_count(client,
+                                                 period):
+    return client.get_team_user_activity_count(period=period)
+
+
+def reports_report_show_team_user_activity_user_count(client,
+                                                      period):
+    return client.get_team_user_activity_user_count(period=period)
+
+
+def reports_report_show_team_user_activity_user_detail_a3_f1(client,
+                                                             date):
+    return client.get_team_user_activity_user_detail_a3_f1(date=date)
+
+
+def reports_report_show_team_user_activity_user_detail_eb13(client,
+                                                            period):
+    return client.get_team_user_activity_user_detail_eb13(period=period)
+
+
+def reports_report_show_yammer_activity_count(client,
+                                              period):
+    return client.get_yammer_activity_count(period=period)
+
+
+def reports_report_show_yammer_activity_user_count(client,
+                                                   period):
+    return client.get_yammer_activity_user_count(period=period)
+
+
+def reports_report_show_yammer_activity_user_detail_ac30(client,
+                                                         date):
+    return client.get_yammer_activity_user_detail_ac30(date=date)
+
+
+def reports_report_show_yammer_activity_user_detail15_a5(client,
+                                                         period):
+    return client.get_yammer_activity_user_detail15_a5(period=period)
+
+
+def reports_report_show_yammer_device_usage_distribution_user_count(client,
+                                                                    period):
+    return client.get_yammer_device_usage_distribution_user_count(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_count(client,
+                                                       period):
+    return client.get_yammer_device_usage_user_count(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_detail_cfad(client,
+                                                             period):
+    return client.get_yammer_device_usage_user_detail_cfad(period=period)
+
+
+def reports_report_show_yammer_device_usage_user_detail_d0_ac(client,
+                                                              date):
+    return client.get_yammer_device_usage_user_detail_d0_ac(date=date)
+
+
+def reports_report_show_yammer_group_activity_count(client,
+                                                    period):
+    return client.get_yammer_group_activity_count(period=period)
+
+
+def reports_report_show_yammer_group_activity_detail_da9_a(client,
+                                                           date):
+    return client.get_yammer_group_activity_detail_da9_a(date=date)
+
+
+def reports_report_show_yammer_group_activity_detail0_d7_d(client,
+                                                           period):
+    return client.get_yammer_group_activity_detail0_d7_d(period=period)
+
+
+def reports_report_show_yammer_group_activity_group_count(client,
+                                                          period):
+    return client.get_yammer_group_activity_group_count(period=period)

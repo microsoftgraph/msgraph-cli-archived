@@ -11,7 +11,7 @@
 
 def cf_calendar_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.calendar import Calendar
+    from azext_calendar_v1_0.vendored_sdks.calendar import Calendar
     return get_mgmt_service_client(cli_ctx,
                                    Calendar,
                                    subscription_bound=False,

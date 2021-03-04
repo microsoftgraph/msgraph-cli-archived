@@ -31,8 +31,9 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = []
+
 try:
-    from .manual.dependency import DEPENDENCIES
+    from azext_identitydirmgt_v1_0.manual.dependency import DEPENDENCIES
 except ImportError:
     pass
 
@@ -47,7 +48,7 @@ setup(
     description='Microsoft Azure Command-Line Tools IdentityDirectoryManagement Extension',
     author='Microsoft Corporation',
     author_email='azpycli@microsoft.com',
-    url='https://github.com/Azure/azure-cli-extensions/tree/master/src/identitydirmgt_v1_0',
+    url='https://github.com/Azure/azure-cli-extensions/tree/master/identitydirmgt_v1_0',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     classifiers=CLASSIFIERS,

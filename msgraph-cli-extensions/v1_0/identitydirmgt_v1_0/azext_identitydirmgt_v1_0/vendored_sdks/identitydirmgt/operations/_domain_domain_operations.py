@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -69,7 +69,9 @@ class DomainDomainOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDomain"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -77,7 +79,6 @@ class DomainDomainOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -221,10 +222,12 @@ class DomainDomainOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomain"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDomain(id=id, authentication_type=authentication_type, availability_status=availability_status, is_admin_managed=is_admin_managed, is_default=is_default, is_initial=is_initial, is_root=is_root, is_verified=is_verified, manufacturer=manufacturer, model=model, password_notification_window_in_days=password_notification_window_in_days, password_validity_period_in_days=password_validity_period_in_days, state=state, supported_services=supported_services, domain_name_references=domain_name_references, service_configuration_records=service_configuration_records, verification_dns_records=verification_dns_records)
+        body = models.MicrosoftGraphDomain(id=id, authentication_type=authentication_type, availability_status=availability_status, is_admin_managed=is_admin_managed, is_default=is_default, is_initial=is_initial, is_root=is_root, is_verified=is_verified, manufacturer=manufacturer, model=model, password_notification_window_in_days=password_notification_window_in_days, password_validity_period_in_days=password_validity_period_in_days, state=state, supported_services=supported_services, domain_name_references=domain_name_references, service_configuration_records=service_configuration_records, verification_dns_records=verification_dns_records)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -238,13 +241,11 @@ class DomainDomainOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDomain')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomain')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -285,7 +286,9 @@ class DomainDomainOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDomain"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -306,7 +309,6 @@ class DomainDomainOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -416,10 +418,12 @@ class DomainDomainOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDomain(id=id, authentication_type=authentication_type, availability_status=availability_status, is_admin_managed=is_admin_managed, is_default=is_default, is_initial=is_initial, is_root=is_root, is_verified=is_verified, manufacturer=manufacturer, model=model, password_notification_window_in_days=password_notification_window_in_days, password_validity_period_in_days=password_validity_period_in_days, state=state, supported_services=supported_services, domain_name_references=domain_name_references, service_configuration_records=service_configuration_records, verification_dns_records=verification_dns_records)
+        body = models.MicrosoftGraphDomain(id=id, authentication_type=authentication_type, availability_status=availability_status, is_admin_managed=is_admin_managed, is_default=is_default, is_initial=is_initial, is_root=is_root, is_verified=is_verified, manufacturer=manufacturer, model=model, password_notification_window_in_days=password_notification_window_in_days, password_validity_period_in_days=password_validity_period_in_days, state=state, supported_services=supported_services, domain_name_references=domain_name_references, service_configuration_records=service_configuration_records, verification_dns_records=verification_dns_records)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -439,10 +443,9 @@ class DomainDomainOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDomain')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDomain')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -477,7 +480,9 @@ class DomainDomainOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

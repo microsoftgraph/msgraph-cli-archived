@@ -37,36 +37,9 @@ class AddCloudAppStates(argparse._AppendAction):
                 d['destination_service_name'] = v[0]
             elif kl == 'risk-score':
                 d['risk_score'] = v[0]
-        return d
-
-
-class AddFileStates(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddFileStates, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'name':
-                d['name'] = v[0]
-            elif kl == 'path':
-                d['path'] = v[0]
-            elif kl == 'risk-score':
-                d['risk_score'] = v[0]
-            elif kl == 'hash-type':
-                d['hash_type'] = v[0]
-            elif kl == 'hash-value':
-                d['hash_value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter cloud_app_states. All possible keys are: '
+                               'destination-service-ip, destination-service-name, risk-score'.format(k))
         return d
 
 
@@ -101,6 +74,9 @@ class AddHistoryStates(argparse._AppendAction):
                 d['updated_date_time'] = v[0]
             elif kl == 'user':
                 d['user'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter history_states. All possible keys are: '
+                               'app-id, assigned-to, comments, feedback, status, updated-date-time, user'.format(k))
         return d
 
 
@@ -139,6 +115,10 @@ class AddHostStates(argparse._AppendAction):
                 d['public_ip_address'] = v[0]
             elif kl == 'risk-score':
                 d['risk_score'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter host_states. All possible keys are: fqdn, '
+                               'is-azure-ad-joined, is-azure-ad-registered, is-hybrid-azure-domain-joined, '
+                               'net-bios-name, os, private-ip-address, public-ip-address, risk-score'.format(k))
         return d
 
 
@@ -169,6 +149,9 @@ class AddMalwareStates(argparse._AppendAction):
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter malware_states. All possible keys are: '
+                               'category, family, name, severity, was-running'.format(k))
         return d
 
 
@@ -229,6 +212,13 @@ class AddNetworkConnections(argparse._AppendAction):
                 d['status'] = v[0]
             elif kl == 'url-parameters':
                 d['url_parameters'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter network_connections. All possible keys '
+                               'are: application-name, destination-address, destination-domain, destination-location, '
+                               'destination-port, destination-url, direction, domain-registered-date-time, '
+                               'local-dns-name, nat-destination-address, nat-destination-port, nat-source-address, '
+                               'nat-source-port, protocol, risk-score, source-address, source-location, source-port, '
+                               'status, url-parameters'.format(k))
         return d
 
 
@@ -269,6 +259,10 @@ class AddRegistryKeyStates(argparse._AppendAction):
                 d['value_name'] = v[0]
             elif kl == 'value-type':
                 d['value_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter registry_key_states. All possible keys '
+                               'are: hive, key, old-key, old-value-data, old-value-name, operation, process-id, '
+                               'value-data, value-name, value-type'.format(k))
         return d
 
 
@@ -293,6 +287,9 @@ class AddSecurityResources(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'resource-type':
                 d['resource_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter security_resources. All possible keys '
+                               'are: resource, resource-type'.format(k))
         return d
 
 
@@ -319,6 +316,9 @@ class AddTriggers(argparse._AppendAction):
                 d['type'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter triggers. All possible keys are: name, '
+                               'type, value'.format(k))
         return d
 
 
@@ -367,6 +367,11 @@ class AddUserStates(argparse._AppendAction):
                 d['user_account_type'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_states. All possible keys are: '
+                               'aad-user-id, account-name, domain-name, email-role, is-vpn, logon-date-time, logon-id, '
+                               'logon-ip, logon-location, logon-type, on-premises-security-identifier, risk-score, '
+                               'user-account-type, user-principal-name'.format(k))
         return d
 
 
@@ -395,6 +400,9 @@ class AddVendorInformation(argparse.Action):
                 d['sub_provider'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vendor_information. All possible keys '
+                               'are: provider, provider-version, sub-provider, vendor'.format(k))
         return d
 
 
@@ -421,6 +429,9 @@ class AddVulnerabilityStates(argparse._AppendAction):
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vulnerability_states. All possible keys '
+                               'are: cve, severity, was-running'.format(k))
         return d
 
 
@@ -445,6 +456,9 @@ class AddAverageComparativeScores(argparse._AppendAction):
                 d['average_score'] = v[0]
             elif kl == 'basis':
                 d['basis'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter average_comparative_scores. All possible '
+                               'keys are: average-score, basis'.format(k))
         return d
 
 
@@ -473,6 +487,9 @@ class AddControlScores(argparse._AppendAction):
                 d['description'] = v[0]
             elif kl == 'score':
                 d['score'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_scores. All possible keys are: '
+                               'control-category, control-name, description, score'.format(k))
         return d
 
 
@@ -497,6 +514,9 @@ class AddComplianceInformation(argparse._AppendAction):
                 d['certification_controls'] = v
             elif kl == 'certification-name':
                 d['certification_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter compliance_information. All possible keys '
+                               'are: certification-controls, certification-name'.format(k))
         return d
 
 
@@ -527,4 +547,7 @@ class AddControlStateUpdates(argparse._AppendAction):
                 d['updated_by'] = v[0]
             elif kl == 'updated-date-time':
                 d['updated_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_state_updates. All possible keys '
+                               'are: assigned-to, comment, state, updated-by, updated-date-time'.format(k))
         return d

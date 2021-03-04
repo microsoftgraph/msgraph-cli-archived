@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -69,7 +69,9 @@ class InvitationInvitationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfInvitation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -77,7 +79,6 @@ class InvitationInvitationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -199,10 +200,12 @@ class InvitationInvitationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInvitation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphInvitation(id=id, invited_user_display_name=invited_user_display_name, invited_user_email_address=invited_user_email_address, invited_user_type=invited_user_type, invite_redeem_url=invite_redeem_url, invite_redirect_url=invite_redirect_url, send_invitation_message=send_invitation_message, status=status, invited_user=invited_user, cc_recipients=cc_recipients, customized_message_body=customized_message_body, message_language=message_language)
+        body = models.MicrosoftGraphInvitation(id=id, invited_user_display_name=invited_user_display_name, invited_user_email_address=invited_user_email_address, invited_user_type=invited_user_type, invite_redeem_url=invite_redeem_url, invite_redirect_url=invite_redirect_url, send_invitation_message=send_invitation_message, status=status, invited_user=invited_user, cc_recipients=cc_recipients, customized_message_body=customized_message_body, message_language=message_language)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -216,13 +219,11 @@ class InvitationInvitationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphInvitation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInvitation')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -263,7 +264,9 @@ class InvitationInvitationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInvitation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -284,7 +287,6 @@ class InvitationInvitationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -372,10 +374,12 @@ class InvitationInvitationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphInvitation(id=id, invited_user_display_name=invited_user_display_name, invited_user_email_address=invited_user_email_address, invited_user_type=invited_user_type, invite_redeem_url=invite_redeem_url, invite_redirect_url=invite_redirect_url, send_invitation_message=send_invitation_message, status=status, invited_user=invited_user, cc_recipients=cc_recipients, customized_message_body=customized_message_body, message_language=message_language)
+        body = models.MicrosoftGraphInvitation(id=id, invited_user_display_name=invited_user_display_name, invited_user_email_address=invited_user_email_address, invited_user_type=invited_user_type, invite_redeem_url=invite_redeem_url, invite_redirect_url=invite_redirect_url, send_invitation_message=send_invitation_message, status=status, invited_user=invited_user, cc_recipients=cc_recipients, customized_message_body=customized_message_body, message_language=message_language)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -395,10 +399,9 @@ class InvitationInvitationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphInvitation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInvitation')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -433,7 +436,9 @@ class InvitationInvitationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

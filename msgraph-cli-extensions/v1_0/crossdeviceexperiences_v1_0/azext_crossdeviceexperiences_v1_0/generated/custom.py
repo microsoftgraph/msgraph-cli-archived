@@ -35,11 +35,11 @@ def crossdeviceexperiences_user_create_activity(client,
                                                 status=None,
                                                 user_timezone=None,
                                                 history_items=None,
-                                                visual_elements_attribution=None,
-                                                visual_elements_background_color=None,
-                                                visual_elements_content=None,
-                                                visual_elements_description=None,
-                                                visual_elements_display_text=None):
+                                                attribution=None,
+                                                background_color=None,
+                                                content=None,
+                                                description=None,
+                                                display_text=None):
     return client.create_activity(user_id=user_id,
                                   id=id_,
                                   activation_url=activation_url,
@@ -55,22 +55,11 @@ def crossdeviceexperiences_user_create_activity(client,
                                   status=status,
                                   user_timezone=user_timezone,
                                   history_items=history_items,
-                                  attribution=visual_elements_attribution,
-                                  background_color=visual_elements_background_color,
-                                  content=visual_elements_content,
-                                  description=visual_elements_description,
-                                  display_text=visual_elements_display_text)
-
-
-def crossdeviceexperiences_user_get_activity(client,
-                                             user_id,
-                                             user_activity_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_activity(user_id=user_id,
-                               user_activity_id=user_activity_id,
-                               select=select,
-                               expand=expand)
+                                  attribution=attribution,
+                                  background_color=background_color,
+                                  content=content,
+                                  description=description,
+                                  display_text=display_text)
 
 
 def crossdeviceexperiences_user_list_activity(client,
@@ -82,6 +71,17 @@ def crossdeviceexperiences_user_list_activity(client,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
+
+
+def crossdeviceexperiences_user_show_activity(client,
+                                              user_id,
+                                              user_activity_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_activity(user_id=user_id,
+                               user_activity_id=user_activity_id,
+                               select=select,
+                               expand=expand)
 
 
 def crossdeviceexperiences_user_update_activity(client,
@@ -101,11 +101,11 @@ def crossdeviceexperiences_user_update_activity(client,
                                                 status=None,
                                                 user_timezone=None,
                                                 history_items=None,
-                                                visual_elements_attribution=None,
-                                                visual_elements_background_color=None,
-                                                visual_elements_content=None,
-                                                visual_elements_description=None,
-                                                visual_elements_display_text=None):
+                                                attribution=None,
+                                                background_color=None,
+                                                content=None,
+                                                description=None,
+                                                display_text=None):
     return client.update_activity(user_id=user_id,
                                   user_activity_id=user_activity_id,
                                   id=id_,
@@ -122,11 +122,11 @@ def crossdeviceexperiences_user_update_activity(client,
                                   status=status,
                                   user_timezone=user_timezone,
                                   history_items=history_items,
-                                  attribution=visual_elements_attribution,
-                                  background_color=visual_elements_background_color,
-                                  content=visual_elements_content,
-                                  description=visual_elements_description,
-                                  display_text=visual_elements_display_text)
+                                  attribution=attribution,
+                                  background_color=background_color,
+                                  content=content,
+                                  description=description,
+                                  display_text=display_text)
 
 
 def crossdeviceexperiences_user_activity_delete(client,
@@ -167,19 +167,6 @@ def crossdeviceexperiences_user_activity_create_history_item(client,
                                       activity=activity)
 
 
-def crossdeviceexperiences_user_activity_get_history_item(client,
-                                                          user_id,
-                                                          user_activity_id,
-                                                          activity_history_item_id,
-                                                          select=None,
-                                                          expand=None):
-    return client.get_history_item(user_id=user_id,
-                                   user_activity_id=user_activity_id,
-                                   activity_history_item_id=activity_history_item_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def crossdeviceexperiences_user_activity_list_history_item(client,
                                                            user_id,
                                                            user_activity_id,
@@ -191,6 +178,19 @@ def crossdeviceexperiences_user_activity_list_history_item(client,
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def crossdeviceexperiences_user_activity_show_history_item(client,
+                                                           user_id,
+                                                           user_activity_id,
+                                                           activity_history_item_id,
+                                                           select=None,
+                                                           expand=None):
+    return client.get_history_item(user_id=user_id,
+                                   user_activity_id=user_activity_id,
+                                   activity_history_item_id=activity_history_item_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def crossdeviceexperiences_user_activity_update_history_item(client,
@@ -233,28 +233,6 @@ def crossdeviceexperiences_user_activity_history_item_delete(client,
                                       if_match=if_match)
 
 
-def crossdeviceexperiences_user_activity_history_item_get_activity(client,
-                                                                   user_id,
-                                                                   user_activity_id,
-                                                                   activity_history_item_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_activity(user_id=user_id,
-                               user_activity_id=user_activity_id,
-                               activity_history_item_id=activity_history_item_id,
-                               select=select,
-                               expand=expand)
-
-
-def crossdeviceexperiences_user_activity_history_item_get_ref_activity(client,
-                                                                       user_id,
-                                                                       user_activity_id,
-                                                                       activity_history_item_id):
-    return client.get_ref_activity(user_id=user_id,
-                                   user_activity_id=user_activity_id,
-                                   activity_history_item_id=activity_history_item_id)
-
-
 def crossdeviceexperiences_user_activity_history_item_set_ref_activity(client,
                                                                        user_id,
                                                                        user_activity_id,
@@ -264,3 +242,25 @@ def crossdeviceexperiences_user_activity_history_item_set_ref_activity(client,
                                    user_activity_id=user_activity_id,
                                    activity_history_item_id=activity_history_item_id,
                                    body=body)
+
+
+def crossdeviceexperiences_user_activity_history_item_show_activity(client,
+                                                                    user_id,
+                                                                    user_activity_id,
+                                                                    activity_history_item_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_activity(user_id=user_id,
+                               user_activity_id=user_activity_id,
+                               activity_history_item_id=activity_history_item_id,
+                               select=select,
+                               expand=expand)
+
+
+def crossdeviceexperiences_user_activity_history_item_show_ref_activity(client,
+                                                                        user_id,
+                                                                        user_activity_id,
+                                                                        activity_history_item_id):
+    return client.get_ref_activity(user_id=user_id,
+                                   user_activity_id=user_activity_id,
+                                   activity_history_item_id=activity_history_item_id)

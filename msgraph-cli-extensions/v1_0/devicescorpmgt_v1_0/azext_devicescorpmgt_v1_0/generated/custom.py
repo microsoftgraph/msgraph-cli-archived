@@ -11,9 +11,9 @@
 # pylint: disable=too-many-lines
 
 
-def devicescorpmgt_device_app_management_device_app_management_get_device_app_management(client,
-                                                                                         select=None,
-                                                                                         expand=None):
+def devicescorpmgt_device_app_management_device_app_management_show_device_app_management(client,
+                                                                                          select=None,
+                                                                                          expand=None):
     return client.get_device_app_management(select=select,
                                             expand=expand)
 
@@ -163,12 +163,12 @@ def devicescorpmgt_device_app_management_create_android_managed_app_protection(c
                                                                                minimum_warning_patch_version=None,
                                                                                screen_capture_blocked=None,
                                                                                apps=None,
-                                                                               deployment_summary_id=None,
-                                                                               deployment_summary_configuration_deployed_user_count=None,
-                                                                               deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                               deployment_summary_display_name=None,
-                                                                               deployment_summary_last_refresh_time=None,
-                                                                               deployment_summary_version=None):
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.create_android_managed_app_protection(id=id_,
                                                         created_date_time=created_date_time,
                                                         description=description,
@@ -213,12 +213,12 @@ def devicescorpmgt_device_app_management_create_android_managed_app_protection(c
                                                         minimum_warning_patch_version=minimum_warning_patch_version,
                                                         screen_capture_blocked=screen_capture_blocked,
                                                         apps=apps,
-                                                        microsoft_graph_entity_id=deployment_summary_id,
-                                                        configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                        configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                        last_refresh_time=deployment_summary_last_refresh_time,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                        microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                        configuration_deployed_user_count=configuration_deployed_user_count,
+                                                        configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                        last_refresh_time=last_refresh_time,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_create_default_managed_app_protection(client,
@@ -266,12 +266,12 @@ def devicescorpmgt_device_app_management_create_default_managed_app_protection(c
                                                                                minimum_warning_patch_version=None,
                                                                                screen_capture_blocked=None,
                                                                                apps=None,
-                                                                               deployment_summary_id=None,
-                                                                               deployment_summary_configuration_deployed_user_count=None,
-                                                                               deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                               deployment_summary_display_name=None,
-                                                                               deployment_summary_last_refresh_time=None,
-                                                                               deployment_summary_version=None):
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.create_default_managed_app_protection(id=id_,
                                                         created_date_time=created_date_time,
                                                         description=description,
@@ -316,12 +316,12 @@ def devicescorpmgt_device_app_management_create_default_managed_app_protection(c
                                                         minimum_warning_patch_version=minimum_warning_patch_version,
                                                         screen_capture_blocked=screen_capture_blocked,
                                                         apps=apps,
-                                                        microsoft_graph_entity_id=deployment_summary_id,
-                                                        configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                        configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                        last_refresh_time=deployment_summary_last_refresh_time,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                        microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                        configuration_deployed_user_count=configuration_deployed_user_count,
+                                                        configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                        last_refresh_time=last_refresh_time,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_create_io_managed_app_protection(client,
@@ -366,12 +366,12 @@ def devicescorpmgt_device_app_management_create_io_managed_app_protection(client
                                                                           face_id_blocked=None,
                                                                           minimum_required_sdk_version=None,
                                                                           apps=None,
-                                                                          deployment_summary_id=None,
-                                                                          deployment_summary_configuration_deployed_user_count=None,
-                                                                          deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                          deployment_summary_display_name=None,
-                                                                          deployment_summary_last_refresh_time=None,
-                                                                          deployment_summary_version=None):
+                                                                          microsoft_graph_entity_id=None,
+                                                                          configuration_deployed_user_count=None,
+                                                                          configuration_deployment_summary_per_app=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                          last_refresh_time=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.create_io_managed_app_protection(id=id_,
                                                    created_date_time=created_date_time,
                                                    description=description,
@@ -413,12 +413,12 @@ def devicescorpmgt_device_app_management_create_io_managed_app_protection(client
                                                    face_id_blocked=face_id_blocked,
                                                    minimum_required_sdk_version=minimum_required_sdk_version,
                                                    apps=apps,
-                                                   microsoft_graph_entity_id=deployment_summary_id,
-                                                   configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                   configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                   last_refresh_time=deployment_summary_last_refresh_time,
-                                                   microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                   microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                   configuration_deployed_user_count=configuration_deployed_user_count,
+                                                   configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                   last_refresh_time=last_refresh_time,
+                                                   microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_create_managed_app_policy(client,
@@ -659,12 +659,12 @@ def devicescorpmgt_device_app_management_create_targeted_managed_app_configurati
                                                                                    is_assigned=None,
                                                                                    apps=None,
                                                                                    assignments=None,
-                                                                                   deployment_summary_id=None,
-                                                                                   deployment_summary_configuration_deployed_user_count=None,
-                                                                                   deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                                   deployment_summary_display_name=None,
-                                                                                   deployment_summary_last_refresh_time=None,
-                                                                                   deployment_summary_version=None):
+                                                                                   microsoft_graph_entity_id=None,
+                                                                                   configuration_deployed_user_count=None,
+                                                                                   configuration_deployment_summary_per_app=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                                   last_refresh_time=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.create_targeted_managed_app_configuration(id=id_,
                                                             created_date_time=created_date_time,
                                                             description=description,
@@ -676,12 +676,12 @@ def devicescorpmgt_device_app_management_create_targeted_managed_app_configurati
                                                             is_assigned=is_assigned,
                                                             apps=apps,
                                                             assignments=assignments,
-                                                            microsoft_graph_entity_id=deployment_summary_id,
-                                                            configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                            configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                            microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                            last_refresh_time=deployment_summary_last_refresh_time,
-                                                            microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                            configuration_deployed_user_count=configuration_deployed_user_count,
+                                                            configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                            microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                            last_refresh_time=last_refresh_time,
+                                                            microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_create_vpp_token(client,
@@ -798,132 +798,6 @@ def devicescorpmgt_device_app_management_create_window_information_protection_po
                                                               pin_uppercase_letters=pin_uppercase_letters,
                                                               revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled,
                                                               windows_hello_for_business_blocked=windows_hello_for_business_blocked)
-
-
-def devicescorpmgt_device_app_management_get_android_managed_app_protection(client,
-                                                                            android_managed_app_protection_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_android_managed_app_protection(android_managed_app_protection_id=android_managed_app_protection_id,
-                                                     select=select,
-                                                     expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_default_managed_app_protection(client,
-                                                                            default_managed_app_protection_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_default_managed_app_protection(default_managed_app_protection_id=default_managed_app_protection_id,
-                                                     select=select,
-                                                     expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_io_managed_app_protection(client,
-                                                                       ios_managed_app_protection_id,
-                                                                       select=None,
-                                                                       expand=None):
-    return client.get_io_managed_app_protection(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                                                select=select,
-                                                expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_managed_app_policy(client,
-                                                                managed_app_policy_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_managed_app_policy(managed_app_policy_id=managed_app_policy_id,
-                                         select=select,
-                                         expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_managed_app_registration(client,
-                                                                      managed_app_registration_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_managed_app_registration(managed_app_registration_id=managed_app_registration_id,
-                                               select=select,
-                                               expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_managed_app_statuses(client,
-                                                                  managed_app_status_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_managed_app_statuses(managed_app_status_id=managed_app_status_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_managed_e_book(client,
-                                                            managed_e_book_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_managed_e_book(managed_e_book_id=managed_e_book_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_mdm_window_information_protection_policy(client,
-                                                                                      mdm_windows_information_protection_policy_id,
-                                                                                      select=None,
-                                                                                      expand=None):
-    return client.get_mdm_window_information_protection_policy(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
-                                                               select=select,
-                                                               expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_mobile_app(client,
-                                                        mobile_app_id,
-                                                        select=None,
-                                                        expand=None):
-    return client.get_mobile_app(mobile_app_id=mobile_app_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_mobile_app_category(client,
-                                                                 mobile_app_category_id,
-                                                                 select=None,
-                                                                 expand=None):
-    return client.get_mobile_app_category(mobile_app_category_id=mobile_app_category_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_mobile_app_configuration(client,
-                                                                      managed_device_mobile_app_configuration_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_mobile_app_configuration(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                               select=select,
-                                               expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_targeted_managed_app_configuration(client,
-                                                                                targeted_managed_app_configuration_id,
-                                                                                select=None,
-                                                                                expand=None):
-    return client.get_targeted_managed_app_configuration(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                                         select=select,
-                                                         expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_vpp_token(client,
-                                                       vpp_token_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_vpp_token(vpp_token_id=vpp_token_id,
-                                select=select,
-                                expand=expand)
-
-
-def devicescorpmgt_device_app_management_get_window_information_protection_policy(client,
-                                                                                  windows_information_protection_policy_id,
-                                                                                  select=None,
-                                                                                  expand=None):
-    return client.get_window_information_protection_policy(windows_information_protection_policy_id=windows_information_protection_policy_id,
-                                                           select=select,
-                                                           expand=expand)
 
 
 def devicescorpmgt_device_app_management_list_android_managed_app_protection(client,
@@ -1052,6 +926,132 @@ def devicescorpmgt_device_app_management_list_window_information_protection_poli
                                                             expand=expand)
 
 
+def devicescorpmgt_device_app_management_show_android_managed_app_protection(client,
+                                                                             android_managed_app_protection_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_android_managed_app_protection(android_managed_app_protection_id=android_managed_app_protection_id,
+                                                     select=select,
+                                                     expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_default_managed_app_protection(client,
+                                                                             default_managed_app_protection_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_default_managed_app_protection(default_managed_app_protection_id=default_managed_app_protection_id,
+                                                     select=select,
+                                                     expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_io_managed_app_protection(client,
+                                                                        ios_managed_app_protection_id,
+                                                                        select=None,
+                                                                        expand=None):
+    return client.get_io_managed_app_protection(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                                                select=select,
+                                                expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_managed_app_policy(client,
+                                                                 managed_app_policy_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_managed_app_policy(managed_app_policy_id=managed_app_policy_id,
+                                         select=select,
+                                         expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_managed_app_registration(client,
+                                                                       managed_app_registration_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_managed_app_registration(managed_app_registration_id=managed_app_registration_id,
+                                               select=select,
+                                               expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_managed_app_statuses(client,
+                                                                   managed_app_status_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_managed_app_statuses(managed_app_status_id=managed_app_status_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_managed_e_book(client,
+                                                             managed_e_book_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_managed_e_book(managed_e_book_id=managed_e_book_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_mdm_window_information_protection_policy(client,
+                                                                                       mdm_windows_information_protection_policy_id,
+                                                                                       select=None,
+                                                                                       expand=None):
+    return client.get_mdm_window_information_protection_policy(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
+                                                               select=select,
+                                                               expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_mobile_app(client,
+                                                         mobile_app_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_mobile_app(mobile_app_id=mobile_app_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_mobile_app_category(client,
+                                                                  mobile_app_category_id,
+                                                                  select=None,
+                                                                  expand=None):
+    return client.get_mobile_app_category(mobile_app_category_id=mobile_app_category_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_mobile_app_configuration(client,
+                                                                       managed_device_mobile_app_configuration_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_mobile_app_configuration(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                               select=select,
+                                               expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_targeted_managed_app_configuration(client,
+                                                                                 targeted_managed_app_configuration_id,
+                                                                                 select=None,
+                                                                                 expand=None):
+    return client.get_targeted_managed_app_configuration(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                                         select=select,
+                                                         expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_vpp_token(client,
+                                                        vpp_token_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_vpp_token(vpp_token_id=vpp_token_id,
+                                select=select,
+                                expand=expand)
+
+
+def devicescorpmgt_device_app_management_show_window_information_protection_policy(client,
+                                                                                   windows_information_protection_policy_id,
+                                                                                   select=None,
+                                                                                   expand=None):
+    return client.get_window_information_protection_policy(windows_information_protection_policy_id=windows_information_protection_policy_id,
+                                                           select=select,
+                                                           expand=expand)
+
+
 def devicescorpmgt_device_app_management_sync_microsoft_store_for_business_app(client):
     return client.sync_microsoft_store_for_business_app()
 
@@ -1102,12 +1102,12 @@ def devicescorpmgt_device_app_management_update_android_managed_app_protection(c
                                                                                minimum_warning_patch_version=None,
                                                                                screen_capture_blocked=None,
                                                                                apps=None,
-                                                                               deployment_summary_id=None,
-                                                                               deployment_summary_configuration_deployed_user_count=None,
-                                                                               deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                               deployment_summary_display_name=None,
-                                                                               deployment_summary_last_refresh_time=None,
-                                                                               deployment_summary_version=None):
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.update_android_managed_app_protection(android_managed_app_protection_id=android_managed_app_protection_id,
                                                         id=id_,
                                                         created_date_time=created_date_time,
@@ -1153,12 +1153,12 @@ def devicescorpmgt_device_app_management_update_android_managed_app_protection(c
                                                         minimum_warning_patch_version=minimum_warning_patch_version,
                                                         screen_capture_blocked=screen_capture_blocked,
                                                         apps=apps,
-                                                        microsoft_graph_entity_id=deployment_summary_id,
-                                                        configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                        configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                        last_refresh_time=deployment_summary_last_refresh_time,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                        microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                        configuration_deployed_user_count=configuration_deployed_user_count,
+                                                        configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                        last_refresh_time=last_refresh_time,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_update_default_managed_app_protection(client,
@@ -1207,12 +1207,12 @@ def devicescorpmgt_device_app_management_update_default_managed_app_protection(c
                                                                                minimum_warning_patch_version=None,
                                                                                screen_capture_blocked=None,
                                                                                apps=None,
-                                                                               deployment_summary_id=None,
-                                                                               deployment_summary_configuration_deployed_user_count=None,
-                                                                               deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                               deployment_summary_display_name=None,
-                                                                               deployment_summary_last_refresh_time=None,
-                                                                               deployment_summary_version=None):
+                                                                               microsoft_graph_entity_id=None,
+                                                                               configuration_deployed_user_count=None,
+                                                                               configuration_deployment_summary_per_app=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                               last_refresh_time=None,
+                                                                               microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.update_default_managed_app_protection(default_managed_app_protection_id=default_managed_app_protection_id,
                                                         id=id_,
                                                         created_date_time=created_date_time,
@@ -1258,12 +1258,12 @@ def devicescorpmgt_device_app_management_update_default_managed_app_protection(c
                                                         minimum_warning_patch_version=minimum_warning_patch_version,
                                                         screen_capture_blocked=screen_capture_blocked,
                                                         apps=apps,
-                                                        microsoft_graph_entity_id=deployment_summary_id,
-                                                        configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                        configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                        last_refresh_time=deployment_summary_last_refresh_time,
-                                                        microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                        microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                        configuration_deployed_user_count=configuration_deployed_user_count,
+                                                        configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                        last_refresh_time=last_refresh_time,
+                                                        microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_update_io_managed_app_protection(client,
@@ -1309,12 +1309,12 @@ def devicescorpmgt_device_app_management_update_io_managed_app_protection(client
                                                                           face_id_blocked=None,
                                                                           minimum_required_sdk_version=None,
                                                                           apps=None,
-                                                                          deployment_summary_id=None,
-                                                                          deployment_summary_configuration_deployed_user_count=None,
-                                                                          deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                          deployment_summary_display_name=None,
-                                                                          deployment_summary_last_refresh_time=None,
-                                                                          deployment_summary_version=None):
+                                                                          microsoft_graph_entity_id=None,
+                                                                          configuration_deployed_user_count=None,
+                                                                          configuration_deployment_summary_per_app=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                          last_refresh_time=None,
+                                                                          microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.update_io_managed_app_protection(ios_managed_app_protection_id=ios_managed_app_protection_id,
                                                    id=id_,
                                                    created_date_time=created_date_time,
@@ -1357,12 +1357,12 @@ def devicescorpmgt_device_app_management_update_io_managed_app_protection(client
                                                    face_id_blocked=face_id_blocked,
                                                    minimum_required_sdk_version=minimum_required_sdk_version,
                                                    apps=apps,
-                                                   microsoft_graph_entity_id=deployment_summary_id,
-                                                   configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                   configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                   last_refresh_time=deployment_summary_last_refresh_time,
-                                                   microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                   microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                   configuration_deployed_user_count=configuration_deployed_user_count,
+                                                   configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                   last_refresh_time=last_refresh_time,
+                                                   microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_update_managed_app_policy(client,
@@ -1620,12 +1620,12 @@ def devicescorpmgt_device_app_management_update_targeted_managed_app_configurati
                                                                                    is_assigned=None,
                                                                                    apps=None,
                                                                                    assignments=None,
-                                                                                   deployment_summary_id=None,
-                                                                                   deployment_summary_configuration_deployed_user_count=None,
-                                                                                   deployment_summary_configuration_deployment_summary_per_app=None,
-                                                                                   deployment_summary_display_name=None,
-                                                                                   deployment_summary_last_refresh_time=None,
-                                                                                   deployment_summary_version=None):
+                                                                                   microsoft_graph_entity_id=None,
+                                                                                   configuration_deployed_user_count=None,
+                                                                                   configuration_deployment_summary_per_app=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_display_name=None,
+                                                                                   last_refresh_time=None,
+                                                                                   microsoft_graph_managed_app_policy_deployment_summary_version=None):
     return client.update_targeted_managed_app_configuration(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                                             id=id_,
                                                             created_date_time=created_date_time,
@@ -1638,12 +1638,12 @@ def devicescorpmgt_device_app_management_update_targeted_managed_app_configurati
                                                             is_assigned=is_assigned,
                                                             apps=apps,
                                                             assignments=assignments,
-                                                            microsoft_graph_entity_id=deployment_summary_id,
-                                                            configuration_deployed_user_count=deployment_summary_configuration_deployed_user_count,
-                                                            configuration_deployment_summary_per_app=deployment_summary_configuration_deployment_summary_per_app,
-                                                            microsoft_graph_managed_app_policy_deployment_summary_display_name=deployment_summary_display_name,
-                                                            last_refresh_time=deployment_summary_last_refresh_time,
-                                                            microsoft_graph_managed_app_policy_deployment_summary_version=deployment_summary_version)
+                                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                                            configuration_deployed_user_count=configuration_deployed_user_count,
+                                                            configuration_deployment_summary_per_app=configuration_deployment_summary_per_app,
+                                                            microsoft_graph_managed_app_policy_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name,
+                                                            last_refresh_time=last_refresh_time,
+                                                            microsoft_graph_managed_app_policy_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
 
 
 def devicescorpmgt_device_app_management_update_vpp_token(client,
@@ -1789,26 +1789,6 @@ def devicescorpmgt_device_app_management_android_managed_app_protection_create_a
                              version=version)
 
 
-def devicescorpmgt_device_app_management_android_managed_app_protection_get_app(client,
-                                                                                android_managed_app_protection_id,
-                                                                                managed_mobile_app_id,
-                                                                                select=None,
-                                                                                expand=None):
-    return client.get_app(android_managed_app_protection_id=android_managed_app_protection_id,
-                          managed_mobile_app_id=managed_mobile_app_id,
-                          select=select,
-                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_android_managed_app_protection_get_deployment_summary(client,
-                                                                                               android_managed_app_protection_id,
-                                                                                               select=None,
-                                                                                               expand=None):
-    return client.get_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def devicescorpmgt_device_app_management_android_managed_app_protection_list_app(client,
                                                                                  android_managed_app_protection_id,
                                                                                  orderby=None,
@@ -1818,6 +1798,26 @@ def devicescorpmgt_device_app_management_android_managed_app_protection_list_app
                            orderby=orderby,
                            select=select,
                            expand=expand)
+
+
+def devicescorpmgt_device_app_management_android_managed_app_protection_show_app(client,
+                                                                                 android_managed_app_protection_id,
+                                                                                 managed_mobile_app_id,
+                                                                                 select=None,
+                                                                                 expand=None):
+    return client.get_app(android_managed_app_protection_id=android_managed_app_protection_id,
+                          managed_mobile_app_id=managed_mobile_app_id,
+                          select=select,
+                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_android_managed_app_protection_show_deployment_summary(client,
+                                                                                                android_managed_app_protection_id,
+                                                                                                select=None,
+                                                                                                expand=None):
+    return client.get_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
+                                         select=select,
+                                         expand=expand)
 
 
 def devicescorpmgt_device_app_management_android_managed_app_protection_update_app(client,
@@ -1873,26 +1873,6 @@ def devicescorpmgt_device_app_management_default_managed_app_protection_create_a
                              version=version)
 
 
-def devicescorpmgt_device_app_management_default_managed_app_protection_get_app(client,
-                                                                                default_managed_app_protection_id,
-                                                                                managed_mobile_app_id,
-                                                                                select=None,
-                                                                                expand=None):
-    return client.get_app(default_managed_app_protection_id=default_managed_app_protection_id,
-                          managed_mobile_app_id=managed_mobile_app_id,
-                          select=select,
-                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_default_managed_app_protection_get_deployment_summary(client,
-                                                                                               default_managed_app_protection_id,
-                                                                                               select=None,
-                                                                                               expand=None):
-    return client.get_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def devicescorpmgt_device_app_management_default_managed_app_protection_list_app(client,
                                                                                  default_managed_app_protection_id,
                                                                                  orderby=None,
@@ -1902,6 +1882,26 @@ def devicescorpmgt_device_app_management_default_managed_app_protection_list_app
                            orderby=orderby,
                            select=select,
                            expand=expand)
+
+
+def devicescorpmgt_device_app_management_default_managed_app_protection_show_app(client,
+                                                                                 default_managed_app_protection_id,
+                                                                                 managed_mobile_app_id,
+                                                                                 select=None,
+                                                                                 expand=None):
+    return client.get_app(default_managed_app_protection_id=default_managed_app_protection_id,
+                          managed_mobile_app_id=managed_mobile_app_id,
+                          select=select,
+                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_default_managed_app_protection_show_deployment_summary(client,
+                                                                                                default_managed_app_protection_id,
+                                                                                                select=None,
+                                                                                                expand=None):
+    return client.get_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
+                                         select=select,
+                                         expand=expand)
 
 
 def devicescorpmgt_device_app_management_default_managed_app_protection_update_app(client,
@@ -1957,26 +1957,6 @@ def devicescorpmgt_device_app_management_io_managed_app_protection_create_app(cl
                              version=version)
 
 
-def devicescorpmgt_device_app_management_io_managed_app_protection_get_app(client,
-                                                                           ios_managed_app_protection_id,
-                                                                           managed_mobile_app_id,
-                                                                           select=None,
-                                                                           expand=None):
-    return client.get_app(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                          managed_mobile_app_id=managed_mobile_app_id,
-                          select=select,
-                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_io_managed_app_protection_get_deployment_summary(client,
-                                                                                          ios_managed_app_protection_id,
-                                                                                          select=None,
-                                                                                          expand=None):
-    return client.get_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def devicescorpmgt_device_app_management_io_managed_app_protection_list_app(client,
                                                                             ios_managed_app_protection_id,
                                                                             orderby=None,
@@ -1986,6 +1966,26 @@ def devicescorpmgt_device_app_management_io_managed_app_protection_list_app(clie
                            orderby=orderby,
                            select=select,
                            expand=expand)
+
+
+def devicescorpmgt_device_app_management_io_managed_app_protection_show_app(client,
+                                                                            ios_managed_app_protection_id,
+                                                                            managed_mobile_app_id,
+                                                                            select=None,
+                                                                            expand=None):
+    return client.get_app(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                          managed_mobile_app_id=managed_mobile_app_id,
+                          select=select,
+                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_io_managed_app_protection_show_deployment_summary(client,
+                                                                                           ios_managed_app_protection_id,
+                                                                                           select=None,
+                                                                                           expand=None):
+    return client.get_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                                         select=select,
+                                         expand=expand)
 
 
 def devicescorpmgt_device_app_management_io_managed_app_protection_update_app(client,
@@ -2092,43 +2092,6 @@ def devicescorpmgt_device_app_management_managed_app_registration_create_operati
                                    version=version)
 
 
-def devicescorpmgt_device_app_management_managed_app_registration_get_applied_policy(client,
-                                                                                     managed_app_registration_id,
-                                                                                     managed_app_policy_id,
-                                                                                     select=None,
-                                                                                     expand=None):
-    return client.get_applied_policy(managed_app_registration_id=managed_app_registration_id,
-                                     managed_app_policy_id=managed_app_policy_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_app_registration_get_intended_policy(client,
-                                                                                      managed_app_registration_id,
-                                                                                      managed_app_policy_id,
-                                                                                      select=None,
-                                                                                      expand=None):
-    return client.get_intended_policy(managed_app_registration_id=managed_app_registration_id,
-                                      managed_app_policy_id=managed_app_policy_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_app_registration_get_operation(client,
-                                                                                managed_app_registration_id,
-                                                                                managed_app_operation_id,
-                                                                                select=None,
-                                                                                expand=None):
-    return client.get_operation(managed_app_registration_id=managed_app_registration_id,
-                                managed_app_operation_id=managed_app_operation_id,
-                                select=select,
-                                expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_app_registration_get_user_id_with_flagged_app_registration(client):
-    return client.get_user_id_with_flagged_app_registration()
-
-
 def devicescorpmgt_device_app_management_managed_app_registration_list_applied_policy(client,
                                                                                       managed_app_registration_id,
                                                                                       orderby=None,
@@ -2160,6 +2123,43 @@ def devicescorpmgt_device_app_management_managed_app_registration_list_operation
                                  orderby=orderby,
                                  select=select,
                                  expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_show_applied_policy(client,
+                                                                                      managed_app_registration_id,
+                                                                                      managed_app_policy_id,
+                                                                                      select=None,
+                                                                                      expand=None):
+    return client.get_applied_policy(managed_app_registration_id=managed_app_registration_id,
+                                     managed_app_policy_id=managed_app_policy_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_show_intended_policy(client,
+                                                                                       managed_app_registration_id,
+                                                                                       managed_app_policy_id,
+                                                                                       select=None,
+                                                                                       expand=None):
+    return client.get_intended_policy(managed_app_registration_id=managed_app_registration_id,
+                                      managed_app_policy_id=managed_app_policy_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_show_operation(client,
+                                                                                 managed_app_registration_id,
+                                                                                 managed_app_operation_id,
+                                                                                 select=None,
+                                                                                 expand=None):
+    return client.get_operation(managed_app_registration_id=managed_app_registration_id,
+                                managed_app_operation_id=managed_app_operation_id,
+                                select=select,
+                                expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_show_user_id_with_flagged_app_registration(client):
+    return client.get_user_id_with_flagged_app_registration()
 
 
 def devicescorpmgt_device_app_management_managed_app_registration_update_applied_policy(client,
@@ -2315,48 +2315,6 @@ def devicescorpmgt_device_app_management_managed_e_book_create_user_state_summar
                                             device_states=device_states)
 
 
-def devicescorpmgt_device_app_management_managed_e_book_get_assignment(client,
-                                                                       managed_e_book_id,
-                                                                       managed_e_book_assignment_id,
-                                                                       select=None,
-                                                                       expand=None):
-    return client.get_assignment(managed_e_book_id=managed_e_book_id,
-                                 managed_e_book_assignment_id=managed_e_book_assignment_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_e_book_get_device_state(client,
-                                                                         managed_e_book_id,
-                                                                         device_install_state_id,
-                                                                         select=None,
-                                                                         expand=None):
-    return client.get_device_state(managed_e_book_id=managed_e_book_id,
-                                   device_install_state_id=device_install_state_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_e_book_get_install_summary(client,
-                                                                            managed_e_book_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_install_summary(managed_e_book_id=managed_e_book_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def devicescorpmgt_device_app_management_managed_e_book_get_user_state_summary(client,
-                                                                               managed_e_book_id,
-                                                                               user_install_state_summary_id,
-                                                                               select=None,
-                                                                               expand=None):
-    return client.get_user_state_summary(managed_e_book_id=managed_e_book_id,
-                                         user_install_state_summary_id=user_install_state_summary_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def devicescorpmgt_device_app_management_managed_e_book_list_assignment(client,
                                                                         managed_e_book_id,
                                                                         orderby=None,
@@ -2388,6 +2346,48 @@ def devicescorpmgt_device_app_management_managed_e_book_list_user_state_summary(
                                           orderby=orderby,
                                           select=select,
                                           expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_show_assignment(client,
+                                                                        managed_e_book_id,
+                                                                        managed_e_book_assignment_id,
+                                                                        select=None,
+                                                                        expand=None):
+    return client.get_assignment(managed_e_book_id=managed_e_book_id,
+                                 managed_e_book_assignment_id=managed_e_book_assignment_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_show_device_state(client,
+                                                                          managed_e_book_id,
+                                                                          device_install_state_id,
+                                                                          select=None,
+                                                                          expand=None):
+    return client.get_device_state(managed_e_book_id=managed_e_book_id,
+                                   device_install_state_id=device_install_state_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_show_install_summary(client,
+                                                                             managed_e_book_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_install_summary(managed_e_book_id=managed_e_book_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_show_user_state_summary(client,
+                                                                                managed_e_book_id,
+                                                                                user_install_state_summary_id,
+                                                                                select=None,
+                                                                                expand=None):
+    return client.get_user_state_summary(managed_e_book_id=managed_e_book_id,
+                                         user_install_state_summary_id=user_install_state_summary_id,
+                                         select=select,
+                                         expand=expand)
 
 
 def devicescorpmgt_device_app_management_managed_e_book_update_assignment(client,
@@ -2502,19 +2502,6 @@ def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_creat
                                       user_name=user_name)
 
 
-def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_get_device_state(client,
-                                                                                            managed_e_book_id,
-                                                                                            user_install_state_summary_id,
-                                                                                            device_install_state_id,
-                                                                                            select=None,
-                                                                                            expand=None):
-    return client.get_device_state(managed_e_book_id=managed_e_book_id,
-                                   user_install_state_summary_id=user_install_state_summary_id,
-                                   device_install_state_id=device_install_state_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_list_device_state(client,
                                                                                              managed_e_book_id,
                                                                                              user_install_state_summary_id,
@@ -2526,6 +2513,19 @@ def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_list_
                                     orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_show_device_state(client,
+                                                                                             managed_e_book_id,
+                                                                                             user_install_state_summary_id,
+                                                                                             device_install_state_id,
+                                                                                             select=None,
+                                                                                             expand=None):
+    return client.get_device_state(managed_e_book_id=managed_e_book_id,
+                                   user_install_state_summary_id=user_install_state_summary_id,
+                                   device_install_state_id=device_install_state_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_update_device_state(client,
@@ -2634,57 +2634,6 @@ def devicescorpmgt_device_app_management_mobile_app_configuration_create_user_st
                                        user_principal_name=user_principal_name)
 
 
-def devicescorpmgt_device_app_management_mobile_app_configuration_get_assignment(client,
-                                                                                 managed_device_mobile_app_configuration_id,
-                                                                                 managed_device_mobile_app_configuration_assignment_id,
-                                                                                 select=None,
-                                                                                 expand=None):
-    return client.get_assignment(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                 managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescorpmgt_device_app_management_mobile_app_configuration_get_device_status_summary(client,
-                                                                                            managed_device_mobile_app_configuration_id,
-                                                                                            select=None,
-                                                                                            expand=None):
-    return client.get_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def devicescorpmgt_device_app_management_mobile_app_configuration_get_device_statuses(client,
-                                                                                      managed_device_mobile_app_configuration_id,
-                                                                                      managed_device_mobile_app_configuration_device_status_id,
-                                                                                      select=None,
-                                                                                      expand=None):
-    return client.get_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                      managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def devicescorpmgt_device_app_management_mobile_app_configuration_get_user_status_summary(client,
-                                                                                          managed_device_mobile_app_configuration_id,
-                                                                                          select=None,
-                                                                                          expand=None):
-    return client.get_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_mobile_app_configuration_get_user_statuses(client,
-                                                                                    managed_device_mobile_app_configuration_id,
-                                                                                    managed_device_mobile_app_configuration_user_status_id,
-                                                                                    select=None,
-                                                                                    expand=None):
-    return client.get_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                    managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
-                                    select=select,
-                                    expand=expand)
-
-
 def devicescorpmgt_device_app_management_mobile_app_configuration_list_assignment(client,
                                                                                   managed_device_mobile_app_configuration_id,
                                                                                   orderby=None,
@@ -2716,6 +2665,57 @@ def devicescorpmgt_device_app_management_mobile_app_configuration_list_user_stat
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_assignment(client,
+                                                                                  managed_device_mobile_app_configuration_id,
+                                                                                  managed_device_mobile_app_configuration_assignment_id,
+                                                                                  select=None,
+                                                                                  expand=None):
+    return client.get_assignment(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                 managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_device_status_summary(client,
+                                                                                             managed_device_mobile_app_configuration_id,
+                                                                                             select=None,
+                                                                                             expand=None):
+    return client.get_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_device_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       managed_device_mobile_app_configuration_device_status_id,
+                                                                                       select=None,
+                                                                                       expand=None):
+    return client.get_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                      managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_user_status_summary(client,
+                                                                                           managed_device_mobile_app_configuration_id,
+                                                                                           select=None,
+                                                                                           expand=None):
+    return client.get_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_show_user_statuses(client,
+                                                                                     managed_device_mobile_app_configuration_id,
+                                                                                     managed_device_mobile_app_configuration_user_status_id,
+                                                                                     select=None,
+                                                                                     expand=None):
+    return client.get_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                    managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def devicescorpmgt_device_app_management_mobile_app_configuration_update_assignment(client,
@@ -2849,17 +2849,6 @@ def devicescorpmgt_device_app_management_mobile_app_create_ref_category(client,
                                       body=body)
 
 
-def devicescorpmgt_device_app_management_mobile_app_get_assignment(client,
-                                                                   mobile_app_id,
-                                                                   mobile_app_assignment_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_assignment(mobile_app_id=mobile_app_id,
-                                 mobile_app_assignment_id=mobile_app_assignment_id,
-                                 select=select,
-                                 expand=expand)
-
-
 def devicescorpmgt_device_app_management_mobile_app_list_assignment(client,
                                                                     mobile_app_id,
                                                                     orderby=None,
@@ -2887,6 +2876,17 @@ def devicescorpmgt_device_app_management_mobile_app_list_ref_category(client,
                                                                       orderby=None):
     return client.list_ref_category(mobile_app_id=mobile_app_id,
                                     orderby=orderby)
+
+
+def devicescorpmgt_device_app_management_mobile_app_show_assignment(client,
+                                                                    mobile_app_id,
+                                                                    mobile_app_assignment_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_assignment(mobile_app_id=mobile_app_id,
+                                 mobile_app_assignment_id=mobile_app_assignment_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def devicescorpmgt_device_app_management_mobile_app_update_assignment(client,
@@ -2948,37 +2948,6 @@ def devicescorpmgt_device_app_management_targeted_managed_app_configuration_crea
                                     target=target)
 
 
-def devicescorpmgt_device_app_management_targeted_managed_app_configuration_get_app(client,
-                                                                                    targeted_managed_app_configuration_id,
-                                                                                    managed_mobile_app_id,
-                                                                                    select=None,
-                                                                                    expand=None):
-    return client.get_app(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                          managed_mobile_app_id=managed_mobile_app_id,
-                          select=select,
-                          expand=expand)
-
-
-def devicescorpmgt_device_app_management_targeted_managed_app_configuration_get_assignment(client,
-                                                                                           targeted_managed_app_configuration_id,
-                                                                                           targeted_managed_app_policy_assignment_id,
-                                                                                           select=None,
-                                                                                           expand=None):
-    return client.get_assignment(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                 targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescorpmgt_device_app_management_targeted_managed_app_configuration_get_deployment_summary(client,
-                                                                                                   targeted_managed_app_configuration_id,
-                                                                                                   select=None,
-                                                                                                   expand=None):
-    return client.get_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def devicescorpmgt_device_app_management_targeted_managed_app_configuration_list_app(client,
                                                                                      targeted_managed_app_configuration_id,
                                                                                      orderby=None,
@@ -2999,6 +2968,37 @@ def devicescorpmgt_device_app_management_targeted_managed_app_configuration_list
                                   orderby=orderby,
                                   select=select,
                                   expand=expand)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_app(client,
+                                                                                     targeted_managed_app_configuration_id,
+                                                                                     managed_mobile_app_id,
+                                                                                     select=None,
+                                                                                     expand=None):
+    return client.get_app(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                          managed_mobile_app_id=managed_mobile_app_id,
+                          select=select,
+                          expand=expand)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_assignment(client,
+                                                                                            targeted_managed_app_configuration_id,
+                                                                                            targeted_managed_app_policy_assignment_id,
+                                                                                            select=None,
+                                                                                            expand=None):
+    return client.get_assignment(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                 targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_show_deployment_summary(client,
+                                                                                                    targeted_managed_app_configuration_id,
+                                                                                                    select=None,
+                                                                                                    expand=None):
+    return client.get_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                         select=select,
+                                         expand=expand)
 
 
 def devicescorpmgt_device_app_management_targeted_managed_app_configuration_target_app(client,
@@ -3191,28 +3191,6 @@ def devicescorpmgt_user_create_ref_managed_app_registration(client,
                                                       body=body)
 
 
-def devicescorpmgt_user_get_device_management_troubleshooting_event(client,
-                                                                    user_id,
-                                                                    device_management_troubleshooting_event_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_device_management_troubleshooting_event(user_id=user_id,
-                                                              device_management_troubleshooting_event_id=device_management_troubleshooting_event_id,
-                                                              select=select,
-                                                              expand=expand)
-
-
-def devicescorpmgt_user_get_managed_device(client,
-                                           user_id,
-                                           managed_device_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_managed_device(user_id=user_id,
-                                     managed_device_id=managed_device_id,
-                                     select=select,
-                                     expand=expand)
-
-
 def devicescorpmgt_user_list_device_management_troubleshooting_event(client,
                                                                      user_id,
                                                                      orderby=None,
@@ -3251,6 +3229,28 @@ def devicescorpmgt_user_list_ref_managed_app_registration(client,
                                                           orderby=None):
     return client.list_ref_managed_app_registration(user_id=user_id,
                                                     orderby=orderby)
+
+
+def devicescorpmgt_user_show_device_management_troubleshooting_event(client,
+                                                                     user_id,
+                                                                     device_management_troubleshooting_event_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_device_management_troubleshooting_event(user_id=user_id,
+                                                              device_management_troubleshooting_event_id=device_management_troubleshooting_event_id,
+                                                              select=select,
+                                                              expand=expand)
+
+
+def devicescorpmgt_user_show_managed_device(client,
+                                            user_id,
+                                            managed_device_id,
+                                            select=None,
+                                            expand=None):
+    return client.get_managed_device(user_id=user_id,
+                                     managed_device_id=managed_device_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def devicescorpmgt_user_update_device_management_troubleshooting_event(client,
@@ -3436,43 +3436,6 @@ def devicescorpmgt_user_managed_device_create_device_configuration_state(client,
                                                     version=version)
 
 
-def devicescorpmgt_user_managed_device_get_device_category(client,
-                                                           user_id,
-                                                           managed_device_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_device_category(user_id=user_id,
-                                      managed_device_id=managed_device_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def devicescorpmgt_user_managed_device_get_device_compliance_policy_state(client,
-                                                                          user_id,
-                                                                          managed_device_id,
-                                                                          device_compliance_policy_state_id,
-                                                                          select=None,
-                                                                          expand=None):
-    return client.get_device_compliance_policy_state(user_id=user_id,
-                                                     managed_device_id=managed_device_id,
-                                                     device_compliance_policy_state_id=device_compliance_policy_state_id,
-                                                     select=select,
-                                                     expand=expand)
-
-
-def devicescorpmgt_user_managed_device_get_device_configuration_state(client,
-                                                                      user_id,
-                                                                      managed_device_id,
-                                                                      device_configuration_state_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_device_configuration_state(user_id=user_id,
-                                                 managed_device_id=managed_device_id,
-                                                 device_configuration_state_id=device_configuration_state_id,
-                                                 select=select,
-                                                 expand=expand)
-
-
 def devicescorpmgt_user_managed_device_list_device_compliance_policy_state(client,
                                                                            user_id,
                                                                            managed_device_id,
@@ -3497,6 +3460,43 @@ def devicescorpmgt_user_managed_device_list_device_configuration_state(client,
                                                   orderby=orderby,
                                                   select=select,
                                                   expand=expand)
+
+
+def devicescorpmgt_user_managed_device_show_device_category(client,
+                                                            user_id,
+                                                            managed_device_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_device_category(user_id=user_id,
+                                      managed_device_id=managed_device_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def devicescorpmgt_user_managed_device_show_device_compliance_policy_state(client,
+                                                                           user_id,
+                                                                           managed_device_id,
+                                                                           device_compliance_policy_state_id,
+                                                                           select=None,
+                                                                           expand=None):
+    return client.get_device_compliance_policy_state(user_id=user_id,
+                                                     managed_device_id=managed_device_id,
+                                                     device_compliance_policy_state_id=device_compliance_policy_state_id,
+                                                     select=select,
+                                                     expand=expand)
+
+
+def devicescorpmgt_user_managed_device_show_device_configuration_state(client,
+                                                                       user_id,
+                                                                       managed_device_id,
+                                                                       device_configuration_state_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_device_configuration_state(user_id=user_id,
+                                                 managed_device_id=managed_device_id,
+                                                 device_configuration_state_id=device_configuration_state_id,
+                                                 select=select,
+                                                 expand=expand)
 
 
 def devicescorpmgt_user_managed_device_update_device_category(client,

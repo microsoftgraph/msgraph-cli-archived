@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -198,10 +199,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
+        body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -215,13 +218,11 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationClass')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationClass')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -262,7 +263,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationClass"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -283,7 +286,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -369,10 +371,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
+        body = models.MicrosoftGraphEducationClass(id=id, class_code=class_code, description=description, display_name=display_name, external_id=external_id, external_name=external_name, external_source=external_source, mail_nickname=mail_nickname, term=term, group=group, members=members, schools=schools, teachers=teachers, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -392,10 +396,9 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationClass')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationClass')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -430,7 +433,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -485,7 +490,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -502,7 +509,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -660,10 +666,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
+        body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -679,10 +687,9 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -714,7 +721,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -768,7 +777,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationSchool1"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -776,7 +787,6 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -904,10 +914,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
+        body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -921,13 +933,11 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationSchool')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationSchool')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -968,7 +978,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationSchool"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -989,7 +1001,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1083,10 +1094,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
+        body = models.MicrosoftGraphEducationSchool(id=id, description=description, display_name=display_name, external_source=external_source, address=address, external_id=external_id, external_principal_id=external_principal_id, fax=fax, highest_grade=highest_grade, lowest_grade=lowest_grade, phone=phone, principal_email=principal_email, principal_name=principal_name, school_number=school_number, classes=classes, users=users, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1106,10 +1119,9 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationSchool')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationSchool')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1144,7 +1156,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1202,7 +1216,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEducationUser2"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1210,7 +1226,6 @@ class EducationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1405,10 +1420,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
+        body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1422,13 +1439,11 @@ class EducationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1469,7 +1484,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEducationUser"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1490,7 +1507,6 @@ class EducationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1651,10 +1667,12 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
+        body = models.MicrosoftGraphEducationUser(id=id, account_enabled=account_enabled, assigned_licenses=assigned_licenses, assigned_plans=assigned_plans, business_phones=business_phones, department=department, display_name=display_name, external_source=external_source, given_name=given_name, mail=mail, mailing_address=mailing_address, mail_nickname=mail_nickname, middle_name=middle_name, mobile_phone=mobile_phone, office_location=office_location, password_policies=password_policies, password_profile=password_profile, preferred_language=preferred_language, primary_role=primary_role, provisioned_plans=provisioned_plans, refresh_tokens_valid_from_date_time=refresh_tokens_valid_from_date_time, residence_address=residence_address, show_in_address_list=show_in_address_list, student=student, surname=surname, teacher=teacher, usage_location=usage_location, user_principal_name=user_principal_name, user_type=user_type, classes=classes, schools=schools, user=user, application=application, device=device, user_created_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1674,10 +1692,9 @@ class EducationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEducationUser')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEducationUser')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1712,7 +1729,9 @@ class EducationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

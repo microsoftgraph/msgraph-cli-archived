@@ -11,7 +11,7 @@
 
 def cf_education_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.education import Education
+    from azext_education_v1_0.vendored_sdks.education import Education
     return get_mgmt_service_client(cli_ctx,
                                    Education,
                                    subscription_bound=False,

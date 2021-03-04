@@ -1,20 +1,61 @@
 # Azure CLI Module Creation Report
 
-### search external create-connection
-
-create-connection a search external.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|search external|external|
+|az search_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-connection|CreateConnections|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az search_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az search external-external|external.external|[commands](#CommandsInexternal.external)|
+|az search external|external|[commands](#CommandsInexternal)|
+|az search search-entity|search.searchEntity|[commands](#CommandsInsearch.searchEntity)|
+|az search search|search|[commands](#CommandsInsearch)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInexternal">Commands in `az search external` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az search external delete](#externalDeleteConnections)|DeleteConnections|[Parameters](#ParametersexternalDeleteConnections)|Not Found|
+|[az search external create-connection](#externalCreateConnections)|CreateConnections|[Parameters](#ParametersexternalCreateConnections)|Not Found|
+|[az search external list-connection](#externalListConnections)|ListConnections|[Parameters](#ParametersexternalListConnections)|Not Found|
+|[az search external show-connection](#externalGetConnections)|GetConnections|[Parameters](#ParametersexternalGetConnections)|Not Found|
+|[az search external update-connection](#externalUpdateConnections)|UpdateConnections|[Parameters](#ParametersexternalUpdateConnections)|Not Found|
+
+### <a name="CommandsInexternal.external">Commands in `az search external-external` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az search external-external show-external](#external.externalGetExternal)|GetExternal|[Parameters](#Parametersexternal.externalGetExternal)|Not Found|
+|[az search external-external update-external](#external.externalUpdateExternal)|UpdateExternal|[Parameters](#Parametersexternal.externalUpdateExternal)|Not Found|
+
+### <a name="CommandsInsearch">Commands in `az search search` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az search search query](#searchquery)|query|[Parameters](#Parameterssearchquery)|Not Found|
+
+### <a name="CommandsInsearch.searchEntity">Commands in `az search search-entity` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az search search-entity show-search-entity](#search.searchEntityGetSearchEntity)|GetSearchEntity|[Parameters](#Parameterssearch.searchEntityGetSearchEntity)|Not Found|
+|[az search search-entity update-search-entity](#search.searchEntityUpdateSearchEntity)|UpdateSearchEntity|[Parameters](#Parameterssearch.searchEntityUpdateSearchEntity)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az search external`
+#### <a name="externalDeleteConnections">Command `az search external delete`</a>
+
+##### <a name="ParametersexternalDeleteConnections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="externalCreateConnections">Command `az search external create-connection`</a>
+
+##### <a name="ParametersexternalCreateConnections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -25,87 +66,31 @@ create-connection a search external.
 |**--groups**|array||groups|groups|
 |**--items**|array||items|items|
 |**--operations**|array||operations|operations|
-|**--schema-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schema-base-type**|string||base_type|baseType|
-|**--schema-properties**|array||properties|properties|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--base-type**|string||base_type|baseType|
+|**--properties**|array||properties|properties|
 
-### search external delete
+#### <a name="externalListConnections">Command `az search external list-connection`</a>
 
-delete a search external.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external|external|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteConnections|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### search external get-connection
-
-get-connection a search external.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external|external|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-connection|GetConnections|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### search external list-connection
-
-list-connection a search external.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external|external|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-connection|ListConnections|
-
-#### Parameters
+##### <a name="ParametersexternalListConnections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### search external update-connection
+#### <a name="externalGetConnections">Command `az search external show-connection`</a>
 
-update-connection a search external.
+##### <a name="ParametersexternalGetConnections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external|external|
+#### <a name="externalUpdateConnections">Command `az search external update-connection`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-connection|UpdateConnections|
-
-#### Parameters
+##### <a name="ParametersexternalUpdateConnections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
@@ -117,103 +102,46 @@ update-connection a search external.
 |**--groups**|array||groups|groups|
 |**--items**|array||items|items|
 |**--operations**|array||operations|operations|
-|**--schema-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--schema-base-type**|string||base_type|baseType|
-|**--schema-properties**|array||properties|properties|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--base-type**|string||base_type|baseType|
+|**--properties**|array||properties|properties|
 
-### search external-external get-external
+### group `az search external-external`
+#### <a name="external.externalGetExternal">Command `az search external-external show-external`</a>
 
-get-external a search external-external.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external-external|external.external|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-external|GetExternal|
-
-#### Parameters
+##### <a name="Parametersexternal.externalGetExternal">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### search external-external update-external
+#### <a name="external.externalUpdateExternal">Command `az search external-external update-external`</a>
 
-update-external a search external-external.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search external-external|external.external|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-external|UpdateExternal|
-
-#### Parameters
+##### <a name="Parametersexternal.externalUpdateExternal">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--connections**|array||connections|connections|
 
-### search search query
+### group `az search search`
+#### <a name="searchquery">Command `az search search query`</a>
 
-query a search search.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search search|search|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|query|query|
-
-#### Parameters
+##### <a name="Parameterssearchquery">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--requests**|array||requests|requests|
 
-### search search-entity get-entity
+### group `az search search-entity`
+#### <a name="search.searchEntityGetSearchEntity">Command `az search search-entity show-search-entity`</a>
 
-get-entity a search search-entity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search search-entity|search.searchEntity|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-entity|GetSearchEntity|
-
-#### Parameters
+##### <a name="Parameterssearch.searchEntityGetSearchEntity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### search search-entity update-entity
+#### <a name="search.searchEntityUpdateSearchEntity">Command `az search search-entity update-search-entity`</a>
 
-update-entity a search search-entity.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|search search-entity|search.searchEntity|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-entity|UpdateSearchEntity|
-
-#### Parameters
+##### <a name="Parameterssearch.searchEntityUpdateSearchEntity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|

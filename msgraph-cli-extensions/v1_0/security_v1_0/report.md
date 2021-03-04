@@ -1,20 +1,91 @@
 # Azure CLI Module Creation Report
 
-### security security create-alert
-
-create-alert a security security.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|security security|Security|
+|az security_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-alert|CreateAlerts|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az security_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az security security|Security.security|[commands](#CommandsInSecurity.security)|
+|az security security|Security|[commands](#CommandsInSecurity)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInSecurity.security">Commands in `az security security` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security security create](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
+|[az security security show-security](#Security.securityGetSecurity)|GetSecurity|[Parameters](#ParametersSecurity.securityGetSecurity)|Not Found|
+
+### <a name="CommandsInSecurity">Commands in `az security security` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az security security delete](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
+|[az security security delete](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
+|[az security security delete](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
+|[az security security create-alert](#SecurityCreateAlerts)|CreateAlerts|[Parameters](#ParametersSecurityCreateAlerts)|Not Found|
+|[az security security create-secure-score](#SecurityCreateSecureScores)|CreateSecureScores|[Parameters](#ParametersSecurityCreateSecureScores)|Not Found|
+|[az security security create-secure-score-control-profile](#SecurityCreateSecureScoreControlProfiles)|CreateSecureScoreControlProfiles|[Parameters](#ParametersSecurityCreateSecureScoreControlProfiles)|Not Found|
+|[az security security list-alert](#SecurityListAlerts)|ListAlerts|[Parameters](#ParametersSecurityListAlerts)|Not Found|
+|[az security security list-secure-score](#SecurityListSecureScores)|ListSecureScores|[Parameters](#ParametersSecurityListSecureScores)|Not Found|
+|[az security security list-secure-score-control-profile](#SecurityListSecureScoreControlProfiles)|ListSecureScoreControlProfiles|[Parameters](#ParametersSecurityListSecureScoreControlProfiles)|Not Found|
+|[az security security show-alert](#SecurityGetAlerts)|GetAlerts|[Parameters](#ParametersSecurityGetAlerts)|Not Found|
+|[az security security show-secure-score](#SecurityGetSecureScores)|GetSecureScores|[Parameters](#ParametersSecurityGetSecureScores)|Not Found|
+|[az security security show-secure-score-control-profile](#SecurityGetSecureScoreControlProfiles)|GetSecureScoreControlProfiles|[Parameters](#ParametersSecurityGetSecureScoreControlProfiles)|Not Found|
+|[az security security update-alert](#SecurityUpdateAlerts)|UpdateAlerts|[Parameters](#ParametersSecurityUpdateAlerts)|Not Found|
+|[az security security update-secure-score](#SecurityUpdateSecureScores)|UpdateSecureScores|[Parameters](#ParametersSecurityUpdateSecureScores)|Not Found|
+|[az security security update-secure-score-control-profile](#SecurityUpdateSecureScoreControlProfiles)|UpdateSecureScoreControlProfiles|[Parameters](#ParametersSecurityUpdateSecureScoreControlProfiles)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az security security`
+#### <a name="Security.securityUpdateSecurity">Command `az security security create`</a>
+
+##### <a name="ParametersSecurity.securityUpdateSecurity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
+|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
+|**--secure-scores**|array||secure_scores|secureScores|
+
+#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
+
+##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+### group `az security security`
+#### <a name="SecurityDeleteAlerts">Command `az security security delete`</a>
+
+##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+
+#### <a name="SecurityDeleteSecureScores">Command `az security security delete`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
+
+#### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>
+
+##### <a name="ParametersSecurityCreateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -53,21 +124,9 @@ create-alert a security security.
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 |**--vulnerability-states**|array|Threat intelligence pertaining to one or more vulnerabilities related to this alert.|vulnerability_states|vulnerabilityStates|
 
-### security security create-secure-score
+#### <a name="SecurityCreateSecureScores">Command `az security security create-secure-score`</a>
 
-create-secure-score a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-secure-score|CreateSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -82,21 +141,9 @@ create-secure-score a security security.
 |**--max-score**|number|Tenant maximum possible score on specified date.|max_score|maxScore|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security security create-secure-score-control-profile
+#### <a name="SecurityCreateSecureScoreControlProfiles">Command `az security security create-secure-score-control-profile`</a>
 
-create-secure-score-control-profile a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-secure-score-control-profile|CreateSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityCreateSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -120,213 +167,63 @@ create-secure-score-control-profile a security security.
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security security delete
+#### <a name="SecurityListAlerts">Command `az security security list-alert`</a>
 
-delete a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAlerts|
-|delete|DeleteSecureScoreControlProfiles|
-|delete|DeleteSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityListAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--alert-id**|string|key: id of alert|alert_id|alert-id|
-|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
-|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### security security get
-
-get a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get|GetSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security get-alert
+#### <a name="SecurityListSecureScores">Command `az security security list-secure-score`</a>
 
-get-alert a security security.
+##### <a name="ParametersSecurityListSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
+#### <a name="SecurityListSecureScoreControlProfiles">Command `az security security list-secure-score-control-profile`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-alert|GetAlerts|
+##### <a name="ParametersSecurityListSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="SecurityGetAlerts">Command `az security security show-alert`</a>
+
+##### <a name="ParametersSecurityGetAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--alert-id**|string|key: id of alert|alert_id|alert-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security get-secure-score
+#### <a name="SecurityGetSecureScores">Command `az security security show-secure-score`</a>
 
-get-secure-score a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-secure-score|GetSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityGetSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security get-secure-score-control-profile
+#### <a name="SecurityGetSecureScoreControlProfiles">Command `az security security show-secure-score-control-profile`</a>
 
-get-secure-score-control-profile a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-secure-score-control-profile|GetSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityGetSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### security security list-alert
+#### <a name="SecurityUpdateAlerts">Command `az security security update-alert`</a>
 
-list-alert a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-alert|ListAlerts|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security security list-secure-score
-
-list-secure-score a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-secure-score|ListSecureScores|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security security list-secure-score-control-profile
-
-list-secure-score-control-profile a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-secure-score-control-profile|ListSecureScoreControlProfiles|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### security security update
-
-update a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security.security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update|UpdateSecurity|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--alerts**|array|Read-only. Nullable.|alerts|alerts|
-|**--secure-score-control-profiles**|array||secure_score_control_profiles|secureScoreControlProfiles|
-|**--secure-scores**|array||secure_scores|secureScores|
-
-### security security update-alert
-
-update-alert a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-alert|UpdateAlerts|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--alert-id**|string|key: id of alert|alert_id|alert-id|
@@ -366,21 +263,9 @@ update-alert a security security.
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 |**--vulnerability-states**|array|Threat intelligence pertaining to one or more vulnerabilities related to this alert.|vulnerability_states|vulnerabilityStates|
 
-### security security update-secure-score
+#### <a name="SecurityUpdateSecureScores">Command `az security security update-secure-score`</a>
 
-update-secure-score a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-secure-score|UpdateSecureScores|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
@@ -396,21 +281,9 @@ update-secure-score a security security.
 |**--max-score**|number|Tenant maximum possible score on specified date.|max_score|maxScore|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### security security update-secure-score-control-profile
+#### <a name="SecurityUpdateSecureScoreControlProfiles">Command `az security security update-secure-score-control-profile`</a>
 
-update-secure-score-control-profile a security security.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|security security|Security|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-secure-score-control-profile|UpdateSecureScoreControlProfiles|
-
-#### Parameters
+##### <a name="ParametersSecurityUpdateSecureScoreControlProfiles">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|

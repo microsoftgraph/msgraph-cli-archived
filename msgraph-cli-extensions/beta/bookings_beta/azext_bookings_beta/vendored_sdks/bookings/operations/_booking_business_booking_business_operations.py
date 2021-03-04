@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -69,7 +69,9 @@ class BookingBusinessBookingBusinessOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfBookingBusiness"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -77,7 +79,6 @@ class BookingBusinessBookingBusinessOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -200,10 +201,12 @@ class BookingBusinessBookingBusinessOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingBusiness"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
+        body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -217,13 +220,11 @@ class BookingBusinessBookingBusinessOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingBusiness')
+        body_content = self._serialize.body(body, 'MicrosoftGraphBookingBusiness')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -264,7 +265,9 @@ class BookingBusinessBookingBusinessOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphBookingBusiness"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -285,7 +288,6 @@ class BookingBusinessBookingBusinessOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -374,10 +376,12 @@ class BookingBusinessBookingBusinessOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
+        body = models.MicrosoftGraphBookingBusiness(id=id, display_name=display_name, address=address, business_hours=business_hours, business_type=business_type, default_currency_iso=default_currency_iso, email=email, is_published=is_published, phone=phone, public_url=public_url, scheduling_policy=scheduling_policy, web_site_url=web_site_url, appointments=appointments, calendar_view=calendar_view, customers=customers, services=services, staff_members=staff_members)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -397,10 +401,9 @@ class BookingBusinessBookingBusinessOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphBookingBusiness')
+        body_content = self._serialize.body(body, 'MicrosoftGraphBookingBusiness')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -435,7 +438,9 @@ class BookingBusinessBookingBusinessOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

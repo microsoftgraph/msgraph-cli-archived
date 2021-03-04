@@ -1,503 +1,521 @@
 # Azure CLI Module Creation Report
 
-### reports audit-log create-directory-audit
-
-create-directory-audit a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|reports audit-log|auditLogs|
+|az reports_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-directory-audit|CreateDirectoryAudits|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az reports_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az reports audit-log-audit-log-root|auditLogs.auditLogRoot|[commands](#CommandsInauditLogs.auditLogRoot)|
+|az reports audit-log|auditLogs|[commands](#CommandsInauditLogs)|
+|az reports report-root|reports.reportRoot|[commands](#CommandsInreports.reportRoot)|
+|az reports report|reports|[commands](#CommandsInreports)|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--activity-date-time**|date-time|Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|activity_date_time|activityDateTime|
-|**--activity-display-name**|string|Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.|activity_display_name|activityDisplayName|
-|**--additional-details**|array|Indicates additional details on the activity.|additional_details|additionalDetails|
-|**--category**|string|Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)|category|category|
-|**--correlation-id**|string|Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.|correlation_id|correlationId|
-|**--logged-by-service**|string|Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.|logged_by_service|loggedByService|
-|**--operation-type**|string||operation_type|operationType|
-|**--result**|choice||result|result|
-|**--result-reason**|string|Describes cause of 'failure' or 'timeout' results.|result_reason|resultReason|
-|**--target-resources**|array|Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.|target_resources|targetResources|
-|**--initiated-by-app**|object|appIdentity|app|app|
-|**--initiated-by-user**|object|userIdentity|user|user|
+## COMMANDS
+### <a name="CommandsInauditLogs">Commands in `az reports audit-log` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az reports audit-log delete](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
+|[az reports audit-log delete](#auditLogsDeleteDirectoryProvisioning)|DeleteDirectoryProvisioning|[Parameters](#ParametersauditLogsDeleteDirectoryProvisioning)|Not Found|
+|[az reports audit-log delete](#auditLogsDeleteProvisioning)|DeleteProvisioning|[Parameters](#ParametersauditLogsDeleteProvisioning)|Not Found|
+|[az reports audit-log delete](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
+|[az reports audit-log delete](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
+|[az reports audit-log create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
+|[az reports audit-log create-directory-provisioning](#auditLogsCreateDirectoryProvisioning)|CreateDirectoryProvisioning|[Parameters](#ParametersauditLogsCreateDirectoryProvisioning)|Not Found|
+|[az reports audit-log create-provisioning](#auditLogsCreateProvisioning)|CreateProvisioning|[Parameters](#ParametersauditLogsCreateProvisioning)|Not Found|
+|[az reports audit-log create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
+|[az reports audit-log create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
+|[az reports audit-log list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
+|[az reports audit-log list-directory-provisioning](#auditLogsListDirectoryProvisioning)|ListDirectoryProvisioning|[Parameters](#ParametersauditLogsListDirectoryProvisioning)|Not Found|
+|[az reports audit-log list-provisioning](#auditLogsListProvisioning)|ListProvisioning|[Parameters](#ParametersauditLogsListProvisioning)|Not Found|
+|[az reports audit-log list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
+|[az reports audit-log list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
+|[az reports audit-log show-directory-audit](#auditLogsGetDirectoryAudits)|GetDirectoryAudits|[Parameters](#ParametersauditLogsGetDirectoryAudits)|Not Found|
+|[az reports audit-log show-directory-provisioning](#auditLogsGetDirectoryProvisioning)|GetDirectoryProvisioning|[Parameters](#ParametersauditLogsGetDirectoryProvisioning)|Not Found|
+|[az reports audit-log show-provisioning](#auditLogsGetProvisioning)|GetProvisioning|[Parameters](#ParametersauditLogsGetProvisioning)|Not Found|
+|[az reports audit-log show-restricted-sign-in](#auditLogsGetRestrictedSignIns)|GetRestrictedSignIns|[Parameters](#ParametersauditLogsGetRestrictedSignIns)|Not Found|
+|[az reports audit-log show-sign-in](#auditLogsGetSignIns)|GetSignIns|[Parameters](#ParametersauditLogsGetSignIns)|Not Found|
+|[az reports audit-log update-directory-audit](#auditLogsUpdateDirectoryAudits)|UpdateDirectoryAudits|[Parameters](#ParametersauditLogsUpdateDirectoryAudits)|Not Found|
+|[az reports audit-log update-directory-provisioning](#auditLogsUpdateDirectoryProvisioning)|UpdateDirectoryProvisioning|[Parameters](#ParametersauditLogsUpdateDirectoryProvisioning)|Not Found|
+|[az reports audit-log update-provisioning](#auditLogsUpdateProvisioning)|UpdateProvisioning|[Parameters](#ParametersauditLogsUpdateProvisioning)|Not Found|
+|[az reports audit-log update-restricted-sign-in](#auditLogsUpdateRestrictedSignIns)|UpdateRestrictedSignIns|[Parameters](#ParametersauditLogsUpdateRestrictedSignIns)|Not Found|
+|[az reports audit-log update-sign-in](#auditLogsUpdateSignIns)|UpdateSignIns|[Parameters](#ParametersauditLogsUpdateSignIns)|Not Found|
 
-### reports audit-log create-directory-provisioning
+### <a name="CommandsInauditLogs.auditLogRoot">Commands in `az reports audit-log-audit-log-root` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az reports audit-log-audit-log-root show-audit-log-root](#auditLogs.auditLogRootGetAuditLogRoot)|GetAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootGetAuditLogRoot)|Not Found|
+|[az reports audit-log-audit-log-root update-audit-log-root](#auditLogs.auditLogRootUpdateAuditLogRoot)|UpdateAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootUpdateAuditLogRoot)|Not Found|
 
-create-directory-provisioning a reports audit-log.
+### <a name="CommandsInreports">Commands in `az reports report` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az reports report delete](#reportsDeleteApplicationSignInDetailedSummary)|DeleteApplicationSignInDetailedSummary|[Parameters](#ParametersreportsDeleteApplicationSignInDetailedSummary)|Not Found|
+|[az reports report delete](#reportsDeleteCredentialUserRegistrationDetails)|DeleteCredentialUserRegistrationDetails|[Parameters](#ParametersreportsDeleteCredentialUserRegistrationDetails)|Not Found|
+|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByPrinter)|DeleteDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByUser)|DeleteDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByPrinter)|DeleteMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByUser)|DeleteMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete](#reportsDeleteUserCredentialUsageDetails)|DeleteUserCredentialUsageDetails|[Parameters](#ParametersreportsDeleteUserCredentialUsageDetails)|Not Found|
+|[az reports report create-application-sign-in-detailed-summary](#reportsCreateApplicationSignInDetailedSummary)|CreateApplicationSignInDetailedSummary|[Parameters](#ParametersreportsCreateApplicationSignInDetailedSummary)|Not Found|
+|[az reports report create-credential-user-registration-detail](#reportsCreateCredentialUserRegistrationDetails)|CreateCredentialUserRegistrationDetails|[Parameters](#ParametersreportsCreateCredentialUserRegistrationDetails)|Not Found|
+|[az reports report create-daily-print-usage-summary-by-printer](#reportsCreateDailyPrintUsageSummariesByPrinter)|CreateDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report create-daily-print-usage-summary-by-user](#reportsCreateDailyPrintUsageSummariesByUser)|CreateDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsCreateDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report create-monthly-print-usage-summary-by-printer](#reportsCreateMonthlyPrintUsageSummariesByPrinter)|CreateMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report create-monthly-print-usage-summary-by-user](#reportsCreateMonthlyPrintUsageSummariesByUser)|CreateMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report create-user-credential-usage-detail](#reportsCreateUserCredentialUsageDetails)|CreateUserCredentialUsageDetails|[Parameters](#ParametersreportsCreateUserCredentialUsageDetails)|Not Found|
+|[az reports report device-configuration-device-activity](#reportsdeviceConfigurationDeviceActivity)|deviceConfigurationDeviceActivity|[Parameters](#ParametersreportsdeviceConfigurationDeviceActivity)|Not Found|
+|[az reports report device-configuration-user-activity](#reportsdeviceConfigurationUserActivity)|deviceConfigurationUserActivity|[Parameters](#ParametersreportsdeviceConfigurationUserActivity)|Not Found|
+|[az reports report list-application-sign-in-detailed-summary](#reportsListApplicationSignInDetailedSummary)|ListApplicationSignInDetailedSummary|[Parameters](#ParametersreportsListApplicationSignInDetailedSummary)|Not Found|
+|[az reports report list-credential-user-registration-detail](#reportsListCredentialUserRegistrationDetails)|ListCredentialUserRegistrationDetails|[Parameters](#ParametersreportsListCredentialUserRegistrationDetails)|Not Found|
+|[az reports report list-daily-print-usage-summary](#reportsListDailyPrintUsageSummariesByPrinter)|ListDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsListDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report list-daily-print-usage-summary](#reportsListDailyPrintUsageSummariesByUser)|ListDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsListDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report list-monthly-print-usage-summary](#reportsListMonthlyPrintUsageSummariesByPrinter)|ListMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsListMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report list-monthly-print-usage-summary](#reportsListMonthlyPrintUsageSummariesByUser)|ListMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsListMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report list-user-credential-usage-detail](#reportsListUserCredentialUsageDetails)|ListUserCredentialUsageDetails|[Parameters](#ParametersreportsListUserCredentialUsageDetails)|Not Found|
+|[az reports report managed-device-enrollment-abandonment-detail](#reportsmanagedDeviceEnrollmentAbandonmentDetails)|managedDeviceEnrollmentAbandonmentDetails|[Parameters](#ParametersreportsmanagedDeviceEnrollmentAbandonmentDetails)|Not Found|
+|[az reports report managed-device-enrollment-abandonment-summary](#reportsmanagedDeviceEnrollmentAbandonmentSummary)|managedDeviceEnrollmentAbandonmentSummary|[Parameters](#ParametersreportsmanagedDeviceEnrollmentAbandonmentSummary)|Not Found|
+|[az reports report managed-device-enrollment-failure-details027-e](#reportsmanagedDeviceEnrollmentFailureDetails-027e)|managedDeviceEnrollmentFailureDetails-027e|[Parameters](#ParametersreportsmanagedDeviceEnrollmentFailureDetails-027e)|Not Found|
+|[az reports report managed-device-enrollment-failure-details2-b3-d](#reportsmanagedDeviceEnrollmentFailureDetails-2b3d)|managedDeviceEnrollmentFailureDetails-2b3d|[Parameters](#ParametersreportsmanagedDeviceEnrollmentFailureDetails-2b3d)|Not Found|
+|[az reports report managed-device-enrollment-failure-trend](#reportsmanagedDeviceEnrollmentFailureTrends)|managedDeviceEnrollmentFailureTrends|[Parameters](#ParametersreportsmanagedDeviceEnrollmentFailureTrends)|Not Found|
+|[az reports report managed-device-enrollment-top-failure-afd1](#reportsmanagedDeviceEnrollmentTopFailures-afd1)|managedDeviceEnrollmentTopFailures-afd1|[Parameters](#ParametersreportsmanagedDeviceEnrollmentTopFailures-afd1)|Not Found|
+|[az reports report managed-device-enrollment-top-failures4669](#reportsmanagedDeviceEnrollmentTopFailures-4669)|managedDeviceEnrollmentTopFailures-4669|[Parameters](#ParametersreportsmanagedDeviceEnrollmentTopFailures-4669)|Not Found|
+|[az reports report show-application-sign-in-detailed-summary](#reportsGetApplicationSignInDetailedSummary)|GetApplicationSignInDetailedSummary|[Parameters](#ParametersreportsGetApplicationSignInDetailedSummary)|Not Found|
+|[az reports report show-azure-ad-application-sign-in-summary](#reportsgetAzureADApplicationSignInSummary)|getAzureADApplicationSignInSummary|[Parameters](#ParametersreportsgetAzureADApplicationSignInSummary)|Not Found|
+|[az reports report show-azure-ad-feature-usage](#reportsgetAzureADFeatureUsage)|getAzureADFeatureUsage|[Parameters](#ParametersreportsgetAzureADFeatureUsage)|Not Found|
+|[az reports report show-azure-ad-license-usage](#reportsgetAzureADLicenseUsage)|getAzureADLicenseUsage|[Parameters](#ParametersreportsgetAzureADLicenseUsage)|Not Found|
+|[az reports report show-azure-ad-user-feature-usage](#reportsgetAzureADUserFeatureUsage)|getAzureADUserFeatureUsage|[Parameters](#ParametersreportsgetAzureADUserFeatureUsage)|Not Found|
+|[az reports report show-credential-usage-summary](#reportsgetCredentialUsageSummary)|getCredentialUsageSummary|[Parameters](#ParametersreportsgetCredentialUsageSummary)|Not Found|
+|[az reports report show-credential-user-registration-count](#reportsgetCredentialUserRegistrationCount)|getCredentialUserRegistrationCount|[Parameters](#ParametersreportsgetCredentialUserRegistrationCount)|Not Found|
+|[az reports report show-credential-user-registration-detail](#reportsGetCredentialUserRegistrationDetails)|GetCredentialUserRegistrationDetails|[Parameters](#ParametersreportsGetCredentialUserRegistrationDetails)|Not Found|
+|[az reports report show-daily-print-usage-summary](#reportsGetDailyPrintUsageSummariesByPrinter)|GetDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsGetDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report show-daily-print-usage-summary](#reportsGetDailyPrintUsageSummariesByUser)|GetDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsGetDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report show-email-activity-count](#reportsgetEmailActivityCounts)|getEmailActivityCounts|[Parameters](#ParametersreportsgetEmailActivityCounts)|Not Found|
+|[az reports report show-email-activity-user-count](#reportsgetEmailActivityUserCounts)|getEmailActivityUserCounts|[Parameters](#ParametersreportsgetEmailActivityUserCounts)|Not Found|
+|[az reports report show-email-activity-user-detail-ddb2](#reportsgetEmailActivityUserDetail-ddb2)|getEmailActivityUserDetail-ddb2|[Parameters](#ParametersreportsgetEmailActivityUserDetail-ddb2)|Not Found|
+|[az reports report show-email-activity-user-detail-fe32](#reportsgetEmailActivityUserDetail-fe32)|getEmailActivityUserDetail-fe32|[Parameters](#ParametersreportsgetEmailActivityUserDetail-fe32)|Not Found|
+|[az reports report show-email-app-usage-app-user-count](#reportsgetEmailAppUsageAppsUserCounts)|getEmailAppUsageAppsUserCounts|[Parameters](#ParametersreportsgetEmailAppUsageAppsUserCounts)|Not Found|
+|[az reports report show-email-app-usage-user-count](#reportsgetEmailAppUsageUserCounts)|getEmailAppUsageUserCounts|[Parameters](#ParametersreportsgetEmailAppUsageUserCounts)|Not Found|
+|[az reports report show-email-app-usage-user-detail546-b](#reportsgetEmailAppUsageUserDetail-546b)|getEmailAppUsageUserDetail-546b|[Parameters](#ParametersreportsgetEmailAppUsageUserDetail-546b)|Not Found|
+|[az reports report show-email-app-usage-user-detail62-ec](#reportsgetEmailAppUsageUserDetail-62ec)|getEmailAppUsageUserDetail-62ec|[Parameters](#ParametersreportsgetEmailAppUsageUserDetail-62ec)|Not Found|
+|[az reports report show-email-app-usage-version-user-count](#reportsgetEmailAppUsageVersionsUserCounts)|getEmailAppUsageVersionsUserCounts|[Parameters](#ParametersreportsgetEmailAppUsageVersionsUserCounts)|Not Found|
+|[az reports report show-m365-app-platform-user-count](#reportsgetM365AppPlatformUserCounts)|getM365AppPlatformUserCounts|[Parameters](#ParametersreportsgetM365AppPlatformUserCounts)|Not Found|
+|[az reports report show-m365-app-user-count](#reportsgetM365AppUserCounts)|getM365AppUserCounts|[Parameters](#ParametersreportsgetM365AppUserCounts)|Not Found|
+|[az reports report show-m365-app-user-detail-c8-df](#reportsgetM365AppUserDetail-c8df)|getM365AppUserDetail-c8df|[Parameters](#ParametersreportsgetM365AppUserDetail-c8df)|Not Found|
+|[az reports report show-m365-app-user-detail2-b20](#reportsgetM365AppUserDetail-2b20)|getM365AppUserDetail-2b20|[Parameters](#ParametersreportsgetM365AppUserDetail-2b20)|Not Found|
+|[az reports report show-mailbox-usage-detail](#reportsgetMailboxUsageDetail)|getMailboxUsageDetail|[Parameters](#ParametersreportsgetMailboxUsageDetail)|Not Found|
+|[az reports report show-mailbox-usage-mailbox-count](#reportsgetMailboxUsageMailboxCounts)|getMailboxUsageMailboxCounts|[Parameters](#ParametersreportsgetMailboxUsageMailboxCounts)|Not Found|
+|[az reports report show-mailbox-usage-quota-status-mailbox-count](#reportsgetMailboxUsageQuotaStatusMailboxCounts)|getMailboxUsageQuotaStatusMailboxCounts|[Parameters](#ParametersreportsgetMailboxUsageQuotaStatusMailboxCounts)|Not Found|
+|[az reports report show-mailbox-usage-storage](#reportsgetMailboxUsageStorage)|getMailboxUsageStorage|[Parameters](#ParametersreportsgetMailboxUsageStorage)|Not Found|
+|[az reports report show-monthly-print-usage-summary](#reportsGetMonthlyPrintUsageSummariesByPrinter)|GetMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsGetMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report show-monthly-print-usage-summary](#reportsGetMonthlyPrintUsageSummariesByUser)|GetMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsGetMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report show-office365-activation-count](#reportsgetOffice365ActivationCounts)|getOffice365ActivationCounts|[Parameters](#ParametersreportsgetOffice365ActivationCounts)|Not Found|
+|[az reports report show-office365-activation-user-count](#reportsgetOffice365ActivationsUserCounts)|getOffice365ActivationsUserCounts|[Parameters](#ParametersreportsgetOffice365ActivationsUserCounts)|Not Found|
+|[az reports report show-office365-activation-user-detail](#reportsgetOffice365ActivationsUserDetail)|getOffice365ActivationsUserDetail|[Parameters](#ParametersreportsgetOffice365ActivationsUserDetail)|Not Found|
+|[az reports report show-office365-active-user-count](#reportsgetOffice365ActiveUserCounts)|getOffice365ActiveUserCounts|[Parameters](#ParametersreportsgetOffice365ActiveUserCounts)|Not Found|
+|[az reports report show-office365-active-user-detail-d389](#reportsgetOffice365ActiveUserDetail-d389)|getOffice365ActiveUserDetail-d389|[Parameters](#ParametersreportsgetOffice365ActiveUserDetail-d389)|Not Found|
+|[az reports report show-office365-active-user-detail68-ad](#reportsgetOffice365ActiveUserDetail-68ad)|getOffice365ActiveUserDetail-68ad|[Parameters](#ParametersreportsgetOffice365ActiveUserDetail-68ad)|Not Found|
+|[az reports report show-office365-group-activity-count](#reportsgetOffice365GroupsActivityCounts)|getOffice365GroupsActivityCounts|[Parameters](#ParametersreportsgetOffice365GroupsActivityCounts)|Not Found|
+|[az reports report show-office365-group-activity-detail38-f6](#reportsgetOffice365GroupsActivityDetail-38f6)|getOffice365GroupsActivityDetail-38f6|[Parameters](#ParametersreportsgetOffice365GroupsActivityDetail-38f6)|Not Found|
+|[az reports report show-office365-group-activity-detail81-cc](#reportsgetOffice365GroupsActivityDetail-81cc)|getOffice365GroupsActivityDetail-81cc|[Parameters](#ParametersreportsgetOffice365GroupsActivityDetail-81cc)|Not Found|
+|[az reports report show-office365-group-activity-file-count](#reportsgetOffice365GroupsActivityFileCounts)|getOffice365GroupsActivityFileCounts|[Parameters](#ParametersreportsgetOffice365GroupsActivityFileCounts)|Not Found|
+|[az reports report show-office365-group-activity-group-count](#reportsgetOffice365GroupsActivityGroupCounts)|getOffice365GroupsActivityGroupCounts|[Parameters](#ParametersreportsgetOffice365GroupsActivityGroupCounts)|Not Found|
+|[az reports report show-office365-group-activity-storage](#reportsgetOffice365GroupsActivityStorage)|getOffice365GroupsActivityStorage|[Parameters](#ParametersreportsgetOffice365GroupsActivityStorage)|Not Found|
+|[az reports report show-office365-service-user-count](#reportsgetOffice365ServicesUserCounts)|getOffice365ServicesUserCounts|[Parameters](#ParametersreportsgetOffice365ServicesUserCounts)|Not Found|
+|[az reports report show-one-drive-activity-file-count](#reportsgetOneDriveActivityFileCounts)|getOneDriveActivityFileCounts|[Parameters](#ParametersreportsgetOneDriveActivityFileCounts)|Not Found|
+|[az reports report show-one-drive-activity-user-count](#reportsgetOneDriveActivityUserCounts)|getOneDriveActivityUserCounts|[Parameters](#ParametersreportsgetOneDriveActivityUserCounts)|Not Found|
+|[az reports report show-one-drive-activity-user-detail-c424](#reportsgetOneDriveActivityUserDetail-c424)|getOneDriveActivityUserDetail-c424|[Parameters](#ParametersreportsgetOneDriveActivityUserDetail-c424)|Not Found|
+|[az reports report show-one-drive-activity-user-detail05-f1](#reportsgetOneDriveActivityUserDetail-05f1)|getOneDriveActivityUserDetail-05f1|[Parameters](#ParametersreportsgetOneDriveActivityUserDetail-05f1)|Not Found|
+|[az reports report show-one-drive-usage-account-count](#reportsgetOneDriveUsageAccountCounts)|getOneDriveUsageAccountCounts|[Parameters](#ParametersreportsgetOneDriveUsageAccountCounts)|Not Found|
+|[az reports report show-one-drive-usage-account-detail-dd7-f](#reportsgetOneDriveUsageAccountDetail-dd7f)|getOneDriveUsageAccountDetail-dd7f|[Parameters](#ParametersreportsgetOneDriveUsageAccountDetail-dd7f)|Not Found|
+|[az reports report show-one-drive-usage-account-detail-e827](#reportsgetOneDriveUsageAccountDetail-e827)|getOneDriveUsageAccountDetail-e827|[Parameters](#ParametersreportsgetOneDriveUsageAccountDetail-e827)|Not Found|
+|[az reports report show-one-drive-usage-file-count](#reportsgetOneDriveUsageFileCounts)|getOneDriveUsageFileCounts|[Parameters](#ParametersreportsgetOneDriveUsageFileCounts)|Not Found|
+|[az reports report show-one-drive-usage-storage](#reportsgetOneDriveUsageStorage)|getOneDriveUsageStorage|[Parameters](#ParametersreportsgetOneDriveUsageStorage)|Not Found|
+|[az reports report show-relying-party-detailed-summary](#reportsgetRelyingPartyDetailedSummary)|getRelyingPartyDetailedSummary|[Parameters](#ParametersreportsgetRelyingPartyDetailedSummary)|Not Found|
+|[az reports report show-share-point-activity-file-count](#reportsgetSharePointActivityFileCounts)|getSharePointActivityFileCounts|[Parameters](#ParametersreportsgetSharePointActivityFileCounts)|Not Found|
+|[az reports report show-share-point-activity-page](#reportsgetSharePointActivityPages)|getSharePointActivityPages|[Parameters](#ParametersreportsgetSharePointActivityPages)|Not Found|
+|[az reports report show-share-point-activity-user-count](#reportsgetSharePointActivityUserCounts)|getSharePointActivityUserCounts|[Parameters](#ParametersreportsgetSharePointActivityUserCounts)|Not Found|
+|[az reports report show-share-point-activity-user-detail-b778](#reportsgetSharePointActivityUserDetail-b778)|getSharePointActivityUserDetail-b778|[Parameters](#ParametersreportsgetSharePointActivityUserDetail-b778)|Not Found|
+|[az reports report show-share-point-activity-user-detail-f3-be](#reportsgetSharePointActivityUserDetail-f3be)|getSharePointActivityUserDetail-f3be|[Parameters](#ParametersreportsgetSharePointActivityUserDetail-f3be)|Not Found|
+|[az reports report show-share-point-site-usage-detail-d27-a](#reportsgetSharePointSiteUsageDetail-d27a)|getSharePointSiteUsageDetail-d27a|[Parameters](#ParametersreportsgetSharePointSiteUsageDetail-d27a)|Not Found|
+|[az reports report show-share-point-site-usage-detail204-b](#reportsgetSharePointSiteUsageDetail-204b)|getSharePointSiteUsageDetail-204b|[Parameters](#ParametersreportsgetSharePointSiteUsageDetail-204b)|Not Found|
+|[az reports report show-share-point-site-usage-file-count](#reportsgetSharePointSiteUsageFileCounts)|getSharePointSiteUsageFileCounts|[Parameters](#ParametersreportsgetSharePointSiteUsageFileCounts)|Not Found|
+|[az reports report show-share-point-site-usage-page](#reportsgetSharePointSiteUsagePages)|getSharePointSiteUsagePages|[Parameters](#ParametersreportsgetSharePointSiteUsagePages)|Not Found|
+|[az reports report show-share-point-site-usage-site-count](#reportsgetSharePointSiteUsageSiteCounts)|getSharePointSiteUsageSiteCounts|[Parameters](#ParametersreportsgetSharePointSiteUsageSiteCounts)|Not Found|
+|[az reports report show-share-point-site-usage-storage](#reportsgetSharePointSiteUsageStorage)|getSharePointSiteUsageStorage|[Parameters](#ParametersreportsgetSharePointSiteUsageStorage)|Not Found|
+|[az reports report show-skype-for-business-activity-count](#reportsgetSkypeForBusinessActivityCounts)|getSkypeForBusinessActivityCounts|[Parameters](#ParametersreportsgetSkypeForBusinessActivityCounts)|Not Found|
+|[az reports report show-skype-for-business-activity-user-count](#reportsgetSkypeForBusinessActivityUserCounts)|getSkypeForBusinessActivityUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessActivityUserCounts)|Not Found|
+|[az reports report show-skype-for-business-activity-user-detail-e4-c9](#reportsgetSkypeForBusinessActivityUserDetail-e4c9)|getSkypeForBusinessActivityUserDetail-e4c9|[Parameters](#ParametersreportsgetSkypeForBusinessActivityUserDetail-e4c9)|Not Found|
+|[az reports report show-skype-for-business-activity-user-detail744-e](#reportsgetSkypeForBusinessActivityUserDetail-744e)|getSkypeForBusinessActivityUserDetail-744e|[Parameters](#ParametersreportsgetSkypeForBusinessActivityUserDetail-744e)|Not Found|
+|[az reports report show-skype-for-business-device-usage-distribution-user-count](#reportsgetSkypeForBusinessDeviceUsageDistributionUserCounts)|getSkypeForBusinessDeviceUsageDistributionUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessDeviceUsageDistributionUserCounts)|Not Found|
+|[az reports report show-skype-for-business-device-usage-user-count](#reportsgetSkypeForBusinessDeviceUsageUserCounts)|getSkypeForBusinessDeviceUsageUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessDeviceUsageUserCounts)|Not Found|
+|[az reports report show-skype-for-business-device-usage-user-detail-a692](#reportsgetSkypeForBusinessDeviceUsageUserDetail-a692)|getSkypeForBusinessDeviceUsageUserDetail-a692|[Parameters](#ParametersreportsgetSkypeForBusinessDeviceUsageUserDetail-a692)|Not Found|
+|[az reports report show-skype-for-business-device-usage-user-detail-e753](#reportsgetSkypeForBusinessDeviceUsageUserDetail-e753)|getSkypeForBusinessDeviceUsageUserDetail-e753|[Parameters](#ParametersreportsgetSkypeForBusinessDeviceUsageUserDetail-e753)|Not Found|
+|[az reports report show-skype-for-business-organizer-activity-count](#reportsgetSkypeForBusinessOrganizerActivityCounts)|getSkypeForBusinessOrganizerActivityCounts|[Parameters](#ParametersreportsgetSkypeForBusinessOrganizerActivityCounts)|Not Found|
+|[az reports report show-skype-for-business-organizer-activity-minute-count](#reportsgetSkypeForBusinessOrganizerActivityMinuteCounts)|getSkypeForBusinessOrganizerActivityMinuteCounts|[Parameters](#ParametersreportsgetSkypeForBusinessOrganizerActivityMinuteCounts)|Not Found|
+|[az reports report show-skype-for-business-organizer-activity-user-count](#reportsgetSkypeForBusinessOrganizerActivityUserCounts)|getSkypeForBusinessOrganizerActivityUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessOrganizerActivityUserCounts)|Not Found|
+|[az reports report show-skype-for-business-participant-activity-count](#reportsgetSkypeForBusinessParticipantActivityCounts)|getSkypeForBusinessParticipantActivityCounts|[Parameters](#ParametersreportsgetSkypeForBusinessParticipantActivityCounts)|Not Found|
+|[az reports report show-skype-for-business-participant-activity-minute-count](#reportsgetSkypeForBusinessParticipantActivityMinuteCounts)|getSkypeForBusinessParticipantActivityMinuteCounts|[Parameters](#ParametersreportsgetSkypeForBusinessParticipantActivityMinuteCounts)|Not Found|
+|[az reports report show-skype-for-business-participant-activity-user-count](#reportsgetSkypeForBusinessParticipantActivityUserCounts)|getSkypeForBusinessParticipantActivityUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessParticipantActivityUserCounts)|Not Found|
+|[az reports report show-skype-for-business-peer-to-peer-activity-count](#reportsgetSkypeForBusinessPeerToPeerActivityCounts)|getSkypeForBusinessPeerToPeerActivityCounts|[Parameters](#ParametersreportsgetSkypeForBusinessPeerToPeerActivityCounts)|Not Found|
+|[az reports report show-skype-for-business-peer-to-peer-activity-minute-count](#reportsgetSkypeForBusinessPeerToPeerActivityMinuteCounts)|getSkypeForBusinessPeerToPeerActivityMinuteCounts|[Parameters](#ParametersreportsgetSkypeForBusinessPeerToPeerActivityMinuteCounts)|Not Found|
+|[az reports report show-skype-for-business-peer-to-peer-activity-user-count](#reportsgetSkypeForBusinessPeerToPeerActivityUserCounts)|getSkypeForBusinessPeerToPeerActivityUserCounts|[Parameters](#ParametersreportsgetSkypeForBusinessPeerToPeerActivityUserCounts)|Not Found|
+|[az reports report show-team-device-usage-distribution-user-count](#reportsgetTeamsDeviceUsageDistributionUserCounts)|getTeamsDeviceUsageDistributionUserCounts|[Parameters](#ParametersreportsgetTeamsDeviceUsageDistributionUserCounts)|Not Found|
+|[az reports report show-team-device-usage-user-count](#reportsgetTeamsDeviceUsageUserCounts)|getTeamsDeviceUsageUserCounts|[Parameters](#ParametersreportsgetTeamsDeviceUsageUserCounts)|Not Found|
+|[az reports report show-team-device-usage-user-detail7148](#reportsgetTeamsDeviceUsageUserDetail-7148)|getTeamsDeviceUsageUserDetail-7148|[Parameters](#ParametersreportsgetTeamsDeviceUsageUserDetail-7148)|Not Found|
+|[az reports report show-team-device-usage-user-detail7565](#reportsgetTeamsDeviceUsageUserDetail-7565)|getTeamsDeviceUsageUserDetail-7565|[Parameters](#ParametersreportsgetTeamsDeviceUsageUserDetail-7565)|Not Found|
+|[az reports report show-team-user-activity-count](#reportsgetTeamsUserActivityCounts)|getTeamsUserActivityCounts|[Parameters](#ParametersreportsgetTeamsUserActivityCounts)|Not Found|
+|[az reports report show-team-user-activity-user-count](#reportsgetTeamsUserActivityUserCounts)|getTeamsUserActivityUserCounts|[Parameters](#ParametersreportsgetTeamsUserActivityUserCounts)|Not Found|
+|[az reports report show-team-user-activity-user-detail-a3-f1](#reportsgetTeamsUserActivityUserDetail-a3f1)|getTeamsUserActivityUserDetail-a3f1|[Parameters](#ParametersreportsgetTeamsUserActivityUserDetail-a3f1)|Not Found|
+|[az reports report show-team-user-activity-user-detail-eb13](#reportsgetTeamsUserActivityUserDetail-eb13)|getTeamsUserActivityUserDetail-eb13|[Parameters](#ParametersreportsgetTeamsUserActivityUserDetail-eb13)|Not Found|
+|[az reports report show-tenant-secure-score](#reportsgetTenantSecureScores)|getTenantSecureScores|[Parameters](#ParametersreportsgetTenantSecureScores)|Not Found|
+|[az reports report show-user-credential-usage-detail](#reportsGetUserCredentialUsageDetails)|GetUserCredentialUsageDetails|[Parameters](#ParametersreportsGetUserCredentialUsageDetails)|Not Found|
+|[az reports report show-yammer-activity-count](#reportsgetYammerActivityCounts)|getYammerActivityCounts|[Parameters](#ParametersreportsgetYammerActivityCounts)|Not Found|
+|[az reports report show-yammer-activity-user-count](#reportsgetYammerActivityUserCounts)|getYammerActivityUserCounts|[Parameters](#ParametersreportsgetYammerActivityUserCounts)|Not Found|
+|[az reports report show-yammer-activity-user-detail-ac30](#reportsgetYammerActivityUserDetail-ac30)|getYammerActivityUserDetail-ac30|[Parameters](#ParametersreportsgetYammerActivityUserDetail-ac30)|Not Found|
+|[az reports report show-yammer-activity-user-detail15-a5](#reportsgetYammerActivityUserDetail-15a5)|getYammerActivityUserDetail-15a5|[Parameters](#ParametersreportsgetYammerActivityUserDetail-15a5)|Not Found|
+|[az reports report show-yammer-device-usage-distribution-user-count](#reportsgetYammerDeviceUsageDistributionUserCounts)|getYammerDeviceUsageDistributionUserCounts|[Parameters](#ParametersreportsgetYammerDeviceUsageDistributionUserCounts)|Not Found|
+|[az reports report show-yammer-device-usage-user-count](#reportsgetYammerDeviceUsageUserCounts)|getYammerDeviceUsageUserCounts|[Parameters](#ParametersreportsgetYammerDeviceUsageUserCounts)|Not Found|
+|[az reports report show-yammer-device-usage-user-detail-cfad](#reportsgetYammerDeviceUsageUserDetail-cfad)|getYammerDeviceUsageUserDetail-cfad|[Parameters](#ParametersreportsgetYammerDeviceUsageUserDetail-cfad)|Not Found|
+|[az reports report show-yammer-device-usage-user-detail-d0-ac](#reportsgetYammerDeviceUsageUserDetail-d0ac)|getYammerDeviceUsageUserDetail-d0ac|[Parameters](#ParametersreportsgetYammerDeviceUsageUserDetail-d0ac)|Not Found|
+|[az reports report show-yammer-group-activity-count](#reportsgetYammerGroupsActivityCounts)|getYammerGroupsActivityCounts|[Parameters](#ParametersreportsgetYammerGroupsActivityCounts)|Not Found|
+|[az reports report show-yammer-group-activity-detail-da9-a](#reportsgetYammerGroupsActivityDetail-da9a)|getYammerGroupsActivityDetail-da9a|[Parameters](#ParametersreportsgetYammerGroupsActivityDetail-da9a)|Not Found|
+|[az reports report show-yammer-group-activity-detail0-d7-d](#reportsgetYammerGroupsActivityDetail-0d7d)|getYammerGroupsActivityDetail-0d7d|[Parameters](#ParametersreportsgetYammerGroupsActivityDetail-0d7d)|Not Found|
+|[az reports report show-yammer-group-activity-group-count](#reportsgetYammerGroupsActivityGroupCounts)|getYammerGroupsActivityGroupCounts|[Parameters](#ParametersreportsgetYammerGroupsActivityGroupCounts)|Not Found|
+|[az reports report update-application-sign-in-detailed-summary](#reportsUpdateApplicationSignInDetailedSummary)|UpdateApplicationSignInDetailedSummary|[Parameters](#ParametersreportsUpdateApplicationSignInDetailedSummary)|Not Found|
+|[az reports report update-credential-user-registration-detail](#reportsUpdateCredentialUserRegistrationDetails)|UpdateCredentialUserRegistrationDetails|[Parameters](#ParametersreportsUpdateCredentialUserRegistrationDetails)|Not Found|
+|[az reports report update-daily-print-usage-summary-by-printer](#reportsUpdateDailyPrintUsageSummariesByPrinter)|UpdateDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsUpdateDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report update-daily-print-usage-summary-by-user](#reportsUpdateDailyPrintUsageSummariesByUser)|UpdateDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsUpdateDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report update-monthly-print-usage-summary-by-printer](#reportsUpdateMonthlyPrintUsageSummariesByPrinter)|UpdateMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsUpdateMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report update-monthly-print-usage-summary-by-user](#reportsUpdateMonthlyPrintUsageSummariesByUser)|UpdateMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsUpdateMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report update-user-credential-usage-detail](#reportsUpdateUserCredentialUsageDetails)|UpdateUserCredentialUsageDetails|[Parameters](#ParametersreportsUpdateUserCredentialUsageDetails)|Not Found|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
+### <a name="CommandsInreports.reportRoot">Commands in `az reports report-root` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az reports report-root show-report-root](#reports.reportRootGetReportRoot)|GetReportRoot|[Parameters](#Parametersreports.reportRootGetReportRoot)|Not Found|
+|[az reports report-root update-report-root](#reports.reportRootUpdateReportRoot)|UpdateReportRoot|[Parameters](#Parametersreports.reportRootUpdateReportRoot)|Not Found|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-directory-provisioning|CreateDirectoryProvisioning|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--target-system-details**|dictionary|detailsInfo|details|details|
-|**--target-system-display-name**|string||display_name|displayName|
-|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--target-identity-identity-type**|string||identity_type|identityType|
-|**--status-info-status**|choice||status|status|
-|**--source-system-details**|dictionary|detailsInfo|details1|details|
-|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--source-system-id**|string||id1|id|
-|**--source-identity-details**|dictionary|detailsInfo|details2|details|
-|**--source-identity-display-name**|string||display_name1|displayName|
-|**--source-identity-id**|string||id2|id|
-|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+## COMMAND DETAILS
 
-### reports audit-log create-provisioning
+### group `az reports audit-log`
+#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete`</a>
 
-create-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-provisioning|CreateProvisioning|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--target-system-details**|dictionary|detailsInfo|details|details|
-|**--target-system-display-name**|string||display_name|displayName|
-|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--target-identity-identity-type**|string||identity_type|identityType|
-|**--status-info-status**|choice||status|status|
-|**--source-system-details**|dictionary|detailsInfo|details1|details|
-|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--source-system-id**|string||id1|id|
-|**--source-identity-details**|dictionary|detailsInfo|details2|details|
-|**--source-identity-display-name**|string||display_name1|displayName|
-|**--source-identity-id**|string||id2|id|
-|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
-
-### reports audit-log create-restricted-sign-in
-
-create-restricted-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-restricted-sign-in|CreateRestrictedSignIns|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
-|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
-|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
-|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
-|**--authentication-details**|array||authentication_details|authenticationDetails|
-|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
-|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
-|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
-|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
-|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
-|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
-|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
-|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
-|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
-|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
-|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
-|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
-|**--network-location-details**|array||network_location_details|networkLocationDetails|
-|**--original-request-id**|string||original_request_id|originalRequestId|
-|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
-|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
-|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
-|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
-|**--risk-detail**|choice||risk_detail|riskDetail|
-|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
-|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
-|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
-|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
-|**--risk-state**|choice||risk_state|riskState|
-|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
-|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
-|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
-|**--status**|object|signInStatus|status|status|
-|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
-|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
-|**--user-agent**|string||user_agent|userAgent|
-|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
-|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
-|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
-|**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
-
-### reports audit-log create-sign-in
-
-create-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-sign-in|CreateSignIns|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
-|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
-|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
-|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
-|**--authentication-details**|array||authentication_details|authenticationDetails|
-|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
-|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
-|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
-|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
-|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
-|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
-|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
-|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
-|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
-|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
-|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
-|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
-|**--network-location-details**|array||network_location_details|networkLocationDetails|
-|**--original-request-id**|string||original_request_id|originalRequestId|
-|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
-|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
-|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
-|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
-|**--risk-detail**|choice||risk_detail|riskDetail|
-|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
-|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
-|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
-|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
-|**--risk-state**|choice||risk_state|riskState|
-|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
-|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
-|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
-|**--status**|object|signInStatus|status|status|
-|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
-|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
-|**--user-agent**|string||user_agent|userAgent|
-|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
-|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
-|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
-
-### reports audit-log delete
-
-delete a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteDirectoryAudits|
-|delete|DeleteDirectoryProvisioning|
-|delete|DeleteProvisioning|
-|delete|DeleteRestrictedSignIns|
-|delete|DeleteSignIns|
-
-#### Parameters
+##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
-|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
-|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### reports audit-log get-directory-audit
+#### <a name="auditLogsDeleteDirectoryProvisioning">Command `az reports audit-log delete`</a>
 
-get-directory-audit a reports audit-log.
+##### <a name="ParametersauditLogsDeleteDirectoryProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
+#### <a name="auditLogsDeleteProvisioning">Command `az reports audit-log delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory-audit|GetDirectoryAudits|
+##### <a name="ParametersauditLogsDeleteProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete`</a>
 
-#### Parameters
+##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+
+#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete`</a>
+
+##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+
+#### <a name="auditLogsCreateDirectoryAudits">Command `az reports audit-log create-directory-audit`</a>
+
+##### <a name="ParametersauditLogsCreateDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--activity-date-time**|date-time|Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|activity_date_time|activityDateTime|
+|**--activity-display-name**|string|Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.|activity_display_name|activityDisplayName|
+|**--additional-details**|array|Indicates additional details on the activity.|additional_details|additionalDetails|
+|**--category**|string|Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)|category|category|
+|**--correlation-id**|string|Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.|correlation_id|correlationId|
+|**--logged-by-service**|string|Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.|logged_by_service|loggedByService|
+|**--operation-type**|string||operation_type|operationType|
+|**--result**|choice||result|result|
+|**--result-reason**|string|Describes cause of 'failure' or 'timeout' results.|result_reason|resultReason|
+|**--target-resources**|array|Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.|target_resources|targetResources|
+|**--app**|object|appIdentity|app|app|
+|**--user**|object|userIdentity|user|user|
+
+#### <a name="auditLogsCreateDirectoryProvisioning">Command `az reports audit-log create-directory-provisioning`</a>
+
+##### <a name="ParametersauditLogsCreateDirectoryProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--details**|dictionary|detailsInfo|details|details|
+|**--display-name**|string||display_name|displayName|
+|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--identity-type**|string||identity_type|identityType|
+|**--status**|choice||status|status|
+|**--details1**|dictionary|detailsInfo|details1|details|
+|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--id1**|string||id1|id|
+|**--details2**|dictionary|detailsInfo|details2|details|
+|**--display-name1**|string||display_name1|displayName|
+|**--id2**|string||id2|id|
+|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+
+#### <a name="auditLogsCreateProvisioning">Command `az reports audit-log create-provisioning`</a>
+
+##### <a name="ParametersauditLogsCreateProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--action**|string||action|action|
+|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
+|**--change-id**|string||change_id|changeId|
+|**--cycle-id**|string||cycle_id|cycleId|
+|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
+|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
+|**--job-id**|string||job_id|jobId|
+|**--modified-properties**|array||modified_properties|modifiedProperties|
+|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
+|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
+|**--tenant-id**|string||tenant_id|tenantId|
+|**--details**|dictionary|detailsInfo|details|details|
+|**--display-name**|string||display_name|displayName|
+|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--identity-type**|string||identity_type|identityType|
+|**--status**|choice||status|status|
+|**--details1**|dictionary|detailsInfo|details1|details|
+|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--id1**|string||id1|id|
+|**--details2**|dictionary|detailsInfo|details2|details|
+|**--display-name1**|string||display_name1|displayName|
+|**--id2**|string||id2|id|
+|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+
+#### <a name="auditLogsCreateRestrictedSignIns">Command `az reports audit-log create-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsCreateRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--authentication-details**|array||authentication_details|authenticationDetails|
+|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
+|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
+|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
+|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
+|**--network-location-details**|array||network_location_details|networkLocationDetails|
+|**--original-request-id**|string||original_request_id|originalRequestId|
+|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
+|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
+|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
+|**--status**|object|signInStatus|status|status|
+|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
+|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
+|**--user-agent**|string||user_agent|userAgent|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
+
+#### <a name="auditLogsCreateSignIns">Command `az reports audit-log create-sign-in`</a>
+
+##### <a name="ParametersauditLogsCreateSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
+|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
+|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
+|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
+|**--authentication-details**|array||authentication_details|authenticationDetails|
+|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
+|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
+|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
+|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
+|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
+|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
+|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
+|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
+|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
+|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
+|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
+|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
+|**--network-location-details**|array||network_location_details|networkLocationDetails|
+|**--original-request-id**|string||original_request_id|originalRequestId|
+|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
+|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
+|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
+|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
+|**--risk-detail**|choice||risk_detail|riskDetail|
+|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
+|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
+|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
+|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
+|**--risk-state**|choice||risk_state|riskState|
+|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
+|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
+|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
+|**--status**|object|signInStatus|status|status|
+|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
+|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
+|**--user-agent**|string||user_agent|userAgent|
+|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
+|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
+|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
+|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+
+#### <a name="auditLogsListDirectoryAudits">Command `az reports audit-log list-directory-audit`</a>
+
+##### <a name="ParametersauditLogsListDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="auditLogsListDirectoryProvisioning">Command `az reports audit-log list-directory-provisioning`</a>
+
+##### <a name="ParametersauditLogsListDirectoryProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="auditLogsListProvisioning">Command `az reports audit-log list-provisioning`</a>
+
+##### <a name="ParametersauditLogsListProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="auditLogsListRestrictedSignIns">Command `az reports audit-log list-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsListRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="auditLogsListSignIns">Command `az reports audit-log list-sign-in`</a>
+
+##### <a name="ParametersauditLogsListSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="auditLogsGetDirectoryAudits">Command `az reports audit-log show-directory-audit`</a>
+
+##### <a name="ParametersauditLogsGetDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log get-directory-provisioning
+#### <a name="auditLogsGetDirectoryProvisioning">Command `az reports audit-log show-directory-provisioning`</a>
 
-get-directory-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-directory-provisioning|GetDirectoryProvisioning|
-
-#### Parameters
+##### <a name="ParametersauditLogsGetDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log get-provisioning
+#### <a name="auditLogsGetProvisioning">Command `az reports audit-log show-provisioning`</a>
 
-get-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-provisioning|GetProvisioning|
-
-#### Parameters
+##### <a name="ParametersauditLogsGetProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log get-restricted-sign-in
+#### <a name="auditLogsGetRestrictedSignIns">Command `az reports audit-log show-restricted-sign-in`</a>
 
-get-restricted-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-restricted-sign-in|GetRestrictedSignIns|
-
-#### Parameters
+##### <a name="ParametersauditLogsGetRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log get-sign-in
+#### <a name="auditLogsGetSignIns">Command `az reports audit-log show-sign-in`</a>
 
-get-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-sign-in|GetSignIns|
-
-#### Parameters
+##### <a name="ParametersauditLogsGetSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log list-directory-audit
+#### <a name="auditLogsUpdateDirectoryAudits">Command `az reports audit-log update-directory-audit`</a>
 
-list-directory-audit a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-directory-audit|ListDirectoryAudits|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports audit-log list-directory-provisioning
-
-list-directory-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-directory-provisioning|ListDirectoryProvisioning|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports audit-log list-provisioning
-
-list-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-provisioning|ListProvisioning|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports audit-log list-restricted-sign-in
-
-list-restricted-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-restricted-sign-in|ListRestrictedSignIns|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports audit-log list-sign-in
-
-list-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-sign-in|ListSignIns|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports audit-log update-directory-audit
-
-update-directory-audit a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory-audit|UpdateDirectoryAudits|
-
-#### Parameters
+##### <a name="ParametersauditLogsUpdateDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
@@ -512,24 +530,12 @@ update-directory-audit a reports audit-log.
 |**--result**|choice||result|result|
 |**--result-reason**|string|Describes cause of 'failure' or 'timeout' results.|result_reason|resultReason|
 |**--target-resources**|array|Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.|target_resources|targetResources|
-|**--initiated-by-app**|object|appIdentity|app|app|
-|**--initiated-by-user**|object|userIdentity|user|user|
+|**--app**|object|appIdentity|app|app|
+|**--user**|object|userIdentity|user|user|
 
-### reports audit-log update-directory-provisioning
+#### <a name="auditLogsUpdateDirectoryProvisioning">Command `az reports audit-log update-directory-provisioning`</a>
 
-update-directory-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-directory-provisioning|UpdateDirectoryProvisioning|
-
-#### Parameters
+##### <a name="ParametersauditLogsUpdateDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
@@ -545,37 +551,25 @@ update-directory-provisioning a reports audit-log.
 |**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
 |**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
 |**--tenant-id**|string||tenant_id|tenantId|
-|**--target-system-details**|dictionary|detailsInfo|details|details|
-|**--target-system-display-name**|string||display_name|displayName|
-|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--target-identity-identity-type**|string||identity_type|identityType|
-|**--status-info-status**|choice||status|status|
-|**--source-system-details**|dictionary|detailsInfo|details1|details|
-|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--source-system-id**|string||id1|id|
-|**--source-identity-details**|dictionary|detailsInfo|details2|details|
-|**--source-identity-display-name**|string||display_name1|displayName|
-|**--source-identity-id**|string||id2|id|
-|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--details**|dictionary|detailsInfo|details|details|
+|**--display-name**|string||display_name|displayName|
+|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--identity-type**|string||identity_type|identityType|
+|**--status**|choice||status|status|
+|**--details1**|dictionary|detailsInfo|details1|details|
+|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--id1**|string||id1|id|
+|**--details2**|dictionary|detailsInfo|details2|details|
+|**--display-name1**|string||display_name1|displayName|
+|**--id2**|string||id2|id|
+|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
-### reports audit-log update-provisioning
+#### <a name="auditLogsUpdateProvisioning">Command `az reports audit-log update-provisioning`</a>
 
-update-provisioning a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-provisioning|UpdateProvisioning|
-
-#### Parameters
+##### <a name="ParametersauditLogsUpdateProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
@@ -591,37 +585,25 @@ update-provisioning a reports audit-log.
 |**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
 |**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
 |**--tenant-id**|string||tenant_id|tenantId|
-|**--target-system-details**|dictionary|detailsInfo|details|details|
-|**--target-system-display-name**|string||display_name|displayName|
-|**--target-system-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--target-identity-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--target-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--target-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--target-identity-identity-type**|string||identity_type|identityType|
-|**--status-info-status**|choice||status|status|
-|**--source-system-details**|dictionary|detailsInfo|details1|details|
-|**--source-system-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--source-system-id**|string||id1|id|
-|**--source-identity-details**|dictionary|detailsInfo|details2|details|
-|**--source-identity-display-name**|string||display_name1|displayName|
-|**--source-identity-id**|string||id2|id|
-|**--source-identity-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--details**|dictionary|detailsInfo|details|details|
+|**--display-name**|string||display_name|displayName|
+|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
+|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
+|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
+|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
+|**--identity-type**|string||identity_type|identityType|
+|**--status**|choice||status|status|
+|**--details1**|dictionary|detailsInfo|details1|details|
+|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
+|**--id1**|string||id1|id|
+|**--details2**|dictionary|detailsInfo|details2|details|
+|**--display-name1**|string||display_name1|displayName|
+|**--id2**|string||id2|id|
+|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
 
-### reports audit-log update-restricted-sign-in
+#### <a name="auditLogsUpdateRestrictedSignIns">Command `az reports audit-log update-restricted-sign-in`</a>
 
-update-restricted-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-restricted-sign-in|UpdateRestrictedSignIns|
-
-#### Parameters
+##### <a name="ParametersauditLogsUpdateRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
@@ -665,27 +647,15 @@ update-restricted-sign-in a reports audit-log.
 |**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
 |**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
 |**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 |**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-### reports audit-log update-sign-in
+#### <a name="auditLogsUpdateSignIns">Command `az reports audit-log update-sign-in`</a>
 
-update-sign-in a reports audit-log.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log|auditLogs|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-sign-in|UpdateSignIns|
-
-#### Parameters
+##### <a name="ParametersauditLogsUpdateSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
@@ -729,46 +699,23 @@ update-sign-in a reports audit-log.
 |**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
 |**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
 |**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--location-city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--location-country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--location-geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--location-state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
+|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
+|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
+|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 
-### reports audit-log-audit-log-root get-audit-log-root
+### group `az reports audit-log-audit-log-root`
+#### <a name="auditLogs.auditLogRootGetAuditLogRoot">Command `az reports audit-log-audit-log-root show-audit-log-root`</a>
 
-get-audit-log-root a reports audit-log-audit-log-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log-audit-log-root|auditLogs.auditLogRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-audit-log-root|GetAuditLogRoot|
-
-#### Parameters
+##### <a name="ParametersauditLogs.auditLogRootGetAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports audit-log-audit-log-root update-audit-log-root
+#### <a name="auditLogs.auditLogRootUpdateAuditLogRoot">Command `az reports audit-log-audit-log-root update-audit-log-root`</a>
 
-update-audit-log-root a reports audit-log-audit-log-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports audit-log-audit-log-root|auditLogs.auditLogRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-audit-log-root|UpdateAuditLogRoot|
-
-#### Parameters
+##### <a name="ParametersauditLogs.auditLogRootUpdateAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -778,21 +725,56 @@ update-audit-log-root a reports audit-log-audit-log-root.
 |**--restricted-sign-ins**|array||restricted_sign_ins|restrictedSignIns|
 |**--sign-ins**|array|Read-only. Nullable.|sign_ins|signIns|
 
-### reports report create-application-sign-in-detailed-summary
+### group `az reports report`
+#### <a name="reportsDeleteApplicationSignInDetailedSummary">Command `az reports report delete`</a>
 
-create-application-sign-in-detailed-summary a reports report.
+##### <a name="ParametersreportsDeleteApplicationSignInDetailedSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
+#### <a name="reportsDeleteCredentialUserRegistrationDetails">Command `az reports report delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-application-sign-in-detailed-summary|CreateApplicationSignInDetailedSummary|
+##### <a name="ParametersreportsDeleteCredentialUserRegistrationDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
 
-#### Parameters
+#### <a name="reportsDeleteDailyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+
+#### <a name="reportsDeleteDailyPrintUsageSummariesByUser">Command `az reports report delete`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByUser">Command `az reports report delete`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsDeleteUserCredentialUsageDetails">Command `az reports report delete`</a>
+
+##### <a name="ParametersreportsDeleteUserCredentialUsageDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
+
+#### <a name="reportsCreateApplicationSignInDetailedSummary">Command `az reports report create-application-sign-in-detailed-summary`</a>
+
+##### <a name="ParametersreportsCreateApplicationSignInDetailedSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -800,25 +782,11 @@ create-application-sign-in-detailed-summary a reports report.
 |**--app-display-name**|string||app_display_name|appDisplayName|
 |**--app-id**|string||app_id|appId|
 |**--sign-in-count**|integer||sign_in_count|signInCount|
-|**--status-additional-details**|string|Provides additional details on the sign-in activity|additional_details|additionalDetails|
-|**--status-error-code**|integer|Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.|error_code|errorCode|
-|**--status-failure-reason**|string|Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.|failure_reason|failureReason|
+|**--status**|object|signInStatus|status|status|
 
-### reports report create-credential-user-registration-detail
+#### <a name="reportsCreateCredentialUserRegistrationDetails">Command `az reports report create-credential-user-registration-detail`</a>
 
-create-credential-user-registration-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-credential-user-registration-detail|CreateCredentialUserRegistrationDetails|
-
-#### Parameters
+##### <a name="ParametersreportsCreateCredentialUserRegistrationDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -830,21 +798,9 @@ create-credential-user-registration-detail a reports report.
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report create-daily-print-usage-summary-by-printer
+#### <a name="reportsCreateDailyPrintUsageSummariesByPrinter">Command `az reports report create-daily-print-usage-summary-by-printer`</a>
 
-create-daily-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-daily-print-usage-summary-by-printer|CreateDailyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsCreateDailyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -854,21 +810,9 @@ create-daily-print-usage-summary-by-printer a reports report.
 |**--printer-id**|string||printer_id|printerId|
 |**--usage-date**|date||usage_date|usageDate|
 
-### reports report create-daily-print-usage-summary-by-user
+#### <a name="reportsCreateDailyPrintUsageSummariesByUser">Command `az reports report create-daily-print-usage-summary-by-user`</a>
 
-create-daily-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-daily-print-usage-summary-by-user|CreateDailyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsCreateDailyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -878,21 +822,9 @@ create-daily-print-usage-summary-by-user a reports report.
 |**--usage-date**|date||usage_date|usageDate|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report create-monthly-print-usage-summary-by-printer
+#### <a name="reportsCreateMonthlyPrintUsageSummariesByPrinter">Command `az reports report create-monthly-print-usage-summary-by-printer`</a>
 
-create-monthly-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-monthly-print-usage-summary-by-printer|CreateMonthlyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsCreateMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -902,21 +834,9 @@ create-monthly-print-usage-summary-by-printer a reports report.
 |**--printer-id**|string||printer_id|printerId|
 |**--usage-date**|date||usage_date|usageDate|
 
-### reports report create-monthly-print-usage-summary-by-user
+#### <a name="reportsCreateMonthlyPrintUsageSummariesByUser">Command `az reports report create-monthly-print-usage-summary-by-user`</a>
 
-create-monthly-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-monthly-print-usage-summary-by-user|CreateMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsCreateMonthlyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -926,21 +846,9 @@ create-monthly-print-usage-summary-by-user a reports report.
 |**--usage-date**|date||usage_date|usageDate|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report create-user-credential-usage-detail
+#### <a name="reportsCreateUserCredentialUsageDetails">Command `az reports report create-user-credential-usage-detail`</a>
 
-create-user-credential-usage-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-credential-usage-detail|CreateUserCredentialUsageDetails|
-
-#### Parameters
+##### <a name="ParametersreportsCreateUserCredentialUsageDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -952,2280 +860,840 @@ create-user-credential-usage-detail a reports report.
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report delete
+#### <a name="reportsdeviceConfigurationDeviceActivity">Command `az reports report device-configuration-device-activity`</a>
 
-delete a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteApplicationSignInDetailedSummary|
-|delete|DeleteCredentialUserRegistrationDetails|
-|delete|DeleteDailyPrintUsageSummariesByPrinter|
-|delete|DeleteDailyPrintUsageSummariesByUser|
-|delete|DeleteMonthlyPrintUsageSummariesByPrinter|
-|delete|DeleteMonthlyPrintUsageSummariesByUser|
-|delete|DeleteUserCredentialUsageDetails|
-
-#### Parameters
+##### <a name="ParametersreportsdeviceConfigurationDeviceActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
-|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
-|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+#### <a name="reportsdeviceConfigurationUserActivity">Command `az reports report device-configuration-user-activity`</a>
 
-### reports report device-configuration-device-activity
-
-device-configuration-device-activity a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|device-configuration-device-activity|deviceConfigurationDeviceActivity|
-
-#### Parameters
+##### <a name="ParametersreportsdeviceConfigurationUserActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsListApplicationSignInDetailedSummary">Command `az reports report list-application-sign-in-detailed-summary`</a>
 
-### reports report device-configuration-user-activity
-
-device-configuration-user-activity a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|device-configuration-user-activity|deviceConfigurationUserActivity|
-
-#### Parameters
+##### <a name="ParametersreportsListApplicationSignInDetailedSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-application-sign-in-detailed-summary
+#### <a name="reportsListCredentialUserRegistrationDetails">Command `az reports report list-credential-user-registration-detail`</a>
 
-get-application-sign-in-detailed-summary a reports report.
+##### <a name="ParametersreportsListCredentialUserRegistrationDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
+#### <a name="reportsListDailyPrintUsageSummariesByPrinter">Command `az reports report list-daily-print-usage-summary`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-application-sign-in-detailed-summary|GetApplicationSignInDetailedSummary|
+##### <a name="ParametersreportsListDailyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="reportsListDailyPrintUsageSummariesByUser">Command `az reports report list-daily-print-usage-summary`</a>
+
+##### <a name="ParametersreportsListDailyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsListMonthlyPrintUsageSummariesByPrinter">Command `az reports report list-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsListMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="reportsListMonthlyPrintUsageSummariesByUser">Command `az reports report list-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsListMonthlyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsListUserCredentialUsageDetails">Command `az reports report list-user-credential-usage-detail`</a>
+
+##### <a name="ParametersreportsListUserCredentialUsageDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="reportsmanagedDeviceEnrollmentAbandonmentDetails">Command `az reports report managed-device-enrollment-abandonment-detail`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentAbandonmentDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--skip**|integer||skip|skip|
+|**--top**|integer||top|top|
+|**--filter**|string||filter|filter|
+|**--skip-token**|string||skip_token|skipToken|
+
+#### <a name="reportsmanagedDeviceEnrollmentAbandonmentSummary">Command `az reports report managed-device-enrollment-abandonment-summary`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentAbandonmentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--skip**|integer||skip|skip|
+|**--top**|integer||top|top|
+|**--filter**|string||filter|filter|
+|**--skip-token**|string||skip_token|skipToken|
+
+#### <a name="reportsmanagedDeviceEnrollmentFailureDetails-027e">Command `az reports report managed-device-enrollment-failure-details027-e`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentFailureDetails-027e">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsmanagedDeviceEnrollmentFailureDetails-2b3d">Command `az reports report managed-device-enrollment-failure-details2-b3-d`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentFailureDetails-2b3d">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--skip**|integer||skip|skip|
+|**--top**|integer||top|top|
+|**--filter**|string||filter|filter|
+|**--skip-token**|string||skip_token|skipToken|
+
+#### <a name="reportsmanagedDeviceEnrollmentFailureTrends">Command `az reports report managed-device-enrollment-failure-trend`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentFailureTrends">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsmanagedDeviceEnrollmentTopFailures-afd1">Command `az reports report managed-device-enrollment-top-failure-afd1`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentTopFailures-afd1">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--period**|string||period|period|
+
+#### <a name="reportsmanagedDeviceEnrollmentTopFailures-4669">Command `az reports report managed-device-enrollment-top-failures4669`</a>
+
+##### <a name="ParametersreportsmanagedDeviceEnrollmentTopFailures-4669">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="reportsGetApplicationSignInDetailedSummary">Command `az reports report show-application-sign-in-detailed-summary`</a>
+
+##### <a name="ParametersreportsGetApplicationSignInDetailedSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-azure-ad-application-sign-in-summary
+#### <a name="reportsgetAzureADApplicationSignInSummary">Command `az reports report show-azure-ad-application-sign-in-summary`</a>
 
-get-azure-ad-application-sign-in-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-application-sign-in-summary|getAzureADApplicationSignInSummary|
-
-#### Parameters
+##### <a name="ParametersreportsgetAzureADApplicationSignInSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-azure-ad-feature-usage
+#### <a name="reportsgetAzureADFeatureUsage">Command `az reports report show-azure-ad-feature-usage`</a>
 
-get-azure-ad-feature-usage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-feature-usage|getAzureADFeatureUsage|
-
-#### Parameters
+##### <a name="ParametersreportsgetAzureADFeatureUsage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-azure-ad-license-usage
+#### <a name="reportsgetAzureADLicenseUsage">Command `az reports report show-azure-ad-license-usage`</a>
 
-get-azure-ad-license-usage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-license-usage|getAzureADLicenseUsage|
-
-#### Parameters
+##### <a name="ParametersreportsgetAzureADLicenseUsage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-azure-ad-user-feature-usage
+#### <a name="reportsgetAzureADUserFeatureUsage">Command `az reports report show-azure-ad-user-feature-usage`</a>
 
-get-azure-ad-user-feature-usage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-azure-ad-user-feature-usage|getAzureADUserFeatureUsage|
-
-#### Parameters
+##### <a name="ParametersreportsgetAzureADUserFeatureUsage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsgetCredentialUsageSummary">Command `az reports report show-credential-usage-summary`</a>
 
-### reports report get-credential-usage-summary
-
-get-credential-usage-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-usage-summary|getCredentialUsageSummary|
-
-#### Parameters
+##### <a name="ParametersreportsgetCredentialUsageSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-credential-user-registration-count
+#### <a name="reportsgetCredentialUserRegistrationCount">Command `az reports report show-credential-user-registration-count`</a>
 
-get-credential-user-registration-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-user-registration-count|getCredentialUserRegistrationCount|
-
-#### Parameters
+##### <a name="ParametersreportsgetCredentialUserRegistrationCount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsGetCredentialUserRegistrationDetails">Command `az reports report show-credential-user-registration-detail`</a>
 
-### reports report get-credential-user-registration-detail
-
-get-credential-user-registration-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-credential-user-registration-detail|GetCredentialUserRegistrationDetails|
-
-#### Parameters
+##### <a name="ParametersreportsGetCredentialUserRegistrationDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-daily-print-usage-summary-by-printer
+#### <a name="reportsGetDailyPrintUsageSummariesByPrinter">Command `az reports report show-daily-print-usage-summary`</a>
 
-get-daily-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-daily-print-usage-summary-by-printer|GetDailyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsGetDailyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-daily-print-usage-summary-by-user
+#### <a name="reportsGetDailyPrintUsageSummariesByUser">Command `az reports report show-daily-print-usage-summary`</a>
 
-get-daily-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-daily-print-usage-summary-by-user|GetDailyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsGetDailyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-email-activity-count
+#### <a name="reportsgetEmailActivityCounts">Command `az reports report show-email-activity-count`</a>
 
-get-email-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-activity-count|getEmailActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-activity-user-count
+#### <a name="reportsgetEmailActivityUserCounts">Command `az reports report show-email-activity-user-count`</a>
 
-get-email-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-activity-user-count|getEmailActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-activity-user-detail-ddb2
+#### <a name="reportsgetEmailActivityUserDetail-ddb2">Command `az reports report show-email-activity-user-detail-ddb2`</a>
 
-get-email-activity-user-detail-ddb2 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-activity-user-detail-ddb2|getEmailActivityUserDetail-ddb2|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailActivityUserDetail-ddb2">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-activity-user-detail-fe32
+#### <a name="reportsgetEmailActivityUserDetail-fe32">Command `az reports report show-email-activity-user-detail-fe32`</a>
 
-get-email-activity-user-detail-fe32 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-activity-user-detail-fe32|getEmailActivityUserDetail-fe32|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailActivityUserDetail-fe32">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-email-app-usage-app-user-count
+#### <a name="reportsgetEmailAppUsageAppsUserCounts">Command `az reports report show-email-app-usage-app-user-count`</a>
 
-get-email-app-usage-app-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-app-usage-app-user-count|getEmailAppUsageAppsUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailAppUsageAppsUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-app-usage-user-count
+#### <a name="reportsgetEmailAppUsageUserCounts">Command `az reports report show-email-app-usage-user-count`</a>
 
-get-email-app-usage-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-app-usage-user-count|getEmailAppUsageUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailAppUsageUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-app-usage-user-detail546-b
+#### <a name="reportsgetEmailAppUsageUserDetail-546b">Command `az reports report show-email-app-usage-user-detail546-b`</a>
 
-get-email-app-usage-user-detail546-b a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-app-usage-user-detail546-b|getEmailAppUsageUserDetail-546b|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailAppUsageUserDetail-546b">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-email-app-usage-user-detail62-ec
+#### <a name="reportsgetEmailAppUsageUserDetail-62ec">Command `az reports report show-email-app-usage-user-detail62-ec`</a>
 
-get-email-app-usage-user-detail62-ec a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-app-usage-user-detail62-ec|getEmailAppUsageUserDetail-62ec|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailAppUsageUserDetail-62ec">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-email-app-usage-version-user-count
+#### <a name="reportsgetEmailAppUsageVersionsUserCounts">Command `az reports report show-email-app-usage-version-user-count`</a>
 
-get-email-app-usage-version-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-email-app-usage-version-user-count|getEmailAppUsageVersionsUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetEmailAppUsageVersionsUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-m365-app-platform-user-count
+#### <a name="reportsgetM365AppPlatformUserCounts">Command `az reports report show-m365-app-platform-user-count`</a>
 
-get-m365-app-platform-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-m365-app-platform-user-count|getM365AppPlatformUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetM365AppPlatformUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-m365-app-user-count
+#### <a name="reportsgetM365AppUserCounts">Command `az reports report show-m365-app-user-count`</a>
 
-get-m365-app-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-m365-app-user-count|getM365AppUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetM365AppUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-m365-app-user-detail-c8-df
+#### <a name="reportsgetM365AppUserDetail-c8df">Command `az reports report show-m365-app-user-detail-c8-df`</a>
 
-get-m365-app-user-detail-c8-df a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-m365-app-user-detail-c8-df|getM365AppUserDetail-c8df|
-
-#### Parameters
+##### <a name="ParametersreportsgetM365AppUserDetail-c8df">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-m365-app-user-detail2-b20
+#### <a name="reportsgetM365AppUserDetail-2b20">Command `az reports report show-m365-app-user-detail2-b20`</a>
 
-get-m365-app-user-detail2-b20 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-m365-app-user-detail2-b20|getM365AppUserDetail-2b20|
-
-#### Parameters
+##### <a name="ParametersreportsgetM365AppUserDetail-2b20">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-mailbox-usage-detail
+#### <a name="reportsgetMailboxUsageDetail">Command `az reports report show-mailbox-usage-detail`</a>
 
-get-mailbox-usage-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mailbox-usage-detail|getMailboxUsageDetail|
-
-#### Parameters
+##### <a name="ParametersreportsgetMailboxUsageDetail">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-mailbox-usage-mailbox-count
+#### <a name="reportsgetMailboxUsageMailboxCounts">Command `az reports report show-mailbox-usage-mailbox-count`</a>
 
-get-mailbox-usage-mailbox-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mailbox-usage-mailbox-count|getMailboxUsageMailboxCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetMailboxUsageMailboxCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-mailbox-usage-quota-status-mailbox-count
+#### <a name="reportsgetMailboxUsageQuotaStatusMailboxCounts">Command `az reports report show-mailbox-usage-quota-status-mailbox-count`</a>
 
-get-mailbox-usage-quota-status-mailbox-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mailbox-usage-quota-status-mailbox-count|getMailboxUsageQuotaStatusMailboxCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetMailboxUsageQuotaStatusMailboxCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-mailbox-usage-storage
+#### <a name="reportsgetMailboxUsageStorage">Command `az reports report show-mailbox-usage-storage`</a>
 
-get-mailbox-usage-storage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mailbox-usage-storage|getMailboxUsageStorage|
-
-#### Parameters
+##### <a name="ParametersreportsgetMailboxUsageStorage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-monthly-print-usage-summary-by-printer
+#### <a name="reportsGetMonthlyPrintUsageSummariesByPrinter">Command `az reports report show-monthly-print-usage-summary`</a>
 
-get-monthly-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-monthly-print-usage-summary-by-printer|GetMonthlyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsGetMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-monthly-print-usage-summary-by-user
+#### <a name="reportsGetMonthlyPrintUsageSummariesByUser">Command `az reports report show-monthly-print-usage-summary`</a>
 
-get-monthly-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-monthly-print-usage-summary-by-user|GetMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsGetMonthlyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-office365-activation-count
+#### <a name="reportsgetOffice365ActivationCounts">Command `az reports report show-office365-activation-count`</a>
 
-get-office365-activation-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-activation-count|getOffice365ActivationCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActivationCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsgetOffice365ActivationsUserCounts">Command `az reports report show-office365-activation-user-count`</a>
 
-### reports report get-office365-activation-user-count
-
-get-office365-activation-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-activation-user-count|getOffice365ActivationsUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActivationsUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsgetOffice365ActivationsUserDetail">Command `az reports report show-office365-activation-user-detail`</a>
 
-### reports report get-office365-activation-user-detail
-
-get-office365-activation-user-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-activation-user-detail|getOffice365ActivationsUserDetail|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActivationsUserDetail">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="reportsgetOffice365ActiveUserCounts">Command `az reports report show-office365-active-user-count`</a>
 
-### reports report get-office365-active-user-count
-
-get-office365-active-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-active-user-count|getOffice365ActiveUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActiveUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-active-user-detail-d389
+#### <a name="reportsgetOffice365ActiveUserDetail-d389">Command `az reports report show-office365-active-user-detail-d389`</a>
 
-get-office365-active-user-detail-d389 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-active-user-detail-d389|getOffice365ActiveUserDetail-d389|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActiveUserDetail-d389">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-office365-active-user-detail68-ad
+#### <a name="reportsgetOffice365ActiveUserDetail-68ad">Command `az reports report show-office365-active-user-detail68-ad`</a>
 
-get-office365-active-user-detail68-ad a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-active-user-detail68-ad|getOffice365ActiveUserDetail-68ad|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ActiveUserDetail-68ad">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-group-activity-count
+#### <a name="reportsgetOffice365GroupsActivityCounts">Command `az reports report show-office365-group-activity-count`</a>
 
-get-office365-group-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-count|getOffice365GroupsActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-group-activity-detail38-f6
+#### <a name="reportsgetOffice365GroupsActivityDetail-38f6">Command `az reports report show-office365-group-activity-detail38-f6`</a>
 
-get-office365-group-activity-detail38-f6 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-detail38-f6|getOffice365GroupsActivityDetail-38f6|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityDetail-38f6">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-group-activity-detail81-cc
+#### <a name="reportsgetOffice365GroupsActivityDetail-81cc">Command `az reports report show-office365-group-activity-detail81-cc`</a>
 
-get-office365-group-activity-detail81-cc a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-detail81-cc|getOffice365GroupsActivityDetail-81cc|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityDetail-81cc">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-office365-group-activity-file-count
+#### <a name="reportsgetOffice365GroupsActivityFileCounts">Command `az reports report show-office365-group-activity-file-count`</a>
 
-get-office365-group-activity-file-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-file-count|getOffice365GroupsActivityFileCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityFileCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-group-activity-group-count
+#### <a name="reportsgetOffice365GroupsActivityGroupCounts">Command `az reports report show-office365-group-activity-group-count`</a>
 
-get-office365-group-activity-group-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-group-count|getOffice365GroupsActivityGroupCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityGroupCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-group-activity-storage
+#### <a name="reportsgetOffice365GroupsActivityStorage">Command `az reports report show-office365-group-activity-storage`</a>
 
-get-office365-group-activity-storage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-group-activity-storage|getOffice365GroupsActivityStorage|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365GroupsActivityStorage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-office365-service-user-count
+#### <a name="reportsgetOffice365ServicesUserCounts">Command `az reports report show-office365-service-user-count`</a>
 
-get-office365-service-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-office365-service-user-count|getOffice365ServicesUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOffice365ServicesUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-activity-file-count
+#### <a name="reportsgetOneDriveActivityFileCounts">Command `az reports report show-one-drive-activity-file-count`</a>
 
-get-one-drive-activity-file-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-activity-file-count|getOneDriveActivityFileCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveActivityFileCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-activity-user-count
+#### <a name="reportsgetOneDriveActivityUserCounts">Command `az reports report show-one-drive-activity-user-count`</a>
 
-get-one-drive-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-activity-user-count|getOneDriveActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-activity-user-detail-c424
+#### <a name="reportsgetOneDriveActivityUserDetail-c424">Command `az reports report show-one-drive-activity-user-detail-c424`</a>
 
-get-one-drive-activity-user-detail-c424 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-activity-user-detail-c424|getOneDriveActivityUserDetail-c424|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveActivityUserDetail-c424">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-activity-user-detail05-f1
+#### <a name="reportsgetOneDriveActivityUserDetail-05f1">Command `az reports report show-one-drive-activity-user-detail05-f1`</a>
 
-get-one-drive-activity-user-detail05-f1 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-activity-user-detail05-f1|getOneDriveActivityUserDetail-05f1|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveActivityUserDetail-05f1">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-one-drive-usage-account-count
+#### <a name="reportsgetOneDriveUsageAccountCounts">Command `az reports report show-one-drive-usage-account-count`</a>
 
-get-one-drive-usage-account-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-usage-account-count|getOneDriveUsageAccountCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveUsageAccountCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-usage-account-detail-dd7-f
+#### <a name="reportsgetOneDriveUsageAccountDetail-dd7f">Command `az reports report show-one-drive-usage-account-detail-dd7-f`</a>
 
-get-one-drive-usage-account-detail-dd7-f a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-usage-account-detail-dd7-f|getOneDriveUsageAccountDetail-dd7f|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveUsageAccountDetail-dd7f">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-usage-account-detail-e827
+#### <a name="reportsgetOneDriveUsageAccountDetail-e827">Command `az reports report show-one-drive-usage-account-detail-e827`</a>
 
-get-one-drive-usage-account-detail-e827 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-usage-account-detail-e827|getOneDriveUsageAccountDetail-e827|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveUsageAccountDetail-e827">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-one-drive-usage-file-count
+#### <a name="reportsgetOneDriveUsageFileCounts">Command `az reports report show-one-drive-usage-file-count`</a>
 
-get-one-drive-usage-file-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-usage-file-count|getOneDriveUsageFileCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveUsageFileCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-one-drive-usage-storage
+#### <a name="reportsgetOneDriveUsageStorage">Command `az reports report show-one-drive-usage-storage`</a>
 
-get-one-drive-usage-storage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-one-drive-usage-storage|getOneDriveUsageStorage|
-
-#### Parameters
+##### <a name="ParametersreportsgetOneDriveUsageStorage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-relying-party-detailed-summary
+#### <a name="reportsgetRelyingPartyDetailedSummary">Command `az reports report show-relying-party-detailed-summary`</a>
 
-get-relying-party-detailed-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-relying-party-detailed-summary|getRelyingPartyDetailedSummary|
-
-#### Parameters
+##### <a name="ParametersreportsgetRelyingPartyDetailedSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-activity-file-count
+#### <a name="reportsgetSharePointActivityFileCounts">Command `az reports report show-share-point-activity-file-count`</a>
 
-get-share-point-activity-file-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-activity-file-count|getSharePointActivityFileCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointActivityFileCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-activity-page
+#### <a name="reportsgetSharePointActivityPages">Command `az reports report show-share-point-activity-page`</a>
 
-get-share-point-activity-page a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-activity-page|getSharePointActivityPages|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointActivityPages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-activity-user-count
+#### <a name="reportsgetSharePointActivityUserCounts">Command `az reports report show-share-point-activity-user-count`</a>
 
-get-share-point-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-activity-user-count|getSharePointActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-activity-user-detail-b778
+#### <a name="reportsgetSharePointActivityUserDetail-b778">Command `az reports report show-share-point-activity-user-detail-b778`</a>
 
-get-share-point-activity-user-detail-b778 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-activity-user-detail-b778|getSharePointActivityUserDetail-b778|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointActivityUserDetail-b778">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-activity-user-detail-f3-be
+#### <a name="reportsgetSharePointActivityUserDetail-f3be">Command `az reports report show-share-point-activity-user-detail-f3-be`</a>
 
-get-share-point-activity-user-detail-f3-be a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-activity-user-detail-f3-be|getSharePointActivityUserDetail-f3be|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointActivityUserDetail-f3be">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-share-point-site-usage-detail-d27-a
+#### <a name="reportsgetSharePointSiteUsageDetail-d27a">Command `az reports report show-share-point-site-usage-detail-d27-a`</a>
 
-get-share-point-site-usage-detail-d27-a a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-detail-d27-a|getSharePointSiteUsageDetail-d27a|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsageDetail-d27a">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-share-point-site-usage-detail204-b
+#### <a name="reportsgetSharePointSiteUsageDetail-204b">Command `az reports report show-share-point-site-usage-detail204-b`</a>
 
-get-share-point-site-usage-detail204-b a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-detail204-b|getSharePointSiteUsageDetail-204b|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsageDetail-204b">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-site-usage-file-count
+#### <a name="reportsgetSharePointSiteUsageFileCounts">Command `az reports report show-share-point-site-usage-file-count`</a>
 
-get-share-point-site-usage-file-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-file-count|getSharePointSiteUsageFileCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsageFileCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-site-usage-page
+#### <a name="reportsgetSharePointSiteUsagePages">Command `az reports report show-share-point-site-usage-page`</a>
 
-get-share-point-site-usage-page a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-page|getSharePointSiteUsagePages|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsagePages">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-site-usage-site-count
+#### <a name="reportsgetSharePointSiteUsageSiteCounts">Command `az reports report show-share-point-site-usage-site-count`</a>
 
-get-share-point-site-usage-site-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-site-count|getSharePointSiteUsageSiteCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsageSiteCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-share-point-site-usage-storage
+#### <a name="reportsgetSharePointSiteUsageStorage">Command `az reports report show-share-point-site-usage-storage`</a>
 
-get-share-point-site-usage-storage a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-share-point-site-usage-storage|getSharePointSiteUsageStorage|
-
-#### Parameters
+##### <a name="ParametersreportsgetSharePointSiteUsageStorage">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-activity-count
+#### <a name="reportsgetSkypeForBusinessActivityCounts">Command `az reports report show-skype-for-business-activity-count`</a>
 
-get-skype-for-business-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-activity-count|getSkypeForBusinessActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-activity-user-count
+#### <a name="reportsgetSkypeForBusinessActivityUserCounts">Command `az reports report show-skype-for-business-activity-user-count`</a>
 
-get-skype-for-business-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-activity-user-count|getSkypeForBusinessActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-activity-user-detail-e4-c9
+#### <a name="reportsgetSkypeForBusinessActivityUserDetail-e4c9">Command `az reports report show-skype-for-business-activity-user-detail-e4-c9`</a>
 
-get-skype-for-business-activity-user-detail-e4-c9 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-activity-user-detail-e4-c9|getSkypeForBusinessActivityUserDetail-e4c9|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessActivityUserDetail-e4c9">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-skype-for-business-activity-user-detail744-e
+#### <a name="reportsgetSkypeForBusinessActivityUserDetail-744e">Command `az reports report show-skype-for-business-activity-user-detail744-e`</a>
 
-get-skype-for-business-activity-user-detail744-e a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-activity-user-detail744-e|getSkypeForBusinessActivityUserDetail-744e|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessActivityUserDetail-744e">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-device-usage-distribution-user-count
+#### <a name="reportsgetSkypeForBusinessDeviceUsageDistributionUserCounts">Command `az reports report show-skype-for-business-device-usage-distribution-user-count`</a>
 
-get-skype-for-business-device-usage-distribution-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-device-usage-distribution-user-count|getSkypeForBusinessDeviceUsageDistributionUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessDeviceUsageDistributionUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-device-usage-user-count
+#### <a name="reportsgetSkypeForBusinessDeviceUsageUserCounts">Command `az reports report show-skype-for-business-device-usage-user-count`</a>
 
-get-skype-for-business-device-usage-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-device-usage-user-count|getSkypeForBusinessDeviceUsageUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessDeviceUsageUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-device-usage-user-detail-a692
+#### <a name="reportsgetSkypeForBusinessDeviceUsageUserDetail-a692">Command `az reports report show-skype-for-business-device-usage-user-detail-a692`</a>
 
-get-skype-for-business-device-usage-user-detail-a692 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-device-usage-user-detail-a692|getSkypeForBusinessDeviceUsageUserDetail-a692|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessDeviceUsageUserDetail-a692">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-skype-for-business-device-usage-user-detail-e753
+#### <a name="reportsgetSkypeForBusinessDeviceUsageUserDetail-e753">Command `az reports report show-skype-for-business-device-usage-user-detail-e753`</a>
 
-get-skype-for-business-device-usage-user-detail-e753 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-device-usage-user-detail-e753|getSkypeForBusinessDeviceUsageUserDetail-e753|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessDeviceUsageUserDetail-e753">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-organizer-activity-count
+#### <a name="reportsgetSkypeForBusinessOrganizerActivityCounts">Command `az reports report show-skype-for-business-organizer-activity-count`</a>
 
-get-skype-for-business-organizer-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-organizer-activity-count|getSkypeForBusinessOrganizerActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessOrganizerActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-organizer-activity-minute-count
+#### <a name="reportsgetSkypeForBusinessOrganizerActivityMinuteCounts">Command `az reports report show-skype-for-business-organizer-activity-minute-count`</a>
 
-get-skype-for-business-organizer-activity-minute-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-organizer-activity-minute-count|getSkypeForBusinessOrganizerActivityMinuteCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessOrganizerActivityMinuteCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-organizer-activity-user-count
+#### <a name="reportsgetSkypeForBusinessOrganizerActivityUserCounts">Command `az reports report show-skype-for-business-organizer-activity-user-count`</a>
 
-get-skype-for-business-organizer-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-organizer-activity-user-count|getSkypeForBusinessOrganizerActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessOrganizerActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-participant-activity-count
+#### <a name="reportsgetSkypeForBusinessParticipantActivityCounts">Command `az reports report show-skype-for-business-participant-activity-count`</a>
 
-get-skype-for-business-participant-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-participant-activity-count|getSkypeForBusinessParticipantActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessParticipantActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-participant-activity-minute-count
+#### <a name="reportsgetSkypeForBusinessParticipantActivityMinuteCounts">Command `az reports report show-skype-for-business-participant-activity-minute-count`</a>
 
-get-skype-for-business-participant-activity-minute-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-participant-activity-minute-count|getSkypeForBusinessParticipantActivityMinuteCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessParticipantActivityMinuteCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-participant-activity-user-count
+#### <a name="reportsgetSkypeForBusinessParticipantActivityUserCounts">Command `az reports report show-skype-for-business-participant-activity-user-count`</a>
 
-get-skype-for-business-participant-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-participant-activity-user-count|getSkypeForBusinessParticipantActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessParticipantActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-peer-to-peer-activity-count
+#### <a name="reportsgetSkypeForBusinessPeerToPeerActivityCounts">Command `az reports report show-skype-for-business-peer-to-peer-activity-count`</a>
 
-get-skype-for-business-peer-to-peer-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-peer-to-peer-activity-count|getSkypeForBusinessPeerToPeerActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessPeerToPeerActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-peer-to-peer-activity-minute-count
+#### <a name="reportsgetSkypeForBusinessPeerToPeerActivityMinuteCounts">Command `az reports report show-skype-for-business-peer-to-peer-activity-minute-count`</a>
 
-get-skype-for-business-peer-to-peer-activity-minute-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-peer-to-peer-activity-minute-count|getSkypeForBusinessPeerToPeerActivityMinuteCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessPeerToPeerActivityMinuteCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-skype-for-business-peer-to-peer-activity-user-count
+#### <a name="reportsgetSkypeForBusinessPeerToPeerActivityUserCounts">Command `az reports report show-skype-for-business-peer-to-peer-activity-user-count`</a>
 
-get-skype-for-business-peer-to-peer-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-skype-for-business-peer-to-peer-activity-user-count|getSkypeForBusinessPeerToPeerActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetSkypeForBusinessPeerToPeerActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-device-usage-distribution-user-count
+#### <a name="reportsgetTeamsDeviceUsageDistributionUserCounts">Command `az reports report show-team-device-usage-distribution-user-count`</a>
 
-get-team-device-usage-distribution-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-device-usage-distribution-user-count|getTeamsDeviceUsageDistributionUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsDeviceUsageDistributionUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-device-usage-user-count
+#### <a name="reportsgetTeamsDeviceUsageUserCounts">Command `az reports report show-team-device-usage-user-count`</a>
 
-get-team-device-usage-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-device-usage-user-count|getTeamsDeviceUsageUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsDeviceUsageUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-device-usage-user-detail7148
+#### <a name="reportsgetTeamsDeviceUsageUserDetail-7148">Command `az reports report show-team-device-usage-user-detail7148`</a>
 
-get-team-device-usage-user-detail7148 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-device-usage-user-detail7148|getTeamsDeviceUsageUserDetail-7148|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsDeviceUsageUserDetail-7148">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-team-device-usage-user-detail7565
+#### <a name="reportsgetTeamsDeviceUsageUserDetail-7565">Command `az reports report show-team-device-usage-user-detail7565`</a>
 
-get-team-device-usage-user-detail7565 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-device-usage-user-detail7565|getTeamsDeviceUsageUserDetail-7565|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsDeviceUsageUserDetail-7565">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-user-activity-count
+#### <a name="reportsgetTeamsUserActivityCounts">Command `az reports report show-team-user-activity-count`</a>
 
-get-team-user-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-user-activity-count|getTeamsUserActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsUserActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-user-activity-user-count
+#### <a name="reportsgetTeamsUserActivityUserCounts">Command `az reports report show-team-user-activity-user-count`</a>
 
-get-team-user-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-user-activity-user-count|getTeamsUserActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsUserActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-team-user-activity-user-detail-a3-f1
+#### <a name="reportsgetTeamsUserActivityUserDetail-a3f1">Command `az reports report show-team-user-activity-user-detail-a3-f1`</a>
 
-get-team-user-activity-user-detail-a3-f1 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-user-activity-user-detail-a3-f1|getTeamsUserActivityUserDetail-a3f1|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsUserActivityUserDetail-a3f1">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-team-user-activity-user-detail-eb13
+#### <a name="reportsgetTeamsUserActivityUserDetail-eb13">Command `az reports report show-team-user-activity-user-detail-eb13`</a>
 
-get-team-user-activity-user-detail-eb13 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-team-user-activity-user-detail-eb13|getTeamsUserActivityUserDetail-eb13|
-
-#### Parameters
+##### <a name="ParametersreportsgetTeamsUserActivityUserDetail-eb13">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-tenant-secure-score
+#### <a name="reportsgetTenantSecureScores">Command `az reports report show-tenant-secure-score`</a>
 
-get-tenant-secure-score a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-tenant-secure-score|getTenantSecureScores|
-
-#### Parameters
+##### <a name="ParametersreportsgetTenantSecureScores">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|integer||period|period|
 
-### reports report get-user-credential-usage-detail
+#### <a name="reportsGetUserCredentialUsageDetails">Command `az reports report show-user-credential-usage-detail`</a>
 
-get-user-credential-usage-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-credential-usage-detail|GetUserCredentialUsageDetails|
-
-#### Parameters
+##### <a name="ParametersreportsGetUserCredentialUsageDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report get-yammer-activity-count
+#### <a name="reportsgetYammerActivityCounts">Command `az reports report show-yammer-activity-count`</a>
 
-get-yammer-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-activity-count|getYammerActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-activity-user-count
+#### <a name="reportsgetYammerActivityUserCounts">Command `az reports report show-yammer-activity-user-count`</a>
 
-get-yammer-activity-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-activity-user-count|getYammerActivityUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerActivityUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-activity-user-detail-ac30
+#### <a name="reportsgetYammerActivityUserDetail-ac30">Command `az reports report show-yammer-activity-user-detail-ac30`</a>
 
-get-yammer-activity-user-detail-ac30 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-activity-user-detail-ac30|getYammerActivityUserDetail-ac30|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerActivityUserDetail-ac30">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-yammer-activity-user-detail15-a5
+#### <a name="reportsgetYammerActivityUserDetail-15a5">Command `az reports report show-yammer-activity-user-detail15-a5`</a>
 
-get-yammer-activity-user-detail15-a5 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-activity-user-detail15-a5|getYammerActivityUserDetail-15a5|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerActivityUserDetail-15a5">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-device-usage-distribution-user-count
+#### <a name="reportsgetYammerDeviceUsageDistributionUserCounts">Command `az reports report show-yammer-device-usage-distribution-user-count`</a>
 
-get-yammer-device-usage-distribution-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-device-usage-distribution-user-count|getYammerDeviceUsageDistributionUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerDeviceUsageDistributionUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-device-usage-user-count
+#### <a name="reportsgetYammerDeviceUsageUserCounts">Command `az reports report show-yammer-device-usage-user-count`</a>
 
-get-yammer-device-usage-user-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-device-usage-user-count|getYammerDeviceUsageUserCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerDeviceUsageUserCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-device-usage-user-detail-cfad
+#### <a name="reportsgetYammerDeviceUsageUserDetail-cfad">Command `az reports report show-yammer-device-usage-user-detail-cfad`</a>
 
-get-yammer-device-usage-user-detail-cfad a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-device-usage-user-detail-cfad|getYammerDeviceUsageUserDetail-cfad|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerDeviceUsageUserDetail-cfad">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-device-usage-user-detail-d0-ac
+#### <a name="reportsgetYammerDeviceUsageUserDetail-d0ac">Command `az reports report show-yammer-device-usage-user-detail-d0-ac`</a>
 
-get-yammer-device-usage-user-detail-d0-ac a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-device-usage-user-detail-d0-ac|getYammerDeviceUsageUserDetail-d0ac|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerDeviceUsageUserDetail-d0ac">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-yammer-group-activity-count
+#### <a name="reportsgetYammerGroupsActivityCounts">Command `az reports report show-yammer-group-activity-count`</a>
 
-get-yammer-group-activity-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-group-activity-count|getYammerGroupsActivityCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerGroupsActivityCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-group-activity-detail-da9-a
+#### <a name="reportsgetYammerGroupsActivityDetail-da9a">Command `az reports report show-yammer-group-activity-detail-da9-a`</a>
 
-get-yammer-group-activity-detail-da9-a a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-group-activity-detail-da9-a|getYammerGroupsActivityDetail-da9a|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerGroupsActivityDetail-da9a">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--date**|date||date|date|
 
-### reports report get-yammer-group-activity-detail0-d7-d
+#### <a name="reportsgetYammerGroupsActivityDetail-0d7d">Command `az reports report show-yammer-group-activity-detail0-d7-d`</a>
 
-get-yammer-group-activity-detail0-d7-d a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-group-activity-detail0-d7-d|getYammerGroupsActivityDetail-0d7d|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerGroupsActivityDetail-0d7d">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report get-yammer-group-activity-group-count
+#### <a name="reportsgetYammerGroupsActivityGroupCounts">Command `az reports report show-yammer-group-activity-group-count`</a>
 
-get-yammer-group-activity-group-count a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-yammer-group-activity-group-count|getYammerGroupsActivityGroupCounts|
-
-#### Parameters
+##### <a name="ParametersreportsgetYammerGroupsActivityGroupCounts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### reports report list-application-sign-in-detailed-summary
+#### <a name="reportsUpdateApplicationSignInDetailedSummary">Command `az reports report update-application-sign-in-detailed-summary`</a>
 
-list-application-sign-in-detailed-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-application-sign-in-detailed-summary|ListApplicationSignInDetailedSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports report list-credential-user-registration-detail
-
-list-credential-user-registration-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-credential-user-registration-detail|ListCredentialUserRegistrationDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports report list-daily-print-usage-summary
-
-list-daily-print-usage-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-daily-print-usage-summary|ListDailyPrintUsageSummariesByPrinter|
-|list-daily-print-usage-summary|ListDailyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports report list-monthly-print-usage-summary
-
-list-monthly-print-usage-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-monthly-print-usage-summary|ListMonthlyPrintUsageSummariesByPrinter|
-|list-monthly-print-usage-summary|ListMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports report list-user-credential-usage-detail
-
-list-user-credential-usage-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-credential-usage-detail|ListUserCredentialUsageDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### reports report managed-device-enrollment-abandonment-detail
-
-managed-device-enrollment-abandonment-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-abandonment-detail|managedDeviceEnrollmentAbandonmentDetails|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skip**|integer||skip|skip|
-|**--top**|integer||top|top|
-|**--filter**|string||filter|filter|
-|**--skip-token**|string||skip_token|skipToken|
-
-### reports report managed-device-enrollment-abandonment-summary
-
-managed-device-enrollment-abandonment-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-abandonment-summary|managedDeviceEnrollmentAbandonmentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skip**|integer||skip|skip|
-|**--top**|integer||top|top|
-|**--filter**|string||filter|filter|
-|**--skip-token**|string||skip_token|skipToken|
-
-### reports report managed-device-enrollment-failure-details027-e
-
-managed-device-enrollment-failure-details027-e a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-failure-details027-e|managedDeviceEnrollmentFailureDetails-027e|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### reports report managed-device-enrollment-failure-details2-b3-d
-
-managed-device-enrollment-failure-details2-b3-d a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-failure-details2-b3-d|managedDeviceEnrollmentFailureDetails-2b3d|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skip**|integer||skip|skip|
-|**--top**|integer||top|top|
-|**--filter**|string||filter|filter|
-|**--skip-token**|string||skip_token|skipToken|
-
-### reports report managed-device-enrollment-failure-trend
-
-managed-device-enrollment-failure-trend a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-failure-trend|managedDeviceEnrollmentFailureTrends|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### reports report managed-device-enrollment-top-failure-afd1
-
-managed-device-enrollment-top-failure-afd1 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-top-failure-afd1|managedDeviceEnrollmentTopFailures-afd1|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--period**|string||period|period|
-
-### reports report managed-device-enrollment-top-failures4669
-
-managed-device-enrollment-top-failures4669 a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|managed-device-enrollment-top-failures4669|managedDeviceEnrollmentTopFailures-4669|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### reports report update-application-sign-in-detailed-summary
-
-update-application-sign-in-detailed-summary a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-application-sign-in-detailed-summary|UpdateApplicationSignInDetailedSummary|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateApplicationSignInDetailedSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
@@ -3234,25 +1702,11 @@ update-application-sign-in-detailed-summary a reports report.
 |**--app-display-name**|string||app_display_name|appDisplayName|
 |**--app-id**|string||app_id|appId|
 |**--sign-in-count**|integer||sign_in_count|signInCount|
-|**--status-additional-details**|string|Provides additional details on the sign-in activity|additional_details|additionalDetails|
-|**--status-error-code**|integer|Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.|error_code|errorCode|
-|**--status-failure-reason**|string|Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.|failure_reason|failureReason|
+|**--status**|object|signInStatus|status|status|
 
-### reports report update-credential-user-registration-detail
+#### <a name="reportsUpdateCredentialUserRegistrationDetails">Command `az reports report update-credential-user-registration-detail`</a>
 
-update-credential-user-registration-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-credential-user-registration-detail|UpdateCredentialUserRegistrationDetails|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateCredentialUserRegistrationDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
@@ -3265,21 +1719,9 @@ update-credential-user-registration-detail a reports report.
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report update-daily-print-usage-summary-by-printer
+#### <a name="reportsUpdateDailyPrintUsageSummariesByPrinter">Command `az reports report update-daily-print-usage-summary-by-printer`</a>
 
-update-daily-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-daily-print-usage-summary-by-printer|UpdateDailyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateDailyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
@@ -3290,21 +1732,9 @@ update-daily-print-usage-summary-by-printer a reports report.
 |**--printer-id**|string||printer_id|printerId|
 |**--usage-date**|date||usage_date|usageDate|
 
-### reports report update-daily-print-usage-summary-by-user
+#### <a name="reportsUpdateDailyPrintUsageSummariesByUser">Command `az reports report update-daily-print-usage-summary-by-user`</a>
 
-update-daily-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-daily-print-usage-summary-by-user|UpdateDailyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateDailyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
@@ -3315,21 +1745,9 @@ update-daily-print-usage-summary-by-user a reports report.
 |**--usage-date**|date||usage_date|usageDate|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report update-monthly-print-usage-summary-by-printer
+#### <a name="reportsUpdateMonthlyPrintUsageSummariesByPrinter">Command `az reports report update-monthly-print-usage-summary-by-printer`</a>
 
-update-monthly-print-usage-summary-by-printer a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-monthly-print-usage-summary-by-printer|UpdateMonthlyPrintUsageSummariesByPrinter|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
@@ -3340,21 +1758,9 @@ update-monthly-print-usage-summary-by-printer a reports report.
 |**--printer-id**|string||printer_id|printerId|
 |**--usage-date**|date||usage_date|usageDate|
 
-### reports report update-monthly-print-usage-summary-by-user
+#### <a name="reportsUpdateMonthlyPrintUsageSummariesByUser">Command `az reports report update-monthly-print-usage-summary-by-user`</a>
 
-update-monthly-print-usage-summary-by-user a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-monthly-print-usage-summary-by-user|UpdateMonthlyPrintUsageSummariesByUser|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateMonthlyPrintUsageSummariesByUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
@@ -3365,21 +1771,9 @@ update-monthly-print-usage-summary-by-user a reports report.
 |**--usage-date**|date||usage_date|usageDate|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report update-user-credential-usage-detail
+#### <a name="reportsUpdateUserCredentialUsageDetails">Command `az reports report update-user-credential-usage-detail`</a>
 
-update-user-credential-usage-detail a reports report.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report|reports|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-credential-usage-detail|UpdateUserCredentialUsageDetails|
-
-#### Parameters
+##### <a name="ParametersreportsUpdateUserCredentialUsageDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
@@ -3392,41 +1786,18 @@ update-user-credential-usage-detail a reports report.
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### reports report-root get-root
+### group `az reports report-root`
+#### <a name="reports.reportRootGetReportRoot">Command `az reports report-root show-report-root`</a>
 
-get-root a reports report-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report-root|reports.reportRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-root|GetReportRoot|
-
-#### Parameters
+##### <a name="Parametersreports.reportRootGetReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### reports report-root update-root
+#### <a name="reports.reportRootUpdateReportRoot">Command `az reports report-root update-report-root`</a>
 
-update-root a reports report-root.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|reports report-root|reports.reportRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-root|UpdateReportRoot|
-
-#### Parameters
+##### <a name="Parametersreports.reportRootUpdateReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|

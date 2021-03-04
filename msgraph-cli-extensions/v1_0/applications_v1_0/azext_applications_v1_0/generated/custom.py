@@ -21,6 +21,7 @@ def applications_application_list(client,
 
 
 def applications_application_create(client,
+                                    application_id=None,
                                     id_=None,
                                     deleted_date_time=None,
                                     add_ins=None,
@@ -53,18 +54,64 @@ def applications_application_create(client,
                                     owners=None,
                                     token_issuance_policies=None,
                                     token_lifetime_policies=None,
-                                    web_home_page_url=None,
-                                    web_implicit_grant_settings=None,
-                                    web_logout_url=None,
-                                    web_redirect_uris=None,
-                                    optional_claims_access_token=None,
-                                    optional_claims_id_token=None,
-                                    optional_claims_saml2token=None,
-                                    api_accept_mapped_claims=None,
-                                    api_known_client_applications=None,
-                                    api_oauth2permission_scopes=None,
-                                    api_pre_authorized_applications=None,
-                                    api_requested_access_token_version=None):
+                                    home_page_url=None,
+                                    implicit_grant_settings=None,
+                                    logout_url=None,
+                                    redirect_uris=None,
+                                    access_token=None,
+                                    id_token=None,
+                                    saml2_token=None,
+                                    accept_mapped_claims=None,
+                                    known_client_applications=None,
+                                    oauth2_permission_scopes=None,
+                                    pre_authorized_applications=None,
+                                    requested_access_token_version=None):
+    if application_id is not None:
+        return client.update_application(application_id=application_id,
+                                         id=id_,
+                                         deleted_date_time=deleted_date_time,
+                                         add_ins=add_ins,
+                                         app_id=app_id,
+                                         application_template_id=application_template_id,
+                                         app_roles=app_roles,
+                                         created_date_time=created_date_time,
+                                         description=description,
+                                         display_name=display_name,
+                                         group_membership_claims=group_membership_claims,
+                                         identifier_uris=identifier_uris,
+                                         info=info,
+                                         is_device_only_auth_supported=is_device_only_auth_supported,
+                                         is_fallback_public_client=is_fallback_public_client,
+                                         key_credentials=key_credentials,
+                                         logo=logo,
+                                         notes=notes,
+                                         oauth2_require_post_response=oauth2_require_post_response,
+                                         parental_control_settings=parental_control_settings,
+                                         password_credentials=password_credentials,
+                                         public_client=public_client,
+                                         publisher_domain=publisher_domain,
+                                         required_resource_access=required_resource_access,
+                                         sign_in_audience=sign_in_audience,
+                                         tags=tags,
+                                         token_encryption_key_id=token_encryption_key_id,
+                                         created_on_behalf_of=created_on_behalf_of,
+                                         extension_properties=extension_properties,
+                                         home_realm_discovery_policies=home_realm_discovery_policies,
+                                         owners=owners,
+                                         token_issuance_policies=token_issuance_policies,
+                                         token_lifetime_policies=token_lifetime_policies,
+                                         home_page_url=home_page_url,
+                                         implicit_grant_settings=implicit_grant_settings,
+                                         logout_url=logout_url,
+                                         redirect_uris=redirect_uris,
+                                         access_token=access_token,
+                                         id_token=id_token,
+                                         saml2_token=saml2_token,
+                                         accept_mapped_claims=accept_mapped_claims,
+                                         known_client_applications=known_client_applications,
+                                         oauth2_permission_scopes=oauth2_permission_scopes,
+                                         pre_authorized_applications=pre_authorized_applications,
+                                         requested_access_token_version=requested_access_token_version)
     return client.create_application(id=id_,
                                      deleted_date_time=deleted_date_time,
                                      add_ins=add_ins,
@@ -97,111 +144,18 @@ def applications_application_create(client,
                                      owners=owners,
                                      token_issuance_policies=token_issuance_policies,
                                      token_lifetime_policies=token_lifetime_policies,
-                                     home_page_url=web_home_page_url,
-                                     implicit_grant_settings=web_implicit_grant_settings,
-                                     logout_url=web_logout_url,
-                                     redirect_uris=web_redirect_uris,
-                                     access_token=optional_claims_access_token,
-                                     id_token=optional_claims_id_token,
-                                     saml2_token=optional_claims_saml2token,
-                                     accept_mapped_claims=api_accept_mapped_claims,
-                                     known_client_applications=api_known_client_applications,
-                                     oauth2_permission_scopes=api_oauth2permission_scopes,
-                                     pre_authorized_applications=api_pre_authorized_applications,
-                                     requested_access_token_version=api_requested_access_token_version)
-
-
-def applications_application_update(client,
-                                    application_id,
-                                    id_=None,
-                                    deleted_date_time=None,
-                                    add_ins=None,
-                                    app_id=None,
-                                    application_template_id=None,
-                                    app_roles=None,
-                                    created_date_time=None,
-                                    description=None,
-                                    display_name=None,
-                                    group_membership_claims=None,
-                                    identifier_uris=None,
-                                    info=None,
-                                    is_device_only_auth_supported=None,
-                                    is_fallback_public_client=None,
-                                    key_credentials=None,
-                                    logo=None,
-                                    notes=None,
-                                    oauth2_require_post_response=None,
-                                    parental_control_settings=None,
-                                    password_credentials=None,
-                                    public_client=None,
-                                    publisher_domain=None,
-                                    required_resource_access=None,
-                                    sign_in_audience=None,
-                                    tags=None,
-                                    token_encryption_key_id=None,
-                                    created_on_behalf_of=None,
-                                    extension_properties=None,
-                                    home_realm_discovery_policies=None,
-                                    owners=None,
-                                    token_issuance_policies=None,
-                                    token_lifetime_policies=None,
-                                    web_home_page_url=None,
-                                    web_implicit_grant_settings=None,
-                                    web_logout_url=None,
-                                    web_redirect_uris=None,
-                                    optional_claims_access_token=None,
-                                    optional_claims_id_token=None,
-                                    optional_claims_saml2token=None,
-                                    api_accept_mapped_claims=None,
-                                    api_known_client_applications=None,
-                                    api_oauth2permission_scopes=None,
-                                    api_pre_authorized_applications=None,
-                                    api_requested_access_token_version=None):
-    return client.update_application(application_id=application_id,
-                                     id=id_,
-                                     deleted_date_time=deleted_date_time,
-                                     add_ins=add_ins,
-                                     app_id=app_id,
-                                     application_template_id=application_template_id,
-                                     app_roles=app_roles,
-                                     created_date_time=created_date_time,
-                                     description=description,
-                                     display_name=display_name,
-                                     group_membership_claims=group_membership_claims,
-                                     identifier_uris=identifier_uris,
-                                     info=info,
-                                     is_device_only_auth_supported=is_device_only_auth_supported,
-                                     is_fallback_public_client=is_fallback_public_client,
-                                     key_credentials=key_credentials,
-                                     logo=logo,
-                                     notes=notes,
-                                     oauth2_require_post_response=oauth2_require_post_response,
-                                     parental_control_settings=parental_control_settings,
-                                     password_credentials=password_credentials,
-                                     public_client=public_client,
-                                     publisher_domain=publisher_domain,
-                                     required_resource_access=required_resource_access,
-                                     sign_in_audience=sign_in_audience,
-                                     tags=tags,
-                                     token_encryption_key_id=token_encryption_key_id,
-                                     created_on_behalf_of=created_on_behalf_of,
-                                     extension_properties=extension_properties,
-                                     home_realm_discovery_policies=home_realm_discovery_policies,
-                                     owners=owners,
-                                     token_issuance_policies=token_issuance_policies,
-                                     token_lifetime_policies=token_lifetime_policies,
-                                     home_page_url=web_home_page_url,
-                                     implicit_grant_settings=web_implicit_grant_settings,
-                                     logout_url=web_logout_url,
-                                     redirect_uris=web_redirect_uris,
-                                     access_token=optional_claims_access_token,
-                                     id_token=optional_claims_id_token,
-                                     saml2_token=optional_claims_saml2token,
-                                     accept_mapped_claims=api_accept_mapped_claims,
-                                     known_client_applications=api_known_client_applications,
-                                     oauth2_permission_scopes=api_oauth2permission_scopes,
-                                     pre_authorized_applications=api_pre_authorized_applications,
-                                     requested_access_token_version=api_requested_access_token_version)
+                                     home_page_url=home_page_url,
+                                     implicit_grant_settings=implicit_grant_settings,
+                                     logout_url=logout_url,
+                                     redirect_uris=redirect_uris,
+                                     access_token=access_token,
+                                     id_token=id_token,
+                                     saml2_token=saml2_token,
+                                     accept_mapped_claims=accept_mapped_claims,
+                                     known_client_applications=known_client_applications,
+                                     oauth2_permission_scopes=oauth2_permission_scopes,
+                                     pre_authorized_applications=pre_authorized_applications,
+                                     requested_access_token_version=requested_access_token_version)
 
 
 def applications_application_delete(client,
@@ -211,25 +165,25 @@ def applications_application_delete(client,
                                      if_match=if_match)
 
 
-def applications_application_get(client,
-                                 application_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_application(application_id=application_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def applications_application_get_logo(client,
-                                      application_id):
-    return client.get_logo(application_id=application_id)
-
-
 def applications_application_set_logo(client,
                                       application_id,
                                       data):
     return client.set_logo(application_id=application_id,
                            data=data)
+
+
+def applications_application_show_application(client,
+                                              application_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_application(application_id=application_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def applications_application_show_logo(client,
+                                       application_id):
+    return client.get_logo(application_id=application_id)
 
 
 def applications_application_delete(client,
@@ -341,26 +295,6 @@ def applications_application_get_by_id(client,
                             types=types)
 
 
-def applications_application_get_created_on_behalf_of(client,
-                                                      application_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_created_on_behalf_of(application_id=application_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def applications_application_get_extension_property(client,
-                                                    application_id,
-                                                    extension_property_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_extension_property(application_id=application_id,
-                                         extension_property_id=extension_property_id,
-                                         select=select,
-                                         expand=expand)
-
-
 def applications_application_get_member_group(client,
                                               application_id,
                                               security_enabled_only=None):
@@ -377,11 +311,6 @@ def applications_application_get_member_object(client,
         security_enabled_only = False
     return client.get_member_object(application_id=application_id,
                                     security_enabled_only=security_enabled_only)
-
-
-def applications_application_get_ref_created_on_behalf_of(client,
-                                                          application_id):
-    return client.get_ref_created_on_behalf_of(application_id=application_id)
 
 
 def applications_application_list_extension_property(client,
@@ -495,6 +424,31 @@ def applications_application_set_ref_created_on_behalf_of(client,
                                                body=body)
 
 
+def applications_application_show_created_on_behalf_of(client,
+                                                       application_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_created_on_behalf_of(application_id=application_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def applications_application_show_extension_property(client,
+                                                     application_id,
+                                                     extension_property_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_extension_property(application_id=application_id,
+                                         extension_property_id=extension_property_id,
+                                         select=select,
+                                         expand=expand)
+
+
+def applications_application_show_ref_created_on_behalf_of(client,
+                                                           application_id):
+    return client.get_ref_created_on_behalf_of(application_id=application_id)
+
+
 def applications_application_update_extension_property(client,
                                                        application_id,
                                                        extension_property_id,
@@ -559,17 +513,6 @@ def applications_group_create_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_group_get_app_role_assignment(client,
-                                               group_id,
-                                               app_role_assignment_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_app_role_assignment(group_id=group_id,
-                                          app_role_assignment_id=app_role_assignment_id,
-                                          select=select,
-                                          expand=expand)
-
-
 def applications_group_list_app_role_assignment(client,
                                                 group_id,
                                                 orderby=None,
@@ -579,6 +522,17 @@ def applications_group_list_app_role_assignment(client,
                                            orderby=orderby,
                                            select=select,
                                            expand=expand)
+
+
+def applications_group_show_app_role_assignment(client,
+                                                group_id,
+                                                app_role_assignment_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_app_role_assignment(group_id=group_id,
+                                          app_role_assignment_id=app_role_assignment_id,
+                                          select=select,
+                                          expand=expand)
 
 
 def applications_group_update_app_role_assignment(client,
@@ -657,7 +611,7 @@ def applications_service_principal_service_principal_create_service_principal(cl
                                                                               token_issuance_policies=None,
                                                                               token_lifetime_policies=None,
                                                                               transitive_member_of=None,
-                                                                              saml_single_sign_on_settings_relay_state=None):
+                                                                              relay_state=None):
     return client.create_service_principal(id=id_,
                                            deleted_date_time=deleted_date_time,
                                            account_enabled=account_enabled,
@@ -701,16 +655,7 @@ def applications_service_principal_service_principal_create_service_principal(cl
                                            token_issuance_policies=token_issuance_policies,
                                            token_lifetime_policies=token_lifetime_policies,
                                            transitive_member_of=transitive_member_of,
-                                           relay_state=saml_single_sign_on_settings_relay_state)
-
-
-def applications_service_principal_service_principal_get_service_principal(client,
-                                                                           service_principal_id,
-                                                                           select=None,
-                                                                           expand=None):
-    return client.get_service_principal(service_principal_id=service_principal_id,
-                                        select=select,
-                                        expand=expand)
+                                           relay_state=relay_state)
 
 
 def applications_service_principal_service_principal_list_service_principal(client,
@@ -720,6 +665,15 @@ def applications_service_principal_service_principal_list_service_principal(clie
     return client.list_service_principal(orderby=orderby,
                                          select=select,
                                          expand=expand)
+
+
+def applications_service_principal_service_principal_show_service_principal(client,
+                                                                            service_principal_id,
+                                                                            select=None,
+                                                                            expand=None):
+    return client.get_service_principal(service_principal_id=service_principal_id,
+                                        select=select,
+                                        expand=expand)
 
 
 def applications_service_principal_service_principal_update_service_principal(client,
@@ -767,7 +721,7 @@ def applications_service_principal_service_principal_update_service_principal(cl
                                                                               token_issuance_policies=None,
                                                                               token_lifetime_policies=None,
                                                                               transitive_member_of=None,
-                                                                              saml_single_sign_on_settings_relay_state=None):
+                                                                              relay_state=None):
     return client.update_service_principal(service_principal_id=service_principal_id,
                                            id=id_,
                                            deleted_date_time=deleted_date_time,
@@ -812,7 +766,7 @@ def applications_service_principal_service_principal_update_service_principal(cl
                                            token_issuance_policies=token_issuance_policies,
                                            token_lifetime_policies=token_lifetime_policies,
                                            transitive_member_of=transitive_member_of,
-                                           relay_state=saml_single_sign_on_settings_relay_state)
+                                           relay_state=relay_state)
 
 
 def applications_service_principal_delete(client,
@@ -1004,28 +958,6 @@ def applications_service_principal_delta(client):
     return client.delta()
 
 
-def applications_service_principal_get_app_role_assigned_to(client,
-                                                            service_principal_id,
-                                                            app_role_assignment_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_app_role_assigned_to(service_principal_id=service_principal_id,
-                                           app_role_assignment_id=app_role_assignment_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def applications_service_principal_get_app_role_assignment(client,
-                                                           service_principal_id,
-                                                           app_role_assignment_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_app_role_assignment(service_principal_id=service_principal_id,
-                                          app_role_assignment_id=app_role_assignment_id,
-                                          select=select,
-                                          expand=expand)
-
-
 def applications_service_principal_get_available_extension_property(client,
                                                                     is_synced_from_on_premises=None):
     if is_synced_from_on_premises is None:
@@ -1038,17 +970,6 @@ def applications_service_principal_get_by_id(client,
                                              types=None):
     return client.get_by_id(ids=ids,
                             types=types)
-
-
-def applications_service_principal_get_endpoint(client,
-                                                service_principal_id,
-                                                endpoint_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_endpoint(service_principal_id=service_principal_id,
-                               endpoint_id=endpoint_id,
-                               select=select,
-                               expand=expand)
 
 
 def applications_service_principal_get_member_group(client,
@@ -1303,6 +1224,39 @@ def applications_service_principal_restore(client,
     return client.restore(service_principal_id=service_principal_id)
 
 
+def applications_service_principal_show_app_role_assigned_to(client,
+                                                             service_principal_id,
+                                                             app_role_assignment_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_app_role_assigned_to(service_principal_id=service_principal_id,
+                                           app_role_assignment_id=app_role_assignment_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def applications_service_principal_show_app_role_assignment(client,
+                                                            service_principal_id,
+                                                            app_role_assignment_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_app_role_assignment(service_principal_id=service_principal_id,
+                                          app_role_assignment_id=app_role_assignment_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def applications_service_principal_show_endpoint(client,
+                                                 service_principal_id,
+                                                 endpoint_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_endpoint(service_principal_id=service_principal_id,
+                               endpoint_id=endpoint_id,
+                               select=select,
+                               expand=expand)
+
+
 def applications_service_principal_update_app_role_assigned_to(client,
                                                                service_principal_id,
                                                                app_role_assignment_id,
@@ -1417,17 +1371,6 @@ def applications_user_create_app_role_assignment(client,
                                              resource_id=resource_id)
 
 
-def applications_user_get_app_role_assignment(client,
-                                              user_id,
-                                              app_role_assignment_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_app_role_assignment(user_id=user_id,
-                                          app_role_assignment_id=app_role_assignment_id,
-                                          select=select,
-                                          expand=expand)
-
-
 def applications_user_list_app_role_assignment(client,
                                                user_id,
                                                orderby=None,
@@ -1437,6 +1380,17 @@ def applications_user_list_app_role_assignment(client,
                                            orderby=orderby,
                                            select=select,
                                            expand=expand)
+
+
+def applications_user_show_app_role_assignment(client,
+                                               user_id,
+                                               app_role_assignment_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_app_role_assignment(user_id=user_id,
+                                          app_role_assignment_id=app_role_assignment_id,
+                                          select=select,
+                                          expand=expand)
 
 
 def applications_user_update_app_role_assignment(client,

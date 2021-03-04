@@ -10,9 +10,9 @@
 # pylint: disable=too-many-lines
 
 
-def search_external_external_get_external(client,
-                                          select=None,
-                                          expand=None):
+def search_external_external_show_external(client,
+                                           select=None,
+                                           expand=None):
     return client.get_external(select=select,
                                expand=expand)
 
@@ -38,9 +38,9 @@ def search_external_create_connection(client,
                                       groups=None,
                                       items=None,
                                       operations=None,
-                                      schema_id=None,
-                                      schema_base_type=None,
-                                      schema_properties=None):
+                                      microsoft_graph_entity_id=None,
+                                      base_type=None,
+                                      properties=None):
     return client.create_connection(id=id_,
                                     configuration=configuration,
                                     description=description,
@@ -49,18 +49,9 @@ def search_external_create_connection(client,
                                     groups=groups,
                                     items=items,
                                     operations=operations,
-                                    microsoft_graph_entity_id=schema_id,
-                                    base_type=schema_base_type,
-                                    properties=schema_properties)
-
-
-def search_external_get_connection(client,
-                                   external_connection_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_connection(external_connection_id=external_connection_id,
-                                 select=select,
-                                 expand=expand)
+                                    microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                    base_type=base_type,
+                                    properties=properties)
 
 
 def search_external_list_connection(client,
@@ -70,6 +61,15 @@ def search_external_list_connection(client,
     return client.list_connection(orderby=orderby,
                                   select=select,
                                   expand=expand)
+
+
+def search_external_show_connection(client,
+                                    external_connection_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_connection(external_connection_id=external_connection_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def search_external_update_connection(client,
@@ -82,9 +82,9 @@ def search_external_update_connection(client,
                                       groups=None,
                                       items=None,
                                       operations=None,
-                                      schema_id=None,
-                                      schema_base_type=None,
-                                      schema_properties=None):
+                                      microsoft_graph_entity_id=None,
+                                      base_type=None,
+                                      properties=None):
     return client.update_connection(external_connection_id=external_connection_id,
                                     id=id_,
                                     configuration=configuration,
@@ -94,20 +94,20 @@ def search_external_update_connection(client,
                                     groups=groups,
                                     items=items,
                                     operations=operations,
-                                    microsoft_graph_entity_id=schema_id,
-                                    base_type=schema_base_type,
-                                    properties=schema_properties)
+                                    microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                    base_type=base_type,
+                                    properties=properties)
 
 
-def search_search_entity_get_entity(client,
-                                    select=None,
-                                    expand=None):
+def search_search_entity_show_search_entity(client,
+                                            select=None,
+                                            expand=None):
     return client.get_search_entity(select=select,
                                     expand=expand)
 
 
-def search_search_entity_update_entity(client,
-                                       id_=None):
+def search_search_entity_update_search_entity(client,
+                                              id_=None):
     return client.update_search_entity(id=id_)
 
 

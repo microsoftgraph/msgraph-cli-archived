@@ -14,10 +14,10 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddVisualElementsAttribution(argparse.Action):
+class AddAttribution(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.visual_elements_attribution = action
+        namespace.attribution = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -39,6 +39,9 @@ class AddVisualElementsAttribution(argparse.Action):
                 d['alternative_text'] = v[0]
             elif kl == 'icon-url':
                 d['icon_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attribution. All possible keys are: '
+                               'add-image-query, alternate-text, alternative-text, icon-url'.format(k))
         return d
 
 
@@ -65,6 +68,9 @@ class AddAlternativeSecurityIds(argparse._AppendAction):
                 d['key'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter alternative_security_ids. All possible '
+                               'keys are: identity-provider, key, type'.format(k))
         return d
 
 
@@ -115,6 +121,13 @@ class AddExtensionAttributes(argparse.Action):
                 d['extension_attribute8'] = v[0]
             elif kl == 'extension-attribute9':
                 d['extension_attribute9'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extension_attributes. All possible keys '
+                               'are: extension-attribute1, extension-attribute10, extension-attribute11, '
+                               'extension-attribute12, extension-attribute13, extension-attribute14, '
+                               'extension-attribute15, extension-attribute2, extension-attribute3, '
+                               'extension-attribute4, extension-attribute5, extension-attribute6, '
+                               'extension-attribute7, extension-attribute8, extension-attribute9'.format(k))
         return d
 
 
@@ -139,6 +152,9 @@ class AddMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter member_of. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -163,6 +179,9 @@ class AddRegisteredOwners(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter registered_owners. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -187,6 +206,9 @@ class AddRegisteredUsers(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter registered_users. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -211,6 +233,9 @@ class AddTransitiveMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter transitive_member_of. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d
 
 
@@ -233,4 +258,7 @@ class AddExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d

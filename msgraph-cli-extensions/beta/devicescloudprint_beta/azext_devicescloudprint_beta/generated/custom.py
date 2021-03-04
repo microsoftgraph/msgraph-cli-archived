@@ -10,9 +10,9 @@
 # pylint: disable=too-many-lines
 
 
-def devicescloudprint_print_print_get_print(client,
-                                            select=None,
-                                            expand=None):
+def devicescloudprint_print_print_show_print(client,
+                                             select=None,
+                                             expand=None):
     return client.get_print(select=select,
                             expand=expand)
 
@@ -26,7 +26,7 @@ def devicescloudprint_print_print_update_print(client,
                                                services=None,
                                                shares=None,
                                                task_definitions=None,
-                                               settings_document_conversion_enabled=None):
+                                               document_conversion_enabled=None):
     return client.update_print(connectors=connectors,
                                operations=operations,
                                printers=printers,
@@ -35,7 +35,7 @@ def devicescloudprint_print_print_update_print(client,
                                services=services,
                                shares=shares,
                                task_definitions=task_definitions,
-                               document_conversion_enabled=settings_document_conversion_enabled)
+                               document_conversion_enabled=document_conversion_enabled)
 
 
 def devicescloudprint_print_delete(client,
@@ -81,7 +81,7 @@ def devicescloudprint_print_create_connector(client,
                                              name=None,
                                              operating_system=None,
                                              registered_date_time=None,
-                                             device_health_last_connection_time=None):
+                                             last_connection_time=None):
     return client.create_connector(id=id_,
                                    app_version=app_version,
                                    display_name=display_name,
@@ -90,18 +90,16 @@ def devicescloudprint_print_create_connector(client,
                                    name=name,
                                    operating_system=operating_system,
                                    registered_date_time=registered_date_time,
-                                   last_connection_time=device_health_last_connection_time)
+                                   last_connection_time=last_connection_time)
 
 
 def devicescloudprint_print_create_operation(client,
                                              id_=None,
                                              created_date_time=None,
-                                             status_description=None,
-                                             status_state=None):
+                                             status=None):
     return client.create_operation(id=id_,
                                    created_date_time=created_date_time,
-                                   description=status_description,
-                                   state=status_state)
+                                   status=status)
 
 
 def devicescloudprint_print_create_printer(client,
@@ -115,45 +113,45 @@ def devicescloudprint_print_create_printer(client,
                                            name=None,
                                            status=None,
                                            jobs=None,
-                                           capabilities_bottom_margins=None,
-                                           capabilities_collation=None,
-                                           capabilities_color_modes=None,
-                                           capabilities_content_types=None,
-                                           capabilities_copies_per_job=None,
-                                           capabilities_dpis=None,
-                                           capabilities_duplex_modes=None,
-                                           capabilities_feed_directions=None,
-                                           capabilities_feed_orientations=None,
-                                           capabilities_finishings=None,
-                                           capabilities_input_bins=None,
-                                           capabilities_is_color_printing_supported=None,
-                                           capabilities_is_page_range_supported=None,
-                                           capabilities_left_margins=None,
-                                           capabilities_media_colors=None,
-                                           capabilities_media_sizes=None,
-                                           capabilities_media_types=None,
-                                           capabilities_multipage_layouts=None,
-                                           capabilities_orientations=None,
-                                           capabilities_output_bins=None,
-                                           capabilities_pages_per_sheet=None,
-                                           capabilities_qualities=None,
-                                           capabilities_right_margins=None,
-                                           capabilities_scalings=None,
-                                           capabilities_supported_color_configurations=None,
-                                           capabilities_supported_copies_per_job=None,
-                                           capabilities_supported_document_mime_types=None,
-                                           capabilities_supported_duplex_configurations=None,
-                                           capabilities_supported_finishings=None,
-                                           capabilities_supported_media_colors=None,
-                                           capabilities_supported_media_sizes=None,
-                                           capabilities_supported_media_types=None,
-                                           capabilities_supported_orientations=None,
-                                           capabilities_supported_output_bins=None,
-                                           capabilities_supported_pages_per_sheet=None,
-                                           capabilities_supported_presentation_directions=None,
-                                           capabilities_supported_print_qualities=None,
-                                           capabilities_supports_fit_pdf_to_page=None,
-                                           capabilities_top_margins=None,
+                                           bottom_margins=None,
+                                           collation=None,
+                                           color_modes=None,
+                                           content_types=None,
+                                           copies_per_job=None,
+                                           dpis=None,
+                                           duplex_modes=None,
+                                           feed_directions=None,
+                                           feed_orientations=None,
+                                           finishings=None,
+                                           input_bins=None,
+                                           is_color_printing_supported=None,
+                                           is_page_range_supported=None,
+                                           left_margins=None,
+                                           media_colors=None,
+                                           media_sizes=None,
+                                           media_types=None,
+                                           multipage_layouts=None,
+                                           orientations=None,
+                                           output_bins=None,
+                                           pages_per_sheet=None,
+                                           qualities=None,
+                                           right_margins=None,
+                                           scalings=None,
+                                           supported_color_configurations=None,
+                                           supported_copies_per_job=None,
+                                           supported_document_mime_types=None,
+                                           supported_duplex_configurations=None,
+                                           supported_finishings=None,
+                                           supported_media_colors=None,
+                                           supported_media_sizes=None,
+                                           supported_media_types=None,
+                                           supported_orientations=None,
+                                           supported_output_bins=None,
+                                           supported_pages_per_sheet=None,
+                                           supported_presentation_directions=None,
+                                           supported_print_qualities=None,
+                                           supports_fit_pdf_to_page=None,
+                                           top_margins=None,
                                            accepting_jobs=None,
                                            is_shared=None,
                                            registered_date_time=None,
@@ -173,45 +171,45 @@ def devicescloudprint_print_create_printer(client,
                                  name=name,
                                  status=status,
                                  jobs=jobs,
-                                 bottom_margins=capabilities_bottom_margins,
-                                 collation=capabilities_collation,
-                                 color_modes=capabilities_color_modes,
-                                 content_types=capabilities_content_types,
-                                 copies_per_job=capabilities_copies_per_job,
-                                 dpis=capabilities_dpis,
-                                 duplex_modes=capabilities_duplex_modes,
-                                 feed_directions=capabilities_feed_directions,
-                                 feed_orientations=capabilities_feed_orientations,
-                                 finishings=capabilities_finishings,
-                                 input_bins=capabilities_input_bins,
-                                 is_color_printing_supported=capabilities_is_color_printing_supported,
-                                 is_page_range_supported=capabilities_is_page_range_supported,
-                                 left_margins=capabilities_left_margins,
-                                 media_colors=capabilities_media_colors,
-                                 media_sizes=capabilities_media_sizes,
-                                 media_types=capabilities_media_types,
-                                 multipage_layouts=capabilities_multipage_layouts,
-                                 orientations=capabilities_orientations,
-                                 output_bins=capabilities_output_bins,
-                                 pages_per_sheet=capabilities_pages_per_sheet,
-                                 qualities=capabilities_qualities,
-                                 right_margins=capabilities_right_margins,
-                                 scalings=capabilities_scalings,
-                                 supported_color_configurations=capabilities_supported_color_configurations,
-                                 supported_copies_per_job=capabilities_supported_copies_per_job,
-                                 supported_document_mime_types=capabilities_supported_document_mime_types,
-                                 supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                                 supported_finishings=capabilities_supported_finishings,
-                                 supported_media_colors=capabilities_supported_media_colors,
-                                 supported_media_sizes=capabilities_supported_media_sizes,
-                                 supported_media_types=capabilities_supported_media_types,
-                                 supported_orientations=capabilities_supported_orientations,
-                                 supported_output_bins=capabilities_supported_output_bins,
-                                 supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                                 supported_presentation_directions=capabilities_supported_presentation_directions,
-                                 supported_print_qualities=capabilities_supported_print_qualities,
-                                 supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                                 top_margins=capabilities_top_margins,
+                                 bottom_margins=bottom_margins,
+                                 collation=collation,
+                                 color_modes=color_modes,
+                                 content_types=content_types,
+                                 copies_per_job=copies_per_job,
+                                 dpis=dpis,
+                                 duplex_modes=duplex_modes,
+                                 feed_directions=feed_directions,
+                                 feed_orientations=feed_orientations,
+                                 finishings=finishings,
+                                 input_bins=input_bins,
+                                 is_color_printing_supported=is_color_printing_supported,
+                                 is_page_range_supported=is_page_range_supported,
+                                 left_margins=left_margins,
+                                 media_colors=media_colors,
+                                 media_sizes=media_sizes,
+                                 media_types=media_types,
+                                 multipage_layouts=multipage_layouts,
+                                 orientations=orientations,
+                                 output_bins=output_bins,
+                                 pages_per_sheet=pages_per_sheet,
+                                 qualities=qualities,
+                                 right_margins=right_margins,
+                                 scalings=scalings,
+                                 supported_color_configurations=supported_color_configurations,
+                                 supported_copies_per_job=supported_copies_per_job,
+                                 supported_document_mime_types=supported_document_mime_types,
+                                 supported_duplex_configurations=supported_duplex_configurations,
+                                 supported_finishings=supported_finishings,
+                                 supported_media_colors=supported_media_colors,
+                                 supported_media_sizes=supported_media_sizes,
+                                 supported_media_types=supported_media_types,
+                                 supported_orientations=supported_orientations,
+                                 supported_output_bins=supported_output_bins,
+                                 supported_pages_per_sheet=supported_pages_per_sheet,
+                                 supported_presentation_directions=supported_presentation_directions,
+                                 supported_print_qualities=supported_print_qualities,
+                                 supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                                 top_margins=top_margins,
                                  accepting_jobs=accepting_jobs,
                                  is_shared=is_shared,
                                  registered_date_time=registered_date_time,
@@ -234,45 +232,45 @@ def devicescloudprint_print_create_printer_share(client,
                                                  name=None,
                                                  status=None,
                                                  jobs=None,
-                                                 capabilities_bottom_margins=None,
-                                                 capabilities_collation=None,
-                                                 capabilities_color_modes=None,
-                                                 capabilities_content_types=None,
-                                                 capabilities_copies_per_job=None,
-                                                 capabilities_dpis=None,
-                                                 capabilities_duplex_modes=None,
-                                                 capabilities_feed_directions=None,
-                                                 capabilities_feed_orientations=None,
-                                                 capabilities_finishings=None,
-                                                 capabilities_input_bins=None,
-                                                 capabilities_is_color_printing_supported=None,
-                                                 capabilities_is_page_range_supported=None,
-                                                 capabilities_left_margins=None,
-                                                 capabilities_media_colors=None,
-                                                 capabilities_media_sizes=None,
-                                                 capabilities_media_types=None,
-                                                 capabilities_multipage_layouts=None,
-                                                 capabilities_orientations=None,
-                                                 capabilities_output_bins=None,
-                                                 capabilities_pages_per_sheet=None,
-                                                 capabilities_qualities=None,
-                                                 capabilities_right_margins=None,
-                                                 capabilities_scalings=None,
-                                                 capabilities_supported_color_configurations=None,
-                                                 capabilities_supported_copies_per_job=None,
-                                                 capabilities_supported_document_mime_types=None,
-                                                 capabilities_supported_duplex_configurations=None,
-                                                 capabilities_supported_finishings=None,
-                                                 capabilities_supported_media_colors=None,
-                                                 capabilities_supported_media_sizes=None,
-                                                 capabilities_supported_media_types=None,
-                                                 capabilities_supported_orientations=None,
-                                                 capabilities_supported_output_bins=None,
-                                                 capabilities_supported_pages_per_sheet=None,
-                                                 capabilities_supported_presentation_directions=None,
-                                                 capabilities_supported_print_qualities=None,
-                                                 capabilities_supports_fit_pdf_to_page=None,
-                                                 capabilities_top_margins=None,
+                                                 bottom_margins=None,
+                                                 collation=None,
+                                                 color_modes=None,
+                                                 content_types=None,
+                                                 copies_per_job=None,
+                                                 dpis=None,
+                                                 duplex_modes=None,
+                                                 feed_directions=None,
+                                                 feed_orientations=None,
+                                                 finishings=None,
+                                                 input_bins=None,
+                                                 is_color_printing_supported=None,
+                                                 is_page_range_supported=None,
+                                                 left_margins=None,
+                                                 media_colors=None,
+                                                 media_sizes=None,
+                                                 media_types=None,
+                                                 multipage_layouts=None,
+                                                 orientations=None,
+                                                 output_bins=None,
+                                                 pages_per_sheet=None,
+                                                 qualities=None,
+                                                 right_margins=None,
+                                                 scalings=None,
+                                                 supported_color_configurations=None,
+                                                 supported_copies_per_job=None,
+                                                 supported_document_mime_types=None,
+                                                 supported_duplex_configurations=None,
+                                                 supported_finishings=None,
+                                                 supported_media_colors=None,
+                                                 supported_media_sizes=None,
+                                                 supported_media_types=None,
+                                                 supported_orientations=None,
+                                                 supported_output_bins=None,
+                                                 supported_pages_per_sheet=None,
+                                                 supported_presentation_directions=None,
+                                                 supported_print_qualities=None,
+                                                 supports_fit_pdf_to_page=None,
+                                                 top_margins=None,
                                                  allow_all_users=None,
                                                  created_date_time=None,
                                                  allowed_groups=None,
@@ -288,45 +286,45 @@ def devicescloudprint_print_create_printer_share(client,
                                        name=name,
                                        status=status,
                                        jobs=jobs,
-                                       bottom_margins=capabilities_bottom_margins,
-                                       collation=capabilities_collation,
-                                       color_modes=capabilities_color_modes,
-                                       content_types=capabilities_content_types,
-                                       copies_per_job=capabilities_copies_per_job,
-                                       dpis=capabilities_dpis,
-                                       duplex_modes=capabilities_duplex_modes,
-                                       feed_directions=capabilities_feed_directions,
-                                       feed_orientations=capabilities_feed_orientations,
-                                       finishings=capabilities_finishings,
-                                       input_bins=capabilities_input_bins,
-                                       is_color_printing_supported=capabilities_is_color_printing_supported,
-                                       is_page_range_supported=capabilities_is_page_range_supported,
-                                       left_margins=capabilities_left_margins,
-                                       media_colors=capabilities_media_colors,
-                                       media_sizes=capabilities_media_sizes,
-                                       media_types=capabilities_media_types,
-                                       multipage_layouts=capabilities_multipage_layouts,
-                                       orientations=capabilities_orientations,
-                                       output_bins=capabilities_output_bins,
-                                       pages_per_sheet=capabilities_pages_per_sheet,
-                                       qualities=capabilities_qualities,
-                                       right_margins=capabilities_right_margins,
-                                       scalings=capabilities_scalings,
-                                       supported_color_configurations=capabilities_supported_color_configurations,
-                                       supported_copies_per_job=capabilities_supported_copies_per_job,
-                                       supported_document_mime_types=capabilities_supported_document_mime_types,
-                                       supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                                       supported_finishings=capabilities_supported_finishings,
-                                       supported_media_colors=capabilities_supported_media_colors,
-                                       supported_media_sizes=capabilities_supported_media_sizes,
-                                       supported_media_types=capabilities_supported_media_types,
-                                       supported_orientations=capabilities_supported_orientations,
-                                       supported_output_bins=capabilities_supported_output_bins,
-                                       supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                                       supported_presentation_directions=capabilities_supported_presentation_directions,
-                                       supported_print_qualities=capabilities_supported_print_qualities,
-                                       supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                                       top_margins=capabilities_top_margins,
+                                       bottom_margins=bottom_margins,
+                                       collation=collation,
+                                       color_modes=color_modes,
+                                       content_types=content_types,
+                                       copies_per_job=copies_per_job,
+                                       dpis=dpis,
+                                       duplex_modes=duplex_modes,
+                                       feed_directions=feed_directions,
+                                       feed_orientations=feed_orientations,
+                                       finishings=finishings,
+                                       input_bins=input_bins,
+                                       is_color_printing_supported=is_color_printing_supported,
+                                       is_page_range_supported=is_page_range_supported,
+                                       left_margins=left_margins,
+                                       media_colors=media_colors,
+                                       media_sizes=media_sizes,
+                                       media_types=media_types,
+                                       multipage_layouts=multipage_layouts,
+                                       orientations=orientations,
+                                       output_bins=output_bins,
+                                       pages_per_sheet=pages_per_sheet,
+                                       qualities=qualities,
+                                       right_margins=right_margins,
+                                       scalings=scalings,
+                                       supported_color_configurations=supported_color_configurations,
+                                       supported_copies_per_job=supported_copies_per_job,
+                                       supported_document_mime_types=supported_document_mime_types,
+                                       supported_duplex_configurations=supported_duplex_configurations,
+                                       supported_finishings=supported_finishings,
+                                       supported_media_colors=supported_media_colors,
+                                       supported_media_sizes=supported_media_sizes,
+                                       supported_media_types=supported_media_types,
+                                       supported_orientations=supported_orientations,
+                                       supported_output_bins=supported_output_bins,
+                                       supported_pages_per_sheet=supported_pages_per_sheet,
+                                       supported_presentation_directions=supported_presentation_directions,
+                                       supported_print_qualities=supported_print_qualities,
+                                       supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                                       top_margins=top_margins,
                                        allow_all_users=allow_all_users,
                                        created_date_time=created_date_time,
                                        allowed_groups=allowed_groups,
@@ -371,45 +369,45 @@ def devicescloudprint_print_create_share(client,
                                          name=None,
                                          status=None,
                                          jobs=None,
-                                         capabilities_bottom_margins=None,
-                                         capabilities_collation=None,
-                                         capabilities_color_modes=None,
-                                         capabilities_content_types=None,
-                                         capabilities_copies_per_job=None,
-                                         capabilities_dpis=None,
-                                         capabilities_duplex_modes=None,
-                                         capabilities_feed_directions=None,
-                                         capabilities_feed_orientations=None,
-                                         capabilities_finishings=None,
-                                         capabilities_input_bins=None,
-                                         capabilities_is_color_printing_supported=None,
-                                         capabilities_is_page_range_supported=None,
-                                         capabilities_left_margins=None,
-                                         capabilities_media_colors=None,
-                                         capabilities_media_sizes=None,
-                                         capabilities_media_types=None,
-                                         capabilities_multipage_layouts=None,
-                                         capabilities_orientations=None,
-                                         capabilities_output_bins=None,
-                                         capabilities_pages_per_sheet=None,
-                                         capabilities_qualities=None,
-                                         capabilities_right_margins=None,
-                                         capabilities_scalings=None,
-                                         capabilities_supported_color_configurations=None,
-                                         capabilities_supported_copies_per_job=None,
-                                         capabilities_supported_document_mime_types=None,
-                                         capabilities_supported_duplex_configurations=None,
-                                         capabilities_supported_finishings=None,
-                                         capabilities_supported_media_colors=None,
-                                         capabilities_supported_media_sizes=None,
-                                         capabilities_supported_media_types=None,
-                                         capabilities_supported_orientations=None,
-                                         capabilities_supported_output_bins=None,
-                                         capabilities_supported_pages_per_sheet=None,
-                                         capabilities_supported_presentation_directions=None,
-                                         capabilities_supported_print_qualities=None,
-                                         capabilities_supports_fit_pdf_to_page=None,
-                                         capabilities_top_margins=None,
+                                         bottom_margins=None,
+                                         collation=None,
+                                         color_modes=None,
+                                         content_types=None,
+                                         copies_per_job=None,
+                                         dpis=None,
+                                         duplex_modes=None,
+                                         feed_directions=None,
+                                         feed_orientations=None,
+                                         finishings=None,
+                                         input_bins=None,
+                                         is_color_printing_supported=None,
+                                         is_page_range_supported=None,
+                                         left_margins=None,
+                                         media_colors=None,
+                                         media_sizes=None,
+                                         media_types=None,
+                                         multipage_layouts=None,
+                                         orientations=None,
+                                         output_bins=None,
+                                         pages_per_sheet=None,
+                                         qualities=None,
+                                         right_margins=None,
+                                         scalings=None,
+                                         supported_color_configurations=None,
+                                         supported_copies_per_job=None,
+                                         supported_document_mime_types=None,
+                                         supported_duplex_configurations=None,
+                                         supported_finishings=None,
+                                         supported_media_colors=None,
+                                         supported_media_sizes=None,
+                                         supported_media_types=None,
+                                         supported_orientations=None,
+                                         supported_output_bins=None,
+                                         supported_pages_per_sheet=None,
+                                         supported_presentation_directions=None,
+                                         supported_print_qualities=None,
+                                         supports_fit_pdf_to_page=None,
+                                         top_margins=None,
                                          allow_all_users=None,
                                          created_date_time=None,
                                          allowed_groups=None,
@@ -425,45 +423,45 @@ def devicescloudprint_print_create_share(client,
                                name=name,
                                status=status,
                                jobs=jobs,
-                               bottom_margins=capabilities_bottom_margins,
-                               collation=capabilities_collation,
-                               color_modes=capabilities_color_modes,
-                               content_types=capabilities_content_types,
-                               copies_per_job=capabilities_copies_per_job,
-                               dpis=capabilities_dpis,
-                               duplex_modes=capabilities_duplex_modes,
-                               feed_directions=capabilities_feed_directions,
-                               feed_orientations=capabilities_feed_orientations,
-                               finishings=capabilities_finishings,
-                               input_bins=capabilities_input_bins,
-                               is_color_printing_supported=capabilities_is_color_printing_supported,
-                               is_page_range_supported=capabilities_is_page_range_supported,
-                               left_margins=capabilities_left_margins,
-                               media_colors=capabilities_media_colors,
-                               media_sizes=capabilities_media_sizes,
-                               media_types=capabilities_media_types,
-                               multipage_layouts=capabilities_multipage_layouts,
-                               orientations=capabilities_orientations,
-                               output_bins=capabilities_output_bins,
-                               pages_per_sheet=capabilities_pages_per_sheet,
-                               qualities=capabilities_qualities,
-                               right_margins=capabilities_right_margins,
-                               scalings=capabilities_scalings,
-                               supported_color_configurations=capabilities_supported_color_configurations,
-                               supported_copies_per_job=capabilities_supported_copies_per_job,
-                               supported_document_mime_types=capabilities_supported_document_mime_types,
-                               supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                               supported_finishings=capabilities_supported_finishings,
-                               supported_media_colors=capabilities_supported_media_colors,
-                               supported_media_sizes=capabilities_supported_media_sizes,
-                               supported_media_types=capabilities_supported_media_types,
-                               supported_orientations=capabilities_supported_orientations,
-                               supported_output_bins=capabilities_supported_output_bins,
-                               supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                               supported_presentation_directions=capabilities_supported_presentation_directions,
-                               supported_print_qualities=capabilities_supported_print_qualities,
-                               supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                               top_margins=capabilities_top_margins,
+                               bottom_margins=bottom_margins,
+                               collation=collation,
+                               color_modes=color_modes,
+                               content_types=content_types,
+                               copies_per_job=copies_per_job,
+                               dpis=dpis,
+                               duplex_modes=duplex_modes,
+                               feed_directions=feed_directions,
+                               feed_orientations=feed_orientations,
+                               finishings=finishings,
+                               input_bins=input_bins,
+                               is_color_printing_supported=is_color_printing_supported,
+                               is_page_range_supported=is_page_range_supported,
+                               left_margins=left_margins,
+                               media_colors=media_colors,
+                               media_sizes=media_sizes,
+                               media_types=media_types,
+                               multipage_layouts=multipage_layouts,
+                               orientations=orientations,
+                               output_bins=output_bins,
+                               pages_per_sheet=pages_per_sheet,
+                               qualities=qualities,
+                               right_margins=right_margins,
+                               scalings=scalings,
+                               supported_color_configurations=supported_color_configurations,
+                               supported_copies_per_job=supported_copies_per_job,
+                               supported_document_mime_types=supported_document_mime_types,
+                               supported_duplex_configurations=supported_duplex_configurations,
+                               supported_finishings=supported_finishings,
+                               supported_media_colors=supported_media_colors,
+                               supported_media_sizes=supported_media_sizes,
+                               supported_media_types=supported_media_types,
+                               supported_orientations=supported_orientations,
+                               supported_output_bins=supported_output_bins,
+                               supported_pages_per_sheet=supported_pages_per_sheet,
+                               supported_presentation_directions=supported_presentation_directions,
+                               supported_print_qualities=supported_print_qualities,
+                               supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                               top_margins=top_margins,
                                allow_all_users=allow_all_users,
                                created_date_time=created_date_time,
                                allowed_groups=allowed_groups,
@@ -480,78 +478,6 @@ def devicescloudprint_print_create_task_definition(client,
                                          created_by=created_by,
                                          display_name=display_name,
                                          tasks=tasks)
-
-
-def devicescloudprint_print_get_connector(client,
-                                          print_connector_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_connector(print_connector_id=print_connector_id,
-                                select=select,
-                                expand=expand)
-
-
-def devicescloudprint_print_get_operation(client,
-                                          print_operation_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_operation(print_operation_id=print_operation_id,
-                                select=select,
-                                expand=expand)
-
-
-def devicescloudprint_print_get_printer(client,
-                                        printer_id,
-                                        select=None,
-                                        expand=None):
-    return client.get_printer(printer_id=printer_id,
-                              select=select,
-                              expand=expand)
-
-
-def devicescloudprint_print_get_printer_share(client,
-                                              printer_share_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_printer_share(printer_share_id=printer_share_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def devicescloudprint_print_get_report(client,
-                                       report_root_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_report(report_root_id=report_root_id,
-                             select=select,
-                             expand=expand)
-
-
-def devicescloudprint_print_get_service(client,
-                                        print_service_id,
-                                        select=None,
-                                        expand=None):
-    return client.get_service(print_service_id=print_service_id,
-                              select=select,
-                              expand=expand)
-
-
-def devicescloudprint_print_get_share(client,
-                                      printer_share_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_share(printer_share_id=printer_share_id,
-                            select=select,
-                            expand=expand)
-
-
-def devicescloudprint_print_get_task_definition(client,
-                                                print_task_definition_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_task_definition(print_task_definition_id=print_task_definition_id,
-                                      select=select,
-                                      expand=expand)
 
 
 def devicescloudprint_print_list_connector(client,
@@ -626,6 +552,78 @@ def devicescloudprint_print_list_task_definition(client,
                                        expand=expand)
 
 
+def devicescloudprint_print_show_connector(client,
+                                           print_connector_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_connector(print_connector_id=print_connector_id,
+                                select=select,
+                                expand=expand)
+
+
+def devicescloudprint_print_show_operation(client,
+                                           print_operation_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_operation(print_operation_id=print_operation_id,
+                                select=select,
+                                expand=expand)
+
+
+def devicescloudprint_print_show_printer(client,
+                                         printer_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_printer(printer_id=printer_id,
+                              select=select,
+                              expand=expand)
+
+
+def devicescloudprint_print_show_printer_share(client,
+                                               printer_share_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_printer_share(printer_share_id=printer_share_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def devicescloudprint_print_show_report(client,
+                                        report_root_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_report(report_root_id=report_root_id,
+                             select=select,
+                             expand=expand)
+
+
+def devicescloudprint_print_show_service(client,
+                                         print_service_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_service(print_service_id=print_service_id,
+                              select=select,
+                              expand=expand)
+
+
+def devicescloudprint_print_show_share(client,
+                                       printer_share_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_share(printer_share_id=printer_share_id,
+                            select=select,
+                            expand=expand)
+
+
+def devicescloudprint_print_show_task_definition(client,
+                                                 print_task_definition_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_task_definition(print_task_definition_id=print_task_definition_id,
+                                      select=select,
+                                      expand=expand)
+
+
 def devicescloudprint_print_update_connector(client,
                                              print_connector_id,
                                              id_=None,
@@ -636,7 +634,7 @@ def devicescloudprint_print_update_connector(client,
                                              name=None,
                                              operating_system=None,
                                              registered_date_time=None,
-                                             device_health_last_connection_time=None):
+                                             last_connection_time=None):
     return client.update_connector(print_connector_id=print_connector_id,
                                    id=id_,
                                    app_version=app_version,
@@ -646,20 +644,18 @@ def devicescloudprint_print_update_connector(client,
                                    name=name,
                                    operating_system=operating_system,
                                    registered_date_time=registered_date_time,
-                                   last_connection_time=device_health_last_connection_time)
+                                   last_connection_time=last_connection_time)
 
 
 def devicescloudprint_print_update_operation(client,
                                              print_operation_id,
                                              id_=None,
                                              created_date_time=None,
-                                             status_description=None,
-                                             status_state=None):
+                                             status=None):
     return client.update_operation(print_operation_id=print_operation_id,
                                    id=id_,
                                    created_date_time=created_date_time,
-                                   description=status_description,
-                                   state=status_state)
+                                   status=status)
 
 
 def devicescloudprint_print_update_printer(client,
@@ -674,45 +670,45 @@ def devicescloudprint_print_update_printer(client,
                                            name=None,
                                            status=None,
                                            jobs=None,
-                                           capabilities_bottom_margins=None,
-                                           capabilities_collation=None,
-                                           capabilities_color_modes=None,
-                                           capabilities_content_types=None,
-                                           capabilities_copies_per_job=None,
-                                           capabilities_dpis=None,
-                                           capabilities_duplex_modes=None,
-                                           capabilities_feed_directions=None,
-                                           capabilities_feed_orientations=None,
-                                           capabilities_finishings=None,
-                                           capabilities_input_bins=None,
-                                           capabilities_is_color_printing_supported=None,
-                                           capabilities_is_page_range_supported=None,
-                                           capabilities_left_margins=None,
-                                           capabilities_media_colors=None,
-                                           capabilities_media_sizes=None,
-                                           capabilities_media_types=None,
-                                           capabilities_multipage_layouts=None,
-                                           capabilities_orientations=None,
-                                           capabilities_output_bins=None,
-                                           capabilities_pages_per_sheet=None,
-                                           capabilities_qualities=None,
-                                           capabilities_right_margins=None,
-                                           capabilities_scalings=None,
-                                           capabilities_supported_color_configurations=None,
-                                           capabilities_supported_copies_per_job=None,
-                                           capabilities_supported_document_mime_types=None,
-                                           capabilities_supported_duplex_configurations=None,
-                                           capabilities_supported_finishings=None,
-                                           capabilities_supported_media_colors=None,
-                                           capabilities_supported_media_sizes=None,
-                                           capabilities_supported_media_types=None,
-                                           capabilities_supported_orientations=None,
-                                           capabilities_supported_output_bins=None,
-                                           capabilities_supported_pages_per_sheet=None,
-                                           capabilities_supported_presentation_directions=None,
-                                           capabilities_supported_print_qualities=None,
-                                           capabilities_supports_fit_pdf_to_page=None,
-                                           capabilities_top_margins=None,
+                                           bottom_margins=None,
+                                           collation=None,
+                                           color_modes=None,
+                                           content_types=None,
+                                           copies_per_job=None,
+                                           dpis=None,
+                                           duplex_modes=None,
+                                           feed_directions=None,
+                                           feed_orientations=None,
+                                           finishings=None,
+                                           input_bins=None,
+                                           is_color_printing_supported=None,
+                                           is_page_range_supported=None,
+                                           left_margins=None,
+                                           media_colors=None,
+                                           media_sizes=None,
+                                           media_types=None,
+                                           multipage_layouts=None,
+                                           orientations=None,
+                                           output_bins=None,
+                                           pages_per_sheet=None,
+                                           qualities=None,
+                                           right_margins=None,
+                                           scalings=None,
+                                           supported_color_configurations=None,
+                                           supported_copies_per_job=None,
+                                           supported_document_mime_types=None,
+                                           supported_duplex_configurations=None,
+                                           supported_finishings=None,
+                                           supported_media_colors=None,
+                                           supported_media_sizes=None,
+                                           supported_media_types=None,
+                                           supported_orientations=None,
+                                           supported_output_bins=None,
+                                           supported_pages_per_sheet=None,
+                                           supported_presentation_directions=None,
+                                           supported_print_qualities=None,
+                                           supports_fit_pdf_to_page=None,
+                                           top_margins=None,
                                            accepting_jobs=None,
                                            is_shared=None,
                                            registered_date_time=None,
@@ -733,45 +729,45 @@ def devicescloudprint_print_update_printer(client,
                                  name=name,
                                  status=status,
                                  jobs=jobs,
-                                 bottom_margins=capabilities_bottom_margins,
-                                 collation=capabilities_collation,
-                                 color_modes=capabilities_color_modes,
-                                 content_types=capabilities_content_types,
-                                 copies_per_job=capabilities_copies_per_job,
-                                 dpis=capabilities_dpis,
-                                 duplex_modes=capabilities_duplex_modes,
-                                 feed_directions=capabilities_feed_directions,
-                                 feed_orientations=capabilities_feed_orientations,
-                                 finishings=capabilities_finishings,
-                                 input_bins=capabilities_input_bins,
-                                 is_color_printing_supported=capabilities_is_color_printing_supported,
-                                 is_page_range_supported=capabilities_is_page_range_supported,
-                                 left_margins=capabilities_left_margins,
-                                 media_colors=capabilities_media_colors,
-                                 media_sizes=capabilities_media_sizes,
-                                 media_types=capabilities_media_types,
-                                 multipage_layouts=capabilities_multipage_layouts,
-                                 orientations=capabilities_orientations,
-                                 output_bins=capabilities_output_bins,
-                                 pages_per_sheet=capabilities_pages_per_sheet,
-                                 qualities=capabilities_qualities,
-                                 right_margins=capabilities_right_margins,
-                                 scalings=capabilities_scalings,
-                                 supported_color_configurations=capabilities_supported_color_configurations,
-                                 supported_copies_per_job=capabilities_supported_copies_per_job,
-                                 supported_document_mime_types=capabilities_supported_document_mime_types,
-                                 supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                                 supported_finishings=capabilities_supported_finishings,
-                                 supported_media_colors=capabilities_supported_media_colors,
-                                 supported_media_sizes=capabilities_supported_media_sizes,
-                                 supported_media_types=capabilities_supported_media_types,
-                                 supported_orientations=capabilities_supported_orientations,
-                                 supported_output_bins=capabilities_supported_output_bins,
-                                 supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                                 supported_presentation_directions=capabilities_supported_presentation_directions,
-                                 supported_print_qualities=capabilities_supported_print_qualities,
-                                 supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                                 top_margins=capabilities_top_margins,
+                                 bottom_margins=bottom_margins,
+                                 collation=collation,
+                                 color_modes=color_modes,
+                                 content_types=content_types,
+                                 copies_per_job=copies_per_job,
+                                 dpis=dpis,
+                                 duplex_modes=duplex_modes,
+                                 feed_directions=feed_directions,
+                                 feed_orientations=feed_orientations,
+                                 finishings=finishings,
+                                 input_bins=input_bins,
+                                 is_color_printing_supported=is_color_printing_supported,
+                                 is_page_range_supported=is_page_range_supported,
+                                 left_margins=left_margins,
+                                 media_colors=media_colors,
+                                 media_sizes=media_sizes,
+                                 media_types=media_types,
+                                 multipage_layouts=multipage_layouts,
+                                 orientations=orientations,
+                                 output_bins=output_bins,
+                                 pages_per_sheet=pages_per_sheet,
+                                 qualities=qualities,
+                                 right_margins=right_margins,
+                                 scalings=scalings,
+                                 supported_color_configurations=supported_color_configurations,
+                                 supported_copies_per_job=supported_copies_per_job,
+                                 supported_document_mime_types=supported_document_mime_types,
+                                 supported_duplex_configurations=supported_duplex_configurations,
+                                 supported_finishings=supported_finishings,
+                                 supported_media_colors=supported_media_colors,
+                                 supported_media_sizes=supported_media_sizes,
+                                 supported_media_types=supported_media_types,
+                                 supported_orientations=supported_orientations,
+                                 supported_output_bins=supported_output_bins,
+                                 supported_pages_per_sheet=supported_pages_per_sheet,
+                                 supported_presentation_directions=supported_presentation_directions,
+                                 supported_print_qualities=supported_print_qualities,
+                                 supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                                 top_margins=top_margins,
                                  accepting_jobs=accepting_jobs,
                                  is_shared=is_shared,
                                  registered_date_time=registered_date_time,
@@ -795,45 +791,45 @@ def devicescloudprint_print_update_printer_share(client,
                                                  name=None,
                                                  status=None,
                                                  jobs=None,
-                                                 capabilities_bottom_margins=None,
-                                                 capabilities_collation=None,
-                                                 capabilities_color_modes=None,
-                                                 capabilities_content_types=None,
-                                                 capabilities_copies_per_job=None,
-                                                 capabilities_dpis=None,
-                                                 capabilities_duplex_modes=None,
-                                                 capabilities_feed_directions=None,
-                                                 capabilities_feed_orientations=None,
-                                                 capabilities_finishings=None,
-                                                 capabilities_input_bins=None,
-                                                 capabilities_is_color_printing_supported=None,
-                                                 capabilities_is_page_range_supported=None,
-                                                 capabilities_left_margins=None,
-                                                 capabilities_media_colors=None,
-                                                 capabilities_media_sizes=None,
-                                                 capabilities_media_types=None,
-                                                 capabilities_multipage_layouts=None,
-                                                 capabilities_orientations=None,
-                                                 capabilities_output_bins=None,
-                                                 capabilities_pages_per_sheet=None,
-                                                 capabilities_qualities=None,
-                                                 capabilities_right_margins=None,
-                                                 capabilities_scalings=None,
-                                                 capabilities_supported_color_configurations=None,
-                                                 capabilities_supported_copies_per_job=None,
-                                                 capabilities_supported_document_mime_types=None,
-                                                 capabilities_supported_duplex_configurations=None,
-                                                 capabilities_supported_finishings=None,
-                                                 capabilities_supported_media_colors=None,
-                                                 capabilities_supported_media_sizes=None,
-                                                 capabilities_supported_media_types=None,
-                                                 capabilities_supported_orientations=None,
-                                                 capabilities_supported_output_bins=None,
-                                                 capabilities_supported_pages_per_sheet=None,
-                                                 capabilities_supported_presentation_directions=None,
-                                                 capabilities_supported_print_qualities=None,
-                                                 capabilities_supports_fit_pdf_to_page=None,
-                                                 capabilities_top_margins=None,
+                                                 bottom_margins=None,
+                                                 collation=None,
+                                                 color_modes=None,
+                                                 content_types=None,
+                                                 copies_per_job=None,
+                                                 dpis=None,
+                                                 duplex_modes=None,
+                                                 feed_directions=None,
+                                                 feed_orientations=None,
+                                                 finishings=None,
+                                                 input_bins=None,
+                                                 is_color_printing_supported=None,
+                                                 is_page_range_supported=None,
+                                                 left_margins=None,
+                                                 media_colors=None,
+                                                 media_sizes=None,
+                                                 media_types=None,
+                                                 multipage_layouts=None,
+                                                 orientations=None,
+                                                 output_bins=None,
+                                                 pages_per_sheet=None,
+                                                 qualities=None,
+                                                 right_margins=None,
+                                                 scalings=None,
+                                                 supported_color_configurations=None,
+                                                 supported_copies_per_job=None,
+                                                 supported_document_mime_types=None,
+                                                 supported_duplex_configurations=None,
+                                                 supported_finishings=None,
+                                                 supported_media_colors=None,
+                                                 supported_media_sizes=None,
+                                                 supported_media_types=None,
+                                                 supported_orientations=None,
+                                                 supported_output_bins=None,
+                                                 supported_pages_per_sheet=None,
+                                                 supported_presentation_directions=None,
+                                                 supported_print_qualities=None,
+                                                 supports_fit_pdf_to_page=None,
+                                                 top_margins=None,
                                                  allow_all_users=None,
                                                  created_date_time=None,
                                                  allowed_groups=None,
@@ -850,45 +846,45 @@ def devicescloudprint_print_update_printer_share(client,
                                        name=name,
                                        status=status,
                                        jobs=jobs,
-                                       bottom_margins=capabilities_bottom_margins,
-                                       collation=capabilities_collation,
-                                       color_modes=capabilities_color_modes,
-                                       content_types=capabilities_content_types,
-                                       copies_per_job=capabilities_copies_per_job,
-                                       dpis=capabilities_dpis,
-                                       duplex_modes=capabilities_duplex_modes,
-                                       feed_directions=capabilities_feed_directions,
-                                       feed_orientations=capabilities_feed_orientations,
-                                       finishings=capabilities_finishings,
-                                       input_bins=capabilities_input_bins,
-                                       is_color_printing_supported=capabilities_is_color_printing_supported,
-                                       is_page_range_supported=capabilities_is_page_range_supported,
-                                       left_margins=capabilities_left_margins,
-                                       media_colors=capabilities_media_colors,
-                                       media_sizes=capabilities_media_sizes,
-                                       media_types=capabilities_media_types,
-                                       multipage_layouts=capabilities_multipage_layouts,
-                                       orientations=capabilities_orientations,
-                                       output_bins=capabilities_output_bins,
-                                       pages_per_sheet=capabilities_pages_per_sheet,
-                                       qualities=capabilities_qualities,
-                                       right_margins=capabilities_right_margins,
-                                       scalings=capabilities_scalings,
-                                       supported_color_configurations=capabilities_supported_color_configurations,
-                                       supported_copies_per_job=capabilities_supported_copies_per_job,
-                                       supported_document_mime_types=capabilities_supported_document_mime_types,
-                                       supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                                       supported_finishings=capabilities_supported_finishings,
-                                       supported_media_colors=capabilities_supported_media_colors,
-                                       supported_media_sizes=capabilities_supported_media_sizes,
-                                       supported_media_types=capabilities_supported_media_types,
-                                       supported_orientations=capabilities_supported_orientations,
-                                       supported_output_bins=capabilities_supported_output_bins,
-                                       supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                                       supported_presentation_directions=capabilities_supported_presentation_directions,
-                                       supported_print_qualities=capabilities_supported_print_qualities,
-                                       supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                                       top_margins=capabilities_top_margins,
+                                       bottom_margins=bottom_margins,
+                                       collation=collation,
+                                       color_modes=color_modes,
+                                       content_types=content_types,
+                                       copies_per_job=copies_per_job,
+                                       dpis=dpis,
+                                       duplex_modes=duplex_modes,
+                                       feed_directions=feed_directions,
+                                       feed_orientations=feed_orientations,
+                                       finishings=finishings,
+                                       input_bins=input_bins,
+                                       is_color_printing_supported=is_color_printing_supported,
+                                       is_page_range_supported=is_page_range_supported,
+                                       left_margins=left_margins,
+                                       media_colors=media_colors,
+                                       media_sizes=media_sizes,
+                                       media_types=media_types,
+                                       multipage_layouts=multipage_layouts,
+                                       orientations=orientations,
+                                       output_bins=output_bins,
+                                       pages_per_sheet=pages_per_sheet,
+                                       qualities=qualities,
+                                       right_margins=right_margins,
+                                       scalings=scalings,
+                                       supported_color_configurations=supported_color_configurations,
+                                       supported_copies_per_job=supported_copies_per_job,
+                                       supported_document_mime_types=supported_document_mime_types,
+                                       supported_duplex_configurations=supported_duplex_configurations,
+                                       supported_finishings=supported_finishings,
+                                       supported_media_colors=supported_media_colors,
+                                       supported_media_sizes=supported_media_sizes,
+                                       supported_media_types=supported_media_types,
+                                       supported_orientations=supported_orientations,
+                                       supported_output_bins=supported_output_bins,
+                                       supported_pages_per_sheet=supported_pages_per_sheet,
+                                       supported_presentation_directions=supported_presentation_directions,
+                                       supported_print_qualities=supported_print_qualities,
+                                       supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                                       top_margins=top_margins,
                                        allow_all_users=allow_all_users,
                                        created_date_time=created_date_time,
                                        allowed_groups=allowed_groups,
@@ -938,45 +934,45 @@ def devicescloudprint_print_update_share(client,
                                          name=None,
                                          status=None,
                                          jobs=None,
-                                         capabilities_bottom_margins=None,
-                                         capabilities_collation=None,
-                                         capabilities_color_modes=None,
-                                         capabilities_content_types=None,
-                                         capabilities_copies_per_job=None,
-                                         capabilities_dpis=None,
-                                         capabilities_duplex_modes=None,
-                                         capabilities_feed_directions=None,
-                                         capabilities_feed_orientations=None,
-                                         capabilities_finishings=None,
-                                         capabilities_input_bins=None,
-                                         capabilities_is_color_printing_supported=None,
-                                         capabilities_is_page_range_supported=None,
-                                         capabilities_left_margins=None,
-                                         capabilities_media_colors=None,
-                                         capabilities_media_sizes=None,
-                                         capabilities_media_types=None,
-                                         capabilities_multipage_layouts=None,
-                                         capabilities_orientations=None,
-                                         capabilities_output_bins=None,
-                                         capabilities_pages_per_sheet=None,
-                                         capabilities_qualities=None,
-                                         capabilities_right_margins=None,
-                                         capabilities_scalings=None,
-                                         capabilities_supported_color_configurations=None,
-                                         capabilities_supported_copies_per_job=None,
-                                         capabilities_supported_document_mime_types=None,
-                                         capabilities_supported_duplex_configurations=None,
-                                         capabilities_supported_finishings=None,
-                                         capabilities_supported_media_colors=None,
-                                         capabilities_supported_media_sizes=None,
-                                         capabilities_supported_media_types=None,
-                                         capabilities_supported_orientations=None,
-                                         capabilities_supported_output_bins=None,
-                                         capabilities_supported_pages_per_sheet=None,
-                                         capabilities_supported_presentation_directions=None,
-                                         capabilities_supported_print_qualities=None,
-                                         capabilities_supports_fit_pdf_to_page=None,
-                                         capabilities_top_margins=None,
+                                         bottom_margins=None,
+                                         collation=None,
+                                         color_modes=None,
+                                         content_types=None,
+                                         copies_per_job=None,
+                                         dpis=None,
+                                         duplex_modes=None,
+                                         feed_directions=None,
+                                         feed_orientations=None,
+                                         finishings=None,
+                                         input_bins=None,
+                                         is_color_printing_supported=None,
+                                         is_page_range_supported=None,
+                                         left_margins=None,
+                                         media_colors=None,
+                                         media_sizes=None,
+                                         media_types=None,
+                                         multipage_layouts=None,
+                                         orientations=None,
+                                         output_bins=None,
+                                         pages_per_sheet=None,
+                                         qualities=None,
+                                         right_margins=None,
+                                         scalings=None,
+                                         supported_color_configurations=None,
+                                         supported_copies_per_job=None,
+                                         supported_document_mime_types=None,
+                                         supported_duplex_configurations=None,
+                                         supported_finishings=None,
+                                         supported_media_colors=None,
+                                         supported_media_sizes=None,
+                                         supported_media_types=None,
+                                         supported_orientations=None,
+                                         supported_output_bins=None,
+                                         supported_pages_per_sheet=None,
+                                         supported_presentation_directions=None,
+                                         supported_print_qualities=None,
+                                         supports_fit_pdf_to_page=None,
+                                         top_margins=None,
                                          allow_all_users=None,
                                          created_date_time=None,
                                          allowed_groups=None,
@@ -993,45 +989,45 @@ def devicescloudprint_print_update_share(client,
                                name=name,
                                status=status,
                                jobs=jobs,
-                               bottom_margins=capabilities_bottom_margins,
-                               collation=capabilities_collation,
-                               color_modes=capabilities_color_modes,
-                               content_types=capabilities_content_types,
-                               copies_per_job=capabilities_copies_per_job,
-                               dpis=capabilities_dpis,
-                               duplex_modes=capabilities_duplex_modes,
-                               feed_directions=capabilities_feed_directions,
-                               feed_orientations=capabilities_feed_orientations,
-                               finishings=capabilities_finishings,
-                               input_bins=capabilities_input_bins,
-                               is_color_printing_supported=capabilities_is_color_printing_supported,
-                               is_page_range_supported=capabilities_is_page_range_supported,
-                               left_margins=capabilities_left_margins,
-                               media_colors=capabilities_media_colors,
-                               media_sizes=capabilities_media_sizes,
-                               media_types=capabilities_media_types,
-                               multipage_layouts=capabilities_multipage_layouts,
-                               orientations=capabilities_orientations,
-                               output_bins=capabilities_output_bins,
-                               pages_per_sheet=capabilities_pages_per_sheet,
-                               qualities=capabilities_qualities,
-                               right_margins=capabilities_right_margins,
-                               scalings=capabilities_scalings,
-                               supported_color_configurations=capabilities_supported_color_configurations,
-                               supported_copies_per_job=capabilities_supported_copies_per_job,
-                               supported_document_mime_types=capabilities_supported_document_mime_types,
-                               supported_duplex_configurations=capabilities_supported_duplex_configurations,
-                               supported_finishings=capabilities_supported_finishings,
-                               supported_media_colors=capabilities_supported_media_colors,
-                               supported_media_sizes=capabilities_supported_media_sizes,
-                               supported_media_types=capabilities_supported_media_types,
-                               supported_orientations=capabilities_supported_orientations,
-                               supported_output_bins=capabilities_supported_output_bins,
-                               supported_pages_per_sheet=capabilities_supported_pages_per_sheet,
-                               supported_presentation_directions=capabilities_supported_presentation_directions,
-                               supported_print_qualities=capabilities_supported_print_qualities,
-                               supports_fit_pdf_to_page=capabilities_supports_fit_pdf_to_page,
-                               top_margins=capabilities_top_margins,
+                               bottom_margins=bottom_margins,
+                               collation=collation,
+                               color_modes=color_modes,
+                               content_types=content_types,
+                               copies_per_job=copies_per_job,
+                               dpis=dpis,
+                               duplex_modes=duplex_modes,
+                               feed_directions=feed_directions,
+                               feed_orientations=feed_orientations,
+                               finishings=finishings,
+                               input_bins=input_bins,
+                               is_color_printing_supported=is_color_printing_supported,
+                               is_page_range_supported=is_page_range_supported,
+                               left_margins=left_margins,
+                               media_colors=media_colors,
+                               media_sizes=media_sizes,
+                               media_types=media_types,
+                               multipage_layouts=multipage_layouts,
+                               orientations=orientations,
+                               output_bins=output_bins,
+                               pages_per_sheet=pages_per_sheet,
+                               qualities=qualities,
+                               right_margins=right_margins,
+                               scalings=scalings,
+                               supported_color_configurations=supported_color_configurations,
+                               supported_copies_per_job=supported_copies_per_job,
+                               supported_document_mime_types=supported_document_mime_types,
+                               supported_duplex_configurations=supported_duplex_configurations,
+                               supported_finishings=supported_finishings,
+                               supported_media_colors=supported_media_colors,
+                               supported_media_sizes=supported_media_sizes,
+                               supported_media_types=supported_media_types,
+                               supported_orientations=supported_orientations,
+                               supported_output_bins=supported_output_bins,
+                               supported_pages_per_sheet=supported_pages_per_sheet,
+                               supported_presentation_directions=supported_presentation_directions,
+                               supported_print_qualities=supported_print_qualities,
+                               supports_fit_pdf_to_page=supports_fit_pdf_to_page,
+                               top_margins=top_margins,
                                allow_all_users=allow_all_users,
                                created_date_time=created_date_time,
                                allowed_groups=allowed_groups,
@@ -1140,58 +1136,6 @@ def devicescloudprint_print_printer_create_task_trigger(client,
                                       definition=definition)
 
 
-def devicescloudprint_print_printer_get_allowed_group(client,
-                                                      printer_id,
-                                                      print_identity_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_allowed_group(printer_id=printer_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def devicescloudprint_print_printer_get_allowed_user(client,
-                                                     printer_id,
-                                                     print_user_identity_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_allowed_user(printer_id=printer_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def devicescloudprint_print_printer_get_capability(client,
-                                                   printer_id):
-    return client.get_capability(printer_id=printer_id)
-
-
-def devicescloudprint_print_printer_get_ref_share(client,
-                                                  printer_id):
-    return client.get_ref_share(printer_id=printer_id)
-
-
-def devicescloudprint_print_printer_get_share(client,
-                                              printer_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_share(printer_id=printer_id,
-                            select=select,
-                            expand=expand)
-
-
-def devicescloudprint_print_printer_get_task_trigger(client,
-                                                     printer_id,
-                                                     print_task_trigger_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_task_trigger(printer_id=printer_id,
-                                   print_task_trigger_id=print_task_trigger_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def devicescloudprint_print_printer_list_allowed_group(client,
                                                        printer_id,
                                                        orderby=None,
@@ -1278,6 +1222,58 @@ def devicescloudprint_print_printer_set_ref_share(client,
                                 body=body)
 
 
+def devicescloudprint_print_printer_show_allowed_group(client,
+                                                       printer_id,
+                                                       print_identity_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_allowed_group(printer_id=printer_id,
+                                    print_identity_id=print_identity_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def devicescloudprint_print_printer_show_allowed_user(client,
+                                                      printer_id,
+                                                      print_user_identity_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_allowed_user(printer_id=printer_id,
+                                   print_user_identity_id=print_user_identity_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def devicescloudprint_print_printer_show_capability(client,
+                                                    printer_id):
+    return client.get_capability(printer_id=printer_id)
+
+
+def devicescloudprint_print_printer_show_ref_share(client,
+                                                   printer_id):
+    return client.get_ref_share(printer_id=printer_id)
+
+
+def devicescloudprint_print_printer_show_share(client,
+                                               printer_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_share(printer_id=printer_id,
+                            select=select,
+                            expand=expand)
+
+
+def devicescloudprint_print_printer_show_task_trigger(client,
+                                                      printer_id,
+                                                      print_task_trigger_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_task_trigger(printer_id=printer_id,
+                                   print_task_trigger_id=print_task_trigger_id,
+                                   select=select,
+                                   expand=expand)
+
+
 def devicescloudprint_print_printer_update_allowed_group(client,
                                                          printer_id,
                                                          print_identity_id,
@@ -1326,24 +1322,6 @@ def devicescloudprint_print_printer_task_trigger_delete(client,
                                         if_match=if_match)
 
 
-def devicescloudprint_print_printer_task_trigger_get_definition(client,
-                                                                printer_id,
-                                                                print_task_trigger_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_definition(printer_id=printer_id,
-                                 print_task_trigger_id=print_task_trigger_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescloudprint_print_printer_task_trigger_get_ref_definition(client,
-                                                                    printer_id,
-                                                                    print_task_trigger_id):
-    return client.get_ref_definition(printer_id=printer_id,
-                                     print_task_trigger_id=print_task_trigger_id)
-
-
 def devicescloudprint_print_printer_task_trigger_set_ref_definition(client,
                                                                     printer_id,
                                                                     print_task_trigger_id,
@@ -1351,6 +1329,24 @@ def devicescloudprint_print_printer_task_trigger_set_ref_definition(client,
     return client.set_ref_definition(printer_id=printer_id,
                                      print_task_trigger_id=print_task_trigger_id,
                                      body=body)
+
+
+def devicescloudprint_print_printer_task_trigger_show_definition(client,
+                                                                 printer_id,
+                                                                 print_task_trigger_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_definition(printer_id=printer_id,
+                                 print_task_trigger_id=print_task_trigger_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescloudprint_print_printer_task_trigger_show_ref_definition(client,
+                                                                     printer_id,
+                                                                     print_task_trigger_id):
+    return client.get_ref_definition(printer_id=printer_id,
+                                     print_task_trigger_id=print_task_trigger_id)
 
 
 def devicescloudprint_print_printer_share_delete(client,
@@ -1392,42 +1388,6 @@ def devicescloudprint_print_printer_share_create_allowed_user(client,
                                       user_principal_name=user_principal_name)
 
 
-def devicescloudprint_print_printer_share_get_allowed_group(client,
-                                                            printer_share_id,
-                                                            print_identity_id,
-                                                            select=None,
-                                                            expand=None):
-    return client.get_allowed_group(printer_share_id=printer_share_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def devicescloudprint_print_printer_share_get_allowed_user(client,
-                                                           printer_share_id,
-                                                           print_user_identity_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_allowed_user(printer_share_id=printer_share_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def devicescloudprint_print_printer_share_get_printer(client,
-                                                      printer_share_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_printer(printer_share_id=printer_share_id,
-                              select=select,
-                              expand=expand)
-
-
-def devicescloudprint_print_printer_share_get_ref_printer(client,
-                                                          printer_share_id):
-    return client.get_ref_printer(printer_share_id=printer_share_id)
-
-
 def devicescloudprint_print_printer_share_list_allowed_group(client,
                                                              printer_share_id,
                                                              orderby=None,
@@ -1457,6 +1417,42 @@ def devicescloudprint_print_printer_share_set_ref_printer(client,
                                   body=body)
 
 
+def devicescloudprint_print_printer_share_show_allowed_group(client,
+                                                             printer_share_id,
+                                                             print_identity_id,
+                                                             select=None,
+                                                             expand=None):
+    return client.get_allowed_group(printer_share_id=printer_share_id,
+                                    print_identity_id=print_identity_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def devicescloudprint_print_printer_share_show_allowed_user(client,
+                                                            printer_share_id,
+                                                            print_user_identity_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_allowed_user(printer_share_id=printer_share_id,
+                                   print_user_identity_id=print_user_identity_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def devicescloudprint_print_printer_share_show_printer(client,
+                                                       printer_share_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_printer(printer_share_id=printer_share_id,
+                              select=select,
+                              expand=expand)
+
+
+def devicescloudprint_print_printer_share_show_ref_printer(client,
+                                                           printer_share_id):
+    return client.get_ref_printer(printer_share_id=printer_share_id)
+
+
 def devicescloudprint_print_printer_share_update_allowed_group(client,
                                                                printer_share_id,
                                                                print_identity_id,
@@ -1483,11 +1479,6 @@ def devicescloudprint_print_printer_share_update_allowed_user(client,
                                       user_principal_name=user_principal_name)
 
 
-def devicescloudprint_print_printer_share_printer_get_capability(client,
-                                                                 printer_share_id):
-    return client.get_capability(printer_share_id=printer_share_id)
-
-
 def devicescloudprint_print_printer_share_printer_reset_default(client,
                                                                 printer_share_id):
     return client.reset_default(printer_share_id=printer_share_id)
@@ -1498,94 +1489,87 @@ def devicescloudprint_print_printer_share_printer_restore_factory_default(client
     return client.restore_factory_default(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_print_report_get_group_archived_print_job(client,
-                                                                group_id,
-                                                                period_start,
-                                                                period_end):
+def devicescloudprint_print_printer_share_printer_show_capability(client,
+                                                                  printer_share_id):
+    return client.get_capability(printer_share_id=printer_share_id)
+
+
+def devicescloudprint_print_report_show_group_archived_print_job(client,
+                                                                 group_id,
+                                                                 period_start,
+                                                                 period_end):
     return client.get_group_archived_print_job(group_id=group_id,
                                                period_start=period_start,
                                                period_end=period_end)
 
 
-def devicescloudprint_print_report_get_group_print_usage_summary(client,
-                                                                 group_id,
-                                                                 period_start,
-                                                                 period_end):
+def devicescloudprint_print_report_show_group_print_usage_summary(client,
+                                                                  group_id,
+                                                                  period_start,
+                                                                  period_end):
     return client.get_group_print_usage_summary(group_id=group_id,
                                                 period_start=period_start,
                                                 period_end=period_end)
 
 
-def devicescloudprint_print_report_get_overall_print_usage_summary(client,
-                                                                   period_start,
-                                                                   period_end,
-                                                                   top_lists_size):
+def devicescloudprint_print_report_show_overall_print_usage_summary(client,
+                                                                    period_start,
+                                                                    period_end,
+                                                                    top_lists_size):
     return client.get_overall_print_usage_summary(period_start=period_start,
                                                   period_end=period_end,
                                                   top_lists_size=top_lists_size)
 
 
-def devicescloudprint_print_report_get_print_usage_summary_by_group(client,
-                                                                    period_start,
-                                                                    period_end):
-    return client.get_print_usage_summary_by_group(period_start=period_start,
-                                                   period_end=period_end)
-
-
-def devicescloudprint_print_report_get_print_usage_summary_by_printer(client,
-                                                                      period_start,
-                                                                      period_end):
-    return client.get_print_usage_summary_by_printer(period_start=period_start,
-                                                     period_end=period_end)
-
-
-def devicescloudprint_print_report_get_print_usage_summary_by_time_span(client,
-                                                                        period_start,
-                                                                        period_end,
-                                                                        time_span_in_minutes):
-    return client.get_print_usage_summary_by_time_span(period_start=period_start,
-                                                       period_end=period_end,
-                                                       time_span_in_minutes=time_span_in_minutes)
-
-
-def devicescloudprint_print_report_get_print_usage_summary_by_user(client,
-                                                                   period_start,
-                                                                   period_end):
+def devicescloudprint_print_report_show_print_usage_summary(client,
+                                                            period_start,
+                                                            period_end,
+                                                            time_span_in_minutes=None):
+    if period_start is not None and period_end is not None and time_span_in_minutes is not None:
+        return client.get_print_usage_summary_by_time_span(period_start=period_start,
+                                                           period_end=period_end,
+                                                           time_span_in_minutes=time_span_in_minutes)
+    elif period_start is not None and period_end is not None:
+        return client.get_print_usage_summary_by_group(period_start=period_start,
+                                                       period_end=period_end)
+    elif period_start is not None and period_end is not None:
+        return client.get_print_usage_summary_by_printer(period_start=period_start,
+                                                         period_end=period_end)
     return client.get_print_usage_summary_by_user(period_start=period_start,
                                                   period_end=period_end)
 
 
-def devicescloudprint_print_report_get_printer_archived_print_job(client,
-                                                                  printer_id,
-                                                                  period_start,
-                                                                  period_end):
+def devicescloudprint_print_report_show_printer_archived_print_job(client,
+                                                                   printer_id,
+                                                                   period_start,
+                                                                   period_end):
     return client.get_printer_archived_print_job(printer_id=printer_id,
                                                  period_start=period_start,
                                                  period_end=period_end)
 
 
-def devicescloudprint_print_report_get_printer_usage_summary(client,
-                                                             printer_id,
-                                                             period_start,
-                                                             period_end):
+def devicescloudprint_print_report_show_printer_usage_summary(client,
+                                                              printer_id,
+                                                              period_start,
+                                                              period_end):
     return client.get_printer_usage_summary(printer_id=printer_id,
                                             period_start=period_start,
                                             period_end=period_end)
 
 
-def devicescloudprint_print_report_get_user_archived_print_job(client,
-                                                               user_id,
-                                                               period_start,
-                                                               period_end):
+def devicescloudprint_print_report_show_user_archived_print_job(client,
+                                                                user_id,
+                                                                period_start,
+                                                                period_end):
     return client.get_user_archived_print_job(user_id=user_id,
                                               period_start=period_start,
                                               period_end=period_end)
 
 
-def devicescloudprint_print_report_get_user_print_usage_summary(client,
-                                                                user_id,
-                                                                period_start,
-                                                                period_end):
+def devicescloudprint_print_report_show_user_print_usage_summary(client,
+                                                                 user_id,
+                                                                 period_start,
+                                                                 period_end):
     return client.get_user_print_usage_summary(user_id=user_id,
                                                period_start=period_start,
                                                period_end=period_end)
@@ -1611,17 +1595,6 @@ def devicescloudprint_print_service_create_endpoint(client,
                                   uri=uri)
 
 
-def devicescloudprint_print_service_get_endpoint(client,
-                                                 print_service_id,
-                                                 print_service_endpoint_id,
-                                                 select=None,
-                                                 expand=None):
-    return client.get_endpoint(print_service_id=print_service_id,
-                               print_service_endpoint_id=print_service_endpoint_id,
-                               select=select,
-                               expand=expand)
-
-
 def devicescloudprint_print_service_list_endpoint(client,
                                                   print_service_id,
                                                   orderby=None,
@@ -1631,6 +1604,17 @@ def devicescloudprint_print_service_list_endpoint(client,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
+
+
+def devicescloudprint_print_service_show_endpoint(client,
+                                                  print_service_id,
+                                                  print_service_endpoint_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_endpoint(print_service_id=print_service_id,
+                               print_service_endpoint_id=print_service_endpoint_id,
+                               select=select,
+                               expand=expand)
 
 
 def devicescloudprint_print_service_update_endpoint(client,
@@ -1685,42 +1669,6 @@ def devicescloudprint_print_share_create_allowed_user(client,
                                       user_principal_name=user_principal_name)
 
 
-def devicescloudprint_print_share_get_allowed_group(client,
-                                                    printer_share_id,
-                                                    print_identity_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_allowed_group(printer_share_id=printer_share_id,
-                                    print_identity_id=print_identity_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def devicescloudprint_print_share_get_allowed_user(client,
-                                                   printer_share_id,
-                                                   print_user_identity_id,
-                                                   select=None,
-                                                   expand=None):
-    return client.get_allowed_user(printer_share_id=printer_share_id,
-                                   print_user_identity_id=print_user_identity_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def devicescloudprint_print_share_get_printer(client,
-                                              printer_share_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_printer(printer_share_id=printer_share_id,
-                              select=select,
-                              expand=expand)
-
-
-def devicescloudprint_print_share_get_ref_printer(client,
-                                                  printer_share_id):
-    return client.get_ref_printer(printer_share_id=printer_share_id)
-
-
 def devicescloudprint_print_share_list_allowed_group(client,
                                                      printer_share_id,
                                                      orderby=None,
@@ -1750,6 +1698,42 @@ def devicescloudprint_print_share_set_ref_printer(client,
                                   body=body)
 
 
+def devicescloudprint_print_share_show_allowed_group(client,
+                                                     printer_share_id,
+                                                     print_identity_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_allowed_group(printer_share_id=printer_share_id,
+                                    print_identity_id=print_identity_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def devicescloudprint_print_share_show_allowed_user(client,
+                                                    printer_share_id,
+                                                    print_user_identity_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_allowed_user(printer_share_id=printer_share_id,
+                                   print_user_identity_id=print_user_identity_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def devicescloudprint_print_share_show_printer(client,
+                                               printer_share_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_printer(printer_share_id=printer_share_id,
+                              select=select,
+                              expand=expand)
+
+
+def devicescloudprint_print_share_show_ref_printer(client,
+                                                   printer_share_id):
+    return client.get_ref_printer(printer_share_id=printer_share_id)
+
+
 def devicescloudprint_print_share_update_allowed_group(client,
                                                        printer_share_id,
                                                        print_identity_id,
@@ -1776,11 +1760,6 @@ def devicescloudprint_print_share_update_allowed_user(client,
                                       user_principal_name=user_principal_name)
 
 
-def devicescloudprint_print_share_printer_get_capability(client,
-                                                         printer_share_id):
-    return client.get_capability(printer_share_id=printer_share_id)
-
-
 def devicescloudprint_print_share_printer_reset_default(client,
                                                         printer_share_id):
     return client.reset_default(printer_share_id=printer_share_id)
@@ -1789,6 +1768,11 @@ def devicescloudprint_print_share_printer_reset_default(client,
 def devicescloudprint_print_share_printer_restore_factory_default(client,
                                                                   printer_share_id):
     return client.restore_factory_default(printer_share_id=printer_share_id)
+
+
+def devicescloudprint_print_share_printer_show_capability(client,
+                                                          printer_share_id):
+    return client.get_capability(printer_share_id=printer_share_id)
 
 
 def devicescloudprint_print_task_definition_delete(client,
@@ -1806,28 +1790,17 @@ def devicescloudprint_print_task_definition_create_task(client,
                                                         parent_url=None,
                                                         status=None,
                                                         definition=None,
-                                                        trigger_id=None,
-                                                        trigger_event=None,
-                                                        trigger_definition=None):
+                                                        microsoft_graph_entity_id=None,
+                                                        event=None,
+                                                        microsoft_graph_print_task_definition=None):
     return client.create_task(print_task_definition_id=print_task_definition_id,
                               id=id_,
                               parent_url=parent_url,
                               status=status,
                               definition=definition,
-                              microsoft_graph_entity_id=trigger_id,
-                              event=trigger_event,
-                              microsoft_graph_print_task_definition=trigger_definition)
-
-
-def devicescloudprint_print_task_definition_get_task(client,
-                                                     print_task_definition_id,
-                                                     print_task_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_task(print_task_definition_id=print_task_definition_id,
-                           print_task_id=print_task_id,
-                           select=select,
-                           expand=expand)
+                              microsoft_graph_entity_id=microsoft_graph_entity_id,
+                              event=event,
+                              microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
 
 
 def devicescloudprint_print_task_definition_list_task(client,
@@ -1841,6 +1814,17 @@ def devicescloudprint_print_task_definition_list_task(client,
                             expand=expand)
 
 
+def devicescloudprint_print_task_definition_show_task(client,
+                                                      print_task_definition_id,
+                                                      print_task_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_task(print_task_definition_id=print_task_definition_id,
+                           print_task_id=print_task_id,
+                           select=select,
+                           expand=expand)
+
+
 def devicescloudprint_print_task_definition_update_task(client,
                                                         print_task_definition_id,
                                                         print_task_id,
@@ -1848,18 +1832,18 @@ def devicescloudprint_print_task_definition_update_task(client,
                                                         parent_url=None,
                                                         status=None,
                                                         definition=None,
-                                                        trigger_id=None,
-                                                        trigger_event=None,
-                                                        trigger_definition=None):
+                                                        microsoft_graph_entity_id=None,
+                                                        event=None,
+                                                        microsoft_graph_print_task_definition=None):
     return client.update_task(print_task_definition_id=print_task_definition_id,
                               print_task_id=print_task_id,
                               id=id_,
                               parent_url=parent_url,
                               status=status,
                               definition=definition,
-                              microsoft_graph_entity_id=trigger_id,
-                              event=trigger_event,
-                              microsoft_graph_print_task_definition=trigger_definition)
+                              microsoft_graph_entity_id=microsoft_graph_entity_id,
+                              event=event,
+                              microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
 
 
 def devicescloudprint_print_task_definition_task_delete(client,
@@ -1873,42 +1857,6 @@ def devicescloudprint_print_task_definition_task_delete(client,
     return client.delete_ref_trigger(print_task_definition_id=print_task_definition_id,
                                      print_task_id=print_task_id,
                                      if_match=if_match)
-
-
-def devicescloudprint_print_task_definition_task_get_definition(client,
-                                                                print_task_definition_id,
-                                                                print_task_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_definition(print_task_definition_id=print_task_definition_id,
-                                 print_task_id=print_task_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def devicescloudprint_print_task_definition_task_get_ref_definition(client,
-                                                                    print_task_definition_id,
-                                                                    print_task_id):
-    return client.get_ref_definition(print_task_definition_id=print_task_definition_id,
-                                     print_task_id=print_task_id)
-
-
-def devicescloudprint_print_task_definition_task_get_ref_trigger(client,
-                                                                 print_task_definition_id,
-                                                                 print_task_id):
-    return client.get_ref_trigger(print_task_definition_id=print_task_definition_id,
-                                  print_task_id=print_task_id)
-
-
-def devicescloudprint_print_task_definition_task_get_trigger(client,
-                                                             print_task_definition_id,
-                                                             print_task_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_trigger(print_task_definition_id=print_task_definition_id,
-                              print_task_id=print_task_id,
-                              select=select,
-                              expand=expand)
 
 
 def devicescloudprint_print_task_definition_task_set_ref_definition(client,
@@ -1927,3 +1875,39 @@ def devicescloudprint_print_task_definition_task_set_ref_trigger(client,
     return client.set_ref_trigger(print_task_definition_id=print_task_definition_id,
                                   print_task_id=print_task_id,
                                   body=body)
+
+
+def devicescloudprint_print_task_definition_task_show_definition(client,
+                                                                 print_task_definition_id,
+                                                                 print_task_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_definition(print_task_definition_id=print_task_definition_id,
+                                 print_task_id=print_task_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def devicescloudprint_print_task_definition_task_show_ref_definition(client,
+                                                                     print_task_definition_id,
+                                                                     print_task_id):
+    return client.get_ref_definition(print_task_definition_id=print_task_definition_id,
+                                     print_task_id=print_task_id)
+
+
+def devicescloudprint_print_task_definition_task_show_ref_trigger(client,
+                                                                  print_task_definition_id,
+                                                                  print_task_id):
+    return client.get_ref_trigger(print_task_definition_id=print_task_definition_id,
+                                  print_task_id=print_task_id)
+
+
+def devicescloudprint_print_task_definition_task_show_trigger(client,
+                                                              print_task_definition_id,
+                                                              print_task_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_trigger(print_task_definition_id=print_task_definition_id,
+                              print_task_id=print_task_id,
+                              select=select,
+                              expand=expand)

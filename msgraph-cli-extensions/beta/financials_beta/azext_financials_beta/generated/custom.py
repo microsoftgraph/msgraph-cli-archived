@@ -11,14 +11,14 @@
 # pylint: disable=too-many-lines
 
 
-def financials_financial_update(client,
+def financials_financial_create(client,
                                 companies=None):
     return client.update_financial(companies=companies)
 
 
-def financials_financial_get(client,
-                             select=None,
-                             expand=None):
+def financials_financial_show_financial(client,
+                                        select=None,
+                                        expand=None):
     return client.get_financial(select=select,
                                 expand=expand)
 
@@ -113,15 +113,6 @@ def financials_financial_create_company(client,
                                  vendors=vendors)
 
 
-def financials_financial_get_company(client,
-                                     company_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_company(company_id=company_id,
-                              select=select,
-                              expand=expand)
-
-
 def financials_financial_list_company(client,
                                       orderby=None,
                                       select=None,
@@ -129,6 +120,15 @@ def financials_financial_list_company(client,
     return client.list_company(orderby=orderby,
                                select=select,
                                expand=expand)
+
+
+def financials_financial_show_company(client,
+                                      company_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_company(company_id=company_id,
+                              select=select,
+                              expand=expand)
 
 
 def financials_financial_update_company(client,
@@ -604,29 +604,29 @@ def financials_financial_company_create_customer_payment(client,
                                                          line_number=None,
                                                          posting_date=None,
                                                          microsoft_graph_entity_id=None,
-                                                         customer_address=None,
-                                                         customer_blocked=None,
-                                                         customer_currency_code=None,
-                                                         customer_currency_id=None,
-                                                         customer_display_name=None,
-                                                         customer_email=None,
-                                                         customer_last_modified_date_time=None,
+                                                         address=None,
+                                                         blocked=None,
+                                                         currency_code=None,
+                                                         currency_id=None,
+                                                         display_name=None,
+                                                         email=None,
+                                                         microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                          number=None,
-                                                         customer_payment_method_id=None,
-                                                         customer_payment_terms_id=None,
-                                                         customer_phone_number=None,
-                                                         customer_shipment_method_id=None,
-                                                         customer_tax_area_display_name=None,
-                                                         customer_tax_area_id=None,
-                                                         customer_tax_liable=None,
-                                                         customer_tax_registration_number=None,
-                                                         customer_type=None,
-                                                         customer_website=None,
-                                                         customer_currency=None,
-                                                         customer_payment_method=None,
-                                                         customer_payment_term=None,
-                                                         customer_picture=None,
-                                                         customer_shipment_method=None):
+                                                         payment_method_id=None,
+                                                         payment_terms_id=None,
+                                                         phone_number=None,
+                                                         shipment_method_id=None,
+                                                         tax_area_display_name=None,
+                                                         tax_area_id=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         type_=None,
+                                                         website=None,
+                                                         currency=None,
+                                                         payment_method=None,
+                                                         payment_term=None,
+                                                         picture=None,
+                                                         shipment_method=None):
     return client.create_customer_payment(company_id=company_id,
                                           id=id_,
                                           amount=amount,
@@ -644,29 +644,29 @@ def financials_financial_company_create_customer_payment(client,
                                           line_number=line_number,
                                           posting_date=posting_date,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          currency_code=customer_currency_code,
-                                          currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          currency_code=currency_code,
+                                          currency_id=currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           number=number,
-                                          payment_method_id=customer_payment_method_id,
-                                          payment_terms_id=customer_payment_terms_id,
-                                          phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          currency=currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_create_customer_payment_journal(client,
@@ -975,25 +975,25 @@ def financials_financial_company_create_purchase_invoice(client,
                                                          currency=None,
                                                          purchase_invoice_lines=None,
                                                          microsoft_graph_entity_id=None,
-                                                         vendor_address=None,
-                                                         vendor_balance=None,
-                                                         vendor_blocked=None,
-                                                         vendor_currency_code=None,
-                                                         vendor_currency_id=None,
-                                                         vendor_display_name=None,
-                                                         vendor_email=None,
-                                                         vendor_last_modified_date_time=None,
+                                                         address=None,
+                                                         balance=None,
+                                                         blocked=None,
+                                                         microsoft_graph_vendor_currency_code=None,
+                                                         microsoft_graph_vendor_currency_id=None,
+                                                         display_name=None,
+                                                         email=None,
+                                                         microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=None,
                                                          microsoft_graph_vendor_number=None,
-                                                         vendor_payment_method_id=None,
-                                                         vendor_payment_terms_id=None,
-                                                         vendor_phone_number=None,
-                                                         vendor_tax_liable=None,
-                                                         vendor_tax_registration_number=None,
-                                                         vendor_website=None,
-                                                         vendor_currency=None,
-                                                         vendor_payment_method=None,
-                                                         vendor_payment_term=None,
-                                                         vendor_picture=None):
+                                                         payment_method_id=None,
+                                                         payment_terms_id=None,
+                                                         phone_number=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         website=None,
+                                                         microsoft_graph_currency=None,
+                                                         payment_method=None,
+                                                         payment_term=None,
+                                                         picture=None):
     return client.create_purchase_invoice(company_id=company_id,
                                           id=id_,
                                           buy_from_address=buy_from_address,
@@ -1025,25 +1025,25 @@ def financials_financial_company_create_purchase_invoice(client,
                                           currency=currency,
                                           purchase_invoice_lines=purchase_invoice_lines,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=vendor_address,
-                                          balance=vendor_balance,
-                                          blocked=vendor_blocked,
-                                          microsoft_graph_vendor_currency_code=vendor_currency_code,
-                                          microsoft_graph_vendor_currency_id=vendor_currency_id,
-                                          display_name=vendor_display_name,
-                                          email=vendor_email,
-                                          microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=vendor_last_modified_date_time,
+                                          address=address,
+                                          balance=balance,
+                                          blocked=blocked,
+                                          microsoft_graph_vendor_currency_code=microsoft_graph_vendor_currency_code,
+                                          microsoft_graph_vendor_currency_id=microsoft_graph_vendor_currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time,
                                           microsoft_graph_vendor_number=microsoft_graph_vendor_number,
-                                          payment_method_id=vendor_payment_method_id,
-                                          payment_terms_id=vendor_payment_terms_id,
-                                          phone_number=vendor_phone_number,
-                                          tax_liable=vendor_tax_liable,
-                                          tax_registration_number=vendor_tax_registration_number,
-                                          website=vendor_website,
-                                          microsoft_graph_currency=vendor_currency,
-                                          payment_method=vendor_payment_method,
-                                          payment_term=vendor_payment_term,
-                                          picture=vendor_picture)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          website=website,
+                                          microsoft_graph_currency=microsoft_graph_currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture)
 
 
 def financials_financial_company_create_purchase_invoice_line(client,
@@ -1072,23 +1072,23 @@ def financials_financial_company_create_purchase_invoice_line(client,
                                                               unit_cost=None,
                                                               account=None,
                                                               microsoft_graph_entity_id=None,
-                                                              item_base_unit_of_measure_id=None,
-                                                              item_blocked=None,
-                                                              item_display_name=None,
-                                                              item_gtin=None,
-                                                              item_inventory=None,
-                                                              item_item_category_code=None,
-                                                              item_item_category_id=None,
-                                                              item_last_modified_date_time=None,
-                                                              item_number=None,
-                                                              item_price_includes_tax=None,
-                                                              item_tax_group_code=None,
-                                                              item_tax_group_id=None,
-                                                              item_type=None,
-                                                              item_unit_cost=None,
-                                                              item_unit_price=None,
-                                                              item_item_category=None,
-                                                              item_picture=None):
+                                                              base_unit_of_measure_id=None,
+                                                              blocked=None,
+                                                              display_name=None,
+                                                              gtin=None,
+                                                              inventory=None,
+                                                              item_category_code=None,
+                                                              item_category_id=None,
+                                                              last_modified_date_time=None,
+                                                              number=None,
+                                                              price_includes_tax=None,
+                                                              tax_group_code=None,
+                                                              tax_group_id=None,
+                                                              type_=None,
+                                                              number_unit_cost=None,
+                                                              unit_price=None,
+                                                              item_category=None,
+                                                              picture=None):
     return client.create_purchase_invoice_line(company_id=company_id,
                                                id=id_,
                                                account_id=account_id,
@@ -1114,23 +1114,23 @@ def financials_financial_company_create_purchase_invoice_line(client,
                                                unit_cost=unit_cost,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               number_unit_cost=item_unit_cost,
-                                               unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               number_unit_cost=number_unit_cost,
+                                               unit_price=unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_create_sale_credit_memo(client,
@@ -1168,29 +1168,29 @@ def financials_financial_company_create_sale_credit_memo(client,
                                                          payment_term=None,
                                                          sales_credit_memo_lines=None,
                                                          microsoft_graph_entity_id=None,
-                                                         customer_address=None,
-                                                         customer_blocked=None,
-                                                         customer_currency_code=None,
-                                                         customer_currency_id=None,
-                                                         customer_display_name=None,
-                                                         customer_email=None,
-                                                         customer_last_modified_date_time=None,
+                                                         address=None,
+                                                         blocked=None,
+                                                         microsoft_graph_customer_currency_code=None,
+                                                         microsoft_graph_customer_currency_id=None,
+                                                         display_name=None,
+                                                         microsoft_graph_customer_email=None,
+                                                         microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                          microsoft_graph_customer_number=None,
-                                                         customer_payment_method_id=None,
-                                                         customer_payment_terms_id=None,
-                                                         customer_phone_number=None,
-                                                         customer_shipment_method_id=None,
-                                                         customer_tax_area_display_name=None,
-                                                         customer_tax_area_id=None,
-                                                         customer_tax_liable=None,
-                                                         customer_tax_registration_number=None,
-                                                         customer_type=None,
-                                                         customer_website=None,
-                                                         customer_currency=None,
-                                                         customer_payment_method=None,
-                                                         customer_payment_term=None,
-                                                         customer_picture=None,
-                                                         customer_shipment_method=None):
+                                                         payment_method_id=None,
+                                                         microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                         microsoft_graph_customer_phone_number=None,
+                                                         shipment_method_id=None,
+                                                         tax_area_display_name=None,
+                                                         tax_area_id=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         type_=None,
+                                                         website=None,
+                                                         microsoft_graph_currency=None,
+                                                         payment_method=None,
+                                                         microsoft_graph_payment_term=None,
+                                                         picture=None,
+                                                         shipment_method=None):
     return client.create_sale_credit_memo(company_id=company_id,
                                           id=id_,
                                           billing_postal_address=billing_postal_address,
@@ -1225,29 +1225,29 @@ def financials_financial_company_create_sale_credit_memo(client,
                                           payment_term=payment_term,
                                           sales_credit_memo_lines=sales_credit_memo_lines,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          microsoft_graph_customer_currency_code=customer_currency_code,
-                                          microsoft_graph_customer_currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          microsoft_graph_customer_email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                          microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                          display_name=display_name,
+                                          microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                          payment_method_id=customer_payment_method_id,
-                                          microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                          microsoft_graph_customer_phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          microsoft_graph_currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          microsoft_graph_payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
+                                          payment_method_id=payment_method_id,
+                                          microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                          microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          microsoft_graph_currency=microsoft_graph_currency,
+                                          payment_method=payment_method,
+                                          microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_create_sale_credit_memo_line(client,
@@ -1277,23 +1277,23 @@ def financials_financial_company_create_sale_credit_memo_line(client,
                                                               unit_price=None,
                                                               account=None,
                                                               microsoft_graph_entity_id=None,
-                                                              item_base_unit_of_measure_id=None,
-                                                              item_blocked=None,
-                                                              item_display_name=None,
-                                                              item_gtin=None,
-                                                              item_inventory=None,
-                                                              item_item_category_code=None,
-                                                              item_item_category_id=None,
-                                                              item_last_modified_date_time=None,
-                                                              item_number=None,
-                                                              item_price_includes_tax=None,
-                                                              item_tax_group_code=None,
-                                                              item_tax_group_id=None,
-                                                              item_type=None,
-                                                              item_unit_cost=None,
-                                                              item_unit_price=None,
-                                                              item_item_category=None,
-                                                              item_picture=None):
+                                                              base_unit_of_measure_id=None,
+                                                              blocked=None,
+                                                              display_name=None,
+                                                              gtin=None,
+                                                              inventory=None,
+                                                              item_category_code=None,
+                                                              item_category_id=None,
+                                                              last_modified_date_time=None,
+                                                              number=None,
+                                                              price_includes_tax=None,
+                                                              tax_group_code=None,
+                                                              tax_group_id=None,
+                                                              type_=None,
+                                                              unit_cost=None,
+                                                              number_unit_price=None,
+                                                              item_category=None,
+                                                              picture=None):
     return client.create_sale_credit_memo_line(company_id=company_id,
                                                id=id_,
                                                account_id=account_id,
@@ -1320,23 +1320,23 @@ def financials_financial_company_create_sale_credit_memo_line(client,
                                                unit_price=unit_price,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               unit_cost=item_unit_cost,
-                                               number_unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               unit_cost=unit_cost,
+                                               number_unit_price=number_unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_create_sale_invoice(client,
@@ -1380,29 +1380,29 @@ def financials_financial_company_create_sale_invoice(client,
                                                      sales_invoice_lines=None,
                                                      shipment_method=None,
                                                      microsoft_graph_entity_id=None,
-                                                     customer_address=None,
-                                                     customer_blocked=None,
-                                                     customer_currency_code=None,
-                                                     customer_currency_id=None,
-                                                     customer_display_name=None,
-                                                     customer_email=None,
-                                                     customer_last_modified_date_time=None,
+                                                     address=None,
+                                                     blocked=None,
+                                                     microsoft_graph_customer_currency_code=None,
+                                                     microsoft_graph_customer_currency_id=None,
+                                                     display_name=None,
+                                                     microsoft_graph_customer_email=None,
+                                                     microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                      microsoft_graph_customer_number=None,
-                                                     customer_payment_method_id=None,
-                                                     customer_payment_terms_id=None,
-                                                     customer_phone_number=None,
-                                                     customer_shipment_method_id=None,
-                                                     customer_tax_area_display_name=None,
-                                                     customer_tax_area_id=None,
-                                                     customer_tax_liable=None,
-                                                     customer_tax_registration_number=None,
-                                                     customer_type=None,
-                                                     customer_website=None,
-                                                     customer_currency=None,
-                                                     customer_payment_method=None,
-                                                     customer_payment_term=None,
-                                                     customer_picture=None,
-                                                     customer_shipment_method=None):
+                                                     payment_method_id=None,
+                                                     microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                     microsoft_graph_customer_phone_number=None,
+                                                     microsoft_graph_customer_shipment_method_id_shipment_method_id=None,
+                                                     tax_area_display_name=None,
+                                                     tax_area_id=None,
+                                                     tax_liable=None,
+                                                     tax_registration_number=None,
+                                                     type_=None,
+                                                     website=None,
+                                                     microsoft_graph_currency=None,
+                                                     payment_method=None,
+                                                     microsoft_graph_payment_term=None,
+                                                     picture=None,
+                                                     microsoft_graph_shipment_method=None):
     return client.create_sale_invoice(company_id=company_id,
                                       id=id_,
                                       billing_postal_address=billing_postal_address,
@@ -1443,29 +1443,29 @@ def financials_financial_company_create_sale_invoice(client,
                                       sales_invoice_lines=sales_invoice_lines,
                                       shipment_method=shipment_method,
                                       microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                      address=customer_address,
-                                      blocked=customer_blocked,
-                                      microsoft_graph_customer_currency_code=customer_currency_code,
-                                      microsoft_graph_customer_currency_id=customer_currency_id,
-                                      display_name=customer_display_name,
-                                      microsoft_graph_customer_email=customer_email,
-                                      microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                      address=address,
+                                      blocked=blocked,
+                                      microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                      microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                      display_name=display_name,
+                                      microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                      microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                       microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                      payment_method_id=customer_payment_method_id,
-                                      microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                      microsoft_graph_customer_phone_number=customer_phone_number,
-                                      microsoft_graph_customer_shipment_method_id_shipment_method_id=customer_shipment_method_id,
-                                      tax_area_display_name=customer_tax_area_display_name,
-                                      tax_area_id=customer_tax_area_id,
-                                      tax_liable=customer_tax_liable,
-                                      tax_registration_number=customer_tax_registration_number,
-                                      type=customer_type,
-                                      website=customer_website,
-                                      microsoft_graph_currency=customer_currency,
-                                      payment_method=customer_payment_method,
-                                      microsoft_graph_payment_term=customer_payment_term,
-                                      picture=customer_picture,
-                                      microsoft_graph_shipment_method=customer_shipment_method)
+                                      payment_method_id=payment_method_id,
+                                      microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                      microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                      microsoft_graph_customer_shipment_method_id_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id,
+                                      tax_area_display_name=tax_area_display_name,
+                                      tax_area_id=tax_area_id,
+                                      tax_liable=tax_liable,
+                                      tax_registration_number=tax_registration_number,
+                                      type=type_,
+                                      website=website,
+                                      microsoft_graph_currency=microsoft_graph_currency,
+                                      payment_method=payment_method,
+                                      microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                      picture=picture,
+                                      microsoft_graph_shipment_method=microsoft_graph_shipment_method)
 
 
 def financials_financial_company_create_sale_invoice_line(client,
@@ -1495,23 +1495,23 @@ def financials_financial_company_create_sale_invoice_line(client,
                                                           unit_price=None,
                                                           account=None,
                                                           microsoft_graph_entity_id=None,
-                                                          item_base_unit_of_measure_id=None,
-                                                          item_blocked=None,
-                                                          item_display_name=None,
-                                                          item_gtin=None,
-                                                          item_inventory=None,
-                                                          item_item_category_code=None,
-                                                          item_item_category_id=None,
-                                                          item_last_modified_date_time=None,
-                                                          item_number=None,
-                                                          item_price_includes_tax=None,
-                                                          item_tax_group_code=None,
-                                                          item_tax_group_id=None,
-                                                          item_type=None,
-                                                          item_unit_cost=None,
-                                                          item_unit_price=None,
-                                                          item_item_category=None,
-                                                          item_picture=None):
+                                                          base_unit_of_measure_id=None,
+                                                          blocked=None,
+                                                          display_name=None,
+                                                          gtin=None,
+                                                          inventory=None,
+                                                          item_category_code=None,
+                                                          item_category_id=None,
+                                                          last_modified_date_time=None,
+                                                          number=None,
+                                                          price_includes_tax=None,
+                                                          tax_group_code=None,
+                                                          tax_group_id=None,
+                                                          type_=None,
+                                                          unit_cost=None,
+                                                          number_unit_price=None,
+                                                          item_category=None,
+                                                          picture=None):
     return client.create_sale_invoice_line(company_id=company_id,
                                            id=id_,
                                            account_id=account_id,
@@ -1538,23 +1538,23 @@ def financials_financial_company_create_sale_invoice_line(client,
                                            unit_price=unit_price,
                                            account=account,
                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                           base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                           blocked=item_blocked,
-                                           display_name=item_display_name,
-                                           gtin=item_gtin,
-                                           inventory=item_inventory,
-                                           item_category_code=item_item_category_code,
-                                           item_category_id=item_item_category_id,
-                                           last_modified_date_time=item_last_modified_date_time,
-                                           number=item_number,
-                                           price_includes_tax=item_price_includes_tax,
-                                           tax_group_code=item_tax_group_code,
-                                           tax_group_id=item_tax_group_id,
-                                           type=item_type,
-                                           unit_cost=item_unit_cost,
-                                           number_unit_price=item_unit_price,
-                                           item_category=item_item_category,
-                                           picture=item_picture)
+                                           base_unit_of_measure_id=base_unit_of_measure_id,
+                                           blocked=blocked,
+                                           display_name=display_name,
+                                           gtin=gtin,
+                                           inventory=inventory,
+                                           item_category_code=item_category_code,
+                                           item_category_id=item_category_id,
+                                           last_modified_date_time=last_modified_date_time,
+                                           number=number,
+                                           price_includes_tax=price_includes_tax,
+                                           tax_group_code=tax_group_code,
+                                           tax_group_id=tax_group_id,
+                                           type=type_,
+                                           unit_cost=unit_cost,
+                                           number_unit_price=number_unit_price,
+                                           item_category=item_category,
+                                           picture=picture)
 
 
 def financials_financial_company_create_sale_order(client,
@@ -1595,29 +1595,29 @@ def financials_financial_company_create_sale_order(client,
                                                    payment_term=None,
                                                    sales_order_lines=None,
                                                    microsoft_graph_entity_id=None,
-                                                   customer_address=None,
-                                                   customer_blocked=None,
-                                                   customer_currency_code=None,
-                                                   customer_currency_id=None,
-                                                   customer_display_name=None,
-                                                   customer_email=None,
-                                                   customer_last_modified_date_time=None,
+                                                   address=None,
+                                                   blocked=None,
+                                                   microsoft_graph_customer_currency_code=None,
+                                                   microsoft_graph_customer_currency_id=None,
+                                                   display_name=None,
+                                                   microsoft_graph_customer_email=None,
+                                                   microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                    microsoft_graph_customer_number=None,
-                                                   customer_payment_method_id=None,
-                                                   customer_payment_terms_id=None,
-                                                   customer_phone_number=None,
-                                                   customer_shipment_method_id=None,
-                                                   customer_tax_area_display_name=None,
-                                                   customer_tax_area_id=None,
-                                                   customer_tax_liable=None,
-                                                   customer_tax_registration_number=None,
-                                                   customer_type=None,
-                                                   customer_website=None,
-                                                   customer_currency=None,
-                                                   customer_payment_method=None,
-                                                   customer_payment_term=None,
-                                                   customer_picture=None,
-                                                   customer_shipment_method=None):
+                                                   payment_method_id=None,
+                                                   microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                   microsoft_graph_customer_phone_number=None,
+                                                   shipment_method_id=None,
+                                                   tax_area_display_name=None,
+                                                   tax_area_id=None,
+                                                   tax_liable=None,
+                                                   tax_registration_number=None,
+                                                   type_=None,
+                                                   website=None,
+                                                   microsoft_graph_currency=None,
+                                                   payment_method=None,
+                                                   microsoft_graph_payment_term=None,
+                                                   picture=None,
+                                                   shipment_method=None):
     return client.create_sale_order(company_id=company_id,
                                     id=id_,
                                     billing_postal_address=billing_postal_address,
@@ -1655,29 +1655,29 @@ def financials_financial_company_create_sale_order(client,
                                     payment_term=payment_term,
                                     sales_order_lines=sales_order_lines,
                                     microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    address=customer_address,
-                                    blocked=customer_blocked,
-                                    microsoft_graph_customer_currency_code=customer_currency_code,
-                                    microsoft_graph_customer_currency_id=customer_currency_id,
-                                    display_name=customer_display_name,
-                                    microsoft_graph_customer_email=customer_email,
-                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                    address=address,
+                                    blocked=blocked,
+                                    microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                    microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                    display_name=display_name,
+                                    microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                     microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                    payment_method_id=customer_payment_method_id,
-                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                    microsoft_graph_customer_phone_number=customer_phone_number,
-                                    shipment_method_id=customer_shipment_method_id,
-                                    tax_area_display_name=customer_tax_area_display_name,
-                                    tax_area_id=customer_tax_area_id,
-                                    tax_liable=customer_tax_liable,
-                                    tax_registration_number=customer_tax_registration_number,
-                                    type=customer_type,
-                                    website=customer_website,
-                                    microsoft_graph_currency=customer_currency,
-                                    payment_method=customer_payment_method,
-                                    microsoft_graph_payment_term=customer_payment_term,
-                                    picture=customer_picture,
-                                    shipment_method=customer_shipment_method)
+                                    payment_method_id=payment_method_id,
+                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                    microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                    shipment_method_id=shipment_method_id,
+                                    tax_area_display_name=tax_area_display_name,
+                                    tax_area_id=tax_area_id,
+                                    tax_liable=tax_liable,
+                                    tax_registration_number=tax_registration_number,
+                                    type=type_,
+                                    website=website,
+                                    microsoft_graph_currency=microsoft_graph_currency,
+                                    payment_method=payment_method,
+                                    microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                    picture=picture,
+                                    shipment_method=shipment_method)
 
 
 def financials_financial_company_create_sale_order_line(client,
@@ -1711,23 +1711,23 @@ def financials_financial_company_create_sale_order_line(client,
                                                         unit_price=None,
                                                         account=None,
                                                         microsoft_graph_entity_id=None,
-                                                        item_base_unit_of_measure_id=None,
-                                                        item_blocked=None,
-                                                        item_display_name=None,
-                                                        item_gtin=None,
-                                                        item_inventory=None,
-                                                        item_item_category_code=None,
-                                                        item_item_category_id=None,
-                                                        item_last_modified_date_time=None,
-                                                        item_number=None,
-                                                        item_price_includes_tax=None,
-                                                        item_tax_group_code=None,
-                                                        item_tax_group_id=None,
-                                                        item_type=None,
-                                                        item_unit_cost=None,
-                                                        item_unit_price=None,
-                                                        item_item_category=None,
-                                                        item_picture=None):
+                                                        base_unit_of_measure_id=None,
+                                                        blocked=None,
+                                                        display_name=None,
+                                                        gtin=None,
+                                                        inventory=None,
+                                                        item_category_code=None,
+                                                        item_category_id=None,
+                                                        last_modified_date_time=None,
+                                                        number=None,
+                                                        price_includes_tax=None,
+                                                        tax_group_code=None,
+                                                        tax_group_id=None,
+                                                        type_=None,
+                                                        unit_cost=None,
+                                                        number_unit_price=None,
+                                                        item_category=None,
+                                                        picture=None):
     return client.create_sale_order_line(company_id=company_id,
                                          id=id_,
                                          account_id=account_id,
@@ -1758,23 +1758,23 @@ def financials_financial_company_create_sale_order_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_create_sale_quote(client,
@@ -1816,29 +1816,29 @@ def financials_financial_company_create_sale_quote(client,
                                                    sales_quote_lines=None,
                                                    shipment_method=None,
                                                    microsoft_graph_entity_id=None,
-                                                   customer_address=None,
-                                                   customer_blocked=None,
-                                                   customer_currency_code=None,
-                                                   customer_currency_id=None,
-                                                   customer_display_name=None,
-                                                   customer_email=None,
-                                                   customer_last_modified_date_time=None,
+                                                   address=None,
+                                                   blocked=None,
+                                                   microsoft_graph_customer_currency_code=None,
+                                                   microsoft_graph_customer_currency_id=None,
+                                                   display_name=None,
+                                                   microsoft_graph_customer_email=None,
+                                                   microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                    microsoft_graph_customer_number=None,
-                                                   customer_payment_method_id=None,
-                                                   customer_payment_terms_id=None,
-                                                   customer_phone_number=None,
-                                                   customer_shipment_method_id=None,
-                                                   customer_tax_area_display_name=None,
-                                                   customer_tax_area_id=None,
-                                                   customer_tax_liable=None,
-                                                   customer_tax_registration_number=None,
-                                                   customer_type=None,
-                                                   customer_website=None,
-                                                   customer_currency=None,
-                                                   customer_payment_method=None,
-                                                   customer_payment_term=None,
-                                                   customer_picture=None,
-                                                   customer_shipment_method=None):
+                                                   payment_method_id=None,
+                                                   microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                   microsoft_graph_customer_phone_number=None,
+                                                   microsoft_graph_customer_shipment_method_id_shipment_method_id=None,
+                                                   tax_area_display_name=None,
+                                                   tax_area_id=None,
+                                                   tax_liable=None,
+                                                   tax_registration_number=None,
+                                                   type_=None,
+                                                   website=None,
+                                                   microsoft_graph_currency=None,
+                                                   payment_method=None,
+                                                   microsoft_graph_payment_term=None,
+                                                   picture=None,
+                                                   microsoft_graph_shipment_method=None):
     return client.create_sale_quote(company_id=company_id,
                                     id=id_,
                                     accepted_date=accepted_date,
@@ -1877,29 +1877,29 @@ def financials_financial_company_create_sale_quote(client,
                                     sales_quote_lines=sales_quote_lines,
                                     shipment_method=shipment_method,
                                     microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    address=customer_address,
-                                    blocked=customer_blocked,
-                                    microsoft_graph_customer_currency_code=customer_currency_code,
-                                    microsoft_graph_customer_currency_id=customer_currency_id,
-                                    display_name=customer_display_name,
-                                    microsoft_graph_customer_email=customer_email,
-                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                    address=address,
+                                    blocked=blocked,
+                                    microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                    microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                    display_name=display_name,
+                                    microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                     microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                    payment_method_id=customer_payment_method_id,
-                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                    microsoft_graph_customer_phone_number=customer_phone_number,
-                                    microsoft_graph_customer_shipment_method_id_shipment_method_id=customer_shipment_method_id,
-                                    tax_area_display_name=customer_tax_area_display_name,
-                                    tax_area_id=customer_tax_area_id,
-                                    tax_liable=customer_tax_liable,
-                                    tax_registration_number=customer_tax_registration_number,
-                                    type=customer_type,
-                                    website=customer_website,
-                                    microsoft_graph_currency=customer_currency,
-                                    payment_method=customer_payment_method,
-                                    microsoft_graph_payment_term=customer_payment_term,
-                                    picture=customer_picture,
-                                    microsoft_graph_shipment_method=customer_shipment_method)
+                                    payment_method_id=payment_method_id,
+                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                    microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                    microsoft_graph_customer_shipment_method_id_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id,
+                                    tax_area_display_name=tax_area_display_name,
+                                    tax_area_id=tax_area_id,
+                                    tax_liable=tax_liable,
+                                    tax_registration_number=tax_registration_number,
+                                    type=type_,
+                                    website=website,
+                                    microsoft_graph_currency=microsoft_graph_currency,
+                                    payment_method=payment_method,
+                                    microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                    picture=picture,
+                                    microsoft_graph_shipment_method=microsoft_graph_shipment_method)
 
 
 def financials_financial_company_create_sale_quote_line(client,
@@ -1927,23 +1927,23 @@ def financials_financial_company_create_sale_quote_line(client,
                                                         unit_price=None,
                                                         account=None,
                                                         microsoft_graph_entity_id=None,
-                                                        item_base_unit_of_measure_id=None,
-                                                        item_blocked=None,
-                                                        item_display_name=None,
-                                                        item_gtin=None,
-                                                        item_inventory=None,
-                                                        item_item_category_code=None,
-                                                        item_item_category_id=None,
-                                                        item_last_modified_date_time=None,
-                                                        item_number=None,
-                                                        item_price_includes_tax=None,
-                                                        item_tax_group_code=None,
-                                                        item_tax_group_id=None,
-                                                        item_type=None,
-                                                        item_unit_cost=None,
-                                                        item_unit_price=None,
-                                                        item_item_category=None,
-                                                        item_picture=None):
+                                                        base_unit_of_measure_id=None,
+                                                        blocked=None,
+                                                        display_name=None,
+                                                        gtin=None,
+                                                        inventory=None,
+                                                        item_category_code=None,
+                                                        item_category_id=None,
+                                                        last_modified_date_time=None,
+                                                        number=None,
+                                                        price_includes_tax=None,
+                                                        tax_group_code=None,
+                                                        tax_group_id=None,
+                                                        type_=None,
+                                                        unit_cost=None,
+                                                        number_unit_price=None,
+                                                        item_category=None,
+                                                        picture=None):
     return client.create_sale_quote_line(company_id=company_id,
                                          id=id_,
                                          account_id=account_id,
@@ -1968,23 +1968,23 @@ def financials_financial_company_create_sale_quote_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_create_shipment_method(client,
@@ -2088,405 +2088,6 @@ def financials_financial_company_create_vendor(client,
                                 payment_method=payment_method,
                                 payment_term=payment_term,
                                 picture=picture)
-
-
-def financials_financial_company_get_account(client,
-                                             company_id,
-                                             account_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_account(company_id=company_id,
-                              account_id=account_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_get_aged_account_payable(client,
-                                                          company_id,
-                                                          aged_accounts_payable_id,
-                                                          select=None,
-                                                          expand=None):
-    return client.get_aged_account_payable(company_id=company_id,
-                                           aged_accounts_payable_id=aged_accounts_payable_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def financials_financial_company_get_aged_account_receivable(client,
-                                                             company_id,
-                                                             aged_accounts_receivable_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_aged_account_receivable(company_id=company_id,
-                                              aged_accounts_receivable_id=aged_accounts_receivable_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def financials_financial_company_get_company_information(client,
-                                                         company_id,
-                                                         company_information_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_company_information(company_id=company_id,
-                                          company_information_id=company_information_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def financials_financial_company_get_company_information_picture(client,
-                                                                 company_id,
-                                                                 company_information_id):
-    return client.get_company_information_picture(company_id=company_id,
-                                                  company_information_id=company_information_id)
-
-
-def financials_financial_company_get_country_region(client,
-                                                    company_id,
-                                                    country_region_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_country_region(company_id=company_id,
-                                     country_region_id=country_region_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_get_currency(client,
-                                              company_id,
-                                              currency_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_currency(company_id=company_id,
-                               currency_id=currency_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_get_customer(client,
-                                              company_id,
-                                              customer_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_customer(company_id=company_id,
-                               customer_id=customer_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_get_customer_payment(client,
-                                                      company_id,
-                                                      customer_payment_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_customer_payment(company_id=company_id,
-                                       customer_payment_id=customer_payment_id,
-                                       select=select,
-                                       expand=expand)
-
-
-def financials_financial_company_get_customer_payment_journal(client,
-                                                              company_id,
-                                                              customer_payment_journal_id,
-                                                              select=None,
-                                                              expand=None):
-    return client.get_customer_payment_journal(company_id=company_id,
-                                               customer_payment_journal_id=customer_payment_journal_id,
-                                               select=select,
-                                               expand=expand)
-
-
-def financials_financial_company_get_dimension(client,
-                                               company_id,
-                                               dimension_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_dimension(company_id=company_id,
-                                dimension_id=dimension_id,
-                                select=select,
-                                expand=expand)
-
-
-def financials_financial_company_get_dimension_value(client,
-                                                     company_id,
-                                                     dimension_value_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_dimension_value(company_id=company_id,
-                                      dimension_value_id=dimension_value_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_get_employee(client,
-                                              company_id,
-                                              employee_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_employee(company_id=company_id,
-                               employee_id=employee_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_get_general_ledger_entry(client,
-                                                          company_id,
-                                                          general_ledger_entry_id,
-                                                          select=None,
-                                                          expand=None):
-    return client.get_general_ledger_entry(company_id=company_id,
-                                           general_ledger_entry_id=general_ledger_entry_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def financials_financial_company_get_item(client,
-                                          company_id,
-                                          item_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_item(company_id=company_id,
-                           item_id=item_id,
-                           select=select,
-                           expand=expand)
-
-
-def financials_financial_company_get_item_category(client,
-                                                   company_id,
-                                                   item_category_id,
-                                                   select=None,
-                                                   expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    item_category_id=item_category_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_get_journal(client,
-                                             company_id,
-                                             journal_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_journal(company_id=company_id,
-                              journal_id=journal_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_get_journal_line(client,
-                                                  company_id,
-                                                  journal_line_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_journal_line(company_id=company_id,
-                                   journal_line_id=journal_line_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_get_payment_method(client,
-                                                    company_id,
-                                                    payment_method_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     payment_method_id=payment_method_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_get_payment_term(client,
-                                                  company_id,
-                                                  payment_term_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   payment_term_id=payment_term_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_get_picture(client,
-                                             company_id,
-                                             picture_id,
-                                             select=None,
-                                             expand=None):
-    return client.get_picture(company_id=company_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_get_picture_content(client,
-                                                     company_id,
-                                                     picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_get_purchase_invoice(client,
-                                                      company_id,
-                                                      purchase_invoice_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_purchase_invoice(company_id=company_id,
-                                       purchase_invoice_id=purchase_invoice_id,
-                                       select=select,
-                                       expand=expand)
-
-
-def financials_financial_company_get_purchase_invoice_line(client,
-                                                           company_id,
-                                                           purchase_invoice_line_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_purchase_invoice_line(company_id=company_id,
-                                            purchase_invoice_line_id=purchase_invoice_line_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def financials_financial_company_get_sale_credit_memo(client,
-                                                      company_id,
-                                                      sales_credit_memo_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_sale_credit_memo(company_id=company_id,
-                                       sales_credit_memo_id=sales_credit_memo_id,
-                                       select=select,
-                                       expand=expand)
-
-
-def financials_financial_company_get_sale_credit_memo_line(client,
-                                                           company_id,
-                                                           sales_credit_memo_line_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_sale_credit_memo_line(company_id=company_id,
-                                            sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def financials_financial_company_get_sale_invoice(client,
-                                                  company_id,
-                                                  sales_invoice_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_sale_invoice(company_id=company_id,
-                                   sales_invoice_id=sales_invoice_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_get_sale_invoice_line(client,
-                                                       company_id,
-                                                       sales_invoice_line_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_sale_invoice_line(company_id=company_id,
-                                        sales_invoice_line_id=sales_invoice_line_id,
-                                        select=select,
-                                        expand=expand)
-
-
-def financials_financial_company_get_sale_order(client,
-                                                company_id,
-                                                sales_order_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_sale_order(company_id=company_id,
-                                 sales_order_id=sales_order_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def financials_financial_company_get_sale_order_line(client,
-                                                     company_id,
-                                                     sales_order_line_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_sale_order_line(company_id=company_id,
-                                      sales_order_line_id=sales_order_line_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_get_sale_quote(client,
-                                                company_id,
-                                                sales_quote_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_sale_quote(company_id=company_id,
-                                 sales_quote_id=sales_quote_id,
-                                 select=select,
-                                 expand=expand)
-
-
-def financials_financial_company_get_sale_quote_line(client,
-                                                     company_id,
-                                                     sales_quote_line_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_sale_quote_line(company_id=company_id,
-                                      sales_quote_line_id=sales_quote_line_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_get_shipment_method(client,
-                                                     company_id,
-                                                     shipment_method_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      shipment_method_id=shipment_method_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_get_tax_area(client,
-                                              company_id,
-                                              tax_area_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_tax_area(company_id=company_id,
-                               tax_area_id=tax_area_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_get_tax_group(client,
-                                               company_id,
-                                               tax_group_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_tax_group(company_id=company_id,
-                                tax_group_id=tax_group_id,
-                                select=select,
-                                expand=expand)
-
-
-def financials_financial_company_get_unit_of_measure(client,
-                                                     company_id,
-                                                     unit_of_measure_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_unit_of_measure(company_id=company_id,
-                                      unit_of_measure_id=unit_of_measure_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_get_vendor(client,
-                                            company_id,
-                                            vendor_id,
-                                            select=None,
-                                            expand=None):
-    return client.get_vendor(company_id=company_id,
-                             vendor_id=vendor_id,
-                             select=select,
-                             expand=expand)
 
 
 def financials_financial_company_list_account(client,
@@ -2892,6 +2493,405 @@ def financials_financial_company_set_picture_content(client,
                                       data=data)
 
 
+def financials_financial_company_show_account(client,
+                                              company_id,
+                                              account_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_account(company_id=company_id,
+                              account_id=account_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_show_aged_account_payable(client,
+                                                           company_id,
+                                                           aged_accounts_payable_id,
+                                                           select=None,
+                                                           expand=None):
+    return client.get_aged_account_payable(company_id=company_id,
+                                           aged_accounts_payable_id=aged_accounts_payable_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def financials_financial_company_show_aged_account_receivable(client,
+                                                              company_id,
+                                                              aged_accounts_receivable_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_aged_account_receivable(company_id=company_id,
+                                              aged_accounts_receivable_id=aged_accounts_receivable_id,
+                                              select=select,
+                                              expand=expand)
+
+
+def financials_financial_company_show_company_information(client,
+                                                          company_id,
+                                                          company_information_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_company_information(company_id=company_id,
+                                          company_information_id=company_information_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def financials_financial_company_show_company_information_picture(client,
+                                                                  company_id,
+                                                                  company_information_id):
+    return client.get_company_information_picture(company_id=company_id,
+                                                  company_information_id=company_information_id)
+
+
+def financials_financial_company_show_country_region(client,
+                                                     company_id,
+                                                     country_region_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_country_region(company_id=company_id,
+                                     country_region_id=country_region_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_show_currency(client,
+                                               company_id,
+                                               currency_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_currency(company_id=company_id,
+                               currency_id=currency_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_show_customer(client,
+                                               company_id,
+                                               customer_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_customer(company_id=company_id,
+                               customer_id=customer_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_show_customer_payment(client,
+                                                       company_id,
+                                                       customer_payment_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_customer_payment(company_id=company_id,
+                                       customer_payment_id=customer_payment_id,
+                                       select=select,
+                                       expand=expand)
+
+
+def financials_financial_company_show_customer_payment_journal(client,
+                                                               company_id,
+                                                               customer_payment_journal_id,
+                                                               select=None,
+                                                               expand=None):
+    return client.get_customer_payment_journal(company_id=company_id,
+                                               customer_payment_journal_id=customer_payment_journal_id,
+                                               select=select,
+                                               expand=expand)
+
+
+def financials_financial_company_show_dimension(client,
+                                                company_id,
+                                                dimension_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_dimension(company_id=company_id,
+                                dimension_id=dimension_id,
+                                select=select,
+                                expand=expand)
+
+
+def financials_financial_company_show_dimension_value(client,
+                                                      company_id,
+                                                      dimension_value_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_dimension_value(company_id=company_id,
+                                      dimension_value_id=dimension_value_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_show_employee(client,
+                                               company_id,
+                                               employee_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_employee(company_id=company_id,
+                               employee_id=employee_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_show_general_ledger_entry(client,
+                                                           company_id,
+                                                           general_ledger_entry_id,
+                                                           select=None,
+                                                           expand=None):
+    return client.get_general_ledger_entry(company_id=company_id,
+                                           general_ledger_entry_id=general_ledger_entry_id,
+                                           select=select,
+                                           expand=expand)
+
+
+def financials_financial_company_show_item(client,
+                                           company_id,
+                                           item_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_item(company_id=company_id,
+                           item_id=item_id,
+                           select=select,
+                           expand=expand)
+
+
+def financials_financial_company_show_item_category(client,
+                                                    company_id,
+                                                    item_category_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    item_category_id=item_category_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_show_journal(client,
+                                              company_id,
+                                              journal_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_journal(company_id=company_id,
+                              journal_id=journal_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_show_journal_line(client,
+                                                   company_id,
+                                                   journal_line_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_journal_line(company_id=company_id,
+                                   journal_line_id=journal_line_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_show_payment_method(client,
+                                                     company_id,
+                                                     payment_method_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     payment_method_id=payment_method_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_show_payment_term(client,
+                                                   company_id,
+                                                   payment_term_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   payment_term_id=payment_term_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_show_picture(client,
+                                              company_id,
+                                              picture_id,
+                                              select=None,
+                                              expand=None):
+    return client.get_picture(company_id=company_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_show_picture_content(client,
+                                                      company_id,
+                                                      picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_show_purchase_invoice(client,
+                                                       company_id,
+                                                       purchase_invoice_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_purchase_invoice(company_id=company_id,
+                                       purchase_invoice_id=purchase_invoice_id,
+                                       select=select,
+                                       expand=expand)
+
+
+def financials_financial_company_show_purchase_invoice_line(client,
+                                                            company_id,
+                                                            purchase_invoice_line_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_purchase_invoice_line(company_id=company_id,
+                                            purchase_invoice_line_id=purchase_invoice_line_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def financials_financial_company_show_sale_credit_memo(client,
+                                                       company_id,
+                                                       sales_credit_memo_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_sale_credit_memo(company_id=company_id,
+                                       sales_credit_memo_id=sales_credit_memo_id,
+                                       select=select,
+                                       expand=expand)
+
+
+def financials_financial_company_show_sale_credit_memo_line(client,
+                                                            company_id,
+                                                            sales_credit_memo_line_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_sale_credit_memo_line(company_id=company_id,
+                                            sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def financials_financial_company_show_sale_invoice(client,
+                                                   company_id,
+                                                   sales_invoice_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_sale_invoice(company_id=company_id,
+                                   sales_invoice_id=sales_invoice_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_show_sale_invoice_line(client,
+                                                        company_id,
+                                                        sales_invoice_line_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_sale_invoice_line(company_id=company_id,
+                                        sales_invoice_line_id=sales_invoice_line_id,
+                                        select=select,
+                                        expand=expand)
+
+
+def financials_financial_company_show_sale_order(client,
+                                                 company_id,
+                                                 sales_order_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_sale_order(company_id=company_id,
+                                 sales_order_id=sales_order_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def financials_financial_company_show_sale_order_line(client,
+                                                      company_id,
+                                                      sales_order_line_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_sale_order_line(company_id=company_id,
+                                      sales_order_line_id=sales_order_line_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_show_sale_quote(client,
+                                                 company_id,
+                                                 sales_quote_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_sale_quote(company_id=company_id,
+                                 sales_quote_id=sales_quote_id,
+                                 select=select,
+                                 expand=expand)
+
+
+def financials_financial_company_show_sale_quote_line(client,
+                                                      company_id,
+                                                      sales_quote_line_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_sale_quote_line(company_id=company_id,
+                                      sales_quote_line_id=sales_quote_line_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_show_shipment_method(client,
+                                                      company_id,
+                                                      shipment_method_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      shipment_method_id=shipment_method_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_show_tax_area(client,
+                                               company_id,
+                                               tax_area_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_tax_area(company_id=company_id,
+                               tax_area_id=tax_area_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_show_tax_group(client,
+                                                company_id,
+                                                tax_group_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_tax_group(company_id=company_id,
+                                tax_group_id=tax_group_id,
+                                select=select,
+                                expand=expand)
+
+
+def financials_financial_company_show_unit_of_measure(client,
+                                                      company_id,
+                                                      unit_of_measure_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_unit_of_measure(company_id=company_id,
+                                      unit_of_measure_id=unit_of_measure_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_show_vendor(client,
+                                             company_id,
+                                             vendor_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_vendor(company_id=company_id,
+                             vendor_id=vendor_id,
+                             select=select,
+                             expand=expand)
+
+
 def financials_financial_company_update_account(client,
                                                 company_id,
                                                 account_id,
@@ -3116,29 +3116,29 @@ def financials_financial_company_update_customer_payment(client,
                                                          line_number=None,
                                                          posting_date=None,
                                                          microsoft_graph_entity_id=None,
-                                                         customer_address=None,
-                                                         customer_blocked=None,
-                                                         customer_currency_code=None,
-                                                         customer_currency_id=None,
-                                                         customer_display_name=None,
-                                                         customer_email=None,
-                                                         customer_last_modified_date_time=None,
+                                                         address=None,
+                                                         blocked=None,
+                                                         currency_code=None,
+                                                         currency_id=None,
+                                                         display_name=None,
+                                                         email=None,
+                                                         microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                          number=None,
-                                                         customer_payment_method_id=None,
-                                                         customer_payment_terms_id=None,
-                                                         customer_phone_number=None,
-                                                         customer_shipment_method_id=None,
-                                                         customer_tax_area_display_name=None,
-                                                         customer_tax_area_id=None,
-                                                         customer_tax_liable=None,
-                                                         customer_tax_registration_number=None,
-                                                         customer_type=None,
-                                                         customer_website=None,
-                                                         customer_currency=None,
-                                                         customer_payment_method=None,
-                                                         customer_payment_term=None,
-                                                         customer_picture=None,
-                                                         customer_shipment_method=None):
+                                                         payment_method_id=None,
+                                                         payment_terms_id=None,
+                                                         phone_number=None,
+                                                         shipment_method_id=None,
+                                                         tax_area_display_name=None,
+                                                         tax_area_id=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         type_=None,
+                                                         website=None,
+                                                         currency=None,
+                                                         payment_method=None,
+                                                         payment_term=None,
+                                                         picture=None,
+                                                         shipment_method=None):
     return client.update_customer_payment(company_id=company_id,
                                           customer_payment_id=customer_payment_id,
                                           id=id_,
@@ -3157,29 +3157,29 @@ def financials_financial_company_update_customer_payment(client,
                                           line_number=line_number,
                                           posting_date=posting_date,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          currency_code=customer_currency_code,
-                                          currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          currency_code=currency_code,
+                                          currency_id=currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           number=number,
-                                          payment_method_id=customer_payment_method_id,
-                                          payment_terms_id=customer_payment_terms_id,
-                                          phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          currency=currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_update_customer_payment_journal(client,
@@ -3513,25 +3513,25 @@ def financials_financial_company_update_purchase_invoice(client,
                                                          currency=None,
                                                          purchase_invoice_lines=None,
                                                          microsoft_graph_entity_id=None,
-                                                         vendor_address=None,
-                                                         vendor_balance=None,
-                                                         vendor_blocked=None,
-                                                         vendor_currency_code=None,
-                                                         vendor_currency_id=None,
-                                                         vendor_display_name=None,
-                                                         vendor_email=None,
-                                                         vendor_last_modified_date_time=None,
+                                                         address=None,
+                                                         balance=None,
+                                                         blocked=None,
+                                                         microsoft_graph_vendor_currency_code=None,
+                                                         microsoft_graph_vendor_currency_id=None,
+                                                         display_name=None,
+                                                         email=None,
+                                                         microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=None,
                                                          microsoft_graph_vendor_number=None,
-                                                         vendor_payment_method_id=None,
-                                                         vendor_payment_terms_id=None,
-                                                         vendor_phone_number=None,
-                                                         vendor_tax_liable=None,
-                                                         vendor_tax_registration_number=None,
-                                                         vendor_website=None,
-                                                         vendor_currency=None,
-                                                         vendor_payment_method=None,
-                                                         vendor_payment_term=None,
-                                                         vendor_picture=None):
+                                                         payment_method_id=None,
+                                                         payment_terms_id=None,
+                                                         phone_number=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         website=None,
+                                                         microsoft_graph_currency=None,
+                                                         payment_method=None,
+                                                         payment_term=None,
+                                                         picture=None):
     return client.update_purchase_invoice(company_id=company_id,
                                           purchase_invoice_id=purchase_invoice_id,
                                           id=id_,
@@ -3564,25 +3564,25 @@ def financials_financial_company_update_purchase_invoice(client,
                                           currency=currency,
                                           purchase_invoice_lines=purchase_invoice_lines,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=vendor_address,
-                                          balance=vendor_balance,
-                                          blocked=vendor_blocked,
-                                          microsoft_graph_vendor_currency_code=vendor_currency_code,
-                                          microsoft_graph_vendor_currency_id=vendor_currency_id,
-                                          display_name=vendor_display_name,
-                                          email=vendor_email,
-                                          microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=vendor_last_modified_date_time,
+                                          address=address,
+                                          balance=balance,
+                                          blocked=blocked,
+                                          microsoft_graph_vendor_currency_code=microsoft_graph_vendor_currency_code,
+                                          microsoft_graph_vendor_currency_id=microsoft_graph_vendor_currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_vendor_last_modified_date_time_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time,
                                           microsoft_graph_vendor_number=microsoft_graph_vendor_number,
-                                          payment_method_id=vendor_payment_method_id,
-                                          payment_terms_id=vendor_payment_terms_id,
-                                          phone_number=vendor_phone_number,
-                                          tax_liable=vendor_tax_liable,
-                                          tax_registration_number=vendor_tax_registration_number,
-                                          website=vendor_website,
-                                          microsoft_graph_currency=vendor_currency,
-                                          payment_method=vendor_payment_method,
-                                          payment_term=vendor_payment_term,
-                                          picture=vendor_picture)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          website=website,
+                                          microsoft_graph_currency=microsoft_graph_currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture)
 
 
 def financials_financial_company_update_purchase_invoice_line(client,
@@ -3612,23 +3612,23 @@ def financials_financial_company_update_purchase_invoice_line(client,
                                                               unit_cost=None,
                                                               account=None,
                                                               microsoft_graph_entity_id=None,
-                                                              item_base_unit_of_measure_id=None,
-                                                              item_blocked=None,
-                                                              item_display_name=None,
-                                                              item_gtin=None,
-                                                              item_inventory=None,
-                                                              item_item_category_code=None,
-                                                              item_item_category_id=None,
-                                                              item_last_modified_date_time=None,
-                                                              item_number=None,
-                                                              item_price_includes_tax=None,
-                                                              item_tax_group_code=None,
-                                                              item_tax_group_id=None,
-                                                              item_type=None,
-                                                              item_unit_cost=None,
-                                                              item_unit_price=None,
-                                                              item_item_category=None,
-                                                              item_picture=None):
+                                                              base_unit_of_measure_id=None,
+                                                              blocked=None,
+                                                              display_name=None,
+                                                              gtin=None,
+                                                              inventory=None,
+                                                              item_category_code=None,
+                                                              item_category_id=None,
+                                                              last_modified_date_time=None,
+                                                              number=None,
+                                                              price_includes_tax=None,
+                                                              tax_group_code=None,
+                                                              tax_group_id=None,
+                                                              type_=None,
+                                                              number_unit_cost=None,
+                                                              unit_price=None,
+                                                              item_category=None,
+                                                              picture=None):
     return client.update_purchase_invoice_line(company_id=company_id,
                                                purchase_invoice_line_id=purchase_invoice_line_id,
                                                id=id_,
@@ -3655,23 +3655,23 @@ def financials_financial_company_update_purchase_invoice_line(client,
                                                unit_cost=unit_cost,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               number_unit_cost=item_unit_cost,
-                                               unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               number_unit_cost=number_unit_cost,
+                                               unit_price=unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_update_sale_credit_memo(client,
@@ -3710,29 +3710,29 @@ def financials_financial_company_update_sale_credit_memo(client,
                                                          payment_term=None,
                                                          sales_credit_memo_lines=None,
                                                          microsoft_graph_entity_id=None,
-                                                         customer_address=None,
-                                                         customer_blocked=None,
-                                                         customer_currency_code=None,
-                                                         customer_currency_id=None,
-                                                         customer_display_name=None,
-                                                         customer_email=None,
-                                                         customer_last_modified_date_time=None,
+                                                         address=None,
+                                                         blocked=None,
+                                                         microsoft_graph_customer_currency_code=None,
+                                                         microsoft_graph_customer_currency_id=None,
+                                                         display_name=None,
+                                                         microsoft_graph_customer_email=None,
+                                                         microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                          microsoft_graph_customer_number=None,
-                                                         customer_payment_method_id=None,
-                                                         customer_payment_terms_id=None,
-                                                         customer_phone_number=None,
-                                                         customer_shipment_method_id=None,
-                                                         customer_tax_area_display_name=None,
-                                                         customer_tax_area_id=None,
-                                                         customer_tax_liable=None,
-                                                         customer_tax_registration_number=None,
-                                                         customer_type=None,
-                                                         customer_website=None,
-                                                         customer_currency=None,
-                                                         customer_payment_method=None,
-                                                         customer_payment_term=None,
-                                                         customer_picture=None,
-                                                         customer_shipment_method=None):
+                                                         payment_method_id=None,
+                                                         microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                         microsoft_graph_customer_phone_number=None,
+                                                         shipment_method_id=None,
+                                                         tax_area_display_name=None,
+                                                         tax_area_id=None,
+                                                         tax_liable=None,
+                                                         tax_registration_number=None,
+                                                         type_=None,
+                                                         website=None,
+                                                         microsoft_graph_currency=None,
+                                                         payment_method=None,
+                                                         microsoft_graph_payment_term=None,
+                                                         picture=None,
+                                                         shipment_method=None):
     return client.update_sale_credit_memo(company_id=company_id,
                                           sales_credit_memo_id=sales_credit_memo_id,
                                           id=id_,
@@ -3768,29 +3768,29 @@ def financials_financial_company_update_sale_credit_memo(client,
                                           payment_term=payment_term,
                                           sales_credit_memo_lines=sales_credit_memo_lines,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          microsoft_graph_customer_currency_code=customer_currency_code,
-                                          microsoft_graph_customer_currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          microsoft_graph_customer_email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                          microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                          display_name=display_name,
+                                          microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                          payment_method_id=customer_payment_method_id,
-                                          microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                          microsoft_graph_customer_phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          microsoft_graph_currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          microsoft_graph_payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
+                                          payment_method_id=payment_method_id,
+                                          microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                          microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          microsoft_graph_currency=microsoft_graph_currency,
+                                          payment_method=payment_method,
+                                          microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_update_sale_credit_memo_line(client,
@@ -3821,23 +3821,23 @@ def financials_financial_company_update_sale_credit_memo_line(client,
                                                               unit_price=None,
                                                               account=None,
                                                               microsoft_graph_entity_id=None,
-                                                              item_base_unit_of_measure_id=None,
-                                                              item_blocked=None,
-                                                              item_display_name=None,
-                                                              item_gtin=None,
-                                                              item_inventory=None,
-                                                              item_item_category_code=None,
-                                                              item_item_category_id=None,
-                                                              item_last_modified_date_time=None,
-                                                              item_number=None,
-                                                              item_price_includes_tax=None,
-                                                              item_tax_group_code=None,
-                                                              item_tax_group_id=None,
-                                                              item_type=None,
-                                                              item_unit_cost=None,
-                                                              item_unit_price=None,
-                                                              item_item_category=None,
-                                                              item_picture=None):
+                                                              base_unit_of_measure_id=None,
+                                                              blocked=None,
+                                                              display_name=None,
+                                                              gtin=None,
+                                                              inventory=None,
+                                                              item_category_code=None,
+                                                              item_category_id=None,
+                                                              last_modified_date_time=None,
+                                                              number=None,
+                                                              price_includes_tax=None,
+                                                              tax_group_code=None,
+                                                              tax_group_id=None,
+                                                              type_=None,
+                                                              unit_cost=None,
+                                                              number_unit_price=None,
+                                                              item_category=None,
+                                                              picture=None):
     return client.update_sale_credit_memo_line(company_id=company_id,
                                                sales_credit_memo_line_id=sales_credit_memo_line_id,
                                                id=id_,
@@ -3865,23 +3865,23 @@ def financials_financial_company_update_sale_credit_memo_line(client,
                                                unit_price=unit_price,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               unit_cost=item_unit_cost,
-                                               number_unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               unit_cost=unit_cost,
+                                               number_unit_price=number_unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_update_sale_invoice(client,
@@ -3926,29 +3926,29 @@ def financials_financial_company_update_sale_invoice(client,
                                                      sales_invoice_lines=None,
                                                      shipment_method=None,
                                                      microsoft_graph_entity_id=None,
-                                                     customer_address=None,
-                                                     customer_blocked=None,
-                                                     customer_currency_code=None,
-                                                     customer_currency_id=None,
-                                                     customer_display_name=None,
-                                                     customer_email=None,
-                                                     customer_last_modified_date_time=None,
+                                                     address=None,
+                                                     blocked=None,
+                                                     microsoft_graph_customer_currency_code=None,
+                                                     microsoft_graph_customer_currency_id=None,
+                                                     display_name=None,
+                                                     microsoft_graph_customer_email=None,
+                                                     microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                      microsoft_graph_customer_number=None,
-                                                     customer_payment_method_id=None,
-                                                     customer_payment_terms_id=None,
-                                                     customer_phone_number=None,
-                                                     customer_shipment_method_id=None,
-                                                     customer_tax_area_display_name=None,
-                                                     customer_tax_area_id=None,
-                                                     customer_tax_liable=None,
-                                                     customer_tax_registration_number=None,
-                                                     customer_type=None,
-                                                     customer_website=None,
-                                                     customer_currency=None,
-                                                     customer_payment_method=None,
-                                                     customer_payment_term=None,
-                                                     customer_picture=None,
-                                                     customer_shipment_method=None):
+                                                     payment_method_id=None,
+                                                     microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                     microsoft_graph_customer_phone_number=None,
+                                                     microsoft_graph_customer_shipment_method_id_shipment_method_id=None,
+                                                     tax_area_display_name=None,
+                                                     tax_area_id=None,
+                                                     tax_liable=None,
+                                                     tax_registration_number=None,
+                                                     type_=None,
+                                                     website=None,
+                                                     microsoft_graph_currency=None,
+                                                     payment_method=None,
+                                                     microsoft_graph_payment_term=None,
+                                                     picture=None,
+                                                     microsoft_graph_shipment_method=None):
     return client.update_sale_invoice(company_id=company_id,
                                       sales_invoice_id=sales_invoice_id,
                                       id=id_,
@@ -3990,29 +3990,29 @@ def financials_financial_company_update_sale_invoice(client,
                                       sales_invoice_lines=sales_invoice_lines,
                                       shipment_method=shipment_method,
                                       microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                      address=customer_address,
-                                      blocked=customer_blocked,
-                                      microsoft_graph_customer_currency_code=customer_currency_code,
-                                      microsoft_graph_customer_currency_id=customer_currency_id,
-                                      display_name=customer_display_name,
-                                      microsoft_graph_customer_email=customer_email,
-                                      microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                      address=address,
+                                      blocked=blocked,
+                                      microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                      microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                      display_name=display_name,
+                                      microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                      microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                       microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                      payment_method_id=customer_payment_method_id,
-                                      microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                      microsoft_graph_customer_phone_number=customer_phone_number,
-                                      microsoft_graph_customer_shipment_method_id_shipment_method_id=customer_shipment_method_id,
-                                      tax_area_display_name=customer_tax_area_display_name,
-                                      tax_area_id=customer_tax_area_id,
-                                      tax_liable=customer_tax_liable,
-                                      tax_registration_number=customer_tax_registration_number,
-                                      type=customer_type,
-                                      website=customer_website,
-                                      microsoft_graph_currency=customer_currency,
-                                      payment_method=customer_payment_method,
-                                      microsoft_graph_payment_term=customer_payment_term,
-                                      picture=customer_picture,
-                                      microsoft_graph_shipment_method=customer_shipment_method)
+                                      payment_method_id=payment_method_id,
+                                      microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                      microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                      microsoft_graph_customer_shipment_method_id_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id,
+                                      tax_area_display_name=tax_area_display_name,
+                                      tax_area_id=tax_area_id,
+                                      tax_liable=tax_liable,
+                                      tax_registration_number=tax_registration_number,
+                                      type=type_,
+                                      website=website,
+                                      microsoft_graph_currency=microsoft_graph_currency,
+                                      payment_method=payment_method,
+                                      microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                      picture=picture,
+                                      microsoft_graph_shipment_method=microsoft_graph_shipment_method)
 
 
 def financials_financial_company_update_sale_invoice_line(client,
@@ -4043,23 +4043,23 @@ def financials_financial_company_update_sale_invoice_line(client,
                                                           unit_price=None,
                                                           account=None,
                                                           microsoft_graph_entity_id=None,
-                                                          item_base_unit_of_measure_id=None,
-                                                          item_blocked=None,
-                                                          item_display_name=None,
-                                                          item_gtin=None,
-                                                          item_inventory=None,
-                                                          item_item_category_code=None,
-                                                          item_item_category_id=None,
-                                                          item_last_modified_date_time=None,
-                                                          item_number=None,
-                                                          item_price_includes_tax=None,
-                                                          item_tax_group_code=None,
-                                                          item_tax_group_id=None,
-                                                          item_type=None,
-                                                          item_unit_cost=None,
-                                                          item_unit_price=None,
-                                                          item_item_category=None,
-                                                          item_picture=None):
+                                                          base_unit_of_measure_id=None,
+                                                          blocked=None,
+                                                          display_name=None,
+                                                          gtin=None,
+                                                          inventory=None,
+                                                          item_category_code=None,
+                                                          item_category_id=None,
+                                                          last_modified_date_time=None,
+                                                          number=None,
+                                                          price_includes_tax=None,
+                                                          tax_group_code=None,
+                                                          tax_group_id=None,
+                                                          type_=None,
+                                                          unit_cost=None,
+                                                          number_unit_price=None,
+                                                          item_category=None,
+                                                          picture=None):
     return client.update_sale_invoice_line(company_id=company_id,
                                            sales_invoice_line_id=sales_invoice_line_id,
                                            id=id_,
@@ -4087,23 +4087,23 @@ def financials_financial_company_update_sale_invoice_line(client,
                                            unit_price=unit_price,
                                            account=account,
                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                           base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                           blocked=item_blocked,
-                                           display_name=item_display_name,
-                                           gtin=item_gtin,
-                                           inventory=item_inventory,
-                                           item_category_code=item_item_category_code,
-                                           item_category_id=item_item_category_id,
-                                           last_modified_date_time=item_last_modified_date_time,
-                                           number=item_number,
-                                           price_includes_tax=item_price_includes_tax,
-                                           tax_group_code=item_tax_group_code,
-                                           tax_group_id=item_tax_group_id,
-                                           type=item_type,
-                                           unit_cost=item_unit_cost,
-                                           number_unit_price=item_unit_price,
-                                           item_category=item_item_category,
-                                           picture=item_picture)
+                                           base_unit_of_measure_id=base_unit_of_measure_id,
+                                           blocked=blocked,
+                                           display_name=display_name,
+                                           gtin=gtin,
+                                           inventory=inventory,
+                                           item_category_code=item_category_code,
+                                           item_category_id=item_category_id,
+                                           last_modified_date_time=last_modified_date_time,
+                                           number=number,
+                                           price_includes_tax=price_includes_tax,
+                                           tax_group_code=tax_group_code,
+                                           tax_group_id=tax_group_id,
+                                           type=type_,
+                                           unit_cost=unit_cost,
+                                           number_unit_price=number_unit_price,
+                                           item_category=item_category,
+                                           picture=picture)
 
 
 def financials_financial_company_update_sale_order(client,
@@ -4145,29 +4145,29 @@ def financials_financial_company_update_sale_order(client,
                                                    payment_term=None,
                                                    sales_order_lines=None,
                                                    microsoft_graph_entity_id=None,
-                                                   customer_address=None,
-                                                   customer_blocked=None,
-                                                   customer_currency_code=None,
-                                                   customer_currency_id=None,
-                                                   customer_display_name=None,
-                                                   customer_email=None,
-                                                   customer_last_modified_date_time=None,
+                                                   address=None,
+                                                   blocked=None,
+                                                   microsoft_graph_customer_currency_code=None,
+                                                   microsoft_graph_customer_currency_id=None,
+                                                   display_name=None,
+                                                   microsoft_graph_customer_email=None,
+                                                   microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                    microsoft_graph_customer_number=None,
-                                                   customer_payment_method_id=None,
-                                                   customer_payment_terms_id=None,
-                                                   customer_phone_number=None,
-                                                   customer_shipment_method_id=None,
-                                                   customer_tax_area_display_name=None,
-                                                   customer_tax_area_id=None,
-                                                   customer_tax_liable=None,
-                                                   customer_tax_registration_number=None,
-                                                   customer_type=None,
-                                                   customer_website=None,
-                                                   customer_currency=None,
-                                                   customer_payment_method=None,
-                                                   customer_payment_term=None,
-                                                   customer_picture=None,
-                                                   customer_shipment_method=None):
+                                                   payment_method_id=None,
+                                                   microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                   microsoft_graph_customer_phone_number=None,
+                                                   shipment_method_id=None,
+                                                   tax_area_display_name=None,
+                                                   tax_area_id=None,
+                                                   tax_liable=None,
+                                                   tax_registration_number=None,
+                                                   type_=None,
+                                                   website=None,
+                                                   microsoft_graph_currency=None,
+                                                   payment_method=None,
+                                                   microsoft_graph_payment_term=None,
+                                                   picture=None,
+                                                   shipment_method=None):
     return client.update_sale_order(company_id=company_id,
                                     sales_order_id=sales_order_id,
                                     id=id_,
@@ -4206,29 +4206,29 @@ def financials_financial_company_update_sale_order(client,
                                     payment_term=payment_term,
                                     sales_order_lines=sales_order_lines,
                                     microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    address=customer_address,
-                                    blocked=customer_blocked,
-                                    microsoft_graph_customer_currency_code=customer_currency_code,
-                                    microsoft_graph_customer_currency_id=customer_currency_id,
-                                    display_name=customer_display_name,
-                                    microsoft_graph_customer_email=customer_email,
-                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                    address=address,
+                                    blocked=blocked,
+                                    microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                    microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                    display_name=display_name,
+                                    microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                     microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                    payment_method_id=customer_payment_method_id,
-                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                    microsoft_graph_customer_phone_number=customer_phone_number,
-                                    shipment_method_id=customer_shipment_method_id,
-                                    tax_area_display_name=customer_tax_area_display_name,
-                                    tax_area_id=customer_tax_area_id,
-                                    tax_liable=customer_tax_liable,
-                                    tax_registration_number=customer_tax_registration_number,
-                                    type=customer_type,
-                                    website=customer_website,
-                                    microsoft_graph_currency=customer_currency,
-                                    payment_method=customer_payment_method,
-                                    microsoft_graph_payment_term=customer_payment_term,
-                                    picture=customer_picture,
-                                    shipment_method=customer_shipment_method)
+                                    payment_method_id=payment_method_id,
+                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                    microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                    shipment_method_id=shipment_method_id,
+                                    tax_area_display_name=tax_area_display_name,
+                                    tax_area_id=tax_area_id,
+                                    tax_liable=tax_liable,
+                                    tax_registration_number=tax_registration_number,
+                                    type=type_,
+                                    website=website,
+                                    microsoft_graph_currency=microsoft_graph_currency,
+                                    payment_method=payment_method,
+                                    microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                    picture=picture,
+                                    shipment_method=shipment_method)
 
 
 def financials_financial_company_update_sale_order_line(client,
@@ -4263,23 +4263,23 @@ def financials_financial_company_update_sale_order_line(client,
                                                         unit_price=None,
                                                         account=None,
                                                         microsoft_graph_entity_id=None,
-                                                        item_base_unit_of_measure_id=None,
-                                                        item_blocked=None,
-                                                        item_display_name=None,
-                                                        item_gtin=None,
-                                                        item_inventory=None,
-                                                        item_item_category_code=None,
-                                                        item_item_category_id=None,
-                                                        item_last_modified_date_time=None,
-                                                        item_number=None,
-                                                        item_price_includes_tax=None,
-                                                        item_tax_group_code=None,
-                                                        item_tax_group_id=None,
-                                                        item_type=None,
-                                                        item_unit_cost=None,
-                                                        item_unit_price=None,
-                                                        item_item_category=None,
-                                                        item_picture=None):
+                                                        base_unit_of_measure_id=None,
+                                                        blocked=None,
+                                                        display_name=None,
+                                                        gtin=None,
+                                                        inventory=None,
+                                                        item_category_code=None,
+                                                        item_category_id=None,
+                                                        last_modified_date_time=None,
+                                                        number=None,
+                                                        price_includes_tax=None,
+                                                        tax_group_code=None,
+                                                        tax_group_id=None,
+                                                        type_=None,
+                                                        unit_cost=None,
+                                                        number_unit_price=None,
+                                                        item_category=None,
+                                                        picture=None):
     return client.update_sale_order_line(company_id=company_id,
                                          sales_order_line_id=sales_order_line_id,
                                          id=id_,
@@ -4311,23 +4311,23 @@ def financials_financial_company_update_sale_order_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_update_sale_quote(client,
@@ -4370,29 +4370,29 @@ def financials_financial_company_update_sale_quote(client,
                                                    sales_quote_lines=None,
                                                    shipment_method=None,
                                                    microsoft_graph_entity_id=None,
-                                                   customer_address=None,
-                                                   customer_blocked=None,
-                                                   customer_currency_code=None,
-                                                   customer_currency_id=None,
-                                                   customer_display_name=None,
-                                                   customer_email=None,
-                                                   customer_last_modified_date_time=None,
+                                                   address=None,
+                                                   blocked=None,
+                                                   microsoft_graph_customer_currency_code=None,
+                                                   microsoft_graph_customer_currency_id=None,
+                                                   display_name=None,
+                                                   microsoft_graph_customer_email=None,
+                                                   microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                    microsoft_graph_customer_number=None,
-                                                   customer_payment_method_id=None,
-                                                   customer_payment_terms_id=None,
-                                                   customer_phone_number=None,
-                                                   customer_shipment_method_id=None,
-                                                   customer_tax_area_display_name=None,
-                                                   customer_tax_area_id=None,
-                                                   customer_tax_liable=None,
-                                                   customer_tax_registration_number=None,
-                                                   customer_type=None,
-                                                   customer_website=None,
-                                                   customer_currency=None,
-                                                   customer_payment_method=None,
-                                                   customer_payment_term=None,
-                                                   customer_picture=None,
-                                                   customer_shipment_method=None):
+                                                   payment_method_id=None,
+                                                   microsoft_graph_customer_payment_terms_id_payment_terms_id=None,
+                                                   microsoft_graph_customer_phone_number=None,
+                                                   microsoft_graph_customer_shipment_method_id_shipment_method_id=None,
+                                                   tax_area_display_name=None,
+                                                   tax_area_id=None,
+                                                   tax_liable=None,
+                                                   tax_registration_number=None,
+                                                   type_=None,
+                                                   website=None,
+                                                   microsoft_graph_currency=None,
+                                                   payment_method=None,
+                                                   microsoft_graph_payment_term=None,
+                                                   picture=None,
+                                                   microsoft_graph_shipment_method=None):
     return client.update_sale_quote(company_id=company_id,
                                     sales_quote_id=sales_quote_id,
                                     id=id_,
@@ -4432,29 +4432,29 @@ def financials_financial_company_update_sale_quote(client,
                                     sales_quote_lines=sales_quote_lines,
                                     shipment_method=shipment_method,
                                     microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                    address=customer_address,
-                                    blocked=customer_blocked,
-                                    microsoft_graph_customer_currency_code=customer_currency_code,
-                                    microsoft_graph_customer_currency_id=customer_currency_id,
-                                    display_name=customer_display_name,
-                                    microsoft_graph_customer_email=customer_email,
-                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                    address=address,
+                                    blocked=blocked,
+                                    microsoft_graph_customer_currency_code=microsoft_graph_customer_currency_code,
+                                    microsoft_graph_customer_currency_id=microsoft_graph_customer_currency_id,
+                                    display_name=display_name,
+                                    microsoft_graph_customer_email=microsoft_graph_customer_email,
+                                    microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                     microsoft_graph_customer_number=microsoft_graph_customer_number,
-                                    payment_method_id=customer_payment_method_id,
-                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=customer_payment_terms_id,
-                                    microsoft_graph_customer_phone_number=customer_phone_number,
-                                    microsoft_graph_customer_shipment_method_id_shipment_method_id=customer_shipment_method_id,
-                                    tax_area_display_name=customer_tax_area_display_name,
-                                    tax_area_id=customer_tax_area_id,
-                                    tax_liable=customer_tax_liable,
-                                    tax_registration_number=customer_tax_registration_number,
-                                    type=customer_type,
-                                    website=customer_website,
-                                    microsoft_graph_currency=customer_currency,
-                                    payment_method=customer_payment_method,
-                                    microsoft_graph_payment_term=customer_payment_term,
-                                    picture=customer_picture,
-                                    microsoft_graph_shipment_method=customer_shipment_method)
+                                    payment_method_id=payment_method_id,
+                                    microsoft_graph_customer_payment_terms_id_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id,
+                                    microsoft_graph_customer_phone_number=microsoft_graph_customer_phone_number,
+                                    microsoft_graph_customer_shipment_method_id_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id,
+                                    tax_area_display_name=tax_area_display_name,
+                                    tax_area_id=tax_area_id,
+                                    tax_liable=tax_liable,
+                                    tax_registration_number=tax_registration_number,
+                                    type=type_,
+                                    website=website,
+                                    microsoft_graph_currency=microsoft_graph_currency,
+                                    payment_method=payment_method,
+                                    microsoft_graph_payment_term=microsoft_graph_payment_term,
+                                    picture=picture,
+                                    microsoft_graph_shipment_method=microsoft_graph_shipment_method)
 
 
 def financials_financial_company_update_sale_quote_line(client,
@@ -4483,23 +4483,23 @@ def financials_financial_company_update_sale_quote_line(client,
                                                         unit_price=None,
                                                         account=None,
                                                         microsoft_graph_entity_id=None,
-                                                        item_base_unit_of_measure_id=None,
-                                                        item_blocked=None,
-                                                        item_display_name=None,
-                                                        item_gtin=None,
-                                                        item_inventory=None,
-                                                        item_item_category_code=None,
-                                                        item_item_category_id=None,
-                                                        item_last_modified_date_time=None,
-                                                        item_number=None,
-                                                        item_price_includes_tax=None,
-                                                        item_tax_group_code=None,
-                                                        item_tax_group_id=None,
-                                                        item_type=None,
-                                                        item_unit_cost=None,
-                                                        item_unit_price=None,
-                                                        item_item_category=None,
-                                                        item_picture=None):
+                                                        base_unit_of_measure_id=None,
+                                                        blocked=None,
+                                                        display_name=None,
+                                                        gtin=None,
+                                                        inventory=None,
+                                                        item_category_code=None,
+                                                        item_category_id=None,
+                                                        last_modified_date_time=None,
+                                                        number=None,
+                                                        price_includes_tax=None,
+                                                        tax_group_code=None,
+                                                        tax_group_id=None,
+                                                        type_=None,
+                                                        unit_cost=None,
+                                                        number_unit_price=None,
+                                                        item_category=None,
+                                                        picture=None):
     return client.update_sale_quote_line(company_id=company_id,
                                          sales_quote_line_id=sales_quote_line_id,
                                          id=id_,
@@ -4525,23 +4525,23 @@ def financials_financial_company_update_sale_quote_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_update_shipment_method(client,
@@ -4691,29 +4691,29 @@ def financials_financial_company_customer_payment_journal_create_customer_paymen
                                                                                   line_number=None,
                                                                                   posting_date=None,
                                                                                   microsoft_graph_entity_id=None,
-                                                                                  customer_address=None,
-                                                                                  customer_blocked=None,
-                                                                                  customer_currency_code=None,
-                                                                                  customer_currency_id=None,
-                                                                                  customer_display_name=None,
-                                                                                  customer_email=None,
-                                                                                  customer_last_modified_date_time=None,
+                                                                                  address=None,
+                                                                                  blocked=None,
+                                                                                  currency_code=None,
+                                                                                  currency_id=None,
+                                                                                  display_name=None,
+                                                                                  email=None,
+                                                                                  microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                                                   number=None,
-                                                                                  customer_payment_method_id=None,
-                                                                                  customer_payment_terms_id=None,
-                                                                                  customer_phone_number=None,
-                                                                                  customer_shipment_method_id=None,
-                                                                                  customer_tax_area_display_name=None,
-                                                                                  customer_tax_area_id=None,
-                                                                                  customer_tax_liable=None,
-                                                                                  customer_tax_registration_number=None,
-                                                                                  customer_type=None,
-                                                                                  customer_website=None,
-                                                                                  customer_currency=None,
-                                                                                  customer_payment_method=None,
-                                                                                  customer_payment_term=None,
-                                                                                  customer_picture=None,
-                                                                                  customer_shipment_method=None):
+                                                                                  payment_method_id=None,
+                                                                                  payment_terms_id=None,
+                                                                                  phone_number=None,
+                                                                                  shipment_method_id=None,
+                                                                                  tax_area_display_name=None,
+                                                                                  tax_area_id=None,
+                                                                                  tax_liable=None,
+                                                                                  tax_registration_number=None,
+                                                                                  type_=None,
+                                                                                  website=None,
+                                                                                  currency=None,
+                                                                                  payment_method=None,
+                                                                                  payment_term=None,
+                                                                                  picture=None,
+                                                                                  shipment_method=None):
     return client.create_customer_payment(company_id=company_id,
                                           customer_payment_journal_id=customer_payment_journal_id,
                                           id=id_,
@@ -4732,53 +4732,29 @@ def financials_financial_company_customer_payment_journal_create_customer_paymen
                                           line_number=line_number,
                                           posting_date=posting_date,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          currency_code=customer_currency_code,
-                                          currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          currency_code=currency_code,
+                                          currency_id=currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           number=number,
-                                          payment_method_id=customer_payment_method_id,
-                                          payment_terms_id=customer_payment_terms_id,
-                                          phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
-
-
-def financials_financial_company_customer_payment_journal_get_account(client,
-                                                                      company_id,
-                                                                      customer_payment_journal_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_account(company_id=company_id,
-                              customer_payment_journal_id=customer_payment_journal_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_customer_payment_journal_get_customer_payment(client,
-                                                                               company_id,
-                                                                               customer_payment_journal_id,
-                                                                               customer_payment_id,
-                                                                               select=None,
-                                                                               expand=None):
-    return client.get_customer_payment(company_id=company_id,
-                                       customer_payment_journal_id=customer_payment_journal_id,
-                                       customer_payment_id=customer_payment_id,
-                                       select=select,
-                                       expand=expand)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          currency=currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_customer_payment_journal_list_customer_payment(client,
@@ -4792,6 +4768,30 @@ def financials_financial_company_customer_payment_journal_list_customer_payment(
                                         orderby=orderby,
                                         select=select,
                                         expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_show_account(client,
+                                                                       company_id,
+                                                                       customer_payment_journal_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_account(company_id=company_id,
+                              customer_payment_journal_id=customer_payment_journal_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_show_customer_payment(client,
+                                                                                company_id,
+                                                                                customer_payment_journal_id,
+                                                                                customer_payment_id,
+                                                                                select=None,
+                                                                                expand=None):
+    return client.get_customer_payment(company_id=company_id,
+                                       customer_payment_journal_id=customer_payment_journal_id,
+                                       customer_payment_id=customer_payment_id,
+                                       select=select,
+                                       expand=expand)
 
 
 def financials_financial_company_customer_payment_journal_update_account(client,
@@ -4835,29 +4835,29 @@ def financials_financial_company_customer_payment_journal_update_customer_paymen
                                                                                   line_number=None,
                                                                                   posting_date=None,
                                                                                   microsoft_graph_entity_id=None,
-                                                                                  customer_address=None,
-                                                                                  customer_blocked=None,
-                                                                                  customer_currency_code=None,
-                                                                                  customer_currency_id=None,
-                                                                                  customer_display_name=None,
-                                                                                  customer_email=None,
-                                                                                  customer_last_modified_date_time=None,
+                                                                                  address=None,
+                                                                                  blocked=None,
+                                                                                  currency_code=None,
+                                                                                  currency_id=None,
+                                                                                  display_name=None,
+                                                                                  email=None,
+                                                                                  microsoft_graph_customer_last_modified_date_time_last_modified_date_time=None,
                                                                                   number=None,
-                                                                                  customer_payment_method_id=None,
-                                                                                  customer_payment_terms_id=None,
-                                                                                  customer_phone_number=None,
-                                                                                  customer_shipment_method_id=None,
-                                                                                  customer_tax_area_display_name=None,
-                                                                                  customer_tax_area_id=None,
-                                                                                  customer_tax_liable=None,
-                                                                                  customer_tax_registration_number=None,
-                                                                                  customer_type=None,
-                                                                                  customer_website=None,
-                                                                                  customer_currency=None,
-                                                                                  customer_payment_method=None,
-                                                                                  customer_payment_term=None,
-                                                                                  customer_picture=None,
-                                                                                  customer_shipment_method=None):
+                                                                                  payment_method_id=None,
+                                                                                  payment_terms_id=None,
+                                                                                  phone_number=None,
+                                                                                  shipment_method_id=None,
+                                                                                  tax_area_display_name=None,
+                                                                                  tax_area_id=None,
+                                                                                  tax_liable=None,
+                                                                                  tax_registration_number=None,
+                                                                                  type_=None,
+                                                                                  website=None,
+                                                                                  currency=None,
+                                                                                  payment_method=None,
+                                                                                  payment_term=None,
+                                                                                  picture=None,
+                                                                                  shipment_method=None):
     return client.update_customer_payment(company_id=company_id,
                                           customer_payment_journal_id=customer_payment_journal_id,
                                           customer_payment_id=customer_payment_id,
@@ -4877,29 +4877,29 @@ def financials_financial_company_customer_payment_journal_update_customer_paymen
                                           line_number=line_number,
                                           posting_date=posting_date,
                                           microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                          address=customer_address,
-                                          blocked=customer_blocked,
-                                          currency_code=customer_currency_code,
-                                          currency_id=customer_currency_id,
-                                          display_name=customer_display_name,
-                                          email=customer_email,
-                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=customer_last_modified_date_time,
+                                          address=address,
+                                          blocked=blocked,
+                                          currency_code=currency_code,
+                                          currency_id=currency_id,
+                                          display_name=display_name,
+                                          email=email,
+                                          microsoft_graph_customer_last_modified_date_time_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time,
                                           number=number,
-                                          payment_method_id=customer_payment_method_id,
-                                          payment_terms_id=customer_payment_terms_id,
-                                          phone_number=customer_phone_number,
-                                          shipment_method_id=customer_shipment_method_id,
-                                          tax_area_display_name=customer_tax_area_display_name,
-                                          tax_area_id=customer_tax_area_id,
-                                          tax_liable=customer_tax_liable,
-                                          tax_registration_number=customer_tax_registration_number,
-                                          type=customer_type,
-                                          website=customer_website,
-                                          currency=customer_currency,
-                                          payment_method=customer_payment_method,
-                                          payment_term=customer_payment_term,
-                                          picture=customer_picture,
-                                          shipment_method=customer_shipment_method)
+                                          payment_method_id=payment_method_id,
+                                          payment_terms_id=payment_terms_id,
+                                          phone_number=phone_number,
+                                          shipment_method_id=shipment_method_id,
+                                          tax_area_display_name=tax_area_display_name,
+                                          tax_area_id=tax_area_id,
+                                          tax_liable=tax_liable,
+                                          tax_registration_number=tax_registration_number,
+                                          type=type_,
+                                          website=website,
+                                          currency=currency,
+                                          payment_method=payment_method,
+                                          payment_term=payment_term,
+                                          picture=picture,
+                                          shipment_method=shipment_method)
 
 
 def financials_financial_company_customer_payment_journal_customer_payment_delete(client,
@@ -4913,12 +4913,12 @@ def financials_financial_company_customer_payment_journal_customer_payment_delet
                                   if_match=if_match)
 
 
-def financials_financial_company_customer_payment_journal_customer_payment_get_customer(client,
-                                                                                        company_id,
-                                                                                        customer_payment_journal_id,
-                                                                                        customer_payment_id,
-                                                                                        select=None,
-                                                                                        expand=None):
+def financials_financial_company_customer_payment_journal_customer_payment_show_customer(client,
+                                                                                         company_id,
+                                                                                         customer_payment_journal_id,
+                                                                                         customer_payment_id,
+                                                                                         select=None,
+                                                                                         expand=None):
     return client.get_customer(company_id=company_id,
                                customer_payment_journal_id=customer_payment_journal_id,
                                customer_payment_id=customer_payment_id,
@@ -5035,84 +5035,6 @@ def financials_financial_company_customer_payment_journal_customer_payment_custo
                                  width=width)
 
 
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_currency(client,
-                                                                                                 company_id,
-                                                                                                 customer_payment_journal_id,
-                                                                                                 customer_payment_id,
-                                                                                                 select=None,
-                                                                                                 expand=None):
-    return client.get_currency(company_id=company_id,
-                               customer_payment_journal_id=customer_payment_journal_id,
-                               customer_payment_id=customer_payment_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_payment_method(client,
-                                                                                                       company_id,
-                                                                                                       customer_payment_journal_id,
-                                                                                                       customer_payment_id,
-                                                                                                       select=None,
-                                                                                                       expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     customer_payment_journal_id=customer_payment_journal_id,
-                                     customer_payment_id=customer_payment_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_payment_term(client,
-                                                                                                     company_id,
-                                                                                                     customer_payment_journal_id,
-                                                                                                     customer_payment_id,
-                                                                                                     select=None,
-                                                                                                     expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   customer_payment_journal_id=customer_payment_journal_id,
-                                   customer_payment_id=customer_payment_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_picture(client,
-                                                                                                company_id,
-                                                                                                customer_payment_journal_id,
-                                                                                                customer_payment_id,
-                                                                                                picture_id,
-                                                                                                select=None,
-                                                                                                expand=None):
-    return client.get_picture(company_id=company_id,
-                              customer_payment_journal_id=customer_payment_journal_id,
-                              customer_payment_id=customer_payment_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_picture_content(client,
-                                                                                                        company_id,
-                                                                                                        customer_payment_journal_id,
-                                                                                                        customer_payment_id,
-                                                                                                        picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      customer_payment_journal_id=customer_payment_journal_id,
-                                      customer_payment_id=customer_payment_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_customer_payment_journal_customer_payment_customer_get_shipment_method(client,
-                                                                                                        company_id,
-                                                                                                        customer_payment_journal_id,
-                                                                                                        customer_payment_id,
-                                                                                                        select=None,
-                                                                                                        expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      customer_payment_journal_id=customer_payment_journal_id,
-                                      customer_payment_id=customer_payment_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_customer_payment_journal_customer_payment_customer_list_picture(client,
                                                                                                  company_id,
                                                                                                  customer_payment_journal_id,
@@ -5139,6 +5061,84 @@ def financials_financial_company_customer_payment_journal_customer_payment_custo
                                       customer_payment_id=customer_payment_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_currency(client,
+                                                                                                  company_id,
+                                                                                                  customer_payment_journal_id,
+                                                                                                  customer_payment_id,
+                                                                                                  select=None,
+                                                                                                  expand=None):
+    return client.get_currency(company_id=company_id,
+                               customer_payment_journal_id=customer_payment_journal_id,
+                               customer_payment_id=customer_payment_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_payment_method(client,
+                                                                                                        company_id,
+                                                                                                        customer_payment_journal_id,
+                                                                                                        customer_payment_id,
+                                                                                                        select=None,
+                                                                                                        expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     customer_payment_journal_id=customer_payment_journal_id,
+                                     customer_payment_id=customer_payment_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_payment_term(client,
+                                                                                                      company_id,
+                                                                                                      customer_payment_journal_id,
+                                                                                                      customer_payment_id,
+                                                                                                      select=None,
+                                                                                                      expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   customer_payment_journal_id=customer_payment_journal_id,
+                                   customer_payment_id=customer_payment_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_picture(client,
+                                                                                                 company_id,
+                                                                                                 customer_payment_journal_id,
+                                                                                                 customer_payment_id,
+                                                                                                 picture_id,
+                                                                                                 select=None,
+                                                                                                 expand=None):
+    return client.get_picture(company_id=company_id,
+                              customer_payment_journal_id=customer_payment_journal_id,
+                              customer_payment_id=customer_payment_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_picture_content(client,
+                                                                                                         company_id,
+                                                                                                         customer_payment_journal_id,
+                                                                                                         customer_payment_id,
+                                                                                                         picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      customer_payment_journal_id=customer_payment_journal_id,
+                                      customer_payment_id=customer_payment_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_show_shipment_method(client,
+                                                                                                         company_id,
+                                                                                                         customer_payment_journal_id,
+                                                                                                         customer_payment_id,
+                                                                                                         select=None,
+                                                                                                         expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      customer_payment_journal_id=customer_payment_journal_id,
+                                      customer_payment_id=customer_payment_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_customer_payment_journal_customer_payment_customer_update_currency(client,
@@ -5253,11 +5253,11 @@ def financials_financial_company_customer_payment_delete(client,
                                   if_match=if_match)
 
 
-def financials_financial_company_customer_payment_get_customer(client,
-                                                               company_id,
-                                                               customer_payment_id,
-                                                               select=None,
-                                                               expand=None):
+def financials_financial_company_customer_payment_show_customer(client,
+                                                                company_id,
+                                                                customer_payment_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_customer(company_id=company_id,
                                customer_payment_id=customer_payment_id,
                                select=select,
@@ -5363,72 +5363,6 @@ def financials_financial_company_customer_payment_customer_create_picture(client
                                  width=width)
 
 
-def financials_financial_company_customer_payment_customer_get_currency(client,
-                                                                        company_id,
-                                                                        customer_payment_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_currency(company_id=company_id,
-                               customer_payment_id=customer_payment_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_customer_payment_customer_get_payment_method(client,
-                                                                              company_id,
-                                                                              customer_payment_id,
-                                                                              select=None,
-                                                                              expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     customer_payment_id=customer_payment_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_customer_payment_customer_get_payment_term(client,
-                                                                            company_id,
-                                                                            customer_payment_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   customer_payment_id=customer_payment_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_customer_payment_customer_get_picture(client,
-                                                                       company_id,
-                                                                       customer_payment_id,
-                                                                       picture_id,
-                                                                       select=None,
-                                                                       expand=None):
-    return client.get_picture(company_id=company_id,
-                              customer_payment_id=customer_payment_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_customer_payment_customer_get_picture_content(client,
-                                                                               company_id,
-                                                                               customer_payment_id,
-                                                                               picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      customer_payment_id=customer_payment_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_customer_payment_customer_get_shipment_method(client,
-                                                                               company_id,
-                                                                               customer_payment_id,
-                                                                               select=None,
-                                                                               expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      customer_payment_id=customer_payment_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_customer_payment_customer_list_picture(client,
                                                                         company_id,
                                                                         customer_payment_id,
@@ -5451,6 +5385,72 @@ def financials_financial_company_customer_payment_customer_set_picture_content(c
                                       customer_payment_id=customer_payment_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_customer_payment_customer_show_currency(client,
+                                                                         company_id,
+                                                                         customer_payment_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_currency(company_id=company_id,
+                               customer_payment_id=customer_payment_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_customer_payment_customer_show_payment_method(client,
+                                                                               company_id,
+                                                                               customer_payment_id,
+                                                                               select=None,
+                                                                               expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     customer_payment_id=customer_payment_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_customer_payment_customer_show_payment_term(client,
+                                                                             company_id,
+                                                                             customer_payment_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   customer_payment_id=customer_payment_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_customer_payment_customer_show_picture(client,
+                                                                        company_id,
+                                                                        customer_payment_id,
+                                                                        picture_id,
+                                                                        select=None,
+                                                                        expand=None):
+    return client.get_picture(company_id=company_id,
+                              customer_payment_id=customer_payment_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_customer_payment_customer_show_picture_content(client,
+                                                                                company_id,
+                                                                                customer_payment_id,
+                                                                                picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      customer_payment_id=customer_payment_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_customer_payment_customer_show_shipment_method(client,
+                                                                                company_id,
+                                                                                customer_payment_id,
+                                                                                select=None,
+                                                                                expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      customer_payment_id=customer_payment_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_customer_payment_customer_update_currency(client,
@@ -5590,72 +5590,6 @@ def financials_financial_company_customer_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_customer_get_currency(client,
-                                                       company_id,
-                                                       customer_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_currency(company_id=company_id,
-                               customer_id=customer_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_customer_get_payment_method(client,
-                                                             company_id,
-                                                             customer_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     customer_id=customer_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_customer_get_payment_term(client,
-                                                           company_id,
-                                                           customer_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   customer_id=customer_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_customer_get_picture(client,
-                                                      company_id,
-                                                      customer_id,
-                                                      picture_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_picture(company_id=company_id,
-                              customer_id=customer_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_customer_get_picture_content(client,
-                                                              company_id,
-                                                              customer_id,
-                                                              picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      customer_id=customer_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_customer_get_shipment_method(client,
-                                                              company_id,
-                                                              customer_id,
-                                                              select=None,
-                                                              expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      customer_id=customer_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_customer_list_picture(client,
                                                        company_id,
                                                        customer_id,
@@ -5678,6 +5612,72 @@ def financials_financial_company_customer_set_picture_content(client,
                                       customer_id=customer_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_customer_show_currency(client,
+                                                        company_id,
+                                                        customer_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_currency(company_id=company_id,
+                               customer_id=customer_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_customer_show_payment_method(client,
+                                                              company_id,
+                                                              customer_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     customer_id=customer_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_customer_show_payment_term(client,
+                                                            company_id,
+                                                            customer_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   customer_id=customer_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_customer_show_picture(client,
+                                                       company_id,
+                                                       customer_id,
+                                                       picture_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_picture(company_id=company_id,
+                              customer_id=customer_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_customer_show_picture_content(client,
+                                                               company_id,
+                                                               customer_id,
+                                                               picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      customer_id=customer_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_customer_show_shipment_method(client,
+                                                               company_id,
+                                                               customer_id,
+                                                               select=None,
+                                                               expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      customer_id=customer_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_customer_update_currency(client,
@@ -5799,19 +5799,6 @@ def financials_financial_company_dimension_create_dimension_value(client,
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_dimension_get_dimension_value(client,
-                                                               company_id,
-                                                               dimension_id,
-                                                               dimension_value_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_dimension_value(company_id=company_id,
-                                      dimension_id=dimension_id,
-                                      dimension_value_id=dimension_value_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_dimension_list_dimension_value(client,
                                                                 company_id,
                                                                 dimension_id,
@@ -5823,6 +5810,19 @@ def financials_financial_company_dimension_list_dimension_value(client,
                                        orderby=orderby,
                                        select=select,
                                        expand=expand)
+
+
+def financials_financial_company_dimension_show_dimension_value(client,
+                                                                company_id,
+                                                                dimension_id,
+                                                                dimension_value_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_dimension_value(company_id=company_id,
+                                      dimension_id=dimension_id,
+                                      dimension_value_id=dimension_value_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_dimension_update_dimension_value(client,
@@ -5870,28 +5870,6 @@ def financials_financial_company_employee_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_employee_get_picture(client,
-                                                      company_id,
-                                                      employee_id,
-                                                      picture_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_picture(company_id=company_id,
-                              employee_id=employee_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_employee_get_picture_content(client,
-                                                              company_id,
-                                                              employee_id,
-                                                              picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      employee_id=employee_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_employee_list_picture(client,
                                                        company_id,
                                                        employee_id,
@@ -5914,6 +5892,28 @@ def financials_financial_company_employee_set_picture_content(client,
                                       employee_id=employee_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_employee_show_picture(client,
+                                                       company_id,
+                                                       employee_id,
+                                                       picture_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_picture(company_id=company_id,
+                              employee_id=employee_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_employee_show_picture_content(client,
+                                                               company_id,
+                                                               employee_id,
+                                                               picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      employee_id=employee_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_employee_update_picture(client,
@@ -5944,11 +5944,11 @@ def financials_financial_company_general_ledger_entry_delete(client,
                                  if_match=if_match)
 
 
-def financials_financial_company_general_ledger_entry_get_account(client,
-                                                                  company_id,
-                                                                  general_ledger_entry_id,
-                                                                  select=None,
-                                                                  expand=None):
+def financials_financial_company_general_ledger_entry_show_account(client,
+                                                                   company_id,
+                                                                   general_ledger_entry_id,
+                                                                   select=None,
+                                                                   expand=None):
     return client.get_account(company_id=company_id,
                               general_ledger_entry_id=general_ledger_entry_id,
                               select=select,
@@ -6008,39 +6008,6 @@ def financials_financial_company_item_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_item_get_item_category(client,
-                                                        company_id,
-                                                        item_id,
-                                                        select=None,
-                                                        expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    item_id=item_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_item_get_picture(client,
-                                                  company_id,
-                                                  item_id,
-                                                  picture_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_picture(company_id=company_id,
-                              item_id=item_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_item_get_picture_content(client,
-                                                          company_id,
-                                                          item_id,
-                                                          picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      item_id=item_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_item_list_picture(client,
                                                    company_id,
                                                    item_id,
@@ -6063,6 +6030,39 @@ def financials_financial_company_item_set_picture_content(client,
                                       item_id=item_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_item_show_item_category(client,
+                                                         company_id,
+                                                         item_id,
+                                                         select=None,
+                                                         expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    item_id=item_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_item_show_picture(client,
+                                                   company_id,
+                                                   item_id,
+                                                   picture_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_picture(company_id=company_id,
+                              item_id=item_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_item_show_picture_content(client,
+                                                           company_id,
+                                                           item_id,
+                                                           picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      item_id=item_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_item_update_item_category(client,
@@ -6108,11 +6108,11 @@ def financials_financial_company_journal_line_delete(client,
                                  if_match=if_match)
 
 
-def financials_financial_company_journal_line_get_account(client,
-                                                          company_id,
-                                                          journal_line_id,
-                                                          select=None,
-                                                          expand=None):
+def financials_financial_company_journal_line_show_account(client,
+                                                           company_id,
+                                                           journal_line_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_account(company_id=company_id,
                               journal_line_id=journal_line_id,
                               select=select,
@@ -6188,30 +6188,6 @@ def financials_financial_company_journal_create_journal_line(client,
                                       account=account)
 
 
-def financials_financial_company_journal_get_account(client,
-                                                     company_id,
-                                                     journal_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_account(company_id=company_id,
-                              journal_id=journal_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_journal_get_journal_line(client,
-                                                          company_id,
-                                                          journal_id,
-                                                          journal_line_id,
-                                                          select=None,
-                                                          expand=None):
-    return client.get_journal_line(company_id=company_id,
-                                   journal_id=journal_id,
-                                   journal_line_id=journal_line_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def financials_financial_company_journal_list_journal_line(client,
                                                            company_id,
                                                            journal_id,
@@ -6230,6 +6206,30 @@ def financials_financial_company_journal_post(client,
                                               journal_id):
     return client.post(company_id=company_id,
                        journal_id=journal_id)
+
+
+def financials_financial_company_journal_show_account(client,
+                                                      company_id,
+                                                      journal_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_account(company_id=company_id,
+                              journal_id=journal_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_journal_show_journal_line(client,
+                                                           company_id,
+                                                           journal_id,
+                                                           journal_line_id,
+                                                           select=None,
+                                                           expand=None):
+    return client.get_journal_line(company_id=company_id,
+                                   journal_id=journal_id,
+                                   journal_line_id=journal_line_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def financials_financial_company_journal_update_account(client,
@@ -6299,12 +6299,12 @@ def financials_financial_company_journal_journal_line_delete(client,
                                  if_match=if_match)
 
 
-def financials_financial_company_journal_journal_line_get_account(client,
-                                                                  company_id,
-                                                                  journal_id,
-                                                                  journal_line_id,
-                                                                  select=None,
-                                                                  expand=None):
+def financials_financial_company_journal_journal_line_show_account(client,
+                                                                   company_id,
+                                                                   journal_id,
+                                                                   journal_line_id,
+                                                                   select=None,
+                                                                   expand=None):
     return client.get_account(company_id=company_id,
                               journal_id=journal_id,
                               journal_line_id=journal_line_id,
@@ -6348,22 +6348,22 @@ def financials_financial_company_purchase_invoice_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_purchase_invoice_line_get_account(client,
-                                                                   company_id,
-                                                                   purchase_invoice_line_id,
-                                                                   select=None,
-                                                                   expand=None):
+def financials_financial_company_purchase_invoice_line_show_account(client,
+                                                                    company_id,
+                                                                    purchase_invoice_line_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_account(company_id=company_id,
                               purchase_invoice_line_id=purchase_invoice_line_id,
                               select=select,
                               expand=expand)
 
 
-def financials_financial_company_purchase_invoice_line_get_item(client,
-                                                                company_id,
-                                                                purchase_invoice_line_id,
-                                                                select=None,
-                                                                expand=None):
+def financials_financial_company_purchase_invoice_line_show_item(client,
+                                                                 company_id,
+                                                                 purchase_invoice_line_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_item(company_id=company_id,
                            purchase_invoice_line_id=purchase_invoice_line_id,
                            select=select,
@@ -6466,39 +6466,6 @@ def financials_financial_company_purchase_invoice_line_item_create_picture(clien
                                  width=width)
 
 
-def financials_financial_company_purchase_invoice_line_item_get_item_category(client,
-                                                                              company_id,
-                                                                              purchase_invoice_line_id,
-                                                                              select=None,
-                                                                              expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    purchase_invoice_line_id=purchase_invoice_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_purchase_invoice_line_item_get_picture(client,
-                                                                        company_id,
-                                                                        purchase_invoice_line_id,
-                                                                        picture_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_picture(company_id=company_id,
-                              purchase_invoice_line_id=purchase_invoice_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_purchase_invoice_line_item_get_picture_content(client,
-                                                                                company_id,
-                                                                                purchase_invoice_line_id,
-                                                                                picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      purchase_invoice_line_id=purchase_invoice_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_purchase_invoice_line_item_list_picture(client,
                                                                          company_id,
                                                                          purchase_invoice_line_id,
@@ -6521,6 +6488,39 @@ def financials_financial_company_purchase_invoice_line_item_set_picture_content(
                                       purchase_invoice_line_id=purchase_invoice_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_purchase_invoice_line_item_show_item_category(client,
+                                                                               company_id,
+                                                                               purchase_invoice_line_id,
+                                                                               select=None,
+                                                                               expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    purchase_invoice_line_id=purchase_invoice_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_purchase_invoice_line_item_show_picture(client,
+                                                                         company_id,
+                                                                         purchase_invoice_line_id,
+                                                                         picture_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_picture(company_id=company_id,
+                              purchase_invoice_line_id=purchase_invoice_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_purchase_invoice_line_item_show_picture_content(client,
+                                                                                 company_id,
+                                                                                 purchase_invoice_line_id,
+                                                                                 picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      purchase_invoice_line_id=purchase_invoice_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_purchase_invoice_line_item_update_item_category(client,
@@ -6603,23 +6603,23 @@ def financials_financial_company_purchase_invoice_create_purchase_invoice_line(c
                                                                                unit_cost=None,
                                                                                account=None,
                                                                                microsoft_graph_entity_id=None,
-                                                                               item_base_unit_of_measure_id=None,
-                                                                               item_blocked=None,
-                                                                               item_display_name=None,
-                                                                               item_gtin=None,
-                                                                               item_inventory=None,
-                                                                               item_item_category_code=None,
-                                                                               item_item_category_id=None,
-                                                                               item_last_modified_date_time=None,
-                                                                               item_number=None,
-                                                                               item_price_includes_tax=None,
-                                                                               item_tax_group_code=None,
-                                                                               item_tax_group_id=None,
-                                                                               item_type=None,
-                                                                               item_unit_cost=None,
-                                                                               item_unit_price=None,
-                                                                               item_item_category=None,
-                                                                               item_picture=None):
+                                                                               base_unit_of_measure_id=None,
+                                                                               blocked=None,
+                                                                               display_name=None,
+                                                                               gtin=None,
+                                                                               inventory=None,
+                                                                               item_category_code=None,
+                                                                               item_category_id=None,
+                                                                               last_modified_date_time=None,
+                                                                               number=None,
+                                                                               price_includes_tax=None,
+                                                                               tax_group_code=None,
+                                                                               tax_group_id=None,
+                                                                               type_=None,
+                                                                               number_unit_cost=None,
+                                                                               unit_price=None,
+                                                                               item_category=None,
+                                                                               picture=None):
     return client.create_purchase_invoice_line(company_id=company_id,
                                                purchase_invoice_id=purchase_invoice_id,
                                                id=id_,
@@ -6646,58 +6646,23 @@ def financials_financial_company_purchase_invoice_create_purchase_invoice_line(c
                                                unit_cost=unit_cost,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               number_unit_cost=item_unit_cost,
-                                               unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
-
-
-def financials_financial_company_purchase_invoice_get_currency(client,
-                                                               company_id,
-                                                               purchase_invoice_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_currency(company_id=company_id,
-                               purchase_invoice_id=purchase_invoice_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_purchase_invoice_get_purchase_invoice_line(client,
-                                                                            company_id,
-                                                                            purchase_invoice_id,
-                                                                            purchase_invoice_line_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_purchase_invoice_line(company_id=company_id,
-                                            purchase_invoice_id=purchase_invoice_id,
-                                            purchase_invoice_line_id=purchase_invoice_line_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def financials_financial_company_purchase_invoice_get_vendor(client,
-                                                             company_id,
-                                                             purchase_invoice_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_vendor(company_id=company_id,
-                             purchase_invoice_id=purchase_invoice_id,
-                             select=select,
-                             expand=expand)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               number_unit_cost=number_unit_cost,
+                                               unit_price=unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_purchase_invoice_list_purchase_invoice_line(client,
@@ -6718,6 +6683,41 @@ def financials_financial_company_purchase_invoice_post(client,
                                                        purchase_invoice_id):
     return client.post(company_id=company_id,
                        purchase_invoice_id=purchase_invoice_id)
+
+
+def financials_financial_company_purchase_invoice_show_currency(client,
+                                                                company_id,
+                                                                purchase_invoice_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_currency(company_id=company_id,
+                               purchase_invoice_id=purchase_invoice_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_purchase_invoice_show_purchase_invoice_line(client,
+                                                                             company_id,
+                                                                             purchase_invoice_id,
+                                                                             purchase_invoice_line_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_purchase_invoice_line(company_id=company_id,
+                                            purchase_invoice_id=purchase_invoice_id,
+                                            purchase_invoice_line_id=purchase_invoice_line_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def financials_financial_company_purchase_invoice_show_vendor(client,
+                                                              company_id,
+                                                              purchase_invoice_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_vendor(company_id=company_id,
+                             purchase_invoice_id=purchase_invoice_id,
+                             select=select,
+                             expand=expand)
 
 
 def financials_financial_company_purchase_invoice_update_currency(client,
@@ -6769,23 +6769,23 @@ def financials_financial_company_purchase_invoice_update_purchase_invoice_line(c
                                                                                unit_cost=None,
                                                                                account=None,
                                                                                microsoft_graph_entity_id=None,
-                                                                               item_base_unit_of_measure_id=None,
-                                                                               item_blocked=None,
-                                                                               item_display_name=None,
-                                                                               item_gtin=None,
-                                                                               item_inventory=None,
-                                                                               item_item_category_code=None,
-                                                                               item_item_category_id=None,
-                                                                               item_last_modified_date_time=None,
-                                                                               item_number=None,
-                                                                               item_price_includes_tax=None,
-                                                                               item_tax_group_code=None,
-                                                                               item_tax_group_id=None,
-                                                                               item_type=None,
-                                                                               item_unit_cost=None,
-                                                                               item_unit_price=None,
-                                                                               item_item_category=None,
-                                                                               item_picture=None):
+                                                                               base_unit_of_measure_id=None,
+                                                                               blocked=None,
+                                                                               display_name=None,
+                                                                               gtin=None,
+                                                                               inventory=None,
+                                                                               item_category_code=None,
+                                                                               item_category_id=None,
+                                                                               last_modified_date_time=None,
+                                                                               number=None,
+                                                                               price_includes_tax=None,
+                                                                               tax_group_code=None,
+                                                                               tax_group_id=None,
+                                                                               type_=None,
+                                                                               number_unit_cost=None,
+                                                                               unit_price=None,
+                                                                               item_category=None,
+                                                                               picture=None):
     return client.update_purchase_invoice_line(company_id=company_id,
                                                purchase_invoice_id=purchase_invoice_id,
                                                purchase_invoice_line_id=purchase_invoice_line_id,
@@ -6813,23 +6813,23 @@ def financials_financial_company_purchase_invoice_update_purchase_invoice_line(c
                                                unit_cost=unit_cost,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               number_unit_cost=item_unit_cost,
-                                               unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               number_unit_cost=number_unit_cost,
+                                               unit_price=unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_purchase_invoice_update_vendor(client,
@@ -6895,12 +6895,12 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_delete(c
                               if_match=if_match)
 
 
-def financials_financial_company_purchase_invoice_purchase_invoice_line_get_account(client,
-                                                                                    company_id,
-                                                                                    purchase_invoice_id,
-                                                                                    purchase_invoice_line_id,
-                                                                                    select=None,
-                                                                                    expand=None):
+def financials_financial_company_purchase_invoice_purchase_invoice_line_show_account(client,
+                                                                                     company_id,
+                                                                                     purchase_invoice_id,
+                                                                                     purchase_invoice_line_id,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.get_account(company_id=company_id,
                               purchase_invoice_id=purchase_invoice_id,
                               purchase_invoice_line_id=purchase_invoice_line_id,
@@ -6908,12 +6908,12 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_get_acco
                               expand=expand)
 
 
-def financials_financial_company_purchase_invoice_purchase_invoice_line_get_item(client,
-                                                                                 company_id,
-                                                                                 purchase_invoice_id,
-                                                                                 purchase_invoice_line_id,
-                                                                                 select=None,
-                                                                                 expand=None):
+def financials_financial_company_purchase_invoice_purchase_invoice_line_show_item(client,
+                                                                                  company_id,
+                                                                                  purchase_invoice_id,
+                                                                                  purchase_invoice_line_id,
+                                                                                  select=None,
+                                                                                  expand=None):
     return client.get_item(company_id=company_id,
                            purchase_invoice_id=purchase_invoice_id,
                            purchase_invoice_line_id=purchase_invoice_line_id,
@@ -7026,45 +7026,6 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_item_cre
                                  width=width)
 
 
-def financials_financial_company_purchase_invoice_purchase_invoice_line_item_get_item_category(client,
-                                                                                               company_id,
-                                                                                               purchase_invoice_id,
-                                                                                               purchase_invoice_line_id,
-                                                                                               select=None,
-                                                                                               expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    purchase_invoice_id=purchase_invoice_id,
-                                    purchase_invoice_line_id=purchase_invoice_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_purchase_invoice_purchase_invoice_line_item_get_picture(client,
-                                                                                         company_id,
-                                                                                         purchase_invoice_id,
-                                                                                         purchase_invoice_line_id,
-                                                                                         picture_id,
-                                                                                         select=None,
-                                                                                         expand=None):
-    return client.get_picture(company_id=company_id,
-                              purchase_invoice_id=purchase_invoice_id,
-                              purchase_invoice_line_id=purchase_invoice_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_purchase_invoice_purchase_invoice_line_item_get_picture_content(client,
-                                                                                                 company_id,
-                                                                                                 purchase_invoice_id,
-                                                                                                 purchase_invoice_line_id,
-                                                                                                 picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      purchase_invoice_id=purchase_invoice_id,
-                                      purchase_invoice_line_id=purchase_invoice_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_purchase_invoice_purchase_invoice_line_item_list_picture(client,
                                                                                           company_id,
                                                                                           purchase_invoice_id,
@@ -7091,6 +7052,45 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_item_set
                                       purchase_invoice_line_id=purchase_invoice_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_item_show_item_category(client,
+                                                                                                company_id,
+                                                                                                purchase_invoice_id,
+                                                                                                purchase_invoice_line_id,
+                                                                                                select=None,
+                                                                                                expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    purchase_invoice_id=purchase_invoice_id,
+                                    purchase_invoice_line_id=purchase_invoice_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_item_show_picture(client,
+                                                                                          company_id,
+                                                                                          purchase_invoice_id,
+                                                                                          purchase_invoice_line_id,
+                                                                                          picture_id,
+                                                                                          select=None,
+                                                                                          expand=None):
+    return client.get_picture(company_id=company_id,
+                              purchase_invoice_id=purchase_invoice_id,
+                              purchase_invoice_line_id=purchase_invoice_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_item_show_picture_content(client,
+                                                                                                  company_id,
+                                                                                                  purchase_invoice_id,
+                                                                                                  purchase_invoice_line_id,
+                                                                                                  picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      purchase_invoice_id=purchase_invoice_id,
+                                      purchase_invoice_line_id=purchase_invoice_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_purchase_invoice_purchase_invoice_line_item_update_item_category(client,
@@ -7171,61 +7171,6 @@ def financials_financial_company_purchase_invoice_vendor_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_purchase_invoice_vendor_get_currency(client,
-                                                                      company_id,
-                                                                      purchase_invoice_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_currency(company_id=company_id,
-                               purchase_invoice_id=purchase_invoice_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_purchase_invoice_vendor_get_payment_method(client,
-                                                                            company_id,
-                                                                            purchase_invoice_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     purchase_invoice_id=purchase_invoice_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_purchase_invoice_vendor_get_payment_term(client,
-                                                                          company_id,
-                                                                          purchase_invoice_id,
-                                                                          select=None,
-                                                                          expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   purchase_invoice_id=purchase_invoice_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_purchase_invoice_vendor_get_picture(client,
-                                                                     company_id,
-                                                                     purchase_invoice_id,
-                                                                     picture_id,
-                                                                     select=None,
-                                                                     expand=None):
-    return client.get_picture(company_id=company_id,
-                              purchase_invoice_id=purchase_invoice_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_purchase_invoice_vendor_get_picture_content(client,
-                                                                             company_id,
-                                                                             purchase_invoice_id,
-                                                                             picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      purchase_invoice_id=purchase_invoice_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_purchase_invoice_vendor_list_picture(client,
                                                                       company_id,
                                                                       purchase_invoice_id,
@@ -7248,6 +7193,61 @@ def financials_financial_company_purchase_invoice_vendor_set_picture_content(cli
                                       purchase_invoice_id=purchase_invoice_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_purchase_invoice_vendor_show_currency(client,
+                                                                       company_id,
+                                                                       purchase_invoice_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_currency(company_id=company_id,
+                               purchase_invoice_id=purchase_invoice_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_purchase_invoice_vendor_show_payment_method(client,
+                                                                             company_id,
+                                                                             purchase_invoice_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     purchase_invoice_id=purchase_invoice_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_purchase_invoice_vendor_show_payment_term(client,
+                                                                           company_id,
+                                                                           purchase_invoice_id,
+                                                                           select=None,
+                                                                           expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   purchase_invoice_id=purchase_invoice_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_purchase_invoice_vendor_show_picture(client,
+                                                                      company_id,
+                                                                      purchase_invoice_id,
+                                                                      picture_id,
+                                                                      select=None,
+                                                                      expand=None):
+    return client.get_picture(company_id=company_id,
+                              purchase_invoice_id=purchase_invoice_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_purchase_invoice_vendor_show_picture_content(client,
+                                                                              company_id,
+                                                                              purchase_invoice_id,
+                                                                              picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      purchase_invoice_id=purchase_invoice_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_purchase_invoice_vendor_update_currency(client,
@@ -7341,22 +7341,22 @@ def financials_financial_company_sale_credit_memo_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_credit_memo_line_get_account(client,
-                                                                   company_id,
-                                                                   sales_credit_memo_line_id,
-                                                                   select=None,
-                                                                   expand=None):
+def financials_financial_company_sale_credit_memo_line_show_account(client,
+                                                                    company_id,
+                                                                    sales_credit_memo_line_id,
+                                                                    select=None,
+                                                                    expand=None):
     return client.get_account(company_id=company_id,
                               sales_credit_memo_line_id=sales_credit_memo_line_id,
                               select=select,
                               expand=expand)
 
 
-def financials_financial_company_sale_credit_memo_line_get_item(client,
-                                                                company_id,
-                                                                sales_credit_memo_line_id,
-                                                                select=None,
-                                                                expand=None):
+def financials_financial_company_sale_credit_memo_line_show_item(client,
+                                                                 company_id,
+                                                                 sales_credit_memo_line_id,
+                                                                 select=None,
+                                                                 expand=None):
     return client.get_item(company_id=company_id,
                            sales_credit_memo_line_id=sales_credit_memo_line_id,
                            select=select,
@@ -7459,39 +7459,6 @@ def financials_financial_company_sale_credit_memo_line_item_create_picture(clien
                                  width=width)
 
 
-def financials_financial_company_sale_credit_memo_line_item_get_item_category(client,
-                                                                              company_id,
-                                                                              sales_credit_memo_line_id,
-                                                                              select=None,
-                                                                              expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_line_item_get_picture(client,
-                                                                        company_id,
-                                                                        sales_credit_memo_line_id,
-                                                                        picture_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_credit_memo_line_id=sales_credit_memo_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_line_item_get_picture_content(client,
-                                                                                company_id,
-                                                                                sales_credit_memo_line_id,
-                                                                                picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_credit_memo_line_item_list_picture(client,
                                                                          company_id,
                                                                          sales_credit_memo_line_id,
@@ -7514,6 +7481,39 @@ def financials_financial_company_sale_credit_memo_line_item_set_picture_content(
                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_credit_memo_line_item_show_item_category(client,
+                                                                               company_id,
+                                                                               sales_credit_memo_line_id,
+                                                                               select=None,
+                                                                               expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_line_item_show_picture(client,
+                                                                         company_id,
+                                                                         sales_credit_memo_line_id,
+                                                                         picture_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_credit_memo_line_id=sales_credit_memo_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_line_item_show_picture_content(client,
+                                                                                 company_id,
+                                                                                 sales_credit_memo_line_id,
+                                                                                 picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_credit_memo_line_item_update_item_category(client,
@@ -7601,23 +7601,23 @@ def financials_financial_company_sale_credit_memo_create_sale_credit_memo_line(c
                                                                                unit_price=None,
                                                                                account=None,
                                                                                microsoft_graph_entity_id=None,
-                                                                               item_base_unit_of_measure_id=None,
-                                                                               item_blocked=None,
-                                                                               item_display_name=None,
-                                                                               item_gtin=None,
-                                                                               item_inventory=None,
-                                                                               item_item_category_code=None,
-                                                                               item_item_category_id=None,
-                                                                               item_last_modified_date_time=None,
-                                                                               item_number=None,
-                                                                               item_price_includes_tax=None,
-                                                                               item_tax_group_code=None,
-                                                                               item_tax_group_id=None,
-                                                                               item_type=None,
-                                                                               item_unit_cost=None,
-                                                                               item_unit_price=None,
-                                                                               item_item_category=None,
-                                                                               item_picture=None):
+                                                                               base_unit_of_measure_id=None,
+                                                                               blocked=None,
+                                                                               display_name=None,
+                                                                               gtin=None,
+                                                                               inventory=None,
+                                                                               item_category_code=None,
+                                                                               item_category_id=None,
+                                                                               last_modified_date_time=None,
+                                                                               number=None,
+                                                                               price_includes_tax=None,
+                                                                               tax_group_code=None,
+                                                                               tax_group_id=None,
+                                                                               type_=None,
+                                                                               unit_cost=None,
+                                                                               number_unit_price=None,
+                                                                               item_category=None,
+                                                                               picture=None):
     return client.create_sale_credit_memo_line(company_id=company_id,
                                                sales_credit_memo_id=sales_credit_memo_id,
                                                id=id_,
@@ -7645,69 +7645,23 @@ def financials_financial_company_sale_credit_memo_create_sale_credit_memo_line(c
                                                unit_price=unit_price,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               unit_cost=item_unit_cost,
-                                               number_unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
-
-
-def financials_financial_company_sale_credit_memo_get_currency(client,
-                                                               company_id,
-                                                               sales_credit_memo_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_credit_memo_id=sales_credit_memo_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_get_customer(client,
-                                                               company_id,
-                                                               sales_credit_memo_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_customer(company_id=company_id,
-                               sales_credit_memo_id=sales_credit_memo_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_get_payment_term(client,
-                                                                   company_id,
-                                                                   sales_credit_memo_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_credit_memo_id=sales_credit_memo_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_get_sale_credit_memo_line(client,
-                                                                            company_id,
-                                                                            sales_credit_memo_id,
-                                                                            sales_credit_memo_line_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_sale_credit_memo_line(company_id=company_id,
-                                            sales_credit_memo_id=sales_credit_memo_id,
-                                            sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                            select=select,
-                                            expand=expand)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               unit_cost=unit_cost,
+                                               number_unit_price=number_unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_sale_credit_memo_list_sale_credit_memo_line(client,
@@ -7721,6 +7675,52 @@ def financials_financial_company_sale_credit_memo_list_sale_credit_memo_line(cli
                                              orderby=orderby,
                                              select=select,
                                              expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_show_currency(client,
+                                                                company_id,
+                                                                sales_credit_memo_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_credit_memo_id=sales_credit_memo_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_show_customer(client,
+                                                                company_id,
+                                                                sales_credit_memo_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_customer(company_id=company_id,
+                               sales_credit_memo_id=sales_credit_memo_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_show_payment_term(client,
+                                                                    company_id,
+                                                                    sales_credit_memo_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_credit_memo_id=sales_credit_memo_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_show_sale_credit_memo_line(client,
+                                                                             company_id,
+                                                                             sales_credit_memo_id,
+                                                                             sales_credit_memo_line_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_sale_credit_memo_line(company_id=company_id,
+                                            sales_credit_memo_id=sales_credit_memo_id,
+                                            sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                            select=select,
+                                            expand=expand)
 
 
 def financials_financial_company_sale_credit_memo_update_currency(client,
@@ -7851,23 +7851,23 @@ def financials_financial_company_sale_credit_memo_update_sale_credit_memo_line(c
                                                                                unit_price=None,
                                                                                account=None,
                                                                                microsoft_graph_entity_id=None,
-                                                                               item_base_unit_of_measure_id=None,
-                                                                               item_blocked=None,
-                                                                               item_display_name=None,
-                                                                               item_gtin=None,
-                                                                               item_inventory=None,
-                                                                               item_item_category_code=None,
-                                                                               item_item_category_id=None,
-                                                                               item_last_modified_date_time=None,
-                                                                               item_number=None,
-                                                                               item_price_includes_tax=None,
-                                                                               item_tax_group_code=None,
-                                                                               item_tax_group_id=None,
-                                                                               item_type=None,
-                                                                               item_unit_cost=None,
-                                                                               item_unit_price=None,
-                                                                               item_item_category=None,
-                                                                               item_picture=None):
+                                                                               base_unit_of_measure_id=None,
+                                                                               blocked=None,
+                                                                               display_name=None,
+                                                                               gtin=None,
+                                                                               inventory=None,
+                                                                               item_category_code=None,
+                                                                               item_category_id=None,
+                                                                               last_modified_date_time=None,
+                                                                               number=None,
+                                                                               price_includes_tax=None,
+                                                                               tax_group_code=None,
+                                                                               tax_group_id=None,
+                                                                               type_=None,
+                                                                               unit_cost=None,
+                                                                               number_unit_price=None,
+                                                                               item_category=None,
+                                                                               picture=None):
     return client.update_sale_credit_memo_line(company_id=company_id,
                                                sales_credit_memo_id=sales_credit_memo_id,
                                                sales_credit_memo_line_id=sales_credit_memo_line_id,
@@ -7896,23 +7896,23 @@ def financials_financial_company_sale_credit_memo_update_sale_credit_memo_line(c
                                                unit_price=unit_price,
                                                account=account,
                                                microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                               base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                               blocked=item_blocked,
-                                               display_name=item_display_name,
-                                               gtin=item_gtin,
-                                               inventory=item_inventory,
-                                               item_category_code=item_item_category_code,
-                                               item_category_id=item_item_category_id,
-                                               last_modified_date_time=item_last_modified_date_time,
-                                               number=item_number,
-                                               price_includes_tax=item_price_includes_tax,
-                                               tax_group_code=item_tax_group_code,
-                                               tax_group_id=item_tax_group_id,
-                                               type=item_type,
-                                               unit_cost=item_unit_cost,
-                                               number_unit_price=item_unit_price,
-                                               item_category=item_item_category,
-                                               picture=item_picture)
+                                               base_unit_of_measure_id=base_unit_of_measure_id,
+                                               blocked=blocked,
+                                               display_name=display_name,
+                                               gtin=gtin,
+                                               inventory=inventory,
+                                               item_category_code=item_category_code,
+                                               item_category_id=item_category_id,
+                                               last_modified_date_time=last_modified_date_time,
+                                               number=number,
+                                               price_includes_tax=price_includes_tax,
+                                               tax_group_code=tax_group_code,
+                                               tax_group_id=tax_group_id,
+                                               type=type_,
+                                               unit_cost=unit_cost,
+                                               number_unit_price=number_unit_price,
+                                               item_category=item_category,
+                                               picture=picture)
 
 
 def financials_financial_company_sale_credit_memo_customer_delete(client,
@@ -7959,72 +7959,6 @@ def financials_financial_company_sale_credit_memo_customer_create_picture(client
                                  width=width)
 
 
-def financials_financial_company_sale_credit_memo_customer_get_currency(client,
-                                                                        company_id,
-                                                                        sales_credit_memo_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_credit_memo_id=sales_credit_memo_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_customer_get_payment_method(client,
-                                                                              company_id,
-                                                                              sales_credit_memo_id,
-                                                                              select=None,
-                                                                              expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     sales_credit_memo_id=sales_credit_memo_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_customer_get_payment_term(client,
-                                                                            company_id,
-                                                                            sales_credit_memo_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_credit_memo_id=sales_credit_memo_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_customer_get_picture(client,
-                                                                       company_id,
-                                                                       sales_credit_memo_id,
-                                                                       picture_id,
-                                                                       select=None,
-                                                                       expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_credit_memo_id=sales_credit_memo_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_customer_get_picture_content(client,
-                                                                               company_id,
-                                                                               sales_credit_memo_id,
-                                                                               picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_sale_credit_memo_customer_get_shipment_method(client,
-                                                                               company_id,
-                                                                               sales_credit_memo_id,
-                                                                               select=None,
-                                                                               expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_sale_credit_memo_customer_list_picture(client,
                                                                         company_id,
                                                                         sales_credit_memo_id,
@@ -8047,6 +7981,72 @@ def financials_financial_company_sale_credit_memo_customer_set_picture_content(c
                                       sales_credit_memo_id=sales_credit_memo_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_currency(client,
+                                                                         company_id,
+                                                                         sales_credit_memo_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_credit_memo_id=sales_credit_memo_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_payment_method(client,
+                                                                               company_id,
+                                                                               sales_credit_memo_id,
+                                                                               select=None,
+                                                                               expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     sales_credit_memo_id=sales_credit_memo_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_payment_term(client,
+                                                                             company_id,
+                                                                             sales_credit_memo_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_credit_memo_id=sales_credit_memo_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_picture(client,
+                                                                        company_id,
+                                                                        sales_credit_memo_id,
+                                                                        picture_id,
+                                                                        select=None,
+                                                                        expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_credit_memo_id=sales_credit_memo_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_picture_content(client,
+                                                                                company_id,
+                                                                                sales_credit_memo_id,
+                                                                                picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_credit_memo_id=sales_credit_memo_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_sale_credit_memo_customer_show_shipment_method(client,
+                                                                                company_id,
+                                                                                sales_credit_memo_id,
+                                                                                select=None,
+                                                                                expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_credit_memo_id=sales_credit_memo_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_credit_memo_customer_update_currency(client,
@@ -8158,12 +8158,12 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete(c
                               if_match=if_match)
 
 
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_get_account(client,
-                                                                                    company_id,
-                                                                                    sales_credit_memo_id,
-                                                                                    sales_credit_memo_line_id,
-                                                                                    select=None,
-                                                                                    expand=None):
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_show_account(client,
+                                                                                     company_id,
+                                                                                     sales_credit_memo_id,
+                                                                                     sales_credit_memo_line_id,
+                                                                                     select=None,
+                                                                                     expand=None):
     return client.get_account(company_id=company_id,
                               sales_credit_memo_id=sales_credit_memo_id,
                               sales_credit_memo_line_id=sales_credit_memo_line_id,
@@ -8171,12 +8171,12 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_get_acco
                               expand=expand)
 
 
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_get_item(client,
-                                                                                 company_id,
-                                                                                 sales_credit_memo_id,
-                                                                                 sales_credit_memo_line_id,
-                                                                                 select=None,
-                                                                                 expand=None):
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_show_item(client,
+                                                                                  company_id,
+                                                                                  sales_credit_memo_id,
+                                                                                  sales_credit_memo_line_id,
+                                                                                  select=None,
+                                                                                  expand=None):
     return client.get_item(company_id=company_id,
                            sales_credit_memo_id=sales_credit_memo_id,
                            sales_credit_memo_line_id=sales_credit_memo_line_id,
@@ -8289,45 +8289,6 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_cre
                                  width=width)
 
 
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_get_item_category(client,
-                                                                                               company_id,
-                                                                                               sales_credit_memo_id,
-                                                                                               sales_credit_memo_line_id,
-                                                                                               select=None,
-                                                                                               expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_credit_memo_id=sales_credit_memo_id,
-                                    sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_get_picture(client,
-                                                                                         company_id,
-                                                                                         sales_credit_memo_id,
-                                                                                         sales_credit_memo_line_id,
-                                                                                         picture_id,
-                                                                                         select=None,
-                                                                                         expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_credit_memo_id=sales_credit_memo_id,
-                              sales_credit_memo_line_id=sales_credit_memo_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_get_picture_content(client,
-                                                                                                 company_id,
-                                                                                                 sales_credit_memo_id,
-                                                                                                 sales_credit_memo_line_id,
-                                                                                                 picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_list_picture(client,
                                                                                           company_id,
                                                                                           sales_credit_memo_id,
@@ -8354,6 +8315,45 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_set
                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_show_item_category(client,
+                                                                                                company_id,
+                                                                                                sales_credit_memo_id,
+                                                                                                sales_credit_memo_line_id,
+                                                                                                select=None,
+                                                                                                expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_credit_memo_id=sales_credit_memo_id,
+                                    sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_show_picture(client,
+                                                                                          company_id,
+                                                                                          sales_credit_memo_id,
+                                                                                          sales_credit_memo_line_id,
+                                                                                          picture_id,
+                                                                                          select=None,
+                                                                                          expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_credit_memo_id=sales_credit_memo_id,
+                              sales_credit_memo_line_id=sales_credit_memo_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_show_picture_content(client,
+                                                                                                  company_id,
+                                                                                                  sales_credit_memo_id,
+                                                                                                  sales_credit_memo_line_id,
+                                                                                                  picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_credit_memo_id=sales_credit_memo_id,
+                                      sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_update_item_category(client,
@@ -8407,22 +8407,22 @@ def financials_financial_company_sale_invoice_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_invoice_line_get_account(client,
-                                                               company_id,
-                                                               sales_invoice_line_id,
-                                                               select=None,
-                                                               expand=None):
+def financials_financial_company_sale_invoice_line_show_account(client,
+                                                                company_id,
+                                                                sales_invoice_line_id,
+                                                                select=None,
+                                                                expand=None):
     return client.get_account(company_id=company_id,
                               sales_invoice_line_id=sales_invoice_line_id,
                               select=select,
                               expand=expand)
 
 
-def financials_financial_company_sale_invoice_line_get_item(client,
-                                                            company_id,
-                                                            sales_invoice_line_id,
-                                                            select=None,
-                                                            expand=None):
+def financials_financial_company_sale_invoice_line_show_item(client,
+                                                             company_id,
+                                                             sales_invoice_line_id,
+                                                             select=None,
+                                                             expand=None):
     return client.get_item(company_id=company_id,
                            sales_invoice_line_id=sales_invoice_line_id,
                            select=select,
@@ -8525,39 +8525,6 @@ def financials_financial_company_sale_invoice_line_item_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_invoice_line_item_get_item_category(client,
-                                                                          company_id,
-                                                                          sales_invoice_line_id,
-                                                                          select=None,
-                                                                          expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_invoice_line_id=sales_invoice_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_invoice_line_item_get_picture(client,
-                                                                    company_id,
-                                                                    sales_invoice_line_id,
-                                                                    picture_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_invoice_line_id=sales_invoice_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_invoice_line_item_get_picture_content(client,
-                                                                            company_id,
-                                                                            sales_invoice_line_id,
-                                                                            picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_invoice_line_id=sales_invoice_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_invoice_line_item_list_picture(client,
                                                                      company_id,
                                                                      sales_invoice_line_id,
@@ -8580,6 +8547,39 @@ def financials_financial_company_sale_invoice_line_item_set_picture_content(clie
                                       sales_invoice_line_id=sales_invoice_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_invoice_line_item_show_item_category(client,
+                                                                           company_id,
+                                                                           sales_invoice_line_id,
+                                                                           select=None,
+                                                                           expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_invoice_line_id=sales_invoice_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_invoice_line_item_show_picture(client,
+                                                                     company_id,
+                                                                     sales_invoice_line_id,
+                                                                     picture_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_invoice_line_id=sales_invoice_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_invoice_line_item_show_picture_content(client,
+                                                                             company_id,
+                                                                             sales_invoice_line_id,
+                                                                             picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_invoice_line_id=sales_invoice_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_invoice_line_item_update_item_category(client,
@@ -8685,23 +8685,23 @@ def financials_financial_company_sale_invoice_create_sale_invoice_line(client,
                                                                        unit_price=None,
                                                                        account=None,
                                                                        microsoft_graph_entity_id=None,
-                                                                       item_base_unit_of_measure_id=None,
-                                                                       item_blocked=None,
-                                                                       item_display_name=None,
-                                                                       item_gtin=None,
-                                                                       item_inventory=None,
-                                                                       item_item_category_code=None,
-                                                                       item_item_category_id=None,
-                                                                       item_last_modified_date_time=None,
-                                                                       item_number=None,
-                                                                       item_price_includes_tax=None,
-                                                                       item_tax_group_code=None,
-                                                                       item_tax_group_id=None,
-                                                                       item_type=None,
-                                                                       item_unit_cost=None,
-                                                                       item_unit_price=None,
-                                                                       item_item_category=None,
-                                                                       item_picture=None):
+                                                                       base_unit_of_measure_id=None,
+                                                                       blocked=None,
+                                                                       display_name=None,
+                                                                       gtin=None,
+                                                                       inventory=None,
+                                                                       item_category_code=None,
+                                                                       item_category_id=None,
+                                                                       last_modified_date_time=None,
+                                                                       number=None,
+                                                                       price_includes_tax=None,
+                                                                       tax_group_code=None,
+                                                                       tax_group_id=None,
+                                                                       type_=None,
+                                                                       unit_cost=None,
+                                                                       number_unit_price=None,
+                                                                       item_category=None,
+                                                                       picture=None):
     return client.create_sale_invoice_line(company_id=company_id,
                                            sales_invoice_id=sales_invoice_id,
                                            id=id_,
@@ -8729,80 +8729,23 @@ def financials_financial_company_sale_invoice_create_sale_invoice_line(client,
                                            unit_price=unit_price,
                                            account=account,
                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                           base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                           blocked=item_blocked,
-                                           display_name=item_display_name,
-                                           gtin=item_gtin,
-                                           inventory=item_inventory,
-                                           item_category_code=item_item_category_code,
-                                           item_category_id=item_item_category_id,
-                                           last_modified_date_time=item_last_modified_date_time,
-                                           number=item_number,
-                                           price_includes_tax=item_price_includes_tax,
-                                           tax_group_code=item_tax_group_code,
-                                           tax_group_id=item_tax_group_id,
-                                           type=item_type,
-                                           unit_cost=item_unit_cost,
-                                           number_unit_price=item_unit_price,
-                                           item_category=item_item_category,
-                                           picture=item_picture)
-
-
-def financials_financial_company_sale_invoice_get_currency(client,
-                                                           company_id,
-                                                           sales_invoice_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_invoice_id=sales_invoice_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_invoice_get_customer(client,
-                                                           company_id,
-                                                           sales_invoice_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_customer(company_id=company_id,
-                               sales_invoice_id=sales_invoice_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_invoice_get_payment_term(client,
-                                                               company_id,
-                                                               sales_invoice_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_invoice_id=sales_invoice_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_invoice_get_sale_invoice_line(client,
-                                                                    company_id,
-                                                                    sales_invoice_id,
-                                                                    sales_invoice_line_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_sale_invoice_line(company_id=company_id,
-                                        sales_invoice_id=sales_invoice_id,
-                                        sales_invoice_line_id=sales_invoice_line_id,
-                                        select=select,
-                                        expand=expand)
-
-
-def financials_financial_company_sale_invoice_get_shipment_method(client,
-                                                                  company_id,
-                                                                  sales_invoice_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      select=select,
-                                      expand=expand)
+                                           base_unit_of_measure_id=base_unit_of_measure_id,
+                                           blocked=blocked,
+                                           display_name=display_name,
+                                           gtin=gtin,
+                                           inventory=inventory,
+                                           item_category_code=item_category_code,
+                                           item_category_id=item_category_id,
+                                           last_modified_date_time=last_modified_date_time,
+                                           number=number,
+                                           price_includes_tax=price_includes_tax,
+                                           tax_group_code=tax_group_code,
+                                           tax_group_id=tax_group_id,
+                                           type=type_,
+                                           unit_cost=unit_cost,
+                                           number_unit_price=number_unit_price,
+                                           item_category=item_category,
+                                           picture=picture)
 
 
 def financials_financial_company_sale_invoice_list_sale_invoice_line(client,
@@ -8837,6 +8780,63 @@ def financials_financial_company_sale_invoice_send(client,
                                                    sales_invoice_id):
     return client.send(company_id=company_id,
                        sales_invoice_id=sales_invoice_id)
+
+
+def financials_financial_company_sale_invoice_show_currency(client,
+                                                            company_id,
+                                                            sales_invoice_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_invoice_id=sales_invoice_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_invoice_show_customer(client,
+                                                            company_id,
+                                                            sales_invoice_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_customer(company_id=company_id,
+                               sales_invoice_id=sales_invoice_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_invoice_show_payment_term(client,
+                                                                company_id,
+                                                                sales_invoice_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_invoice_id=sales_invoice_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_invoice_show_sale_invoice_line(client,
+                                                                     company_id,
+                                                                     sales_invoice_id,
+                                                                     sales_invoice_line_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_sale_invoice_line(company_id=company_id,
+                                        sales_invoice_id=sales_invoice_id,
+                                        sales_invoice_line_id=sales_invoice_line_id,
+                                        select=select,
+                                        expand=expand)
+
+
+def financials_financial_company_sale_invoice_show_shipment_method(client,
+                                                                   company_id,
+                                                                   sales_invoice_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_invoice_update_currency(client,
@@ -8967,23 +8967,23 @@ def financials_financial_company_sale_invoice_update_sale_invoice_line(client,
                                                                        unit_price=None,
                                                                        account=None,
                                                                        microsoft_graph_entity_id=None,
-                                                                       item_base_unit_of_measure_id=None,
-                                                                       item_blocked=None,
-                                                                       item_display_name=None,
-                                                                       item_gtin=None,
-                                                                       item_inventory=None,
-                                                                       item_item_category_code=None,
-                                                                       item_item_category_id=None,
-                                                                       item_last_modified_date_time=None,
-                                                                       item_number=None,
-                                                                       item_price_includes_tax=None,
-                                                                       item_tax_group_code=None,
-                                                                       item_tax_group_id=None,
-                                                                       item_type=None,
-                                                                       item_unit_cost=None,
-                                                                       item_unit_price=None,
-                                                                       item_item_category=None,
-                                                                       item_picture=None):
+                                                                       base_unit_of_measure_id=None,
+                                                                       blocked=None,
+                                                                       display_name=None,
+                                                                       gtin=None,
+                                                                       inventory=None,
+                                                                       item_category_code=None,
+                                                                       item_category_id=None,
+                                                                       last_modified_date_time=None,
+                                                                       number=None,
+                                                                       price_includes_tax=None,
+                                                                       tax_group_code=None,
+                                                                       tax_group_id=None,
+                                                                       type_=None,
+                                                                       unit_cost=None,
+                                                                       number_unit_price=None,
+                                                                       item_category=None,
+                                                                       picture=None):
     return client.update_sale_invoice_line(company_id=company_id,
                                            sales_invoice_id=sales_invoice_id,
                                            sales_invoice_line_id=sales_invoice_line_id,
@@ -9012,23 +9012,23 @@ def financials_financial_company_sale_invoice_update_sale_invoice_line(client,
                                            unit_price=unit_price,
                                            account=account,
                                            microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                           base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                           blocked=item_blocked,
-                                           display_name=item_display_name,
-                                           gtin=item_gtin,
-                                           inventory=item_inventory,
-                                           item_category_code=item_item_category_code,
-                                           item_category_id=item_item_category_id,
-                                           last_modified_date_time=item_last_modified_date_time,
-                                           number=item_number,
-                                           price_includes_tax=item_price_includes_tax,
-                                           tax_group_code=item_tax_group_code,
-                                           tax_group_id=item_tax_group_id,
-                                           type=item_type,
-                                           unit_cost=item_unit_cost,
-                                           number_unit_price=item_unit_price,
-                                           item_category=item_item_category,
-                                           picture=item_picture)
+                                           base_unit_of_measure_id=base_unit_of_measure_id,
+                                           blocked=blocked,
+                                           display_name=display_name,
+                                           gtin=gtin,
+                                           inventory=inventory,
+                                           item_category_code=item_category_code,
+                                           item_category_id=item_category_id,
+                                           last_modified_date_time=last_modified_date_time,
+                                           number=number,
+                                           price_includes_tax=price_includes_tax,
+                                           tax_group_code=tax_group_code,
+                                           tax_group_id=tax_group_id,
+                                           type=type_,
+                                           unit_cost=unit_cost,
+                                           number_unit_price=number_unit_price,
+                                           item_category=item_category,
+                                           picture=picture)
 
 
 def financials_financial_company_sale_invoice_update_shipment_method(client,
@@ -9090,72 +9090,6 @@ def financials_financial_company_sale_invoice_customer_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_invoice_customer_get_currency(client,
-                                                                    company_id,
-                                                                    sales_invoice_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_invoice_id=sales_invoice_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_invoice_customer_get_payment_method(client,
-                                                                          company_id,
-                                                                          sales_invoice_id,
-                                                                          select=None,
-                                                                          expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     sales_invoice_id=sales_invoice_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_sale_invoice_customer_get_payment_term(client,
-                                                                        company_id,
-                                                                        sales_invoice_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_invoice_id=sales_invoice_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_invoice_customer_get_picture(client,
-                                                                   company_id,
-                                                                   sales_invoice_id,
-                                                                   picture_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_invoice_id=sales_invoice_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_invoice_customer_get_picture_content(client,
-                                                                           company_id,
-                                                                           sales_invoice_id,
-                                                                           picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_sale_invoice_customer_get_shipment_method(client,
-                                                                           company_id,
-                                                                           sales_invoice_id,
-                                                                           select=None,
-                                                                           expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_sale_invoice_customer_list_picture(client,
                                                                     company_id,
                                                                     sales_invoice_id,
@@ -9178,6 +9112,72 @@ def financials_financial_company_sale_invoice_customer_set_picture_content(clien
                                       sales_invoice_id=sales_invoice_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_invoice_customer_show_currency(client,
+                                                                     company_id,
+                                                                     sales_invoice_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_invoice_id=sales_invoice_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_invoice_customer_show_payment_method(client,
+                                                                           company_id,
+                                                                           sales_invoice_id,
+                                                                           select=None,
+                                                                           expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     sales_invoice_id=sales_invoice_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_sale_invoice_customer_show_payment_term(client,
+                                                                         company_id,
+                                                                         sales_invoice_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_invoice_id=sales_invoice_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_invoice_customer_show_picture(client,
+                                                                    company_id,
+                                                                    sales_invoice_id,
+                                                                    picture_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_invoice_id=sales_invoice_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_invoice_customer_show_picture_content(client,
+                                                                            company_id,
+                                                                            sales_invoice_id,
+                                                                            picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_sale_invoice_customer_show_shipment_method(client,
+                                                                            company_id,
+                                                                            sales_invoice_id,
+                                                                            select=None,
+                                                                            expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_invoice_customer_update_currency(client,
@@ -9289,12 +9289,12 @@ def financials_financial_company_sale_invoice_sale_invoice_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_invoice_sale_invoice_line_get_account(client,
-                                                                            company_id,
-                                                                            sales_invoice_id,
-                                                                            sales_invoice_line_id,
-                                                                            select=None,
-                                                                            expand=None):
+def financials_financial_company_sale_invoice_sale_invoice_line_show_account(client,
+                                                                             company_id,
+                                                                             sales_invoice_id,
+                                                                             sales_invoice_line_id,
+                                                                             select=None,
+                                                                             expand=None):
     return client.get_account(company_id=company_id,
                               sales_invoice_id=sales_invoice_id,
                               sales_invoice_line_id=sales_invoice_line_id,
@@ -9302,12 +9302,12 @@ def financials_financial_company_sale_invoice_sale_invoice_line_get_account(clie
                               expand=expand)
 
 
-def financials_financial_company_sale_invoice_sale_invoice_line_get_item(client,
-                                                                         company_id,
-                                                                         sales_invoice_id,
-                                                                         sales_invoice_line_id,
-                                                                         select=None,
-                                                                         expand=None):
+def financials_financial_company_sale_invoice_sale_invoice_line_show_item(client,
+                                                                          company_id,
+                                                                          sales_invoice_id,
+                                                                          sales_invoice_line_id,
+                                                                          select=None,
+                                                                          expand=None):
     return client.get_item(company_id=company_id,
                            sales_invoice_id=sales_invoice_id,
                            sales_invoice_line_id=sales_invoice_line_id,
@@ -9420,45 +9420,6 @@ def financials_financial_company_sale_invoice_sale_invoice_line_item_create_pict
                                  width=width)
 
 
-def financials_financial_company_sale_invoice_sale_invoice_line_item_get_item_category(client,
-                                                                                       company_id,
-                                                                                       sales_invoice_id,
-                                                                                       sales_invoice_line_id,
-                                                                                       select=None,
-                                                                                       expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_invoice_id=sales_invoice_id,
-                                    sales_invoice_line_id=sales_invoice_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_invoice_sale_invoice_line_item_get_picture(client,
-                                                                                 company_id,
-                                                                                 sales_invoice_id,
-                                                                                 sales_invoice_line_id,
-                                                                                 picture_id,
-                                                                                 select=None,
-                                                                                 expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_invoice_id=sales_invoice_id,
-                              sales_invoice_line_id=sales_invoice_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_invoice_sale_invoice_line_item_get_picture_content(client,
-                                                                                         company_id,
-                                                                                         sales_invoice_id,
-                                                                                         sales_invoice_line_id,
-                                                                                         picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      sales_invoice_line_id=sales_invoice_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_invoice_sale_invoice_line_item_list_picture(client,
                                                                                   company_id,
                                                                                   sales_invoice_id,
@@ -9485,6 +9446,45 @@ def financials_financial_company_sale_invoice_sale_invoice_line_item_set_picture
                                       sales_invoice_line_id=sales_invoice_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_item_show_item_category(client,
+                                                                                        company_id,
+                                                                                        sales_invoice_id,
+                                                                                        sales_invoice_line_id,
+                                                                                        select=None,
+                                                                                        expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_invoice_id=sales_invoice_id,
+                                    sales_invoice_line_id=sales_invoice_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_item_show_picture(client,
+                                                                                  company_id,
+                                                                                  sales_invoice_id,
+                                                                                  sales_invoice_line_id,
+                                                                                  picture_id,
+                                                                                  select=None,
+                                                                                  expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_invoice_id=sales_invoice_id,
+                              sales_invoice_line_id=sales_invoice_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_item_show_picture_content(client,
+                                                                                          company_id,
+                                                                                          sales_invoice_id,
+                                                                                          sales_invoice_line_id,
+                                                                                          picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      sales_invoice_line_id=sales_invoice_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_invoice_sale_invoice_line_item_update_item_category(client,
@@ -9538,22 +9538,22 @@ def financials_financial_company_sale_order_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_order_line_get_account(client,
-                                                             company_id,
-                                                             sales_order_line_id,
-                                                             select=None,
-                                                             expand=None):
+def financials_financial_company_sale_order_line_show_account(client,
+                                                              company_id,
+                                                              sales_order_line_id,
+                                                              select=None,
+                                                              expand=None):
     return client.get_account(company_id=company_id,
                               sales_order_line_id=sales_order_line_id,
                               select=select,
                               expand=expand)
 
 
-def financials_financial_company_sale_order_line_get_item(client,
-                                                          company_id,
-                                                          sales_order_line_id,
-                                                          select=None,
-                                                          expand=None):
+def financials_financial_company_sale_order_line_show_item(client,
+                                                           company_id,
+                                                           sales_order_line_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_item(company_id=company_id,
                            sales_order_line_id=sales_order_line_id,
                            select=select,
@@ -9656,39 +9656,6 @@ def financials_financial_company_sale_order_line_item_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_order_line_item_get_item_category(client,
-                                                                        company_id,
-                                                                        sales_order_line_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_order_line_id=sales_order_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_order_line_item_get_picture(client,
-                                                                  company_id,
-                                                                  sales_order_line_id,
-                                                                  picture_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_order_line_id=sales_order_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_order_line_item_get_picture_content(client,
-                                                                          company_id,
-                                                                          sales_order_line_id,
-                                                                          picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_order_line_id=sales_order_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_order_line_item_list_picture(client,
                                                                    company_id,
                                                                    sales_order_line_id,
@@ -9711,6 +9678,39 @@ def financials_financial_company_sale_order_line_item_set_picture_content(client
                                       sales_order_line_id=sales_order_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_order_line_item_show_item_category(client,
+                                                                         company_id,
+                                                                         sales_order_line_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_order_line_id=sales_order_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_order_line_item_show_picture(client,
+                                                                   company_id,
+                                                                   sales_order_line_id,
+                                                                   picture_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_order_line_id=sales_order_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_order_line_item_show_picture_content(client,
+                                                                           company_id,
+                                                                           sales_order_line_id,
+                                                                           picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_order_line_id=sales_order_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_order_line_item_update_item_category(client,
@@ -9802,23 +9802,23 @@ def financials_financial_company_sale_order_create_sale_order_line(client,
                                                                    unit_price=None,
                                                                    account=None,
                                                                    microsoft_graph_entity_id=None,
-                                                                   item_base_unit_of_measure_id=None,
-                                                                   item_blocked=None,
-                                                                   item_display_name=None,
-                                                                   item_gtin=None,
-                                                                   item_inventory=None,
-                                                                   item_item_category_code=None,
-                                                                   item_item_category_id=None,
-                                                                   item_last_modified_date_time=None,
-                                                                   item_number=None,
-                                                                   item_price_includes_tax=None,
-                                                                   item_tax_group_code=None,
-                                                                   item_tax_group_id=None,
-                                                                   item_type=None,
-                                                                   item_unit_cost=None,
-                                                                   item_unit_price=None,
-                                                                   item_item_category=None,
-                                                                   item_picture=None):
+                                                                   base_unit_of_measure_id=None,
+                                                                   blocked=None,
+                                                                   display_name=None,
+                                                                   gtin=None,
+                                                                   inventory=None,
+                                                                   item_category_code=None,
+                                                                   item_category_id=None,
+                                                                   last_modified_date_time=None,
+                                                                   number=None,
+                                                                   price_includes_tax=None,
+                                                                   tax_group_code=None,
+                                                                   tax_group_id=None,
+                                                                   type_=None,
+                                                                   unit_cost=None,
+                                                                   number_unit_price=None,
+                                                                   item_category=None,
+                                                                   picture=None):
     return client.create_sale_order_line(company_id=company_id,
                                          sales_order_id=sales_order_id,
                                          id=id_,
@@ -9850,69 +9850,23 @@ def financials_financial_company_sale_order_create_sale_order_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
-
-
-def financials_financial_company_sale_order_get_currency(client,
-                                                         company_id,
-                                                         sales_order_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_order_id=sales_order_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_order_get_customer(client,
-                                                         company_id,
-                                                         sales_order_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_customer(company_id=company_id,
-                               sales_order_id=sales_order_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_order_get_payment_term(client,
-                                                             company_id,
-                                                             sales_order_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_order_id=sales_order_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_order_get_sale_order_line(client,
-                                                                company_id,
-                                                                sales_order_id,
-                                                                sales_order_line_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_sale_order_line(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      sales_order_line_id=sales_order_line_id,
-                                      select=select,
-                                      expand=expand)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_sale_order_list_sale_order_line(client,
@@ -9926,6 +9880,52 @@ def financials_financial_company_sale_order_list_sale_order_line(client,
                                        orderby=orderby,
                                        select=select,
                                        expand=expand)
+
+
+def financials_financial_company_sale_order_show_currency(client,
+                                                          company_id,
+                                                          sales_order_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_order_id=sales_order_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_order_show_customer(client,
+                                                          company_id,
+                                                          sales_order_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_customer(company_id=company_id,
+                               sales_order_id=sales_order_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_order_show_payment_term(client,
+                                                              company_id,
+                                                              sales_order_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_order_id=sales_order_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_order_show_sale_order_line(client,
+                                                                 company_id,
+                                                                 sales_order_id,
+                                                                 sales_order_line_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_sale_order_line(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      sales_order_line_id=sales_order_line_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_order_update_currency(client,
@@ -10060,23 +10060,23 @@ def financials_financial_company_sale_order_update_sale_order_line(client,
                                                                    unit_price=None,
                                                                    account=None,
                                                                    microsoft_graph_entity_id=None,
-                                                                   item_base_unit_of_measure_id=None,
-                                                                   item_blocked=None,
-                                                                   item_display_name=None,
-                                                                   item_gtin=None,
-                                                                   item_inventory=None,
-                                                                   item_item_category_code=None,
-                                                                   item_item_category_id=None,
-                                                                   item_last_modified_date_time=None,
-                                                                   item_number=None,
-                                                                   item_price_includes_tax=None,
-                                                                   item_tax_group_code=None,
-                                                                   item_tax_group_id=None,
-                                                                   item_type=None,
-                                                                   item_unit_cost=None,
-                                                                   item_unit_price=None,
-                                                                   item_item_category=None,
-                                                                   item_picture=None):
+                                                                   base_unit_of_measure_id=None,
+                                                                   blocked=None,
+                                                                   display_name=None,
+                                                                   gtin=None,
+                                                                   inventory=None,
+                                                                   item_category_code=None,
+                                                                   item_category_id=None,
+                                                                   last_modified_date_time=None,
+                                                                   number=None,
+                                                                   price_includes_tax=None,
+                                                                   tax_group_code=None,
+                                                                   tax_group_id=None,
+                                                                   type_=None,
+                                                                   unit_cost=None,
+                                                                   number_unit_price=None,
+                                                                   item_category=None,
+                                                                   picture=None):
     return client.update_sale_order_line(company_id=company_id,
                                          sales_order_id=sales_order_id,
                                          sales_order_line_id=sales_order_line_id,
@@ -10109,23 +10109,23 @@ def financials_financial_company_sale_order_update_sale_order_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_sale_order_customer_delete(client,
@@ -10172,72 +10172,6 @@ def financials_financial_company_sale_order_customer_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_order_customer_get_currency(client,
-                                                                  company_id,
-                                                                  sales_order_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_order_id=sales_order_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_order_customer_get_payment_method(client,
-                                                                        company_id,
-                                                                        sales_order_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     sales_order_id=sales_order_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_sale_order_customer_get_payment_term(client,
-                                                                      company_id,
-                                                                      sales_order_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_order_id=sales_order_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_order_customer_get_picture(client,
-                                                                 company_id,
-                                                                 sales_order_id,
-                                                                 picture_id,
-                                                                 select=None,
-                                                                 expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_order_id=sales_order_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_order_customer_get_picture_content(client,
-                                                                         company_id,
-                                                                         sales_order_id,
-                                                                         picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_sale_order_customer_get_shipment_method(client,
-                                                                         company_id,
-                                                                         sales_order_id,
-                                                                         select=None,
-                                                                         expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_sale_order_customer_list_picture(client,
                                                                   company_id,
                                                                   sales_order_id,
@@ -10260,6 +10194,72 @@ def financials_financial_company_sale_order_customer_set_picture_content(client,
                                       sales_order_id=sales_order_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_order_customer_show_currency(client,
+                                                                   company_id,
+                                                                   sales_order_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_order_id=sales_order_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_order_customer_show_payment_method(client,
+                                                                         company_id,
+                                                                         sales_order_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     sales_order_id=sales_order_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_sale_order_customer_show_payment_term(client,
+                                                                       company_id,
+                                                                       sales_order_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_order_id=sales_order_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_order_customer_show_picture(client,
+                                                                  company_id,
+                                                                  sales_order_id,
+                                                                  picture_id,
+                                                                  select=None,
+                                                                  expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_order_id=sales_order_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_order_customer_show_picture_content(client,
+                                                                          company_id,
+                                                                          sales_order_id,
+                                                                          picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_sale_order_customer_show_shipment_method(client,
+                                                                          company_id,
+                                                                          sales_order_id,
+                                                                          select=None,
+                                                                          expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_order_customer_update_currency(client,
@@ -10371,12 +10371,12 @@ def financials_financial_company_sale_order_sale_order_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_order_sale_order_line_get_account(client,
-                                                                        company_id,
-                                                                        sales_order_id,
-                                                                        sales_order_line_id,
-                                                                        select=None,
-                                                                        expand=None):
+def financials_financial_company_sale_order_sale_order_line_show_account(client,
+                                                                         company_id,
+                                                                         sales_order_id,
+                                                                         sales_order_line_id,
+                                                                         select=None,
+                                                                         expand=None):
     return client.get_account(company_id=company_id,
                               sales_order_id=sales_order_id,
                               sales_order_line_id=sales_order_line_id,
@@ -10384,12 +10384,12 @@ def financials_financial_company_sale_order_sale_order_line_get_account(client,
                               expand=expand)
 
 
-def financials_financial_company_sale_order_sale_order_line_get_item(client,
-                                                                     company_id,
-                                                                     sales_order_id,
-                                                                     sales_order_line_id,
-                                                                     select=None,
-                                                                     expand=None):
+def financials_financial_company_sale_order_sale_order_line_show_item(client,
+                                                                      company_id,
+                                                                      sales_order_id,
+                                                                      sales_order_line_id,
+                                                                      select=None,
+                                                                      expand=None):
     return client.get_item(company_id=company_id,
                            sales_order_id=sales_order_id,
                            sales_order_line_id=sales_order_line_id,
@@ -10502,45 +10502,6 @@ def financials_financial_company_sale_order_sale_order_line_item_create_picture(
                                  width=width)
 
 
-def financials_financial_company_sale_order_sale_order_line_item_get_item_category(client,
-                                                                                   company_id,
-                                                                                   sales_order_id,
-                                                                                   sales_order_line_id,
-                                                                                   select=None,
-                                                                                   expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_order_id=sales_order_id,
-                                    sales_order_line_id=sales_order_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_order_sale_order_line_item_get_picture(client,
-                                                                             company_id,
-                                                                             sales_order_id,
-                                                                             sales_order_line_id,
-                                                                             picture_id,
-                                                                             select=None,
-                                                                             expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_order_id=sales_order_id,
-                              sales_order_line_id=sales_order_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_order_sale_order_line_item_get_picture_content(client,
-                                                                                     company_id,
-                                                                                     sales_order_id,
-                                                                                     sales_order_line_id,
-                                                                                     picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      sales_order_line_id=sales_order_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_order_sale_order_line_item_list_picture(client,
                                                                               company_id,
                                                                               sales_order_id,
@@ -10567,6 +10528,45 @@ def financials_financial_company_sale_order_sale_order_line_item_set_picture_con
                                       sales_order_line_id=sales_order_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_order_sale_order_line_item_show_item_category(client,
+                                                                                    company_id,
+                                                                                    sales_order_id,
+                                                                                    sales_order_line_id,
+                                                                                    select=None,
+                                                                                    expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_order_id=sales_order_id,
+                                    sales_order_line_id=sales_order_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_order_sale_order_line_item_show_picture(client,
+                                                                              company_id,
+                                                                              sales_order_id,
+                                                                              sales_order_line_id,
+                                                                              picture_id,
+                                                                              select=None,
+                                                                              expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_order_id=sales_order_id,
+                              sales_order_line_id=sales_order_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_order_sale_order_line_item_show_picture_content(client,
+                                                                                      company_id,
+                                                                                      sales_order_id,
+                                                                                      sales_order_line_id,
+                                                                                      picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      sales_order_line_id=sales_order_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_order_sale_order_line_item_update_item_category(client,
@@ -10620,22 +10620,22 @@ def financials_financial_company_sale_quote_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_quote_line_get_account(client,
-                                                             company_id,
-                                                             sales_quote_line_id,
-                                                             select=None,
-                                                             expand=None):
+def financials_financial_company_sale_quote_line_show_account(client,
+                                                              company_id,
+                                                              sales_quote_line_id,
+                                                              select=None,
+                                                              expand=None):
     return client.get_account(company_id=company_id,
                               sales_quote_line_id=sales_quote_line_id,
                               select=select,
                               expand=expand)
 
 
-def financials_financial_company_sale_quote_line_get_item(client,
-                                                          company_id,
-                                                          sales_quote_line_id,
-                                                          select=None,
-                                                          expand=None):
+def financials_financial_company_sale_quote_line_show_item(client,
+                                                           company_id,
+                                                           sales_quote_line_id,
+                                                           select=None,
+                                                           expand=None):
     return client.get_item(company_id=company_id,
                            sales_quote_line_id=sales_quote_line_id,
                            select=select,
@@ -10738,39 +10738,6 @@ def financials_financial_company_sale_quote_line_item_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_quote_line_item_get_item_category(client,
-                                                                        company_id,
-                                                                        sales_quote_line_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_quote_line_id=sales_quote_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_quote_line_item_get_picture(client,
-                                                                  company_id,
-                                                                  sales_quote_line_id,
-                                                                  picture_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_quote_line_id=sales_quote_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_quote_line_item_get_picture_content(client,
-                                                                          company_id,
-                                                                          sales_quote_line_id,
-                                                                          picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_quote_line_id=sales_quote_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_quote_line_item_list_picture(client,
                                                                    company_id,
                                                                    sales_quote_line_id,
@@ -10793,6 +10760,39 @@ def financials_financial_company_sale_quote_line_item_set_picture_content(client
                                       sales_quote_line_id=sales_quote_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_quote_line_item_show_item_category(client,
+                                                                         company_id,
+                                                                         sales_quote_line_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_quote_line_id=sales_quote_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_quote_line_item_show_picture(client,
+                                                                   company_id,
+                                                                   sales_quote_line_id,
+                                                                   picture_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_quote_line_id=sales_quote_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_quote_line_item_show_picture_content(client,
+                                                                           company_id,
+                                                                           sales_quote_line_id,
+                                                                           picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_quote_line_id=sales_quote_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_quote_line_item_update_item_category(client,
@@ -10882,23 +10882,23 @@ def financials_financial_company_sale_quote_create_sale_quote_line(client,
                                                                    unit_price=None,
                                                                    account=None,
                                                                    microsoft_graph_entity_id=None,
-                                                                   item_base_unit_of_measure_id=None,
-                                                                   item_blocked=None,
-                                                                   item_display_name=None,
-                                                                   item_gtin=None,
-                                                                   item_inventory=None,
-                                                                   item_item_category_code=None,
-                                                                   item_item_category_id=None,
-                                                                   item_last_modified_date_time=None,
-                                                                   item_number=None,
-                                                                   item_price_includes_tax=None,
-                                                                   item_tax_group_code=None,
-                                                                   item_tax_group_id=None,
-                                                                   item_type=None,
-                                                                   item_unit_cost=None,
-                                                                   item_unit_price=None,
-                                                                   item_item_category=None,
-                                                                   item_picture=None):
+                                                                   base_unit_of_measure_id=None,
+                                                                   blocked=None,
+                                                                   display_name=None,
+                                                                   gtin=None,
+                                                                   inventory=None,
+                                                                   item_category_code=None,
+                                                                   item_category_id=None,
+                                                                   last_modified_date_time=None,
+                                                                   number=None,
+                                                                   price_includes_tax=None,
+                                                                   tax_group_code=None,
+                                                                   tax_group_id=None,
+                                                                   type_=None,
+                                                                   unit_cost=None,
+                                                                   number_unit_price=None,
+                                                                   item_category=None,
+                                                                   picture=None):
     return client.create_sale_quote_line(company_id=company_id,
                                          sales_quote_id=sales_quote_id,
                                          id=id_,
@@ -10924,80 +10924,23 @@ def financials_financial_company_sale_quote_create_sale_quote_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
-
-
-def financials_financial_company_sale_quote_get_currency(client,
-                                                         company_id,
-                                                         sales_quote_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_quote_id=sales_quote_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_quote_get_customer(client,
-                                                         company_id,
-                                                         sales_quote_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_customer(company_id=company_id,
-                               sales_quote_id=sales_quote_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_quote_get_payment_term(client,
-                                                             company_id,
-                                                             sales_quote_id,
-                                                             select=None,
-                                                             expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_quote_id=sales_quote_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_quote_get_sale_quote_line(client,
-                                                                company_id,
-                                                                sales_quote_id,
-                                                                sales_quote_line_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_sale_quote_line(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      sales_quote_line_id=sales_quote_line_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def financials_financial_company_sale_quote_get_shipment_method(client,
-                                                                company_id,
-                                                                sales_quote_id,
-                                                                select=None,
-                                                                expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      select=select,
-                                      expand=expand)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_sale_quote_list_sale_quote_line(client,
@@ -11025,6 +10968,63 @@ def financials_financial_company_sale_quote_send(client,
                                                  sales_quote_id):
     return client.send(company_id=company_id,
                        sales_quote_id=sales_quote_id)
+
+
+def financials_financial_company_sale_quote_show_currency(client,
+                                                          company_id,
+                                                          sales_quote_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_quote_id=sales_quote_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_quote_show_customer(client,
+                                                          company_id,
+                                                          sales_quote_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_customer(company_id=company_id,
+                               sales_quote_id=sales_quote_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_quote_show_payment_term(client,
+                                                              company_id,
+                                                              sales_quote_id,
+                                                              select=None,
+                                                              expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_quote_id=sales_quote_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_quote_show_sale_quote_line(client,
+                                                                 company_id,
+                                                                 sales_quote_id,
+                                                                 sales_quote_line_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_sale_quote_line(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      sales_quote_line_id=sales_quote_line_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def financials_financial_company_sale_quote_show_shipment_method(client,
+                                                                 company_id,
+                                                                 sales_quote_id,
+                                                                 select=None,
+                                                                 expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_quote_update_currency(client,
@@ -11153,23 +11153,23 @@ def financials_financial_company_sale_quote_update_sale_quote_line(client,
                                                                    unit_price=None,
                                                                    account=None,
                                                                    microsoft_graph_entity_id=None,
-                                                                   item_base_unit_of_measure_id=None,
-                                                                   item_blocked=None,
-                                                                   item_display_name=None,
-                                                                   item_gtin=None,
-                                                                   item_inventory=None,
-                                                                   item_item_category_code=None,
-                                                                   item_item_category_id=None,
-                                                                   item_last_modified_date_time=None,
-                                                                   item_number=None,
-                                                                   item_price_includes_tax=None,
-                                                                   item_tax_group_code=None,
-                                                                   item_tax_group_id=None,
-                                                                   item_type=None,
-                                                                   item_unit_cost=None,
-                                                                   item_unit_price=None,
-                                                                   item_item_category=None,
-                                                                   item_picture=None):
+                                                                   base_unit_of_measure_id=None,
+                                                                   blocked=None,
+                                                                   display_name=None,
+                                                                   gtin=None,
+                                                                   inventory=None,
+                                                                   item_category_code=None,
+                                                                   item_category_id=None,
+                                                                   last_modified_date_time=None,
+                                                                   number=None,
+                                                                   price_includes_tax=None,
+                                                                   tax_group_code=None,
+                                                                   tax_group_id=None,
+                                                                   type_=None,
+                                                                   unit_cost=None,
+                                                                   number_unit_price=None,
+                                                                   item_category=None,
+                                                                   picture=None):
     return client.update_sale_quote_line(company_id=company_id,
                                          sales_quote_id=sales_quote_id,
                                          sales_quote_line_id=sales_quote_line_id,
@@ -11196,23 +11196,23 @@ def financials_financial_company_sale_quote_update_sale_quote_line(client,
                                          unit_price=unit_price,
                                          account=account,
                                          microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                         base_unit_of_measure_id=item_base_unit_of_measure_id,
-                                         blocked=item_blocked,
-                                         display_name=item_display_name,
-                                         gtin=item_gtin,
-                                         inventory=item_inventory,
-                                         item_category_code=item_item_category_code,
-                                         item_category_id=item_item_category_id,
-                                         last_modified_date_time=item_last_modified_date_time,
-                                         number=item_number,
-                                         price_includes_tax=item_price_includes_tax,
-                                         tax_group_code=item_tax_group_code,
-                                         tax_group_id=item_tax_group_id,
-                                         type=item_type,
-                                         unit_cost=item_unit_cost,
-                                         number_unit_price=item_unit_price,
-                                         item_category=item_item_category,
-                                         picture=item_picture)
+                                         base_unit_of_measure_id=base_unit_of_measure_id,
+                                         blocked=blocked,
+                                         display_name=display_name,
+                                         gtin=gtin,
+                                         inventory=inventory,
+                                         item_category_code=item_category_code,
+                                         item_category_id=item_category_id,
+                                         last_modified_date_time=last_modified_date_time,
+                                         number=number,
+                                         price_includes_tax=price_includes_tax,
+                                         tax_group_code=tax_group_code,
+                                         tax_group_id=tax_group_id,
+                                         type=type_,
+                                         unit_cost=unit_cost,
+                                         number_unit_price=number_unit_price,
+                                         item_category=item_category,
+                                         picture=picture)
 
 
 def financials_financial_company_sale_quote_update_shipment_method(client,
@@ -11274,72 +11274,6 @@ def financials_financial_company_sale_quote_customer_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_quote_customer_get_currency(client,
-                                                                  company_id,
-                                                                  sales_quote_id,
-                                                                  select=None,
-                                                                  expand=None):
-    return client.get_currency(company_id=company_id,
-                               sales_quote_id=sales_quote_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_sale_quote_customer_get_payment_method(client,
-                                                                        company_id,
-                                                                        sales_quote_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     sales_quote_id=sales_quote_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_sale_quote_customer_get_payment_term(client,
-                                                                      company_id,
-                                                                      sales_quote_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   sales_quote_id=sales_quote_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_sale_quote_customer_get_picture(client,
-                                                                 company_id,
-                                                                 sales_quote_id,
-                                                                 picture_id,
-                                                                 select=None,
-                                                                 expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_quote_id=sales_quote_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_quote_customer_get_picture_content(client,
-                                                                         company_id,
-                                                                         sales_quote_id,
-                                                                         picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      picture_id=picture_id)
-
-
-def financials_financial_company_sale_quote_customer_get_shipment_method(client,
-                                                                         company_id,
-                                                                         sales_quote_id,
-                                                                         select=None,
-                                                                         expand=None):
-    return client.get_shipment_method(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      select=select,
-                                      expand=expand)
-
-
 def financials_financial_company_sale_quote_customer_list_picture(client,
                                                                   company_id,
                                                                   sales_quote_id,
@@ -11362,6 +11296,72 @@ def financials_financial_company_sale_quote_customer_set_picture_content(client,
                                       sales_quote_id=sales_quote_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_quote_customer_show_currency(client,
+                                                                   company_id,
+                                                                   sales_quote_id,
+                                                                   select=None,
+                                                                   expand=None):
+    return client.get_currency(company_id=company_id,
+                               sales_quote_id=sales_quote_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_sale_quote_customer_show_payment_method(client,
+                                                                         company_id,
+                                                                         sales_quote_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     sales_quote_id=sales_quote_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_sale_quote_customer_show_payment_term(client,
+                                                                       company_id,
+                                                                       sales_quote_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   sales_quote_id=sales_quote_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_sale_quote_customer_show_picture(client,
+                                                                  company_id,
+                                                                  sales_quote_id,
+                                                                  picture_id,
+                                                                  select=None,
+                                                                  expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_quote_id=sales_quote_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_quote_customer_show_picture_content(client,
+                                                                          company_id,
+                                                                          sales_quote_id,
+                                                                          picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      picture_id=picture_id)
+
+
+def financials_financial_company_sale_quote_customer_show_shipment_method(client,
+                                                                          company_id,
+                                                                          sales_quote_id,
+                                                                          select=None,
+                                                                          expand=None):
+    return client.get_shipment_method(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def financials_financial_company_sale_quote_customer_update_currency(client,
@@ -11473,12 +11473,12 @@ def financials_financial_company_sale_quote_sale_quote_line_delete(client,
                               if_match=if_match)
 
 
-def financials_financial_company_sale_quote_sale_quote_line_get_account(client,
-                                                                        company_id,
-                                                                        sales_quote_id,
-                                                                        sales_quote_line_id,
-                                                                        select=None,
-                                                                        expand=None):
+def financials_financial_company_sale_quote_sale_quote_line_show_account(client,
+                                                                         company_id,
+                                                                         sales_quote_id,
+                                                                         sales_quote_line_id,
+                                                                         select=None,
+                                                                         expand=None):
     return client.get_account(company_id=company_id,
                               sales_quote_id=sales_quote_id,
                               sales_quote_line_id=sales_quote_line_id,
@@ -11486,12 +11486,12 @@ def financials_financial_company_sale_quote_sale_quote_line_get_account(client,
                               expand=expand)
 
 
-def financials_financial_company_sale_quote_sale_quote_line_get_item(client,
-                                                                     company_id,
-                                                                     sales_quote_id,
-                                                                     sales_quote_line_id,
-                                                                     select=None,
-                                                                     expand=None):
+def financials_financial_company_sale_quote_sale_quote_line_show_item(client,
+                                                                      company_id,
+                                                                      sales_quote_id,
+                                                                      sales_quote_line_id,
+                                                                      select=None,
+                                                                      expand=None):
     return client.get_item(company_id=company_id,
                            sales_quote_id=sales_quote_id,
                            sales_quote_line_id=sales_quote_line_id,
@@ -11604,45 +11604,6 @@ def financials_financial_company_sale_quote_sale_quote_line_item_create_picture(
                                  width=width)
 
 
-def financials_financial_company_sale_quote_sale_quote_line_item_get_item_category(client,
-                                                                                   company_id,
-                                                                                   sales_quote_id,
-                                                                                   sales_quote_line_id,
-                                                                                   select=None,
-                                                                                   expand=None):
-    return client.get_item_category(company_id=company_id,
-                                    sales_quote_id=sales_quote_id,
-                                    sales_quote_line_id=sales_quote_line_id,
-                                    select=select,
-                                    expand=expand)
-
-
-def financials_financial_company_sale_quote_sale_quote_line_item_get_picture(client,
-                                                                             company_id,
-                                                                             sales_quote_id,
-                                                                             sales_quote_line_id,
-                                                                             picture_id,
-                                                                             select=None,
-                                                                             expand=None):
-    return client.get_picture(company_id=company_id,
-                              sales_quote_id=sales_quote_id,
-                              sales_quote_line_id=sales_quote_line_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_sale_quote_sale_quote_line_item_get_picture_content(client,
-                                                                                     company_id,
-                                                                                     sales_quote_id,
-                                                                                     sales_quote_line_id,
-                                                                                     picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      sales_quote_line_id=sales_quote_line_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_sale_quote_sale_quote_line_item_list_picture(client,
                                                                               company_id,
                                                                               sales_quote_id,
@@ -11669,6 +11630,45 @@ def financials_financial_company_sale_quote_sale_quote_line_item_set_picture_con
                                       sales_quote_line_id=sales_quote_line_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_item_show_item_category(client,
+                                                                                    company_id,
+                                                                                    sales_quote_id,
+                                                                                    sales_quote_line_id,
+                                                                                    select=None,
+                                                                                    expand=None):
+    return client.get_item_category(company_id=company_id,
+                                    sales_quote_id=sales_quote_id,
+                                    sales_quote_line_id=sales_quote_line_id,
+                                    select=select,
+                                    expand=expand)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_item_show_picture(client,
+                                                                              company_id,
+                                                                              sales_quote_id,
+                                                                              sales_quote_line_id,
+                                                                              picture_id,
+                                                                              select=None,
+                                                                              expand=None):
+    return client.get_picture(company_id=company_id,
+                              sales_quote_id=sales_quote_id,
+                              sales_quote_line_id=sales_quote_line_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_item_show_picture_content(client,
+                                                                                      company_id,
+                                                                                      sales_quote_id,
+                                                                                      sales_quote_line_id,
+                                                                                      picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      sales_quote_line_id=sales_quote_line_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_sale_quote_sale_quote_line_item_update_item_category(client,
@@ -11749,61 +11749,6 @@ def financials_financial_company_vendor_create_picture(client,
                                  width=width)
 
 
-def financials_financial_company_vendor_get_currency(client,
-                                                     company_id,
-                                                     vendor_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_currency(company_id=company_id,
-                               vendor_id=vendor_id,
-                               select=select,
-                               expand=expand)
-
-
-def financials_financial_company_vendor_get_payment_method(client,
-                                                           company_id,
-                                                           vendor_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_payment_method(company_id=company_id,
-                                     vendor_id=vendor_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def financials_financial_company_vendor_get_payment_term(client,
-                                                         company_id,
-                                                         vendor_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_payment_term(company_id=company_id,
-                                   vendor_id=vendor_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def financials_financial_company_vendor_get_picture(client,
-                                                    company_id,
-                                                    vendor_id,
-                                                    picture_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_picture(company_id=company_id,
-                              vendor_id=vendor_id,
-                              picture_id=picture_id,
-                              select=select,
-                              expand=expand)
-
-
-def financials_financial_company_vendor_get_picture_content(client,
-                                                            company_id,
-                                                            vendor_id,
-                                                            picture_id):
-    return client.get_picture_content(company_id=company_id,
-                                      vendor_id=vendor_id,
-                                      picture_id=picture_id)
-
-
 def financials_financial_company_vendor_list_picture(client,
                                                      company_id,
                                                      vendor_id,
@@ -11826,6 +11771,61 @@ def financials_financial_company_vendor_set_picture_content(client,
                                       vendor_id=vendor_id,
                                       picture_id=picture_id,
                                       data=data)
+
+
+def financials_financial_company_vendor_show_currency(client,
+                                                      company_id,
+                                                      vendor_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_currency(company_id=company_id,
+                               vendor_id=vendor_id,
+                               select=select,
+                               expand=expand)
+
+
+def financials_financial_company_vendor_show_payment_method(client,
+                                                            company_id,
+                                                            vendor_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_payment_method(company_id=company_id,
+                                     vendor_id=vendor_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def financials_financial_company_vendor_show_payment_term(client,
+                                                          company_id,
+                                                          vendor_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_payment_term(company_id=company_id,
+                                   vendor_id=vendor_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def financials_financial_company_vendor_show_picture(client,
+                                                     company_id,
+                                                     vendor_id,
+                                                     picture_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_picture(company_id=company_id,
+                              vendor_id=vendor_id,
+                              picture_id=picture_id,
+                              select=select,
+                              expand=expand)
+
+
+def financials_financial_company_vendor_show_picture_content(client,
+                                                             company_id,
+                                                             vendor_id,
+                                                             picture_id):
+    return client.get_picture_content(company_id=company_id,
+                                      vendor_id=vendor_id,
+                                      picture_id=picture_id)
 
 
 def financials_financial_company_vendor_update_currency(client,

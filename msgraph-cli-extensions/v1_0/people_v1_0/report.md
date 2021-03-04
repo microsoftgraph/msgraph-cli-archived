@@ -1,20 +1,101 @@
 # Azure CLI Module Creation Report
 
-### people user create-person
-
-create-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|people user|users|
+|az people_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-person|CreatePeople|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az people_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az people user|users|[commands](#CommandsInusers)|
+|az people user-insight|users.insights|[commands](#CommandsInusers.insights)|
+|az people user-insight-shared|users.insights.shared|[commands](#CommandsInusers.insights.shared)|
+|az people user-insight-trending|users.insights.trending|[commands](#CommandsInusers.insights.trending)|
+|az people user-insight-used|users.insights.used|[commands](#CommandsInusers.insights.used)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az people user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user delete](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
+|[az people user delete](#usersDeleteInsights)|DeleteInsights|[Parameters](#ParametersusersDeleteInsights)|Not Found|
+|[az people user create-person](#usersCreatePeople)|CreatePeople|[Parameters](#ParametersusersCreatePeople)|Not Found|
+|[az people user list-person](#usersListPeople)|ListPeople|[Parameters](#ParametersusersListPeople)|Not Found|
+|[az people user show-insight](#usersGetInsights)|GetInsights|[Parameters](#ParametersusersGetInsights)|Not Found|
+|[az people user show-person](#usersGetPeople)|GetPeople|[Parameters](#ParametersusersGetPeople)|Not Found|
+|[az people user update-insight](#usersUpdateInsights)|UpdateInsights|[Parameters](#ParametersusersUpdateInsights)|Not Found|
+|[az people user update-person](#usersUpdatePeople)|UpdatePeople|[Parameters](#ParametersusersUpdatePeople)|Not Found|
+
+### <a name="CommandsInusers.insights">Commands in `az people user-insight` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-insight delete](#users.insightsDeleteShared)|DeleteShared|[Parameters](#Parametersusers.insightsDeleteShared)|Not Found|
+|[az people user-insight delete](#users.insightsDeleteTrending)|DeleteTrending|[Parameters](#Parametersusers.insightsDeleteTrending)|Not Found|
+|[az people user-insight delete](#users.insightsDeleteUsed)|DeleteUsed|[Parameters](#Parametersusers.insightsDeleteUsed)|Not Found|
+|[az people user-insight create-shared](#users.insightsCreateShared)|CreateShared|[Parameters](#Parametersusers.insightsCreateShared)|Not Found|
+|[az people user-insight create-trending](#users.insightsCreateTrending)|CreateTrending|[Parameters](#Parametersusers.insightsCreateTrending)|Not Found|
+|[az people user-insight create-used](#users.insightsCreateUsed)|CreateUsed|[Parameters](#Parametersusers.insightsCreateUsed)|Not Found|
+|[az people user-insight list-shared](#users.insightsListShared)|ListShared|[Parameters](#Parametersusers.insightsListShared)|Not Found|
+|[az people user-insight list-trending](#users.insightsListTrending)|ListTrending|[Parameters](#Parametersusers.insightsListTrending)|Not Found|
+|[az people user-insight list-used](#users.insightsListUsed)|ListUsed|[Parameters](#Parametersusers.insightsListUsed)|Not Found|
+|[az people user-insight show-shared](#users.insightsGetShared)|GetShared|[Parameters](#Parametersusers.insightsGetShared)|Not Found|
+|[az people user-insight show-trending](#users.insightsGetTrending)|GetTrending|[Parameters](#Parametersusers.insightsGetTrending)|Not Found|
+|[az people user-insight show-used](#users.insightsGetUsed)|GetUsed|[Parameters](#Parametersusers.insightsGetUsed)|Not Found|
+|[az people user-insight update-shared](#users.insightsUpdateShared)|UpdateShared|[Parameters](#Parametersusers.insightsUpdateShared)|Not Found|
+|[az people user-insight update-trending](#users.insightsUpdateTrending)|UpdateTrending|[Parameters](#Parametersusers.insightsUpdateTrending)|Not Found|
+|[az people user-insight update-used](#users.insightsUpdateUsed)|UpdateUsed|[Parameters](#Parametersusers.insightsUpdateUsed)|Not Found|
+
+### <a name="CommandsInusers.insights.shared">Commands in `az people user-insight-shared` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-insight-shared delete](#users.insights.sharedDeleteRefLastSharedMethod)|DeleteRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedDeleteRefLastSharedMethod)|Not Found|
+|[az people user-insight-shared delete](#users.insights.sharedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.sharedDeleteRefResource)|Not Found|
+|[az people user-insight-shared set-ref-last-shared-method](#users.insights.sharedSetRefLastSharedMethod)|SetRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedSetRefLastSharedMethod)|Not Found|
+|[az people user-insight-shared set-ref-resource](#users.insights.sharedSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.sharedSetRefResource)|Not Found|
+|[az people user-insight-shared show-last-shared-method](#users.insights.sharedGetLastSharedMethod)|GetLastSharedMethod|[Parameters](#Parametersusers.insights.sharedGetLastSharedMethod)|Not Found|
+|[az people user-insight-shared show-ref-last-shared-method](#users.insights.sharedGetRefLastSharedMethod)|GetRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedGetRefLastSharedMethod)|Not Found|
+|[az people user-insight-shared show-ref-resource](#users.insights.sharedGetRefResource)|GetRefResource|[Parameters](#Parametersusers.insights.sharedGetRefResource)|Not Found|
+|[az people user-insight-shared show-resource](#users.insights.sharedGetResource)|GetResource|[Parameters](#Parametersusers.insights.sharedGetResource)|Not Found|
+
+### <a name="CommandsInusers.insights.trending">Commands in `az people user-insight-trending` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-insight-trending delete](#users.insights.trendingDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.trendingDeleteRefResource)|Not Found|
+|[az people user-insight-trending set-ref-resource](#users.insights.trendingSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.trendingSetRefResource)|Not Found|
+|[az people user-insight-trending show-ref-resource](#users.insights.trendingGetRefResource)|GetRefResource|[Parameters](#Parametersusers.insights.trendingGetRefResource)|Not Found|
+|[az people user-insight-trending show-resource](#users.insights.trendingGetResource)|GetResource|[Parameters](#Parametersusers.insights.trendingGetResource)|Not Found|
+
+### <a name="CommandsInusers.insights.used">Commands in `az people user-insight-used` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az people user-insight-used delete](#users.insights.usedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.usedDeleteRefResource)|Not Found|
+|[az people user-insight-used set-ref-resource](#users.insights.usedSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.usedSetRefResource)|Not Found|
+|[az people user-insight-used show-ref-resource](#users.insights.usedGetRefResource)|GetRefResource|[Parameters](#Parametersusers.insights.usedGetRefResource)|Not Found|
+|[az people user-insight-used show-resource](#users.insights.usedGetResource)|GetResource|[Parameters](#Parametersusers.insights.usedGetResource)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az people user`
+#### <a name="usersDeletePeople">Command `az people user delete`</a>
+
+##### <a name="ParametersusersDeletePeople">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteInsights">Command `az people user delete`</a>
+
+##### <a name="ParametersusersDeleteInsights">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersCreatePeople">Command `az people user create-person`</a>
+
+##### <a name="ParametersusersCreatePeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -39,86 +120,9 @@ create-person a people user.
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
 
-### people user delete
+#### <a name="usersListPeople">Command `az people user list-person`</a>
 
-delete a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeletePeople|
-|delete|DeleteInsights|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### people user get-insight
-
-get-insight a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-insight|GetInsights|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user get-person
-
-get-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-person|GetPeople|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user list-person
-
-list-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-person|ListPeople|
-
-#### Parameters
+##### <a name="ParametersusersListPeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -126,21 +130,28 @@ list-person a people user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user update-insight
+#### <a name="usersGetInsights">Command `az people user show-insight`</a>
 
-update-insight a people user.
+##### <a name="ParametersusersGetInsights">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
+#### <a name="usersGetPeople">Command `az people user show-person`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-insight|UpdateInsights|
+##### <a name="ParametersusersGetPeople">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersUpdateInsights">Command `az people user update-insight`</a>
+
+##### <a name="ParametersusersUpdateInsights">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -149,21 +160,9 @@ update-insight a people user.
 |**--trending**|array|Calculated relationship identifying documents trending around a user. Trending documents are calculated based on activity of the user's closest network of people and include files stored in OneDrive for Business and SharePoint. Trending insights help the user to discover potentially useful content that the user has access to, but has never viewed before.|trending|trending|
 |**--used**|array|Calculated relationship identifying the latest documents viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by recency of use.|used|used|
 
-### people user update-person
+#### <a name="usersUpdatePeople">Command `az people user update-person`</a>
 
-update-person a people user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-person|UpdatePeople|
-
-#### Parameters
+##### <a name="ParametersusersUpdatePeople">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -189,21 +188,33 @@ update-person a people user.
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
 
-### people user-insight create-shared
+### group `az people user-insight`
+#### <a name="users.insightsDeleteShared">Command `az people user-insight delete`</a>
 
-create-shared a people user-insight.
+##### <a name="Parametersusers.insightsDeleteShared">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
+#### <a name="users.insightsDeleteTrending">Command `az people user-insight delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-shared|CreateShared|
+##### <a name="Parametersusers.insightsDeleteTrending">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--trending-id**|string|key: id of trending|trending_id|trending-id|
 
-#### Parameters
+#### <a name="users.insightsDeleteUsed">Command `az people user-insight delete`</a>
+
+##### <a name="Parametersusers.insightsDeleteUsed">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
+
+#### <a name="users.insightsCreateShared">Command `az people user-insight create-shared`</a>
+
+##### <a name="Parametersusers.insightsCreateShared">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -211,29 +222,17 @@ create-shared a people user-insight.
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
 |**--sharing-history**|array||sharing_history|sharingHistory|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--last-shared-method-id**|string|Read-only.|id1|id|
-|**--last-shared-shared-by**|object|insightIdentity|shared_by|sharedBy|
-|**--last-shared-shared-date-time**|date-time|The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.|shared_date_time|sharedDateTime|
-|**--last-shared-sharing-reference**|object|resourceReference|sharing_reference|sharingReference|
-|**--last-shared-sharing-subject**|string|The subject with which the document was shared.|sharing_subject|sharingSubject|
-|**--last-shared-sharing-type**|string|Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.|sharing_type|sharingType|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--shared-by**|object|insightIdentity|shared_by|sharedBy|
+|**--shared-date-time**|date-time|The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.|shared_date_time|sharedDateTime|
+|**--sharing-reference**|object|resourceReference|sharing_reference|sharingReference|
+|**--sharing-subject**|string|The subject with which the document was shared.|sharing_subject|sharingSubject|
+|**--sharing-type**|string|Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.|sharing_type|sharingType|
 
-### people user-insight create-trending
+#### <a name="users.insightsCreateTrending">Command `az people user-insight create-trending`</a>
 
-create-trending a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-trending|CreateTrending|
-
-#### Parameters
+##### <a name="Parametersusers.insightsCreateTrending">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -242,23 +241,11 @@ create-trending a people user-insight.
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
 |**--weight**|number|Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.|weight|weight|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
-### people user-insight create-used
+#### <a name="users.insightsCreateUsed">Command `az people user-insight create-used`</a>
 
-create-used a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-used|CreateUsed|
-
-#### Parameters
+##### <a name="Parametersusers.insightsCreateUsed">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -266,48 +253,41 @@ create-used a people user-insight.
 |**--last-used**|object|usageDetails|last_used|lastUsed|
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
-### people user-insight delete
+#### <a name="users.insightsListShared">Command `az people user-insight list-shared`</a>
 
-delete a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteShared|
-|delete|DeleteTrending|
-|delete|DeleteUsed|
-
-#### Parameters
+##### <a name="Parametersusers.insightsListShared">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
-|**--trending-id**|string|key: id of trending|trending_id|trending-id|
-|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight get-shared
+#### <a name="users.insightsListTrending">Command `az people user-insight list-trending`</a>
 
-get-shared a people user-insight.
+##### <a name="Parametersusers.insightsListTrending">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
+#### <a name="users.insightsListUsed">Command `az people user-insight list-used`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-shared|GetShared|
+##### <a name="Parametersusers.insightsListUsed">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="users.insightsGetShared">Command `az people user-insight show-shared`</a>
+
+##### <a name="Parametersusers.insightsGetShared">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -315,21 +295,9 @@ get-shared a people user-insight.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight get-trending
+#### <a name="users.insightsGetTrending">Command `az people user-insight show-trending`</a>
 
-get-trending a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-trending|GetTrending|
-
-#### Parameters
+##### <a name="Parametersusers.insightsGetTrending">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -337,21 +305,9 @@ get-trending a people user-insight.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight get-used
+#### <a name="users.insightsGetUsed">Command `az people user-insight show-used`</a>
 
-get-used a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-used|GetUsed|
-
-#### Parameters
+##### <a name="Parametersusers.insightsGetUsed">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -359,87 +315,9 @@ get-used a people user-insight.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight list-shared
+#### <a name="users.insightsUpdateShared">Command `az people user-insight update-shared`</a>
 
-list-shared a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-shared|ListShared|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-insight list-trending
-
-list-trending a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-trending|ListTrending|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-insight list-used
-
-list-used a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-used|ListUsed|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-insight update-shared
-
-update-shared a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-shared|UpdateShared|
-
-#### Parameters
+##### <a name="Parametersusers.insightsUpdateShared">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -448,29 +326,17 @@ update-shared a people user-insight.
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
 |**--sharing-history**|array||sharing_history|sharingHistory|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--last-shared-method-id**|string|Read-only.|id1|id|
-|**--last-shared-shared-by**|object|insightIdentity|shared_by|sharedBy|
-|**--last-shared-shared-date-time**|date-time|The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.|shared_date_time|sharedDateTime|
-|**--last-shared-sharing-reference**|object|resourceReference|sharing_reference|sharingReference|
-|**--last-shared-sharing-subject**|string|The subject with which the document was shared.|sharing_subject|sharingSubject|
-|**--last-shared-sharing-type**|string|Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.|sharing_type|sharingType|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--id1**|string|Read-only.|id1|id|
+|**--shared-by**|object|insightIdentity|shared_by|sharedBy|
+|**--shared-date-time**|date-time|The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.|shared_date_time|sharedDateTime|
+|**--sharing-reference**|object|resourceReference|sharing_reference|sharingReference|
+|**--sharing-subject**|string|The subject with which the document was shared.|sharing_subject|sharingSubject|
+|**--sharing-type**|string|Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.|sharing_type|sharingType|
 
-### people user-insight update-trending
+#### <a name="users.insightsUpdateTrending">Command `az people user-insight update-trending`</a>
 
-update-trending a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-trending|UpdateTrending|
-
-#### Parameters
+##### <a name="Parametersusers.insightsUpdateTrending">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -480,23 +346,11 @@ update-trending a people user-insight.
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
 |**--weight**|number|Value indicating how much the document is currently trending. The larger the number, the more the document is currently trending around the user (the more relevant it is). Returned documents are sorted by this value.|weight|weight|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
-### people user-insight update-used
+#### <a name="users.insightsUpdateUsed">Command `az people user-insight update-used`</a>
 
-update-used a people user-insight.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight|users.insights|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-used|UpdateUsed|
-
-#### Parameters
+##### <a name="Parametersusers.insightsUpdateUsed">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -505,45 +359,44 @@ update-used a people user-insight.
 |**--last-used**|object|usageDetails|last_used|lastUsed|
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
-|**--resource-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
-### people user-insight-shared delete
+### group `az people user-insight-shared`
+#### <a name="users.insights.sharedDeleteRefLastSharedMethod">Command `az people user-insight-shared delete`</a>
 
-delete a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefLastSharedMethod|
-|delete|DeleteRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.sharedDeleteRefLastSharedMethod">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user-insight-shared get-last-shared-method
+#### <a name="users.insights.sharedDeleteRefResource">Command `az people user-insight-shared delete`</a>
 
-get-last-shared-method a people user-insight-shared.
+##### <a name="Parametersusers.insights.sharedDeleteRefResource">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="users.insights.sharedSetRefLastSharedMethod">Command `az people user-insight-shared set-ref-last-shared-method`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
+##### <a name="Parametersusers.insights.sharedSetRefLastSharedMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-last-shared-method|GetLastSharedMethod|
+#### <a name="users.insights.sharedSetRefResource">Command `az people user-insight-shared set-ref-resource`</a>
 
-#### Parameters
+##### <a name="Parametersusers.insights.sharedSetRefResource">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="users.insights.sharedGetLastSharedMethod">Command `az people user-insight-shared show-last-shared-method`</a>
+
+##### <a name="Parametersusers.insights.sharedGetLastSharedMethod">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -551,61 +404,25 @@ get-last-shared-method a people user-insight-shared.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight-shared get-ref-last-shared-method
+#### <a name="users.insights.sharedGetRefLastSharedMethod">Command `az people user-insight-shared show-ref-last-shared-method`</a>
 
-get-ref-last-shared-method a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-last-shared-method|GetRefLastSharedMethod|
-
-#### Parameters
+##### <a name="Parametersusers.insights.sharedGetRefLastSharedMethod">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
 
-### people user-insight-shared get-ref-resource
+#### <a name="users.insights.sharedGetRefResource">Command `az people user-insight-shared show-ref-resource`</a>
 
-get-ref-resource a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-resource|GetRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.sharedGetRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
 
-### people user-insight-shared get-resource
+#### <a name="users.insights.sharedGetResource">Command `az people user-insight-shared show-resource`</a>
 
-get-resource a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-resource|GetResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.sharedGetResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -613,104 +430,36 @@ get-resource a people user-insight-shared.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight-shared set-ref-last-shared-method
+### group `az people user-insight-trending`
+#### <a name="users.insights.trendingDeleteRefResource">Command `az people user-insight-trending delete`</a>
 
-set-ref-last-shared-method a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-last-shared-method|SetRefLastSharedMethod|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### people user-insight-shared set-ref-resource
-
-set-ref-resource a people user-insight-shared.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-shared|users.insights.shared|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-resource|SetRefResource|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### people user-insight-trending delete
-
-delete a people user-insight-trending.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-trending|users.insights.trending|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.trendingDeleteRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--trending-id**|string|key: id of trending|trending_id|trending-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user-insight-trending get-ref-resource
+#### <a name="users.insights.trendingSetRefResource">Command `az people user-insight-trending set-ref-resource`</a>
 
-get-ref-resource a people user-insight-trending.
+##### <a name="Parametersusers.insights.trendingSetRefResource">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--trending-id**|string|key: id of trending|trending_id|trending-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-trending|users.insights.trending|
+#### <a name="users.insights.trendingGetRefResource">Command `az people user-insight-trending show-ref-resource`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-resource|GetRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.trendingGetRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--trending-id**|string|key: id of trending|trending_id|trending-id|
 
-### people user-insight-trending get-resource
+#### <a name="users.insights.trendingGetResource">Command `az people user-insight-trending show-resource`</a>
 
-get-resource a people user-insight-trending.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-trending|users.insights.trending|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-resource|GetResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.trendingGetResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -718,107 +467,39 @@ get-resource a people user-insight-trending.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### people user-insight-trending set-ref-resource
+### group `az people user-insight-used`
+#### <a name="users.insights.usedDeleteRefResource">Command `az people user-insight-used delete`</a>
 
-set-ref-resource a people user-insight-trending.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-trending|users.insights.trending|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-resource|SetRefResource|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--trending-id**|string|key: id of trending|trending_id|trending-id|
-|**--body**|dictionary|New navigation property ref values|body|body|
-
-### people user-insight-used delete
-
-delete a people user-insight-used.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-used|users.insights.used|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.usedDeleteRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### people user-insight-used get-ref-resource
+#### <a name="users.insights.usedSetRefResource">Command `az people user-insight-used set-ref-resource`</a>
 
-get-ref-resource a people user-insight-used.
+##### <a name="Parametersusers.insights.usedSetRefResource">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
+|**--body**|dictionary|New navigation property ref values|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-used|users.insights.used|
+#### <a name="users.insights.usedGetRefResource">Command `az people user-insight-used show-ref-resource`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-resource|GetRefResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.usedGetRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
 
-### people user-insight-used get-resource
+#### <a name="users.insights.usedGetResource">Command `az people user-insight-used show-resource`</a>
 
-get-resource a people user-insight-used.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-used|users.insights.used|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-resource|GetResource|
-
-#### Parameters
+##### <a name="Parametersusers.insights.usedGetResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
-
-### people user-insight-used set-ref-resource
-
-set-ref-resource a people user-insight-used.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|people user-insight-used|users.insights.used|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-resource|SetRefResource|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
-|**--body**|dictionary|New navigation property ref values|body|body|

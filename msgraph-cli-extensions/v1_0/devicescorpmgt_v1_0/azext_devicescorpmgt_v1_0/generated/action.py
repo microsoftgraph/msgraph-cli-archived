@@ -37,6 +37,9 @@ class AddMobileAppCategories(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter mobile_app_categories. All possible keys '
+                               'are: display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -81,6 +84,11 @@ class AddVppTokens(argparse._AppendAction):
                 d['vpp_token_account_type'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vpp_tokens. All possible keys are: '
+                               'apple-id, automatically-update-apps, country-or-region, expiration-date-time, '
+                               'last-modified-date-time, last-sync-date-time, last-sync-status, organization-name, '
+                               'state, token, vpp-token-account-type, id'.format(k))
         return d
 
 
@@ -113,6 +121,10 @@ class AddManagedAppPolicies(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter managed_app_policies. All possible keys '
+                               'are: created-date-time, description, display-name, last-modified-date-time, version, '
+                               'id'.format(k))
         return d
 
 
@@ -139,6 +151,9 @@ class AddManagedAppStatuses(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter managed_app_statuses. All possible keys '
+                               'are: display-name, version, id'.format(k))
         return d
 
 
@@ -221,6 +236,20 @@ class AddMdmWindowsInformationProtectionPolicies(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter mdm_windows_information_protection_policie'
+                               's. All possible keys are: azure-rights-management-services-allowed, '
+                               'data-recovery-certificate, enforcement-level, enterprise-domain, '
+                               'enterprise-internal-proxy-servers, enterprise-ip-ranges, '
+                               'enterprise-ip-ranges-are-authoritative, enterprise-network-domain-names, '
+                               'enterprise-protected-domain-names, enterprise-proxied-domains, '
+                               'enterprise-proxy-servers, enterprise-proxy-servers-are-authoritative, exempt-apps, '
+                               'icons-visible, indexing-encrypted-stores-or-items-blocked, is-assigned, '
+                               'neutral-domain-resources, protected-apps, protection-under-lock-config-required, '
+                               'revoke-on-unenroll-disabled, rights-management-services-template-id, '
+                               'smb-auto-encrypted-file-extensions, assignments, exempt-app-locker-files, '
+                               'protected-app-locker-files, created-date-time, description, display-name, '
+                               'last-modified-date-time, version, id'.format(k))
         return d
 
 
@@ -327,6 +356,24 @@ class AddWindowsInformationProtectionPolicies(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter windows_information_protection_policies. '
+                               'All possible keys are: days-without-contact-before-unenroll, mdm-enrollment-url, '
+                               'minutes-of-inactivity-before-device-lock, number-of-past-pins-remembered, '
+                               'password-maximum-attempt-count, pin-expiration-days, pin-lowercase-letters, '
+                               'pin-minimum-length, pin-special-characters, pin-uppercase-letters, '
+                               'revoke-on-mdm-handoff-disabled, windows-hello-for-business-blocked, '
+                               'azure-rights-management-services-allowed, data-recovery-certificate, '
+                               'enforcement-level, enterprise-domain, enterprise-internal-proxy-servers, '
+                               'enterprise-ip-ranges, enterprise-ip-ranges-are-authoritative, '
+                               'enterprise-network-domain-names, enterprise-protected-domain-names, '
+                               'enterprise-proxied-domains, enterprise-proxy-servers, enterprise-proxy-servers-are-auth'
+                               'oritative, exempt-apps, icons-visible, indexing-encrypted-stores-or-items-blocked, '
+                               'is-assigned, neutral-domain-resources, protected-apps, protection-under-lock-config-req'
+                               'uired, revoke-on-unenroll-disabled, rights-management-services-template-id, '
+                               'smb-auto-encrypted-file-extensions, assignments, exempt-app-locker-files, '
+                               'protected-app-locker-files, created-date-time, description, display-name, '
+                               'last-modified-date-time, version, id'.format(k))
         return d
 
 
@@ -351,6 +398,9 @@ class AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCusto
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter custom_settings. All possible keys are: '
+                               'name, value'.format(k))
         return d
 
 
@@ -383,6 +433,10 @@ class AddAppliedPolicies(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter applied_policies. All possible keys are: '
+                               'created-date-time, description, display-name, last-modified-date-time, version, id'.
+                               format(k))
         return d
 
 
@@ -415,6 +469,10 @@ class AddIntendedPolicies(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter intended_policies. All possible keys are: '
+                               'created-date-time, description, display-name, last-modified-date-time, version, id'.
+                               format(k))
         return d
 
 
@@ -445,6 +503,9 @@ class AddOperations(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter operations. All possible keys are: '
+                               'display-name, last-modified-date-time, state, version, id'.format(k))
         return d
 
 
@@ -469,6 +530,9 @@ class AddLargeCover(argparse.Action):
                 d['type'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter large_cover. All possible keys are: type, '
+                               'value'.format(k))
         return d
 
 
@@ -507,6 +571,10 @@ class AddDeviceappmanagementDeviceStates(argparse._AppendAction):
                 d['user_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_states. All possible keys are: '
+                               'device-id, device-name, error-code, install-state, last-sync-date-time, '
+                               'os-description, os-version, user-name, id'.format(k))
         return d
 
 
@@ -541,6 +609,10 @@ class AddInstallSummary(argparse.Action):
                 d['not_installed_user_count'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter install_summary. All possible keys are: '
+                               'failed-device-count, failed-user-count, installed-device-count, installed-user-count, '
+                               'not-installed-device-count, not-installed-user-count, id'.format(k))
         return d
 
 
@@ -573,6 +645,10 @@ class AddUserStateSummary(argparse._AppendAction):
                 d['device_states'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_state_summary. All possible keys '
+                               'are: failed-device-count, installed-device-count, not-installed-device-count, '
+                               'user-name, device-states, id'.format(k))
         return d
 
 
@@ -601,6 +677,9 @@ class AddDataRecoveryCertificate(argparse.Action):
                 d['expiration_date_time'] = v[0]
             elif kl == 'subject-name':
                 d['subject_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter data_recovery_certificate. All possible '
+                               'keys are: certificate, description, expiration-date-time, subject-name'.format(k))
         return d
 
 
@@ -625,6 +704,9 @@ class AddEnterpriseInternalProxyServers(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_internal_proxy_servers. All '
+                               'possible keys are: display-name, resources'.format(k))
         return d
 
 
@@ -649,6 +731,9 @@ class AddEnterpriseIpRanges(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'ranges':
                 d['ranges'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_ip_ranges. All possible keys '
+                               'are: display-name, ranges'.format(k))
         return d
 
 
@@ -673,6 +758,9 @@ class AddEnterpriseNetworkDomainNames(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_network_domain_names. All '
+                               'possible keys are: display-name, resources'.format(k))
         return d
 
 
@@ -697,6 +785,9 @@ class AddEnterpriseProtectedDomainNames(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_protected_domain_names. All '
+                               'possible keys are: display-name, resources'.format(k))
         return d
 
 
@@ -721,6 +812,9 @@ class AddEnterpriseProxiedDomains(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'proxied-domains':
                 d['proxied_domains'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_proxied_domains. All possible '
+                               'keys are: display-name, proxied-domains'.format(k))
         return d
 
 
@@ -745,6 +839,9 @@ class AddEnterpriseProxyServers(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter enterprise_proxy_servers. All possible '
+                               'keys are: display-name, resources'.format(k))
         return d
 
 
@@ -775,6 +872,9 @@ class AddExemptApps(argparse._AppendAction):
                 d['product_name'] = v[0]
             elif kl == 'publisher-name':
                 d['publisher_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter exempt_apps. All possible keys are: '
+                               'denied, description, display-name, product-name, publisher-name'.format(k))
         return d
 
 
@@ -799,6 +899,9 @@ class AddNeutralDomainResources(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter neutral_domain_resources. All possible '
+                               'keys are: display-name, resources'.format(k))
         return d
 
 
@@ -829,6 +932,9 @@ class AddProtectedApps(argparse._AppendAction):
                 d['product_name'] = v[0]
             elif kl == 'publisher-name':
                 d['publisher_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter protected_apps. All possible keys are: '
+                               'denied, description, display-name, product-name, publisher-name'.format(k))
         return d
 
 
@@ -853,6 +959,9 @@ class AddSmbAutoEncryptedFileExtensions(argparse._AppendAction):
                 d['display_name'] = v[0]
             elif kl == 'resources':
                 d['resources'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter smb_auto_encrypted_file_extensions. All '
+                               'possible keys are: display-name, resources'.format(k))
         return d
 
 
@@ -883,6 +992,9 @@ class AddExemptAppLockerFiles(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter exempt_app_locker_files. All possible '
+                               'keys are: display-name, file, file-hash, version, id'.format(k))
         return d
 
 
@@ -913,6 +1025,9 @@ class AddProtectedAppLockerFiles(argparse._AppendAction):
                 d['version'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter protected_app_locker_files. All possible '
+                               'keys are: display-name, file, file-hash, version, id'.format(k))
         return d
 
 
@@ -939,6 +1054,9 @@ class AddCategories(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter categories. All possible keys are: '
+                               'display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -975,6 +1093,10 @@ class AddDeviceStatuses(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_statuses. All possible keys are: '
+                               'compliance-grace-period-expiration-date-time, device-display-name, device-model, '
+                               'last-reported-date-time, status, user-name, user-principal-name, id'.format(k))
         return d
 
 
@@ -1011,6 +1133,10 @@ class AddDeviceStatusSummary(argparse.Action):
                 d['success_count'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_status_summary. All possible keys '
+                               'are: configuration-version, error-count, failed-count, last-update-date-time, '
+                               'not-applicable-count, pending-count, success-count, id'.format(k))
         return d
 
 
@@ -1043,6 +1169,10 @@ class AddUserStatuses(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_statuses. All possible keys are: '
+                               'devices-count, last-reported-date-time, status, user-display-name, '
+                               'user-principal-name, id'.format(k))
         return d
 
 
@@ -1079,6 +1209,10 @@ class AddUserStatusSummary(argparse.Action):
                 d['success_count'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_status_summary. All possible keys '
+                               'are: configuration-version, error-count, failed-count, last-update-date-time, '
+                               'not-applicable-count, pending-count, success-count, id'.format(k))
         return d
 
 
@@ -1103,6 +1237,9 @@ class AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationC
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter custom_settings. All possible keys are: '
+                               'name, value'.format(k))
         return d
 
 
@@ -1141,6 +1278,10 @@ class AddDeviceappmanagementManagedebooksDeviceStates(argparse._AppendAction):
                 d['user_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_states. All possible keys are: '
+                               'device-id, device-name, error-code, install-state, last-sync-date-time, '
+                               'os-description, os-version, user-name, id'.format(k))
         return d
 
 
@@ -1173,6 +1314,10 @@ class AddConfigurationManagerClientEnabledFeatures(argparse.Action):
                 d['resource_access'] = v[0]
             elif kl == 'windows-update-for-business':
                 d['windows_update_for_business'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter configuration_manager_client_enabled_featu'
+                               'res. All possible keys are: compliance-policy, device-configuration, inventory, '
+                               'modern-apps, resource-access, windows-update-for-business'.format(k))
         return d
 
 
@@ -1201,6 +1346,9 @@ class AddDeviceActionResults(argparse._AppendAction):
                 d['last_updated_date_time'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_action_results. All possible keys '
+                               'are: action-name, action-state, last-updated-date-time, start-date-time'.format(k))
         return d
 
 
@@ -1285,6 +1433,19 @@ class AddDeviceHealthAttestationState(argparse.Action):
                 d['virtual_secure_mode'] = v[0]
             elif kl == 'windows-pe':
                 d['windows_pe'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_health_attestation_state. All '
+                               'possible keys are: attestation-identity-key, bit-locker-status, '
+                               'boot-app-security-version, boot-debugging, boot-manager-security-version, '
+                               'boot-manager-version, boot-revision-list-info, code-integrity, '
+                               'code-integrity-check-version, code-integrity-policy, content-namespace-url, '
+                               'content-version, data-excution-policy, device-health-attestation-status, '
+                               'early-launch-anti-malware-driver-protection, health-attestation-supported-status, '
+                               'health-status-mismatch-info, issued-date-time, last-update-date-time, '
+                               'operating-system-kernel-debugging, operating-system-rev-list-info, pcr0, '
+                               'pcr-hash-algorithm, reset-count, restart-count, safe-mode, secure-boot, '
+                               'secure-boot-configuration-policy-finger-print, test-signing, tpm-version, '
+                               'virtual-secure-mode, windows-pe'.format(k))
         return d
 
 
@@ -1311,6 +1472,9 @@ class AddDeviceCategory(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter device_category. All possible keys are: '
+                               'description, display-name, id'.format(k))
         return d
 
 
@@ -1355,6 +1519,11 @@ class AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSetting
                 d['user_name'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter setting_states. All possible keys are: '
+                               'current-value, error-code, error-description, instance-display-name, setting, '
+                               'setting-name, sources, state, user-email, user-id, user-name, user-principal-name'.
+                               format(k))
         return d
 
 
@@ -1399,4 +1568,9 @@ class AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingSta
                 d['user_name'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter setting_states. All possible keys are: '
+                               'current-value, error-code, error-description, instance-display-name, setting, '
+                               'setting-name, sources, state, user-email, user-id, user-name, user-principal-name'.
+                               format(k))
         return d

@@ -14,17 +14,17 @@ from knack.help_files import helps
 
 helps['devicescorpmgt device-app-management-device-app-management'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-device-app-management
+    short-summary: Manage device app management device app management with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-device-app-management get-device-app-management'] = """
+helps['devicescorpmgt device-app-management-device-app-management show-device-app-management'] = """
     type: command
-    short-summary: "Get deviceAppManagement"
+    short-summary: "Get deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-device-app-management update-device-app-management'] = """
     type: command
-    short-summary: "Update deviceAppManagement"
+    short-summary: "Update deviceAppManagement."
     parameters:
       - name: --mobile-app-categories
         short-summary: "The mobile app categories."
@@ -254,22 +254,32 @@ argument.
 
 helps['devicescorpmgt device-app-management'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management
+    short-summary: Manage device app management with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management delete'] = """
     type: command
-    short-summary: "Delete navigation property windowsInformationProtectionPolicies for deviceAppManagement"
+    short-summary: "Delete navigation property androidManagedAppProtections for deviceAppManagement And Delete \
+navigation property defaultManagedAppProtections for deviceAppManagement And Delete navigation property \
+iosManagedAppProtections for deviceAppManagement And Delete navigation property managedAppPolicies for \
+deviceAppManagement And Delete navigation property managedAppRegistrations for deviceAppManagement And Delete \
+navigation property managedAppStatuses for deviceAppManagement And Delete navigation property managedEBooks for \
+deviceAppManagement And Delete navigation property mdmWindowsInformationProtectionPolicies for deviceAppManagement And \
+Delete navigation property mobileAppCategories for deviceAppManagement And Delete navigation property \
+mobileAppConfigurations for deviceAppManagement And Delete navigation property mobileApps for deviceAppManagement And \
+Delete navigation property targetedManagedAppConfigurations for deviceAppManagement And Delete navigation property \
+vppTokens for deviceAppManagement And Delete navigation property windowsInformationProtectionPolicies for \
+deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-android-managed-app-protection'] = """
     type: command
-    short-summary: "Create new navigation property to androidManagedAppProtections for deviceAppManagement"
+    short-summary: "Create new navigation property to androidManagedAppProtections for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-default-managed-app-protection'] = """
     type: command
-    short-summary: "Create new navigation property to defaultManagedAppProtections for deviceAppManagement"
+    short-summary: "Create new navigation property to defaultManagedAppProtections for deviceAppManagement."
     parameters:
       - name: --custom-settings
         short-summary: "A set of string key and string value pairs to be sent to the affected users, unalterned by \
@@ -285,17 +295,17 @@ this service"
 
 helps['devicescorpmgt device-app-management create-io-managed-app-protection'] = """
     type: command
-    short-summary: "Create new navigation property to iosManagedAppProtections for deviceAppManagement"
+    short-summary: "Create new navigation property to iosManagedAppProtections for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-managed-app-policy'] = """
     type: command
-    short-summary: "Create new navigation property to managedAppPolicies for deviceAppManagement"
+    short-summary: "Create new navigation property to managedAppPolicies for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-managed-app-registration'] = """
     type: command
-    short-summary: "Create new navigation property to managedAppRegistrations for deviceAppManagement"
+    short-summary: "Create new navigation property to managedAppRegistrations for deviceAppManagement."
     parameters:
       - name: --applied-policies
         short-summary: "Zero or more policys already applied on the registered app when it last synchronized with \
@@ -342,12 +352,12 @@ version=XX id=XX
 
 helps['devicescorpmgt device-app-management create-managed-app-statuses'] = """
     type: command
-    short-summary: "Create new navigation property to managedAppStatuses for deviceAppManagement"
+    short-summary: "Create new navigation property to managedAppStatuses for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-managed-e-book'] = """
     type: command
-    short-summary: "Create new navigation property to managedEBooks for deviceAppManagement"
+    short-summary: "Create new navigation property to managedEBooks for deviceAppManagement."
     parameters:
       - name: --large-cover
         short-summary: "Contains properties for a generic mime content."
@@ -403,7 +413,8 @@ user-name=XX device-states=XX id=XX
 
 helps['devicescorpmgt device-app-management create-mdm-window-information-protection-policy'] = """
     type: command
-    short-summary: "Create new navigation property to mdmWindowsInformationProtectionPolicies for deviceAppManagement"
+    short-summary: "Create new navigation property to mdmWindowsInformationProtectionPolicies for \
+deviceAppManagement."
     parameters:
       - name: --data-recovery-certificate
         short-summary: "Windows Information Protection DataRecoveryCertificate"
@@ -553,7 +564,7 @@ copying from an SMB share within the corporate boundary"
 
 helps['devicescorpmgt device-app-management create-mobile-app'] = """
     type: command
-    short-summary: "Create new navigation property to mobileApps for deviceAppManagement"
+    short-summary: "Create new navigation property to mobileApps for deviceAppManagement."
     parameters:
       - name: --large-icon
         short-summary: "Contains properties for a generic mime content."
@@ -576,12 +587,12 @@ helps['devicescorpmgt device-app-management create-mobile-app'] = """
 
 helps['devicescorpmgt device-app-management create-mobile-app-category'] = """
     type: command
-    short-summary: "Create new navigation property to mobileAppCategories for deviceAppManagement"
+    short-summary: "Create new navigation property to mobileAppCategories for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-mobile-app-configuration'] = """
     type: command
-    short-summary: "Create new navigation property to mobileAppConfigurations for deviceAppManagement"
+    short-summary: "Create new navigation property to mobileAppConfigurations for deviceAppManagement."
     parameters:
       - name: --device-statuses
         short-summary: "List of ManagedDeviceMobileAppConfigurationDeviceStatus."
@@ -645,7 +656,7 @@ last-update-date-time=XX not-applicable-count=XX pending-count=XX success-count=
 
 helps['devicescorpmgt device-app-management create-targeted-managed-app-configuration'] = """
     type: command
-    short-summary: "Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement"
+    short-summary: "Create new navigation property to targetedManagedAppConfigurations for deviceAppManagement."
     parameters:
       - name: --custom-settings
         short-summary: "A set of string key and string value pairs to be sent to apps for users to whom the \
@@ -661,12 +672,12 @@ configuration is scoped, unalterned by this service"
 
 helps['devicescorpmgt device-app-management create-vpp-token'] = """
     type: command
-    short-summary: "Create new navigation property to vppTokens for deviceAppManagement"
+    short-summary: "Create new navigation property to vppTokens for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management create-window-information-protection-policy'] = """
     type: command
-    short-summary: "Create new navigation property to windowsInformationProtectionPolicies for deviceAppManagement"
+    short-summary: "Create new navigation property to windowsInformationProtectionPolicies for deviceAppManagement."
     parameters:
       - name: --data-recovery-certificate
         short-summary: "Windows Information Protection DataRecoveryCertificate"
@@ -814,159 +825,159 @@ copying from an SMB share within the corporate boundary"
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
 """
 
-helps['devicescorpmgt device-app-management get-android-managed-app-protection'] = """
-    type: command
-    short-summary: "Get androidManagedAppProtections from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-default-managed-app-protection'] = """
-    type: command
-    short-summary: "Get defaultManagedAppProtections from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-io-managed-app-protection'] = """
-    type: command
-    short-summary: "Get iosManagedAppProtections from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-managed-app-policy'] = """
-    type: command
-    short-summary: "Get managedAppPolicies from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-managed-app-registration'] = """
-    type: command
-    short-summary: "Get managedAppRegistrations from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-managed-app-statuses'] = """
-    type: command
-    short-summary: "Get managedAppStatuses from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-managed-e-book'] = """
-    type: command
-    short-summary: "Get managedEBooks from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-mdm-window-information-protection-policy'] = """
-    type: command
-    short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-mobile-app'] = """
-    type: command
-    short-summary: "Get mobileApps from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-mobile-app-category'] = """
-    type: command
-    short-summary: "Get mobileAppCategories from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-mobile-app-configuration'] = """
-    type: command
-    short-summary: "Get mobileAppConfigurations from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-targeted-managed-app-configuration'] = """
-    type: command
-    short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-vpp-token'] = """
-    type: command
-    short-summary: "Get vppTokens from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management get-window-information-protection-policy'] = """
-    type: command
-    short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement"
-"""
-
 helps['devicescorpmgt device-app-management list-android-managed-app-protection'] = """
     type: command
-    short-summary: "Get androidManagedAppProtections from deviceAppManagement"
+    short-summary: "Get androidManagedAppProtections from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-default-managed-app-protection'] = """
     type: command
-    short-summary: "Get defaultManagedAppProtections from deviceAppManagement"
+    short-summary: "Get defaultManagedAppProtections from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-io-managed-app-protection'] = """
     type: command
-    short-summary: "Get iosManagedAppProtections from deviceAppManagement"
+    short-summary: "Get iosManagedAppProtections from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-managed-app-policy'] = """
     type: command
-    short-summary: "Get managedAppPolicies from deviceAppManagement"
+    short-summary: "Get managedAppPolicies from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-managed-app-registration'] = """
     type: command
-    short-summary: "Get managedAppRegistrations from deviceAppManagement"
+    short-summary: "Get managedAppRegistrations from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-managed-app-statuses'] = """
     type: command
-    short-summary: "Get managedAppStatuses from deviceAppManagement"
+    short-summary: "Get managedAppStatuses from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-managed-e-book'] = """
     type: command
-    short-summary: "Get managedEBooks from deviceAppManagement"
+    short-summary: "Get managedEBooks from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-mdm-window-information-protection-policy'] = """
     type: command
-    short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement"
+    short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-mobile-app'] = """
     type: command
-    short-summary: "Get mobileApps from deviceAppManagement"
+    short-summary: "Get mobileApps from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-mobile-app-category'] = """
     type: command
-    short-summary: "Get mobileAppCategories from deviceAppManagement"
+    short-summary: "Get mobileAppCategories from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-mobile-app-configuration'] = """
     type: command
-    short-summary: "Get mobileAppConfigurations from deviceAppManagement"
+    short-summary: "Get mobileAppConfigurations from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-targeted-managed-app-configuration'] = """
     type: command
-    short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement"
+    short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-vpp-token'] = """
     type: command
-    short-summary: "Get vppTokens from deviceAppManagement"
+    short-summary: "Get vppTokens from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-window-information-protection-policy'] = """
     type: command
-    short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement"
+    short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-android-managed-app-protection'] = """
+    type: command
+    short-summary: "Get androidManagedAppProtections from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-default-managed-app-protection'] = """
+    type: command
+    short-summary: "Get defaultManagedAppProtections from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-io-managed-app-protection'] = """
+    type: command
+    short-summary: "Get iosManagedAppProtections from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-managed-app-policy'] = """
+    type: command
+    short-summary: "Get managedAppPolicies from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-managed-app-registration'] = """
+    type: command
+    short-summary: "Get managedAppRegistrations from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-managed-app-statuses'] = """
+    type: command
+    short-summary: "Get managedAppStatuses from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-managed-e-book'] = """
+    type: command
+    short-summary: "Get managedEBooks from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-mdm-window-information-protection-policy'] = """
+    type: command
+    short-summary: "Get mdmWindowsInformationProtectionPolicies from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-mobile-app'] = """
+    type: command
+    short-summary: "Get mobileApps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-mobile-app-category'] = """
+    type: command
+    short-summary: "Get mobileAppCategories from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-mobile-app-configuration'] = """
+    type: command
+    short-summary: "Get mobileAppConfigurations from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-targeted-managed-app-configuration'] = """
+    type: command
+    short-summary: "Get targetedManagedAppConfigurations from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-vpp-token'] = """
+    type: command
+    short-summary: "Get vppTokens from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management show-window-information-protection-policy'] = """
+    type: command
+    short-summary: "Get windowsInformationProtectionPolicies from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management sync-microsoft-store-for-business-app'] = """
     type: command
-    short-summary: "Invoke action syncMicrosoftStoreForBusinessApps"
+    short-summary: "Invoke action syncMicrosoftStoreForBusinessApps."
 """
 
 helps['devicescorpmgt device-app-management update-android-managed-app-protection'] = """
     type: command
-    short-summary: "Update the navigation property androidManagedAppProtections in deviceAppManagement"
+    short-summary: "Update the navigation property androidManagedAppProtections in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-default-managed-app-protection'] = """
     type: command
-    short-summary: "Update the navigation property defaultManagedAppProtections in deviceAppManagement"
+    short-summary: "Update the navigation property defaultManagedAppProtections in deviceAppManagement."
     parameters:
       - name: --custom-settings
         short-summary: "A set of string key and string value pairs to be sent to the affected users, unalterned by \
@@ -982,17 +993,17 @@ this service"
 
 helps['devicescorpmgt device-app-management update-io-managed-app-protection'] = """
     type: command
-    short-summary: "Update the navigation property iosManagedAppProtections in deviceAppManagement"
+    short-summary: "Update the navigation property iosManagedAppProtections in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-managed-app-policy'] = """
     type: command
-    short-summary: "Update the navigation property managedAppPolicies in deviceAppManagement"
+    short-summary: "Update the navigation property managedAppPolicies in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-managed-app-registration'] = """
     type: command
-    short-summary: "Update the navigation property managedAppRegistrations in deviceAppManagement"
+    short-summary: "Update the navigation property managedAppRegistrations in deviceAppManagement."
     parameters:
       - name: --applied-policies
         short-summary: "Zero or more policys already applied on the registered app when it last synchronized with \
@@ -1039,12 +1050,12 @@ version=XX id=XX
 
 helps['devicescorpmgt device-app-management update-managed-app-statuses'] = """
     type: command
-    short-summary: "Update the navigation property managedAppStatuses in deviceAppManagement"
+    short-summary: "Update the navigation property managedAppStatuses in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-managed-e-book'] = """
     type: command
-    short-summary: "Update the navigation property managedEBooks in deviceAppManagement"
+    short-summary: "Update the navigation property managedEBooks in deviceAppManagement."
     parameters:
       - name: --large-cover
         short-summary: "Contains properties for a generic mime content."
@@ -1100,7 +1111,7 @@ user-name=XX device-states=XX id=XX
 
 helps['devicescorpmgt device-app-management update-mdm-window-information-protection-policy'] = """
     type: command
-    short-summary: "Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement"
+    short-summary: "Update the navigation property mdmWindowsInformationProtectionPolicies in deviceAppManagement."
     parameters:
       - name: --data-recovery-certificate
         short-summary: "Windows Information Protection DataRecoveryCertificate"
@@ -1250,7 +1261,7 @@ copying from an SMB share within the corporate boundary"
 
 helps['devicescorpmgt device-app-management update-mobile-app'] = """
     type: command
-    short-summary: "Update the navigation property mobileApps in deviceAppManagement"
+    short-summary: "Update the navigation property mobileApps in deviceAppManagement."
     parameters:
       - name: --large-icon
         short-summary: "Contains properties for a generic mime content."
@@ -1273,12 +1284,12 @@ helps['devicescorpmgt device-app-management update-mobile-app'] = """
 
 helps['devicescorpmgt device-app-management update-mobile-app-category'] = """
     type: command
-    short-summary: "Update the navigation property mobileAppCategories in deviceAppManagement"
+    short-summary: "Update the navigation property mobileAppCategories in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-mobile-app-configuration'] = """
     type: command
-    short-summary: "Update the navigation property mobileAppConfigurations in deviceAppManagement"
+    short-summary: "Update the navigation property mobileAppConfigurations in deviceAppManagement."
     parameters:
       - name: --device-statuses
         short-summary: "List of ManagedDeviceMobileAppConfigurationDeviceStatus."
@@ -1342,7 +1353,7 @@ last-update-date-time=XX not-applicable-count=XX pending-count=XX success-count=
 
 helps['devicescorpmgt device-app-management update-targeted-managed-app-configuration'] = """
     type: command
-    short-summary: "Update the navigation property targetedManagedAppConfigurations in deviceAppManagement"
+    short-summary: "Update the navigation property targetedManagedAppConfigurations in deviceAppManagement."
     parameters:
       - name: --custom-settings
         short-summary: "A set of string key and string value pairs to be sent to apps for users to whom the \
@@ -1358,12 +1369,12 @@ configuration is scoped, unalterned by this service"
 
 helps['devicescorpmgt device-app-management update-vpp-token'] = """
     type: command
-    short-summary: "Update the navigation property vppTokens in deviceAppManagement"
+    short-summary: "Update the navigation property vppTokens in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management update-window-information-protection-policy'] = """
     type: command
-    short-summary: "Update the navigation property windowsInformationProtectionPolicies in deviceAppManagement"
+    short-summary: "Update the navigation property windowsInformationProtectionPolicies in deviceAppManagement."
     parameters:
       - name: --data-recovery-certificate
         short-summary: "Windows Information Protection DataRecoveryCertificate"
@@ -1513,257 +1524,263 @@ copying from an SMB share within the corporate boundary"
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-android-managed-app-protection
+    short-summary: Manage device app management android managed app protection with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection delete'] = """
     type: command
-    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
+    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
+deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection create-app'] = """
     type: command
-    short-summary: "Create new navigation property to apps for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-android-managed-app-protection get-app'] = """
-    type: command
-    short-summary: "Get apps from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-android-managed-app-protection get-deployment-summary'] = """
-    type: command
-    short-summary: "Get deploymentSummary from deviceAppManagement"
+    short-summary: "Create new navigation property to apps for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection list-app'] = """
     type: command
-    short-summary: "Get apps from deviceAppManagement"
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-android-managed-app-protection show-app'] = """
+    type: command
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-android-managed-app-protection show-deployment-summary'] = """
+    type: command
+    short-summary: "Get deploymentSummary from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection update-app'] = """
     type: command
-    short-summary: "Update the navigation property apps in deviceAppManagement"
+    short-summary: "Update the navigation property apps in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary'] = """
     type: command
-    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
+    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-default-managed-app-protection
+    short-summary: Manage device app management default managed app protection with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection delete'] = """
     type: command
-    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
+    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
+deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection create-app'] = """
     type: command
-    short-summary: "Create new navigation property to apps for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-default-managed-app-protection get-app'] = """
-    type: command
-    short-summary: "Get apps from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-default-managed-app-protection get-deployment-summary'] = """
-    type: command
-    short-summary: "Get deploymentSummary from deviceAppManagement"
+    short-summary: "Create new navigation property to apps for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection list-app'] = """
     type: command
-    short-summary: "Get apps from deviceAppManagement"
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-default-managed-app-protection show-app'] = """
+    type: command
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-default-managed-app-protection show-deployment-summary'] = """
+    type: command
+    short-summary: "Get deploymentSummary from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection update-app'] = """
     type: command
-    short-summary: "Update the navigation property apps in deviceAppManagement"
+    short-summary: "Update the navigation property apps in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary'] = """
     type: command
-    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
+    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-io-managed-app-protection
+    short-summary: Manage device app management io managed app protection with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection delete'] = """
     type: command
-    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
+    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
+deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection create-app'] = """
     type: command
-    short-summary: "Create new navigation property to apps for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-io-managed-app-protection get-app'] = """
-    type: command
-    short-summary: "Get apps from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-io-managed-app-protection get-deployment-summary'] = """
-    type: command
-    short-summary: "Get deploymentSummary from deviceAppManagement"
+    short-summary: "Create new navigation property to apps for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection list-app'] = """
     type: command
-    short-summary: "Get apps from deviceAppManagement"
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-io-managed-app-protection show-app'] = """
+    type: command
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-io-managed-app-protection show-deployment-summary'] = """
+    type: command
+    short-summary: "Get deploymentSummary from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection update-app'] = """
     type: command
-    short-summary: "Update the navigation property apps in deviceAppManagement"
+    short-summary: "Update the navigation property apps in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary'] = """
     type: command
-    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
+    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-policy'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-app-policy
+    short-summary: Manage device app management managed app policy with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-app-policy target-app'] = """
     type: command
-    short-summary: "Invoke action targetApps"
+    short-summary: "Invoke action targetApps."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-app-registration
+    short-summary: Manage device app management managed app registration with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration delete'] = """
     type: command
-    short-summary: "Delete navigation property operations for deviceAppManagement"
+    short-summary: "Delete navigation property appliedPolicies for deviceAppManagement And Delete navigation property \
+intendedPolicies for deviceAppManagement And Delete navigation property operations for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration create-applied-policy'] = """
     type: command
-    short-summary: "Create new navigation property to appliedPolicies for deviceAppManagement"
+    short-summary: "Create new navigation property to appliedPolicies for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration create-intended-policy'] = """
     type: command
-    short-summary: "Create new navigation property to intendedPolicies for deviceAppManagement"
+    short-summary: "Create new navigation property to intendedPolicies for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration create-operation'] = """
     type: command
-    short-summary: "Create new navigation property to operations for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-app-registration get-applied-policy'] = """
-    type: command
-    short-summary: "Get appliedPolicies from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-app-registration get-intended-policy'] = """
-    type: command
-    short-summary: "Get intendedPolicies from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-app-registration get-operation'] = """
-    type: command
-    short-summary: "Get operations from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-app-registration get-user-id-with-flagged-app-registration'] = """
-    type: command
-    short-summary: "Invoke function getUserIdsWithFlaggedAppRegistration"
+    short-summary: "Create new navigation property to operations for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration list-applied-policy'] = """
     type: command
-    short-summary: "Get appliedPolicies from deviceAppManagement"
+    short-summary: "Get appliedPolicies from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration list-intended-policy'] = """
     type: command
-    short-summary: "Get intendedPolicies from deviceAppManagement"
+    short-summary: "Get intendedPolicies from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration list-operation'] = """
     type: command
-    short-summary: "Get operations from deviceAppManagement"
+    short-summary: "Get operations from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration show-applied-policy'] = """
+    type: command
+    short-summary: "Get appliedPolicies from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration show-intended-policy'] = """
+    type: command
+    short-summary: "Get intendedPolicies from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration show-operation'] = """
+    type: command
+    short-summary: "Get operations from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration show-user-id-with-flagged-app-registration'] = """
+    type: command
+    short-summary: "Invoke function getUserIdsWithFlaggedAppRegistration."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration update-applied-policy'] = """
     type: command
-    short-summary: "Update the navigation property appliedPolicies in deviceAppManagement"
+    short-summary: "Update the navigation property appliedPolicies in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration update-intended-policy'] = """
     type: command
-    short-summary: "Update the navigation property intendedPolicies in deviceAppManagement"
+    short-summary: "Update the navigation property intendedPolicies in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration update-operation'] = """
     type: command
-    short-summary: "Update the navigation property operations in deviceAppManagement"
+    short-summary: "Update the navigation property operations in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration-applied-policy'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-app-registration-applied-policy
+    short-summary: Manage device app management managed app registration applied policy with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app'] = """
     type: command
-    short-summary: "Invoke action targetApps"
+    short-summary: "Invoke action targetApps."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration-intended-policy'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-app-registration-intended-policy
+    short-summary: Manage device app management managed app registration intended policy with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app'] = """
     type: command
-    short-summary: "Invoke action targetApps"
+    short-summary: "Invoke action targetApps."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-e-book
+    short-summary: Manage device app management managed e book with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book delete'] = """
     type: command
-    short-summary: "Delete navigation property installSummary for deviceAppManagement"
+    short-summary: "Delete navigation property assignments for deviceAppManagement And Delete navigation property \
+deviceStates for deviceAppManagement And Delete navigation property userStateSummary for deviceAppManagement And \
+Delete navigation property installSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book assign'] = """
     type: command
-    short-summary: "Invoke action assign"
+    short-summary: "Invoke action assign."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for deviceAppManagement"
+    short-summary: "Create new navigation property to assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book create-device-state'] = """
     type: command
-    short-summary: "Create new navigation property to deviceStates for deviceAppManagement"
+    short-summary: "Create new navigation property to deviceStates for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book create-user-state-summary'] = """
     type: command
-    short-summary: "Create new navigation property to userStateSummary for deviceAppManagement"
+    short-summary: "Create new navigation property to userStateSummary for deviceAppManagement."
     parameters:
       - name: --device-states
         short-summary: "The install state of the eBook."
@@ -1783,59 +1800,59 @@ os-description=XX os-version=XX user-name=XX id=XX
             Multiple actions can be specified by using more than one --device-states argument.
 """
 
-helps['devicescorpmgt device-app-management-managed-e-book get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-e-book get-device-state'] = """
-    type: command
-    short-summary: "Get deviceStates from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-e-book get-install-summary'] = """
-    type: command
-    short-summary: "Get installSummary from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-e-book get-user-state-summary'] = """
-    type: command
-    short-summary: "Get userStateSummary from deviceAppManagement"
-"""
-
 helps['devicescorpmgt device-app-management-managed-e-book list-assignment'] = """
     type: command
-    short-summary: "Get assignments from deviceAppManagement"
+    short-summary: "Get assignments from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book list-device-state'] = """
     type: command
-    short-summary: "Get deviceStates from deviceAppManagement"
+    short-summary: "Get deviceStates from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book list-user-state-summary'] = """
     type: command
-    short-summary: "Get userStateSummary from deviceAppManagement"
+    short-summary: "Get userStateSummary from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book show-device-state'] = """
+    type: command
+    short-summary: "Get deviceStates from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book show-install-summary'] = """
+    type: command
+    short-summary: "Get installSummary from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book show-user-state-summary'] = """
+    type: command
+    short-summary: "Get userStateSummary from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in deviceAppManagement"
+    short-summary: "Update the navigation property assignments in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book update-device-state'] = """
     type: command
-    short-summary: "Update the navigation property deviceStates in deviceAppManagement"
+    short-summary: "Update the navigation property deviceStates in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book update-install-summary'] = """
     type: command
-    short-summary: "Update the navigation property installSummary in deviceAppManagement"
+    short-summary: "Update the navigation property installSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book update-user-state-summary'] = """
     type: command
-    short-summary: "Update the navigation property userStateSummary in deviceAppManagement"
+    short-summary: "Update the navigation property userStateSummary in deviceAppManagement."
     parameters:
       - name: --device-states
         short-summary: "The install state of the eBook."
@@ -1857,277 +1874,282 @@ os-description=XX os-version=XX user-name=XX id=XX
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-managed-e-book-user-state-summary
+    short-summary: Manage device app management managed e book user state summary with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary delete'] = """
     type: command
-    short-summary: "Delete navigation property deviceStates for deviceAppManagement"
+    short-summary: "Delete navigation property deviceStates for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state'] = """
     type: command
-    short-summary: "Create new navigation property to deviceStates for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary get-device-state'] = """
-    type: command
-    short-summary: "Get deviceStates from deviceAppManagement"
+    short-summary: "Create new navigation property to deviceStates for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state'] = """
     type: command
-    short-summary: "Get deviceStates from deviceAppManagement"
+    short-summary: "Get deviceStates from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary show-device-state'] = """
+    type: command
+    short-summary: "Get deviceStates from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state'] = """
     type: command
-    short-summary: "Update the navigation property deviceStates in deviceAppManagement"
+    short-summary: "Update the navigation property deviceStates in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-mobile-app-configuration
+    short-summary: Manage device app management mobile app configuration with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration delete'] = """
     type: command
-    short-summary: "Delete navigation property userStatusSummary for deviceAppManagement"
+    short-summary: "Delete navigation property assignments for deviceAppManagement And Delete navigation property \
+deviceStatuses for deviceAppManagement And Delete navigation property userStatuses for deviceAppManagement And Delete \
+navigation property deviceStatusSummary for deviceAppManagement And Delete navigation property userStatusSummary for \
+deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration assign'] = """
     type: command
-    short-summary: "Invoke action assign"
+    short-summary: "Invoke action assign."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for deviceAppManagement"
+    short-summary: "Create new navigation property to assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses'] = """
     type: command
-    short-summary: "Create new navigation property to deviceStatuses for deviceAppManagement"
+    short-summary: "Create new navigation property to deviceStatuses for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses'] = """
     type: command
-    short-summary: "Create new navigation property to userStatuses for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app-configuration get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app-configuration get-device-status-summary'] = """
-    type: command
-    short-summary: "Get deviceStatusSummary from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app-configuration get-device-statuses'] = """
-    type: command
-    short-summary: "Get deviceStatuses from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app-configuration get-user-status-summary'] = """
-    type: command
-    short-summary: "Get userStatusSummary from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app-configuration get-user-statuses'] = """
-    type: command
-    short-summary: "Get userStatuses from deviceAppManagement"
+    short-summary: "Create new navigation property to userStatuses for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration list-assignment'] = """
     type: command
-    short-summary: "Get assignments from deviceAppManagement"
+    short-summary: "Get assignments from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses'] = """
     type: command
-    short-summary: "Get deviceStatuses from deviceAppManagement"
+    short-summary: "Get deviceStatuses from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses'] = """
     type: command
-    short-summary: "Get userStatuses from deviceAppManagement"
+    short-summary: "Get userStatuses from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration show-device-status-summary'] = """
+    type: command
+    short-summary: "Get deviceStatusSummary from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration show-device-statuses'] = """
+    type: command
+    short-summary: "Get deviceStatuses from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration show-user-status-summary'] = """
+    type: command
+    short-summary: "Get userStatusSummary from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration show-user-statuses'] = """
+    type: command
+    short-summary: "Get userStatuses from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in deviceAppManagement"
+    short-summary: "Update the navigation property assignments in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary'] = """
     type: command
-    short-summary: "Update the navigation property deviceStatusSummary in deviceAppManagement"
+    short-summary: "Update the navigation property deviceStatusSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses'] = """
     type: command
-    short-summary: "Update the navigation property deviceStatuses in deviceAppManagement"
+    short-summary: "Update the navigation property deviceStatuses in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary'] = """
     type: command
-    short-summary: "Update the navigation property userStatusSummary in deviceAppManagement"
+    short-summary: "Update the navigation property userStatusSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses'] = """
     type: command
-    short-summary: "Update the navigation property userStatuses in deviceAppManagement"
+    short-summary: "Update the navigation property userStatuses in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-mobile-app
+    short-summary: Manage device app management mobile app with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-mobile-app delete'] = """
     type: command
-    short-summary: "Delete navigation property assignments for deviceAppManagement"
+    short-summary: "Delete navigation property assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app assign'] = """
     type: command
-    short-summary: "Invoke action assign"
+    short-summary: "Invoke action assign."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for deviceAppManagement"
+    short-summary: "Create new navigation property to assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app create-ref-category'] = """
     type: command
-    short-summary: "Create new navigation property ref to categories for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-mobile-app get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from deviceAppManagement"
+    short-summary: "Create new navigation property ref to categories for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app list-assignment'] = """
     type: command
-    short-summary: "Get assignments from deviceAppManagement"
+    short-summary: "Get assignments from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app list-category'] = """
     type: command
-    short-summary: "Get categories from deviceAppManagement"
+    short-summary: "Get categories from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app list-ref-category'] = """
     type: command
-    short-summary: "Get ref of categories from deviceAppManagement"
+    short-summary: "Get ref of categories from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in deviceAppManagement"
+    short-summary: "Update the navigation property assignments in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-targeted-managed-app-configuration
+    short-summary: Manage device app management targeted managed app configuration with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete'] = """
     type: command
-    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement"
+    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property assignments \
+for deviceAppManagement And Delete navigation property deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration assign'] = """
     type: command
-    short-summary: "Invoke action assign"
+    short-summary: "Invoke action assign."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration create-app'] = """
     type: command
-    short-summary: "Create new navigation property to apps for deviceAppManagement"
+    short-summary: "Create new navigation property to apps for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment'] = """
     type: command
-    short-summary: "Create new navigation property to assignments for deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-app'] = """
-    type: command
-    short-summary: "Get apps from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-assignment'] = """
-    type: command
-    short-summary: "Get assignments from deviceAppManagement"
-"""
-
-helps['devicescorpmgt device-app-management-targeted-managed-app-configuration get-deployment-summary'] = """
-    type: command
-    short-summary: "Get deploymentSummary from deviceAppManagement"
+    short-summary: "Create new navigation property to assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration list-app'] = """
     type: command
-    short-summary: "Get apps from deviceAppManagement"
+    short-summary: "Get apps from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment'] = """
     type: command
-    short-summary: "Get assignments from deviceAppManagement"
+    short-summary: "Get assignments from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration show-app'] = """
+    type: command
+    short-summary: "Get apps from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration show-assignment'] = """
+    type: command
+    short-summary: "Get assignments from deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration show-deployment-summary'] = """
+    type: command
+    short-summary: "Get deploymentSummary from deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration target-app'] = """
     type: command
-    short-summary: "Invoke action targetApps"
+    short-summary: "Invoke action targetApps."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-app'] = """
     type: command
-    short-summary: "Update the navigation property apps in deviceAppManagement"
+    short-summary: "Update the navigation property apps in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment'] = """
     type: command
-    short-summary: "Update the navigation property assignments in deviceAppManagement"
+    short-summary: "Update the navigation property assignments in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary'] = """
     type: command
-    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement"
+    short-summary: "Update the navigation property deploymentSummary in deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-vpp-token'] = """
     type: group
-    short-summary: devicescorpmgt device-app-management-vpp-token
+    short-summary: Manage device app management vpp token with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt device-app-management-vpp-token sync-license'] = """
     type: command
-    short-summary: "Invoke action syncLicenses"
+    short-summary: "Invoke action syncLicenses."
 """
 
 helps['devicescorpmgt user'] = """
     type: group
-    short-summary: devicescorpmgt user
+    short-summary: Manage user with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt user delete'] = """
     type: command
-    short-summary: "Delete navigation property managedDevices for users"
+    short-summary: "Delete navigation property deviceManagementTroubleshootingEvents for users And Delete navigation \
+property managedDevices for users."
 """
 
 helps['devicescorpmgt user create-device-management-troubleshooting-event'] = """
     type: command
-    short-summary: "Create new navigation property to deviceManagementTroubleshootingEvents for users"
+    short-summary: "Create new navigation property to deviceManagementTroubleshootingEvents for users."
 """
 
 helps['devicescorpmgt user create-managed-device'] = """
     type: command
-    short-summary: "Create new navigation property to managedDevices for users"
+    short-summary: "Create new navigation property to managedDevices for users."
     parameters:
       - name: --configuration-manager-client-enabled-features
         short-summary: "configuration Manager client enabled features"
@@ -2216,47 +2238,47 @@ create dynamic Azure Active Directory device groups based on device categories."
 
 helps['devicescorpmgt user create-ref-managed-app-registration'] = """
     type: command
-    short-summary: "Create new navigation property ref to managedAppRegistrations for users"
-"""
-
-helps['devicescorpmgt user get-device-management-troubleshooting-event'] = """
-    type: command
-    short-summary: "Get deviceManagementTroubleshootingEvents from users"
-"""
-
-helps['devicescorpmgt user get-managed-device'] = """
-    type: command
-    short-summary: "Get managedDevices from users"
+    short-summary: "Create new navigation property ref to managedAppRegistrations for users."
 """
 
 helps['devicescorpmgt user list-device-management-troubleshooting-event'] = """
     type: command
-    short-summary: "Get deviceManagementTroubleshootingEvents from users"
+    short-summary: "Get deviceManagementTroubleshootingEvents from users."
 """
 
 helps['devicescorpmgt user list-managed-app-registration'] = """
     type: command
-    short-summary: "Get managedAppRegistrations from users"
+    short-summary: "Get managedAppRegistrations from users."
 """
 
 helps['devicescorpmgt user list-managed-device'] = """
     type: command
-    short-summary: "Get managedDevices from users"
+    short-summary: "Get managedDevices from users."
 """
 
 helps['devicescorpmgt user list-ref-managed-app-registration'] = """
     type: command
-    short-summary: "Get ref of managedAppRegistrations from users"
+    short-summary: "Get ref of managedAppRegistrations from users."
+"""
+
+helps['devicescorpmgt user show-device-management-troubleshooting-event'] = """
+    type: command
+    short-summary: "Get deviceManagementTroubleshootingEvents from users."
+"""
+
+helps['devicescorpmgt user show-managed-device'] = """
+    type: command
+    short-summary: "Get managedDevices from users."
 """
 
 helps['devicescorpmgt user update-device-management-troubleshooting-event'] = """
     type: command
-    short-summary: "Update the navigation property deviceManagementTroubleshootingEvents in users"
+    short-summary: "Update the navigation property deviceManagementTroubleshootingEvents in users."
 """
 
 helps['devicescorpmgt user update-managed-device'] = """
     type: command
-    short-summary: "Update the navigation property managedDevices in users"
+    short-summary: "Update the navigation property managedDevices in users."
     parameters:
       - name: --configuration-manager-client-enabled-features
         short-summary: "configuration Manager client enabled features"
@@ -2345,17 +2367,18 @@ create dynamic Azure Active Directory device groups based on device categories."
 
 helps['devicescorpmgt user-managed-device'] = """
     type: group
-    short-summary: devicescorpmgt user-managed-device
+    short-summary: Manage user managed device with devicescorpmgt_v1_0
 """
 
 helps['devicescorpmgt user-managed-device delete'] = """
     type: command
-    short-summary: "Delete navigation property deviceCategory for users"
+    short-summary: "Delete navigation property deviceCompliancePolicyStates for users And Delete navigation property \
+deviceConfigurationStates for users And Delete navigation property deviceCategory for users."
 """
 
 helps['devicescorpmgt user-managed-device create-device-compliance-policy-state'] = """
     type: command
-    short-summary: "Create new navigation property to deviceCompliancePolicyStates for users"
+    short-summary: "Create new navigation property to deviceCompliancePolicyStates for users."
     parameters:
       - name: --setting-states
         long-summary: |
@@ -2379,7 +2402,7 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
 
 helps['devicescorpmgt user-managed-device create-device-configuration-state'] = """
     type: command
-    short-summary: "Create new navigation property to deviceConfigurationStates for users"
+    short-summary: "Create new navigation property to deviceConfigurationStates for users."
     parameters:
       - name: --setting-states
         long-summary: |
@@ -2401,39 +2424,39 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
             Multiple actions can be specified by using more than one --setting-states argument.
 """
 
-helps['devicescorpmgt user-managed-device get-device-category'] = """
-    type: command
-    short-summary: "Get deviceCategory from users"
-"""
-
-helps['devicescorpmgt user-managed-device get-device-compliance-policy-state'] = """
-    type: command
-    short-summary: "Get deviceCompliancePolicyStates from users"
-"""
-
-helps['devicescorpmgt user-managed-device get-device-configuration-state'] = """
-    type: command
-    short-summary: "Get deviceConfigurationStates from users"
-"""
-
 helps['devicescorpmgt user-managed-device list-device-compliance-policy-state'] = """
     type: command
-    short-summary: "Get deviceCompliancePolicyStates from users"
+    short-summary: "Get deviceCompliancePolicyStates from users."
 """
 
 helps['devicescorpmgt user-managed-device list-device-configuration-state'] = """
     type: command
-    short-summary: "Get deviceConfigurationStates from users"
+    short-summary: "Get deviceConfigurationStates from users."
+"""
+
+helps['devicescorpmgt user-managed-device show-device-category'] = """
+    type: command
+    short-summary: "Get deviceCategory from users."
+"""
+
+helps['devicescorpmgt user-managed-device show-device-compliance-policy-state'] = """
+    type: command
+    short-summary: "Get deviceCompliancePolicyStates from users."
+"""
+
+helps['devicescorpmgt user-managed-device show-device-configuration-state'] = """
+    type: command
+    short-summary: "Get deviceConfigurationStates from users."
 """
 
 helps['devicescorpmgt user-managed-device update-device-category'] = """
     type: command
-    short-summary: "Update the navigation property deviceCategory in users"
+    short-summary: "Update the navigation property deviceCategory in users."
 """
 
 helps['devicescorpmgt user-managed-device update-device-compliance-policy-state'] = """
     type: command
-    short-summary: "Update the navigation property deviceCompliancePolicyStates in users"
+    short-summary: "Update the navigation property deviceCompliancePolicyStates in users."
     parameters:
       - name: --setting-states
         long-summary: |
@@ -2457,7 +2480,7 @@ setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-nam
 
 helps['devicescorpmgt user-managed-device update-device-configuration-state'] = """
     type: command
-    short-summary: "Update the navigation property deviceConfigurationStates in users"
+    short-summary: "Update the navigation property deviceConfigurationStates in users."
     parameters:
       - name: --setting-states
         long-summary: |

@@ -1,20 +1,42 @@
 # Azure CLI Module Creation Report
 
-### cloudcommunications user create-online-meeting
-
-create-online-meeting a cloudcommunications user.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|cloudcommunications user|users|
+|az cloudcommunications_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-online-meeting|CreateOnlineMeetings|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az cloudcommunications_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az cloudcommunications user|users|[commands](#CommandsInusers)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInusers">Commands in `az cloudcommunications user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az cloudcommunications user delete](#usersDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParametersusersDeleteOnlineMeetings)|Not Found|
+|[az cloudcommunications user create-online-meeting](#usersCreateOnlineMeetings)|CreateOnlineMeetings|[Parameters](#ParametersusersCreateOnlineMeetings)|Not Found|
+|[az cloudcommunications user list-online-meeting](#usersListOnlineMeetings)|ListOnlineMeetings|[Parameters](#ParametersusersListOnlineMeetings)|Not Found|
+|[az cloudcommunications user show-online-meeting](#usersGetOnlineMeetings)|GetOnlineMeetings|[Parameters](#ParametersusersGetOnlineMeetings)|Not Found|
+|[az cloudcommunications user update-online-meeting](#usersUpdateOnlineMeetings)|UpdateOnlineMeetings|[Parameters](#ParametersusersUpdateOnlineMeetings)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az cloudcommunications user`
+#### <a name="usersDeleteOnlineMeetings">Command `az cloudcommunications user delete`</a>
+
+##### <a name="ParametersusersDeleteOnlineMeetings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersCreateOnlineMeetings">Command `az cloudcommunications user create-online-meeting`</a>
+
+##### <a name="ParametersusersCreateOnlineMeetings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -29,67 +51,12 @@ create-online-meeting a cloudcommunications user.
 |**--start-date-time**|date-time|The meeting start time in UTC.|start_date_time|startDateTime|
 |**--subject**|string|The subject of the online meeting.|subject|subject|
 |**--video-teleconference-id**|string|The video teleconferencing ID. Read-only.|video_teleconference_id|videoTeleconferenceId|
-|**--participants-attendees**|array||attendees|attendees|
-|**--participants-organizer**|object|meetingParticipantInfo|organizer|organizer|
+|**--attendees**|array||attendees|attendees|
+|**--organizer**|object|meetingParticipantInfo|organizer|organizer|
 
-### cloudcommunications user delete
+#### <a name="usersListOnlineMeetings">Command `az cloudcommunications user list-online-meeting`</a>
 
-delete a cloudcommunications user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|cloudcommunications user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteOnlineMeetings|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### cloudcommunications user get-online-meeting
-
-get-online-meeting a cloudcommunications user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|cloudcommunications user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-online-meeting|GetOnlineMeetings|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### cloudcommunications user list-online-meeting
-
-list-online-meeting a cloudcommunications user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|cloudcommunications user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-online-meeting|ListOnlineMeetings|
-
-#### Parameters
+##### <a name="ParametersusersListOnlineMeetings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -97,21 +64,19 @@ list-online-meeting a cloudcommunications user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### cloudcommunications user update-online-meeting
+#### <a name="usersGetOnlineMeetings">Command `az cloudcommunications user show-online-meeting`</a>
 
-update-online-meeting a cloudcommunications user.
+##### <a name="ParametersusersGetOnlineMeetings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|cloudcommunications user|users|
+#### <a name="usersUpdateOnlineMeetings">Command `az cloudcommunications user update-online-meeting`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-online-meeting|UpdateOnlineMeetings|
-
-#### Parameters
+##### <a name="ParametersusersUpdateOnlineMeetings">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -127,5 +92,5 @@ update-online-meeting a cloudcommunications user.
 |**--start-date-time**|date-time|The meeting start time in UTC.|start_date_time|startDateTime|
 |**--subject**|string|The subject of the online meeting.|subject|subject|
 |**--video-teleconference-id**|string|The video teleconferencing ID. Read-only.|video_teleconference_id|videoTeleconferenceId|
-|**--participants-attendees**|array||attendees|attendees|
-|**--participants-organizer**|object|meetingParticipantInfo|organizer|organizer|
+|**--attendees**|array||attendees|attendees|
+|**--organizer**|object|meetingParticipantInfo|organizer|organizer|

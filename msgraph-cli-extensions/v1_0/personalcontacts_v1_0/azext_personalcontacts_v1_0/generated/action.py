@@ -41,6 +41,9 @@ class AddBusinessAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter business_address. All possible keys are: '
+                               'city, country-or-region, postal-code, state, street'.format(k))
         return d
 
 
@@ -65,6 +68,9 @@ class AddEmailAddresses(argparse._AppendAction):
                 d['address'] = v[0]
             elif kl == 'name':
                 d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter email_addresses. All possible keys are: '
+                               'address, name'.format(k))
         return d
 
 
@@ -87,6 +93,9 @@ class AddExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d
 
 
@@ -111,6 +120,9 @@ class AddPersonalcontactsUserCreateContactMultiValueExtendedProperties(argparse.
                 d['value'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
@@ -137,6 +149,9 @@ class AddPhoto(argparse.Action):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter photo. All possible keys are: height, '
+                               'width, id'.format(k))
         return d
 
 
@@ -161,6 +176,9 @@ class AddPersonalcontactsUserCreateContactSingleValueExtendedProperties(argparse
                 d['value'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
@@ -185,6 +203,9 @@ class AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties(arg
                 d['value'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
@@ -209,4 +230,7 @@ class AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties(ar
                 d['value'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d

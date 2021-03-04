@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfApplication"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class ApplicationApplicationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -338,10 +339,12 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphApplication"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphApplication(id=id, deleted_date_time=deleted_date_time, add_ins=add_ins, app_id=app_id, application_template_id=application_template_id, app_roles=app_roles, created_date_time=created_date_time, description=description, display_name=display_name, group_membership_claims=group_membership_claims, identifier_uris=identifier_uris, info=info, is_device_only_auth_supported=is_device_only_auth_supported, is_fallback_public_client=is_fallback_public_client, key_credentials=key_credentials, logo=logo, notes=notes, oauth2_require_post_response=oauth2_require_post_response, parental_control_settings=parental_control_settings, password_credentials=password_credentials, public_client=public_client, publisher_domain=publisher_domain, required_resource_access=required_resource_access, sign_in_audience=sign_in_audience, tags=tags, token_encryption_key_id=token_encryption_key_id, created_on_behalf_of=created_on_behalf_of, extension_properties=extension_properties, home_realm_discovery_policies=home_realm_discovery_policies, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, home_page_url=home_page_url, implicit_grant_settings=implicit_grant_settings, logout_url=logout_url, redirect_uris=redirect_uris, access_token=access_token, id_token=id_token, saml2_token=saml2_token, accept_mapped_claims=accept_mapped_claims, known_client_applications=known_client_applications, oauth2_permission_scopes=oauth2_permission_scopes, pre_authorized_applications=pre_authorized_applications, requested_access_token_version=requested_access_token_version)
+        body = models.MicrosoftGraphApplication(id=id, deleted_date_time=deleted_date_time, add_ins=add_ins, app_id=app_id, application_template_id=application_template_id, app_roles=app_roles, created_date_time=created_date_time, description=description, display_name=display_name, group_membership_claims=group_membership_claims, identifier_uris=identifier_uris, info=info, is_device_only_auth_supported=is_device_only_auth_supported, is_fallback_public_client=is_fallback_public_client, key_credentials=key_credentials, logo=logo, notes=notes, oauth2_require_post_response=oauth2_require_post_response, parental_control_settings=parental_control_settings, password_credentials=password_credentials, public_client=public_client, publisher_domain=publisher_domain, required_resource_access=required_resource_access, sign_in_audience=sign_in_audience, tags=tags, token_encryption_key_id=token_encryption_key_id, created_on_behalf_of=created_on_behalf_of, extension_properties=extension_properties, home_realm_discovery_policies=home_realm_discovery_policies, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, home_page_url=home_page_url, implicit_grant_settings=implicit_grant_settings, logout_url=logout_url, redirect_uris=redirect_uris, access_token=access_token, id_token=id_token, saml2_token=saml2_token, accept_mapped_claims=accept_mapped_claims, known_client_applications=known_client_applications, oauth2_permission_scopes=oauth2_permission_scopes, pre_authorized_applications=pre_authorized_applications, requested_access_token_version=requested_access_token_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -355,13 +358,11 @@ class ApplicationApplicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphApplication')
+        body_content = self._serialize.body(body, 'MicrosoftGraphApplication')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -402,7 +403,9 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphApplication"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -423,7 +426,6 @@ class ApplicationApplicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -649,10 +651,12 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphApplication(id=id, deleted_date_time=deleted_date_time, add_ins=add_ins, app_id=app_id, application_template_id=application_template_id, app_roles=app_roles, created_date_time=created_date_time, description=description, display_name=display_name, group_membership_claims=group_membership_claims, identifier_uris=identifier_uris, info=info, is_device_only_auth_supported=is_device_only_auth_supported, is_fallback_public_client=is_fallback_public_client, key_credentials=key_credentials, logo=logo, notes=notes, oauth2_require_post_response=oauth2_require_post_response, parental_control_settings=parental_control_settings, password_credentials=password_credentials, public_client=public_client, publisher_domain=publisher_domain, required_resource_access=required_resource_access, sign_in_audience=sign_in_audience, tags=tags, token_encryption_key_id=token_encryption_key_id, created_on_behalf_of=created_on_behalf_of, extension_properties=extension_properties, home_realm_discovery_policies=home_realm_discovery_policies, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, home_page_url=home_page_url, implicit_grant_settings=implicit_grant_settings, logout_url=logout_url, redirect_uris=redirect_uris, access_token=access_token, id_token=id_token, saml2_token=saml2_token, accept_mapped_claims=accept_mapped_claims, known_client_applications=known_client_applications, oauth2_permission_scopes=oauth2_permission_scopes, pre_authorized_applications=pre_authorized_applications, requested_access_token_version=requested_access_token_version)
+        body = models.MicrosoftGraphApplication(id=id, deleted_date_time=deleted_date_time, add_ins=add_ins, app_id=app_id, application_template_id=application_template_id, app_roles=app_roles, created_date_time=created_date_time, description=description, display_name=display_name, group_membership_claims=group_membership_claims, identifier_uris=identifier_uris, info=info, is_device_only_auth_supported=is_device_only_auth_supported, is_fallback_public_client=is_fallback_public_client, key_credentials=key_credentials, logo=logo, notes=notes, oauth2_require_post_response=oauth2_require_post_response, parental_control_settings=parental_control_settings, password_credentials=password_credentials, public_client=public_client, publisher_domain=publisher_domain, required_resource_access=required_resource_access, sign_in_audience=sign_in_audience, tags=tags, token_encryption_key_id=token_encryption_key_id, created_on_behalf_of=created_on_behalf_of, extension_properties=extension_properties, home_realm_discovery_policies=home_realm_discovery_policies, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, home_page_url=home_page_url, implicit_grant_settings=implicit_grant_settings, logout_url=logout_url, redirect_uris=redirect_uris, access_token=access_token, id_token=id_token, saml2_token=saml2_token, accept_mapped_claims=accept_mapped_claims, known_client_applications=known_client_applications, oauth2_permission_scopes=oauth2_permission_scopes, pre_authorized_applications=pre_authorized_applications, requested_access_token_version=requested_access_token_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -672,10 +676,9 @@ class ApplicationApplicationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphApplication')
+        body_content = self._serialize.body(body, 'MicrosoftGraphApplication')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -710,7 +713,9 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -762,7 +767,9 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[IO]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/octet-stream, application/json"
 
@@ -779,7 +786,6 @@ class ApplicationApplicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/octet-stream, application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
@@ -819,7 +825,9 @@ class ApplicationApplicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/octet-stream")
         accept = "application/json"
@@ -842,7 +850,6 @@ class ApplicationApplicationOperations(object):
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content_kwargs['stream_content'] = data
         request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

@@ -67,26 +67,6 @@ def people_user_create_person(client,
                                 yomi_company=yomi_company)
 
 
-def people_user_get_insight(client,
-                            user_id,
-                            select=None,
-                            expand=None):
-    return client.get_insight(user_id=user_id,
-                              select=select,
-                              expand=expand)
-
-
-def people_user_get_person(client,
-                           user_id,
-                           person_id,
-                           select=None,
-                           expand=None):
-    return client.get_person(user_id=user_id,
-                             person_id=person_id,
-                             select=select,
-                             expand=expand)
-
-
 def people_user_list_person(client,
                             user_id,
                             orderby=None,
@@ -96,6 +76,26 @@ def people_user_list_person(client,
                               orderby=orderby,
                               select=select,
                               expand=expand)
+
+
+def people_user_show_insight(client,
+                             user_id,
+                             select=None,
+                             expand=None):
+    return client.get_insight(user_id=user_id,
+                              select=select,
+                              expand=expand)
+
+
+def people_user_show_person(client,
+                            user_id,
+                            person_id,
+                            select=None,
+                            expand=None):
+    return client.get_person(user_id=user_id,
+                             person_id=person_id,
+                             select=select,
+                             expand=expand)
 
 
 def people_user_update_insight(client,
@@ -183,25 +183,25 @@ def people_user_insight_create_shared(client,
                                       resource_reference=None,
                                       resource_visualization=None,
                                       sharing_history=None,
-                                      resource_id=None,
-                                      last_shared_method_id=None,
-                                      last_shared_shared_by=None,
-                                      last_shared_shared_date_time=None,
-                                      last_shared_sharing_reference=None,
-                                      last_shared_sharing_subject=None,
-                                      last_shared_sharing_type=None):
+                                      microsoft_graph_entity_id=None,
+                                      id1=None,
+                                      shared_by=None,
+                                      shared_date_time=None,
+                                      sharing_reference=None,
+                                      sharing_subject=None,
+                                      sharing_type=None):
     return client.create_shared(user_id=user_id,
                                 id=id_,
                                 resource_reference=resource_reference,
                                 resource_visualization=resource_visualization,
                                 sharing_history=sharing_history,
-                                microsoft_graph_entity_id=resource_id,
-                                id1=last_shared_method_id,
-                                shared_by=last_shared_shared_by,
-                                shared_date_time=last_shared_shared_date_time,
-                                sharing_reference=last_shared_sharing_reference,
-                                sharing_subject=last_shared_sharing_subject,
-                                sharing_type=last_shared_sharing_type)
+                                microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                id1=id1,
+                                shared_by=shared_by,
+                                shared_date_time=shared_date_time,
+                                sharing_reference=sharing_reference,
+                                sharing_subject=sharing_subject,
+                                sharing_type=sharing_type)
 
 
 def people_user_insight_create_trending(client,
@@ -211,14 +211,14 @@ def people_user_insight_create_trending(client,
                                         resource_reference=None,
                                         resource_visualization=None,
                                         weight=None,
-                                        resource_id=None):
+                                        microsoft_graph_entity_id=None):
     return client.create_trending(user_id=user_id,
                                   id=id_,
                                   last_modified_date_time=last_modified_date_time,
                                   resource_reference=resource_reference,
                                   resource_visualization=resource_visualization,
                                   weight=weight,
-                                  microsoft_graph_entity_id=resource_id)
+                                  microsoft_graph_entity_id=microsoft_graph_entity_id)
 
 
 def people_user_insight_create_used(client,
@@ -227,46 +227,13 @@ def people_user_insight_create_used(client,
                                     last_used=None,
                                     resource_reference=None,
                                     resource_visualization=None,
-                                    resource_id=None):
+                                    microsoft_graph_entity_id=None):
     return client.create_used(user_id=user_id,
                               id=id_,
                               last_used=last_used,
                               resource_reference=resource_reference,
                               resource_visualization=resource_visualization,
-                              microsoft_graph_entity_id=resource_id)
-
-
-def people_user_insight_get_shared(client,
-                                   user_id,
-                                   shared_insight_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_shared(user_id=user_id,
-                             shared_insight_id=shared_insight_id,
-                             select=select,
-                             expand=expand)
-
-
-def people_user_insight_get_trending(client,
-                                     user_id,
-                                     trending_id,
-                                     select=None,
-                                     expand=None):
-    return client.get_trending(user_id=user_id,
-                               trending_id=trending_id,
-                               select=select,
-                               expand=expand)
-
-
-def people_user_insight_get_used(client,
-                                 user_id,
-                                 used_insight_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_used(user_id=user_id,
-                           used_insight_id=used_insight_id,
-                           select=select,
-                           expand=expand)
+                              microsoft_graph_entity_id=microsoft_graph_entity_id)
 
 
 def people_user_insight_list_shared(client,
@@ -302,6 +269,39 @@ def people_user_insight_list_used(client,
                             expand=expand)
 
 
+def people_user_insight_show_shared(client,
+                                    user_id,
+                                    shared_insight_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_shared(user_id=user_id,
+                             shared_insight_id=shared_insight_id,
+                             select=select,
+                             expand=expand)
+
+
+def people_user_insight_show_trending(client,
+                                      user_id,
+                                      trending_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_trending(user_id=user_id,
+                               trending_id=trending_id,
+                               select=select,
+                               expand=expand)
+
+
+def people_user_insight_show_used(client,
+                                  user_id,
+                                  used_insight_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_used(user_id=user_id,
+                           used_insight_id=used_insight_id,
+                           select=select,
+                           expand=expand)
+
+
 def people_user_insight_update_shared(client,
                                       user_id,
                                       shared_insight_id,
@@ -309,26 +309,26 @@ def people_user_insight_update_shared(client,
                                       resource_reference=None,
                                       resource_visualization=None,
                                       sharing_history=None,
-                                      resource_id=None,
-                                      last_shared_method_id=None,
-                                      last_shared_shared_by=None,
-                                      last_shared_shared_date_time=None,
-                                      last_shared_sharing_reference=None,
-                                      last_shared_sharing_subject=None,
-                                      last_shared_sharing_type=None):
+                                      microsoft_graph_entity_id=None,
+                                      id1=None,
+                                      shared_by=None,
+                                      shared_date_time=None,
+                                      sharing_reference=None,
+                                      sharing_subject=None,
+                                      sharing_type=None):
     return client.update_shared(user_id=user_id,
                                 shared_insight_id=shared_insight_id,
                                 id=id_,
                                 resource_reference=resource_reference,
                                 resource_visualization=resource_visualization,
                                 sharing_history=sharing_history,
-                                microsoft_graph_entity_id=resource_id,
-                                id1=last_shared_method_id,
-                                shared_by=last_shared_shared_by,
-                                shared_date_time=last_shared_shared_date_time,
-                                sharing_reference=last_shared_sharing_reference,
-                                sharing_subject=last_shared_sharing_subject,
-                                sharing_type=last_shared_sharing_type)
+                                microsoft_graph_entity_id=microsoft_graph_entity_id,
+                                id1=id1,
+                                shared_by=shared_by,
+                                shared_date_time=shared_date_time,
+                                sharing_reference=sharing_reference,
+                                sharing_subject=sharing_subject,
+                                sharing_type=sharing_type)
 
 
 def people_user_insight_update_trending(client,
@@ -339,7 +339,7 @@ def people_user_insight_update_trending(client,
                                         resource_reference=None,
                                         resource_visualization=None,
                                         weight=None,
-                                        resource_id=None):
+                                        microsoft_graph_entity_id=None):
     return client.update_trending(user_id=user_id,
                                   trending_id=trending_id,
                                   id=id_,
@@ -347,7 +347,7 @@ def people_user_insight_update_trending(client,
                                   resource_reference=resource_reference,
                                   resource_visualization=resource_visualization,
                                   weight=weight,
-                                  microsoft_graph_entity_id=resource_id)
+                                  microsoft_graph_entity_id=microsoft_graph_entity_id)
 
 
 def people_user_insight_update_used(client,
@@ -357,14 +357,14 @@ def people_user_insight_update_used(client,
                                     last_used=None,
                                     resource_reference=None,
                                     resource_visualization=None,
-                                    resource_id=None):
+                                    microsoft_graph_entity_id=None):
     return client.update_used(user_id=user_id,
                               used_insight_id=used_insight_id,
                               id=id_,
                               last_used=last_used,
                               resource_reference=resource_reference,
                               resource_visualization=resource_visualization,
-                              microsoft_graph_entity_id=resource_id)
+                              microsoft_graph_entity_id=microsoft_graph_entity_id)
 
 
 def people_user_insight_shared_delete(client,
@@ -378,42 +378,6 @@ def people_user_insight_shared_delete(client,
     return client.delete_ref_resource(user_id=user_id,
                                       shared_insight_id=shared_insight_id,
                                       if_match=if_match)
-
-
-def people_user_insight_shared_get_last_shared_method(client,
-                                                      user_id,
-                                                      shared_insight_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_last_shared_method(user_id=user_id,
-                                         shared_insight_id=shared_insight_id,
-                                         select=select,
-                                         expand=expand)
-
-
-def people_user_insight_shared_get_ref_last_shared_method(client,
-                                                          user_id,
-                                                          shared_insight_id):
-    return client.get_ref_last_shared_method(user_id=user_id,
-                                             shared_insight_id=shared_insight_id)
-
-
-def people_user_insight_shared_get_ref_resource(client,
-                                                user_id,
-                                                shared_insight_id):
-    return client.get_ref_resource(user_id=user_id,
-                                   shared_insight_id=shared_insight_id)
-
-
-def people_user_insight_shared_get_resource(client,
-                                            user_id,
-                                            shared_insight_id,
-                                            select=None,
-                                            expand=None):
-    return client.get_resource(user_id=user_id,
-                               shared_insight_id=shared_insight_id,
-                               select=select,
-                               expand=expand)
 
 
 def people_user_insight_shared_set_ref_last_shared_method(client,
@@ -434,6 +398,42 @@ def people_user_insight_shared_set_ref_resource(client,
                                    body=body)
 
 
+def people_user_insight_shared_show_last_shared_method(client,
+                                                       user_id,
+                                                       shared_insight_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_last_shared_method(user_id=user_id,
+                                         shared_insight_id=shared_insight_id,
+                                         select=select,
+                                         expand=expand)
+
+
+def people_user_insight_shared_show_ref_last_shared_method(client,
+                                                           user_id,
+                                                           shared_insight_id):
+    return client.get_ref_last_shared_method(user_id=user_id,
+                                             shared_insight_id=shared_insight_id)
+
+
+def people_user_insight_shared_show_ref_resource(client,
+                                                 user_id,
+                                                 shared_insight_id):
+    return client.get_ref_resource(user_id=user_id,
+                                   shared_insight_id=shared_insight_id)
+
+
+def people_user_insight_shared_show_resource(client,
+                                             user_id,
+                                             shared_insight_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_resource(user_id=user_id,
+                               shared_insight_id=shared_insight_id,
+                               select=select,
+                               expand=expand)
+
+
 def people_user_insight_trending_delete(client,
                                         user_id,
                                         trending_id,
@@ -441,24 +441,6 @@ def people_user_insight_trending_delete(client,
     return client.delete_ref_resource(user_id=user_id,
                                       trending_id=trending_id,
                                       if_match=if_match)
-
-
-def people_user_insight_trending_get_ref_resource(client,
-                                                  user_id,
-                                                  trending_id):
-    return client.get_ref_resource(user_id=user_id,
-                                   trending_id=trending_id)
-
-
-def people_user_insight_trending_get_resource(client,
-                                              user_id,
-                                              trending_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_resource(user_id=user_id,
-                               trending_id=trending_id,
-                               select=select,
-                               expand=expand)
 
 
 def people_user_insight_trending_set_ref_resource(client,
@@ -470,6 +452,24 @@ def people_user_insight_trending_set_ref_resource(client,
                                    body=body)
 
 
+def people_user_insight_trending_show_ref_resource(client,
+                                                   user_id,
+                                                   trending_id):
+    return client.get_ref_resource(user_id=user_id,
+                                   trending_id=trending_id)
+
+
+def people_user_insight_trending_show_resource(client,
+                                               user_id,
+                                               trending_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_resource(user_id=user_id,
+                               trending_id=trending_id,
+                               select=select,
+                               expand=expand)
+
+
 def people_user_insight_used_delete(client,
                                     user_id,
                                     used_insight_id,
@@ -479,24 +479,6 @@ def people_user_insight_used_delete(client,
                                       if_match=if_match)
 
 
-def people_user_insight_used_get_ref_resource(client,
-                                              user_id,
-                                              used_insight_id):
-    return client.get_ref_resource(user_id=user_id,
-                                   used_insight_id=used_insight_id)
-
-
-def people_user_insight_used_get_resource(client,
-                                          user_id,
-                                          used_insight_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_resource(user_id=user_id,
-                               used_insight_id=used_insight_id,
-                               select=select,
-                               expand=expand)
-
-
 def people_user_insight_used_set_ref_resource(client,
                                               user_id,
                                               used_insight_id,
@@ -504,3 +486,21 @@ def people_user_insight_used_set_ref_resource(client,
     return client.set_ref_resource(user_id=user_id,
                                    used_insight_id=used_insight_id,
                                    body=body)
+
+
+def people_user_insight_used_show_ref_resource(client,
+                                               user_id,
+                                               used_insight_id):
+    return client.get_ref_resource(user_id=user_id,
+                                   used_insight_id=used_insight_id)
+
+
+def people_user_insight_used_show_resource(client,
+                                           user_id,
+                                           used_insight_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_resource(user_id=user_id,
+                               used_insight_id=used_insight_id,
+                               select=select,
+                               expand=expand)

@@ -677,19 +677,9 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
     :type app_id: str
     :param sign_in_count:
     :type sign_in_count: long
-    :param additional_details: Provides additional details on the sign-in activity.
-    :type additional_details: str
-    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-     Check out the list of error codes and messages.
-    :type error_code: int
-    :param failure_reason: Provides the error message or the reason for failure for the
-     corresponding sign-in activity. Check out the list of error codes and messages.
-    :type failure_reason: str
+    :param status: signInStatus.
+    :type status: ~devices_cloud_print.models.MicrosoftGraphSignInStatus
     """
-
-    _validation = {
-        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
@@ -698,9 +688,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'additional_details': {'key': 'status.additionalDetails', 'type': 'str'},
-        'error_code': {'key': 'status.errorCode', 'type': 'int'},
-        'failure_reason': {'key': 'status.failureReason', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
     }
 
     def __init__(
@@ -713,9 +701,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         self.app_display_name = kwargs.get('app_display_name', None)
         self.app_id = kwargs.get('app_id', None)
         self.sign_in_count = kwargs.get('sign_in_count', None)
-        self.additional_details = kwargs.get('additional_details', None)
-        self.error_code = kwargs.get('error_code', None)
-        self.failure_reason = kwargs.get('failure_reason', None)
+        self.status = kwargs.get('status', None)
 
 
 class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
@@ -1482,9 +1468,6 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
 class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     """printer.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param defaults: printerDefaults.
@@ -1617,7 +1600,6 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1684,7 +1666,6 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
         **kwargs
     ):
         super(MicrosoftGraphPrinter, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.accepting_jobs = kwargs.get('accepting_jobs', None)
         self.is_shared = kwargs.get('is_shared', None)
@@ -2218,9 +2199,6 @@ class MicrosoftGraphPrinterLocation(msrest.serialization.Model):
 class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     """printerShare.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param defaults: printerDefaults.
@@ -2345,7 +2323,6 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -2408,7 +2385,6 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
         **kwargs
     ):
         super(MicrosoftGraphPrinterShare, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.allow_all_users = kwargs.get('allow_all_users', None)
         self.created_date_time = kwargs.get('created_date_time', None)
@@ -2816,19 +2792,15 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
-    :param description:
-    :type description: str
-    :param state:  Possible values include: "notStarted", "running", "succeeded", "failed",
-     "unknownFutureValue".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintOperationProcessingState
+    :param status: printOperationStatus.
+    :type status: ~devices_cloud_print.models.MicrosoftGraphPrintOperationStatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'description': {'key': 'status.description', 'type': 'str'},
-        'state': {'key': 'status.state', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphPrintOperationStatus'},
     }
 
     def __init__(
@@ -2838,8 +2810,7 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
         super(MicrosoftGraphPrintOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.created_date_time = kwargs.get('created_date_time', None)
-        self.description = kwargs.get('description', None)
-        self.state = kwargs.get('state', None)
+        self.status = kwargs.get('status', None)
 
 
 class MicrosoftGraphPrintOperationStatus(msrest.serialization.Model):

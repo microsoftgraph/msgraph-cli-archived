@@ -11,7 +11,7 @@
 
 def cf_people_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.people import People
+    from azext_people_v1_0.vendored_sdks.people import People
     return get_mgmt_service_client(cli_ctx,
                                    People,
                                    subscription_bound=False,

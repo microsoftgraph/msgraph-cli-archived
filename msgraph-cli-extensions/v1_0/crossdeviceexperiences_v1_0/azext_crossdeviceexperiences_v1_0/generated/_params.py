@@ -12,7 +12,7 @@
 
 from msgraph.cli.core.commands.parameters import get_enum_type
 from msgraph.cli.core.commands.validators import validate_file_or_dict
-from azext_crossdeviceexperiences_v1_0.action import AddVisualElementsAttribution
+from azext_crossdeviceexperiences_v1_0.action import AddAttribution
 
 
 def load_arguments(self, _):
@@ -57,29 +57,29 @@ def load_arguments(self, _):
                    'to support cross-platform representation.')
         c.argument('history_items', type=validate_file_or_dict, help='Optional. NavigationProperty/Containment; '
                    'navigation property to the activity\'s historyItems. Expected value: json-string/@json-file.')
-        c.argument('visual_elements_attribution', action=AddVisualElementsAttribution, nargs='*', help='imageInfo')
-        c.argument('visual_elements_background_color', type=str, help='Optional. Background color used to render the '
-                   'activity in the UI - brand color for the application source of the activity. Must be a valid hex '
-                   'color')
-        c.argument('visual_elements_content', type=validate_file_or_dict, help='Json Expected value: '
-                   'json-string/@json-file.')
-        c.argument('visual_elements_description', type=str, help='Optional. Longer text description of the user\'s '
-                   'unique activity (example: document name, first sentence, and/or metadata)')
-        c.argument('visual_elements_display_text', type=str, help='Required. Short text description of the user\'s '
-                   'unique activity (for example, document name in cases where an activity refers to document '
-                   'creation)')
-
-    with self.argument_context('crossdeviceexperiences user get-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('attribution', action=AddAttribution, nargs='+', help='imageInfo', arg_group='Visual Elements')
+        c.argument('background_color', type=str, help='Optional. Background color used to render the activity in the '
+                   'UI - brand color for the application source of the activity. Must be a valid hex color',
+                   arg_group='Visual Elements')
+        c.argument('content', type=validate_file_or_dict, help='Json Expected value: json-string/@json-file.',
+                   arg_group='Visual Elements')
+        c.argument('description', type=str, help='Optional. Longer text description of the user\'s unique activity '
+                   '(example: document name, first sentence, and/or metadata)', arg_group='Visual Elements')
+        c.argument('display_text', type=str, help='Required. Short text description of the user\'s unique activity '
+                   '(for example, document name in cases where an activity refers to document creation)',
+                   arg_group='Visual Elements')
 
     with self.argument_context('crossdeviceexperiences user list-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user show-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('crossdeviceexperiences user update-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -117,17 +117,17 @@ def load_arguments(self, _):
                    'to support cross-platform representation.')
         c.argument('history_items', type=validate_file_or_dict, help='Optional. NavigationProperty/Containment; '
                    'navigation property to the activity\'s historyItems. Expected value: json-string/@json-file.')
-        c.argument('visual_elements_attribution', action=AddVisualElementsAttribution, nargs='*', help='imageInfo')
-        c.argument('visual_elements_background_color', type=str, help='Optional. Background color used to render the '
-                   'activity in the UI - brand color for the application source of the activity. Must be a valid hex '
-                   'color')
-        c.argument('visual_elements_content', type=validate_file_or_dict, help='Json Expected value: '
-                   'json-string/@json-file.')
-        c.argument('visual_elements_description', type=str, help='Optional. Longer text description of the user\'s '
-                   'unique activity (example: document name, first sentence, and/or metadata)')
-        c.argument('visual_elements_display_text', type=str, help='Required. Short text description of the user\'s '
-                   'unique activity (for example, document name in cases where an activity refers to document '
-                   'creation)')
+        c.argument('attribution', action=AddAttribution, nargs='+', help='imageInfo', arg_group='Visual Elements')
+        c.argument('background_color', type=str, help='Optional. Background color used to render the activity in the '
+                   'UI - brand color for the application source of the activity. Must be a valid hex color',
+                   arg_group='Visual Elements')
+        c.argument('content', type=validate_file_or_dict, help='Json Expected value: json-string/@json-file.',
+                   arg_group='Visual Elements')
+        c.argument('description', type=str, help='Optional. Longer text description of the user\'s unique activity '
+                   '(example: document name, first sentence, and/or metadata)', arg_group='Visual Elements')
+        c.argument('display_text', type=str, help='Required. Short text description of the user\'s unique activity '
+                   '(for example, document name in cases where an activity refers to document creation)',
+                   arg_group='Visual Elements')
 
     with self.argument_context('crossdeviceexperiences user-activity delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -159,19 +159,19 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences user-activity get-history-item') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('crossdeviceexperiences user-activity list-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user-activity show-history-item') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('crossdeviceexperiences user-activity update-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -204,21 +204,21 @@ def load_arguments(self, _):
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences user-activity-history-item get-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('crossdeviceexperiences user-activity-history-item get-ref-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-
     with self.argument_context('crossdeviceexperiences user-activity-history-item set-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('crossdeviceexperiences user-activity-history-item show-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user-activity-history-item show-ref-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')

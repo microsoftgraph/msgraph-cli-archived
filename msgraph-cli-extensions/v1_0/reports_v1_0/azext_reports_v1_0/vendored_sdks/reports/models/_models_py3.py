@@ -800,9 +800,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param app_display_name: App name displayed in the Azure Portal.
@@ -886,7 +883,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
@@ -921,7 +917,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
@@ -954,7 +949,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         **kwargs
     ):
         super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, resource_display_name=resource_display_name, resource_id=resource_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, status=status, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.target_tenant_id = target_tenant_id
 

@@ -39,13 +39,16 @@ class AddTerm(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'start-date':
                 d['start_date'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter term. All possible keys are: '
+                               'display-name, end-date, external-id, start-date'.format(k))
         return d
 
 
-class AddCreatedByApplication(argparse.Action):
+class AddApplication(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.created_by_application = action
+        namespace.application = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -63,6 +66,9 @@ class AddCreatedByApplication(argparse.Action):
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter application. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -93,6 +99,9 @@ class AddMailingAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, state, street'.format(k))
         return d
 
 
@@ -117,6 +126,9 @@ class AddAssignedLicenses(argparse._AppendAction):
                 d['disabled_plans'] = v
             elif kl == 'sku-id':
                 d['sku_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_licenses. All possible keys are: '
+                               'disabled-plans, sku-id'.format(k))
         return d
 
 
@@ -145,6 +157,9 @@ class AddAssignedPlans(argparse._AppendAction):
                 d['service'] = v[0]
             elif kl == 'service-plan-id':
                 d['service_plan_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter assigned_plans. All possible keys are: '
+                               'assigned-date-time, capability-status, service, service-plan-id'.format(k))
         return d
 
 
@@ -171,6 +186,10 @@ class AddPasswordProfile(argparse.Action):
                 d['force_change_password_next_sign_in_with_mfa'] = v[0]
             elif kl == 'password':
                 d['password'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_profile. All possible keys are: '
+                               'force-change-password-next-sign-in, force-change-password-next-sign-in-with-mfa, '
+                               'password'.format(k))
         return d
 
 
@@ -197,6 +216,9 @@ class AddProvisionedPlans(argparse._AppendAction):
                 d['provisioning_status'] = v[0]
             elif kl == 'service':
                 d['service'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter provisioned_plans. All possible keys are: '
+                               'capability-status, provisioning-status, service'.format(k))
         return d
 
 
@@ -229,6 +251,9 @@ class AddStudent(argparse.Action):
                 d['graduation_year'] = v[0]
             elif kl == 'student-number':
                 d['student_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter student. All possible keys are: '
+                               'birth-date, external-id, gender, grade, graduation-year, student-number'.format(k))
         return d
 
 
@@ -253,4 +278,7 @@ class AddTeacher(argparse.Action):
                 d['external_id'] = v[0]
             elif kl == 'teacher-number':
                 d['teacher_number'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter teacher. All possible keys are: '
+                               'external-id, teacher-number'.format(k))
         return d

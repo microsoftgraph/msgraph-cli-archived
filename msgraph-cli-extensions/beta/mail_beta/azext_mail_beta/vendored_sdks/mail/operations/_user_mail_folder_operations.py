@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -76,7 +76,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMailFolder0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -84,7 +86,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -207,10 +208,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMailFolder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMailFolder(id=id, child_folder_count=child_folder_count, display_name=display_name, parent_folder_id=parent_folder_id, total_item_count=total_item_count, unread_item_count=unread_item_count, well_known_name=well_known_name, child_folders=child_folders, message_rules=message_rules, messages=messages, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, user_configurations=user_configurations)
+        body = models.MicrosoftGraphMailFolder(id=id, child_folder_count=child_folder_count, display_name=display_name, parent_folder_id=parent_folder_id, total_item_count=total_item_count, unread_item_count=unread_item_count, well_known_name=well_known_name, child_folders=child_folders, message_rules=message_rules, messages=messages, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, user_configurations=user_configurations)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -229,13 +232,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMailFolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMailFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -282,7 +283,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMailFolder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -305,7 +308,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -389,10 +391,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMailFolder(id=id, child_folder_count=child_folder_count, display_name=display_name, parent_folder_id=parent_folder_id, total_item_count=total_item_count, unread_item_count=unread_item_count, well_known_name=well_known_name, child_folders=child_folders, message_rules=message_rules, messages=messages, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, user_configurations=user_configurations)
+        body = models.MicrosoftGraphMailFolder(id=id, child_folder_count=child_folder_count, display_name=display_name, parent_folder_id=parent_folder_id, total_item_count=total_item_count, unread_item_count=unread_item_count, well_known_name=well_known_name, child_folders=child_folders, message_rules=message_rules, messages=messages, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, user_configurations=user_configurations)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -414,10 +418,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMailFolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMailFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -458,7 +461,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -524,7 +529,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMessageRule"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -532,7 +539,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -910,10 +916,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessageRule"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
+        body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -932,13 +940,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMessageRule')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessageRule')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -985,7 +991,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessageRule"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1008,7 +1016,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1347,10 +1354,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
+        body = models.MicrosoftGraphMessageRule(id=id, display_name=display_name, has_error=has_error, is_enabled=is_enabled, is_read_only=is_read_only, sequence=sequence, body_contains_exceptions_body_contains=body_contains, body_or_subject_contains_exceptions_body_or_subject_contains=body_or_subject_contains, categories_exceptions_categories=categories, from_addresses_exceptions_from_addresses=from_addresses, has_attachments_exceptions_has_attachments=has_attachments, header_contains_exceptions_header_contains=header_contains, importance_exceptions_importance=importance, is_approval_request_exceptions_is_approval_request=is_approval_request, is_automatic_forward_exceptions_is_automatic_forward=is_automatic_forward, is_automatic_reply_exceptions_is_automatic_reply=is_automatic_reply, is_encrypted_exceptions_is_encrypted=is_encrypted, is_meeting_request_exceptions_is_meeting_request=is_meeting_request, is_meeting_response_exceptions_is_meeting_response=is_meeting_response, is_non_delivery_report_exceptions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_exceptions_is_permission_controlled=is_permission_controlled, is_read_receipt_exceptions_is_read_receipt=is_read_receipt, is_signed_exceptions_is_signed=is_signed, is_voicemail_exceptions_is_voicemail=is_voicemail, message_action_flag_exceptions_message_action_flag=message_action_flag, not_sent_to_me_exceptions_not_sent_to_me=not_sent_to_me, recipient_contains_exceptions_recipient_contains=recipient_contains, sender_contains_exceptions_sender_contains=sender_contains, sensitivity_exceptions_sensitivity=sensitivity, sent_cc_me_exceptions_sent_cc_me=sent_cc_me, sent_only_to_me_exceptions_sent_only_to_me=sent_only_to_me, sent_to_addresses_exceptions_sent_to_addresses=sent_to_addresses, sent_to_me_exceptions_sent_to_me=sent_to_me, sent_to_or_cc_me_exceptions_sent_to_or_cc_me=sent_to_or_cc_me, subject_contains_exceptions_subject_contains=subject_contains, within_size_range_exceptions_within_size_range=within_size_range, body_contains_conditions_body_contains=microsoft_graph_message_rule_predicates_body_contains, body_or_subject_contains_conditions_body_or_subject_contains=microsoft_graph_message_rule_predicates_body_or_subject_contains_body_or_subject_contains, categories_conditions_categories=microsoft_graph_message_rule_predicates_categories, from_addresses_conditions_from_addresses=microsoft_graph_message_rule_predicates_from_addresses, has_attachments_conditions_has_attachments=boolean_has_attachments, header_contains_conditions_header_contains=microsoft_graph_message_rule_predicates_header_contains, importance_conditions_importance=microsoft_graph_importance, is_approval_request_conditions_is_approval_request=is_approval_request, is_automatic_forward_conditions_is_automatic_forward=is_automatic_forward, is_automatic_reply_conditions_is_automatic_reply=is_automatic_reply, is_encrypted_conditions_is_encrypted=is_encrypted, is_meeting_request_conditions_is_meeting_request=is_meeting_request, is_meeting_response_conditions_is_meeting_response=is_meeting_response, is_non_delivery_report_conditions_is_non_delivery_report=is_non_delivery_report, is_permission_controlled_conditions_is_permission_controlled=is_permission_controlled, is_read_receipt_conditions_is_read_receipt=is_read_receipt, is_signed_conditions_is_signed=is_signed, is_voicemail_conditions_is_voicemail=is_voicemail, message_action_flag_conditions_message_action_flag=microsoft_graph_message_action_flag_message_action_flag, not_sent_to_me_conditions_not_sent_to_me=boolean_not_sent_to_me, recipient_contains_conditions_recipient_contains=microsoft_graph_message_rule_predicates_recipient_contains, sender_contains_conditions_sender_contains=microsoft_graph_message_rule_predicates_sender_contains, sensitivity_conditions_sensitivity=microsoft_graph_sensitivity, sent_cc_me_conditions_sent_cc_me=boolean_sent_cc_me, sent_only_to_me_conditions_sent_only_to_me=boolean_sent_only_to_me, sent_to_addresses_conditions_sent_to_addresses=microsoft_graph_message_rule_predicates_sent_to_addresses_sent_to_addresses, sent_to_me_conditions_sent_to_me=boolean_sent_to_me, sent_to_or_cc_me_conditions_sent_to_or_cc_me=boolean_sent_to_or_cc_me, subject_contains_conditions_subject_contains=microsoft_graph_message_rule_predicates_subject_contains, within_size_range_conditions_within_size_range=microsoft_graph_size_range_within_size_range, assign_categories=assign_categories, copy_to_folder=copy_to_folder, delete=delete, forward_as_attachment_to=forward_as_attachment_to, forward_to=forward_to, mark_as_read=mark_as_read, mark_importance=mark_importance, move_to_folder=move_to_folder, permanent_delete=permanent_delete, redirect_to=redirect_to, stop_processing_rules=stop_processing_rules)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1372,10 +1381,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMessageRule')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessageRule')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1416,7 +1424,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1482,7 +1492,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMessage"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1490,7 +1502,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1590,11 +1601,9 @@ class UserMailFolderOperations(object):
         mentions=None,  # type: Optional[List["models.MicrosoftGraphMention"]]
         multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
         single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
-        address=None,  # type: Optional[str]
-        name=None,  # type: Optional[str]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         is_mentioned=None,  # type: Optional[bool]
-        microsoft_graph_email_address=None,  # type: Optional[str]
-        microsoft_graph_email_address_name=None,  # type: Optional[str]
+        microsoft_graph_email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         completed_date_time=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
         due_date_time=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
         flag_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphFollowupFlagStatus"]]
@@ -1703,16 +1712,12 @@ class UserMailFolderOperations(object):
         :param single_value_extended_properties: The collection of single-value extended properties
          defined for the message. Nullable.
         :type single_value_extended_properties: list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-        :param address: The email address of the person or entity.
-        :type address: str
-        :param name: The display name of the person or entity.
-        :type name: str
+        :param email_address: emailAddress.
+        :type email_address: ~mail.models.MicrosoftGraphEmailAddress
         :param is_mentioned:
         :type is_mentioned: bool
-        :param microsoft_graph_email_address: The email address of the person or entity.
-        :type microsoft_graph_email_address: str
-        :param microsoft_graph_email_address_name: The display name of the person or entity.
-        :type microsoft_graph_email_address_name: str
+        :param microsoft_graph_email_address: emailAddress.
+        :type microsoft_graph_email_address: ~mail.models.MicrosoftGraphEmailAddress
         :param completed_date_time: dateTimeTimeZone.
         :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
         :param due_date_time: dateTimeTimeZone.
@@ -1727,10 +1732,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessage"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMessage(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, bcc_recipients=bcc_recipients, body=body, body_preview=body_preview, cc_recipients=cc_recipients, conversation_id=conversation_id, conversation_index=conversation_index, has_attachments=has_attachments, importance=importance, inference_classification=inference_classification, internet_message_headers=internet_message_headers, internet_message_id=internet_message_id, is_delivery_receipt_requested=is_delivery_receipt_requested, is_draft=is_draft, is_read=is_read, is_read_receipt_requested=is_read_receipt_requested, parent_folder_id=parent_folder_id, received_date_time=received_date_time, reply_to=reply_to, sent_date_time=sent_date_time, subject=subject, to_recipients=to_recipients, unique_body=unique_body, unsubscribe_data=unsubscribe_data, unsubscribe_enabled=unsubscribe_enabled, web_link=web_link, attachments=attachments, extensions=extensions, mentions=mentions, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, address_sender_email_address=address, name_sender_email_address_name=name, is_mentioned=is_mentioned, address_from_email_address=microsoft_graph_email_address, name_from_email_address_name=microsoft_graph_email_address_name, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
+        body = models.MicrosoftGraphMessage(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, bcc_recipients=bcc_recipients, body=body, body_preview=body_preview, cc_recipients=cc_recipients, conversation_id=conversation_id, conversation_index=conversation_index, has_attachments=has_attachments, importance=importance, inference_classification=inference_classification, internet_message_headers=internet_message_headers, internet_message_id=internet_message_id, is_delivery_receipt_requested=is_delivery_receipt_requested, is_draft=is_draft, is_read=is_read, is_read_receipt_requested=is_read_receipt_requested, parent_folder_id=parent_folder_id, received_date_time=received_date_time, reply_to=reply_to, sent_date_time=sent_date_time, subject=subject, to_recipients=to_recipients, unique_body=unique_body, unsubscribe_data=unsubscribe_data, unsubscribe_enabled=unsubscribe_enabled, web_link=web_link, attachments=attachments, extensions=extensions, mentions=mentions, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, email_address_sender_email_address=email_address, is_mentioned=is_mentioned, email_address_from_email_address=microsoft_graph_email_address, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1749,13 +1756,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMessage')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessage')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1802,7 +1807,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMessage"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1825,7 +1832,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1884,11 +1890,9 @@ class UserMailFolderOperations(object):
         mentions=None,  # type: Optional[List["models.MicrosoftGraphMention"]]
         multi_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]]
         single_value_extended_properties=None,  # type: Optional[List["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]]
-        address=None,  # type: Optional[str]
-        name=None,  # type: Optional[str]
+        email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         is_mentioned=None,  # type: Optional[bool]
-        microsoft_graph_email_address=None,  # type: Optional[str]
-        microsoft_graph_email_address_name=None,  # type: Optional[str]
+        microsoft_graph_email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         completed_date_time=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
         due_date_time=None,  # type: Optional["models.MicrosoftGraphDateTimeZone"]
         flag_status=None,  # type: Optional[Union[str, "models.MicrosoftGraphFollowupFlagStatus"]]
@@ -1999,16 +2003,12 @@ class UserMailFolderOperations(object):
         :param single_value_extended_properties: The collection of single-value extended properties
          defined for the message. Nullable.
         :type single_value_extended_properties: list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-        :param address: The email address of the person or entity.
-        :type address: str
-        :param name: The display name of the person or entity.
-        :type name: str
+        :param email_address: emailAddress.
+        :type email_address: ~mail.models.MicrosoftGraphEmailAddress
         :param is_mentioned:
         :type is_mentioned: bool
-        :param microsoft_graph_email_address: The email address of the person or entity.
-        :type microsoft_graph_email_address: str
-        :param microsoft_graph_email_address_name: The display name of the person or entity.
-        :type microsoft_graph_email_address_name: str
+        :param microsoft_graph_email_address: emailAddress.
+        :type microsoft_graph_email_address: ~mail.models.MicrosoftGraphEmailAddress
         :param completed_date_time: dateTimeTimeZone.
         :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
         :param due_date_time: dateTimeTimeZone.
@@ -2023,10 +2023,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMessage(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, bcc_recipients=bcc_recipients, body=body, body_preview=body_preview, cc_recipients=cc_recipients, conversation_id=conversation_id, conversation_index=conversation_index, has_attachments=has_attachments, importance=importance, inference_classification=inference_classification, internet_message_headers=internet_message_headers, internet_message_id=internet_message_id, is_delivery_receipt_requested=is_delivery_receipt_requested, is_draft=is_draft, is_read=is_read, is_read_receipt_requested=is_read_receipt_requested, parent_folder_id=parent_folder_id, received_date_time=received_date_time, reply_to=reply_to, sent_date_time=sent_date_time, subject=subject, to_recipients=to_recipients, unique_body=unique_body, unsubscribe_data=unsubscribe_data, unsubscribe_enabled=unsubscribe_enabled, web_link=web_link, attachments=attachments, extensions=extensions, mentions=mentions, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, address_sender_email_address=address, name_sender_email_address_name=name, is_mentioned=is_mentioned, address_from_email_address=microsoft_graph_email_address, name_from_email_address_name=microsoft_graph_email_address_name, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
+        body = models.MicrosoftGraphMessage(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, bcc_recipients=bcc_recipients, body=body, body_preview=body_preview, cc_recipients=cc_recipients, conversation_id=conversation_id, conversation_index=conversation_index, has_attachments=has_attachments, importance=importance, inference_classification=inference_classification, internet_message_headers=internet_message_headers, internet_message_id=internet_message_id, is_delivery_receipt_requested=is_delivery_receipt_requested, is_draft=is_draft, is_read=is_read, is_read_receipt_requested=is_read_receipt_requested, parent_folder_id=parent_folder_id, received_date_time=received_date_time, reply_to=reply_to, sent_date_time=sent_date_time, subject=subject, to_recipients=to_recipients, unique_body=unique_body, unsubscribe_data=unsubscribe_data, unsubscribe_enabled=unsubscribe_enabled, web_link=web_link, attachments=attachments, extensions=extensions, mentions=mentions, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties, email_address_sender_email_address=email_address, is_mentioned=is_mentioned, email_address_from_email_address=microsoft_graph_email_address, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2048,10 +2050,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMessage')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMessage')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2092,7 +2093,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2152,7 +2155,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[IO]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/octet-stream, application/json"
 
@@ -2171,7 +2176,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/octet-stream, application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
@@ -2217,7 +2221,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/octet-stream")
         accept = "application/json"
@@ -2242,7 +2248,6 @@ class UserMailFolderOperations(object):
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content_kwargs['stream_content'] = data
         request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2286,7 +2291,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMultiValueLegacyExtendedProperty0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2294,7 +2301,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2382,10 +2388,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2404,13 +2412,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2457,7 +2463,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2480,7 +2488,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2529,10 +2536,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2554,10 +2563,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2598,7 +2606,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2664,7 +2674,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSingleValueLegacyExtendedProperty0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2672,7 +2684,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2760,10 +2771,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2782,13 +2795,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2835,7 +2846,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2858,7 +2871,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2907,10 +2919,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2932,10 +2946,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2976,7 +2989,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3042,7 +3057,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfUserConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3050,7 +3067,6 @@ class UserMailFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3138,10 +3154,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUserConfiguration(id=id, binary_data=binary_data)
+        body = models.MicrosoftGraphUserConfiguration(id=id, binary_data=binary_data)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3160,13 +3178,11 @@ class UserMailFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3213,7 +3229,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUserConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3236,7 +3254,6 @@ class UserMailFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3285,10 +3302,12 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUserConfiguration(id=id, binary_data=binary_data)
+        body = models.MicrosoftGraphUserConfiguration(id=id, binary_data=binary_data)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3310,10 +3329,9 @@ class UserMailFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUserConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUserConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3354,7 +3372,9 @@ class UserMailFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

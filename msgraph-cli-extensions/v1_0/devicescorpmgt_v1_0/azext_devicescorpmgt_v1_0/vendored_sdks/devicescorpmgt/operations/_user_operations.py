@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -73,7 +73,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDeviceManagementTroubleshootingEvent"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -81,7 +83,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -168,10 +169,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceManagementTroubleshootingEvent"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDeviceManagementTroubleshootingEvent(id=id, correlation_id=correlation_id, event_date_time=event_date_time)
+        body = models.MicrosoftGraphDeviceManagementTroubleshootingEvent(id=id, correlation_id=correlation_id, event_date_time=event_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -189,13 +192,11 @@ class UserOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -240,7 +241,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDeviceManagementTroubleshootingEvent"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -262,7 +265,6 @@ class UserOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -312,10 +314,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDeviceManagementTroubleshootingEvent(id=id, correlation_id=correlation_id, event_date_time=event_date_time)
+        body = models.MicrosoftGraphDeviceManagementTroubleshootingEvent(id=id, correlation_id=correlation_id, event_date_time=event_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -336,10 +340,9 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDeviceManagementTroubleshootingEvent')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -378,7 +381,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -440,7 +445,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedAppRegistration0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -448,7 +455,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -529,7 +535,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfManagedAppRegistration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -537,7 +545,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -614,7 +621,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -633,13 +642,11 @@ class UserOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -683,7 +690,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -691,7 +700,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -932,10 +940,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
+        body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -953,13 +963,11 @@ class UserOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1003,7 +1011,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1025,7 +1035,6 @@ class UserOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1228,10 +1237,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
+        body = models.MicrosoftGraphManagedDevice(id=id, activation_lock_bypass_code=activation_lock_bypass_code, android_security_patch_level=android_security_patch_level, azure_ad_device_id=azure_ad_device_id, azure_ad_registered=azure_ad_registered, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, compliance_state=compliance_state, configuration_manager_client_enabled_features=configuration_manager_client_enabled_features, device_action_results=device_action_results, device_category_display_name=device_category_display_name, device_enrollment_type=device_enrollment_type, device_health_attestation_state=device_health_attestation_state, device_name=device_name, device_registration_state=device_registration_state, eas_activated=eas_activated, eas_activation_date_time=eas_activation_date_time, eas_device_id=eas_device_id, email_address=email_address, enrolled_date_time=enrolled_date_time, exchange_access_state=exchange_access_state, exchange_access_state_reason=exchange_access_state_reason, exchange_last_successful_sync_date_time=exchange_last_successful_sync_date_time, free_storage_space_in_bytes=free_storage_space_in_bytes, imei=imei, is_encrypted=is_encrypted, is_supervised=is_supervised, jail_broken=jail_broken, last_sync_date_time=last_sync_date_time, managed_device_name=managed_device_name, managed_device_owner_type=managed_device_owner_type, management_agent=management_agent, manufacturer=manufacturer, meid=meid, model=model, operating_system=operating_system, os_version=os_version, partner_reported_threat_state=partner_reported_threat_state, phone_number=phone_number, remote_assistance_session_error_details=remote_assistance_session_error_details, remote_assistance_session_url=remote_assistance_session_url, serial_number=serial_number, subscriber_carrier=subscriber_carrier, total_storage_space_in_bytes=total_storage_space_in_bytes, user_display_name=user_display_name, user_id=microsoft_graph_managed_device_user_id, user_principal_name=user_principal_name, wi_fi_mac_address=wi_fi_mac_address, device_compliance_policy_states=device_compliance_policy_states, device_configuration_states=device_configuration_states, device_category=device_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1252,10 +1263,9 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1293,7 +1303,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

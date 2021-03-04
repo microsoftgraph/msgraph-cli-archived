@@ -11,7 +11,7 @@
 
 def cf_financials_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.financials import Financials
+    from azext_financials_beta.vendored_sdks.financials import Financials
     return get_mgmt_service_client(cli_ctx,
                                    Financials,
                                    subscription_bound=False,

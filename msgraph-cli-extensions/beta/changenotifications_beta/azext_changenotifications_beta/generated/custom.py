@@ -48,15 +48,6 @@ def changenotifications_subscription_subscription_create_subscription(client,
                                       resource=resource)
 
 
-def changenotifications_subscription_subscription_get_subscription(client,
-                                                                   subscription_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_subscription(subscription_id=subscription_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def changenotifications_subscription_subscription_list_subscription(client,
                                                                     orderby=None,
                                                                     select=None,
@@ -64,6 +55,15 @@ def changenotifications_subscription_subscription_list_subscription(client,
     return client.list_subscription(orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def changenotifications_subscription_subscription_show_subscription(client,
+                                                                    subscription_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_subscription(subscription_id=subscription_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def changenotifications_subscription_subscription_update_subscription(client,

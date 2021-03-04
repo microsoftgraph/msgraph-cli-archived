@@ -650,27 +650,12 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
      one session, whereas group calls typically have at least one session per participant. Read-
      only. Nullable.
     :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-    :param display_name_organizer_user_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_organizer_user_display_name: str
-    :param id_organizer_user_id: Unique identifier for the identity.
-    :type id_organizer_user_id: str
-    :param display_name_organizer_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_organizer_device_display_name: str
-    :param id_organizer_device_id: Unique identifier for the identity.
-    :type id_organizer_device_id: str
-    :param display_name_organizer_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_organizer_application_display_name: str
-    :param id_organizer_application_id: Unique identifier for the identity.
-    :type id_organizer_application_id: str
+    :param application: identity.
+    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
@@ -685,12 +670,9 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
         'type': {'key': 'type', 'type': 'str'},
         'version': {'key': 'version', 'type': 'long'},
         'sessions': {'key': 'sessions', 'type': '[MicrosoftGraphCallRecordsSession]'},
-        'display_name_organizer_user_display_name': {'key': 'organizer.user.displayName', 'type': 'str'},
-        'id_organizer_user_id': {'key': 'organizer.user.id', 'type': 'str'},
-        'display_name_organizer_device_display_name': {'key': 'organizer.device.displayName', 'type': 'str'},
-        'id_organizer_device_id': {'key': 'organizer.device.id', 'type': 'str'},
-        'display_name_organizer_application_display_name': {'key': 'organizer.application.displayName', 'type': 'str'},
-        'id_organizer_application_id': {'key': 'organizer.application.id', 'type': 'str'},
+        'application': {'key': 'organizer.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'organizer.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'organizer.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -708,12 +690,9 @@ class MicrosoftGraphCallRecordsCallRecord(MicrosoftGraphEntity):
         self.type = kwargs.get('type', None)
         self.version = kwargs.get('version', None)
         self.sessions = kwargs.get('sessions', None)
-        self.display_name_organizer_user_display_name = kwargs.get('display_name_organizer_user_display_name', None)
-        self.id_organizer_user_id = kwargs.get('id_organizer_user_id', None)
-        self.display_name_organizer_device_display_name = kwargs.get('display_name_organizer_device_display_name', None)
-        self.id_organizer_device_id = kwargs.get('id_organizer_device_id', None)
-        self.display_name_organizer_application_display_name = kwargs.get('display_name_organizer_application_display_name', None)
-        self.id_organizer_application_id = kwargs.get('id_organizer_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphCallRecordsDeviceInfo(msrest.serialization.Model):
@@ -1448,29 +1427,18 @@ class MicrosoftGraphCommsOperation(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     """
-
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
     }
 
     def __init__(
@@ -1480,48 +1448,31 @@ class MicrosoftGraphCommsOperation(MicrosoftGraphEntity):
         super(MicrosoftGraphCommsOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.client_context = kwargs.get('client_context', None)
+        self.result_info = kwargs.get('result_info', None)
         self.status = kwargs.get('status', None)
-        self.code = kwargs.get('code', None)
-        self.message = kwargs.get('message', None)
-        self.subcode = kwargs.get('subcode', None)
 
 
 class MicrosoftGraphCancelMediaProcessingOperation(MicrosoftGraphCommsOperation):
     """cancelMediaProcessingOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -1530,7 +1481,6 @@ class MicrosoftGraphCancelMediaProcessingOperation(MicrosoftGraphCommsOperation)
         **kwargs
     ):
         super(MicrosoftGraphCancelMediaProcessingOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -1642,37 +1592,19 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param display_name_user_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_user_display_name: str
-    :param id_user_id: Unique identifier for the identity.
-    :type id_user_id: str
-    :param display_name_device_display_name: The identity's display name. Note that this may not
-     always be available or up to date. For example, if a user changes their display name, the API
-     may show the new value in a future response, but the items associated with the user won't show
-     up as having changed when using delta.
-    :type display_name_device_display_name: str
-    :param id_device_id: Unique identifier for the identity.
-    :type id_device_id: str
-    :param display_name_application_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_application_display_name: str
-    :param id_application_id: Unique identifier for the identity.
-    :type id_application_id: str
+    :param application: identity.
+    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'display_name_user_display_name': {'key': 'user.displayName', 'type': 'str'},
-        'id_user_id': {'key': 'user.id', 'type': 'str'},
-        'display_name_device_display_name': {'key': 'device.displayName', 'type': 'str'},
-        'id_device_id': {'key': 'device.id', 'type': 'str'},
-        'display_name_application_display_name': {'key': 'application.displayName', 'type': 'str'},
-        'id_application_id': {'key': 'application.id', 'type': 'str'},
+        'application': {'key': 'application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1681,12 +1613,9 @@ class MicrosoftGraphIdentitySet(msrest.serialization.Model):
     ):
         super(MicrosoftGraphIdentitySet, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.display_name_user_display_name = kwargs.get('display_name_user_display_name', None)
-        self.id_user_id = kwargs.get('id_user_id', None)
-        self.display_name_device_display_name = kwargs.get('display_name_device_display_name', None)
-        self.id_device_id = kwargs.get('id_device_id', None)
-        self.display_name_application_display_name = kwargs.get('display_name_application_display_name', None)
-        self.id_application_id = kwargs.get('id_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphIncomingContext(msrest.serialization.Model):
@@ -1738,39 +1667,21 @@ class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
     :param replaces_call_id: Optional. The call which the target identity is currently a part of.
      This call will be dropped once the participant is added.
     :type replaces_call_id: str
-    :param display_name_identity_user_display_name: The identity's display name. Note that this may
-     not always be available or up to date. For example, if a user changes their display name, the
-     API may show the new value in a future response, but the items associated with the user won't
-     show up as having changed when using delta.
-    :type display_name_identity_user_display_name: str
-    :param id_identity_user_id: Unique identifier for the identity.
-    :type id_identity_user_id: str
-    :param display_name_identity_device_display_name: The identity's display name. Note that this
-     may not always be available or up to date. For example, if a user changes their display name,
-     the API may show the new value in a future response, but the items associated with the user
-     won't show up as having changed when using delta.
-    :type display_name_identity_device_display_name: str
-    :param id_identity_device_id: Unique identifier for the identity.
-    :type id_identity_device_id: str
-    :param display_name_identity_application_display_name: The identity's display name. Note that
-     this may not always be available or up to date. For example, if a user changes their display
-     name, the API may show the new value in a future response, but the items associated with the
-     user won't show up as having changed when using delta.
-    :type display_name_identity_application_display_name: str
-    :param id_identity_application_id: Unique identifier for the identity.
-    :type id_identity_application_id: str
+    :param application: identity.
+    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'endpoint_type': {'key': 'endpointType', 'type': 'str'},
         'replaces_call_id': {'key': 'replacesCallId', 'type': 'str'},
-        'display_name_identity_user_display_name': {'key': 'identity.user.displayName', 'type': 'str'},
-        'id_identity_user_id': {'key': 'identity.user.id', 'type': 'str'},
-        'display_name_identity_device_display_name': {'key': 'identity.device.displayName', 'type': 'str'},
-        'id_identity_device_id': {'key': 'identity.device.id', 'type': 'str'},
-        'display_name_identity_application_display_name': {'key': 'identity.application.displayName', 'type': 'str'},
-        'id_identity_application_id': {'key': 'identity.application.id', 'type': 'str'},
+        'application': {'key': 'identity.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'identity.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'identity.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1781,32 +1692,22 @@ class MicrosoftGraphInvitationParticipantInfo(msrest.serialization.Model):
         self.additional_properties = kwargs.get('additional_properties', None)
         self.endpoint_type = kwargs.get('endpoint_type', None)
         self.replaces_call_id = kwargs.get('replaces_call_id', None)
-        self.display_name_identity_user_display_name = kwargs.get('display_name_identity_user_display_name', None)
-        self.id_identity_user_id = kwargs.get('id_identity_user_id', None)
-        self.display_name_identity_device_display_name = kwargs.get('display_name_identity_device_display_name', None)
-        self.id_identity_device_id = kwargs.get('id_identity_device_id', None)
-        self.display_name_identity_application_display_name = kwargs.get('display_name_identity_application_display_name', None)
-        self.id_identity_application_id = kwargs.get('id_identity_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
     """inviteParticipantsOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1814,19 +1715,11 @@ class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
     :type participants: list[~cloud_communications.models.MicrosoftGraphInvitationParticipantInfo]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'participants': {'key': 'participants', 'type': '[MicrosoftGraphInvitationParticipantInfo]'},
     }
@@ -1836,7 +1729,6 @@ class MicrosoftGraphInviteParticipantsOperation(MicrosoftGraphCommsOperation):
         **kwargs
     ):
         super(MicrosoftGraphInviteParticipantsOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
 
@@ -2092,39 +1984,24 @@ class MicrosoftGraphMeetingParticipants(msrest.serialization.Model):
 class MicrosoftGraphMuteParticipantOperation(MicrosoftGraphCommsOperation):
     """muteParticipantOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -2134,27 +2011,19 @@ class MicrosoftGraphMuteParticipantOperation(MicrosoftGraphCommsOperation):
     ):
         super(MicrosoftGraphMuteParticipantOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
 
 
 class MicrosoftGraphMuteParticipantsOperation(MicrosoftGraphCommsOperation):
     """muteParticipantsOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2162,19 +2031,11 @@ class MicrosoftGraphMuteParticipantsOperation(MicrosoftGraphCommsOperation):
     :type participants: list[str]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'participants': {'key': 'participants', 'type': '[str]'},
     }
@@ -2184,7 +2045,6 @@ class MicrosoftGraphMuteParticipantsOperation(MicrosoftGraphCommsOperation):
         **kwargs
     ):
         super(MicrosoftGraphMuteParticipantsOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.participants = kwargs.get('participants', None)
 
@@ -2434,21 +2294,14 @@ class MicrosoftGraphParticipantInfo(msrest.serialization.Model):
 class MicrosoftGraphPlayPromptOperation(MicrosoftGraphCommsOperation):
     """playPromptOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2458,19 +2311,11 @@ class MicrosoftGraphPlayPromptOperation(MicrosoftGraphCommsOperation):
      ~cloud_communications.models.MicrosoftGraphPlayPromptCompletionReason
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_reason': {'key': 'completionReason', 'type': 'str'},
     }
@@ -2480,7 +2325,6 @@ class MicrosoftGraphPlayPromptOperation(MicrosoftGraphCommsOperation):
         **kwargs
     ):
         super(MicrosoftGraphPlayPromptOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_reason = kwargs.get('completion_reason', None)
 
@@ -2552,21 +2396,14 @@ class MicrosoftGraphRecordingInfo(msrest.serialization.Model):
 class MicrosoftGraphRecordOperation(MicrosoftGraphCommsOperation):
     """recordOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2581,19 +2418,11 @@ class MicrosoftGraphRecordOperation(MicrosoftGraphCommsOperation):
     :type recording_location: str
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'completion_reason': {'key': 'completionReason', 'type': 'str'},
         'recording_access_token': {'key': 'recordingAccessToken', 'type': 'str'},
@@ -2605,7 +2434,6 @@ class MicrosoftGraphRecordOperation(MicrosoftGraphCommsOperation):
         **kwargs
     ):
         super(MicrosoftGraphRecordOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completion_reason = kwargs.get('completion_reason', None)
         self.recording_access_token = kwargs.get('recording_access_token', None)
@@ -2652,39 +2480,24 @@ class MicrosoftGraphResultInfo(msrest.serialization.Model):
 class MicrosoftGraphSubscribeToToneOperation(MicrosoftGraphCommsOperation):
     """subscribeToToneOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -2693,7 +2506,6 @@ class MicrosoftGraphSubscribeToToneOperation(MicrosoftGraphCommsOperation):
         **kwargs
     ):
         super(MicrosoftGraphSubscribeToToneOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -2914,39 +2726,24 @@ class MicrosoftGraphToneInfo(msrest.serialization.Model):
 class MicrosoftGraphUnmuteParticipantOperation(MicrosoftGraphCommsOperation):
     """unmuteParticipantOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -2956,45 +2753,29 @@ class MicrosoftGraphUnmuteParticipantOperation(MicrosoftGraphCommsOperation):
     ):
         super(MicrosoftGraphUnmuteParticipantOperation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
 
 
 class MicrosoftGraphUpdateRecordingStatusOperation(MicrosoftGraphCommsOperation):
     """updateRecordingStatusOperation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param client_context: Unique Client Context string. Max limit is 256 chars.
     :type client_context: str
+    :param result_info: ResultInfo.
+    :type result_info: ~cloud_communications.models.MicrosoftGraphResultInfo
     :param status:  Possible values include: "NotStarted", "Running", "Completed", "Failed".
     :type status: str or ~cloud_communications.models.MicrosoftGraphOperationStatus
-    :param code:
-    :type code: int
-    :param message:
-    :type message: str
-    :param subcode:
-    :type subcode: int
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     """
 
-    _validation = {
-        'code': {'maximum': 2147483647, 'minimum': -2147483648},
-        'subcode': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
-
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'client_context': {'key': 'clientContext', 'type': 'str'},
+        'result_info': {'key': 'resultInfo', 'type': 'MicrosoftGraphResultInfo'},
         'status': {'key': 'status', 'type': 'str'},
-        'code': {'key': 'resultInfo.code', 'type': 'int'},
-        'message': {'key': 'resultInfo.message', 'type': 'str'},
-        'subcode': {'key': 'resultInfo.subcode', 'type': 'int'},
         'additional_properties': {'key': '', 'type': '{object}'},
     }
 
@@ -3003,7 +2784,6 @@ class MicrosoftGraphUpdateRecordingStatusOperation(MicrosoftGraphCommsOperation)
         **kwargs
     ):
         super(MicrosoftGraphUpdateRecordingStatusOperation, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -3592,39 +3372,21 @@ class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyC
     :param replaces_call_id: Optional. The call which the target identity is currently a part of.
      This call will be dropped once the participant is added.
     :type replaces_call_id: str
-    :param display_name_transfer_target_identity_user_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_transfer_target_identity_user_display_name: str
-    :param id_transfer_target_identity_user_id: Unique identifier for the identity.
-    :type id_transfer_target_identity_user_id: str
-    :param display_name_transfer_target_identity_device_display_name: The identity's display name.
-     Note that this may not always be available or up to date. For example, if a user changes their
-     display name, the API may show the new value in a future response, but the items associated
-     with the user won't show up as having changed when using delta.
-    :type display_name_transfer_target_identity_device_display_name: str
-    :param id_transfer_target_identity_device_id: Unique identifier for the identity.
-    :type id_transfer_target_identity_device_id: str
-    :param display_name_transfer_target_identity_application_display_name: The identity's display
-     name. Note that this may not always be available or up to date. For example, if a user changes
-     their display name, the API may show the new value in a future response, but the items
-     associated with the user won't show up as having changed when using delta.
-    :type display_name_transfer_target_identity_application_display_name: str
-    :param id_transfer_target_identity_application_id: Unique identifier for the identity.
-    :type id_transfer_target_identity_application_id: str
+    :param application: identity.
+    :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~cloud_communications.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'endpoint_type': {'key': 'transferTarget.endpointType', 'type': 'str'},
         'replaces_call_id': {'key': 'transferTarget.replacesCallId', 'type': 'str'},
-        'display_name_transfer_target_identity_user_display_name': {'key': 'transferTarget.identity.user.displayName', 'type': 'str'},
-        'id_transfer_target_identity_user_id': {'key': 'transferTarget.identity.user.id', 'type': 'str'},
-        'display_name_transfer_target_identity_device_display_name': {'key': 'transferTarget.identity.device.displayName', 'type': 'str'},
-        'id_transfer_target_identity_device_id': {'key': 'transferTarget.identity.device.id', 'type': 'str'},
-        'display_name_transfer_target_identity_application_display_name': {'key': 'transferTarget.identity.application.displayName', 'type': 'str'},
-        'id_transfer_target_identity_application_id': {'key': 'transferTarget.identity.application.id', 'type': 'str'},
+        'application': {'key': 'transferTarget.identity.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'transferTarget.identity.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'transferTarget.identity.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -3635,12 +3397,9 @@ class Paths4Zbm7LCommunicationsCallsCallIdMicrosoftGraphTransferPostRequestbodyC
         self.additional_properties = kwargs.get('additional_properties', None)
         self.endpoint_type = kwargs.get('endpoint_type', None)
         self.replaces_call_id = kwargs.get('replaces_call_id', None)
-        self.display_name_transfer_target_identity_user_display_name = kwargs.get('display_name_transfer_target_identity_user_display_name', None)
-        self.id_transfer_target_identity_user_id = kwargs.get('id_transfer_target_identity_user_id', None)
-        self.display_name_transfer_target_identity_device_display_name = kwargs.get('display_name_transfer_target_identity_device_display_name', None)
-        self.id_transfer_target_identity_device_id = kwargs.get('id_transfer_target_identity_device_id', None)
-        self.display_name_transfer_target_identity_application_display_name = kwargs.get('display_name_transfer_target_identity_application_display_name', None)
-        self.id_transfer_target_identity_application_id = kwargs.get('id_transfer_target_identity_application_id', None)
+        self.application = kwargs.get('application', None)
+        self.device = kwargs.get('device', None)
+        self.user = kwargs.get('user', None)
 
 
 class PathsEipedyCommunicationsCallsCallIdMicrosoftGraphUpdaterecordingstatusPostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):

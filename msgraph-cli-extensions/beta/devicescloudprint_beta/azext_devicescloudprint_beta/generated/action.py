@@ -14,34 +14,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddOperations(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddOperations, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'created-date-time':
-                d['created_date_time'] = v[0]
-            elif kl == 'description':
-                d['description'] = v[0]
-            elif kl == 'state':
-                d['state'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
 class AddServices(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -63,6 +35,9 @@ class AddServices(argparse._AppendAction):
                 d['endpoints'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter services. All possible keys are: '
+                               'endpoints, id'.format(k))
         return d
 
 
@@ -117,6 +92,38 @@ class AddLocation(argparse.Action):
                 d['subdivision'] = v
             elif kl == 'subunit':
                 d['subunit'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter location. All possible keys are: '
+                               'altitude-in-meters, building, city, country-or-region, floor-description, '
+                               'floor-number, latitude, longitude, organization, postal-code, room-description, '
+                               'room-number, site, state-or-province, street-address, subdivision, subunit'.format(k))
+        return d
+
+
+class AddDevicescloudprintPrintCreateOperationStatus(argparse.Action):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        namespace.status = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'description':
+                d['description'] = v[0]
+            elif kl == 'state':
+                d['state'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter status. All possible keys are: '
+                               'description, state'.format(k))
         return d
 
 
@@ -181,10 +188,17 @@ class AddDefaults(argparse.Action):
                 d['quality'] = v[0]
             elif kl == 'scaling':
                 d['scaling'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter defaults. All possible keys are: '
+                               'color-mode, content-type, copies-per-job, document-mime-type, dpi, '
+                               'duplex-configuration, duplex-mode, finishings, fit-pdf-to-page, media-color, '
+                               'media-size, media-type, multipage-layout, orientation, output-bin, pages-per-sheet, '
+                               'pdf-fit-to-page, presentation-direction, print-color-configuration, print-quality, '
+                               'quality, scaling'.format(k))
         return d
 
 
-class AddPrintStatus(argparse.Action):
+class AddDevicescloudprintPrintCreatePrinterStatus(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.status = action
@@ -213,13 +227,17 @@ class AddPrintStatus(argparse.Action):
                 d['processing_state_reasons'] = v
             elif kl == 'state':
                 d['state'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter status. All possible keys are: '
+                               'description, details, processing-state, processing-state-description, '
+                               'processing-state-reasons, state'.format(k))
         return d
 
 
-class AddCapabilitiesCopiesPerJob(argparse.Action):
+class AddCopiesPerJob(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.capabilities_copies_per_job = action
+        namespace.copies_per_job = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -241,6 +259,9 @@ class AddCapabilitiesCopiesPerJob(argparse.Action):
                 d['minimum'] = v[0]
             elif kl == 'start':
                 d['start'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter copies_per_job. All possible keys are: '
+                               'end, maximum, minimum, start'.format(k))
         return d
 
 
@@ -265,6 +286,9 @@ class AddDevicescloudprintPrintCreatePrinterAllowedGroups(argparse._AppendAction
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter allowed_groups. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -293,6 +317,9 @@ class AddDevicescloudprintPrintCreatePrinterAllowedUsers(argparse._AppendAction)
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter allowed_users. All possible keys are: '
+                               'display-name, ip-address, user-principal-name, id'.format(k))
         return d
 
 
@@ -317,6 +344,9 @@ class AddDevicescloudprintPrintCreatePrinterShareAllowedGroups(argparse._AppendA
                 d['display_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter allowed_groups. All possible keys are: '
+                               'display-name, id'.format(k))
         return d
 
 
@@ -345,42 +375,9 @@ class AddDevicescloudprintPrintCreatePrinterShareAllowedUsers(argparse._AppendAc
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
-        return d
-
-
-class AddApplicationSignInDetailedSummary(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddApplicationSignInDetailedSummary, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'aggregated-event-date-time':
-                d['aggregated_event_date_time'] = v[0]
-            elif kl == 'app-display-name':
-                d['app_display_name'] = v[0]
-            elif kl == 'app-id':
-                d['app_id'] = v[0]
-            elif kl == 'sign-in-count':
-                d['sign_in_count'] = v[0]
-            elif kl == 'additional-details':
-                d['additional_details'] = v[0]
-            elif kl == 'error-code':
-                d['error_code'] = v[0]
-            elif kl == 'failure-reason':
-                d['failure_reason'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter allowed_users. All possible keys are: '
+                               'display-name, ip-address, user-principal-name, id'.format(k))
         return d
 
 
@@ -417,6 +414,10 @@ class AddCredentialUserRegistrationDetails(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter credential_user_registration_details. All '
+                               'possible keys are: auth-methods, is-capable, is-enabled, is-mfa-registered, '
+                               'is-registered, user-display-name, user-principal-name, id'.format(k))
         return d
 
 
@@ -453,6 +454,10 @@ class AddUserCredentialUsageDetails(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_credential_usage_details. All '
+                               'possible keys are: auth-method, event-date-time, failure-reason, feature, is-success, '
+                               'user-display-name, user-principal-name, id'.format(k))
         return d
 
 
@@ -485,6 +490,10 @@ class AddDailyPrintUsageSummariesByPrinter(argparse._AppendAction):
                 d['usage_date'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter daily_print_usage_summaries_by_printer. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, printer-id, usage-date, id'.format(k))
         return d
 
 
@@ -517,6 +526,10 @@ class AddDailyPrintUsageSummariesByUser(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter daily_print_usage_summaries_by_user. All '
+                               'possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, usage-date, user-principal-name, id'.format(k))
         return d
 
 
@@ -549,6 +562,10 @@ class AddMonthlyPrintUsageSummariesByPrinter(argparse._AppendAction):
                 d['usage_date'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter monthly_print_usage_summaries_by_printer. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, printer-id, usage-date, id'.format(k))
         return d
 
 
@@ -581,6 +598,10 @@ class AddMonthlyPrintUsageSummariesByUser(argparse._AppendAction):
                 d['user_principal_name'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter monthly_print_usage_summaries_by_user. '
+                               'All possible keys are: completed-black-and-white-job-count, completed-color-job-count, '
+                               'incomplete-job-count, usage-date, user-principal-name, id'.format(k))
         return d
 
 
@@ -607,6 +628,9 @@ class AddEndpoints(argparse._AppendAction):
                 d['uri'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter endpoints. All possible keys are: '
+                               'display-name, uri, id'.format(k))
         return d
 
 
@@ -635,6 +659,9 @@ class AddCreatedBy(argparse.Action):
                 d['service_principal_id'] = v[0]
             elif kl == 'service-principal-name':
                 d['service_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter created_by. All possible keys are: '
+                               'app-id, display-name, service-principal-id, service-principal-name'.format(k))
         return d
 
 
@@ -659,10 +686,13 @@ class AddCertificateSigningRequest(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'transport-key':
                 d['transport_key'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter certificate_signing_request. All possible '
+                               'keys are: content, transport-key'.format(k))
         return d
 
 
-class AddPrintTaskdefinitionsStatus(argparse.Action):
+class AddStatus(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.status = action
@@ -683,4 +713,7 @@ class AddPrintTaskdefinitionsStatus(argparse.Action):
                 d['description'] = v[0]
             elif kl == 'state':
                 d['state'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter status. All possible keys are: '
+                               'description, state'.format(k))
         return d

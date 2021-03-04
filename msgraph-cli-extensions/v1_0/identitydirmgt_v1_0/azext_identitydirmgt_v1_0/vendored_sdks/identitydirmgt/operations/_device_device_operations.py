@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class DeviceDeviceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class DeviceDeviceOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -254,10 +255,12 @@ class DeviceDeviceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_id=device_id, device_metadata=device_metadata, device_version=device_version, display_name=display_name, is_compliant=is_compliant, is_managed=is_managed, mdm_app_id=mdm_app_id, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, system_labels=system_labels, trust_type=trust_type, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions)
+        body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_id=device_id, device_metadata=device_metadata, device_version=device_version, display_name=display_name, is_compliant=is_compliant, is_managed=is_managed, mdm_app_id=mdm_app_id, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, system_labels=system_labels, trust_type=trust_type, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -271,13 +274,11 @@ class DeviceDeviceOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -318,7 +319,9 @@ class DeviceDeviceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDevice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -339,7 +342,6 @@ class DeviceDeviceOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -481,10 +483,12 @@ class DeviceDeviceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_id=microsoft_graph_device_id, device_metadata=device_metadata, device_version=device_version, display_name=display_name, is_compliant=is_compliant, is_managed=is_managed, mdm_app_id=mdm_app_id, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, system_labels=system_labels, trust_type=trust_type, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions)
+        body = models.MicrosoftGraphDevice(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, alternative_security_ids=alternative_security_ids, approximate_last_sign_in_date_time=approximate_last_sign_in_date_time, compliance_expiration_date_time=compliance_expiration_date_time, device_id=microsoft_graph_device_id, device_metadata=device_metadata, device_version=device_version, display_name=display_name, is_compliant=is_compliant, is_managed=is_managed, mdm_app_id=mdm_app_id, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, operating_system=operating_system, operating_system_version=operating_system_version, physical_ids=physical_ids, profile_type=profile_type, system_labels=system_labels, trust_type=trust_type, member_of=member_of, registered_owners=registered_owners, registered_users=registered_users, transitive_member_of=transitive_member_of, extensions=extensions)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -504,10 +508,9 @@ class DeviceDeviceOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDevice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDevice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -542,7 +545,9 @@ class DeviceDeviceOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

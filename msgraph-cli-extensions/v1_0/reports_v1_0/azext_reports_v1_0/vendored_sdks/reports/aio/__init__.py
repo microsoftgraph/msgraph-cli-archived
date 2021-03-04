@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._reports_async import Reports
+from ._reports import Reports
 __all__ = ['Reports']

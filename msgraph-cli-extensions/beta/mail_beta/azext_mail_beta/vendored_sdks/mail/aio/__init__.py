@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._mail_async import Mail
+from ._mail import Mail
 __all__ = ['Mail']

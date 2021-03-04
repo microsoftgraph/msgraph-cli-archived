@@ -33,6 +33,9 @@ class AddConfiguration(argparse.Action):
             v = properties[k]
             if kl == 'authorized-apps':
                 d['authorized_apps'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter configuration. All possible keys are: '
+                               'authorized-apps'.format(k))
         return d
 
 
@@ -61,13 +64,16 @@ class AddGroups(argparse._AppendAction):
                 d['members'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter groups. All possible keys are: '
+                               'description, display-name, members, id'.format(k))
         return d
 
 
-class AddSchemaProperties(argparse._AppendAction):
+class AddProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddSchemaProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -99,4 +105,8 @@ class AddSchemaProperties(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter properties. All possible keys are: '
+                               'aliases, is-content, is-queryable, is-refinable, is-retrievable, is-searchable, '
+                               'labels, name, type'.format(k))
         return d

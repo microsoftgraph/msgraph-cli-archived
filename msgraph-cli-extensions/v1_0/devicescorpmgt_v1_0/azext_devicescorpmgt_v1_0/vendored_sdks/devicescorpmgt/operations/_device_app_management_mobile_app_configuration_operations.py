@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -74,7 +74,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDeviceMobileAppConfigurationAssignment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -167,10 +168,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(id=id, target=target)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(id=id, target=target)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -188,13 +191,11 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -240,7 +241,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -262,7 +265,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -310,10 +312,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(id=id, target=target)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment(id=id, target=target)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -334,10 +338,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationAssignment')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -377,7 +380,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -440,7 +445,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDeviceMobileAppConfigurationDeviceStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -448,7 +455,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -552,10 +558,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(id=id, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, device_display_name=device_display_name, device_model=device_model, last_reported_date_time=last_reported_date_time, status=status, user_name=user_name, user_principal_name=user_principal_name)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(id=id, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, device_display_name=device_display_name, device_model=device_model, last_reported_date_time=last_reported_date_time, status=status, user_name=user_name, user_principal_name=user_principal_name)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -573,13 +581,11 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -625,7 +631,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -647,7 +655,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -714,10 +721,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(id=id, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, device_display_name=device_display_name, device_model=device_model, last_reported_date_time=last_reported_date_time, status=status, user_name=user_name, user_principal_name=user_principal_name)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus(id=id, compliance_grace_period_expiration_date_time=compliance_grace_period_expiration_date_time, device_display_name=device_display_name, device_model=device_model, last_reported_date_time=last_reported_date_time, status=status, user_name=user_name, user_principal_name=user_principal_name)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -738,10 +747,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -781,7 +789,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -841,7 +851,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -862,7 +874,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -924,10 +935,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary(id=id, configuration_version=configuration_version, error_count=error_count, failed_count=failed_count, last_update_date_time=last_update_date_time, not_applicable_count=not_applicable_count, pending_count=pending_count, success_count=success_count)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary(id=id, configuration_version=configuration_version, error_count=error_count, failed_count=failed_count, last_update_date_time=last_update_date_time, not_applicable_count=not_applicable_count, pending_count=pending_count, success_count=success_count)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -947,10 +960,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationDeviceSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -986,7 +998,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1042,10 +1056,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(assignments=assignments)
+        body = models.Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema(assignments=assignments)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1065,10 +1081,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths1Pwcjs5DeviceappmanagementMobileappconfigurationsManageddevicemobileappconfigurationIdMicrosoftGraphAssignPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1110,7 +1125,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDeviceMobileAppConfigurationUserStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1118,7 +1135,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1215,10 +1231,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(id=id, devices_count=devices_count, last_reported_date_time=last_reported_date_time, status=status, user_display_name=user_display_name, user_principal_name=user_principal_name)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(id=id, devices_count=devices_count, last_reported_date_time=last_reported_date_time, status=status, user_display_name=user_display_name, user_principal_name=user_principal_name)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1236,13 +1254,11 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1288,7 +1304,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1310,7 +1328,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1370,10 +1387,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(id=id, devices_count=devices_count, last_reported_date_time=last_reported_date_time, status=status, user_display_name=user_display_name, user_principal_name=user_principal_name)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus(id=id, devices_count=devices_count, last_reported_date_time=last_reported_date_time, status=status, user_display_name=user_display_name, user_principal_name=user_principal_name)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1394,10 +1413,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1437,7 +1455,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1497,7 +1517,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1518,7 +1540,6 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1580,10 +1601,12 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary(id=id, configuration_version=configuration_version, error_count=error_count, failed_count=failed_count, last_update_date_time=last_update_date_time, not_applicable_count=not_applicable_count, pending_count=pending_count, success_count=success_count)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary(id=id, configuration_version=configuration_version, error_count=error_count, failed_count=failed_count, last_update_date_time=last_update_date_time, not_applicable_count=not_applicable_count, pending_count=pending_count, success_count=success_count)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1603,10 +1626,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfigurationUserSummary')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1642,7 +1664,9 @@ class DeviceAppManagementMobileAppConfigurationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

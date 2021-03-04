@@ -32,8 +32,8 @@ def cloudcommunications_user_create_online_meeting(client,
                                                    start_date_time=None,
                                                    subject=None,
                                                    video_teleconference_id=None,
-                                                   participants_attendees=None,
-                                                   participants_organizer=None):
+                                                   attendees=None,
+                                                   organizer=None):
     return client.create_online_meeting(user_id=user_id,
                                         id=id_,
                                         audio_conferencing=audio_conferencing,
@@ -46,19 +46,8 @@ def cloudcommunications_user_create_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        organizer=participants_organizer)
-
-
-def cloudcommunications_user_get_online_meeting(client,
-                                                user_id,
-                                                online_meeting_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_online_meeting(user_id=user_id,
-                                     online_meeting_id=online_meeting_id,
-                                     select=select,
-                                     expand=expand)
+                                        attendees=attendees,
+                                        organizer=organizer)
 
 
 def cloudcommunications_user_list_online_meeting(client,
@@ -70,6 +59,17 @@ def cloudcommunications_user_list_online_meeting(client,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
+
+
+def cloudcommunications_user_show_online_meeting(client,
+                                                 user_id,
+                                                 online_meeting_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_online_meeting(user_id=user_id,
+                                     online_meeting_id=online_meeting_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def cloudcommunications_user_update_online_meeting(client,
@@ -86,8 +86,8 @@ def cloudcommunications_user_update_online_meeting(client,
                                                    start_date_time=None,
                                                    subject=None,
                                                    video_teleconference_id=None,
-                                                   participants_attendees=None,
-                                                   participants_organizer=None):
+                                                   attendees=None,
+                                                   organizer=None):
     return client.update_online_meeting(user_id=user_id,
                                         online_meeting_id=online_meeting_id,
                                         id=id_,
@@ -101,5 +101,5 @@ def cloudcommunications_user_update_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        organizer=participants_organizer)
+                                        attendees=attendees,
+                                        organizer=organizer)

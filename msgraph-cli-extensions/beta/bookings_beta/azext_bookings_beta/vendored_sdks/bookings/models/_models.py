@@ -469,9 +469,6 @@ class MicrosoftGraphBookingNamedEntity(MicrosoftGraphEntity):
 class MicrosoftGraphBookingBusiness(MicrosoftGraphBookingNamedEntity):
     """Represents a Microsot Bookings Business.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param display_name: Display name of this entity.
@@ -513,7 +510,6 @@ class MicrosoftGraphBookingBusiness(MicrosoftGraphBookingNamedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -539,7 +535,6 @@ class MicrosoftGraphBookingBusiness(MicrosoftGraphBookingNamedEntity):
         **kwargs
     ):
         super(MicrosoftGraphBookingBusiness, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.business_hours = kwargs.get('business_hours', None)
@@ -588,9 +583,6 @@ class MicrosoftGraphBookingCurrency(MicrosoftGraphEntity):
 class MicrosoftGraphBookingPerson(MicrosoftGraphBookingNamedEntity):
     """Represents a booking customer or staff member.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param display_name: Display name of this entity.
@@ -603,7 +595,6 @@ class MicrosoftGraphBookingPerson(MicrosoftGraphBookingNamedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -616,7 +607,6 @@ class MicrosoftGraphBookingPerson(MicrosoftGraphBookingNamedEntity):
     ):
         super(MicrosoftGraphBookingPerson, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.email_address = kwargs.get('email_address', None)
 
 
@@ -625,9 +615,6 @@ class MicrosoftGraphBookingCustomer(MicrosoftGraphBookingPerson):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param display_name: Display name of this entity.
     :type display_name: str
     :param email_address: The e-mail address of this person.
@@ -639,7 +626,6 @@ class MicrosoftGraphBookingCustomer(MicrosoftGraphBookingPerson):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'email_address': {'key': 'emailAddress', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -650,7 +636,6 @@ class MicrosoftGraphBookingCustomer(MicrosoftGraphBookingPerson):
         **kwargs
     ):
         super(MicrosoftGraphBookingCustomer, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -730,9 +715,6 @@ class MicrosoftGraphBookingSchedulingPolicy(msrest.serialization.Model):
 class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     """Represents a particular service offered by a booking business.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param display_name: Display name of this entity.
@@ -790,7 +772,6 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -823,7 +804,6 @@ class MicrosoftGraphBookingService(MicrosoftGraphBookingNamedEntity):
     ):
         super(MicrosoftGraphBookingService, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_information = kwargs.get('additional_information', None)
         self.default_duration = kwargs.get('default_duration', None)
         self.default_price = kwargs.get('default_price', None)
@@ -852,9 +832,6 @@ class MicrosoftGraphBookingStaffMember(MicrosoftGraphBookingPerson):
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param display_name: Display name of this entity.
     :type display_name: str
     :param email_address: The e-mail address of this person.
@@ -880,7 +857,6 @@ class MicrosoftGraphBookingStaffMember(MicrosoftGraphBookingPerson):
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'email_address': {'key': 'emailAddress', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
@@ -896,7 +872,6 @@ class MicrosoftGraphBookingStaffMember(MicrosoftGraphBookingPerson):
         **kwargs
     ):
         super(MicrosoftGraphBookingStaffMember, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.availability_is_affected_by_personal_calendar = kwargs.get('availability_is_affected_by_personal_calendar', None)
         self.color_index = kwargs.get('color_index', None)

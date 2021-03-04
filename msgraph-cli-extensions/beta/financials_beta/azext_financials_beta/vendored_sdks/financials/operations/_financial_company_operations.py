@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -73,7 +73,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAccount"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -81,7 +83,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -180,10 +181,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAccount"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAccount(id=id, blocked=blocked, category=category, display_name=display_name, last_modified_date_time=last_modified_date_time, number=number, sub_category=sub_category)
+        body = models.MicrosoftGraphAccount(id=id, blocked=blocked, category=category, display_name=display_name, last_modified_date_time=last_modified_date_time, number=number, sub_category=sub_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -201,13 +204,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAccount')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAccount')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -251,7 +252,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAccount"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -273,7 +276,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -334,10 +336,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAccount(id=id, blocked=blocked, category=category, display_name=display_name, last_modified_date_time=last_modified_date_time, number=number, sub_category=sub_category)
+        body = models.MicrosoftGraphAccount(id=id, blocked=blocked, category=category, display_name=display_name, last_modified_date_time=last_modified_date_time, number=number, sub_category=sub_category)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -358,10 +362,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAccount')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAccount')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -399,7 +402,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -461,7 +466,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAgedAccountsPayable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -469,7 +476,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -580,10 +586,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAgedAccountsPayable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAgedAccountsPayable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter, vendor_number=vendor_number)
+        body = models.MicrosoftGraphAgedAccountsPayable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter, vendor_number=vendor_number)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -601,13 +609,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAgedAccountsPayable')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAgedAccountsPayable')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -651,7 +657,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAgedAccountsPayable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -673,7 +681,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -746,10 +753,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAgedAccountsPayable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter, vendor_number=vendor_number)
+        body = models.MicrosoftGraphAgedAccountsPayable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter, vendor_number=vendor_number)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -770,10 +779,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAgedAccountsPayable')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAgedAccountsPayable')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -811,7 +819,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -873,7 +883,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAgedAccountsReceivable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -881,7 +893,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -992,10 +1003,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAgedAccountsReceivable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAgedAccountsReceivable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, customer_number=customer_number, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter)
+        body = models.MicrosoftGraphAgedAccountsReceivable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, customer_number=customer_number, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1013,13 +1026,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAgedAccountsReceivable')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAgedAccountsReceivable')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1063,7 +1074,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAgedAccountsReceivable"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1085,7 +1098,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1158,10 +1170,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAgedAccountsReceivable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, customer_number=customer_number, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter)
+        body = models.MicrosoftGraphAgedAccountsReceivable(id=id, aged_as_of_date=aged_as_of_date, balance_due=balance_due, currency_code=currency_code, current_amount=current_amount, customer_number=customer_number, name=name, period1_amount=period1_amount, period2_amount=period2_amount, period3_amount=period3_amount, period_length_filter=period_length_filter)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1182,10 +1196,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAgedAccountsReceivable')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAgedAccountsReceivable')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1223,7 +1236,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1285,7 +1300,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCompanyInformation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1293,7 +1310,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1410,10 +1426,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompanyInformation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCompanyInformation(id=id, address=address, currency_code=currency_code, current_fiscal_year_start_date=current_fiscal_year_start_date, display_name=display_name, email=email, fax_number=fax_number, industry=industry, last_modified_date_time=last_modified_date_time, phone_number=phone_number, picture=picture, tax_registration_number=tax_registration_number, website=website)
+        body = models.MicrosoftGraphCompanyInformation(id=id, address=address, currency_code=currency_code, current_fiscal_year_start_date=current_fiscal_year_start_date, display_name=display_name, email=email, fax_number=fax_number, industry=industry, last_modified_date_time=last_modified_date_time, phone_number=phone_number, picture=picture, tax_registration_number=tax_registration_number, website=website)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1431,13 +1449,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCompanyInformation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCompanyInformation')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1481,7 +1497,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCompanyInformation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1503,7 +1521,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1582,10 +1599,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCompanyInformation(id=id, address=address, currency_code=currency_code, current_fiscal_year_start_date=current_fiscal_year_start_date, display_name=display_name, email=email, fax_number=fax_number, industry=industry, last_modified_date_time=last_modified_date_time, phone_number=phone_number, picture=picture, tax_registration_number=tax_registration_number, website=website)
+        body = models.MicrosoftGraphCompanyInformation(id=id, address=address, currency_code=currency_code, current_fiscal_year_start_date=current_fiscal_year_start_date, display_name=display_name, email=email, fax_number=fax_number, industry=industry, last_modified_date_time=last_modified_date_time, phone_number=phone_number, picture=picture, tax_registration_number=tax_registration_number, website=website)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1606,10 +1625,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCompanyInformation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCompanyInformation')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1647,7 +1665,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1703,7 +1723,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[IO]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/octet-stream, application/json"
 
@@ -1721,7 +1743,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/octet-stream, application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
@@ -1764,7 +1785,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/octet-stream")
         accept = "application/json"
@@ -1788,7 +1811,6 @@ class FinancialCompanyOperations(object):
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content_kwargs['stream_content'] = data
         request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1829,7 +1851,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCountryRegion"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1837,7 +1861,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1930,10 +1953,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCountryRegion"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCountryRegion(id=id, address_format=address_format, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphCountryRegion(id=id, address_format=address_format, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1951,13 +1976,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCountryRegion')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCountryRegion')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2001,7 +2024,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCountryRegion"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2023,7 +2048,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2078,10 +2102,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCountryRegion(id=id, address_format=address_format, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphCountryRegion(id=id, address_format=address_format, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2102,10 +2128,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCountryRegion')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCountryRegion')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2143,7 +2168,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2205,7 +2232,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCurrency"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2213,7 +2242,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2312,10 +2340,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCurrency"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCurrency(id=id, amount_decimal_places=amount_decimal_places, amount_rounding_precision=amount_rounding_precision, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, symbol=symbol)
+        body = models.MicrosoftGraphCurrency(id=id, amount_decimal_places=amount_decimal_places, amount_rounding_precision=amount_rounding_precision, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, symbol=symbol)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2333,13 +2363,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCurrency')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCurrency')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2383,7 +2411,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCurrency"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2405,7 +2435,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2466,10 +2495,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCurrency(id=id, amount_decimal_places=amount_decimal_places, amount_rounding_precision=amount_rounding_precision, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, symbol=symbol)
+        body = models.MicrosoftGraphCurrency(id=id, amount_decimal_places=amount_decimal_places, amount_rounding_precision=amount_rounding_precision, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, symbol=symbol)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2490,10 +2521,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCurrency')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCurrency')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2531,7 +2561,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2593,7 +2625,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCustomerPaymentJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2601,7 +2635,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2703,10 +2736,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomerPaymentJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomerPaymentJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, customer_payments=customer_payments)
+        body = models.MicrosoftGraphCustomerPaymentJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, customer_payments=customer_payments)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2724,13 +2759,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomerPaymentJournal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomerPaymentJournal')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2774,7 +2807,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomerPaymentJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2796,7 +2831,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2860,10 +2894,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomerPaymentJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, customer_payments=customer_payments)
+        body = models.MicrosoftGraphCustomerPaymentJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, customer_payments=customer_payments)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2884,10 +2920,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomerPaymentJournal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomerPaymentJournal')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2925,7 +2960,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2987,7 +3024,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCustomerPayment0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2995,7 +3034,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3190,10 +3228,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomerPayment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomerPayment(id=id, amount=amount, applies_to_invoice_id=applies_to_invoice_id, applies_to_invoice_number=applies_to_invoice_number, comment=comment, contact_id=contact_id, customer_id=customer_id, customer_number=customer_number, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphCustomerPayment(id=id, amount=amount, applies_to_invoice_id=applies_to_invoice_id, applies_to_invoice_number=applies_to_invoice_number, comment=comment, contact_id=contact_id, customer_id=customer_id, customer_number=customer_number, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3211,13 +3251,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomerPayment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomerPayment')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3261,7 +3299,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomerPayment"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3283,7 +3323,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3440,10 +3479,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomerPayment(id=id, amount=amount, applies_to_invoice_id=applies_to_invoice_id, applies_to_invoice_number=applies_to_invoice_number, comment=comment, contact_id=contact_id, customer_id=customer_id, customer_number=customer_number, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphCustomerPayment(id=id, amount=amount, applies_to_invoice_id=applies_to_invoice_id, applies_to_invoice_number=applies_to_invoice_number, comment=comment, contact_id=contact_id, customer_id=customer_id, customer_number=customer_number, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3464,10 +3505,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomerPayment')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomerPayment')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3505,7 +3545,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3567,7 +3609,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCustomer"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3575,7 +3619,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3725,10 +3768,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomer"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomer(id=id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphCustomer(id=id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3746,13 +3791,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomer')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomer')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3796,7 +3839,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCustomer"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3818,7 +3863,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3930,10 +3974,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCustomer(id=id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphCustomer(id=id, address=address, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3954,10 +4000,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCustomer')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCustomer')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3995,7 +4040,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4057,7 +4104,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDimension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4065,7 +4114,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -4158,10 +4206,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDimension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDimension(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, dimension_values=dimension_values)
+        body = models.MicrosoftGraphDimension(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, dimension_values=dimension_values)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4179,13 +4229,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDimension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDimension')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4229,7 +4277,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDimension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4251,7 +4301,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -4306,10 +4355,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDimension(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, dimension_values=dimension_values)
+        body = models.MicrosoftGraphDimension(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, dimension_values=dimension_values)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4330,10 +4381,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDimension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDimension')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4371,7 +4421,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4433,7 +4485,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDimensionValue0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4441,7 +4495,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -4531,10 +4584,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDimensionValue"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDimensionValue(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphDimensionValue(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4552,13 +4607,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDimensionValue')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDimensionValue')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4602,7 +4655,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDimensionValue"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4624,7 +4679,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -4676,10 +4730,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDimensionValue(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphDimensionValue(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4700,10 +4756,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDimensionValue')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDimensionValue')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4741,7 +4796,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4803,7 +4860,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfEmployee"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4811,7 +4870,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -4946,10 +5004,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEmployee"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEmployee(id=id, address=address, birth_date=birth_date, display_name=display_name, email=email, employment_date=employment_date, given_name=given_name, job_title=job_title, last_modified_date_time=last_modified_date_time, middle_name=middle_name, mobile_phone=mobile_phone, number=number, personal_email=personal_email, phone_number=phone_number, statistics_group_code=statistics_group_code, status=status, surname=surname, termination_date=termination_date, picture=picture)
+        body = models.MicrosoftGraphEmployee(id=id, address=address, birth_date=birth_date, display_name=display_name, email=email, employment_date=employment_date, given_name=given_name, job_title=job_title, last_modified_date_time=last_modified_date_time, middle_name=middle_name, mobile_phone=mobile_phone, number=number, personal_email=personal_email, phone_number=phone_number, statistics_group_code=statistics_group_code, status=status, surname=surname, termination_date=termination_date, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4967,13 +5027,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEmployee')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEmployee')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5017,7 +5075,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphEmployee"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5039,7 +5099,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -5136,10 +5195,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphEmployee(id=id, address=address, birth_date=birth_date, display_name=display_name, email=email, employment_date=employment_date, given_name=given_name, job_title=job_title, last_modified_date_time=last_modified_date_time, middle_name=middle_name, mobile_phone=mobile_phone, number=number, personal_email=personal_email, phone_number=phone_number, statistics_group_code=statistics_group_code, status=status, surname=surname, termination_date=termination_date, picture=picture)
+        body = models.MicrosoftGraphEmployee(id=id, address=address, birth_date=birth_date, display_name=display_name, email=email, employment_date=employment_date, given_name=given_name, job_title=job_title, last_modified_date_time=last_modified_date_time, middle_name=middle_name, mobile_phone=mobile_phone, number=number, personal_email=personal_email, phone_number=phone_number, statistics_group_code=statistics_group_code, status=status, surname=surname, termination_date=termination_date, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5160,10 +5221,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphEmployee')
+        body_content = self._serialize.body(body, 'MicrosoftGraphEmployee')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5201,7 +5261,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5263,7 +5325,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfGeneralLedgerEntry"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5271,7 +5335,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -5382,10 +5445,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphGeneralLedgerEntry"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphGeneralLedgerEntry(id=id, account_id=account_id, account_number=account_number, credit_amount=credit_amount, debit_amount=debit_amount, description=description, document_number=document_number, document_type=document_type, last_modified_date_time=last_modified_date_time, posting_date=posting_date, account=account)
+        body = models.MicrosoftGraphGeneralLedgerEntry(id=id, account_id=account_id, account_number=account_number, credit_amount=credit_amount, debit_amount=debit_amount, description=description, document_number=document_number, document_type=document_type, last_modified_date_time=last_modified_date_time, posting_date=posting_date, account=account)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5403,13 +5468,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphGeneralLedgerEntry')
+        body_content = self._serialize.body(body, 'MicrosoftGraphGeneralLedgerEntry')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5453,7 +5516,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphGeneralLedgerEntry"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5475,7 +5540,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -5548,10 +5612,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphGeneralLedgerEntry(id=id, account_id=account_id, account_number=account_number, credit_amount=credit_amount, debit_amount=debit_amount, description=description, document_number=document_number, document_type=document_type, last_modified_date_time=last_modified_date_time, posting_date=posting_date, account=account)
+        body = models.MicrosoftGraphGeneralLedgerEntry(id=id, account_id=account_id, account_number=account_number, credit_amount=credit_amount, debit_amount=debit_amount, description=description, document_number=document_number, document_type=document_type, last_modified_date_time=last_modified_date_time, posting_date=posting_date, account=account)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5572,10 +5638,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphGeneralLedgerEntry')
+        body_content = self._serialize.body(body, 'MicrosoftGraphGeneralLedgerEntry')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5613,7 +5678,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5675,7 +5742,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfItemCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5683,7 +5752,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -5773,10 +5841,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItemCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphItemCategory(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphItemCategory(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5794,13 +5864,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphItemCategory')
+        body_content = self._serialize.body(body, 'MicrosoftGraphItemCategory')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5844,7 +5912,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItemCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5866,7 +5936,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -5918,10 +5987,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphItemCategory(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphItemCategory(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5942,10 +6013,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphItemCategory')
+        body_content = self._serialize.body(body, 'MicrosoftGraphItemCategory')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5983,7 +6053,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6045,7 +6117,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfItem"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6053,7 +6127,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -6185,10 +6258,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItem"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphItem(id=id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphItem(id=id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6206,13 +6281,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphItem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphItem')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6256,7 +6329,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphItem"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6278,7 +6353,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -6372,10 +6446,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphItem(id=id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphItem(id=id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6396,10 +6472,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphItem')
+        body_content = self._serialize.body(body, 'MicrosoftGraphItem')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6437,7 +6512,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6499,7 +6576,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfJournalLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6507,7 +6586,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -6624,10 +6702,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphJournalLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphJournalLine(id=id, account_id=account_id, account_number=account_number, amount=amount, comment=comment, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, account=account)
+        body = models.MicrosoftGraphJournalLine(id=id, account_id=account_id, account_number=account_number, amount=amount, comment=comment, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, account=account)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6645,13 +6725,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphJournalLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphJournalLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6695,7 +6773,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphJournalLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6717,7 +6797,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -6796,10 +6875,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphJournalLine(id=id, account_id=account_id, account_number=account_number, amount=amount, comment=comment, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, account=account)
+        body = models.MicrosoftGraphJournalLine(id=id, account_id=account_id, account_number=account_number, amount=amount, comment=comment, description=description, document_number=document_number, external_document_number=external_document_number, journal_display_name=journal_display_name, last_modified_date_time=last_modified_date_time, line_number=line_number, posting_date=posting_date, account=account)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6820,10 +6901,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphJournalLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphJournalLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6861,7 +6941,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6923,7 +7005,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6931,7 +7015,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -7033,10 +7116,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, journal_lines=journal_lines)
+        body = models.MicrosoftGraphJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, journal_lines=journal_lines)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7054,13 +7139,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphJournal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphJournal')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -7104,7 +7187,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphJournal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7126,7 +7211,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -7190,10 +7274,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, journal_lines=journal_lines)
+        body = models.MicrosoftGraphJournal(id=id, balancing_account_id=balancing_account_id, balancing_account_number=balancing_account_number, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, account=account, journal_lines=journal_lines)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7214,10 +7300,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphJournal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphJournal')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -7255,7 +7340,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7317,7 +7404,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPaymentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7325,7 +7414,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -7415,10 +7503,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPaymentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPaymentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphPaymentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7436,13 +7526,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPaymentMethod')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPaymentMethod')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -7486,7 +7574,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPaymentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7508,7 +7598,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -7560,10 +7649,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPaymentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphPaymentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7584,10 +7675,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPaymentMethod')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPaymentMethod')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -7625,7 +7715,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7687,7 +7779,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPaymentTerm"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7695,7 +7789,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -7797,10 +7890,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPaymentTerm"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPaymentTerm(id=id, calculate_discount_on_credit_memos=calculate_discount_on_credit_memos, code=code, discount_date_calculation=discount_date_calculation, discount_percent=discount_percent, display_name=display_name, due_date_calculation=due_date_calculation, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphPaymentTerm(id=id, calculate_discount_on_credit_memos=calculate_discount_on_credit_memos, code=code, discount_date_calculation=discount_date_calculation, discount_percent=discount_percent, display_name=display_name, due_date_calculation=due_date_calculation, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7818,13 +7913,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPaymentTerm')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPaymentTerm')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -7868,7 +7961,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPaymentTerm"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -7890,7 +7985,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -7954,10 +8048,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPaymentTerm(id=id, calculate_discount_on_credit_memos=calculate_discount_on_credit_memos, code=code, discount_date_calculation=discount_date_calculation, discount_percent=discount_percent, display_name=display_name, due_date_calculation=due_date_calculation, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphPaymentTerm(id=id, calculate_discount_on_credit_memos=calculate_discount_on_credit_memos, code=code, discount_date_calculation=discount_date_calculation, discount_percent=discount_percent, display_name=display_name, due_date_calculation=due_date_calculation, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -7978,10 +8074,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPaymentTerm')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPaymentTerm')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -8019,7 +8114,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8081,7 +8178,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPicture4"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8089,7 +8188,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -8182,10 +8280,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPicture"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPicture(id=id, content=content, content_type=content_type_parameter, height=height, width=width)
+        body = models.MicrosoftGraphPicture(id=id, content=content, content_type=content_type_parameter, height=height, width=width)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -8203,13 +8303,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPicture')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPicture')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -8253,7 +8351,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPicture"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8275,7 +8375,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -8330,10 +8429,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPicture(id=id, content=content, content_type=content_type_parameter, height=height, width=width)
+        body = models.MicrosoftGraphPicture(id=id, content=content, content_type=content_type_parameter, height=height, width=width)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -8354,10 +8455,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPicture')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPicture')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -8395,7 +8495,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8451,7 +8553,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[IO]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/octet-stream, application/json"
 
@@ -8469,7 +8573,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/octet-stream, application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=True, **kwargs)
@@ -8512,7 +8615,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/octet-stream")
         accept = "application/json"
@@ -8536,7 +8641,6 @@ class FinancialCompanyOperations(object):
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content_kwargs['stream_content'] = data
         request = self._client.put(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -8577,7 +8681,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPurchaseInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8585,7 +8691,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -8786,10 +8891,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPurchaseInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPurchaseInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, expected_receipt_date=expected_receipt_date, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_cost=unit_cost, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost_item_unit_cost=number_unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphPurchaseInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, expected_receipt_date=expected_receipt_date, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_cost=unit_cost, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost_item_unit_cost=number_unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -8807,13 +8914,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPurchaseInvoiceLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPurchaseInvoiceLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -8857,7 +8962,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPurchaseInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -8879,7 +8986,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -9042,10 +9148,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPurchaseInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, expected_receipt_date=expected_receipt_date, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_cost=unit_cost, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost_item_unit_cost=number_unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphPurchaseInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, expected_receipt_date=expected_receipt_date, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_cost=unit_cost, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost_item_unit_cost=number_unit_cost, unit_price=unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -9066,10 +9174,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPurchaseInvoiceLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPurchaseInvoiceLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -9107,7 +9214,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -9169,7 +9278,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPurchaseInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -9177,7 +9288,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -9402,10 +9512,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPurchaseInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPurchaseInvoice(id=id, buy_from_address=buy_from_address, currency_code=currency_code, currency_id=currency_id, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, pay_to_address=pay_to_address, pay_to_contact=pay_to_contact, pay_to_name=pay_to_name, pay_to_vendor_id=pay_to_vendor_id, pay_to_vendor_number=pay_to_vendor_number, prices_include_tax=prices_include_tax, ship_to_address=ship_to_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, vendor_id=vendor_id, vendor_invoice_number=vendor_invoice_number, vendor_name=vendor_name, vendor_number=vendor_number, currency=currency, purchase_invoice_lines=purchase_invoice_lines, id_vendor_id=microsoft_graph_entity_id, address=address, balance=balance, blocked=blocked, currency_code_vendor_currency_code=microsoft_graph_vendor_currency_code, currency_id_vendor_currency_id=microsoft_graph_vendor_currency_id, display_name=display_name, email=email, last_modified_date_time_vendor_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time, number_vendor_number=microsoft_graph_vendor_number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency_vendor_currency=microsoft_graph_currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
+        body = models.MicrosoftGraphPurchaseInvoice(id=id, buy_from_address=buy_from_address, currency_code=currency_code, currency_id=currency_id, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, pay_to_address=pay_to_address, pay_to_contact=pay_to_contact, pay_to_name=pay_to_name, pay_to_vendor_id=pay_to_vendor_id, pay_to_vendor_number=pay_to_vendor_number, prices_include_tax=prices_include_tax, ship_to_address=ship_to_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, vendor_id=vendor_id, vendor_invoice_number=vendor_invoice_number, vendor_name=vendor_name, vendor_number=vendor_number, currency=currency, purchase_invoice_lines=purchase_invoice_lines, id_vendor_id=microsoft_graph_entity_id, address=address, balance=balance, blocked=blocked, currency_code_vendor_currency_code=microsoft_graph_vendor_currency_code, currency_id_vendor_currency_id=microsoft_graph_vendor_currency_id, display_name=display_name, email=email, last_modified_date_time_vendor_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time, number_vendor_number=microsoft_graph_vendor_number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency_vendor_currency=microsoft_graph_currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -9423,13 +9535,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPurchaseInvoice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPurchaseInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -9473,7 +9583,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPurchaseInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -9495,7 +9607,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -9682,10 +9793,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPurchaseInvoice(id=id, buy_from_address=buy_from_address, currency_code=currency_code, currency_id=currency_id, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, pay_to_address=pay_to_address, pay_to_contact=pay_to_contact, pay_to_name=pay_to_name, pay_to_vendor_id=pay_to_vendor_id, pay_to_vendor_number=pay_to_vendor_number, prices_include_tax=prices_include_tax, ship_to_address=ship_to_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, vendor_id=vendor_id, vendor_invoice_number=vendor_invoice_number, vendor_name=vendor_name, vendor_number=vendor_number, currency=currency, purchase_invoice_lines=purchase_invoice_lines, id_vendor_id=microsoft_graph_entity_id, address=address, balance=balance, blocked=blocked, currency_code_vendor_currency_code=microsoft_graph_vendor_currency_code, currency_id_vendor_currency_id=microsoft_graph_vendor_currency_id, display_name=display_name, email=email, last_modified_date_time_vendor_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time, number_vendor_number=microsoft_graph_vendor_number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency_vendor_currency=microsoft_graph_currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
+        body = models.MicrosoftGraphPurchaseInvoice(id=id, buy_from_address=buy_from_address, currency_code=currency_code, currency_id=currency_id, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, pay_to_address=pay_to_address, pay_to_contact=pay_to_contact, pay_to_name=pay_to_name, pay_to_vendor_id=pay_to_vendor_id, pay_to_vendor_number=pay_to_vendor_number, prices_include_tax=prices_include_tax, ship_to_address=ship_to_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, vendor_id=vendor_id, vendor_invoice_number=vendor_invoice_number, vendor_name=vendor_name, vendor_number=vendor_number, currency=currency, purchase_invoice_lines=purchase_invoice_lines, id_vendor_id=microsoft_graph_entity_id, address=address, balance=balance, blocked=blocked, currency_code_vendor_currency_code=microsoft_graph_vendor_currency_code, currency_id_vendor_currency_id=microsoft_graph_vendor_currency_id, display_name=display_name, email=email, last_modified_date_time_vendor_last_modified_date_time=microsoft_graph_vendor_last_modified_date_time_last_modified_date_time, number_vendor_number=microsoft_graph_vendor_number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency_vendor_currency=microsoft_graph_currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -9706,10 +9819,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPurchaseInvoice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPurchaseInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -9747,7 +9859,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -9809,7 +9923,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesCreditMemoLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -9817,7 +9933,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -10021,10 +10136,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesCreditMemoLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesCreditMemoLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesCreditMemoLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10042,13 +10159,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemoLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemoLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -10092,7 +10207,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesCreditMemoLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -10114,7 +10231,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -10280,10 +10396,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesCreditMemoLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesCreditMemoLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10304,10 +10422,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemoLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemoLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -10345,7 +10462,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -10407,7 +10526,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesCreditMemo"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -10415,7 +10536,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -10661,10 +10781,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesCreditMemo"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10682,13 +10804,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemo')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemo')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -10732,7 +10852,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesCreditMemo"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -10754,7 +10876,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -10962,10 +11083,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphSalesCreditMemo(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, credit_memo_date=credit_memo_date, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_id=invoice_id, invoice_number=invoice_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_credit_memo_lines=sales_credit_memo_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -10986,10 +11109,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesCreditMemo')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesCreditMemo')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -11027,7 +11149,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -11089,7 +11213,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -11097,7 +11223,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -11301,10 +11426,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -11322,13 +11449,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoiceLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoiceLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -11372,7 +11497,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesInvoiceLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -11394,7 +11521,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -11560,10 +11686,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesInvoiceLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -11584,10 +11712,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoiceLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoiceLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -11625,7 +11752,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -11687,7 +11816,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -11695,7 +11826,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -11959,10 +12089,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
+        body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -11980,13 +12112,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -12030,7 +12160,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesInvoice"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -12052,7 +12184,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -12278,10 +12409,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
+        body = models.MicrosoftGraphSalesInvoice(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, customer_purchase_order_reference=customer_purchase_order_reference, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, due_date=due_date, email=email, external_document_number=external_document_number, invoice_date=invoice_date, last_modified_date_time=last_modified_date_time, number=number, order_id=order_id, order_number=order_number, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, salesperson=salesperson, selling_postal_address=selling_postal_address, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_invoice_lines=sales_invoice_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -12302,10 +12435,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesInvoice')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesInvoice')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -12343,7 +12475,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -12405,7 +12539,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesOrderLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -12413,7 +12549,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -12629,10 +12764,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesOrderLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesOrderLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, invoiced_quantity=invoiced_quantity, invoice_quantity=invoice_quantity, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, shipped_quantity=shipped_quantity, ship_quantity=ship_quantity, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesOrderLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, invoiced_quantity=invoiced_quantity, invoice_quantity=invoice_quantity, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, shipped_quantity=shipped_quantity, ship_quantity=ship_quantity, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -12650,13 +12787,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrderLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrderLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -12700,7 +12835,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesOrderLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -12722,7 +12859,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -12900,10 +13036,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesOrderLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, invoiced_quantity=invoiced_quantity, invoice_quantity=invoice_quantity, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, shipped_quantity=shipped_quantity, ship_quantity=ship_quantity, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesOrderLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, invoice_discount_allocation=invoice_discount_allocation, invoiced_quantity=invoiced_quantity, invoice_quantity=invoice_quantity, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, shipment_date=shipment_date, shipped_quantity=shipped_quantity, ship_quantity=ship_quantity, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -12924,10 +13062,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrderLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrderLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -12965,7 +13102,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -13027,7 +13166,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesOrder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -13035,7 +13176,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -13290,10 +13430,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesOrder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -13311,13 +13453,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -13361,7 +13501,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesOrder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -13383,7 +13525,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -13600,10 +13741,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
+        body = models.MicrosoftGraphSalesOrder(id=id, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, email=email, external_document_number=external_document_number, fully_shipped=fully_shipped, last_modified_date_time=last_modified_date_time, number=number, order_date=order_date, partial_shipping=partial_shipping, payment_terms_id=payment_terms_id, phone_number=phone_number, prices_include_tax=prices_include_tax, requested_delivery_date=requested_delivery_date, salesperson=salesperson, selling_postal_address=selling_postal_address, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, currency=currency, payment_term=payment_term, sales_order_lines=sales_order_lines, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id=shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method=shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -13624,10 +13767,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesOrder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesOrder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -13665,7 +13807,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -13727,7 +13871,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesQuoteLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -13735,7 +13881,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -13933,10 +14078,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesQuoteLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesQuoteLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesQuoteLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -13954,13 +14101,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuoteLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuoteLine')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -14004,7 +14149,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesQuoteLine"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -14026,7 +14173,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -14186,10 +14332,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesQuoteLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
+        body = models.MicrosoftGraphSalesQuoteLine(id=id, account_id=account_id, amount_excluding_tax=amount_excluding_tax, amount_including_tax=amount_including_tax, description=description, discount_amount=discount_amount, discount_applied_before_tax=discount_applied_before_tax, discount_percent=discount_percent, document_id=document_id, item_id=item_id, line_type=line_type, net_amount=net_amount, net_amount_including_tax=net_amount_including_tax, net_tax_amount=net_tax_amount, quantity=quantity, sequence=sequence, tax_code=tax_code, tax_percent=tax_percent, total_tax_amount=total_tax_amount, unit_of_measure_id=unit_of_measure_id, unit_price=unit_price, account=account, id_item_id=microsoft_graph_entity_id, base_unit_of_measure_id=base_unit_of_measure_id, blocked=blocked, display_name=display_name, gtin=gtin, inventory=inventory, item_category_code=item_category_code, item_category_id=item_category_id, last_modified_date_time=last_modified_date_time, number=number, price_includes_tax=price_includes_tax, tax_group_code=tax_group_code, tax_group_id=tax_group_id, type=type, unit_cost=unit_cost, unit_price_item_unit_price=number_unit_price, item_category=item_category, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -14210,10 +14358,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuoteLine')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuoteLine')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -14251,7 +14398,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -14313,7 +14462,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSalesQuote"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -14321,7 +14472,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -14579,10 +14729,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesQuote"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
+        body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -14600,13 +14752,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuote')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuote')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -14650,7 +14800,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSalesQuote"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -14672,7 +14824,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -14892,10 +15043,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
+        body = models.MicrosoftGraphSalesQuote(id=id, accepted_date=accepted_date, billing_postal_address=billing_postal_address, bill_to_customer_id=bill_to_customer_id, bill_to_customer_number=bill_to_customer_number, bill_to_name=bill_to_name, currency_code=currency_code, currency_id=currency_id, customer_id=customer_id, customer_name=customer_name, customer_number=customer_number, discount_amount=discount_amount, document_date=document_date, due_date=due_date, email=email, external_document_number=external_document_number, last_modified_date_time=last_modified_date_time, number=number, payment_terms_id=payment_terms_id, phone_number=phone_number, salesperson=salesperson, selling_postal_address=selling_postal_address, sent_date=sent_date, shipment_method_id=shipment_method_id, shipping_postal_address=shipping_postal_address, ship_to_contact=ship_to_contact, ship_to_name=ship_to_name, status=status, total_amount_excluding_tax=total_amount_excluding_tax, total_amount_including_tax=total_amount_including_tax, total_tax_amount=total_tax_amount, valid_until_date=valid_until_date, currency=currency, payment_term=payment_term, sales_quote_lines=sales_quote_lines, shipment_method=shipment_method, id_customer_id=microsoft_graph_entity_id, address=address, blocked=blocked, currency_code_customer_currency_code=microsoft_graph_customer_currency_code, currency_id_customer_currency_id=microsoft_graph_customer_currency_id, display_name=display_name, email_customer_email=microsoft_graph_customer_email, last_modified_date_time_customer_last_modified_date_time=microsoft_graph_customer_last_modified_date_time_last_modified_date_time, number_customer_number=microsoft_graph_customer_number, payment_method_id=payment_method_id, payment_terms_id_customer_payment_terms_id=microsoft_graph_customer_payment_terms_id_payment_terms_id, phone_number_customer_phone_number=microsoft_graph_customer_phone_number, shipment_method_id_customer_shipment_method_id=microsoft_graph_customer_shipment_method_id_shipment_method_id, tax_area_display_name=tax_area_display_name, tax_area_id=tax_area_id, tax_liable=tax_liable, tax_registration_number=tax_registration_number, type=type, website=website, currency_customer_currency=microsoft_graph_currency, payment_method=payment_method, payment_term_customer_payment_term=microsoft_graph_payment_term, picture=picture, shipment_method_customer_shipment_method=microsoft_graph_shipment_method)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -14916,10 +15069,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSalesQuote')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSalesQuote')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -14957,7 +15109,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15019,7 +15173,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfShipmentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15027,7 +15183,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -15117,10 +15272,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphShipmentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphShipmentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphShipmentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -15138,13 +15295,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphShipmentMethod')
+        body_content = self._serialize.body(body, 'MicrosoftGraphShipmentMethod')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -15188,7 +15343,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphShipmentMethod"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15210,7 +15367,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -15262,10 +15418,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphShipmentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphShipmentMethod(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -15286,10 +15444,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphShipmentMethod')
+        body_content = self._serialize.body(body, 'MicrosoftGraphShipmentMethod')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -15327,7 +15484,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15389,7 +15548,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTaxArea"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15397,7 +15558,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -15490,10 +15650,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTaxArea"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTaxArea(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
+        body = models.MicrosoftGraphTaxArea(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -15511,13 +15673,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTaxArea')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTaxArea')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -15561,7 +15721,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTaxArea"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15583,7 +15745,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -15638,10 +15799,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTaxArea(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
+        body = models.MicrosoftGraphTaxArea(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -15662,10 +15825,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTaxArea')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTaxArea')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -15703,7 +15865,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15765,7 +15929,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTaxGroup"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15773,7 +15939,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -15866,10 +16031,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTaxGroup"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTaxGroup(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
+        body = models.MicrosoftGraphTaxGroup(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -15887,13 +16054,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTaxGroup')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTaxGroup')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -15937,7 +16102,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTaxGroup"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -15959,7 +16126,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -16014,10 +16180,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTaxGroup(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
+        body = models.MicrosoftGraphTaxGroup(id=id, code=code, display_name=display_name, last_modified_date_time=last_modified_date_time, tax_type=tax_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -16038,10 +16206,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTaxGroup')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTaxGroup')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -16079,7 +16246,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16141,7 +16310,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfUnitOfMeasure"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16149,7 +16320,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -16242,10 +16412,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUnitOfMeasure"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUnitOfMeasure(id=id, code=code, display_name=display_name, international_standard_code=international_standard_code, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphUnitOfMeasure(id=id, code=code, display_name=display_name, international_standard_code=international_standard_code, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -16263,13 +16435,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUnitOfMeasure')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUnitOfMeasure')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -16313,7 +16483,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphUnitOfMeasure"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16335,7 +16507,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -16390,10 +16561,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphUnitOfMeasure(id=id, code=code, display_name=display_name, international_standard_code=international_standard_code, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphUnitOfMeasure(id=id, code=code, display_name=display_name, international_standard_code=international_standard_code, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -16414,10 +16587,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphUnitOfMeasure')
+        body_content = self._serialize.body(body, 'MicrosoftGraphUnitOfMeasure')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -16455,7 +16627,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16517,7 +16691,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfVendor"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16525,7 +16701,6 @@ class FinancialCompanyOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -16663,10 +16838,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphVendor"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphVendor(id=id, address=address, balance=balance, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
+        body = models.MicrosoftGraphVendor(id=id, address=address, balance=balance, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -16684,13 +16861,11 @@ class FinancialCompanyOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphVendor')
+        body_content = self._serialize.body(body, 'MicrosoftGraphVendor')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -16734,7 +16909,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphVendor"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -16756,7 +16933,6 @@ class FinancialCompanyOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -16856,10 +17032,12 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphVendor(id=id, address=address, balance=balance, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
+        body = models.MicrosoftGraphVendor(id=id, address=address, balance=balance, blocked=blocked, currency_code=currency_code, currency_id=currency_id, display_name=display_name, email=email, last_modified_date_time=last_modified_date_time, number=number, payment_method_id=payment_method_id, payment_terms_id=payment_terms_id, phone_number=phone_number, tax_liable=tax_liable, tax_registration_number=tax_registration_number, website=website, currency=currency, payment_method=payment_method, payment_term=payment_term, picture=picture)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -16880,10 +17058,9 @@ class FinancialCompanyOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphVendor')
+        body_content = self._serialize.body(body, 'MicrosoftGraphVendor')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -16921,7 +17098,9 @@ class FinancialCompanyOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

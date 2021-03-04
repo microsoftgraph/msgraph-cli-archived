@@ -16,7 +16,7 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_crossdeviceexperiences_beta.action import (
-    AddVisualElementsAttribution,
+    AddAttribution,
     AddAlternativeSecurityIds,
     AddExtensionAttributes,
     AddMemberOf,
@@ -70,17 +70,17 @@ def load_arguments(self, _):
                    'to support cross-platform representation.')
         c.argument('history_items', type=validate_file_or_dict, help='Optional. NavigationProperty/Containment; '
                    'navigation property to the activity\'s historyItems. Expected value: json-string/@json-file.')
-        c.argument('visual_elements_attribution', action=AddVisualElementsAttribution, nargs='*', help='imageInfo')
-        c.argument('visual_elements_background_color', type=str, help='Optional. Background color used to render the '
-                   'activity in the UI - brand color for the application source of the activity. Must be a valid hex '
-                   'color')
-        c.argument('visual_elements_content', type=validate_file_or_dict, help='Json Expected value: '
-                   'json-string/@json-file.')
-        c.argument('visual_elements_description', type=str, help='Optional. Longer text description of the user\'s '
-                   'unique activity (example: document name, first sentence, and/or metadata)')
-        c.argument('visual_elements_display_text', type=str, help='Required. Short text description of the user\'s '
-                   'unique activity (for example, document name in cases where an activity refers to document '
-                   'creation)')
+        c.argument('attribution', action=AddAttribution, nargs='+', help='imageInfo', arg_group='Visual Elements')
+        c.argument('background_color', type=str, help='Optional. Background color used to render the activity in the '
+                   'UI - brand color for the application source of the activity. Must be a valid hex color',
+                   arg_group='Visual Elements')
+        c.argument('content', type=validate_file_or_dict, help='Json Expected value: json-string/@json-file.',
+                   arg_group='Visual Elements')
+        c.argument('description', type=str, help='Optional. Longer text description of the user\'s unique activity '
+                   '(example: document name, first sentence, and/or metadata)', arg_group='Visual Elements')
+        c.argument('display_text', type=str, help='Required. Short text description of the user\'s unique activity '
+                   '(for example, document name in cases where an activity refers to document creation)',
+                   arg_group='Visual Elements')
 
     with self.argument_context('crossdeviceexperiences user create-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -88,7 +88,7 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
                    'otherwise, false. Required.')
-        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='*', help='For internal use '
+        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='+', help='For internal use '
                    'only. Not nullable.')
         c.argument('approximate_last_sign_in_date_time', help='The timestamp type represents date and time information '
                    'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
@@ -107,8 +107,8 @@ def load_arguments(self, _):
         c.argument('domain_name', type=str, help='')
         c.argument('enrollment_profile_name', type=str, help='')
         c.argument('enrollment_type', type=str, help='')
-        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='*', help=''
-                   'onPremisesExtensionAttributes')
+        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='+',
+                   help='onPremisesExtensionAttributes')
         c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
                    'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
                    'for any device OS type or by an approved MDM app for Windows OS devices.')
@@ -128,11 +128,11 @@ def load_arguments(self, _):
         c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
         c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
                    'Required.')
-        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
+        c.argument('physical_ids', nargs='+', help='For internal use only. Not nullable.')
         c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
                    '(default)SecureVMPrinterSharedIoT')
         c.argument('registration_date_time', help='')
-        c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
+        c.argument('system_labels', nargs='+', help='List of labels applied to the device by the system.')
         c.argument('trust_type', type=str, help='Type of trust for the joined device. Read-only. Possible values: '
                    'Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - '
                    'on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device '
@@ -143,42 +143,42 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('platform', type=str, help='')
         c.argument('status', type=str, help='')
-        c.argument('member_of', action=AddMemberOf, nargs='*', help='Groups that this group is a member of. HTTP '
+        c.argument('member_of', action=AddMemberOf, nargs='+', help='Groups that this group is a member of. HTTP '
                    'Methods: GET (supported for all groups). Read-only. Nullable.')
-        c.argument('registered_owners', action=AddRegisteredOwners, nargs='*', help='The user that cloud joined the '
+        c.argument('registered_owners', action=AddRegisteredOwners, nargs='+', help='The user that cloud joined the '
                    'device or registered their personal device. The registered owner is set at the time of '
                    'registration. Currently, there can be only one owner. Read-only. Nullable.')
-        c.argument('registered_users', action=AddRegisteredUsers, nargs='*', help='Collection of registered users of '
+        c.argument('registered_users', action=AddRegisteredUsers, nargs='+', help='Collection of registered users of '
                    'the device. For cloud joined devices and registered personal devices, registered users are set to '
                    'the same value as registered owners at the time of registration. Read-only. Nullable.')
-        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
-        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
                    'the device. Read-only. Nullable.')
         c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences user get-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('crossdeviceexperiences user get-device') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('device_id', type=str, help='key: id of device')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('crossdeviceexperiences user list-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('crossdeviceexperiences user list-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user show-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user show-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('device_id', type=str, help='key: id of device')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('crossdeviceexperiences user update-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -216,17 +216,17 @@ def load_arguments(self, _):
                    'to support cross-platform representation.')
         c.argument('history_items', type=validate_file_or_dict, help='Optional. NavigationProperty/Containment; '
                    'navigation property to the activity\'s historyItems. Expected value: json-string/@json-file.')
-        c.argument('visual_elements_attribution', action=AddVisualElementsAttribution, nargs='*', help='imageInfo')
-        c.argument('visual_elements_background_color', type=str, help='Optional. Background color used to render the '
-                   'activity in the UI - brand color for the application source of the activity. Must be a valid hex '
-                   'color')
-        c.argument('visual_elements_content', type=validate_file_or_dict, help='Json Expected value: '
-                   'json-string/@json-file.')
-        c.argument('visual_elements_description', type=str, help='Optional. Longer text description of the user\'s '
-                   'unique activity (example: document name, first sentence, and/or metadata)')
-        c.argument('visual_elements_display_text', type=str, help='Required. Short text description of the user\'s '
-                   'unique activity (for example, document name in cases where an activity refers to document '
-                   'creation)')
+        c.argument('attribution', action=AddAttribution, nargs='+', help='imageInfo', arg_group='Visual Elements')
+        c.argument('background_color', type=str, help='Optional. Background color used to render the activity in the '
+                   'UI - brand color for the application source of the activity. Must be a valid hex color',
+                   arg_group='Visual Elements')
+        c.argument('content', type=validate_file_or_dict, help='Json Expected value: json-string/@json-file.',
+                   arg_group='Visual Elements')
+        c.argument('description', type=str, help='Optional. Longer text description of the user\'s unique activity '
+                   '(example: document name, first sentence, and/or metadata)', arg_group='Visual Elements')
+        c.argument('display_text', type=str, help='Required. Short text description of the user\'s unique activity '
+                   '(for example, document name in cases where an activity refers to document creation)',
+                   arg_group='Visual Elements')
 
     with self.argument_context('crossdeviceexperiences user update-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -235,7 +235,7 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
                    'otherwise, false. Required.')
-        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='*', help='For internal use '
+        c.argument('alternative_security_ids', action=AddAlternativeSecurityIds, nargs='+', help='For internal use '
                    'only. Not nullable.')
         c.argument('approximate_last_sign_in_date_time', help='The timestamp type represents date and time information '
                    'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
@@ -254,8 +254,8 @@ def load_arguments(self, _):
         c.argument('domain_name', type=str, help='')
         c.argument('enrollment_profile_name', type=str, help='')
         c.argument('enrollment_type', type=str, help='')
-        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='*', help=''
-                   'onPremisesExtensionAttributes')
+        c.argument('extension_attributes', action=AddExtensionAttributes, nargs='+',
+                   help='onPremisesExtensionAttributes')
         c.argument('is_compliant', arg_type=get_three_state_flag(), help='true if the device complies with Mobile '
                    'Device Management (MDM) policies; otherwise, false. Read-only. This can only be updated by Intune '
                    'for any device OS type or by an approved MDM app for Windows OS devices.')
@@ -275,11 +275,11 @@ def load_arguments(self, _):
         c.argument('operating_system', type=str, help='The type of operating system on the device. Required.')
         c.argument('operating_system_version', type=str, help='The version of the operating system on the device. '
                    'Required.')
-        c.argument('physical_ids', nargs='*', help='For internal use only. Not nullable.')
+        c.argument('physical_ids', nargs='+', help='For internal use only. Not nullable.')
         c.argument('profile_type', type=str, help='The profile type of the device. Possible values:RegisteredDevice '
                    '(default)SecureVMPrinterSharedIoT')
         c.argument('registration_date_time', help='')
-        c.argument('system_labels', nargs='*', help='List of labels applied to the device by the system.')
+        c.argument('system_labels', nargs='+', help='List of labels applied to the device by the system.')
         c.argument('trust_type', type=str, help='Type of trust for the joined device. Read-only. Possible values: '
                    'Workplace - indicates bring your own personal devicesAzureAd - Cloud only joined devicesServerAd - '
                    'on-premises domain joined devices joined to Azure AD. For more details, see Introduction to device '
@@ -290,16 +290,16 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('platform', type=str, help='')
         c.argument('status', type=str, help='')
-        c.argument('member_of', action=AddMemberOf, nargs='*', help='Groups that this group is a member of. HTTP '
+        c.argument('member_of', action=AddMemberOf, nargs='+', help='Groups that this group is a member of. HTTP '
                    'Methods: GET (supported for all groups). Read-only. Nullable.')
-        c.argument('registered_owners', action=AddRegisteredOwners, nargs='*', help='The user that cloud joined the '
+        c.argument('registered_owners', action=AddRegisteredOwners, nargs='+', help='The user that cloud joined the '
                    'device or registered their personal device. The registered owner is set at the time of '
                    'registration. Currently, there can be only one owner. Read-only. Nullable.')
-        c.argument('registered_users', action=AddRegisteredUsers, nargs='*', help='Collection of registered users of '
+        c.argument('registered_users', action=AddRegisteredUsers, nargs='+', help='Collection of registered users of '
                    'the device. For cloud joined devices and registered personal devices, registered users are set to '
                    'the same value as registered owners at the time of registration. Read-only. Nullable.')
-        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='*', help='')
-        c.argument('extensions', action=AddExtensions, nargs='*', help='The collection of open extensions defined for '
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
                    'the device. Read-only. Nullable.')
         c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
@@ -333,19 +333,19 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences user-activity get-history-item') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('crossdeviceexperiences user-activity list-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user-activity show-history-item') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('crossdeviceexperiences user-activity update-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -378,21 +378,21 @@ def load_arguments(self, _):
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('crossdeviceexperiences user-activity-history-item get-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('crossdeviceexperiences user-activity-history-item get-ref-activity') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-
     with self.argument_context('crossdeviceexperiences user-activity-history-item set-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('crossdeviceexperiences user-activity-history-item show-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('crossdeviceexperiences user-activity-history-item show-ref-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')

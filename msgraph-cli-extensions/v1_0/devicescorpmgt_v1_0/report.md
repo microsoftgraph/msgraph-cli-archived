@@ -1,20 +1,420 @@
 # Azure CLI Module Creation Report
 
-### devicescorpmgt device-app-management create-android-managed-app-protection
-
-create-android-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
+|az devicescorpmgt_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-android-managed-app-protection|CreateAndroidManagedAppProtections|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az devicescorpmgt_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az devicescorpmgt device-app-management-device-app-management|deviceAppManagement.deviceAppManagement|[commands](#CommandsIndeviceAppManagement.deviceAppManagement)|
+|az devicescorpmgt device-app-management|deviceAppManagement|[commands](#CommandsIndeviceAppManagement)|
+|az devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|[commands](#CommandsIndeviceAppManagement.androidManagedAppProtections)|
+|az devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|[commands](#CommandsIndeviceAppManagement.defaultManagedAppProtections)|
+|az devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|[commands](#CommandsIndeviceAppManagement.iosManagedAppProtections)|
+|az devicescorpmgt device-app-management-managed-app-policy|deviceAppManagement.managedAppPolicies|[commands](#CommandsIndeviceAppManagement.managedAppPolicies)|
+|az devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|[commands](#CommandsIndeviceAppManagement.managedAppRegistrations)|
+|az devicescorpmgt device-app-management-managed-app-registration-applied-policy|deviceAppManagement.managedAppRegistrations.appliedPolicies|[commands](#CommandsIndeviceAppManagement.managedAppRegistrations.appliedPolicies)|
+|az devicescorpmgt device-app-management-managed-app-registration-intended-policy|deviceAppManagement.managedAppRegistrations.intendedPolicies|[commands](#CommandsIndeviceAppManagement.managedAppRegistrations.intendedPolicies)|
+|az devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|[commands](#CommandsIndeviceAppManagement.managedEBooks)|
+|az devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|[commands](#CommandsIndeviceAppManagement.managedEBooks.userStateSummary)|
+|az devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|[commands](#CommandsIndeviceAppManagement.mobileAppConfigurations)|
+|az devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|[commands](#CommandsIndeviceAppManagement.mobileApps)|
+|az devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|[commands](#CommandsIndeviceAppManagement.targetedManagedAppConfigurations)|
+|az devicescorpmgt device-app-management-vpp-token|deviceAppManagement.vppTokens|[commands](#CommandsIndeviceAppManagement.vppTokens)|
+|az devicescorpmgt user|users|[commands](#CommandsInusers)|
+|az devicescorpmgt user-managed-device|users.managedDevices|[commands](#CommandsInusers.managedDevices)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsIndeviceAppManagement">Commands in `az devicescorpmgt device-app-management` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteAndroidManagedAppProtections)|DeleteAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteDefaultManagedAppProtections)|DeleteDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteIosManagedAppProtections)|DeleteIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppPolicies)|DeleteManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppRegistrations)|DeleteManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppStatuses)|DeleteManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedEBooks)|DeleteManagedEBooks|[Parameters](#ParametersdeviceAppManagementDeleteManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|DeleteMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileAppCategories)|DeleteMobileAppCategories|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileAppConfigurations)|DeleteMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileApps)|DeleteMobileApps|[Parameters](#ParametersdeviceAppManagementDeleteMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteTargetedManagedAppConfigurations)|DeleteTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteVppTokens)|DeleteVppTokens|[Parameters](#ParametersdeviceAppManagementDeleteVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteWindowsInformationProtectionPolicies)|DeleteWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management create-android-managed-app-protection](#deviceAppManagementCreateAndroidManagedAppProtections)|CreateAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management create-default-managed-app-protection](#deviceAppManagementCreateDefaultManagedAppProtections)|CreateDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management create-io-managed-app-protection](#deviceAppManagementCreateIosManagedAppProtections)|CreateIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management create-managed-app-policy](#deviceAppManagementCreateManagedAppPolicies)|CreateManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementCreateManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management create-managed-app-registration](#deviceAppManagementCreateManagedAppRegistrations)|CreateManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementCreateManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management create-managed-app-statuses](#deviceAppManagementCreateManagedAppStatuses)|CreateManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementCreateManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management create-managed-e-book](#deviceAppManagementCreateManagedEBooks)|CreateManagedEBooks|[Parameters](#ParametersdeviceAppManagementCreateManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management create-mdm-window-information-protection-policy](#deviceAppManagementCreateMdmWindowsInformationProtectionPolicies)|CreateMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementCreateMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management create-mobile-app](#deviceAppManagementCreateMobileApps)|CreateMobileApps|[Parameters](#ParametersdeviceAppManagementCreateMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management create-mobile-app-category](#deviceAppManagementCreateMobileAppCategories)|CreateMobileAppCategories|[Parameters](#ParametersdeviceAppManagementCreateMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management create-mobile-app-configuration](#deviceAppManagementCreateMobileAppConfigurations)|CreateMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementCreateMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management create-targeted-managed-app-configuration](#deviceAppManagementCreateTargetedManagedAppConfigurations)|CreateTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementCreateTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management create-vpp-token](#deviceAppManagementCreateVppTokens)|CreateVppTokens|[Parameters](#ParametersdeviceAppManagementCreateVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management create-window-information-protection-policy](#deviceAppManagementCreateWindowsInformationProtectionPolicies)|CreateWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementCreateWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management list-android-managed-app-protection](#deviceAppManagementListAndroidManagedAppProtections)|ListAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management list-default-managed-app-protection](#deviceAppManagementListDefaultManagedAppProtections)|ListDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management list-io-managed-app-protection](#deviceAppManagementListIosManagedAppProtections)|ListIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management list-managed-app-policy](#deviceAppManagementListManagedAppPolicies)|ListManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementListManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management list-managed-app-registration](#deviceAppManagementListManagedAppRegistrations)|ListManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementListManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management list-managed-app-statuses](#deviceAppManagementListManagedAppStatuses)|ListManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementListManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management list-managed-e-book](#deviceAppManagementListManagedEBooks)|ListManagedEBooks|[Parameters](#ParametersdeviceAppManagementListManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management list-mdm-window-information-protection-policy](#deviceAppManagementListMdmWindowsInformationProtectionPolicies)|ListMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementListMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management list-mobile-app](#deviceAppManagementListMobileApps)|ListMobileApps|[Parameters](#ParametersdeviceAppManagementListMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management list-mobile-app-category](#deviceAppManagementListMobileAppCategories)|ListMobileAppCategories|[Parameters](#ParametersdeviceAppManagementListMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management list-mobile-app-configuration](#deviceAppManagementListMobileAppConfigurations)|ListMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementListMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management list-targeted-managed-app-configuration](#deviceAppManagementListTargetedManagedAppConfigurations)|ListTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementListTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management list-vpp-token](#deviceAppManagementListVppTokens)|ListVppTokens|[Parameters](#ParametersdeviceAppManagementListVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management list-window-information-protection-policy](#deviceAppManagementListWindowsInformationProtectionPolicies)|ListWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementListWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management show-android-managed-app-protection](#deviceAppManagementGetAndroidManagedAppProtections)|GetAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementGetAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management show-default-managed-app-protection](#deviceAppManagementGetDefaultManagedAppProtections)|GetDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementGetDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management show-io-managed-app-protection](#deviceAppManagementGetIosManagedAppProtections)|GetIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementGetIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management show-managed-app-policy](#deviceAppManagementGetManagedAppPolicies)|GetManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementGetManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management show-managed-app-registration](#deviceAppManagementGetManagedAppRegistrations)|GetManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementGetManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management show-managed-app-statuses](#deviceAppManagementGetManagedAppStatuses)|GetManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementGetManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management show-managed-e-book](#deviceAppManagementGetManagedEBooks)|GetManagedEBooks|[Parameters](#ParametersdeviceAppManagementGetManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management show-mdm-window-information-protection-policy](#deviceAppManagementGetMdmWindowsInformationProtectionPolicies)|GetMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementGetMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management show-mobile-app](#deviceAppManagementGetMobileApps)|GetMobileApps|[Parameters](#ParametersdeviceAppManagementGetMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management show-mobile-app-category](#deviceAppManagementGetMobileAppCategories)|GetMobileAppCategories|[Parameters](#ParametersdeviceAppManagementGetMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management show-mobile-app-configuration](#deviceAppManagementGetMobileAppConfigurations)|GetMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementGetMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management show-targeted-managed-app-configuration](#deviceAppManagementGetTargetedManagedAppConfigurations)|GetTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementGetTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management show-vpp-token](#deviceAppManagementGetVppTokens)|GetVppTokens|[Parameters](#ParametersdeviceAppManagementGetVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management show-window-information-protection-policy](#deviceAppManagementGetWindowsInformationProtectionPolicies)|GetWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementGetWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management sync-microsoft-store-for-business-app](#deviceAppManagementsyncMicrosoftStoreForBusinessApps)|syncMicrosoftStoreForBusinessApps|[Parameters](#ParametersdeviceAppManagementsyncMicrosoftStoreForBusinessApps)|Not Found|
+|[az devicescorpmgt device-app-management update-android-managed-app-protection](#deviceAppManagementUpdateAndroidManagedAppProtections)|UpdateAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementUpdateAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management update-default-managed-app-protection](#deviceAppManagementUpdateDefaultManagedAppProtections)|UpdateDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementUpdateDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management update-io-managed-app-protection](#deviceAppManagementUpdateIosManagedAppProtections)|UpdateIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementUpdateIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management update-managed-app-policy](#deviceAppManagementUpdateManagedAppPolicies)|UpdateManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementUpdateManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management update-managed-app-registration](#deviceAppManagementUpdateManagedAppRegistrations)|UpdateManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementUpdateManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management update-managed-app-statuses](#deviceAppManagementUpdateManagedAppStatuses)|UpdateManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementUpdateManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management update-managed-e-book](#deviceAppManagementUpdateManagedEBooks)|UpdateManagedEBooks|[Parameters](#ParametersdeviceAppManagementUpdateManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management update-mdm-window-information-protection-policy](#deviceAppManagementUpdateMdmWindowsInformationProtectionPolicies)|UpdateMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementUpdateMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management update-mobile-app](#deviceAppManagementUpdateMobileApps)|UpdateMobileApps|[Parameters](#ParametersdeviceAppManagementUpdateMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management update-mobile-app-category](#deviceAppManagementUpdateMobileAppCategories)|UpdateMobileAppCategories|[Parameters](#ParametersdeviceAppManagementUpdateMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management update-mobile-app-configuration](#deviceAppManagementUpdateMobileAppConfigurations)|UpdateMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementUpdateMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management update-targeted-managed-app-configuration](#deviceAppManagementUpdateTargetedManagedAppConfigurations)|UpdateTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementUpdateTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management update-vpp-token](#deviceAppManagementUpdateVppTokens)|UpdateVppTokens|[Parameters](#ParametersdeviceAppManagementUpdateVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management update-window-information-protection-policy](#deviceAppManagementUpdateWindowsInformationProtectionPolicies)|UpdateWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementUpdateWindowsInformationProtectionPolicies)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.androidManagedAppProtections">Commands in `az devicescorpmgt device-app-management-android-managed-app-protection` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-android-managed-app-protection delete](#deviceAppManagement.androidManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection delete](#deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection create-app](#deviceAppManagement.androidManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection list-app](#deviceAppManagement.androidManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsListApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection show-app](#deviceAppManagement.androidManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsGetApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection show-deployment-summary](#deviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection update-app](#deviceAppManagement.androidManagedAppProtectionsUpdateApps)|UpdateApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsUpdateApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary](#deviceAppManagement.androidManagedAppProtectionsUpdateDeploymentSummary)|UpdateDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsUpdateDeploymentSummary)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.defaultManagedAppProtections">Commands in `az devicescorpmgt device-app-management-default-managed-app-protection` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-default-managed-app-protection delete](#deviceAppManagement.defaultManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection delete](#deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection create-app](#deviceAppManagement.defaultManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection list-app](#deviceAppManagement.defaultManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsListApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection show-app](#deviceAppManagement.defaultManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsGetApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection show-deployment-summary](#deviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection update-app](#deviceAppManagement.defaultManagedAppProtectionsUpdateApps)|UpdateApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsUpdateApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary](#deviceAppManagement.defaultManagedAppProtectionsUpdateDeploymentSummary)|UpdateDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsUpdateDeploymentSummary)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.deviceAppManagement">Commands in `az devicescorpmgt device-app-management-device-app-management` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-device-app-management show-device-app-management](#deviceAppManagement.deviceAppManagementGetDeviceAppManagement)|GetDeviceAppManagement|[Parameters](#ParametersdeviceAppManagement.deviceAppManagementGetDeviceAppManagement)|Not Found|
+|[az devicescorpmgt device-app-management-device-app-management update-device-app-management](#deviceAppManagement.deviceAppManagementUpdateDeviceAppManagement)|UpdateDeviceAppManagement|[Parameters](#ParametersdeviceAppManagement.deviceAppManagementUpdateDeviceAppManagement)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.iosManagedAppProtections">Commands in `az devicescorpmgt device-app-management-io-managed-app-protection` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-io-managed-app-protection delete](#deviceAppManagement.iosManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection delete](#deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection create-app](#deviceAppManagement.iosManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection list-app](#deviceAppManagement.iosManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsListApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection show-app](#deviceAppManagement.iosManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsGetApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection show-deployment-summary](#deviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection update-app](#deviceAppManagement.iosManagedAppProtectionsUpdateApps)|UpdateApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsUpdateApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary](#deviceAppManagement.iosManagedAppProtectionsUpdateDeploymentSummary)|UpdateDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsUpdateDeploymentSummary)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedAppPolicies">Commands in `az devicescorpmgt device-app-management-managed-app-policy` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-app-policy target-app](#deviceAppManagement.managedAppPoliciestargetApps)|targetApps|[Parameters](#ParametersdeviceAppManagement.managedAppPoliciestargetApps)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedAppRegistrations">Commands in `az devicescorpmgt device-app-management-managed-app-registration` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|DeleteAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|DeleteIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteOperations)|DeleteOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration create-applied-policy](#deviceAppManagement.managedAppRegistrationsCreateAppliedPolicies)|CreateAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration create-intended-policy](#deviceAppManagement.managedAppRegistrationsCreateIntendedPolicies)|CreateIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration create-operation](#deviceAppManagement.managedAppRegistrationsCreateOperations)|CreateOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateOperations)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration list-applied-policy](#deviceAppManagement.managedAppRegistrationsListAppliedPolicies)|ListAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration list-intended-policy](#deviceAppManagement.managedAppRegistrationsListIntendedPolicies)|ListIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration list-operation](#deviceAppManagement.managedAppRegistrationsListOperations)|ListOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListOperations)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration show-applied-policy](#deviceAppManagement.managedAppRegistrationsGetAppliedPolicies)|GetAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsGetAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration show-intended-policy](#deviceAppManagement.managedAppRegistrationsGetIntendedPolicies)|GetIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsGetIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration show-operation](#deviceAppManagement.managedAppRegistrationsGetOperations)|GetOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsGetOperations)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration show-user-id-with-flagged-app-registration](#deviceAppManagement.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration)|getUserIdsWithFlaggedAppRegistration|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration update-applied-policy](#deviceAppManagement.managedAppRegistrationsUpdateAppliedPolicies)|UpdateAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsUpdateAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration update-intended-policy](#deviceAppManagement.managedAppRegistrationsUpdateIntendedPolicies)|UpdateIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsUpdateIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration update-operation](#deviceAppManagement.managedAppRegistrationsUpdateOperations)|UpdateOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsUpdateOperations)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedAppRegistrations.appliedPolicies">Commands in `az devicescorpmgt device-app-management-managed-app-registration-applied-policy` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app](#deviceAppManagement.managedAppRegistrations.appliedPoliciestargetApps)|targetApps|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrations.appliedPoliciestargetApps)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedAppRegistrations.intendedPolicies">Commands in `az devicescorpmgt device-app-management-managed-app-registration-intended-policy` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app](#deviceAppManagement.managedAppRegistrations.intendedPoliciestargetApps)|targetApps|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrations.intendedPoliciestargetApps)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedEBooks">Commands in `az devicescorpmgt device-app-management-managed-e-book` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteUserStateSummary)|DeleteUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteInstallSummary)|DeleteInstallSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book assign](#deviceAppManagement.managedEBooksassign)|assign|[Parameters](#ParametersdeviceAppManagement.managedEBooksassign)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book create-assignment](#deviceAppManagement.managedEBooksCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book create-device-state](#deviceAppManagement.managedEBooksCreateDeviceStates)|CreateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book create-user-state-summary](#deviceAppManagement.managedEBooksCreateUserStateSummary)|CreateUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateUserStateSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book list-assignment](#deviceAppManagement.managedEBooksListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksListAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book list-device-state](#deviceAppManagement.managedEBooksListDeviceStates)|ListDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksListDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book list-user-state-summary](#deviceAppManagement.managedEBooksListUserStateSummary)|ListUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksListUserStateSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book show-assignment](#deviceAppManagement.managedEBooksGetAssignments)|GetAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksGetAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book show-device-state](#deviceAppManagement.managedEBooksGetDeviceStates)|GetDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksGetDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book show-install-summary](#deviceAppManagement.managedEBooksGetInstallSummary)|GetInstallSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksGetInstallSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book show-user-state-summary](#deviceAppManagement.managedEBooksGetUserStateSummary)|GetUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksGetUserStateSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book update-assignment](#deviceAppManagement.managedEBooksUpdateAssignments)|UpdateAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksUpdateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book update-device-state](#deviceAppManagement.managedEBooksUpdateDeviceStates)|UpdateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksUpdateDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book update-install-summary](#deviceAppManagement.managedEBooksUpdateInstallSummary)|UpdateInstallSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksUpdateInstallSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book update-user-state-summary](#deviceAppManagement.managedEBooksUpdateUserStateSummary)|UpdateUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksUpdateUserStateSummary)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.managedEBooks.userStateSummary">Commands in `az devicescorpmgt device-app-management-managed-e-book-user-state-summary` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete](#deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state](#deviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates)|CreateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state](#deviceAppManagement.managedEBooks.userStateSummaryListDeviceStates)|ListDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryListDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary show-device-state](#deviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates)|GetDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state](#deviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates)|UpdateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.mobileApps">Commands in `az devicescorpmgt device-app-management-mobile-app` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-mobile-app delete](#deviceAppManagement.mobileAppsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app assign](#deviceAppManagement.mobileAppsassign)|assign|[Parameters](#ParametersdeviceAppManagement.mobileAppsassign)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app create-assignment](#deviceAppManagement.mobileAppsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsCreateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app create-ref-category](#deviceAppManagement.mobileAppsCreateRefCategories)|CreateRefCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsCreateRefCategories)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app list-assignment](#deviceAppManagement.mobileAppsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsListAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app list-category](#deviceAppManagement.mobileAppsListCategories)|ListCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsListCategories)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app list-ref-category](#deviceAppManagement.mobileAppsListRefCategories)|ListRefCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsListRefCategories)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app show-assignment](#deviceAppManagement.mobileAppsGetAssignments)|GetAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsGetAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app update-assignment](#deviceAppManagement.mobileAppsUpdateAssignments)|UpdateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsUpdateAssignments)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.mobileAppConfigurations">Commands in `az devicescorpmgt device-app-management-mobile-app-configuration` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|DeleteDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|DeleteUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|DeleteDeviceStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|DeleteUserStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration assign](#deviceAppManagement.mobileAppConfigurationsassign)|assign|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsassign)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration create-assignment](#deviceAppManagement.mobileAppConfigurationsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses](#deviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses)|CreateDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses](#deviceAppManagement.mobileAppConfigurationsCreateUserStatuses)|CreateUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateUserStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration list-assignment](#deviceAppManagement.mobileAppConfigurationsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses](#deviceAppManagement.mobileAppConfigurationsListDeviceStatuses)|ListDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses](#deviceAppManagement.mobileAppConfigurationsListUserStatuses)|ListUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListUserStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration show-assignment](#deviceAppManagement.mobileAppConfigurationsGetAssignments)|GetAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsGetAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration show-device-status-summary](#deviceAppManagement.mobileAppConfigurationsGetDeviceStatusSummary)|GetDeviceStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsGetDeviceStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration show-device-statuses](#deviceAppManagement.mobileAppConfigurationsGetDeviceStatuses)|GetDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsGetDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration show-user-status-summary](#deviceAppManagement.mobileAppConfigurationsGetUserStatusSummary)|GetUserStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsGetUserStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration show-user-statuses](#deviceAppManagement.mobileAppConfigurationsGetUserStatuses)|GetUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsGetUserStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration update-assignment](#deviceAppManagement.mobileAppConfigurationsUpdateAssignments)|UpdateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsUpdateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary](#deviceAppManagement.mobileAppConfigurationsUpdateDeviceStatusSummary)|UpdateDeviceStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsUpdateDeviceStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses](#deviceAppManagement.mobileAppConfigurationsUpdateDeviceStatuses)|UpdateDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsUpdateDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary](#deviceAppManagement.mobileAppConfigurationsUpdateUserStatusSummary)|UpdateUserStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsUpdateUserStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses](#deviceAppManagement.mobileAppConfigurationsUpdateUserStatuses)|UpdateUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsUpdateUserStatuses)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.targetedManagedAppConfigurations">Commands in `az devicescorpmgt device-app-management-targeted-managed-app-configuration` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration assign](#deviceAppManagement.targetedManagedAppConfigurationsassign)|assign|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsassign)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration create-app](#deviceAppManagement.targetedManagedAppConfigurationsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment](#deviceAppManagement.targetedManagedAppConfigurationsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration list-app](#deviceAppManagement.targetedManagedAppConfigurationsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsListApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment](#deviceAppManagement.targetedManagedAppConfigurationsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsListAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration show-app](#deviceAppManagement.targetedManagedAppConfigurationsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration show-assignment](#deviceAppManagement.targetedManagedAppConfigurationsGetAssignments)|GetAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration show-deployment-summary](#deviceAppManagement.targetedManagedAppConfigurationsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetDeploymentSummary)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration target-app](#deviceAppManagement.targetedManagedAppConfigurationstargetApps)|targetApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationstargetApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration update-app](#deviceAppManagement.targetedManagedAppConfigurationsUpdateApps)|UpdateApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment](#deviceAppManagement.targetedManagedAppConfigurationsUpdateAssignments)|UpdateAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary](#deviceAppManagement.targetedManagedAppConfigurationsUpdateDeploymentSummary)|UpdateDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateDeploymentSummary)|Not Found|
+
+### <a name="CommandsIndeviceAppManagement.vppTokens">Commands in `az devicescorpmgt device-app-management-vpp-token` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt device-app-management-vpp-token sync-license](#deviceAppManagement.vppTokenssyncLicenses)|syncLicenses|[Parameters](#ParametersdeviceAppManagement.vppTokenssyncLicenses)|Not Found|
+
+### <a name="CommandsInusers">Commands in `az devicescorpmgt user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt user delete](#usersDeleteDeviceManagementTroubleshootingEvents)|DeleteDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersDeleteDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user delete](#usersDeleteManagedDevices)|DeleteManagedDevices|[Parameters](#ParametersusersDeleteManagedDevices)|Not Found|
+|[az devicescorpmgt user create-device-management-troubleshooting-event](#usersCreateDeviceManagementTroubleshootingEvents)|CreateDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersCreateDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user create-managed-device](#usersCreateManagedDevices)|CreateManagedDevices|[Parameters](#ParametersusersCreateManagedDevices)|Not Found|
+|[az devicescorpmgt user create-ref-managed-app-registration](#usersCreateRefManagedAppRegistrations)|CreateRefManagedAppRegistrations|[Parameters](#ParametersusersCreateRefManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt user list-device-management-troubleshooting-event](#usersListDeviceManagementTroubleshootingEvents)|ListDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersListDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user list-managed-app-registration](#usersListManagedAppRegistrations)|ListManagedAppRegistrations|[Parameters](#ParametersusersListManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt user list-managed-device](#usersListManagedDevices)|ListManagedDevices|[Parameters](#ParametersusersListManagedDevices)|Not Found|
+|[az devicescorpmgt user list-ref-managed-app-registration](#usersListRefManagedAppRegistrations)|ListRefManagedAppRegistrations|[Parameters](#ParametersusersListRefManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt user show-device-management-troubleshooting-event](#usersGetDeviceManagementTroubleshootingEvents)|GetDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersGetDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user show-managed-device](#usersGetManagedDevices)|GetManagedDevices|[Parameters](#ParametersusersGetManagedDevices)|Not Found|
+|[az devicescorpmgt user update-device-management-troubleshooting-event](#usersUpdateDeviceManagementTroubleshootingEvents)|UpdateDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersUpdateDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user update-managed-device](#usersUpdateManagedDevices)|UpdateManagedDevices|[Parameters](#ParametersusersUpdateManagedDevices)|Not Found|
+
+### <a name="CommandsInusers.managedDevices">Commands in `az devicescorpmgt user-managed-device` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceCompliancePolicyStates)|DeleteDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceConfigurationStates)|DeleteDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceConfigurationStates)|Not Found|
+|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceCategory)|DeleteDeviceCategory|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCategory)|Not Found|
+|[az devicescorpmgt user-managed-device create-device-compliance-policy-state](#users.managedDevicesCreateDeviceCompliancePolicyStates)|CreateDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesCreateDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device create-device-configuration-state](#users.managedDevicesCreateDeviceConfigurationStates)|CreateDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesCreateDeviceConfigurationStates)|Not Found|
+|[az devicescorpmgt user-managed-device list-device-compliance-policy-state](#users.managedDevicesListDeviceCompliancePolicyStates)|ListDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesListDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device list-device-configuration-state](#users.managedDevicesListDeviceConfigurationStates)|ListDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesListDeviceConfigurationStates)|Not Found|
+|[az devicescorpmgt user-managed-device show-device-category](#users.managedDevicesGetDeviceCategory)|GetDeviceCategory|[Parameters](#Parametersusers.managedDevicesGetDeviceCategory)|Not Found|
+|[az devicescorpmgt user-managed-device show-device-compliance-policy-state](#users.managedDevicesGetDeviceCompliancePolicyStates)|GetDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesGetDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device show-device-configuration-state](#users.managedDevicesGetDeviceConfigurationStates)|GetDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesGetDeviceConfigurationStates)|Not Found|
+|[az devicescorpmgt user-managed-device update-device-category](#users.managedDevicesUpdateDeviceCategory)|UpdateDeviceCategory|[Parameters](#Parametersusers.managedDevicesUpdateDeviceCategory)|Not Found|
+|[az devicescorpmgt user-managed-device update-device-compliance-policy-state](#users.managedDevicesUpdateDeviceCompliancePolicyStates)|UpdateDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesUpdateDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device update-device-configuration-state](#users.managedDevicesUpdateDeviceConfigurationStates)|UpdateDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesUpdateDeviceConfigurationStates)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az devicescorpmgt device-app-management`
+#### <a name="deviceAppManagementDeleteAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteAndroidManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteDefaultManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+
+#### <a name="deviceAppManagementDeleteIosManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteIosManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+
+#### <a name="deviceAppManagementDeleteManagedAppPolicies">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
+
+#### <a name="deviceAppManagementDeleteManagedAppRegistrations">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppRegistrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+
+#### <a name="deviceAppManagementDeleteManagedAppStatuses">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
+
+#### <a name="deviceAppManagementDeleteManagedEBooks">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedEBooks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+
+#### <a name="deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
+
+#### <a name="deviceAppManagementDeleteMobileAppCategories">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileAppCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
+
+#### <a name="deviceAppManagementDeleteMobileAppConfigurations">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+
+#### <a name="deviceAppManagementDeleteMobileApps">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+
+#### <a name="deviceAppManagementDeleteTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+
+#### <a name="deviceAppManagementDeleteVppTokens">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteVppTokens">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
+
+#### <a name="deviceAppManagementDeleteWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
+
+#### <a name="deviceAppManagementCreateAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management create-android-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementCreateAndroidManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -61,28 +461,16 @@ create-android-managed-app-protection a devicescorpmgt device-app-management.
 |**--minimum-warning-patch-version**|string|Define the oldest recommended Android security patch level a user can have for secure access to the app.|minimum_warning_patch_version|minimumWarningPatchVersion|
 |**--screen-capture-blocked**|boolean|Indicates whether a managed user can take screen captures of managed apps|screen_capture_blocked|screenCaptureBlocked|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management create-default-managed-app-protection
+#### <a name="deviceAppManagementCreateDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management create-default-managed-app-protection`</a>
 
-create-default-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-default-managed-app-protection|CreateDefaultManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateDefaultManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -129,28 +517,16 @@ create-default-managed-app-protection a devicescorpmgt device-app-management.
 |**--minimum-warning-patch-version**|string|Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)|minimum_warning_patch_version|minimumWarningPatchVersion|
 |**--screen-capture-blocked**|boolean|Indicates whether screen capture is blocked. (Android only)|screen_capture_blocked|screenCaptureBlocked|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management create-io-managed-app-protection
+#### <a name="deviceAppManagementCreateIosManagedAppProtections">Command `az devicescorpmgt device-app-management create-io-managed-app-protection`</a>
 
-create-io-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-io-managed-app-protection|CreateIosManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateIosManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -194,28 +570,16 @@ create-io-managed-app-protection a devicescorpmgt device-app-management.
 |**--face-id-blocked**|boolean|Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.|face_id_blocked|faceIdBlocked|
 |**--minimum-required-sdk-version**|string|Versions less than the specified version will block the managed app from accessing company data.|minimum_required_sdk_version|minimumRequiredSdkVersion|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management create-managed-app-policy
+#### <a name="deviceAppManagementCreateManagedAppPolicies">Command `az devicescorpmgt device-app-management create-managed-app-policy`</a>
 
-create-managed-app-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-managed-app-policy|CreateManagedAppPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateManagedAppPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -225,21 +589,9 @@ create-managed-app-policy a devicescorpmgt device-app-management.
 |**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management create-managed-app-registration
+#### <a name="deviceAppManagementCreateManagedAppRegistrations">Command `az devicescorpmgt device-app-management create-managed-app-registration`</a>
 
-create-managed-app-registration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-managed-app-registration|CreateManagedAppRegistrations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateManagedAppRegistrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -259,42 +611,18 @@ create-managed-app-registration a devicescorpmgt device-app-management.
 |**--intended-policies**|array|Zero or more policies admin intended for the app as of now.|intended_policies|intendedPolicies|
 |**--operations**|array|Zero or more long running operations triggered on the app registration.|operations|operations|
 
-### devicescorpmgt device-app-management create-managed-app-statuses
+#### <a name="deviceAppManagementCreateManagedAppStatuses">Command `az devicescorpmgt device-app-management create-managed-app-statuses`</a>
 
-create-managed-app-statuses a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-managed-app-statuses|CreateManagedAppStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateManagedAppStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|Friendly name of the status report.|display_name|displayName|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management create-managed-e-book
+#### <a name="deviceAppManagementCreateManagedEBooks">Command `az devicescorpmgt device-app-management create-managed-e-book`</a>
 
-create-managed-e-book a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-managed-e-book|CreateManagedEBooks|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateManagedEBooks">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -312,21 +640,9 @@ create-managed-e-book a devicescorpmgt device-app-management.
 |**--install-summary**|object|Contains properties for the installation summary of a book for a device.|install_summary|installSummary|
 |**--user-state-summary**|array|The list of installation states for this eBook.|user_state_summary|userStateSummary|
 
-### devicescorpmgt device-app-management create-mdm-window-information-protection-policy
+#### <a name="deviceAppManagementCreateMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management create-mdm-window-information-protection-policy`</a>
 
-create-mdm-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-mdm-window-information-protection-policy|CreateMdmWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateMdmWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -361,21 +677,9 @@ create-mdm-window-information-protection-policy a devicescorpmgt device-app-mana
 |**--exempt-app-locker-files**|array|Another way to input exempt apps through xml files|exempt_app_locker_files|exemptAppLockerFiles|
 |**--protected-app-locker-files**|array|Another way to input protected apps through xml files|protected_app_locker_files|protectedAppLockerFiles|
 
-### devicescorpmgt device-app-management create-mobile-app
+#### <a name="deviceAppManagementCreateMobileApps">Command `az devicescorpmgt device-app-management create-mobile-app`</a>
 
-create-mobile-app a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-mobile-app|CreateMobileApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateMobileApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -395,42 +699,18 @@ create-mobile-app a devicescorpmgt device-app-management.
 |**--assignments**|array|The list of group assignments for this mobile app.|assignments|assignments|
 |**--categories**|array|The list of categories for this app.|categories|categories|
 
-### devicescorpmgt device-app-management create-mobile-app-category
+#### <a name="deviceAppManagementCreateMobileAppCategories">Command `az devicescorpmgt device-app-management create-mobile-app-category`</a>
 
-create-mobile-app-category a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-mobile-app-category|CreateMobileAppCategories|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateMobileAppCategories">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string|The name of the app category.|display_name|displayName|
 |**--last-modified-date-time**|date-time|The date and time the mobileAppCategory was last modified.|last_modified_date_time|lastModifiedDateTime|
 
-### devicescorpmgt device-app-management create-mobile-app-configuration
+#### <a name="deviceAppManagementCreateMobileAppConfigurations">Command `az devicescorpmgt device-app-management create-mobile-app-configuration`</a>
 
-create-mobile-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-mobile-app-configuration|CreateMobileAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateMobileAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -446,21 +726,9 @@ create-mobile-app-configuration a devicescorpmgt device-app-management.
 |**--user-statuses**|array|List of ManagedDeviceMobileAppConfigurationUserStatus.|user_statuses|userStatuses|
 |**--user-status-summary**|object|Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary.|user_status_summary|userStatusSummary|
 
-### devicescorpmgt device-app-management create-targeted-managed-app-configuration
+#### <a name="deviceAppManagementCreateTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management create-targeted-managed-app-configuration`</a>
 
-create-targeted-managed-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-targeted-managed-app-configuration|CreateTargetedManagedAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateTargetedManagedAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -474,28 +742,16 @@ create-targeted-managed-app-configuration a devicescorpmgt device-app-management
 |**--is-assigned**|boolean|Indicates if the policy is deployed to any inclusion groups or not.|is_assigned|isAssigned|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
 |**--assignments**|array|Navigation property to list of inclusion and exclusion groups to which the policy is deployed.|assignments|assignments|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management create-vpp-token
+#### <a name="deviceAppManagementCreateVppTokens">Command `az devicescorpmgt device-app-management create-vpp-token`</a>
 
-create-vpp-token a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-vpp-token|CreateVppTokens|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateVppTokens">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -511,21 +767,9 @@ create-vpp-token a devicescorpmgt device-app-management.
 |**--token**|string|The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.|token|token|
 |**--vpp-token-account-type**|choice||vpp_token_account_type|vppTokenAccountType|
 
-### devicescorpmgt device-app-management create-window-information-protection-policy
+#### <a name="deviceAppManagementCreateWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management create-window-information-protection-policy`</a>
 
-create-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-window-information-protection-policy|CreateWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementCreateWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -572,673 +816,266 @@ create-window-information-protection-policy a devicescorpmgt device-app-manageme
 |**--revoke-on-mdm-handoff-disabled**|boolean|New property in RS2, pending documentation|revoke_on_mdm_handoff_disabled|revokeOnMdmHandoffDisabled|
 |**--windows-hello-for-business-blocked**|boolean|Boolean value that sets Windows Hello for Business as a method for signing into Windows.|windows_hello_for_business_blocked|windowsHelloForBusinessBlocked|
 
-### devicescorpmgt device-app-management delete
+#### <a name="deviceAppManagementListAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management list-android-managed-app-protection`</a>
 
-delete a devicescorpmgt device-app-management.
+##### <a name="ParametersdeviceAppManagementListAndroidManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
+#### <a name="deviceAppManagementListDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management list-default-managed-app-protection`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAndroidManagedAppProtections|
-|delete|DeleteDefaultManagedAppProtections|
-|delete|DeleteIosManagedAppProtections|
-|delete|DeleteManagedAppPolicies|
-|delete|DeleteManagedAppRegistrations|
-|delete|DeleteManagedAppStatuses|
-|delete|DeleteManagedEBooks|
-|delete|DeleteMdmWindowsInformationProtectionPolicies|
-|delete|DeleteMobileAppCategories|
-|delete|DeleteMobileAppConfigurations|
-|delete|DeleteMobileApps|
-|delete|DeleteTargetedManagedAppConfigurations|
-|delete|DeleteVppTokens|
-|delete|DeleteWindowsInformationProtectionPolicies|
+##### <a name="ParametersdeviceAppManagementListDefaultManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagementListIosManagedAppProtections">Command `az devicescorpmgt device-app-management list-io-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementListIosManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListManagedAppPolicies">Command `az devicescorpmgt device-app-management list-managed-app-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementListManagedAppPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListManagedAppRegistrations">Command `az devicescorpmgt device-app-management list-managed-app-registration`</a>
+
+##### <a name="ParametersdeviceAppManagementListManagedAppRegistrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListManagedAppStatuses">Command `az devicescorpmgt device-app-management list-managed-app-statuses`</a>
+
+##### <a name="ParametersdeviceAppManagementListManagedAppStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListManagedEBooks">Command `az devicescorpmgt device-app-management list-managed-e-book`</a>
+
+##### <a name="ParametersdeviceAppManagementListManagedEBooks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management list-mdm-window-information-protection-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementListMdmWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListMobileApps">Command `az devicescorpmgt device-app-management list-mobile-app`</a>
+
+##### <a name="ParametersdeviceAppManagementListMobileApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListMobileAppCategories">Command `az devicescorpmgt device-app-management list-mobile-app-category`</a>
+
+##### <a name="ParametersdeviceAppManagementListMobileAppCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListMobileAppConfigurations">Command `az devicescorpmgt device-app-management list-mobile-app-configuration`</a>
+
+##### <a name="ParametersdeviceAppManagementListMobileAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management list-targeted-managed-app-configuration`</a>
+
+##### <a name="ParametersdeviceAppManagementListTargetedManagedAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListVppTokens">Command `az devicescorpmgt device-app-management list-vpp-token`</a>
+
+##### <a name="ParametersdeviceAppManagementListVppTokens">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementListWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management list-window-information-protection-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementListWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagementGetAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management show-android-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementGetAndroidManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
-|**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
-|**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management get-android-managed-app-protection
-
-get-android-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-android-managed-app-protection|GetAndroidManagedAppProtections|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-default-managed-app-protection
+#### <a name="deviceAppManagementGetDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management show-default-managed-app-protection`</a>
 
-get-default-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-default-managed-app-protection|GetDefaultManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetDefaultManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-io-managed-app-protection
+#### <a name="deviceAppManagementGetIosManagedAppProtections">Command `az devicescorpmgt device-app-management show-io-managed-app-protection`</a>
 
-get-io-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-io-managed-app-protection|GetIosManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetIosManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-managed-app-policy
+#### <a name="deviceAppManagementGetManagedAppPolicies">Command `az devicescorpmgt device-app-management show-managed-app-policy`</a>
 
-get-managed-app-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-policy|GetManagedAppPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetManagedAppPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-managed-app-registration
+#### <a name="deviceAppManagementGetManagedAppRegistrations">Command `az devicescorpmgt device-app-management show-managed-app-registration`</a>
 
-get-managed-app-registration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-registration|GetManagedAppRegistrations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetManagedAppRegistrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-managed-app-statuses
+#### <a name="deviceAppManagementGetManagedAppStatuses">Command `az devicescorpmgt device-app-management show-managed-app-statuses`</a>
 
-get-managed-app-statuses a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-app-statuses|GetManagedAppStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetManagedAppStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-managed-e-book
+#### <a name="deviceAppManagementGetManagedEBooks">Command `az devicescorpmgt device-app-management show-managed-e-book`</a>
 
-get-managed-e-book a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-e-book|GetManagedEBooks|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetManagedEBooks">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-mdm-window-information-protection-policy
+#### <a name="deviceAppManagementGetMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management show-mdm-window-information-protection-policy`</a>
 
-get-mdm-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mdm-window-information-protection-policy|GetMdmWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetMdmWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-mobile-app
+#### <a name="deviceAppManagementGetMobileApps">Command `az devicescorpmgt device-app-management show-mobile-app`</a>
 
-get-mobile-app a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mobile-app|GetMobileApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetMobileApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-mobile-app-category
+#### <a name="deviceAppManagementGetMobileAppCategories">Command `az devicescorpmgt device-app-management show-mobile-app-category`</a>
 
-get-mobile-app-category a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mobile-app-category|GetMobileAppCategories|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetMobileAppCategories">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-mobile-app-configuration
+#### <a name="deviceAppManagementGetMobileAppConfigurations">Command `az devicescorpmgt device-app-management show-mobile-app-configuration`</a>
 
-get-mobile-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-mobile-app-configuration|GetMobileAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetMobileAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-targeted-managed-app-configuration
+#### <a name="deviceAppManagementGetTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management show-targeted-managed-app-configuration`</a>
 
-get-targeted-managed-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-targeted-managed-app-configuration|GetTargetedManagedAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetTargetedManagedAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-vpp-token
+#### <a name="deviceAppManagementGetVppTokens">Command `az devicescorpmgt device-app-management show-vpp-token`</a>
 
-get-vpp-token a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-vpp-token|GetVppTokens|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetVppTokens">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management get-window-information-protection-policy
+#### <a name="deviceAppManagementGetWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management show-window-information-protection-policy`</a>
 
-get-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-window-information-protection-policy|GetWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementGetWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management list-android-managed-app-protection
+#### <a name="deviceAppManagementsyncMicrosoftStoreForBusinessApps">Command `az devicescorpmgt device-app-management sync-microsoft-store-for-business-app`</a>
 
-list-android-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-android-managed-app-protection|ListAndroidManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementsyncMicrosoftStoreForBusinessApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+#### <a name="deviceAppManagementUpdateAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management update-android-managed-app-protection`</a>
 
-### devicescorpmgt device-app-management list-default-managed-app-protection
-
-list-default-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-default-managed-app-protection|ListDefaultManagedAppProtections|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-io-managed-app-protection
-
-list-io-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-io-managed-app-protection|ListIosManagedAppProtections|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-managed-app-policy
-
-list-managed-app-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-app-policy|ListManagedAppPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-managed-app-registration
-
-list-managed-app-registration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-app-registration|ListManagedAppRegistrations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-managed-app-statuses
-
-list-managed-app-statuses a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-app-statuses|ListManagedAppStatuses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-managed-e-book
-
-list-managed-e-book a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-e-book|ListManagedEBooks|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-mdm-window-information-protection-policy
-
-list-mdm-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-mdm-window-information-protection-policy|ListMdmWindowsInformationProtectionPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-mobile-app
-
-list-mobile-app a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-mobile-app|ListMobileApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-mobile-app-category
-
-list-mobile-app-category a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-mobile-app-category|ListMobileAppCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-mobile-app-configuration
-
-list-mobile-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-mobile-app-configuration|ListMobileAppConfigurations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-targeted-managed-app-configuration
-
-list-targeted-managed-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-targeted-managed-app-configuration|ListTargetedManagedAppConfigurations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-vpp-token
-
-list-vpp-token a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-vpp-token|ListVppTokens|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management list-window-information-protection-policy
-
-list-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-window-information-protection-policy|ListWindowsInformationProtectionPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management sync-microsoft-store-for-business-app
-
-sync-microsoft-store-for-business-app a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|sync-microsoft-store-for-business-app|syncMicrosoftStoreForBusinessApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-
-### devicescorpmgt device-app-management update-android-managed-app-protection
-
-update-android-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-android-managed-app-protection|UpdateAndroidManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateAndroidManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
@@ -1286,28 +1123,16 @@ update-android-managed-app-protection a devicescorpmgt device-app-management.
 |**--minimum-warning-patch-version**|string|Define the oldest recommended Android security patch level a user can have for secure access to the app.|minimum_warning_patch_version|minimumWarningPatchVersion|
 |**--screen-capture-blocked**|boolean|Indicates whether a managed user can take screen captures of managed apps|screen_capture_blocked|screenCaptureBlocked|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management update-default-managed-app-protection
+#### <a name="deviceAppManagementUpdateDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management update-default-managed-app-protection`</a>
 
-update-default-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-default-managed-app-protection|UpdateDefaultManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateDefaultManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
@@ -1355,28 +1180,16 @@ update-default-managed-app-protection a devicescorpmgt device-app-management.
 |**--minimum-warning-patch-version**|string|Define the oldest recommended Android security patch level a user can have for secure access to the app. (Android only)|minimum_warning_patch_version|minimumWarningPatchVersion|
 |**--screen-capture-blocked**|boolean|Indicates whether screen capture is blocked. (Android only)|screen_capture_blocked|screenCaptureBlocked|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management update-io-managed-app-protection
+#### <a name="deviceAppManagementUpdateIosManagedAppProtections">Command `az devicescorpmgt device-app-management update-io-managed-app-protection`</a>
 
-update-io-managed-app-protection a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-io-managed-app-protection|UpdateIosManagedAppProtections|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateIosManagedAppProtections">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
@@ -1421,28 +1234,16 @@ update-io-managed-app-protection a devicescorpmgt device-app-management.
 |**--face-id-blocked**|boolean|Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.|face_id_blocked|faceIdBlocked|
 |**--minimum-required-sdk-version**|string|Versions less than the specified version will block the managed app from accessing company data.|minimum_required_sdk_version|minimumRequiredSdkVersion|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management update-managed-app-policy
+#### <a name="deviceAppManagementUpdateManagedAppPolicies">Command `az devicescorpmgt device-app-management update-managed-app-policy`</a>
 
-update-managed-app-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-managed-app-policy|UpdateManagedAppPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateManagedAppPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
@@ -1453,21 +1254,9 @@ update-managed-app-policy a devicescorpmgt device-app-management.
 |**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management update-managed-app-registration
+#### <a name="deviceAppManagementUpdateManagedAppRegistrations">Command `az devicescorpmgt device-app-management update-managed-app-registration`</a>
 
-update-managed-app-registration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-managed-app-registration|UpdateManagedAppRegistrations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateManagedAppRegistrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -1488,21 +1277,9 @@ update-managed-app-registration a devicescorpmgt device-app-management.
 |**--intended-policies**|array|Zero or more policies admin intended for the app as of now.|intended_policies|intendedPolicies|
 |**--operations**|array|Zero or more long running operations triggered on the app registration.|operations|operations|
 
-### devicescorpmgt device-app-management update-managed-app-statuses
+#### <a name="deviceAppManagementUpdateManagedAppStatuses">Command `az devicescorpmgt device-app-management update-managed-app-statuses`</a>
 
-update-managed-app-statuses a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-managed-app-statuses|UpdateManagedAppStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateManagedAppStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
@@ -1510,21 +1287,9 @@ update-managed-app-statuses a devicescorpmgt device-app-management.
 |**--display-name**|string|Friendly name of the status report.|display_name|displayName|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management update-managed-e-book
+#### <a name="deviceAppManagementUpdateManagedEBooks">Command `az devicescorpmgt device-app-management update-managed-e-book`</a>
 
-update-managed-e-book a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-managed-e-book|UpdateManagedEBooks|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateManagedEBooks">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -1543,21 +1308,9 @@ update-managed-e-book a devicescorpmgt device-app-management.
 |**--install-summary**|object|Contains properties for the installation summary of a book for a device.|install_summary|installSummary|
 |**--user-state-summary**|array|The list of installation states for this eBook.|user_state_summary|userStateSummary|
 
-### devicescorpmgt device-app-management update-mdm-window-information-protection-policy
+#### <a name="deviceAppManagementUpdateMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management update-mdm-window-information-protection-policy`</a>
 
-update-mdm-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-mdm-window-information-protection-policy|UpdateMdmWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateMdmWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
@@ -1593,21 +1346,9 @@ update-mdm-window-information-protection-policy a devicescorpmgt device-app-mana
 |**--exempt-app-locker-files**|array|Another way to input exempt apps through xml files|exempt_app_locker_files|exemptAppLockerFiles|
 |**--protected-app-locker-files**|array|Another way to input protected apps through xml files|protected_app_locker_files|protectedAppLockerFiles|
 
-### devicescorpmgt device-app-management update-mobile-app
+#### <a name="deviceAppManagementUpdateMobileApps">Command `az devicescorpmgt device-app-management update-mobile-app`</a>
 
-update-mobile-app a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-mobile-app|UpdateMobileApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateMobileApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
@@ -1628,21 +1369,9 @@ update-mobile-app a devicescorpmgt device-app-management.
 |**--assignments**|array|The list of group assignments for this mobile app.|assignments|assignments|
 |**--categories**|array|The list of categories for this app.|categories|categories|
 
-### devicescorpmgt device-app-management update-mobile-app-category
+#### <a name="deviceAppManagementUpdateMobileAppCategories">Command `az devicescorpmgt device-app-management update-mobile-app-category`</a>
 
-update-mobile-app-category a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-mobile-app-category|UpdateMobileAppCategories|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateMobileAppCategories">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
@@ -1650,21 +1379,9 @@ update-mobile-app-category a devicescorpmgt device-app-management.
 |**--display-name**|string|The name of the app category.|display_name|displayName|
 |**--last-modified-date-time**|date-time|The date and time the mobileAppCategory was last modified.|last_modified_date_time|lastModifiedDateTime|
 
-### devicescorpmgt device-app-management update-mobile-app-configuration
+#### <a name="deviceAppManagementUpdateMobileAppConfigurations">Command `az devicescorpmgt device-app-management update-mobile-app-configuration`</a>
 
-update-mobile-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-mobile-app-configuration|UpdateMobileAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateMobileAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -1681,21 +1398,9 @@ update-mobile-app-configuration a devicescorpmgt device-app-management.
 |**--user-statuses**|array|List of ManagedDeviceMobileAppConfigurationUserStatus.|user_statuses|userStatuses|
 |**--user-status-summary**|object|Contains properties, inherited properties and actions for an MDM mobile app configuration user status summary.|user_status_summary|userStatusSummary|
 
-### devicescorpmgt device-app-management update-targeted-managed-app-configuration
+#### <a name="deviceAppManagementUpdateTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management update-targeted-managed-app-configuration`</a>
 
-update-targeted-managed-app-configuration a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-targeted-managed-app-configuration|UpdateTargetedManagedAppConfigurations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateTargetedManagedAppConfigurations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -1710,28 +1415,16 @@ update-targeted-managed-app-configuration a devicescorpmgt device-app-management
 |**--is-assigned**|boolean|Indicates if the policy is deployed to any inclusion groups or not.|is_assigned|isAssigned|
 |**--apps**|array|List of apps to which the policy is deployed.|apps|apps|
 |**--assignments**|array|Navigation property to list of inclusion and exclusion groups to which the policy is deployed.|assignments|assignments|
-|**--deployment-summary-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--deployment-summary-configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
-|**--deployment-summary-configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
-|**--deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
-|**--deployment-summary-last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
-|**--deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
+|**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+|**--configuration-deployed-user-count**|integer|Not yet documented|configuration_deployed_user_count|configurationDeployedUserCount|
+|**--configuration-deployment-summary-per-app**|array|Not yet documented|configuration_deployment_summary_per_app|configurationDeploymentSummaryPerApp|
+|**--microsoft-graph-managed-app-policy-deployment-summary-display-name**|string|Not yet documented|microsoft_graph_managed_app_policy_deployment_summary_display_name|displayName|
+|**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
+|**--microsoft-graph-managed-app-policy-deployment-summary-version**|string|Version of the entity.|microsoft_graph_managed_app_policy_deployment_summary_version|version|
 
-### devicescorpmgt device-app-management update-vpp-token
+#### <a name="deviceAppManagementUpdateVppTokens">Command `az devicescorpmgt device-app-management update-vpp-token`</a>
 
-update-vpp-token a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-vpp-token|UpdateVppTokens|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateVppTokens">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
@@ -1748,21 +1441,9 @@ update-vpp-token a devicescorpmgt device-app-management.
 |**--token**|string|The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.|token|token|
 |**--vpp-token-account-type**|choice||vpp_token_account_type|vppTokenAccountType|
 
-### devicescorpmgt device-app-management update-window-information-protection-policy
+#### <a name="deviceAppManagementUpdateWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management update-window-information-protection-policy`</a>
 
-update-window-information-protection-policy a devicescorpmgt device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management|deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-window-information-protection-policy|UpdateWindowsInformationProtectionPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagementUpdateWindowsInformationProtectionPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
@@ -1810,21 +1491,24 @@ update-window-information-protection-policy a devicescorpmgt device-app-manageme
 |**--revoke-on-mdm-handoff-disabled**|boolean|New property in RS2, pending documentation|revoke_on_mdm_handoff_disabled|revokeOnMdmHandoffDisabled|
 |**--windows-hello-for-business-blocked**|boolean|Boolean value that sets Windows Hello for Business as a method for signing into Windows.|windows_hello_for_business_blocked|windowsHelloForBusinessBlocked|
 
-### devicescorpmgt device-app-management-android-managed-app-protection create-app
+### group `az devicescorpmgt device-app-management-android-managed-app-protection`
+#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete`</a>
 
-create-app a devicescorpmgt device-app-management-android-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
+#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app|CreateApps|
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.androidManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection create-app`</a>
 
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsCreateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
@@ -1832,86 +1516,9 @@ create-app a devicescorpmgt device-app-management-android-managed-app-protection
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-android-managed-app-protection delete
+#### <a name="deviceAppManagement.androidManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection list-app`</a>
 
-delete a devicescorpmgt device-app-management-android-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteApps|
-|delete|DeleteDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management-android-managed-app-protection get-app
-
-get-app a devicescorpmgt device-app-management-android-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-android-managed-app-protection get-deployment-summary
-
-get-deployment-summary a devicescorpmgt device-app-management-android-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-deployment-summary|GetDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-android-managed-app-protection list-app
-
-list-app a devicescorpmgt device-app-management-android-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app|ListApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsListApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
@@ -1919,21 +1526,28 @@ list-app a devicescorpmgt device-app-management-android-managed-app-protection.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-android-managed-app-protection update-app
+#### <a name="deviceAppManagement.androidManagedAppProtectionsGetApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection show-app`</a>
 
-update-app a devicescorpmgt device-app-management-android-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsGetApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
+#### <a name="deviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary">Command `az devicescorpmgt device-app-management-android-managed-app-protection show-deployment-summary`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app|UpdateApps|
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.androidManagedAppProtectionsUpdateApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection update-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsUpdateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
@@ -1942,21 +1556,9 @@ update-app a devicescorpmgt device-app-management-android-managed-app-protection
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary
+#### <a name="deviceAppManagement.androidManagedAppProtectionsUpdateDeploymentSummary">Command `az devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary`</a>
 
-update-deployment-summary a devicescorpmgt device-app-management-android-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-android-managed-app-protection|deviceAppManagement.androidManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-deployment-summary|UpdateDeploymentSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsUpdateDeploymentSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
@@ -1967,21 +1569,24 @@ update-deployment-summary a devicescorpmgt device-app-management-android-managed
 |**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-default-managed-app-protection create-app
+### group `az devicescorpmgt device-app-management-default-managed-app-protection`
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete`</a>
 
-create-app a devicescorpmgt device-app-management-default-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app|CreateApps|
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection create-app`</a>
 
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsCreateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
@@ -1989,86 +1594,9 @@ create-app a devicescorpmgt device-app-management-default-managed-app-protection
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-default-managed-app-protection delete
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection list-app`</a>
 
-delete a devicescorpmgt device-app-management-default-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteApps|
-|delete|DeleteDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management-default-managed-app-protection get-app
-
-get-app a devicescorpmgt device-app-management-default-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-default-managed-app-protection get-deployment-summary
-
-get-deployment-summary a devicescorpmgt device-app-management-default-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-deployment-summary|GetDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-default-managed-app-protection list-app
-
-list-app a devicescorpmgt device-app-management-default-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app|ListApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsListApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
@@ -2076,21 +1604,28 @@ list-app a devicescorpmgt device-app-management-default-managed-app-protection.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-default-managed-app-protection update-app
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsGetApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection show-app`</a>
 
-update-app a devicescorpmgt device-app-management-default-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsGetApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary">Command `az devicescorpmgt device-app-management-default-managed-app-protection show-deployment-summary`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app|UpdateApps|
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsUpdateApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection update-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsUpdateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
@@ -2099,21 +1634,9 @@ update-app a devicescorpmgt device-app-management-default-managed-app-protection
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsUpdateDeploymentSummary">Command `az devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary`</a>
 
-update-deployment-summary a devicescorpmgt device-app-management-default-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-default-managed-app-protection|deviceAppManagement.defaultManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-deployment-summary|UpdateDeploymentSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsUpdateDeploymentSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
@@ -2124,41 +1647,18 @@ update-deployment-summary a devicescorpmgt device-app-management-default-managed
 |**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-device-app-management get-device-app-management
+### group `az devicescorpmgt device-app-management-device-app-management`
+#### <a name="deviceAppManagement.deviceAppManagementGetDeviceAppManagement">Command `az devicescorpmgt device-app-management-device-app-management show-device-app-management`</a>
 
-get-device-app-management a devicescorpmgt device-app-management-device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-device-app-management|deviceAppManagement.deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-app-management|GetDeviceAppManagement|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.deviceAppManagementGetDeviceAppManagement">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-device-app-management update-device-app-management
+#### <a name="deviceAppManagement.deviceAppManagementUpdateDeviceAppManagement">Command `az devicescorpmgt device-app-management-device-app-management update-device-app-management`</a>
 
-update-device-app-management a devicescorpmgt device-app-management-device-app-management.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-device-app-management|deviceAppManagement.deviceAppManagement|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-app-management|UpdateDeviceAppManagement|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.deviceAppManagementUpdateDeviceAppManagement">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -2181,21 +1681,24 @@ update-device-app-management a devicescorpmgt device-app-management-device-app-m
 |**--targeted-managed-app-configurations**|array|Targeted managed app configurations.|targeted_managed_app_configurations|targetedManagedAppConfigurations|
 |**--windows-information-protection-policies**|array|Windows information protection for apps running on devices which are not MDM enrolled.|windows_information_protection_policies|windowsInformationProtectionPolicies|
 
-### devicescorpmgt device-app-management-io-managed-app-protection create-app
+### group `az devicescorpmgt device-app-management-io-managed-app-protection`
+#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete`</a>
 
-create-app a devicescorpmgt device-app-management-io-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
+#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app|CreateApps|
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.iosManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection create-app`</a>
 
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsCreateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
@@ -2203,86 +1706,9 @@ create-app a devicescorpmgt device-app-management-io-managed-app-protection.
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-io-managed-app-protection delete
+#### <a name="deviceAppManagement.iosManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection list-app`</a>
 
-delete a devicescorpmgt device-app-management-io-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteApps|
-|delete|DeleteDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management-io-managed-app-protection get-app
-
-get-app a devicescorpmgt device-app-management-io-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-io-managed-app-protection get-deployment-summary
-
-get-deployment-summary a devicescorpmgt device-app-management-io-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-deployment-summary|GetDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-io-managed-app-protection list-app
-
-list-app a devicescorpmgt device-app-management-io-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app|ListApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsListApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
@@ -2290,21 +1716,28 @@ list-app a devicescorpmgt device-app-management-io-managed-app-protection.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-io-managed-app-protection update-app
+#### <a name="deviceAppManagement.iosManagedAppProtectionsGetApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection show-app`</a>
 
-update-app a devicescorpmgt device-app-management-io-managed-app-protection.
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsGetApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
+#### <a name="deviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary">Command `az devicescorpmgt device-app-management-io-managed-app-protection show-deployment-summary`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app|UpdateApps|
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.iosManagedAppProtectionsUpdateApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection update-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsUpdateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
@@ -2313,21 +1746,9 @@ update-app a devicescorpmgt device-app-management-io-managed-app-protection.
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary
+#### <a name="deviceAppManagement.iosManagedAppProtectionsUpdateDeploymentSummary">Command `az devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary`</a>
 
-update-deployment-summary a devicescorpmgt device-app-management-io-managed-app-protection.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-io-managed-app-protection|deviceAppManagement.iosManagedAppProtections|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-deployment-summary|UpdateDeploymentSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsUpdateDeploymentSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
@@ -2338,139 +1759,108 @@ update-deployment-summary a devicescorpmgt device-app-management-io-managed-app-
 |**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-managed-app-policy target-app
+### group `az devicescorpmgt device-app-management-managed-app-policy`
+#### <a name="deviceAppManagement.managedAppPoliciestargetApps">Command `az devicescorpmgt device-app-management-managed-app-policy target-app`</a>
 
-target-app a devicescorpmgt device-app-management-managed-app-policy.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-policy|deviceAppManagement.managedAppPolicies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|target-app|targetApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppPoliciestargetApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
 |**--apps**|array||apps|apps|
 
-### devicescorpmgt device-app-management-managed-app-registration create-applied-policy
+### group `az devicescorpmgt device-app-management-managed-app-registration`
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
 
-create-applied-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-applied-policy|CreateAppliedPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|The date and time the policy was created.|created_date_time|createdDateTime|
-|**--description**|string|The policy's description.|description|description|
-|**--display-name**|string|Policy display name.|display_name|displayName|
-|**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
-|**--version**|string|Version of the entity.|version|version|
-
-### devicescorpmgt device-app-management-managed-app-registration create-intended-policy
-
-create-intended-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-intended-policy|CreateIntendedPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--id**|string|Read-only.|id|id|
-|**--created-date-time**|date-time|The date and time the policy was created.|created_date_time|createdDateTime|
-|**--description**|string|The policy's description.|description|description|
-|**--display-name**|string|Policy display name.|display_name|displayName|
-|**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
-|**--version**|string|Version of the entity.|version|version|
-
-### devicescorpmgt device-app-management-managed-app-registration create-operation
-
-create-operation a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-operation|CreateOperations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|The operation name.|display_name|displayName|
-|**--last-modified-date-time**|date-time|The last time the app operation was modified.|last_modified_date_time|lastModifiedDateTime|
-|**--state**|string|The current state of the operation|state|state|
-|**--version**|string|Version of the entity.|version|version|
-
-### devicescorpmgt device-app-management-managed-app-registration delete
-
-delete a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAppliedPolicies|
-|delete|DeleteIntendedPolicies|
-|delete|DeleteOperations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
-|**--managed-app-operation-id**|string|key: id of managedAppOperation|managed_app_operation_id|managedAppOperation-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### devicescorpmgt device-app-management-managed-app-registration get-applied-policy
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
 
-get-applied-policy a devicescorpmgt device-app-management-managed-app-registration.
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteOperations">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-operation-id**|string|key: id of managedAppOperation|managed_app_operation_id|managedAppOperation-id|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-applied-policy|GetAppliedPolicies|
+#### <a name="deviceAppManagement.managedAppRegistrationsCreateAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration create-applied-policy`</a>
 
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsCreateAppliedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The date and time the policy was created.|created_date_time|createdDateTime|
+|**--description**|string|The policy's description.|description|description|
+|**--display-name**|string|Policy display name.|display_name|displayName|
+|**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
+|**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsCreateIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration create-intended-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsCreateIntendedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--id**|string|Read-only.|id|id|
+|**--created-date-time**|date-time|The date and time the policy was created.|created_date_time|createdDateTime|
+|**--description**|string|The policy's description.|description|description|
+|**--display-name**|string|Policy display name.|display_name|displayName|
+|**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
+|**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsCreateOperations">Command `az devicescorpmgt device-app-management-managed-app-registration create-operation`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsCreateOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The operation name.|display_name|displayName|
+|**--last-modified-date-time**|date-time|The last time the app operation was modified.|last_modified_date_time|lastModifiedDateTime|
+|**--state**|string|The current state of the operation|state|state|
+|**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsListAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration list-applied-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsListAppliedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsListIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration list-intended-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsListIntendedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsListOperations">Command `az devicescorpmgt device-app-management-managed-app-registration list-operation`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsListOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsGetAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration show-applied-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsGetAppliedPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2478,21 +1868,9 @@ get-applied-policy a devicescorpmgt device-app-management-managed-app-registrati
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-app-registration get-intended-policy
+#### <a name="deviceAppManagement.managedAppRegistrationsGetIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration show-intended-policy`</a>
 
-get-intended-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-intended-policy|GetIntendedPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsGetIntendedPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2500,21 +1878,9 @@ get-intended-policy a devicescorpmgt device-app-management-managed-app-registrat
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-app-registration get-operation
+#### <a name="deviceAppManagement.managedAppRegistrationsGetOperations">Command `az devicescorpmgt device-app-management-managed-app-registration show-operation`</a>
 
-get-operation a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-operation|GetOperations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsGetOperations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2522,105 +1888,14 @@ get-operation a devicescorpmgt device-app-management-managed-app-registration.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-app-registration get-user-id-with-flagged-app-registration
+#### <a name="deviceAppManagement.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration">Command `az devicescorpmgt device-app-management-managed-app-registration show-user-id-with-flagged-app-registration`</a>
 
-get-user-id-with-flagged-app-registration a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-id-with-flagged-app-registration|getUserIdsWithFlaggedAppRegistration|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsgetUserIdsWithFlaggedAppRegistration">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.managedAppRegistrationsUpdateAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration update-applied-policy`</a>
 
-### devicescorpmgt device-app-management-managed-app-registration list-applied-policy
-
-list-applied-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-applied-policy|ListAppliedPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-app-registration list-intended-policy
-
-list-intended-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-intended-policy|ListIntendedPolicies|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-app-registration list-operation
-
-list-operation a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-operation|ListOperations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-app-registration update-applied-policy
-
-update-applied-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-applied-policy|UpdateAppliedPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsUpdateAppliedPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2632,21 +1907,9 @@ update-applied-policy a devicescorpmgt device-app-management-managed-app-registr
 |**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-managed-app-registration update-intended-policy
+#### <a name="deviceAppManagement.managedAppRegistrationsUpdateIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration update-intended-policy`</a>
 
-update-intended-policy a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-intended-policy|UpdateIntendedPolicies|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsUpdateIntendedPolicies">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2658,21 +1921,9 @@ update-intended-policy a devicescorpmgt device-app-management-managed-app-regist
 |**--last-modified-date-time**|date-time|Last time the policy was modified.|last_modified_date_time|lastModifiedDateTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-managed-app-registration update-operation
+#### <a name="deviceAppManagement.managedAppRegistrationsUpdateOperations">Command `az devicescorpmgt device-app-management-managed-app-registration update-operation`</a>
 
-update-operation a devicescorpmgt device-app-management-managed-app-registration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration|deviceAppManagement.managedAppRegistrations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-operation|UpdateOperations|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsUpdateOperations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
@@ -2683,83 +1934,66 @@ update-operation a devicescorpmgt device-app-management-managed-app-registration
 |**--state**|string|The current state of the operation|state|state|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app
+### group `az devicescorpmgt device-app-management-managed-app-registration-applied-policy`
+#### <a name="deviceAppManagement.managedAppRegistrations.appliedPoliciestargetApps">Command `az devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app`</a>
 
-target-app a devicescorpmgt device-app-management-managed-app-registration-applied-policy.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration-applied-policy|deviceAppManagement.managedAppRegistrations.appliedPolicies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|target-app|targetApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrations.appliedPoliciestargetApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
 |**--apps**|array||apps|apps|
 
-### devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app
+### group `az devicescorpmgt device-app-management-managed-app-registration-intended-policy`
+#### <a name="deviceAppManagement.managedAppRegistrations.intendedPoliciestargetApps">Command `az devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app`</a>
 
-target-app a devicescorpmgt device-app-management-managed-app-registration-intended-policy.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-app-registration-intended-policy|deviceAppManagement.managedAppRegistrations.intendedPolicies|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|target-app|targetApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrations.intendedPoliciestargetApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
 |**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
 |**--apps**|array||apps|apps|
 
-### devicescorpmgt device-app-management-managed-e-book assign
+### group `az devicescorpmgt device-app-management-managed-e-book`
+#### <a name="deviceAppManagement.managedEBooksDeleteAssignments">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
 
-assign a devicescorpmgt device-app-management-managed-e-book.
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--managed-e-book-assignment-id**|string|key: id of managedEBookAssignment|managed_e_book_assignment_id|managedEBookAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
+#### <a name="deviceAppManagement.managedEBooksDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|assign|assign|
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
 
-#### Parameters
+#### <a name="deviceAppManagement.managedEBooksDeleteUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
+
+#### <a name="deviceAppManagement.managedEBooksDeleteInstallSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.managedEBooksassign">Command `az devicescorpmgt device-app-management-managed-e-book assign`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksassign">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
 |**--managed-e-book-assignments**|array||managed_e_book_assignments|managedEBookAssignments|
 
-### devicescorpmgt device-app-management-managed-e-book create-assignment
+#### <a name="deviceAppManagement.managedEBooksCreateAssignments">Command `az devicescorpmgt device-app-management-managed-e-book create-assignment`</a>
 
-create-assignment a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-assignment|CreateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksCreateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2767,21 +2001,9 @@ create-assignment a devicescorpmgt device-app-management-managed-e-book.
 |**--install-intent**|choice||install_intent|installIntent|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-managed-e-book create-device-state
+#### <a name="deviceAppManagement.managedEBooksCreateDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book create-device-state`</a>
 
-create-device-state a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-state|CreateDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksCreateDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2795,21 +2017,9 @@ create-device-state a devicescorpmgt device-app-management-managed-e-book.
 |**--os-version**|string|OS Version.|os_version|osVersion|
 |**--user-name**|string|Device User Name.|user_name|userName|
 
-### devicescorpmgt device-app-management-managed-e-book create-user-state-summary
+#### <a name="deviceAppManagement.managedEBooksCreateUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book create-user-state-summary`</a>
 
-create-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-state-summary|CreateUserStateSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksCreateUserStateSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2820,47 +2030,39 @@ create-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
 |**--user-name**|string|User name.|user_name|userName|
 |**--device-states**|array|The install state of the eBook.|device_states|deviceStates|
 
-### devicescorpmgt device-app-management-managed-e-book delete
+#### <a name="deviceAppManagement.managedEBooksListAssignments">Command `az devicescorpmgt device-app-management-managed-e-book list-assignment`</a>
 
-delete a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAssignments|
-|delete|DeleteDeviceStates|
-|delete|DeleteUserStateSummary|
-|delete|DeleteInstallSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksListAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--managed-e-book-assignment-id**|string|key: id of managedEBookAssignment|managed_e_book_assignment_id|managedEBookAssignment-id|
-|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
-|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book get-assignment
+#### <a name="deviceAppManagement.managedEBooksListDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book list-device-state`</a>
 
-get-assignment a devicescorpmgt device-app-management-managed-e-book.
+##### <a name="ParametersdeviceAppManagement.managedEBooksListDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
+#### <a name="deviceAppManagement.managedEBooksListUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book list-user-state-summary`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-assignment|GetAssignments|
+##### <a name="ParametersdeviceAppManagement.managedEBooksListUserStateSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.managedEBooksGetAssignments">Command `az devicescorpmgt device-app-management-managed-e-book show-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksGetAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2868,21 +2070,9 @@ get-assignment a devicescorpmgt device-app-management-managed-e-book.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book get-device-state
+#### <a name="deviceAppManagement.managedEBooksGetDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book show-device-state`</a>
 
-get-device-state a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-state|GetDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksGetDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2890,42 +2080,18 @@ get-device-state a devicescorpmgt device-app-management-managed-e-book.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book get-install-summary
+#### <a name="deviceAppManagement.managedEBooksGetInstallSummary">Command `az devicescorpmgt device-app-management-managed-e-book show-install-summary`</a>
 
-get-install-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-install-summary|GetInstallSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksGetInstallSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book get-user-state-summary
+#### <a name="deviceAppManagement.managedEBooksGetUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book show-user-state-summary`</a>
 
-get-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-state-summary|GetUserStateSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksGetUserStateSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -2933,87 +2099,9 @@ get-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book list-assignment
+#### <a name="deviceAppManagement.managedEBooksUpdateAssignments">Command `az devicescorpmgt device-app-management-managed-e-book update-assignment`</a>
 
-list-assignment a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-assignment|ListAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-e-book list-device-state
-
-list-device-state a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-state|ListDeviceStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-e-book list-user-state-summary
-
-list-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-state-summary|ListUserStateSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-e-book update-assignment
-
-update-assignment a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-assignment|UpdateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksUpdateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3022,21 +2110,9 @@ update-assignment a devicescorpmgt device-app-management-managed-e-book.
 |**--install-intent**|choice||install_intent|installIntent|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-managed-e-book update-device-state
+#### <a name="deviceAppManagement.managedEBooksUpdateDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book update-device-state`</a>
 
-update-device-state a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-state|UpdateDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksUpdateDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3051,21 +2127,9 @@ update-device-state a devicescorpmgt device-app-management-managed-e-book.
 |**--os-version**|string|OS Version.|os_version|osVersion|
 |**--user-name**|string|Device User Name.|user_name|userName|
 
-### devicescorpmgt device-app-management-managed-e-book update-install-summary
+#### <a name="deviceAppManagement.managedEBooksUpdateInstallSummary">Command `az devicescorpmgt device-app-management-managed-e-book update-install-summary`</a>
 
-update-install-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-install-summary|UpdateInstallSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksUpdateInstallSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3077,21 +2141,9 @@ update-install-summary a devicescorpmgt device-app-management-managed-e-book.
 |**--not-installed-device-count**|integer|Number of Devices that does not have this book installed.|not_installed_device_count|notInstalledDeviceCount|
 |**--not-installed-user-count**|integer|Number of Users that did not install this book.|not_installed_user_count|notInstalledUserCount|
 
-### devicescorpmgt device-app-management-managed-e-book update-user-state-summary
+#### <a name="deviceAppManagement.managedEBooksUpdateUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book update-user-state-summary`</a>
 
-update-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book|deviceAppManagement.managedEBooks|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-state-summary|UpdateUserStateSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooksUpdateUserStateSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3103,21 +2155,20 @@ update-user-state-summary a devicescorpmgt device-app-management-managed-e-book.
 |**--user-name**|string|User name.|user_name|userName|
 |**--device-states**|array|The install state of the eBook.|device_states|deviceStates|
 
-### devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state
+### group `az devicescorpmgt device-app-management-managed-e-book-user-state-summary`
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete`</a>
 
-create-device-state a devicescorpmgt device-app-management-managed-e-book-user-state-summary.
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
+|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-state|CreateDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3132,66 +2183,9 @@ create-device-state a devicescorpmgt device-app-management-managed-e-book-user-s
 |**--os-version**|string|OS Version.|os_version|osVersion|
 |**--user-name**|string|Device User Name.|user_name|userName|
 
-### devicescorpmgt device-app-management-managed-e-book-user-state-summary delete
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryListDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state`</a>
 
-delete a devicescorpmgt device-app-management-managed-e-book-user-state-summary.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteDeviceStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
-|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management-managed-e-book-user-state-summary get-device-state
-
-get-device-state a devicescorpmgt device-app-management-managed-e-book-user-state-summary.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-state|GetDeviceStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
-|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state
-
-list-device-state a devicescorpmgt device-app-management-managed-e-book-user-state-summary.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-state|ListDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryListDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3200,21 +2194,20 @@ list-device-state a devicescorpmgt device-app-management-managed-e-book-user-sta
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary show-device-state`</a>
 
-update-device-state a devicescorpmgt device-app-management-managed-e-book-user-state-summary.
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
+|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-managed-e-book-user-state-summary|deviceAppManagement.managedEBooks.userStateSummary|
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-state|UpdateDeviceStates|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
@@ -3230,41 +2223,27 @@ update-device-state a devicescorpmgt device-app-management-managed-e-book-user-s
 |**--os-version**|string|OS Version.|os_version|osVersion|
 |**--user-name**|string|Device User Name.|user_name|userName|
 
-### devicescorpmgt device-app-management-mobile-app assign
+### group `az devicescorpmgt device-app-management-mobile-app`
+#### <a name="deviceAppManagement.mobileAppsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app delete`</a>
 
-assign a devicescorpmgt device-app-management-mobile-app.
+##### <a name="ParametersdeviceAppManagement.mobileAppsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+|**--mobile-app-assignment-id**|string|key: id of mobileAppAssignment|mobile_app_assignment_id|mobileAppAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
+#### <a name="deviceAppManagement.mobileAppsassign">Command `az devicescorpmgt device-app-management-mobile-app assign`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|assign|assign|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppsassign">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
 |**--mobile-app-assignments**|array||mobile_app_assignments|mobileAppAssignments|
 
-### devicescorpmgt device-app-management-mobile-app create-assignment
+#### <a name="deviceAppManagement.mobileAppsCreateAssignments">Command `az devicescorpmgt device-app-management-mobile-app create-assignment`</a>
 
-create-assignment a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-assignment|CreateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppsCreateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
@@ -3273,62 +2252,45 @@ create-assignment a devicescorpmgt device-app-management-mobile-app.
 |**--settings**|dictionary|Abstract class to contain properties used to assign a mobile app to a group.|settings|settings|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-mobile-app create-ref-category
+#### <a name="deviceAppManagement.mobileAppsCreateRefCategories">Command `az devicescorpmgt device-app-management-mobile-app create-ref-category`</a>
 
-create-ref-category a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-category|CreateRefCategories|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppsCreateRefCategories">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### devicescorpmgt device-app-management-mobile-app delete
+#### <a name="deviceAppManagement.mobileAppsListAssignments">Command `az devicescorpmgt device-app-management-mobile-app list-assignment`</a>
 
-delete a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppsListAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--mobile-app-assignment-id**|string|key: id of mobileAppAssignment|mobile_app_assignment_id|mobileAppAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app get-assignment
+#### <a name="deviceAppManagement.mobileAppsListCategories">Command `az devicescorpmgt device-app-management-mobile-app list-category`</a>
 
-get-assignment a devicescorpmgt device-app-management-mobile-app.
+##### <a name="ParametersdeviceAppManagement.mobileAppsListCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
+#### <a name="deviceAppManagement.mobileAppsListRefCategories">Command `az devicescorpmgt device-app-management-mobile-app list-ref-category`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-assignment|GetAssignments|
+##### <a name="ParametersdeviceAppManagement.mobileAppsListRefCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
 
-#### Parameters
+#### <a name="deviceAppManagement.mobileAppsGetAssignments">Command `az devicescorpmgt device-app-management-mobile-app show-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppsGetAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
@@ -3336,85 +2298,9 @@ get-assignment a devicescorpmgt device-app-management-mobile-app.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app list-assignment
+#### <a name="deviceAppManagement.mobileAppsUpdateAssignments">Command `az devicescorpmgt device-app-management-mobile-app update-assignment`</a>
 
-list-assignment a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-assignment|ListAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-mobile-app list-category
-
-list-category a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-category|ListCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-mobile-app list-ref-category
-
-list-ref-category a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-category|ListRefCategories|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### devicescorpmgt device-app-management-mobile-app update-assignment
-
-update-assignment a devicescorpmgt device-app-management-mobile-app.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app|deviceAppManagement.mobileApps|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-assignment|UpdateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppsUpdateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
@@ -3424,62 +2310,60 @@ update-assignment a devicescorpmgt device-app-management-mobile-app.
 |**--settings**|dictionary|Abstract class to contain properties used to assign a mobile app to a group.|settings|settings|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-mobile-app-configuration assign
+### group `az devicescorpmgt device-app-management-mobile-app-configuration`
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
 
-assign a devicescorpmgt device-app-management-mobile-app-configuration.
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--managed-device-mobile-app-configuration-assignment-id**|string|key: id of managedDeviceMobileAppConfigurationAssignment|managed_device_mobile_app_configuration_assignment_id|managedDeviceMobileAppConfigurationAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|assign|assign|
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-device-status-id**|string|key: id of managedDeviceMobileAppConfigurationDeviceStatus|managed_device_mobile_app_configuration_device_status_id|managedDeviceMobileAppConfigurationDeviceStatus-id|
 
-#### Parameters
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-user-status-id**|string|key: id of managedDeviceMobileAppConfigurationUserStatus|managed_device_mobile_app_configuration_user_status_id|managedDeviceMobileAppConfigurationUserStatus-id|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.mobileAppConfigurationsassign">Command `az devicescorpmgt device-app-management-mobile-app-configuration assign`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsassign">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
 |**--assignments**|array||assignments|assignments|
 
-### devicescorpmgt device-app-management-mobile-app-configuration create-assignment
+#### <a name="deviceAppManagement.mobileAppConfigurationsCreateAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration create-assignment`</a>
 
-create-assignment a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-assignment|CreateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsCreateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
 |**--id**|string|Read-only.|id|id|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses`</a>
 
-create-device-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-statuses|CreateDeviceStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3492,21 +2376,9 @@ create-device-statuses a devicescorpmgt device-app-management-mobile-app-configu
 |**--user-name**|string|The User Name that is being reported|user_name|userName|
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
 
-### devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsCreateUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses`</a>
 
-create-user-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user-statuses|CreateUserStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsCreateUserStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3517,48 +2389,39 @@ create-user-statuses a devicescorpmgt device-app-management-mobile-app-configura
 |**--user-display-name**|string|User name of the DevicePolicyStatus.|user_display_name|userDisplayName|
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
 
-### devicescorpmgt device-app-management-mobile-app-configuration delete
+#### <a name="deviceAppManagement.mobileAppConfigurationsListAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration list-assignment`</a>
 
-delete a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAssignments|
-|delete|DeleteDeviceStatuses|
-|delete|DeleteUserStatuses|
-|delete|DeleteDeviceStatusSummary|
-|delete|DeleteUserStatusSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsListAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--managed-device-mobile-app-configuration-assignment-id**|string|key: id of managedDeviceMobileAppConfigurationAssignment|managed_device_mobile_app_configuration_assignment_id|managedDeviceMobileAppConfigurationAssignment-id|
-|**--managed-device-mobile-app-configuration-device-status-id**|string|key: id of managedDeviceMobileAppConfigurationDeviceStatus|managed_device_mobile_app_configuration_device_status_id|managedDeviceMobileAppConfigurationDeviceStatus-id|
-|**--managed-device-mobile-app-configuration-user-status-id**|string|key: id of managedDeviceMobileAppConfigurationUserStatus|managed_device_mobile_app_configuration_user_status_id|managedDeviceMobileAppConfigurationUserStatus-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration get-assignment
+#### <a name="deviceAppManagement.mobileAppConfigurationsListDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses`</a>
 
-get-assignment a devicescorpmgt device-app-management-mobile-app-configuration.
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsListDeviceStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
+#### <a name="deviceAppManagement.mobileAppConfigurationsListUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-assignment|GetAssignments|
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsListUserStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.mobileAppConfigurationsGetAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration show-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsGetAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3566,42 +2429,18 @@ get-assignment a devicescorpmgt device-app-management-mobile-app-configuration.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration get-device-status-summary
+#### <a name="deviceAppManagement.mobileAppConfigurationsGetDeviceStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration show-device-status-summary`</a>
 
-get-device-status-summary a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-status-summary|GetDeviceStatusSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsGetDeviceStatusSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration get-device-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsGetDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration show-device-statuses`</a>
 
-get-device-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-statuses|GetDeviceStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsGetDeviceStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3609,42 +2448,18 @@ get-device-statuses a devicescorpmgt device-app-management-mobile-app-configurat
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration get-user-status-summary
+#### <a name="deviceAppManagement.mobileAppConfigurationsGetUserStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration show-user-status-summary`</a>
 
-get-user-status-summary a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-status-summary|GetUserStatusSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsGetUserStatusSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration get-user-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsGetUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration show-user-statuses`</a>
 
-get-user-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user-statuses|GetUserStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsGetUserStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3652,87 +2467,9 @@ get-user-statuses a devicescorpmgt device-app-management-mobile-app-configuratio
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-mobile-app-configuration list-assignment
+#### <a name="deviceAppManagement.mobileAppConfigurationsUpdateAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration update-assignment`</a>
 
-list-assignment a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-assignment|ListAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses
-
-list-device-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-statuses|ListDeviceStatuses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses
-
-list-user-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user-statuses|ListUserStatuses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-mobile-app-configuration update-assignment
-
-update-assignment a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-assignment|UpdateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsUpdateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3740,21 +2477,9 @@ update-assignment a devicescorpmgt device-app-management-mobile-app-configuratio
 |**--id**|string|Read-only.|id|id|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary
+#### <a name="deviceAppManagement.mobileAppConfigurationsUpdateDeviceStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary`</a>
 
-update-device-status-summary a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-status-summary|UpdateDeviceStatusSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsUpdateDeviceStatusSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3767,21 +2492,9 @@ update-device-status-summary a devicescorpmgt device-app-management-mobile-app-c
 |**--pending-count**|integer|Number of pending devices|pending_count|pendingCount|
 |**--success-count**|integer|Number of succeeded devices|success_count|successCount|
 
-### devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsUpdateDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses`</a>
 
-update-device-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-statuses|UpdateDeviceStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsUpdateDeviceStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3795,21 +2508,9 @@ update-device-statuses a devicescorpmgt device-app-management-mobile-app-configu
 |**--user-name**|string|The User Name that is being reported|user_name|userName|
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
 
-### devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary
+#### <a name="deviceAppManagement.mobileAppConfigurationsUpdateUserStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary`</a>
 
-update-user-status-summary a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-status-summary|UpdateUserStatusSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsUpdateUserStatusSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3822,21 +2523,9 @@ update-user-status-summary a devicescorpmgt device-app-management-mobile-app-con
 |**--pending-count**|integer|Number of pending Users|pending_count|pendingCount|
 |**--success-count**|integer|Number of succeeded Users|success_count|successCount|
 
-### devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses
+#### <a name="deviceAppManagement.mobileAppConfigurationsUpdateUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses`</a>
 
-update-user-statuses a devicescorpmgt device-app-management-mobile-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-mobile-app-configuration|deviceAppManagement.mobileAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user-statuses|UpdateUserStatuses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsUpdateUserStatuses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
@@ -3848,41 +2537,39 @@ update-user-statuses a devicescorpmgt device-app-management-mobile-app-configura
 |**--user-display-name**|string|User name of the DevicePolicyStatus.|user_display_name|userDisplayName|
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration assign
+### group `az devicescorpmgt device-app-management-targeted-managed-app-configuration`
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
 
-assign a devicescorpmgt device-app-management-targeted-managed-app-configuration.
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|assign|assign|
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
 
-#### Parameters
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsassign">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration assign`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsassign">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
 |**--assignments**|array||assignments|assignments|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration create-app
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsCreateApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration create-app`</a>
 
-create-app a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-app|CreateApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -3890,131 +2577,18 @@ create-app a devicescorpmgt device-app-management-targeted-managed-app-configura
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsCreateAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment`</a>
 
-create-assignment a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-assignment|CreateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
 |**--id**|string|Read-only.|id|id|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration delete
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsListApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration list-app`</a>
 
-delete a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteApps|
-|delete|DeleteAssignments|
-|delete|DeleteDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### devicescorpmgt device-app-management-targeted-managed-app-configuration get-app
-
-get-app a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-app|GetApps|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-targeted-managed-app-configuration get-assignment
-
-get-assignment a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-assignment|GetAssignments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-targeted-managed-app-configuration get-deployment-summary
-
-get-deployment-summary a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-deployment-summary|GetDeploymentSummary|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt device-app-management-targeted-managed-app-configuration list-app
-
-list-app a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-app|ListApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsListApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -4022,21 +2596,9 @@ list-app a devicescorpmgt device-app-management-targeted-managed-app-configurati
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsListAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment`</a>
 
-list-assignment a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-assignment|ListAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsListAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -4044,41 +2606,46 @@ list-assignment a devicescorpmgt device-app-management-targeted-managed-app-conf
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration target-app
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsGetApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration show-app`</a>
 
-target-app a devicescorpmgt device-app-management-targeted-managed-app-configuration.
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsGetAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration show-assignment`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|target-app|targetApps|
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsGetDeploymentSummary">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration show-deployment-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationstargetApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration target-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationstargetApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
 |**--apps**|array||apps|apps|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration update-app
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsUpdateApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration update-app`</a>
 
-update-app a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-app|UpdateApps|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateApps">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -4087,21 +2654,9 @@ update-app a devicescorpmgt device-app-management-targeted-managed-app-configura
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsUpdateAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment`</a>
 
-update-assignment a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-assignment|UpdateAssignments|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateAssignments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -4109,21 +2664,9 @@ update-assignment a devicescorpmgt device-app-management-targeted-managed-app-co
 |**--id**|string|Read-only.|id|id|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
-### devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsUpdateDeploymentSummary">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary`</a>
 
-update-deployment-summary a devicescorpmgt device-app-management-targeted-managed-app-configuration.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-targeted-managed-app-configuration|deviceAppManagement.targetedManagedAppConfigurations|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-deployment-summary|UpdateDeploymentSummary|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsUpdateDeploymentSummary">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
@@ -4134,40 +2677,34 @@ update-deployment-summary a devicescorpmgt device-app-management-targeted-manage
 |**--last-refresh-time**|date-time|Not yet documented|last_refresh_time|lastRefreshTime|
 |**--version**|string|Version of the entity.|version|version|
 
-### devicescorpmgt device-app-management-vpp-token sync-license
+### group `az devicescorpmgt device-app-management-vpp-token`
+#### <a name="deviceAppManagement.vppTokenssyncLicenses">Command `az devicescorpmgt device-app-management-vpp-token sync-license`</a>
 
-sync-license a devicescorpmgt device-app-management-vpp-token.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt device-app-management-vpp-token|deviceAppManagement.vppTokens|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|sync-license|syncLicenses|
-
-#### Parameters
+##### <a name="ParametersdeviceAppManagement.vppTokenssyncLicenses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
 
-### devicescorpmgt user create-device-management-troubleshooting-event
+### group `az devicescorpmgt user`
+#### <a name="usersDeleteDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user delete`</a>
 
-create-device-management-troubleshooting-event a devicescorpmgt user.
+##### <a name="ParametersusersDeleteDeviceManagementTroubleshootingEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--device-management-troubleshooting-event-id**|string|key: id of deviceManagementTroubleshootingEvent|device_management_troubleshooting_event_id|deviceManagementTroubleshootingEvent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
+#### <a name="usersDeleteManagedDevices">Command `az devicescorpmgt user delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-management-troubleshooting-event|CreateDeviceManagementTroubleshootingEvents|
+##### <a name="ParametersusersDeleteManagedDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
 
-#### Parameters
+#### <a name="usersCreateDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user create-device-management-troubleshooting-event`</a>
+
+##### <a name="ParametersusersCreateDeviceManagementTroubleshootingEvents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4175,21 +2712,9 @@ create-device-management-troubleshooting-event a devicescorpmgt user.
 |**--correlation-id**|string|Id used for tracing the failure in the service.|correlation_id|correlationId|
 |**--event-date-time**|date-time|Time when the event occurred .|event_date_time|eventDateTime|
 
-### devicescorpmgt user create-managed-device
+#### <a name="usersCreateManagedDevices">Command `az devicescorpmgt user create-managed-device`</a>
 
-create-managed-device a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-managed-device|CreateManagedDevices|
-
-#### Parameters
+##### <a name="ParametersusersCreateManagedDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4244,64 +2769,55 @@ create-managed-device a devicescorpmgt user.
 |**--device-configuration-states**|array|Device configuration states for this device.|device_configuration_states|deviceConfigurationStates|
 |**--device-category**|object|Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.|device_category|deviceCategory|
 
-### devicescorpmgt user create-ref-managed-app-registration
+#### <a name="usersCreateRefManagedAppRegistrations">Command `az devicescorpmgt user create-ref-managed-app-registration`</a>
 
-create-ref-managed-app-registration a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-managed-app-registration|CreateRefManagedAppRegistrations|
-
-#### Parameters
+##### <a name="ParametersusersCreateRefManagedAppRegistrations">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### devicescorpmgt user delete
+#### <a name="usersListDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user list-device-management-troubleshooting-event`</a>
 
-delete a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteDeviceManagementTroubleshootingEvents|
-|delete|DeleteManagedDevices|
-
-#### Parameters
+##### <a name="ParametersusersListDeviceManagementTroubleshootingEvents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
-|**--device-management-troubleshooting-event-id**|string|key: id of deviceManagementTroubleshootingEvent|device_management_troubleshooting_event_id|deviceManagementTroubleshootingEvent-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user get-device-management-troubleshooting-event
+#### <a name="usersListManagedAppRegistrations">Command `az devicescorpmgt user list-managed-app-registration`</a>
 
-get-device-management-troubleshooting-event a devicescorpmgt user.
+##### <a name="ParametersusersListManagedAppRegistrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
+#### <a name="usersListManagedDevices">Command `az devicescorpmgt user list-managed-device`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-management-troubleshooting-event|GetDeviceManagementTroubleshootingEvents|
+##### <a name="ParametersusersListManagedDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="usersListRefManagedAppRegistrations">Command `az devicescorpmgt user list-ref-managed-app-registration`</a>
+
+##### <a name="ParametersusersListRefManagedAppRegistrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+
+#### <a name="usersGetDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user show-device-management-troubleshooting-event`</a>
+
+##### <a name="ParametersusersGetDeviceManagementTroubleshootingEvents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4309,21 +2825,9 @@ get-device-management-troubleshooting-event a devicescorpmgt user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user get-managed-device
+#### <a name="usersGetManagedDevices">Command `az devicescorpmgt user show-managed-device`</a>
 
-get-managed-device a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-managed-device|GetManagedDevices|
-
-#### Parameters
+##### <a name="ParametersusersGetManagedDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4331,107 +2835,9 @@ get-managed-device a devicescorpmgt user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user list-device-management-troubleshooting-event
+#### <a name="usersUpdateDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user update-device-management-troubleshooting-event`</a>
 
-list-device-management-troubleshooting-event a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-management-troubleshooting-event|ListDeviceManagementTroubleshootingEvents|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt user list-managed-app-registration
-
-list-managed-app-registration a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-app-registration|ListManagedAppRegistrations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt user list-managed-device
-
-list-managed-device a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-managed-device|ListManagedDevices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt user list-ref-managed-app-registration
-
-list-ref-managed-app-registration a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-managed-app-registration|ListRefManagedAppRegistrations|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-
-### devicescorpmgt user update-device-management-troubleshooting-event
-
-update-device-management-troubleshooting-event a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-management-troubleshooting-event|UpdateDeviceManagementTroubleshootingEvents|
-
-#### Parameters
+##### <a name="ParametersusersUpdateDeviceManagementTroubleshootingEvents">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4440,21 +2846,9 @@ update-device-management-troubleshooting-event a devicescorpmgt user.
 |**--correlation-id**|string|Id used for tracing the failure in the service.|correlation_id|correlationId|
 |**--event-date-time**|date-time|Time when the event occurred .|event_date_time|eventDateTime|
 
-### devicescorpmgt user update-managed-device
+#### <a name="usersUpdateManagedDevices">Command `az devicescorpmgt user update-managed-device`</a>
 
-update-managed-device a devicescorpmgt user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user|users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-managed-device|UpdateManagedDevices|
-
-#### Parameters
+##### <a name="ParametersusersUpdateManagedDevices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4510,100 +2904,84 @@ update-managed-device a devicescorpmgt user.
 |**--device-configuration-states**|array|Device configuration states for this device.|device_configuration_states|deviceConfigurationStates|
 |**--device-category**|object|Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.|device_category|deviceCategory|
 
-### devicescorpmgt user-managed-device create-device-compliance-policy-state
+### group `az devicescorpmgt user-managed-device`
+#### <a name="users.managedDevicesDeleteDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device delete`</a>
 
-create-device-compliance-policy-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-compliance-policy-state|CreateDeviceCompliancePolicyStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|The name of the policy for this policyBase|display_name|displayName|
-|**--platform-type**|choice||platform_type|platformType|
-|**--setting-count**|integer|Count of how many setting a policy holds|setting_count|settingCount|
-|**--setting-states**|array||setting_states|settingStates|
-|**--state**|choice||state|state|
-|**--version**|integer|The version of the policy|version|version|
-
-### devicescorpmgt user-managed-device create-device-configuration-state
-
-create-device-configuration-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-device-configuration-state|CreateDeviceConfigurationStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|The name of the policy for this policyBase|display_name|displayName|
-|**--platform-type**|choice||platform_type|platformType|
-|**--setting-count**|integer|Count of how many setting a policy holds|setting_count|settingCount|
-|**--setting-states**|array||setting_states|settingStates|
-|**--state**|choice||state|state|
-|**--version**|integer|The version of the policy|version|version|
-
-### devicescorpmgt user-managed-device delete
-
-delete a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteDeviceCompliancePolicyStates|
-|delete|DeleteDeviceConfigurationStates|
-|delete|DeleteDeviceCategory|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
 |**--device-compliance-policy-state-id**|string|key: id of deviceCompliancePolicyState|device_compliance_policy_state_id|deviceCompliancePolicyState-id|
-|**--device-configuration-state-id**|string|key: id of deviceConfigurationState|device_configuration_state_id|deviceConfigurationState-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### devicescorpmgt user-managed-device get-device-category
+#### <a name="users.managedDevicesDeleteDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device delete`</a>
 
-get-device-category a devicescorpmgt user-managed-device.
+##### <a name="Parametersusers.managedDevicesDeleteDeviceConfigurationStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--device-configuration-state-id**|string|key: id of deviceConfigurationState|device_configuration_state_id|deviceConfigurationState-id|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
+#### <a name="users.managedDevicesDeleteDeviceCategory">Command `az devicescorpmgt user-managed-device delete`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-category|GetDeviceCategory|
+##### <a name="Parametersusers.managedDevicesDeleteDeviceCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="users.managedDevicesCreateDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device create-device-compliance-policy-state`</a>
 
-#### Parameters
+##### <a name="Parametersusers.managedDevicesCreateDeviceCompliancePolicyStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the policy for this policyBase|display_name|displayName|
+|**--platform-type**|choice||platform_type|platformType|
+|**--setting-count**|integer|Count of how many setting a policy holds|setting_count|settingCount|
+|**--setting-states**|array||setting_states|settingStates|
+|**--state**|choice||state|state|
+|**--version**|integer|The version of the policy|version|version|
+
+#### <a name="users.managedDevicesCreateDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device create-device-configuration-state`</a>
+
+##### <a name="Parametersusers.managedDevicesCreateDeviceConfigurationStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|The name of the policy for this policyBase|display_name|displayName|
+|**--platform-type**|choice||platform_type|platformType|
+|**--setting-count**|integer|Count of how many setting a policy holds|setting_count|settingCount|
+|**--setting-states**|array||setting_states|settingStates|
+|**--state**|choice||state|state|
+|**--version**|integer|The version of the policy|version|version|
+
+#### <a name="users.managedDevicesListDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device list-device-compliance-policy-state`</a>
+
+##### <a name="Parametersusers.managedDevicesListDeviceCompliancePolicyStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.managedDevicesListDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device list-device-configuration-state`</a>
+
+##### <a name="Parametersusers.managedDevicesListDeviceConfigurationStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="users.managedDevicesGetDeviceCategory">Command `az devicescorpmgt user-managed-device show-device-category`</a>
+
+##### <a name="Parametersusers.managedDevicesGetDeviceCategory">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4611,21 +2989,9 @@ get-device-category a devicescorpmgt user-managed-device.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user-managed-device get-device-compliance-policy-state
+#### <a name="users.managedDevicesGetDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device show-device-compliance-policy-state`</a>
 
-get-device-compliance-policy-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-compliance-policy-state|GetDeviceCompliancePolicyStates|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesGetDeviceCompliancePolicyStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4634,21 +3000,9 @@ get-device-compliance-policy-state a devicescorpmgt user-managed-device.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user-managed-device get-device-configuration-state
+#### <a name="users.managedDevicesGetDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device show-device-configuration-state`</a>
 
-get-device-configuration-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-device-configuration-state|GetDeviceConfigurationStates|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesGetDeviceConfigurationStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4657,67 +3011,9 @@ get-device-configuration-state a devicescorpmgt user-managed-device.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### devicescorpmgt user-managed-device list-device-compliance-policy-state
+#### <a name="users.managedDevicesUpdateDeviceCategory">Command `az devicescorpmgt user-managed-device update-device-category`</a>
 
-list-device-compliance-policy-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-compliance-policy-state|ListDeviceCompliancePolicyStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt user-managed-device list-device-configuration-state
-
-list-device-configuration-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-device-configuration-state|ListDeviceConfigurationStates|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### devicescorpmgt user-managed-device update-device-category
-
-update-device-category a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-category|UpdateDeviceCategory|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesUpdateDeviceCategory">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4726,21 +3022,9 @@ update-device-category a devicescorpmgt user-managed-device.
 |**--description**|string|Optional description for the device category.|description|description|
 |**--display-name**|string|Display name for the device category.|display_name|displayName|
 
-### devicescorpmgt user-managed-device update-device-compliance-policy-state
+#### <a name="users.managedDevicesUpdateDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device update-device-compliance-policy-state`</a>
 
-update-device-compliance-policy-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-compliance-policy-state|UpdateDeviceCompliancePolicyStates|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesUpdateDeviceCompliancePolicyStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
@@ -4754,21 +3038,9 @@ update-device-compliance-policy-state a devicescorpmgt user-managed-device.
 |**--state**|choice||state|state|
 |**--version**|integer|The version of the policy|version|version|
 
-### devicescorpmgt user-managed-device update-device-configuration-state
+#### <a name="users.managedDevicesUpdateDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device update-device-configuration-state`</a>
 
-update-device-configuration-state a devicescorpmgt user-managed-device.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|devicescorpmgt user-managed-device|users.managedDevices|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-device-configuration-state|UpdateDeviceConfigurationStates|
-
-#### Parameters
+##### <a name="Parametersusers.managedDevicesUpdateDeviceConfigurationStates">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|

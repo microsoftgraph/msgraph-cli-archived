@@ -37,6 +37,9 @@ class AddApplicationsApplicationAddIns(argparse._AppendAction):
                 d['properties'] = v
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter add_ins. All possible keys are: id, '
+                               'properties, type'.format(k))
         return d
 
 
@@ -71,6 +74,9 @@ class AddApplicationsApplicationAppRoles(argparse._AppendAction):
                 d['origin'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_roles. All possible keys are: '
+                               'allowed-member-types, description, display-name, id, is-enabled, origin, value'.format(k))
         return d
 
 
@@ -101,6 +107,9 @@ class AddInfo(argparse.Action):
                 d['support_url'] = v[0]
             elif kl == 'terms-of-service-url':
                 d['terms_of_service_url'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter info. All possible keys are: logo-url, '
+                               'marketing-url, privacy-statement-url, support-url, terms-of-service-url'.format(k))
         return d
 
 
@@ -137,6 +146,10 @@ class AddApplicationsApplicationKeyCredentials(argparse._AppendAction):
                 d['type'] = v[0]
             elif kl == 'usage':
                 d['usage'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter key_credentials. All possible keys are: '
+                               'custom-key-identifier, display-name, end-date-time, key, key-id, start-date-time, '
+                               'type, usage'.format(k))
         return d
 
 
@@ -161,6 +174,9 @@ class AddParentalControlSettings(argparse.Action):
                 d['countries_blocked_for_minors'] = v
             elif kl == 'legal-age-group-rule':
                 d['legal_age_group_rule'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter parental_control_settings. All possible '
+                               'keys are: countries-blocked-for-minors, legal-age-group-rule'.format(k))
         return d
 
 
@@ -195,6 +211,10 @@ class AddApplicationsApplicationPasswordCredentials(argparse._AppendAction):
                 d['secret_text'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_credentials. All possible keys '
+                               'are: custom-key-identifier, display-name, end-date-time, hint, key-id, secret-text, '
+                               'start-date-time'.format(k))
         return d
 
 
@@ -217,6 +237,9 @@ class AddPublicClient(argparse.Action):
             v = properties[k]
             if kl == 'redirect-uris':
                 d['redirect_uris'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter public_client. All possible keys are: '
+                               'redirect-uris'.format(k))
         return d
 
 
@@ -241,6 +264,9 @@ class AddRequiredResourceAccess(argparse._AppendAction):
                 d['resource_access'] = v
             elif kl == 'resource-app-id':
                 d['resource_app_id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter required_resource_access. All possible '
+                               'keys are: resource-access, resource-app-id'.format(k))
         return d
 
 
@@ -265,6 +291,9 @@ class AddCreatedOnBehalfOf(argparse.Action):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter created_on_behalf_of. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d
 
 
@@ -299,6 +328,10 @@ class AddExtensionProperties(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extension_properties. All possible keys '
+                               'are: app-display-name, data-type, is-synced-from-on-premises, name, target-objects, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -333,6 +366,10 @@ class AddApplicationsApplicationHomeRealmDiscoveryPolicies(argparse._AppendActio
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter home_realm_discovery_policies. All '
+                               'possible keys are: definition, is-organization-default, applies-to, description, '
+                               'display-name, deleted-date-time, id'.format(k))
         return d
 
 
@@ -357,6 +394,9 @@ class AddApplicationsApplicationOwners(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter owners. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -391,6 +431,10 @@ class AddApplicationsApplicationTokenIssuancePolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_issuance_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -425,13 +469,17 @@ class AddApplicationsApplicationTokenLifetimePolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_lifetime_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
-class AddWebImplicitGrantSettings(argparse.Action):
+class AddImplicitGrantSettings(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.web_implicit_grant_settings = action
+        namespace.implicit_grant_settings = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -449,13 +497,16 @@ class AddWebImplicitGrantSettings(argparse.Action):
                 d['enable_access_token_issuance'] = v[0]
             elif kl == 'enable-id-token-issuance':
                 d['enable_id_token_issuance'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter implicit_grant_settings. All possible '
+                               'keys are: enable-access-token-issuance, enable-id-token-issuance'.format(k))
         return d
 
 
-class AddOptionalClaimsAccessToken(argparse._AppendAction):
+class AddAccessToken(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOptionalClaimsAccessToken, self).__call__(parser, namespace, action, option_string)
+        super(AddAccessToken, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -477,13 +528,16 @@ class AddOptionalClaimsAccessToken(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'source':
                 d['source'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter access_token. All possible keys are: '
+                               'additional-properties, essential, name, source'.format(k))
         return d
 
 
-class AddOptionalClaimsIdToken(argparse._AppendAction):
+class AddIdToken(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOptionalClaimsIdToken, self).__call__(parser, namespace, action, option_string)
+        super(AddIdToken, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -505,13 +559,16 @@ class AddOptionalClaimsIdToken(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'source':
                 d['source'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter id_token. All possible keys are: '
+                               'additional-properties, essential, name, source'.format(k))
         return d
 
 
-class AddOptionalClaimsSaml2token(argparse._AppendAction):
+class AddSaml2Token(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOptionalClaimsSaml2token, self).__call__(parser, namespace, action, option_string)
+        super(AddSaml2Token, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -533,13 +590,16 @@ class AddOptionalClaimsSaml2token(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'source':
                 d['source'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter saml2_token. All possible keys are: '
+                               'additional-properties, essential, name, source'.format(k))
         return d
 
 
-class AddApiOauth2permissionScopes(argparse._AppendAction):
+class AddApplicationsApplicationOauth2PermissionScopes(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddApiOauth2permissionScopes, self).__call__(parser, namespace, action, option_string)
+        super(AddApplicationsApplicationOauth2PermissionScopes, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -571,13 +631,17 @@ class AddApiOauth2permissionScopes(argparse._AppendAction):
                 d['user_consent_display_name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter oauth2_permission_scopes. All possible '
+                               'keys are: admin-consent-description, admin-consent-display-name, id, is-enabled, '
+                               'origin, type, user-consent-description, user-consent-display-name, value'.format(k))
         return d
 
 
-class AddApiPreAuthorizedApplications(argparse._AppendAction):
+class AddPreAuthorizedApplications(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddApiPreAuthorizedApplications, self).__call__(parser, namespace, action, option_string)
+        super(AddPreAuthorizedApplications, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -595,6 +659,9 @@ class AddApiPreAuthorizedApplications(argparse._AppendAction):
                 d['app_id'] = v[0]
             elif kl == 'delegated-permission-ids':
                 d['delegated_permission_ids'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter pre_authorized_applications. All possible '
+                               'keys are: app-id, delegated-permission-ids'.format(k))
         return d
 
 
@@ -631,6 +698,10 @@ class AddKeyCredential(argparse.Action):
                 d['type'] = v[0]
             elif kl == 'usage':
                 d['usage'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter key_credential. All possible keys are: '
+                               'custom-key-identifier, display-name, end-date-time, key, key-id, start-date-time, '
+                               'type, usage'.format(k))
         return d
 
 
@@ -665,6 +736,10 @@ class AddPasswordCredential(argparse.Action):
                 d['secret_text'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_credential. All possible keys '
+                               'are: custom-key-identifier, display-name, end-date-time, hint, key-id, secret-text, '
+                               'start-date-time'.format(k))
         return d
 
 
@@ -691,6 +766,9 @@ class AddServiceprincipalsServiceprincipalAddIns(argparse._AppendAction):
                 d['properties'] = v
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter add_ins. All possible keys are: id, '
+                               'properties, type'.format(k))
         return d
 
 
@@ -725,6 +803,9 @@ class AddServiceprincipalsServiceprincipalAppRoles(argparse._AppendAction):
                 d['origin'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_roles. All possible keys are: '
+                               'allowed-member-types, description, display-name, id, is-enabled, origin, value'.format(k))
         return d
 
 
@@ -761,13 +842,17 @@ class AddServiceprincipalsServiceprincipalKeyCredentials(argparse._AppendAction)
                 d['type'] = v[0]
             elif kl == 'usage':
                 d['usage'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter key_credentials. All possible keys are: '
+                               'custom-key-identifier, display-name, end-date-time, key, key-id, start-date-time, '
+                               'type, usage'.format(k))
         return d
 
 
-class AddOauth2PermissionScopes(argparse._AppendAction):
+class AddServiceprincipalsServiceprincipalOauth2PermissionScopes(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOauth2PermissionScopes, self).__call__(parser, namespace, action, option_string)
+        super(AddServiceprincipalsServiceprincipalOauth2PermissionScopes, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -799,6 +884,10 @@ class AddOauth2PermissionScopes(argparse._AppendAction):
                 d['user_consent_display_name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter oauth2_permission_scopes. All possible '
+                               'keys are: admin-consent-description, admin-consent-display-name, id, is-enabled, '
+                               'origin, type, user-consent-description, user-consent-display-name, value'.format(k))
         return d
 
 
@@ -833,6 +922,10 @@ class AddServiceprincipalsServiceprincipalPasswordCredentials(argparse._AppendAc
                 d['secret_text'] = v[0]
             elif kl == 'start-date-time':
                 d['start_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter password_credentials. All possible keys '
+                               'are: custom-key-identifier, display-name, end-date-time, hint, key-id, secret-text, '
+                               'start-date-time'.format(k))
         return d
 
 
@@ -871,6 +964,10 @@ class AddAppRoleAssignedTo(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_role_assigned_to. All possible keys '
+                               'are: app-role-id, created-date-time, principal-display-name, principal-id, '
+                               'principal-type, resource-display-name, resource-id, deleted-date-time, id'.format(k))
         return d
 
 
@@ -909,6 +1006,10 @@ class AddAppRoleAssignments(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter app_role_assignments. All possible keys '
+                               'are: app-role-id, created-date-time, principal-display-name, principal-id, '
+                               'principal-type, resource-display-name, resource-id, deleted-date-time, id'.format(k))
         return d
 
 
@@ -943,6 +1044,10 @@ class AddClaimsMappingPolicies(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter claims_mapping_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -967,6 +1072,9 @@ class AddCreatedObjects(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter created_objects. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1001,6 +1109,10 @@ class AddEndpoints(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter endpoints. All possible keys are: '
+                               'capability, provider-id, provider-name, provider-resource-id, uri, deleted-date-time, '
+                               'id'.format(k))
         return d
 
 
@@ -1035,6 +1147,10 @@ class AddServiceprincipalsServiceprincipalHomeRealmDiscoveryPolicies(argparse._A
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter home_realm_discovery_policies. All '
+                               'possible keys are: definition, is-organization-default, applies-to, description, '
+                               'display-name, deleted-date-time, id'.format(k))
         return d
 
 
@@ -1059,6 +1175,9 @@ class AddMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter member_of. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1091,6 +1210,9 @@ class AddOauth2PermissionGrants(argparse._AppendAction):
                 d['scope'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter oauth2_permission_grants. All possible '
+                               'keys are: client-id, consent-type, principal-id, resource-id, scope, id'.format(k))
         return d
 
 
@@ -1115,6 +1237,9 @@ class AddOwnedObjects(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter owned_objects. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1139,6 +1264,9 @@ class AddServiceprincipalsServiceprincipalOwners(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter owners. All possible keys are: '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1173,6 +1301,10 @@ class AddServiceprincipalsServiceprincipalTokenIssuancePolicies(argparse._Append
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_issuance_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1207,6 +1339,10 @@ class AddServiceprincipalsServiceprincipalTokenLifetimePolicies(argparse._Append
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter token_lifetime_policies. All possible '
+                               'keys are: definition, is-organization-default, applies-to, description, display-name, '
+                               'deleted-date-time, id'.format(k))
         return d
 
 
@@ -1231,4 +1367,7 @@ class AddTransitiveMemberOf(argparse._AppendAction):
                 d['deleted_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter transitive_member_of. All possible keys '
+                               'are: deleted-date-time, id'.format(k))
         return d

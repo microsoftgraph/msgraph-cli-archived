@@ -11,7 +11,7 @@
 
 def cf_devicescorpmgt_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.devicescorpmgt import DevicesCorporateManagement
+    from azext_devicescorpmgt_v1_0.vendored_sdks.devicescorpmgt import DevicesCorporateManagement
     return get_mgmt_service_client(cli_ctx,
                                    DevicesCorporateManagement,
                                    subscription_bound=False,
