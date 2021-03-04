@@ -113,19 +113,19 @@ directive:
     - where:
           command: {file_name} {parsed_file_name} create-{parsed_file_name}
       set:
-          command: create
+          command: {file_name} {parsed_file_name} create
     - where:
           command: {file_name} {parsed_file_name} get-{parsed_file_name}
       set:
-          command: get
+          command: {file_name} {parsed_file_name} get
     - where:
           command: {file_name} {parsed_file_name} list-{parsed_file_name}
       set:
-          command: list
+          command: {file_name} {parsed_file_name} list
     - where:
           command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
-          command: update
+          command: {file_name} {parsed_file_name} create
 
 modelerfour:
     lenient-model-deduplication: true

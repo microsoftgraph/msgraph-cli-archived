@@ -23,11 +23,10 @@ def load_command_table(self, _):
         client_factory=cf_user_user,
     )
     with self.command_group('users user', users_v1_0_user_user, client_factory=cf_user_user) as g:
+        g.custom_command('list', 'users_user_list')
+        g.custom_command('create', 'users_user_create')
         g.custom_command('delete', 'users_user_delete', confirmation=True)
-        g.custom_command('create-user', 'users_user_create_user')
-        g.custom_command('list-user', 'users_user_list_user')
         g.custom_command('show-user', 'users_user_show_user')
-        g.custom_command('update-user', 'users_user_update_user')
 
     from azext_users_v1_0.generated._client_factory import cf_user
 
