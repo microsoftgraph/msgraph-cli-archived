@@ -1,1 +1,1 @@
-python -m msgraph.cli $@
+python -m msgraph.cli $@ | less -XF

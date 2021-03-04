@@ -78,110 +78,130 @@ def _is_paged(obj):
 
 class GraphCliCommandInvoker(CommandInvoker):
     def execute(self, args):
-        # TODO: Can't simply be invoked as an event because args are transformed
-        args = _pre_command_table_create(self.cli_ctx, args)
-        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_CREATE, args=args)
-        self.commands_loader.load_command_table(args)
-        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE,
-                                 load_cmd_tbl_func=self.commands_loader.load_command_table,
-                                 args=args)
+        '''Executes cli commands
 
-        command = self._rudimentary_get_command(args)
-        self.cli_ctx.invocation.data['command_string'] = command
+        Raises
+        ------
+        BrokenPipeError, OSError
+            When less in unix or more in windows is terminated before navigating to the last page
+            it sends a SIGPIPE signal. Python ignores the signal and raises BrokenPipeError instead
+        '''
         try:
-            self.commands_loader.command_table = {
-                command: self.commands_loader.command_table[command]
-            }
-        except KeyError:
-            cmd_table = {}
-            group_names = set()
-            for cmd_name, cmd in self.commands_loader.command_table.items():
-                if command and not cmd_name.startswith(command):
-                    continue
-                cmd_stub = cmd_name[len(command):].strip()
-                group_name = cmd_stub.split(' ', 1)[0]
-                if group_name:
-                    cmd_table[cmd_name] = cmd
-                    group_names.add(group_name)
-                self.commands_loader.command_table = cmd_table
+            args = _pre_command_table_create(self.cli_ctx, args)
+            self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_CREATE, args=args)
+            self.commands_loader.load_command_table(args)
+            self.cli_ctx.raise_event(EVENT_INVOKER_PRE_CMD_TBL_TRUNCATE,
+                                     load_cmd_tbl_func=self.commands_loader.load_command_table,
+                                     args=args)
 
-        # update with the truncated table
-        self.commands_loader.command_table = self.commands_loader.command_table
-        self.commands_loader.command_name = command
-        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_LOAD_ARGUMENTS,
-                                 commands_loader=self.commands_loader)
-        self.commands_loader.load_arguments(command)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_LOAD_ARGUMENTS,
-                                 commands_loader=self.commands_loader)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_CMD_TBL_CREATE,
-                                 commands_loader=self.commands_loader)
-        self.parser.cli_ctx = self.cli_ctx
-        self.parser.load_command_table(self.commands_loader)
+            command = self._rudimentary_get_command(args)
+            self.cli_ctx.invocation.data['command_string'] = command
+            try:
+                self.commands_loader.command_table = {
+                    command: self.commands_loader.command_table[command]
+                }
+            except KeyError:
+                cmd_table = {}
+                group_names = set()
+                for cmd_name, cmd in self.commands_loader.command_table.items():
+                    if command and not cmd_name.startswith(command):
+                        continue
+                    cmd_stub = cmd_name[len(command):].strip()
+                    group_name = cmd_stub.split(' ', 1)[0]
+                    if group_name:
+                        cmd_table[cmd_name] = cmd
+                        group_names.add(group_name)
+                    self.commands_loader.command_table = cmd_table
 
-        self.cli_ctx.raise_event(EVENT_INVOKER_CMD_TBL_LOADED,
-                                 cmd_tbl=self.commands_loader.command_table,
-                                 parser=self.parser)
+            # update with the truncated table
+            self.commands_loader.command_table = self.commands_loader.command_table
+            self.commands_loader.command_name = command
+            self.cli_ctx.raise_event(EVENT_INVOKER_PRE_LOAD_ARGUMENTS,
+                                     commands_loader=self.commands_loader)
+            self.commands_loader.load_arguments(command)
+            self.cli_ctx.raise_event(EVENT_INVOKER_POST_LOAD_ARGUMENTS,
+                                     commands_loader=self.commands_loader)
+            self.cli_ctx.raise_event(EVENT_INVOKER_POST_CMD_TBL_CREATE,
+                                     commands_loader=self.commands_loader)
+            self.parser.cli_ctx = self.cli_ctx
+            self.parser.load_command_table(self.commands_loader)
 
-        arg_check = [a for a in args if a not in ['--debug', '--verbose']]
-        if not arg_check:
-            # TODO: Enable autocomplete
-            # self.parser.enable_autocomplete()
-            subparser = self.parser.subparsers[tuple()]
-            self.help.show_welcome(subparser)
-            return CommandResultItem(None, exit_code=0)
+            self.cli_ctx.raise_event(EVENT_INVOKER_CMD_TBL_LOADED,
+                                     cmd_tbl=self.commands_loader.command_table,
+                                     parser=self.parser)
 
-        if args[0].lower() == 'help':
-            args[0] = '--help'
+            arg_check = [a for a in args if a not in ['--debug', '--verbose']]
+            if not arg_check:
+                # TODO: Enable autocomplete
+                # self.parser.enable_autocomplete()
+                subparser = self.parser.subparsers[tuple()]
+                self.help.show_welcome(subparser)
+                return CommandResultItem(None, exit_code=0)
 
-        self.cli_ctx.raise_event(EVENT_INVOKER_PRE_PARSE_ARGS, args=args)
-        parsed_args = self.parser.parse_args(args)
-        self.cli_ctx.raise_event(EVENT_INVOKER_POST_PARSE_ARGS,
-                                 command=parsed_args.command,
-                                 args=parsed_args)
+            if args[0].lower() == 'help':
+                args[0] = '--help'
 
-        cmd = parsed_args.func
-        self.cli_ctx.data['command'] = parsed_args.command
+            self.cli_ctx.raise_event(EVENT_INVOKER_PRE_PARSE_ARGS, args=args)
+            parsed_args = self.parser.parse_args(args)
+            self.cli_ctx.raise_event(EVENT_INVOKER_POST_PARSE_ARGS,
+                                     command=parsed_args.command,
+                                     args=parsed_args)
 
-        self.cli_ctx.data['safe_params'] = GraphCliCommandInvoker._extract_parameter_names(args)
-        command_source = self.commands_loader.command_table[command].command_source
+            cmd = parsed_args.func
+            self.cli_ctx.data['command'] = parsed_args.command
 
-        jobs = []
-        for expanded_arg in _explode_list_args(parsed_args):
-            cmd_copy = copy.copy(cmd)
-            cmd_copy.cli_ctx = copy.copy(cmd.cli_ctx)
-            cmd_copy.cli_ctx.data = copy.deepcopy(cmd.cli_ctx.data)
-            expanded_arg.cmd = expanded_arg._cmd = cmd_copy
+            self.cli_ctx.data['safe_params'] = GraphCliCommandInvoker._extract_parameter_names(args)
+            command_source = self.commands_loader.command_table[command].command_source
 
-            self._validation(expanded_arg)
-            jobs.append((expanded_arg, cmd_copy))
+            jobs = []
+            for expanded_arg in _explode_list_args(parsed_args):
+                cmd_copy = copy.copy(cmd)
+                cmd_copy.cli_ctx = copy.copy(cmd.cli_ctx)
+                cmd_copy.cli_ctx.data = copy.deepcopy(cmd.cli_ctx.data)
+                expanded_arg.cmd = expanded_arg._cmd = cmd_copy
 
-        ids = getattr(parsed_args, '_ids', None) or [None] * len(jobs)
+                self._validation(expanded_arg)
+                jobs.append((expanded_arg, cmd_copy))
 
-        results, exceptions = self._run_jobs_serially(jobs, ids)
+            ids = getattr(parsed_args, '_ids', None) or [None] * len(jobs)
 
-        # handle exceptions
-        if len(exceptions) == 1 and not results:
-            ex, id_arg = exceptions[0]
-            raise ex
-        if exceptions:
-            for exception, id_arg in exceptions:
-                logger.warning('%s: "%s"', id_arg, str(exception))
-            if not results:
-                return CommandResultItem(None,
-                                         exit_code=1,
-                                         error=CLIError('Encountered more than one exception.'))
-            logger.warning('Encountered more than one exception.')
+            results, exceptions = self._run_jobs_serially(jobs, ids)
 
-        if results and len(results) == 1:
-            results = results[0]
+            # handle exceptions
+            if len(exceptions) == 1 and not results:
+                ex, id_arg = exceptions[0]
+                raise ex
+            if exceptions:
+                for exception, id_arg in exceptions:
+                    logger.warning('%s: "%s"', id_arg, str(exception))
+                if not results:
+                    return CommandResultItem(None,
+                                             exit_code=1,
+                                             error=CLIError('Encountered more than one exception.'))
+                logger.warning('Encountered more than one exception.')
 
-        event_data = {'result': results}
-        self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT, event_data=event_data)
+            if results and len(results) == 1:
+                results = results[0]
 
-        return CommandResultItem(event_data['result'],
-                                 table_transformer=self.commands_loader.command_table[
-                                     parsed_args.command].table_transformer,
-                                 is_query_active=self.data['query_active'])
+            event_data = {'result': results}
+            self.cli_ctx.raise_event(EVENT_INVOKER_FILTER_RESULT, event_data=event_data)
+
+            return CommandResultItem(event_data['result'],
+                                     table_transformer=self.commands_loader.command_table[
+                                         parsed_args.command].table_transformer,
+                                     is_query_active=self.data['query_active'])
+        except BrokenPipeError:
+            # Python flushes standard streams on exit; redirect remaining output to devnull
+            # to avoid another BrokenPipeError at shutdown
+            devnull = os.open(os.devnull, os.O_WRONLY)
+            os.dup2(devnull, sys.stdout.fileno())
+            return sys.exit()
+        except OSError:
+            # Python flushes standard streams on exit; redirect remaining output to devnull
+            # to avoid another BrokenPipeError at shutdown
+            devnull = os.open(os.devnull, os.O_WRONLY)
+            os.dup2(devnull, sys.stdout.fileno())
+            return sys.exit()
 
     def _run_jobs_serially(self, jobs, ids):
         results, exceptions = [], []
