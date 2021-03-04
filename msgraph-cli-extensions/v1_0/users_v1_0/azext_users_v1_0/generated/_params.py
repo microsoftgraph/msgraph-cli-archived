@@ -50,632 +50,632 @@ from azext_users_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('users user list') as c:
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('users user create') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('deleted_date_time', help='')
-        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
-                   'otherwise, false. This property is required when a user is created. Supports $filter.')
-        c.argument('age_group', type=str, help='Sets the age group of the user. Allowed values: null, minor, notAdult '
-                   'and adult. Refer to the legal age group property definitions for further information.')
-        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
-                   'the user. Not nullable.')
-        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
-                   'user. Read-only. Not nullable.')
-        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. NOTE: Although this is a '
-                   'string collection, only one number can be set for this property.')
-        c.argument('city', type=str, help='The city in which the user is located. Supports $filter.')
-        c.argument('company_name', type=str, help='The company name which the user is associated. This property can be '
-                   'useful for describing the company that an external user comes from. The maximum length of the '
-                   'company name is 64 chararcters.Returned only on $select.')
-        c.argument('consent_provided_for_minor', type=str, help='Sets whether consent has been obtained for minors. '
-                   'Allowed values: null, granted, denied and notRequired. Refer to the legal age group property '
-                   'definitions for further information.')
-        c.argument('country', type=str, help='The country/region in which the user is located; for example, \'US\' or '
-                   '\'UK\'. Supports $filter.')
-        c.argument('created_date_time', help='The created date of the user object.')
-        c.argument('creation_type', type=str, help='Indicates whether the user account was created as a regular school '
-                   'or work account (null), an external account (Invitation), a local account for an Azure Active '
-                   'Directory B2C tenant (LocalAccount) or self-service sign-up using email verification '
-                   '(EmailVerified). Read-only.')
-        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
-                   '$filter.')
-        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
-                   'usually the combination of the user\'s first name, middle initial and last name. This property is '
-                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
-                   '$orderby.')
-        c.argument('employee_id', type=str, help='The employee identifier assigned to the user by the organization. '
-                   'Supports $filter.')
-        c.argument('external_user_state', type=str, help='For an external user invited to the tenant using the '
-                   'invitation API, this property represents the invited user\'s invitation status. For invited users, '
-                   'the state can be PendingAcceptance or Accepted, or null for all other users. Returned only on '
-                   '$select. Supports $filter with the supported values. For example: $filter=externalUserState eq '
-                   '\'PendingAcceptance\'.')
-        c.argument('external_user_state_change_date_time', help='Shows the timestamp for the latest change to the '
-                   'externalUserState property. Returned only on $select.')
-        c.argument('fax_number', type=str, help='The fax number of the user.')
-        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
-        c.argument('identities', action=AddIdentities, nargs='+', help='Represents the identities that can be used to '
-                   'sign in to this user account. An identity can be provided by Microsoft (also known as a local '
-                   'account), by organizations, or by social identity providers such as Facebook, Google, and '
-                   'Microsoft, and tied to a user account. May contain multiple items with the same signInType value. '
-                   'Supports $filter.')
-        c.argument('im_addresses', nargs='+', help='The instant message voice over IP (VOIP) session initiation '
-                   'protocol (SIP) addresses for the user. Read-only.')
-        c.argument('is_resource_account', arg_type=get_three_state_flag(),
-                   help='Do not use – reserved for future use.')
-        c.argument('job_title', type=str, help='The user’s job title. Supports $filter.')
-        c.argument('last_password_change_date_time', help='The time when this Azure AD user last changed their '
-                   'password. The date and time information uses ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('legal_age_group_classification', type=str, help='Used by enterprise applications to determine the '
-                   'legal age group of the user. This property is read-only and calculated based on ageGroup and '
-                   'consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, '
-                   'minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult. Refer to the legal '
-                   'age group property definitions for further information.)')
-        c.argument('license_assignment_states', action=AddLicenseAssignmentStates, nargs='+', help='State of license '
-                   'assignments for this user. Read-only.')
-        c.argument('mail', type=str, help='The SMTP address for the user, for example, \'jeff@contoso.onmicrosoft.com\''
-                   '. Supports $filter.')
-        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
-                   'a user is created. Supports $filter.')
-        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
-        c.argument('office_location', type=str, help='The office location in the user\'s place of business.')
-        c.argument('on_premises_distinguished_name', type=str, help='Contains the on-premises Active Directory '
-                   'distinguished name or DN. The property is only populated for customers who are synchronizing their '
-                   'on-premises directory to Azure Active Directory via Azure AD Connect. Read-only.')
-        c.argument('on_premises_domain_name', type=str, help='Contains the on-premises domainFQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect. Read-only.')
-        c.argument('on_premises_extension_attributes', action=AddOnPremisesExtensionAttributes, nargs='+',
-                   help='onPremisesExtensionAttributes')
-        c.argument('on_premises_immutable_id', type=str, help='This property is used to associate an on-premises '
-                   'Active Directory user account to their Azure AD user object. This property must be specified when '
-                   'creating a new user account in the Graph if you are using a federated domain for the user’s '
-                   'userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying '
-                   'this property. Supports $filter.')
-        c.argument('on_premises_last_sync_date_time', help='Indicates the last time at which the object was synced '
-                   'with the on-premises directory; for example: \'2013-02-16T03:04:54Z\'. The Timestamp type '
-                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
-                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('on_premises_provisioning_errors', action=AddOnPremisesProvisioningErrors, nargs='+', help='Errors '
-                   'when using Microsoft synchronization product during provisioning.')
-        c.argument('on_premises_sam_account_name', type=str, help='Contains the on-premises samAccountName '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
-                   'Read-only.')
-        c.argument('on_premises_security_identifier', type=str, help='Contains the on-premises security identifier '
-                   '(SID) for the user that was synchronized from on-premises to the cloud. Read-only.')
-        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
-                   'from an on-premises directory; false if this object was originally synced from an on-premises '
-                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
-                   'directory (default). Read-only')
-        c.argument('on_premises_user_principal_name', type=str, help='Contains the on-premises userPrincipalName '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
-                   'Read-only.')
-        c.argument('other_mails', nargs='+', help='A list of additional email addresses for the user; for example: '
-                   '[\'bob@contoso.com\', \'Robert@fabrikam.com\']. Supports $filter.')
-        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
-                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
-                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
-                   'two may be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
-        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
-        c.argument('postal_code', type=str, help='The postal code for the user\'s postal address. The postal code is '
-                   'specific to the user\'s country/region. In the United States of America, this attribute contains '
-                   'the ZIP code.')
-        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
-                   'Code; for example \'en-US\'.')
-        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
-                   'for the user. Read-only. Not nullable.')
-        c.argument('proxy_addresses', nargs='+', help='For example: [\'SMTP: bob@contoso.com\', \'smtp: '
-                   'bob@sales.contoso.com\'] The any operator is required for filter expressions on multi-valued '
-                   'properties. Read-only, Not nullable. Supports $filter.')
-        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='true if the Outlook global address '
-                   'list should contain this user, otherwise false. If not set, this will be treated as true. For '
-                   'users invited through the invitation manager, this property will be set to false.')
-        c.argument('sign_in_sessions_valid_from_date_time', help='Any refresh tokens or sessions tokens (session '
-                   'cookies) issued before this time are invalid, and applications will get an error when using an '
-                   'invalid refresh or sessions token to acquire a delegated access token (to access APIs such as '
-                   'Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by '
-                   'making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.')
-        c.argument('state', type=str, help='The state or province in the user\'s address. Supports $filter.')
-        c.argument('street_address', type=str, help='The street address of the user\'s place of business.')
-        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
-        c.argument('usage_location', type=str, help='A two letter country code (ISO standard 3166). Required for users '
-                   'that will be assigned licenses due to legal requirement to check for availability of services in '
-                   'countries.  Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports $filter.')
-        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
-                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
-                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
-                   'present in the tenant’s collection of verified domains. This property is required when a user is '
-                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
-                   'organization. Supports $filter and $orderby.')
-        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
-                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
-        c.argument('device_enrollment_limit', type=int, help='The limit on the maximum number of devices that the user '
-                   'is permitted to enroll. Allowed values are 5 or 1000.')
-        c.argument('about_me', type=str, help='A freeform text entry field for the user to describe themselves.')
-        c.argument('birthday', help='The birthday of the user. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('hire_date', help='The hire date of the user. The Timestamp type represents date and time '
-                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
-                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('interests', nargs='+', help='A list for the user to describe their interests.')
-        c.argument('my_site', type=str, help='The URL for the user\'s personal site.')
-        c.argument('past_projects', nargs='+', help='A list for the user to enumerate their past projects.')
-        c.argument('preferred_name', type=str, help='The preferred name for the user.')
-        c.argument('responsibilities', nargs='+', help='A list for the user to enumerate their responsibilities.')
-        c.argument('schools', nargs='+', help='A list for the user to enumerate the schools they have attended.')
-        c.argument('skills', nargs='+', help='A list for the user to enumerate their skills.')
-        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='+', help='')
-        c.argument('created_objects', action=AddCreatedObjects, nargs='+', help='Directory objects that were created '
-                   'by the user. Read-only. Nullable.')
-        c.argument('direct_reports', action=AddDirectReports, nargs='+', help='The users and contacts that report to '
-                   'the user. (The users and contacts that have their manager property set to this user.) Read-only. '
-                   'Nullable.')
-        c.argument('license_details', action=AddLicenseDetails, nargs='+', help='A collection of this user\'s license '
-                   'details. Read-only.')
-        c.argument('manager', action=AddManager, nargs='+', help='Represents an Azure Active Directory object. The '
-                   'directoryObject type is the base type for many other directory entity types.')
-        c.argument('member_of', action=AddMemberOf, nargs='+', help='The groups and directory roles that the user is a '
-                   'member of. Read-only. Nullable.')
-        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='+', help='')
-        c.argument('owned_devices', action=AddOwnedDevices, nargs='+', help='Devices that are owned by the user. '
-                   'Read-only. Nullable.')
-        c.argument('owned_objects', action=AddOwnedObjects, nargs='+', help='Directory objects that are owned by the '
-                   'user. Read-only. Nullable.')
-        c.argument('registered_devices', action=AddRegisteredDevices, nargs='+', help='Devices that are registered for '
-                   'the user. Read-only. Nullable.')
-        c.argument('scoped_role_member_of', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
-        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
-        c.argument('calendar_groups', type=validate_file_or_dict, help='The user\'s calendar groups. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('calendars', type=validate_file_or_dict, help='The user\'s calendars. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('contact_folders', type=validate_file_or_dict, help='The user\'s contacts folders. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('contacts', type=validate_file_or_dict, help='The user\'s contacts. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('events', type=validate_file_or_dict, help='The user\'s events. Default is to show Events under the '
-                   'Default Calendar. Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('mail_folders', type=validate_file_or_dict, help='The user\'s mail folders. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('messages', type=validate_file_or_dict, help='The messages in a mailbox or folder. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('people', type=validate_file_or_dict, help='People that are relevant to the user. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('photos', action=AddPhotos, nargs='+', help='')
-        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
-        c.argument('drives', type=validate_file_or_dict, help='A collection of drives available for this user. '
-                   'Read-only. Expected value: json-string/@json-file.')
-        c.argument('followed_sites', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the user. Read-only. Nullable.')
-        c.argument('managed_devices', type=validate_file_or_dict, help='The managed devices associated with the user. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('managed_app_registrations', type=validate_file_or_dict, help='Zero or more managed app '
-                   'registrations that belong to the user. Expected value: json-string/@json-file.')
-        c.argument('device_management_troubleshooting_events', action=AddDeviceManagementTroubleshootingEvents,
-                   nargs='+', help='The list of troubleshooting events for this user.')
-        c.argument('activities', type=validate_file_or_dict, help='The user\'s activities across devices. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('joined_teams', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
-        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
-                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
-                   'operations collection is not supported, but you can get the status of long-running operations if '
-                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
-                   'json-string/@json-file.', arg_group='Onenote')
-        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
-                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
-                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
-                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
-                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
-                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('id1', type=str, help='Read-only.', arg_group='Settings')
-        c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
-                   help='', arg_group='Settings')
-        c.argument('contribution_to_content_discovery_disabled', arg_type=get_three_state_flag(), help='',
-                   arg_group='Settings')
-        c.argument('id2', type=str, help='Read-only.', arg_group='Settings Shift Preferences')
-        c.argument('microsoft_graph_change_tracked_entity_created_date_time_created_date_time', help='The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'',
-                   arg_group='Settings Shift Preferences')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'', arg_group='Settings Shift Preferences')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift '
-                   'Preferences Last Modified By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
-                   'Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
-                   'Last Modified By')
-        c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
-                   'and its recurrence pattern. Expected value: json-string/@json-file.', arg_group='Settings Shift '
-                   'Preferences')
-        c.argument('id3', type=str, help='Read-only.', arg_group='Insights')
-        c.argument('shared', type=validate_file_or_dict, help='Calculated relationship identifying documents shared '
-                   'with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive '
-                   'for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs '
-                   'and reference attachments to Teams conversations. Ordered by recency of share. Expected value: '
-                   'json-string/@json-file.', arg_group='Insights')
-        c.argument('trending', type=validate_file_or_dict, help='Calculated relationship identifying documents '
-                   'trending around a user. Trending documents are calculated based on activity of the user\'s closest '
-                   'network of people and include files stored in OneDrive for Business and SharePoint. Trending '
-                   'insights help the user to discover potentially useful content that the user has access to, but has '
-                   'never viewed before. Expected value: json-string/@json-file.', arg_group='Insights')
-        c.argument('used', type=validate_file_or_dict, help='Calculated relationship identifying the latest documents '
-                   'viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by '
-                   'recency of use. Expected value: json-string/@json-file.', arg_group='Insights')
-        c.argument('id4', type=str, help='Read-only.', arg_group='Planner')
-        c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
-                   'to the user. Expected value: json-string/@json-file.', arg_group='Planner')
-        c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
-                   'with the user. Expected value: json-string/@json-file.', arg_group='Planner')
-        c.argument('id5', type=str, help='Read-only.', arg_group='Outlook')
-        c.argument('master_categories', action=AddMasterCategories, nargs='+', help='A list of categories defined for '
-                   'the user.', arg_group='Outlook')
-        c.argument('id6', type=str, help='Read-only.', arg_group='Inference Classification')
-        c.argument('overrides', type=validate_file_or_dict, help='A set of overrides for a user to always classify '
-                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.', arg_group='Inference Classification')
-        c.argument('archive_folder', type=str, help='Folder ID of an archive folder for the user.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('automatic_replies_setting', type=validate_file_or_dict, help='automaticRepliesSetting Expected '
-                   'value: json-string/@json-file.', arg_group='Mailbox Settings')
-        c.argument('date_format', type=str, help='The date format for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('delegate_meeting_message_delivery_options', arg_type=get_enum_type([
-                                                                                        'sendToDelegateAndInformationToP'
-                                                                                        'rincipal',
-                                                                                        'sendToDelegateAndPrincipal',
-                                                                                        'sendToDelegateOnly']),
-                   help='', arg_group='Mailbox Settings')
-        c.argument('language', action=AddLanguage, nargs='+', help='localeInfo', arg_group='Mailbox Settings')
-        c.argument('time_format', type=str, help='The time format for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('time_zone', type=str, help='The default time zone for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('working_hours', type=validate_file_or_dict, help='workingHours Expected value: '
-                   'json-string/@json-file.', arg_group='Mailbox Settings')
-
-    with self.argument_context('users user update') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('deleted_date_time', help='')
-        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
-                   'otherwise, false. This property is required when a user is created. Supports $filter.')
-        c.argument('age_group', type=str, help='Sets the age group of the user. Allowed values: null, minor, notAdult '
-                   'and adult. Refer to the legal age group property definitions for further information.')
-        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
-                   'the user. Not nullable.')
-        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
-                   'user. Read-only. Not nullable.')
-        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. NOTE: Although this is a '
-                   'string collection, only one number can be set for this property.')
-        c.argument('city', type=str, help='The city in which the user is located. Supports $filter.')
-        c.argument('company_name', type=str, help='The company name which the user is associated. This property can be '
-                   'useful for describing the company that an external user comes from. The maximum length of the '
-                   'company name is 64 chararcters.Returned only on $select.')
-        c.argument('consent_provided_for_minor', type=str, help='Sets whether consent has been obtained for minors. '
-                   'Allowed values: null, granted, denied and notRequired. Refer to the legal age group property '
-                   'definitions for further information.')
-        c.argument('country', type=str, help='The country/region in which the user is located; for example, \'US\' or '
-                   '\'UK\'. Supports $filter.')
-        c.argument('created_date_time', help='The created date of the user object.')
-        c.argument('creation_type', type=str, help='Indicates whether the user account was created as a regular school '
-                   'or work account (null), an external account (Invitation), a local account for an Azure Active '
-                   'Directory B2C tenant (LocalAccount) or self-service sign-up using email verification '
-                   '(EmailVerified). Read-only.')
-        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
-                   '$filter.')
-        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
-                   'usually the combination of the user\'s first name, middle initial and last name. This property is '
-                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
-                   '$orderby.')
-        c.argument('employee_id', type=str, help='The employee identifier assigned to the user by the organization. '
-                   'Supports $filter.')
-        c.argument('external_user_state', type=str, help='For an external user invited to the tenant using the '
-                   'invitation API, this property represents the invited user\'s invitation status. For invited users, '
-                   'the state can be PendingAcceptance or Accepted, or null for all other users. Returned only on '
-                   '$select. Supports $filter with the supported values. For example: $filter=externalUserState eq '
-                   '\'PendingAcceptance\'.')
-        c.argument('external_user_state_change_date_time', help='Shows the timestamp for the latest change to the '
-                   'externalUserState property. Returned only on $select.')
-        c.argument('fax_number', type=str, help='The fax number of the user.')
-        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
-        c.argument('identities', action=AddIdentities, nargs='+', help='Represents the identities that can be used to '
-                   'sign in to this user account. An identity can be provided by Microsoft (also known as a local '
-                   'account), by organizations, or by social identity providers such as Facebook, Google, and '
-                   'Microsoft, and tied to a user account. May contain multiple items with the same signInType value. '
-                   'Supports $filter.')
-        c.argument('im_addresses', nargs='+', help='The instant message voice over IP (VOIP) session initiation '
-                   'protocol (SIP) addresses for the user. Read-only.')
-        c.argument('is_resource_account', arg_type=get_three_state_flag(),
-                   help='Do not use – reserved for future use.')
-        c.argument('job_title', type=str, help='The user’s job title. Supports $filter.')
-        c.argument('last_password_change_date_time', help='The time when this Azure AD user last changed their '
-                   'password. The date and time information uses ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('legal_age_group_classification', type=str, help='Used by enterprise applications to determine the '
-                   'legal age group of the user. This property is read-only and calculated based on ageGroup and '
-                   'consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, '
-                   'minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult. Refer to the legal '
-                   'age group property definitions for further information.)')
-        c.argument('license_assignment_states', action=AddLicenseAssignmentStates, nargs='+', help='State of license '
-                   'assignments for this user. Read-only.')
-        c.argument('mail', type=str, help='The SMTP address for the user, for example, \'jeff@contoso.onmicrosoft.com\''
-                   '. Supports $filter.')
-        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
-                   'a user is created. Supports $filter.')
-        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
-        c.argument('office_location', type=str, help='The office location in the user\'s place of business.')
-        c.argument('on_premises_distinguished_name', type=str, help='Contains the on-premises Active Directory '
-                   'distinguished name or DN. The property is only populated for customers who are synchronizing their '
-                   'on-premises directory to Azure Active Directory via Azure AD Connect. Read-only.')
-        c.argument('on_premises_domain_name', type=str, help='Contains the on-premises domainFQDN, also called '
-                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
-                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
-                   'Connect. Read-only.')
-        c.argument('on_premises_extension_attributes', action=AddOnPremisesExtensionAttributes, nargs='+',
-                   help='onPremisesExtensionAttributes')
-        c.argument('on_premises_immutable_id', type=str, help='This property is used to associate an on-premises '
-                   'Active Directory user account to their Azure AD user object. This property must be specified when '
-                   'creating a new user account in the Graph if you are using a federated domain for the user’s '
-                   'userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying '
-                   'this property. Supports $filter.')
-        c.argument('on_premises_last_sync_date_time', help='Indicates the last time at which the object was synced '
-                   'with the on-premises directory; for example: \'2013-02-16T03:04:54Z\'. The Timestamp type '
-                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
-                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
-        c.argument('on_premises_provisioning_errors', action=AddOnPremisesProvisioningErrors, nargs='+', help='Errors '
-                   'when using Microsoft synchronization product during provisioning.')
-        c.argument('on_premises_sam_account_name', type=str, help='Contains the on-premises samAccountName '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
-                   'Read-only.')
-        c.argument('on_premises_security_identifier', type=str, help='Contains the on-premises security identifier '
-                   '(SID) for the user that was synchronized from on-premises to the cloud. Read-only.')
-        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
-                   'from an on-premises directory; false if this object was originally synced from an on-premises '
-                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
-                   'directory (default). Read-only')
-        c.argument('on_premises_user_principal_name', type=str, help='Contains the on-premises userPrincipalName '
-                   'synchronized from the on-premises directory. The property is only populated for customers who are '
-                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
-                   'Read-only.')
-        c.argument('other_mails', nargs='+', help='A list of additional email addresses for the user; for example: '
-                   '[\'bob@contoso.com\', \'Robert@fabrikam.com\']. Supports $filter.')
-        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
-                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
-                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
-                   'two may be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
-        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
-        c.argument('postal_code', type=str, help='The postal code for the user\'s postal address. The postal code is '
-                   'specific to the user\'s country/region. In the United States of America, this attribute contains '
-                   'the ZIP code.')
-        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
-                   'Code; for example \'en-US\'.')
-        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
-                   'for the user. Read-only. Not nullable.')
-        c.argument('proxy_addresses', nargs='+', help='For example: [\'SMTP: bob@contoso.com\', \'smtp: '
-                   'bob@sales.contoso.com\'] The any operator is required for filter expressions on multi-valued '
-                   'properties. Read-only, Not nullable. Supports $filter.')
-        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='true if the Outlook global address '
-                   'list should contain this user, otherwise false. If not set, this will be treated as true. For '
-                   'users invited through the invitation manager, this property will be set to false.')
-        c.argument('sign_in_sessions_valid_from_date_time', help='Any refresh tokens or sessions tokens (session '
-                   'cookies) issued before this time are invalid, and applications will get an error when using an '
-                   'invalid refresh or sessions token to acquire a delegated access token (to access APIs such as '
-                   'Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by '
-                   'making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.')
-        c.argument('state', type=str, help='The state or province in the user\'s address. Supports $filter.')
-        c.argument('street_address', type=str, help='The street address of the user\'s place of business.')
-        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
-        c.argument('usage_location', type=str, help='A two letter country code (ISO standard 3166). Required for users '
-                   'that will be assigned licenses due to legal requirement to check for availability of services in '
-                   'countries.  Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports $filter.')
-        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
-                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
-                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
-                   'present in the tenant’s collection of verified domains. This property is required when a user is '
-                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
-                   'organization. Supports $filter and $orderby.')
-        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
-                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
-        c.argument('device_enrollment_limit', type=int, help='The limit on the maximum number of devices that the user '
-                   'is permitted to enroll. Allowed values are 5 or 1000.')
-        c.argument('about_me', type=str, help='A freeform text entry field for the user to describe themselves.')
-        c.argument('birthday', help='The birthday of the user. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('hire_date', help='The hire date of the user. The Timestamp type represents date and time '
-                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
-                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('interests', nargs='+', help='A list for the user to describe their interests.')
-        c.argument('my_site', type=str, help='The URL for the user\'s personal site.')
-        c.argument('past_projects', nargs='+', help='A list for the user to enumerate their past projects.')
-        c.argument('preferred_name', type=str, help='The preferred name for the user.')
-        c.argument('responsibilities', nargs='+', help='A list for the user to enumerate their responsibilities.')
-        c.argument('schools', nargs='+', help='A list for the user to enumerate the schools they have attended.')
-        c.argument('skills', nargs='+', help='A list for the user to enumerate their skills.')
-        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='+', help='')
-        c.argument('created_objects', action=AddCreatedObjects, nargs='+', help='Directory objects that were created '
-                   'by the user. Read-only. Nullable.')
-        c.argument('direct_reports', action=AddDirectReports, nargs='+', help='The users and contacts that report to '
-                   'the user. (The users and contacts that have their manager property set to this user.) Read-only. '
-                   'Nullable.')
-        c.argument('license_details', action=AddLicenseDetails, nargs='+', help='A collection of this user\'s license '
-                   'details. Read-only.')
-        c.argument('manager', action=AddManager, nargs='+', help='Represents an Azure Active Directory object. The '
-                   'directoryObject type is the base type for many other directory entity types.')
-        c.argument('member_of', action=AddMemberOf, nargs='+', help='The groups and directory roles that the user is a '
-                   'member of. Read-only. Nullable.')
-        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='+', help='')
-        c.argument('owned_devices', action=AddOwnedDevices, nargs='+', help='Devices that are owned by the user. '
-                   'Read-only. Nullable.')
-        c.argument('owned_objects', action=AddOwnedObjects, nargs='+', help='Directory objects that are owned by the '
-                   'user. Read-only. Nullable.')
-        c.argument('registered_devices', action=AddRegisteredDevices, nargs='+', help='Devices that are registered for '
-                   'the user. Read-only. Nullable.')
-        c.argument('scoped_role_member_of', type=validate_file_or_dict,
-                   help=' Expected value: json-string/@json-file.')
-        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
-        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
-        c.argument('calendar_groups', type=validate_file_or_dict, help='The user\'s calendar groups. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('calendars', type=validate_file_or_dict, help='The user\'s calendars. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('contact_folders', type=validate_file_or_dict, help='The user\'s contacts folders. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('contacts', type=validate_file_or_dict, help='The user\'s contacts. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('events', type=validate_file_or_dict, help='The user\'s events. Default is to show Events under the '
-                   'Default Calendar. Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('mail_folders', type=validate_file_or_dict, help='The user\'s mail folders. Read-only. Nullable. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('messages', type=validate_file_or_dict, help='The messages in a mailbox or folder. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('people', type=validate_file_or_dict, help='People that are relevant to the user. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('photos', action=AddPhotos, nargs='+', help='')
-        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
-        c.argument('drives', type=validate_file_or_dict, help='A collection of drives available for this user. '
-                   'Read-only. Expected value: json-string/@json-file.')
-        c.argument('followed_sites', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the user. Read-only. Nullable.')
-        c.argument('managed_devices', type=validate_file_or_dict, help='The managed devices associated with the user. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('managed_app_registrations', type=validate_file_or_dict, help='Zero or more managed app '
-                   'registrations that belong to the user. Expected value: json-string/@json-file.')
-        c.argument('device_management_troubleshooting_events', action=AddDeviceManagementTroubleshootingEvents,
-                   nargs='+', help='The list of troubleshooting events for this user.')
-        c.argument('activities', type=validate_file_or_dict, help='The user\'s activities across devices. Read-only. '
-                   'Nullable. Expected value: json-string/@json-file.')
-        c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('joined_teams', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
-        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
-                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
-                   'operations collection is not supported, but you can get the status of long-running operations if '
-                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
-                   'json-string/@json-file.', arg_group='Onenote')
-        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
-                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
-                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
-                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
-        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
-                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
-                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
-                   arg_group='Onenote')
-        c.argument('id1', type=str, help='Read-only.', arg_group='Settings')
-        c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
-                   help='', arg_group='Settings')
-        c.argument('contribution_to_content_discovery_disabled', arg_type=get_three_state_flag(), help='',
-                   arg_group='Settings')
-        c.argument('id2', type=str, help='Read-only.', arg_group='Settings Shift Preferences')
-        c.argument('microsoft_graph_change_tracked_entity_created_date_time_created_date_time', help='The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'',
-                   arg_group='Settings Shift Preferences')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'', arg_group='Settings Shift Preferences')
-        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift '
-                   'Preferences Last Modified By')
-        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
-                   'Last Modified By')
-        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
-                   'Last Modified By')
-        c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
-                   'and its recurrence pattern. Expected value: json-string/@json-file.', arg_group='Settings Shift '
-                   'Preferences')
-        c.argument('id3', type=str, help='Read-only.', arg_group='Insights')
-        c.argument('shared', type=validate_file_or_dict, help='Calculated relationship identifying documents shared '
-                   'with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive '
-                   'for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs '
-                   'and reference attachments to Teams conversations. Ordered by recency of share. Expected value: '
-                   'json-string/@json-file.', arg_group='Insights')
-        c.argument('trending', type=validate_file_or_dict, help='Calculated relationship identifying documents '
-                   'trending around a user. Trending documents are calculated based on activity of the user\'s closest '
-                   'network of people and include files stored in OneDrive for Business and SharePoint. Trending '
-                   'insights help the user to discover potentially useful content that the user has access to, but has '
-                   'never viewed before. Expected value: json-string/@json-file.', arg_group='Insights')
-        c.argument('used', type=validate_file_or_dict, help='Calculated relationship identifying the latest documents '
-                   'viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by '
-                   'recency of use. Expected value: json-string/@json-file.', arg_group='Insights')
-        c.argument('id4', type=str, help='Read-only.', arg_group='Planner')
-        c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
-                   'to the user. Expected value: json-string/@json-file.', arg_group='Planner')
-        c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
-                   'with the user. Expected value: json-string/@json-file.', arg_group='Planner')
-        c.argument('id5', type=str, help='Read-only.', arg_group='Outlook')
-        c.argument('master_categories', action=AddMasterCategories, nargs='+', help='A list of categories defined for '
-                   'the user.', arg_group='Outlook')
-        c.argument('id6', type=str, help='Read-only.', arg_group='Inference Classification')
-        c.argument('overrides', type=validate_file_or_dict, help='A set of overrides for a user to always classify '
-                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable. Expected '
-                   'value: json-string/@json-file.', arg_group='Inference Classification')
-        c.argument('archive_folder', type=str, help='Folder ID of an archive folder for the user.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('automatic_replies_setting', type=validate_file_or_dict, help='automaticRepliesSetting Expected '
-                   'value: json-string/@json-file.', arg_group='Mailbox Settings')
-        c.argument('date_format', type=str, help='The date format for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('delegate_meeting_message_delivery_options', arg_type=get_enum_type([
-                                                                                        'sendToDelegateAndInformationToP'
-                                                                                        'rincipal',
-                                                                                        'sendToDelegateAndPrincipal',
-                                                                                        'sendToDelegateOnly']),
-                   help='', arg_group='Mailbox Settings')
-        c.argument('language', action=AddLanguage, nargs='+', help='localeInfo', arg_group='Mailbox Settings')
-        c.argument('time_format', type=str, help='The time format for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('time_zone', type=str, help='The default time zone for the user\'s mailbox.', arg_group='Mailbox '
-                   'Settings')
-        c.argument('working_hours', type=validate_file_or_dict, help='workingHours Expected value: '
-                   'json-string/@json-file.', arg_group='Mailbox Settings')
-
     with self.argument_context('users user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('users user create-user') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('age_group', type=str, help='Sets the age group of the user. Allowed values: null, minor, notAdult '
+                   'and adult. Refer to the legal age group property definitions for further information.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. NOTE: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('city', type=str, help='The city in which the user is located. Supports $filter.')
+        c.argument('company_name', type=str, help='The company name which the user is associated. This property can be '
+                   'useful for describing the company that an external user comes from. The maximum length of the '
+                   'company name is 64 chararcters.Returned only on $select.')
+        c.argument('consent_provided_for_minor', type=str, help='Sets whether consent has been obtained for minors. '
+                   'Allowed values: null, granted, denied and notRequired. Refer to the legal age group property '
+                   'definitions for further information.')
+        c.argument('country', type=str, help='The country/region in which the user is located; for example, \'US\' or '
+                   '\'UK\'. Supports $filter.')
+        c.argument('created_date_time', help='The created date of the user object.')
+        c.argument('creation_type', type=str, help='Indicates whether the user account was created as a regular school '
+                   'or work account (null), an external account (Invitation), a local account for an Azure Active '
+                   'Directory B2C tenant (LocalAccount) or self-service sign-up using email verification '
+                   '(EmailVerified). Read-only.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('employee_id', type=str, help='The employee identifier assigned to the user by the organization. '
+                   'Supports $filter.')
+        c.argument('external_user_state', type=str, help='For an external user invited to the tenant using the '
+                   'invitation API, this property represents the invited user\'s invitation status. For invited users, '
+                   'the state can be PendingAcceptance or Accepted, or null for all other users. Returned only on '
+                   '$select. Supports $filter with the supported values. For example: $filter=externalUserState eq '
+                   '\'PendingAcceptance\'.')
+        c.argument('external_user_state_change_date_time', help='Shows the timestamp for the latest change to the '
+                   'externalUserState property. Returned only on $select.')
+        c.argument('fax_number', type=str, help='The fax number of the user.')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('identities', action=AddIdentities, nargs='+', help='Represents the identities that can be used to '
+                   'sign in to this user account. An identity can be provided by Microsoft (also known as a local '
+                   'account), by organizations, or by social identity providers such as Facebook, Google, and '
+                   'Microsoft, and tied to a user account. May contain multiple items with the same signInType value. '
+                   'Supports $filter.')
+        c.argument('im_addresses', nargs='+', help='The instant message voice over IP (VOIP) session initiation '
+                   'protocol (SIP) addresses for the user. Read-only.')
+        c.argument('is_resource_account', arg_type=get_three_state_flag(),
+                   help='Do not use – reserved for future use.')
+        c.argument('job_title', type=str, help='The user’s job title. Supports $filter.')
+        c.argument('last_password_change_date_time', help='The time when this Azure AD user last changed their '
+                   'password. The date and time information uses ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('legal_age_group_classification', type=str, help='Used by enterprise applications to determine the '
+                   'legal age group of the user. This property is read-only and calculated based on ageGroup and '
+                   'consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, '
+                   'minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult. Refer to the legal '
+                   'age group property definitions for further information.)')
+        c.argument('license_assignment_states', action=AddLicenseAssignmentStates, nargs='+', help='State of license '
+                   'assignments for this user. Read-only.')
+        c.argument('mail', type=str, help='The SMTP address for the user, for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Supports $filter.')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='The office location in the user\'s place of business.')
+        c.argument('on_premises_distinguished_name', type=str, help='Contains the on-premises Active Directory '
+                   'distinguished name or DN. The property is only populated for customers who are synchronizing their '
+                   'on-premises directory to Azure Active Directory via Azure AD Connect. Read-only.')
+        c.argument('on_premises_domain_name', type=str, help='Contains the on-premises domainFQDN, also called '
+                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
+                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
+                   'Connect. Read-only.')
+        c.argument('on_premises_extension_attributes', action=AddOnPremisesExtensionAttributes, nargs='+',
+                   help='onPremisesExtensionAttributes')
+        c.argument('on_premises_immutable_id', type=str, help='This property is used to associate an on-premises '
+                   'Active Directory user account to their Azure AD user object. This property must be specified when '
+                   'creating a new user account in the Graph if you are using a federated domain for the user’s '
+                   'userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying '
+                   'this property. Supports $filter.')
+        c.argument('on_premises_last_sync_date_time', help='Indicates the last time at which the object was synced '
+                   'with the on-premises directory; for example: \'2013-02-16T03:04:54Z\'. The Timestamp type '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('on_premises_provisioning_errors', action=AddOnPremisesProvisioningErrors, nargs='+', help='Errors '
+                   'when using Microsoft synchronization product during provisioning.')
+        c.argument('on_premises_sam_account_name', type=str, help='Contains the on-premises samAccountName '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
+                   'Read-only.')
+        c.argument('on_premises_security_identifier', type=str, help='Contains the on-premises security identifier '
+                   '(SID) for the user that was synchronized from on-premises to the cloud. Read-only.')
+        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
+                   'from an on-premises directory; false if this object was originally synced from an on-premises '
+                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
+                   'directory (default). Read-only')
+        c.argument('on_premises_user_principal_name', type=str, help='Contains the on-premises userPrincipalName '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
+                   'Read-only.')
+        c.argument('other_mails', nargs='+', help='A list of additional email addresses for the user; for example: '
+                   '[\'bob@contoso.com\', \'Robert@fabrikam.com\']. Supports $filter.')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two may be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
+        c.argument('postal_code', type=str, help='The postal code for the user\'s postal address. The postal code is '
+                   'specific to the user\'s country/region. In the United States of America, this attribute contains '
+                   'the ZIP code.')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example \'en-US\'.')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('proxy_addresses', nargs='+', help='For example: [\'SMTP: bob@contoso.com\', \'smtp: '
+                   'bob@sales.contoso.com\'] The any operator is required for filter expressions on multi-valued '
+                   'properties. Read-only, Not nullable. Supports $filter.')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='true if the Outlook global address '
+                   'list should contain this user, otherwise false. If not set, this will be treated as true. For '
+                   'users invited through the invitation manager, this property will be set to false.')
+        c.argument('sign_in_sessions_valid_from_date_time', help='Any refresh tokens or sessions tokens (session '
+                   'cookies) issued before this time are invalid, and applications will get an error when using an '
+                   'invalid refresh or sessions token to acquire a delegated access token (to access APIs such as '
+                   'Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by '
+                   'making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.')
+        c.argument('state', type=str, help='The state or province in the user\'s address. Supports $filter.')
+        c.argument('street_address', type=str, help='The street address of the user\'s place of business.')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('usage_location', type=str, help='A two letter country code (ISO standard 3166). Required for users '
+                   'that will be assigned licenses due to legal requirement to check for availability of services in '
+                   'countries.  Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports $filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant’s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('device_enrollment_limit', type=int, help='The limit on the maximum number of devices that the user '
+                   'is permitted to enroll. Allowed values are 5 or 1000.')
+        c.argument('about_me', type=str, help='A freeform text entry field for the user to describe themselves.')
+        c.argument('birthday', help='The birthday of the user. The Timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('hire_date', help='The hire date of the user. The Timestamp type represents date and time '
+                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
+                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('interests', nargs='+', help='A list for the user to describe their interests.')
+        c.argument('my_site', type=str, help='The URL for the user\'s personal site.')
+        c.argument('past_projects', nargs='+', help='A list for the user to enumerate their past projects.')
+        c.argument('preferred_name', type=str, help='The preferred name for the user.')
+        c.argument('responsibilities', nargs='+', help='A list for the user to enumerate their responsibilities.')
+        c.argument('schools', nargs='+', help='A list for the user to enumerate the schools they have attended.')
+        c.argument('skills', nargs='+', help='A list for the user to enumerate their skills.')
+        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='+', help='')
+        c.argument('created_objects', action=AddCreatedObjects, nargs='+', help='Directory objects that were created '
+                   'by the user. Read-only. Nullable.')
+        c.argument('direct_reports', action=AddDirectReports, nargs='+', help='The users and contacts that report to '
+                   'the user. (The users and contacts that have their manager property set to this user.) Read-only. '
+                   'Nullable.')
+        c.argument('license_details', action=AddLicenseDetails, nargs='+', help='A collection of this user\'s license '
+                   'details. Read-only.')
+        c.argument('manager', action=AddManager, nargs='+', help='Represents an Azure Active Directory object. The '
+                   'directoryObject type is the base type for many other directory entity types.')
+        c.argument('member_of', action=AddMemberOf, nargs='+', help='The groups and directory roles that the user is a '
+                   'member of. Read-only. Nullable.')
+        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='+', help='')
+        c.argument('owned_devices', action=AddOwnedDevices, nargs='+', help='Devices that are owned by the user. '
+                   'Read-only. Nullable.')
+        c.argument('owned_objects', action=AddOwnedObjects, nargs='+', help='Directory objects that are owned by the '
+                   'user. Read-only. Nullable.')
+        c.argument('registered_devices', action=AddRegisteredDevices, nargs='+', help='Devices that are registered for '
+                   'the user. Read-only. Nullable.')
+        c.argument('scoped_role_member_of', type=validate_file_or_dict,
+                   help=' Expected value: json-string/@json-file.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('calendar_groups', type=validate_file_or_dict, help='The user\'s calendar groups. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('calendars', type=validate_file_or_dict, help='The user\'s calendars. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('contact_folders', type=validate_file_or_dict, help='The user\'s contacts folders. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('contacts', type=validate_file_or_dict, help='The user\'s contacts. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('events', type=validate_file_or_dict, help='The user\'s events. Default is to show Events under the '
+                   'Default Calendar. Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('mail_folders', type=validate_file_or_dict, help='The user\'s mail folders. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('messages', type=validate_file_or_dict, help='The messages in a mailbox or folder. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('people', type=validate_file_or_dict, help='People that are relevant to the user. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
+        c.argument('photos', action=AddPhotos, nargs='+', help='')
+        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('drives', type=validate_file_or_dict, help='A collection of drives available for this user. '
+                   'Read-only. Expected value: json-string/@json-file.')
+        c.argument('followed_sites', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the user. Read-only. Nullable.')
+        c.argument('managed_devices', type=validate_file_or_dict, help='The managed devices associated with the user. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('managed_app_registrations', type=validate_file_or_dict, help='Zero or more managed app '
+                   'registrations that belong to the user. Expected value: json-string/@json-file.')
+        c.argument('device_management_troubleshooting_events', action=AddDeviceManagementTroubleshootingEvents,
+                   nargs='+', help='The list of troubleshooting events for this user.')
+        c.argument('activities', type=validate_file_or_dict, help='The user\'s activities across devices. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('joined_teams', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
+        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
+                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
+                   'operations collection is not supported, but you can get the status of long-running operations if '
+                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.', arg_group='Onenote')
+        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
+                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
+                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
+                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
+                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
+                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Settings')
+        c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
+                   help='', arg_group='Settings')
+        c.argument('contribution_to_content_discovery_disabled', arg_type=get_three_state_flag(), help='',
+                   arg_group='Settings')
+        c.argument('id2', type=str, help='Read-only.', arg_group='Settings Shift Preferences')
+        c.argument('microsoft_graph_change_tracked_entity_created_date_time_created_date_time', help='The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'',
+                   arg_group='Settings Shift Preferences')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'', arg_group='Settings Shift Preferences')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift '
+                   'Preferences Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
+                   'Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
+                   'Last Modified By')
+        c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
+                   'and its recurrence pattern. Expected value: json-string/@json-file.', arg_group='Settings Shift '
+                   'Preferences')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Insights')
+        c.argument('shared', type=validate_file_or_dict, help='Calculated relationship identifying documents shared '
+                   'with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive '
+                   'for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs '
+                   'and reference attachments to Teams conversations. Ordered by recency of share. Expected value: '
+                   'json-string/@json-file.', arg_group='Insights')
+        c.argument('trending', type=validate_file_or_dict, help='Calculated relationship identifying documents '
+                   'trending around a user. Trending documents are calculated based on activity of the user\'s closest '
+                   'network of people and include files stored in OneDrive for Business and SharePoint. Trending '
+                   'insights help the user to discover potentially useful content that the user has access to, but has '
+                   'never viewed before. Expected value: json-string/@json-file.', arg_group='Insights')
+        c.argument('used', type=validate_file_or_dict, help='Calculated relationship identifying the latest documents '
+                   'viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by '
+                   'recency of use. Expected value: json-string/@json-file.', arg_group='Insights')
+        c.argument('id4', type=str, help='Read-only.', arg_group='Planner')
+        c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
+                   'to the user. Expected value: json-string/@json-file.', arg_group='Planner')
+        c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
+                   'with the user. Expected value: json-string/@json-file.', arg_group='Planner')
+        c.argument('id5', type=str, help='Read-only.', arg_group='Outlook')
+        c.argument('master_categories', action=AddMasterCategories, nargs='+', help='A list of categories defined for '
+                   'the user.', arg_group='Outlook')
+        c.argument('id6', type=str, help='Read-only.', arg_group='Inference Classification')
+        c.argument('overrides', type=validate_file_or_dict, help='A set of overrides for a user to always classify '
+                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.', arg_group='Inference Classification')
+        c.argument('archive_folder', type=str, help='Folder ID of an archive folder for the user.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('automatic_replies_setting', type=validate_file_or_dict, help='automaticRepliesSetting Expected '
+                   'value: json-string/@json-file.', arg_group='Mailbox Settings')
+        c.argument('date_format', type=str, help='The date format for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('delegate_meeting_message_delivery_options', arg_type=get_enum_type([
+                                                                                        'sendToDelegateAndInformationToP'
+                                                                                        'rincipal',
+                                                                                        'sendToDelegateAndPrincipal',
+                                                                                        'sendToDelegateOnly']),
+                   help='', arg_group='Mailbox Settings')
+        c.argument('language', action=AddLanguage, nargs='+', help='localeInfo', arg_group='Mailbox Settings')
+        c.argument('time_format', type=str, help='The time format for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('time_zone', type=str, help='The default time zone for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('working_hours', type=validate_file_or_dict, help='workingHours Expected value: '
+                   'json-string/@json-file.', arg_group='Mailbox Settings')
+
+    with self.argument_context('users user list-user') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('users user show-user') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('users user update-user') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('deleted_date_time', help='')
+        c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the account is enabled; '
+                   'otherwise, false. This property is required when a user is created. Supports $filter.')
+        c.argument('age_group', type=str, help='Sets the age group of the user. Allowed values: null, minor, notAdult '
+                   'and adult. Refer to the legal age group property definitions for further information.')
+        c.argument('assigned_licenses', action=AddAssignedLicenses, nargs='+', help='The licenses that are assigned to '
+                   'the user. Not nullable.')
+        c.argument('assigned_plans', action=AddAssignedPlans, nargs='+', help='The plans that are assigned to the '
+                   'user. Read-only. Not nullable.')
+        c.argument('business_phones', nargs='+', help='The telephone numbers for the user. NOTE: Although this is a '
+                   'string collection, only one number can be set for this property.')
+        c.argument('city', type=str, help='The city in which the user is located. Supports $filter.')
+        c.argument('company_name', type=str, help='The company name which the user is associated. This property can be '
+                   'useful for describing the company that an external user comes from. The maximum length of the '
+                   'company name is 64 chararcters.Returned only on $select.')
+        c.argument('consent_provided_for_minor', type=str, help='Sets whether consent has been obtained for minors. '
+                   'Allowed values: null, granted, denied and notRequired. Refer to the legal age group property '
+                   'definitions for further information.')
+        c.argument('country', type=str, help='The country/region in which the user is located; for example, \'US\' or '
+                   '\'UK\'. Supports $filter.')
+        c.argument('created_date_time', help='The created date of the user object.')
+        c.argument('creation_type', type=str, help='Indicates whether the user account was created as a regular school '
+                   'or work account (null), an external account (Invitation), a local account for an Azure Active '
+                   'Directory B2C tenant (LocalAccount) or self-service sign-up using email verification '
+                   '(EmailVerified). Read-only.')
+        c.argument('department', type=str, help='The name for the department in which the user works. Supports '
+                   '$filter.')
+        c.argument('display_name', type=str, help='The name displayed in the address book for the user. This is '
+                   'usually the combination of the user\'s first name, middle initial and last name. This property is '
+                   'required when a user is created and it cannot be cleared during updates. Supports $filter and '
+                   '$orderby.')
+        c.argument('employee_id', type=str, help='The employee identifier assigned to the user by the organization. '
+                   'Supports $filter.')
+        c.argument('external_user_state', type=str, help='For an external user invited to the tenant using the '
+                   'invitation API, this property represents the invited user\'s invitation status. For invited users, '
+                   'the state can be PendingAcceptance or Accepted, or null for all other users. Returned only on '
+                   '$select. Supports $filter with the supported values. For example: $filter=externalUserState eq '
+                   '\'PendingAcceptance\'.')
+        c.argument('external_user_state_change_date_time', help='Shows the timestamp for the latest change to the '
+                   'externalUserState property. Returned only on $select.')
+        c.argument('fax_number', type=str, help='The fax number of the user.')
+        c.argument('given_name', type=str, help='The given name (first name) of the user. Supports $filter.')
+        c.argument('identities', action=AddIdentities, nargs='+', help='Represents the identities that can be used to '
+                   'sign in to this user account. An identity can be provided by Microsoft (also known as a local '
+                   'account), by organizations, or by social identity providers such as Facebook, Google, and '
+                   'Microsoft, and tied to a user account. May contain multiple items with the same signInType value. '
+                   'Supports $filter.')
+        c.argument('im_addresses', nargs='+', help='The instant message voice over IP (VOIP) session initiation '
+                   'protocol (SIP) addresses for the user. Read-only.')
+        c.argument('is_resource_account', arg_type=get_three_state_flag(),
+                   help='Do not use – reserved for future use.')
+        c.argument('job_title', type=str, help='The user’s job title. Supports $filter.')
+        c.argument('last_password_change_date_time', help='The time when this Azure AD user last changed their '
+                   'password. The date and time information uses ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('legal_age_group_classification', type=str, help='Used by enterprise applications to determine the '
+                   'legal age group of the user. This property is read-only and calculated based on ageGroup and '
+                   'consentProvidedForMinor properties. Allowed values: null, minorWithOutParentalConsent, '
+                   'minorWithParentalConsent, minorNoParentalConsentRequired, notAdult and adult. Refer to the legal '
+                   'age group property definitions for further information.)')
+        c.argument('license_assignment_states', action=AddLicenseAssignmentStates, nargs='+', help='State of license '
+                   'assignments for this user. Read-only.')
+        c.argument('mail', type=str, help='The SMTP address for the user, for example, \'jeff@contoso.onmicrosoft.com\''
+                   '. Supports $filter.')
+        c.argument('mail_nickname', type=str, help='The mail alias for the user. This property must be specified when '
+                   'a user is created. Supports $filter.')
+        c.argument('mobile_phone', type=str, help='The primary cellular telephone number for the user.')
+        c.argument('office_location', type=str, help='The office location in the user\'s place of business.')
+        c.argument('on_premises_distinguished_name', type=str, help='Contains the on-premises Active Directory '
+                   'distinguished name or DN. The property is only populated for customers who are synchronizing their '
+                   'on-premises directory to Azure Active Directory via Azure AD Connect. Read-only.')
+        c.argument('on_premises_domain_name', type=str, help='Contains the on-premises domainFQDN, also called '
+                   'dnsDomainName synchronized from the on-premises directory. The property is only populated for '
+                   'customers who are synchronizing their on-premises directory to Azure Active Directory via Azure AD '
+                   'Connect. Read-only.')
+        c.argument('on_premises_extension_attributes', action=AddOnPremisesExtensionAttributes, nargs='+',
+                   help='onPremisesExtensionAttributes')
+        c.argument('on_premises_immutable_id', type=str, help='This property is used to associate an on-premises '
+                   'Active Directory user account to their Azure AD user object. This property must be specified when '
+                   'creating a new user account in the Graph if you are using a federated domain for the user’s '
+                   'userPrincipalName (UPN) property. Important: The $ and _ characters cannot be used when specifying '
+                   'this property. Supports $filter.')
+        c.argument('on_premises_last_sync_date_time', help='Indicates the last time at which the object was synced '
+                   'with the on-premises directory; for example: \'2013-02-16T03:04:54Z\'. The Timestamp type '
+                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
+                   'midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Read-only.')
+        c.argument('on_premises_provisioning_errors', action=AddOnPremisesProvisioningErrors, nargs='+', help='Errors '
+                   'when using Microsoft synchronization product during provisioning.')
+        c.argument('on_premises_sam_account_name', type=str, help='Contains the on-premises samAccountName '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
+                   'Read-only.')
+        c.argument('on_premises_security_identifier', type=str, help='Contains the on-premises security identifier '
+                   '(SID) for the user that was synchronized from on-premises to the cloud. Read-only.')
+        c.argument('on_premises_sync_enabled', arg_type=get_three_state_flag(), help='true if this object is synced '
+                   'from an on-premises directory; false if this object was originally synced from an on-premises '
+                   'directory but is no longer synced; null if this object has never been synced from an on-premises '
+                   'directory (default). Read-only')
+        c.argument('on_premises_user_principal_name', type=str, help='Contains the on-premises userPrincipalName '
+                   'synchronized from the on-premises directory. The property is only populated for customers who are '
+                   'synchronizing their on-premises directory to Azure Active Directory via Azure AD Connect. '
+                   'Read-only.')
+        c.argument('other_mails', nargs='+', help='A list of additional email addresses for the user; for example: '
+                   '[\'bob@contoso.com\', \'Robert@fabrikam.com\']. Supports $filter.')
+        c.argument('password_policies', type=str, help='Specifies password policies for the user. This value is an '
+                   'enumeration with one possible value being \'DisableStrongPassword\', which allows weaker passwords '
+                   'than the default policy to be specified. \'DisablePasswordExpiration\' can also be specified. The '
+                   'two may be specified together; for example: \'DisablePasswordExpiration, DisableStrongPassword\'.')
+        c.argument('password_profile', action=AddPasswordProfile, nargs='+', help='passwordProfile')
+        c.argument('postal_code', type=str, help='The postal code for the user\'s postal address. The postal code is '
+                   'specific to the user\'s country/region. In the United States of America, this attribute contains '
+                   'the ZIP code.')
+        c.argument('preferred_language', type=str, help='The preferred language for the user. Should follow ISO 639-1 '
+                   'Code; for example \'en-US\'.')
+        c.argument('provisioned_plans', action=AddProvisionedPlans, nargs='+', help='The plans that are provisioned '
+                   'for the user. Read-only. Not nullable.')
+        c.argument('proxy_addresses', nargs='+', help='For example: [\'SMTP: bob@contoso.com\', \'smtp: '
+                   'bob@sales.contoso.com\'] The any operator is required for filter expressions on multi-valued '
+                   'properties. Read-only, Not nullable. Supports $filter.')
+        c.argument('show_in_address_list', arg_type=get_three_state_flag(), help='true if the Outlook global address '
+                   'list should contain this user, otherwise false. If not set, this will be treated as true. For '
+                   'users invited through the invitation manager, this property will be set to false.')
+        c.argument('sign_in_sessions_valid_from_date_time', help='Any refresh tokens or sessions tokens (session '
+                   'cookies) issued before this time are invalid, and applications will get an error when using an '
+                   'invalid refresh or sessions token to acquire a delegated access token (to access APIs such as '
+                   'Microsoft Graph).  If this happens, the application will need to acquire a new refresh token by '
+                   'making a request to the authorize endpoint. Read-only. Use revokeSignInSessions to reset.')
+        c.argument('state', type=str, help='The state or province in the user\'s address. Supports $filter.')
+        c.argument('street_address', type=str, help='The street address of the user\'s place of business.')
+        c.argument('surname', type=str, help='The user\'s surname (family name or last name). Supports $filter.')
+        c.argument('usage_location', type=str, help='A two letter country code (ISO standard 3166). Required for users '
+                   'that will be assigned licenses due to legal requirement to check for availability of services in '
+                   'countries.  Examples include: \'US\', \'JP\', and \'GB\'. Not nullable. Supports $filter.')
+        c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the user. The UPN is an '
+                   'Internet-style login name for the user based on the Internet standard RFC 822. By convention, this '
+                   'should map to the user\'s email name. The general format is alias@domain, where domain must be '
+                   'present in the tenant’s collection of verified domains. This property is required when a user is '
+                   'created. The verified domains for the tenant can be accessed from the verifiedDomains property of '
+                   'organization. Supports $filter and $orderby.')
+        c.argument('user_type', type=str, help='A string value that can be used to classify user types in your '
+                   'directory, such as \'Member\' and \'Guest\'. Supports $filter.')
+        c.argument('device_enrollment_limit', type=int, help='The limit on the maximum number of devices that the user '
+                   'is permitted to enroll. Allowed values are 5 or 1000.')
+        c.argument('about_me', type=str, help='A freeform text entry field for the user to describe themselves.')
+        c.argument('birthday', help='The birthday of the user. The Timestamp type represents date and time information '
+                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
+                   'look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('hire_date', help='The hire date of the user. The Timestamp type represents date and time '
+                   'information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, '
+                   '2014 would look like this: \'2014-01-01T00:00:00Z\'')
+        c.argument('interests', nargs='+', help='A list for the user to describe their interests.')
+        c.argument('my_site', type=str, help='The URL for the user\'s personal site.')
+        c.argument('past_projects', nargs='+', help='A list for the user to enumerate their past projects.')
+        c.argument('preferred_name', type=str, help='The preferred name for the user.')
+        c.argument('responsibilities', nargs='+', help='A list for the user to enumerate their responsibilities.')
+        c.argument('schools', nargs='+', help='A list for the user to enumerate the schools they have attended.')
+        c.argument('skills', nargs='+', help='A list for the user to enumerate their skills.')
+        c.argument('app_role_assignments', action=AddAppRoleAssignments, nargs='+', help='')
+        c.argument('created_objects', action=AddCreatedObjects, nargs='+', help='Directory objects that were created '
+                   'by the user. Read-only. Nullable.')
+        c.argument('direct_reports', action=AddDirectReports, nargs='+', help='The users and contacts that report to '
+                   'the user. (The users and contacts that have their manager property set to this user.) Read-only. '
+                   'Nullable.')
+        c.argument('license_details', action=AddLicenseDetails, nargs='+', help='A collection of this user\'s license '
+                   'details. Read-only.')
+        c.argument('manager', action=AddManager, nargs='+', help='Represents an Azure Active Directory object. The '
+                   'directoryObject type is the base type for many other directory entity types.')
+        c.argument('member_of', action=AddMemberOf, nargs='+', help='The groups and directory roles that the user is a '
+                   'member of. Read-only. Nullable.')
+        c.argument('oauth2_permission_grants', action=AddOauth2PermissionGrants, nargs='+', help='')
+        c.argument('owned_devices', action=AddOwnedDevices, nargs='+', help='Devices that are owned by the user. '
+                   'Read-only. Nullable.')
+        c.argument('owned_objects', action=AddOwnedObjects, nargs='+', help='Directory objects that are owned by the '
+                   'user. Read-only. Nullable.')
+        c.argument('registered_devices', action=AddRegisteredDevices, nargs='+', help='Devices that are registered for '
+                   'the user. Read-only. Nullable.')
+        c.argument('scoped_role_member_of', type=validate_file_or_dict,
+                   help=' Expected value: json-string/@json-file.')
+        c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
+        c.argument('calendar', type=validate_file_or_dict, help='calendar Expected value: json-string/@json-file.')
+        c.argument('calendar_groups', type=validate_file_or_dict, help='The user\'s calendar groups. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('calendars', type=validate_file_or_dict, help='The user\'s calendars. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('calendar_view', type=validate_file_or_dict, help='The calendar view for the calendar. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('contact_folders', type=validate_file_or_dict, help='The user\'s contacts folders. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('contacts', type=validate_file_or_dict, help='The user\'s contacts. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.')
+        c.argument('events', type=validate_file_or_dict, help='The user\'s events. Default is to show Events under the '
+                   'Default Calendar. Read-only. Nullable. Expected value: json-string/@json-file.')
+        c.argument('mail_folders', type=validate_file_or_dict, help='The user\'s mail folders. Read-only. Nullable. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('messages', type=validate_file_or_dict, help='The messages in a mailbox or folder. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('people', type=validate_file_or_dict, help='People that are relevant to the user. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
+        c.argument('photos', action=AddPhotos, nargs='+', help='')
+        c.argument('drive', type=validate_file_or_dict, help='drive Expected value: json-string/@json-file.')
+        c.argument('drives', type=validate_file_or_dict, help='A collection of drives available for this user. '
+                   'Read-only. Expected value: json-string/@json-file.')
+        c.argument('followed_sites', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
+                   'the user. Read-only. Nullable.')
+        c.argument('managed_devices', type=validate_file_or_dict, help='The managed devices associated with the user. '
+                   'Expected value: json-string/@json-file.')
+        c.argument('managed_app_registrations', type=validate_file_or_dict, help='Zero or more managed app '
+                   'registrations that belong to the user. Expected value: json-string/@json-file.')
+        c.argument('device_management_troubleshooting_events', action=AddDeviceManagementTroubleshootingEvents,
+                   nargs='+', help='The list of troubleshooting events for this user.')
+        c.argument('activities', type=validate_file_or_dict, help='The user\'s activities across devices. Read-only. '
+                   'Nullable. Expected value: json-string/@json-file.')
+        c.argument('online_meetings', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('joined_teams', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Onenote')
+        c.argument('notebooks', type=validate_file_or_dict, help='The collection of OneNote notebooks that are owned '
+                   'by the user or group. Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('operations', type=validate_file_or_dict, help='The status of OneNote operations. Getting an '
+                   'operations collection is not supported, but you can get the status of long-running operations if '
+                   'the Operation-Location header is returned in the response. Read-only. Nullable. Expected value: '
+                   'json-string/@json-file.', arg_group='Onenote')
+        c.argument('pages', type=validate_file_or_dict, help='The pages in all OneNote notebooks that are owned by the '
+                   'user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('resources', action=AddResources, nargs='+', help='The image and other file resources in OneNote '
+                   'pages. Getting a resources collection is not supported, but you can get the binary content of a '
+                   'specific resource. Read-only. Nullable.', arg_group='Onenote')
+        c.argument('section_groups', type=validate_file_or_dict, help='The section groups in all OneNote notebooks '
+                   'that are owned by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('sections', type=validate_file_or_dict, help='The sections in all OneNote notebooks that are owned '
+                   'by the user or group.  Read-only. Nullable. Expected value: json-string/@json-file.',
+                   arg_group='Onenote')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Settings')
+        c.argument('contribution_to_content_discovery_as_organization_disabled', arg_type=get_three_state_flag(),
+                   help='', arg_group='Settings')
+        c.argument('contribution_to_content_discovery_disabled', arg_type=get_three_state_flag(), help='',
+                   arg_group='Settings')
+        c.argument('id2', type=str, help='Read-only.', arg_group='Settings Shift Preferences')
+        c.argument('microsoft_graph_change_tracked_entity_created_date_time_created_date_time', help='The Timestamp '
+                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
+                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'',
+                   arg_group='Settings Shift Preferences')
+        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
+                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
+                   'this: \'2014-01-01T00:00:00Z\'', arg_group='Settings Shift Preferences')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift '
+                   'Preferences Last Modified By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
+                   'Last Modified By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Settings Shift Preferences '
+                   'Last Modified By')
+        c.argument('availability', type=validate_file_or_dict, help='Availability of the user to be scheduled for work '
+                   'and its recurrence pattern. Expected value: json-string/@json-file.', arg_group='Settings Shift '
+                   'Preferences')
+        c.argument('id3', type=str, help='Read-only.', arg_group='Insights')
+        c.argument('shared', type=validate_file_or_dict, help='Calculated relationship identifying documents shared '
+                   'with or by the user. This includes URLs, file attachments, and reference attachments to OneDrive '
+                   'for Business and SharePoint files found in Outlook messages and meetings. This also includes URLs '
+                   'and reference attachments to Teams conversations. Ordered by recency of share. Expected value: '
+                   'json-string/@json-file.', arg_group='Insights')
+        c.argument('trending', type=validate_file_or_dict, help='Calculated relationship identifying documents '
+                   'trending around a user. Trending documents are calculated based on activity of the user\'s closest '
+                   'network of people and include files stored in OneDrive for Business and SharePoint. Trending '
+                   'insights help the user to discover potentially useful content that the user has access to, but has '
+                   'never viewed before. Expected value: json-string/@json-file.', arg_group='Insights')
+        c.argument('used', type=validate_file_or_dict, help='Calculated relationship identifying the latest documents '
+                   'viewed or modified by a user, including OneDrive for Business and SharePoint documents, ranked by '
+                   'recency of use. Expected value: json-string/@json-file.', arg_group='Insights')
+        c.argument('id4', type=str, help='Read-only.', arg_group='Planner')
+        c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerTasks assigned '
+                   'to the user. Expected value: json-string/@json-file.', arg_group='Planner')
+        c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
+                   'with the user. Expected value: json-string/@json-file.', arg_group='Planner')
+        c.argument('id5', type=str, help='Read-only.', arg_group='Outlook')
+        c.argument('master_categories', action=AddMasterCategories, nargs='+', help='A list of categories defined for '
+                   'the user.', arg_group='Outlook')
+        c.argument('id6', type=str, help='Read-only.', arg_group='Inference Classification')
+        c.argument('overrides', type=validate_file_or_dict, help='A set of overrides for a user to always classify '
+                   'messages from specific senders in certain ways: focused, or other. Read-only. Nullable. Expected '
+                   'value: json-string/@json-file.', arg_group='Inference Classification')
+        c.argument('archive_folder', type=str, help='Folder ID of an archive folder for the user.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('automatic_replies_setting', type=validate_file_or_dict, help='automaticRepliesSetting Expected '
+                   'value: json-string/@json-file.', arg_group='Mailbox Settings')
+        c.argument('date_format', type=str, help='The date format for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('delegate_meeting_message_delivery_options', arg_type=get_enum_type([
+                                                                                        'sendToDelegateAndInformationToP'
+                                                                                        'rincipal',
+                                                                                        'sendToDelegateAndPrincipal',
+                                                                                        'sendToDelegateOnly']),
+                   help='', arg_group='Mailbox Settings')
+        c.argument('language', action=AddLanguage, nargs='+', help='localeInfo', arg_group='Mailbox Settings')
+        c.argument('time_format', type=str, help='The time format for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('time_zone', type=str, help='The default time zone for the user\'s mailbox.', arg_group='Mailbox '
+                   'Settings')
+        c.argument('working_hours', type=validate_file_or_dict, help='workingHours Expected value: '
+                   'json-string/@json-file.', arg_group='Mailbox Settings')
 
     with self.argument_context('users user delete') as c:
         c.argument('user_id', type=str, help='key: id of user')

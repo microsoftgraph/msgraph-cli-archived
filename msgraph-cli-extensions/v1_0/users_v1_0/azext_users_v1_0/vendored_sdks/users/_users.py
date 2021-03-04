@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import UsersConfiguration
-from .operations import UsersUserOperations
-from .operations import UsersOperations
-from .operations import UsersOutlookOperations
-from .operations import UsersSettingsOperations
+from .operations import UserUserOperations
+from .operations import UserOperations
+from .operations import UserOutlookOperations
+from .operations import UserSettingOperations
 from . import models
 
 
 class Users(object):
     """Users.
 
-    :ivar users_user: UsersUserOperations operations
-    :vartype users_user: users.operations.UsersUserOperations
-    :ivar users: UsersOperations operations
-    :vartype users: users.operations.UsersOperations
-    :ivar users_outlook: UsersOutlookOperations operations
-    :vartype users_outlook: users.operations.UsersOutlookOperations
-    :ivar users_settings: UsersSettingsOperations operations
-    :vartype users_settings: users.operations.UsersSettingsOperations
+    :ivar user_user: UserUserOperations operations
+    :vartype user_user: users.operations.UserUserOperations
+    :ivar user: UserOperations operations
+    :vartype user: users.operations.UserOperations
+    :ivar user_outlook: UserOutlookOperations operations
+    :vartype user_outlook: users.operations.UserOutlookOperations
+    :ivar user_setting: UserSettingOperations operations
+    :vartype user_setting: users.operations.UserSettingOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -73,13 +73,13 @@ class Users(object):
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.users_user = UsersUserOperations(
+        self.user_user = UserUserOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.users = UsersOperations(
+        self.user = UserOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.users_outlook = UsersOutlookOperations(
+        self.user_outlook = UserOutlookOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.users_settings = UsersSettingsOperations(
+        self.user_setting = UserSettingOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

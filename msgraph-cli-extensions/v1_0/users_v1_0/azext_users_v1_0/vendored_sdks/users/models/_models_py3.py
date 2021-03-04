@@ -1780,20 +1780,26 @@ class MicrosoftGraphChangeTrackedEntity(MicrosoftGraphEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
     }
 
     def __init__(
@@ -1802,15 +1808,19 @@ class MicrosoftGraphChangeTrackedEntity(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         **kwargs
     ):
         super(MicrosoftGraphChangeTrackedEntity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
-        self.last_modified_by = last_modified_by
         self.last_modified_date_time = last_modified_date_time
+        self.application = application
+        self.device = device
+        self.user = user
 
 
 class MicrosoftGraphChannel(MicrosoftGraphEntity):
@@ -8539,12 +8549,16 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -8571,8 +8585,10 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
@@ -8589,8 +8605,10 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
@@ -8602,7 +8620,7 @@ class MicrosoftGraphScheduleChangeRequest(MicrosoftGraphChangeTrackedEntity):
         state: Optional[Union[str, "MicrosoftGraphScheduleChangeState"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphScheduleChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphScheduleChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.assigned_to = assigned_to
         self.manager_action_date_time = manager_action_date_time
@@ -8623,12 +8641,16 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~users.models.MicrosoftGraphScheduleChangeRequestActor
@@ -8665,8 +8687,10 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -8687,8 +8711,10 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
@@ -8704,7 +8730,7 @@ class MicrosoftGraphOfferShiftRequest(MicrosoftGraphScheduleChangeRequest):
         sender_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOfferShiftRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphOfferShiftRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.recipient_action_date_time = recipient_action_date_time
         self.recipient_action_message = recipient_action_message
@@ -9468,12 +9494,16 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -9488,8 +9518,10 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'draft_open_shift': {'key': 'draftOpenShift', 'type': 'MicrosoftGraphOpenShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
@@ -9501,15 +9533,17 @@ class MicrosoftGraphOpenShift(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         draft_open_shift: Optional["MicrosoftGraphOpenShiftItem"] = None,
         scheduling_group_id: Optional[str] = None,
         shared_open_shift: Optional["MicrosoftGraphOpenShiftItem"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOpenShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphOpenShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.draft_open_shift = draft_open_shift
         self.scheduling_group_id = scheduling_group_id
@@ -9525,12 +9559,16 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~users.models.MicrosoftGraphScheduleChangeRequestActor
@@ -9559,8 +9597,10 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -9578,8 +9618,10 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
@@ -9592,7 +9634,7 @@ class MicrosoftGraphOpenShiftChangeRequest(MicrosoftGraphScheduleChangeRequest):
         open_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphOpenShiftChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.open_shift_id = open_shift_id
 
@@ -12046,12 +12088,16 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -12067,8 +12113,10 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_active': {'key': 'isActive', 'type': 'bool'},
@@ -12080,15 +12128,17 @@ class MicrosoftGraphSchedulingGroup(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         is_active: Optional[bool] = None,
         user_ids: Optional[List[str]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSchedulingGroup, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphSchedulingGroup, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.is_active = is_active
@@ -12760,12 +12810,16 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -12782,8 +12836,10 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'draft_shift': {'key': 'draftShift', 'type': 'MicrosoftGraphShiftItem'},
         'scheduling_group_id': {'key': 'schedulingGroupId', 'type': 'str'},
@@ -12796,8 +12852,10 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         draft_shift: Optional["MicrosoftGraphShiftItem"] = None,
         scheduling_group_id: Optional[str] = None,
@@ -12805,7 +12863,7 @@ class MicrosoftGraphShift(MicrosoftGraphChangeTrackedEntity):
         user_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphShift, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.draft_shift = draft_shift
         self.scheduling_group_id = scheduling_group_id
@@ -12917,12 +12975,16 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -12934,8 +12996,10 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'availability': {'key': 'availability', 'type': '[MicrosoftGraphShiftAvailability]'},
     }
@@ -12945,13 +13009,15 @@ class MicrosoftGraphShiftPreferences(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         availability: Optional[List["MicrosoftGraphShiftAvailability"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphShiftPreferences, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphShiftPreferences, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.availability = availability
 
@@ -13377,24 +13443,32 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param id: Read-only.
     :type id: str
     :param created_date_time: The Timestamp type represents date and time information using ISO
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~users.models.MicrosoftGraphScheduleChangeRequestActor
@@ -13433,12 +13507,16 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -13460,12 +13538,16 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
@@ -13482,7 +13564,7 @@ class MicrosoftGraphSwapShiftsChangeRequest(MicrosoftGraphOfferShiftRequest):
         recipient_shift_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, recipient_action_date_time=recipient_action_date_time, recipient_action_message=recipient_action_message, recipient_user_id=recipient_user_id, sender_shift_id=sender_shift_id, **kwargs)
+        super(MicrosoftGraphSwapShiftsChangeRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, recipient_action_date_time=recipient_action_date_time, recipient_action_message=recipient_action_message, recipient_user_id=recipient_user_id, sender_shift_id=sender_shift_id, **kwargs)
         self.additional_properties = additional_properties
         self.recipient_shift_id = recipient_shift_id
 
@@ -14275,12 +14357,16 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -14295,8 +14381,10 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'draft_time_off': {'key': 'draftTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
         'shared_time_off': {'key': 'sharedTimeOff', 'type': 'MicrosoftGraphTimeOffItem'},
@@ -14308,15 +14396,17 @@ class MicrosoftGraphTimeOff(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         draft_time_off: Optional["MicrosoftGraphTimeOffItem"] = None,
         shared_time_off: Optional["MicrosoftGraphTimeOffItem"] = None,
         user_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTimeOff, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphTimeOff, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.draft_time_off = draft_time_off
         self.shared_time_off = shared_time_off
@@ -14372,12 +14462,16 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -14395,8 +14489,10 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'icon_type': {'key': 'iconType', 'type': 'str'},
@@ -14408,15 +14504,17 @@ class MicrosoftGraphTimeOffReason(MicrosoftGraphChangeTrackedEntity):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         display_name: Optional[str] = None,
         icon_type: Optional[Union[str, "MicrosoftGraphTimeOffReasonIconType"]] = None,
         is_active: Optional[bool] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTimeOffReason, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, **kwargs)
+        super(MicrosoftGraphTimeOffReason, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.icon_type = icon_type
@@ -14432,12 +14530,16 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
      8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
      this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
-    :param last_modified_by: identitySet.
-    :type last_modified_by: ~users.models.MicrosoftGraphIdentitySet
     :param last_modified_date_time: The Timestamp type represents date and time information using
      ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
      like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
     :param assigned_to:  Possible values include: "sender", "recipient", "manager", "system",
      "unknownFutureValue".
     :type assigned_to: str or ~users.models.MicrosoftGraphScheduleChangeRequestActor
@@ -14474,8 +14576,10 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'last_modified_by': {'key': 'lastModifiedBy', 'type': 'MicrosoftGraphIdentitySet'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
         'assigned_to': {'key': 'assignedTo', 'type': 'str'},
         'manager_action_date_time': {'key': 'managerActionDateTime', 'type': 'iso-8601'},
         'manager_action_message': {'key': 'managerActionMessage', 'type': 'str'},
@@ -14495,8 +14599,10 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
         *,
         id: Optional[str] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        last_modified_by: Optional["MicrosoftGraphIdentitySet"] = None,
         last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
         assigned_to: Optional[Union[str, "MicrosoftGraphScheduleChangeRequestActor"]] = None,
         manager_action_date_time: Optional[datetime.datetime] = None,
         manager_action_message: Optional[str] = None,
@@ -14511,7 +14617,7 @@ class MicrosoftGraphTimeOffRequest(MicrosoftGraphScheduleChangeRequest):
         time_off_reason_id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphTimeOffRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_by=last_modified_by, last_modified_date_time=last_modified_date_time, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
+        super(MicrosoftGraphTimeOffRequest, self).__init__(id=id, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, application=application, device=device, user=user, assigned_to=assigned_to, manager_action_date_time=manager_action_date_time, manager_action_message=manager_action_message, manager_user_id=manager_user_id, sender_date_time=sender_date_time, sender_message=sender_message, sender_user_id=sender_user_id, state=state, **kwargs)
         self.additional_properties = additional_properties
         self.end_date_time = end_date_time
         self.start_date_time = start_date_time
@@ -14944,8 +15050,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param user_type: A string value that can be used to classify user types in your directory,
      such as 'Member' and 'Guest'. Supports $filter.
     :type user_type: str
-    :param mailbox_settings: mailboxSettings.
-    :type mailbox_settings: ~users.models.MicrosoftGraphMailboxSettings
     :param device_enrollment_limit: The limit on the maximum number of devices that the user is
      permitted to enroll. Allowed values are 5 or 1000.
     :type device_enrollment_limit: int
@@ -15015,14 +15119,10 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
     :param events: The user's events. Default is to show Events under the Default Calendar. Read-
      only. Nullable.
     :type events: list[~users.models.MicrosoftGraphEvent]
-    :param inference_classification: inferenceClassification.
-    :type inference_classification: ~users.models.MicrosoftGraphInferenceClassification
     :param mail_folders: The user's mail folders. Read-only. Nullable.
     :type mail_folders: list[~users.models.MicrosoftGraphMailFolder]
     :param messages: The messages in a mailbox or folder. Read-only. Nullable.
     :type messages: list[~users.models.MicrosoftGraphMessage]
-    :param outlook: outlookUser.
-    :type outlook: ~users.models.MicrosoftGraphOutlookUser
     :param people: People that are relevant to the user. Read-only. Nullable.
     :type people: list[~users.models.MicrosoftGraphPerson]
     :param photo: profilePhoto.
@@ -15046,20 +15146,107 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
      user.
     :type device_management_troubleshooting_events:
      list[~users.models.MicrosoftGraphDeviceManagementTroubleshootingEvent]
-    :param planner: plannerUser.
-    :type planner: ~users.models.MicrosoftGraphPlannerUser
-    :param insights: officeGraphInsights.
-    :type insights: ~users.models.MicrosoftGraphOfficeGraphInsights
-    :param settings: userSettings.
-    :type settings: ~users.models.MicrosoftGraphUserSettings
-    :param onenote: onenote.
-    :type onenote: ~users.models.MicrosoftGraphOnenote
     :param activities: The user's activities across devices. Read-only. Nullable.
     :type activities: list[~users.models.MicrosoftGraphUserActivity]
     :param online_meetings:
     :type online_meetings: list[~users.models.MicrosoftGraphOnlineMeeting]
     :param joined_teams:
     :type joined_teams: list[~users.models.MicrosoftGraphTeam]
+    :param id_onenote_id: Read-only.
+    :type id_onenote_id: str
+    :param notebooks: The collection of OneNote notebooks that are owned by the user or group.
+     Read-only. Nullable.
+    :type notebooks: list[~users.models.MicrosoftGraphNotebook]
+    :param operations: The status of OneNote operations. Getting an operations collection is not
+     supported, but you can get the status of long-running operations if the Operation-Location
+     header is returned in the response. Read-only. Nullable.
+    :type operations: list[~users.models.MicrosoftGraphOnenoteOperation]
+    :param pages: The pages in all OneNote notebooks that are owned by the user or group.  Read-
+     only. Nullable.
+    :type pages: list[~users.models.MicrosoftGraphOnenotePage]
+    :param resources: The image and other file resources in OneNote pages. Getting a resources
+     collection is not supported, but you can get the binary content of a specific resource. Read-
+     only. Nullable.
+    :type resources: list[~users.models.MicrosoftGraphOnenoteResource]
+    :param section_groups: The section groups in all OneNote notebooks that are owned by the user
+     or group.  Read-only. Nullable.
+    :type section_groups: list[~users.models.MicrosoftGraphSectionGroup]
+    :param sections: The sections in all OneNote notebooks that are owned by the user or group.
+     Read-only. Nullable.
+    :type sections: list[~users.models.MicrosoftGraphOnenoteSection]
+    :param id_settings_id: Read-only.
+    :type id_settings_id: str
+    :param contribution_to_content_discovery_as_organization_disabled:
+    :type contribution_to_content_discovery_as_organization_disabled: bool
+    :param contribution_to_content_discovery_disabled:
+    :type contribution_to_content_discovery_disabled: bool
+    :param id_settings_shift_preferences_id: Read-only.
+    :type id_settings_shift_preferences_id: str
+    :param created_date_time_settings_shift_preferences_created_date_time: The Timestamp type
+     represents date and time information using ISO 8601 format and is always in UTC time. For
+     example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
+    :type created_date_time_settings_shift_preferences_created_date_time: ~datetime.datetime
+    :param last_modified_date_time: The Timestamp type represents date and time information using
+     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+     like this: '2014-01-01T00:00:00Z'.
+    :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
+    :param availability: Availability of the user to be scheduled for work and its recurrence
+     pattern.
+    :type availability: list[~users.models.MicrosoftGraphShiftAvailability]
+    :param id_insights_id: Read-only.
+    :type id_insights_id: str
+    :param shared: Calculated relationship identifying documents shared with or by the user. This
+     includes URLs, file attachments, and reference attachments to OneDrive for Business and
+     SharePoint files found in Outlook messages and meetings. This also includes URLs and reference
+     attachments to Teams conversations. Ordered by recency of share.
+    :type shared: list[~users.models.MicrosoftGraphSharedInsight]
+    :param trending: Calculated relationship identifying documents trending around a user. Trending
+     documents are calculated based on activity of the user's closest network of people and include
+     files stored in OneDrive for Business and SharePoint. Trending insights help the user to
+     discover potentially useful content that the user has access to, but has never viewed before.
+    :type trending: list[~users.models.MicrosoftGraphTrending]
+    :param used: Calculated relationship identifying the latest documents viewed or modified by a
+     user, including OneDrive for Business and SharePoint documents, ranked by recency of use.
+    :type used: list[~users.models.MicrosoftGraphUsedInsight]
+    :param id_planner_id: Read-only.
+    :type id_planner_id: str
+    :param plans: Read-only. Nullable. Returns the plannerTasks assigned to the user.
+    :type plans: list[~users.models.MicrosoftGraphPlannerPlan]
+    :param tasks: Read-only. Nullable. Returns the plannerPlans shared with the user.
+    :type tasks: list[~users.models.MicrosoftGraphPlannerTask]
+    :param id_outlook_id: Read-only.
+    :type id_outlook_id: str
+    :param master_categories: A list of categories defined for the user.
+    :type master_categories: list[~users.models.MicrosoftGraphOutlookCategory]
+    :param id_inference_classification_id: Read-only.
+    :type id_inference_classification_id: str
+    :param overrides: A set of overrides for a user to always classify messages from specific
+     senders in certain ways: focused, or other. Read-only. Nullable.
+    :type overrides: list[~users.models.MicrosoftGraphInferenceClassificationOverride]
+    :param archive_folder: Folder ID of an archive folder for the user.
+    :type archive_folder: str
+    :param automatic_replies_setting: automaticRepliesSetting.
+    :type automatic_replies_setting: ~users.models.MicrosoftGraphAutomaticRepliesSetting
+    :param date_format: The date format for the user's mailbox.
+    :type date_format: str
+    :param delegate_meeting_message_delivery_options:  Possible values include:
+     "sendToDelegateAndInformationToPrincipal", "sendToDelegateAndPrincipal", "sendToDelegateOnly".
+    :type delegate_meeting_message_delivery_options: str or
+     ~users.models.MicrosoftGraphDelegateMeetingMessageDeliveryOptions
+    :param language: localeInfo.
+    :type language: ~users.models.MicrosoftGraphLocaleInfo
+    :param time_format: The time format for the user's mailbox.
+    :type time_format: str
+    :param time_zone: The default time zone for the user's mailbox.
+    :type time_zone: str
+    :param working_hours: workingHours.
+    :type working_hours: ~users.models.MicrosoftGraphWorkingHours
     """
 
     _validation = {
@@ -15124,7 +15311,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'usage_location': {'key': 'usageLocation', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
         'user_type': {'key': 'userType', 'type': 'str'},
-        'mailbox_settings': {'key': 'mailboxSettings', 'type': 'MicrosoftGraphMailboxSettings'},
         'device_enrollment_limit': {'key': 'deviceEnrollmentLimit', 'type': 'int'},
         'about_me': {'key': 'aboutMe', 'type': 'str'},
         'birthday': {'key': 'birthday', 'type': 'iso-8601'},
@@ -15155,10 +15341,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'contact_folders': {'key': 'contactFolders', 'type': '[MicrosoftGraphContactFolder]'},
         'contacts': {'key': 'contacts', 'type': '[MicrosoftGraphContact]'},
         'events': {'key': 'events', 'type': '[MicrosoftGraphEvent]'},
-        'inference_classification': {'key': 'inferenceClassification', 'type': 'MicrosoftGraphInferenceClassification'},
         'mail_folders': {'key': 'mailFolders', 'type': '[MicrosoftGraphMailFolder]'},
         'messages': {'key': 'messages', 'type': '[MicrosoftGraphMessage]'},
-        'outlook': {'key': 'outlook', 'type': 'MicrosoftGraphOutlookUser'},
         'people': {'key': 'people', 'type': '[MicrosoftGraphPerson]'},
         'photo': {'key': 'photo', 'type': 'MicrosoftGraphProfilePhoto'},
         'photos': {'key': 'photos', 'type': '[MicrosoftGraphProfilePhoto]'},
@@ -15169,13 +15353,45 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         'managed_devices': {'key': 'managedDevices', 'type': '[MicrosoftGraphManagedDevice]'},
         'managed_app_registrations': {'key': 'managedAppRegistrations', 'type': '[MicrosoftGraphManagedAppRegistration]'},
         'device_management_troubleshooting_events': {'key': 'deviceManagementTroubleshootingEvents', 'type': '[MicrosoftGraphDeviceManagementTroubleshootingEvent]'},
-        'planner': {'key': 'planner', 'type': 'MicrosoftGraphPlannerUser'},
-        'insights': {'key': 'insights', 'type': 'MicrosoftGraphOfficeGraphInsights'},
-        'settings': {'key': 'settings', 'type': 'MicrosoftGraphUserSettings'},
-        'onenote': {'key': 'onenote', 'type': 'MicrosoftGraphOnenote'},
         'activities': {'key': 'activities', 'type': '[MicrosoftGraphUserActivity]'},
         'online_meetings': {'key': 'onlineMeetings', 'type': '[MicrosoftGraphOnlineMeeting]'},
         'joined_teams': {'key': 'joinedTeams', 'type': '[MicrosoftGraphTeam]'},
+        'id_onenote_id': {'key': 'onenote.id', 'type': 'str'},
+        'notebooks': {'key': 'onenote.notebooks', 'type': '[MicrosoftGraphNotebook]'},
+        'operations': {'key': 'onenote.operations', 'type': '[MicrosoftGraphOnenoteOperation]'},
+        'pages': {'key': 'onenote.pages', 'type': '[MicrosoftGraphOnenotePage]'},
+        'resources': {'key': 'onenote.resources', 'type': '[MicrosoftGraphOnenoteResource]'},
+        'section_groups': {'key': 'onenote.sectionGroups', 'type': '[MicrosoftGraphSectionGroup]'},
+        'sections': {'key': 'onenote.sections', 'type': '[MicrosoftGraphOnenoteSection]'},
+        'id_settings_id': {'key': 'settings.id', 'type': 'str'},
+        'contribution_to_content_discovery_as_organization_disabled': {'key': 'settings.contributionToContentDiscoveryAsOrganizationDisabled', 'type': 'bool'},
+        'contribution_to_content_discovery_disabled': {'key': 'settings.contributionToContentDiscoveryDisabled', 'type': 'bool'},
+        'id_settings_shift_preferences_id': {'key': 'settings.shiftPreferences.id', 'type': 'str'},
+        'created_date_time_settings_shift_preferences_created_date_time': {'key': 'settings.shiftPreferences.createdDateTime', 'type': 'iso-8601'},
+        'last_modified_date_time': {'key': 'settings.shiftPreferences.lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'settings.shiftPreferences.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'settings.shiftPreferences.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'settings.shiftPreferences.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'availability': {'key': 'settings.shiftPreferences.availability', 'type': '[MicrosoftGraphShiftAvailability]'},
+        'id_insights_id': {'key': 'insights.id', 'type': 'str'},
+        'shared': {'key': 'insights.shared', 'type': '[MicrosoftGraphSharedInsight]'},
+        'trending': {'key': 'insights.trending', 'type': '[MicrosoftGraphTrending]'},
+        'used': {'key': 'insights.used', 'type': '[MicrosoftGraphUsedInsight]'},
+        'id_planner_id': {'key': 'planner.id', 'type': 'str'},
+        'plans': {'key': 'planner.plans', 'type': '[MicrosoftGraphPlannerPlan]'},
+        'tasks': {'key': 'planner.tasks', 'type': '[MicrosoftGraphPlannerTask]'},
+        'id_outlook_id': {'key': 'outlook.id', 'type': 'str'},
+        'master_categories': {'key': 'outlook.masterCategories', 'type': '[MicrosoftGraphOutlookCategory]'},
+        'id_inference_classification_id': {'key': 'inferenceClassification.id', 'type': 'str'},
+        'overrides': {'key': 'inferenceClassification.overrides', 'type': '[MicrosoftGraphInferenceClassificationOverride]'},
+        'archive_folder': {'key': 'mailboxSettings.archiveFolder', 'type': 'str'},
+        'automatic_replies_setting': {'key': 'mailboxSettings.automaticRepliesSetting', 'type': 'MicrosoftGraphAutomaticRepliesSetting'},
+        'date_format': {'key': 'mailboxSettings.dateFormat', 'type': 'str'},
+        'delegate_meeting_message_delivery_options': {'key': 'mailboxSettings.delegateMeetingMessageDeliveryOptions', 'type': 'str'},
+        'language': {'key': 'mailboxSettings.language', 'type': 'MicrosoftGraphLocaleInfo'},
+        'time_format': {'key': 'mailboxSettings.timeFormat', 'type': 'str'},
+        'time_zone': {'key': 'mailboxSettings.timeZone', 'type': 'str'},
+        'working_hours': {'key': 'mailboxSettings.workingHours', 'type': 'MicrosoftGraphWorkingHours'},
     }
 
     def __init__(
@@ -15238,7 +15454,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         usage_location: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         user_type: Optional[str] = None,
-        mailbox_settings: Optional["MicrosoftGraphMailboxSettings"] = None,
         device_enrollment_limit: Optional[int] = None,
         about_me: Optional[str] = None,
         birthday: Optional[datetime.datetime] = None,
@@ -15269,10 +15484,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         contact_folders: Optional[List["MicrosoftGraphContactFolder"]] = None,
         contacts: Optional[List["MicrosoftGraphContact"]] = None,
         events: Optional[List["MicrosoftGraphEvent"]] = None,
-        inference_classification: Optional["MicrosoftGraphInferenceClassification"] = None,
         mail_folders: Optional[List["MicrosoftGraphMailFolder"]] = None,
         messages: Optional[List["MicrosoftGraphMessage"]] = None,
-        outlook: Optional["MicrosoftGraphOutlookUser"] = None,
         people: Optional[List["MicrosoftGraphPerson"]] = None,
         photo: Optional["MicrosoftGraphProfilePhoto"] = None,
         photos: Optional[List["MicrosoftGraphProfilePhoto"]] = None,
@@ -15283,13 +15496,45 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         managed_devices: Optional[List["MicrosoftGraphManagedDevice"]] = None,
         managed_app_registrations: Optional[List["MicrosoftGraphManagedAppRegistration"]] = None,
         device_management_troubleshooting_events: Optional[List["MicrosoftGraphDeviceManagementTroubleshootingEvent"]] = None,
-        planner: Optional["MicrosoftGraphPlannerUser"] = None,
-        insights: Optional["MicrosoftGraphOfficeGraphInsights"] = None,
-        settings: Optional["MicrosoftGraphUserSettings"] = None,
-        onenote: Optional["MicrosoftGraphOnenote"] = None,
         activities: Optional[List["MicrosoftGraphUserActivity"]] = None,
         online_meetings: Optional[List["MicrosoftGraphOnlineMeeting"]] = None,
         joined_teams: Optional[List["MicrosoftGraphTeam"]] = None,
+        id_onenote_id: Optional[str] = None,
+        notebooks: Optional[List["MicrosoftGraphNotebook"]] = None,
+        operations: Optional[List["MicrosoftGraphOnenoteOperation"]] = None,
+        pages: Optional[List["MicrosoftGraphOnenotePage"]] = None,
+        resources: Optional[List["MicrosoftGraphOnenoteResource"]] = None,
+        section_groups: Optional[List["MicrosoftGraphSectionGroup"]] = None,
+        sections: Optional[List["MicrosoftGraphOnenoteSection"]] = None,
+        id_settings_id: Optional[str] = None,
+        contribution_to_content_discovery_as_organization_disabled: Optional[bool] = None,
+        contribution_to_content_discovery_disabled: Optional[bool] = None,
+        id_settings_shift_preferences_id: Optional[str] = None,
+        created_date_time_settings_shift_preferences_created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
+        availability: Optional[List["MicrosoftGraphShiftAvailability"]] = None,
+        id_insights_id: Optional[str] = None,
+        shared: Optional[List["MicrosoftGraphSharedInsight"]] = None,
+        trending: Optional[List["MicrosoftGraphTrending"]] = None,
+        used: Optional[List["MicrosoftGraphUsedInsight"]] = None,
+        id_planner_id: Optional[str] = None,
+        plans: Optional[List["MicrosoftGraphPlannerPlan"]] = None,
+        tasks: Optional[List["MicrosoftGraphPlannerTask"]] = None,
+        id_outlook_id: Optional[str] = None,
+        master_categories: Optional[List["MicrosoftGraphOutlookCategory"]] = None,
+        id_inference_classification_id: Optional[str] = None,
+        overrides: Optional[List["MicrosoftGraphInferenceClassificationOverride"]] = None,
+        archive_folder: Optional[str] = None,
+        automatic_replies_setting: Optional["MicrosoftGraphAutomaticRepliesSetting"] = None,
+        date_format: Optional[str] = None,
+        delegate_meeting_message_delivery_options: Optional[Union[str, "MicrosoftGraphDelegateMeetingMessageDeliveryOptions"]] = None,
+        language: Optional["MicrosoftGraphLocaleInfo"] = None,
+        time_format: Optional[str] = None,
+        time_zone: Optional[str] = None,
+        working_hours: Optional["MicrosoftGraphWorkingHours"] = None,
         **kwargs
     ):
         super(MicrosoftGraphUser, self).__init__(id=id, deleted_date_time=deleted_date_time, **kwargs)
@@ -15348,7 +15593,6 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.usage_location = usage_location
         self.user_principal_name = user_principal_name
         self.user_type = user_type
-        self.mailbox_settings = mailbox_settings
         self.device_enrollment_limit = device_enrollment_limit
         self.about_me = about_me
         self.birthday = birthday
@@ -15379,10 +15623,8 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.contact_folders = contact_folders
         self.contacts = contacts
         self.events = events
-        self.inference_classification = inference_classification
         self.mail_folders = mail_folders
         self.messages = messages
-        self.outlook = outlook
         self.people = people
         self.photo = photo
         self.photos = photos
@@ -15393,13 +15635,45 @@ class MicrosoftGraphUser(MicrosoftGraphDirectoryObject):
         self.managed_devices = managed_devices
         self.managed_app_registrations = managed_app_registrations
         self.device_management_troubleshooting_events = device_management_troubleshooting_events
-        self.planner = planner
-        self.insights = insights
-        self.settings = settings
-        self.onenote = onenote
         self.activities = activities
         self.online_meetings = online_meetings
         self.joined_teams = joined_teams
+        self.id_onenote_id = id_onenote_id
+        self.notebooks = notebooks
+        self.operations = operations
+        self.pages = pages
+        self.resources = resources
+        self.section_groups = section_groups
+        self.sections = sections
+        self.id_settings_id = id_settings_id
+        self.contribution_to_content_discovery_as_organization_disabled = contribution_to_content_discovery_as_organization_disabled
+        self.contribution_to_content_discovery_disabled = contribution_to_content_discovery_disabled
+        self.id_settings_shift_preferences_id = id_settings_shift_preferences_id
+        self.created_date_time_settings_shift_preferences_created_date_time = created_date_time_settings_shift_preferences_created_date_time
+        self.last_modified_date_time = last_modified_date_time
+        self.application = application
+        self.device = device
+        self.user = user
+        self.availability = availability
+        self.id_insights_id = id_insights_id
+        self.shared = shared
+        self.trending = trending
+        self.used = used
+        self.id_planner_id = id_planner_id
+        self.plans = plans
+        self.tasks = tasks
+        self.id_outlook_id = id_outlook_id
+        self.master_categories = master_categories
+        self.id_inference_classification_id = id_inference_classification_id
+        self.overrides = overrides
+        self.archive_folder = archive_folder
+        self.automatic_replies_setting = automatic_replies_setting
+        self.date_format = date_format
+        self.delegate_meeting_message_delivery_options = delegate_meeting_message_delivery_options
+        self.language = language
+        self.time_format = time_format
+        self.time_zone = time_zone
+        self.working_hours = working_hours
 
 
 class MicrosoftGraphUserActivity(MicrosoftGraphEntity):
@@ -15529,8 +15803,25 @@ class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
     :type contribution_to_content_discovery_as_organization_disabled: bool
     :param contribution_to_content_discovery_disabled:
     :type contribution_to_content_discovery_disabled: bool
-    :param shift_preferences: shiftPreferences.
-    :type shift_preferences: ~users.models.MicrosoftGraphShiftPreferences
+    :param id_shift_preferences_id: Read-only.
+    :type id_shift_preferences_id: str
+    :param created_date_time: The Timestamp type represents date and time information using ISO
+     8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like
+     this: '2014-01-01T00:00:00Z'.
+    :type created_date_time: ~datetime.datetime
+    :param last_modified_date_time: The Timestamp type represents date and time information using
+     ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look
+     like this: '2014-01-01T00:00:00Z'.
+    :type last_modified_date_time: ~datetime.datetime
+    :param application: identity.
+    :type application: ~users.models.MicrosoftGraphIdentity
+    :param device: identity.
+    :type device: ~users.models.MicrosoftGraphIdentity
+    :param user: identity.
+    :type user: ~users.models.MicrosoftGraphIdentity
+    :param availability: Availability of the user to be scheduled for work and its recurrence
+     pattern.
+    :type availability: list[~users.models.MicrosoftGraphShiftAvailability]
     """
 
     _attribute_map = {
@@ -15538,7 +15829,13 @@ class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'contribution_to_content_discovery_as_organization_disabled': {'key': 'contributionToContentDiscoveryAsOrganizationDisabled', 'type': 'bool'},
         'contribution_to_content_discovery_disabled': {'key': 'contributionToContentDiscoveryDisabled', 'type': 'bool'},
-        'shift_preferences': {'key': 'shiftPreferences', 'type': 'MicrosoftGraphShiftPreferences'},
+        'id_shift_preferences_id': {'key': 'shiftPreferences.id', 'type': 'str'},
+        'created_date_time': {'key': 'shiftPreferences.createdDateTime', 'type': 'iso-8601'},
+        'last_modified_date_time': {'key': 'shiftPreferences.lastModifiedDateTime', 'type': 'iso-8601'},
+        'application': {'key': 'shiftPreferences.lastModifiedBy.application', 'type': 'MicrosoftGraphIdentity'},
+        'device': {'key': 'shiftPreferences.lastModifiedBy.device', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'shiftPreferences.lastModifiedBy.user', 'type': 'MicrosoftGraphIdentity'},
+        'availability': {'key': 'shiftPreferences.availability', 'type': '[MicrosoftGraphShiftAvailability]'},
     }
 
     def __init__(
@@ -15548,14 +15845,26 @@ class MicrosoftGraphUserSettings(MicrosoftGraphEntity):
         additional_properties: Optional[Dict[str, object]] = None,
         contribution_to_content_discovery_as_organization_disabled: Optional[bool] = None,
         contribution_to_content_discovery_disabled: Optional[bool] = None,
-        shift_preferences: Optional["MicrosoftGraphShiftPreferences"] = None,
+        id_shift_preferences_id: Optional[str] = None,
+        created_date_time: Optional[datetime.datetime] = None,
+        last_modified_date_time: Optional[datetime.datetime] = None,
+        application: Optional["MicrosoftGraphIdentity"] = None,
+        device: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["MicrosoftGraphIdentity"] = None,
+        availability: Optional[List["MicrosoftGraphShiftAvailability"]] = None,
         **kwargs
     ):
         super(MicrosoftGraphUserSettings, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.contribution_to_content_discovery_as_organization_disabled = contribution_to_content_discovery_as_organization_disabled
         self.contribution_to_content_discovery_disabled = contribution_to_content_discovery_disabled
-        self.shift_preferences = shift_preferences
+        self.id_shift_preferences_id = id_shift_preferences_id
+        self.created_date_time = created_date_time
+        self.last_modified_date_time = last_modified_date_time
+        self.application = application
+        self.device = device
+        self.user = user
+        self.availability = availability
 
 
 class MicrosoftGraphVideo(msrest.serialization.Model):

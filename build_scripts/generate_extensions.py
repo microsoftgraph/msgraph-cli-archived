@@ -18,15 +18,14 @@ def generate_extension_from_open_api_description(version='v1_0'):
             generate_cli_config_for(file_name)
             generate_python_config_for(file_name)
 
-            print(file_path)
-            print('------------------------')
             subprocess.run([
                 'autorest',
                 '--version=3.0.6370',
+                '--sdk-flatten',
                 '--az',
                 f'''--input-file={file_path}''',
                 f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-                r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210217.3/autorest-az-1.7.3.tgz''',
+                r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210302.1/autorest-az-1.7.3.tgz''',
             ],
                            shell=True)
 
@@ -112,19 +111,19 @@ directive:
       set:
           group: {parsed_file_name}
     - where:
-          command: create-{parsed_file_name}
+          command: {file_name} {parsed_file_name} create-{parsed_file_name}
       set:
           command: create
     - where:
-          command: get-{parsed_file_name}
+          command: {file_name} {parsed_file_name} get-{parsed_file_name}
       set:
           command: get
     - where:
-          command: list-{parsed_file_name}
+          command: {file_name} {parsed_file_name} list-{parsed_file_name}
       set:
           command: list
     - where:
-          command: update-{parsed_file_name}
+          command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
           command: update
 

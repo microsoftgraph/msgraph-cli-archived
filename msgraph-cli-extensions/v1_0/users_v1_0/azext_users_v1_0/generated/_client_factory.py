@@ -19,16 +19,16 @@ def cf_users_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user_user(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).users_user
+    return cf_users_v1_0_cl(cli_ctx).user_user
 
 
 def cf_user(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).users
+    return cf_users_v1_0_cl(cli_ctx).user
 
 
 def cf_user_outlook(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).users_outlook
+    return cf_users_v1_0_cl(cli_ctx).user_outlook
 
 
 def cf_user_setting(cli_ctx, *_):
-    return cf_users_v1_0_cl(cli_ctx).users_settings
+    return cf_users_v1_0_cl(cli_ctx).user_setting
