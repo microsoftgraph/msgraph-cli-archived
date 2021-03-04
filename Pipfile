@@ -36,3 +36,4 @@ portalocker = ">=1.6"
 zipp = {path = "."}
 pytest = "*"
 knack = "==0.8.0rc2"
+pywin32 = "*"

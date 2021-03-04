@@ -11,23 +11,21 @@ def generate_extension_from_open_api_description(version='v1_0'):
         file_name, file_path = item
         file_name = remove_file_extension_and_group(file_name)
 
-        # TODO: Remove this condition
-        if file_name == 'users':
-            # Config files are used to modify generated extensions
-            generate_az_config_for(file_name, version)
-            generate_cli_config_for(file_name)
-            generate_python_config_for(file_name)
+        # Config files are used to modify generated extensions
+        generate_az_config_for(file_name, version)
+        generate_cli_config_for(file_name)
+        generate_python_config_for(file_name)
 
-            subprocess.run([
-                'autorest',
-                '--version=3.0.6370',
-                '--sdk-flatten',
-                '--az',
-                f'''--input-file={file_path}''',
-                f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-                r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210302.1/autorest-az-1.7.3.tgz''',
-            ],
-                           shell=True)
+        subprocess.run([
+            'autorest',
+            '--version=3.0.6370',
+            '--sdk-flatten',
+            '--az',
+            f'''--input-file={file_path}''',
+            f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
+            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210302.1/autorest-az-1.7.3.tgz''',
+        ],
+                       shell=True)
 
 
 def get_open_api_descriptions(version: str):
@@ -175,5 +173,4 @@ def write_to(file, config):
 
 
 generate_extension_from_open_api_description(version='v1_0')
-# TODO: Uncomment this part
-# generate_extension_from_open_api_description(version='beta')
+generate_extension_from_open_api_description(version='beta')
