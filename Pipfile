@@ -12,6 +12,7 @@ jinja2 = "*"
 mock = "*"
 pytest = "*"
 mock-open = "*"
+bump2version = "*"
 
 [packages]
 argcomplete = "~=1.8"
