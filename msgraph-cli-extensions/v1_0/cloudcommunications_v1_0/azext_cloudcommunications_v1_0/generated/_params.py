@@ -20,11 +20,6 @@ from azext_cloudcommunications_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('cloudcommunications user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('cloudcommunications user create-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -42,6 +37,11 @@ def load_arguments(self, _):
                    arg_group='Participants')
         c.argument('organizer', type=validate_file_or_dict, help='meetingParticipantInfo Expected value: '
                    'json-string/@json-file.', arg_group='Participants')
+
+    with self.argument_context('cloudcommunications user delete-online-meeting') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('online_meeting_id', type=str, help='key: id of onlineMeeting')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('cloudcommunications user list-online-meeting') as c:
         c.argument('user_id', type=str, help='key: id of user')

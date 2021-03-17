@@ -20,13 +20,13 @@
 ### <a name="CommandsIneducation">Commands in `az education education` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az education education delete](#educationDeleteClasses)|DeleteClasses|[Parameters](#ParameterseducationDeleteClasses)|Not Found|
-|[az education education delete](#educationDeleteSchools)|DeleteSchools|[Parameters](#ParameterseducationDeleteSchools)|Not Found|
-|[az education education delete](#educationDeleteUsers)|DeleteUsers|[Parameters](#ParameterseducationDeleteUsers)|Not Found|
-|[az education education delete](#educationDeleteMe)|DeleteMe|[Parameters](#ParameterseducationDeleteMe)|Not Found|
 |[az education education create-class](#educationCreateClasses)|CreateClasses|[Parameters](#ParameterseducationCreateClasses)|Not Found|
 |[az education education create-school](#educationCreateSchools)|CreateSchools|[Parameters](#ParameterseducationCreateSchools)|Not Found|
 |[az education education create-user](#educationCreateUsers)|CreateUsers|[Parameters](#ParameterseducationCreateUsers)|Not Found|
+|[az education education delete-class](#educationDeleteClasses)|DeleteClasses|[Parameters](#ParameterseducationDeleteClasses)|Not Found|
+|[az education education delete-me](#educationDeleteMe)|DeleteMe|[Parameters](#ParameterseducationDeleteMe)|Not Found|
+|[az education education delete-school](#educationDeleteSchools)|DeleteSchools|[Parameters](#ParameterseducationDeleteSchools)|Not Found|
+|[az education education delete-user](#educationDeleteUsers)|DeleteUsers|[Parameters](#ParameterseducationDeleteUsers)|Not Found|
 |[az education education list-class](#educationListClasses)|ListClasses|[Parameters](#ParameterseducationListClasses)|Not Found|
 |[az education education list-school](#educationListSchools)|ListSchools|[Parameters](#ParameterseducationListSchools)|Not Found|
 |[az education education list-user](#educationListUsers)|ListUsers|[Parameters](#ParameterseducationListUsers)|Not Found|
@@ -42,10 +42,10 @@
 ### <a name="CommandsIneducation.classes">Commands in `az education education-class` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az education education-class delete](#education.classesDeleteRefGroup)|DeleteRefGroup|[Parameters](#Parameterseducation.classesDeleteRefGroup)|Not Found|
 |[az education education-class create-ref-member](#education.classesCreateRefMembers)|CreateRefMembers|[Parameters](#Parameterseducation.classesCreateRefMembers)|Not Found|
 |[az education education-class create-ref-school](#education.classesCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.classesCreateRefSchools)|Not Found|
 |[az education education-class create-ref-teacher](#education.classesCreateRefTeachers)|CreateRefTeachers|[Parameters](#Parameterseducation.classesCreateRefTeachers)|Not Found|
+|[az education education-class delete-ref-group](#education.classesDeleteRefGroup)|DeleteRefGroup|[Parameters](#Parameterseducation.classesDeleteRefGroup)|Not Found|
 |[az education education-class list-member](#education.classesListMembers)|ListMembers|[Parameters](#Parameterseducation.classesListMembers)|Not Found|
 |[az education education-class list-ref-member](#education.classesListRefMembers)|ListRefMembers|[Parameters](#Parameterseducation.classesListRefMembers)|Not Found|
 |[az education education-class list-ref-school](#education.classesListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.classesListRefSchools)|Not Found|
@@ -59,9 +59,9 @@
 ### <a name="CommandsIneducation.me">Commands in `az education education-me` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az education education-me delete](#education.meDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.meDeleteRefUser)|Not Found|
 |[az education education-me create-ref-class](#education.meCreateRefClasses)|CreateRefClasses|[Parameters](#Parameterseducation.meCreateRefClasses)|Not Found|
 |[az education education-me create-ref-school](#education.meCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.meCreateRefSchools)|Not Found|
+|[az education education-me delete-ref-user](#education.meDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.meDeleteRefUser)|Not Found|
 |[az education education-me list-class](#education.meListClasses)|ListClasses|[Parameters](#Parameterseducation.meListClasses)|Not Found|
 |[az education education-me list-ref-class](#education.meListRefClasses)|ListRefClasses|[Parameters](#Parameterseducation.meListRefClasses)|Not Found|
 |[az education education-me list-ref-school](#education.meListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.meListRefSchools)|Not Found|
@@ -89,9 +89,9 @@
 ### <a name="CommandsIneducation.users">Commands in `az education education-user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az education education-user delete](#education.usersDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.usersDeleteRefUser)|Not Found|
 |[az education education-user create-ref-class](#education.usersCreateRefClasses)|CreateRefClasses|[Parameters](#Parameterseducation.usersCreateRefClasses)|Not Found|
 |[az education education-user create-ref-school](#education.usersCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.usersCreateRefSchools)|Not Found|
+|[az education education-user delete-ref-user](#education.usersDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.usersDeleteRefUser)|Not Found|
 |[az education education-user list-class](#education.usersListClasses)|ListClasses|[Parameters](#Parameterseducation.usersListClasses)|Not Found|
 |[az education education-user list-ref-class](#education.usersListRefClasses)|ListRefClasses|[Parameters](#Parameterseducation.usersListRefClasses)|Not Found|
 |[az education education-user list-ref-school](#education.usersListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.usersListRefSchools)|Not Found|
@@ -104,33 +104,6 @@
 ## COMMAND DETAILS
 
 ### group `az education education`
-#### <a name="educationDeleteClasses">Command `az education education delete`</a>
-
-##### <a name="ParameterseducationDeleteClasses">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="educationDeleteSchools">Command `az education education delete`</a>
-
-##### <a name="ParameterseducationDeleteSchools">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
-
-#### <a name="educationDeleteUsers">Command `az education education delete`</a>
-
-##### <a name="ParameterseducationDeleteUsers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-
-#### <a name="educationDeleteMe">Command `az education education delete`</a>
-
-##### <a name="ParameterseducationDeleteMe">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="educationCreateClasses">Command `az education education create-class`</a>
 
 ##### <a name="ParameterseducationCreateClasses">Parameters</a> 
@@ -218,6 +191,37 @@
 |**--application**|object|identity|application|application|
 |**--device**|object|identity|device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="educationDeleteClasses">Command `az education education delete-class`</a>
+
+##### <a name="ParameterseducationDeleteClasses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="educationDeleteMe">Command `az education education delete-me`</a>
+
+##### <a name="ParameterseducationDeleteMe">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="educationDeleteSchools">Command `az education education delete-school`</a>
+
+##### <a name="ParameterseducationDeleteSchools">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="educationDeleteUsers">Command `az education education delete-user`</a>
+
+##### <a name="ParameterseducationDeleteUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="educationListClasses">Command `az education education list-class`</a>
 
@@ -414,14 +418,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az education education-class`
-#### <a name="education.classesDeleteRefGroup">Command `az education education-class delete`</a>
-
-##### <a name="Parameterseducation.classesDeleteRefGroup">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="education.classesCreateRefMembers">Command `az education education-class create-ref-member`</a>
 
 ##### <a name="Parameterseducation.classesCreateRefMembers">Parameters</a> 
@@ -445,6 +441,14 @@
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="education.classesDeleteRefGroup">Command `az education education-class delete-ref-group`</a>
+
+##### <a name="Parameterseducation.classesDeleteRefGroup">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="education.classesListMembers">Command `az education education-class list-member`</a>
 
@@ -525,13 +529,6 @@
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 
 ### group `az education education-me`
-#### <a name="education.meDeleteRefUser">Command `az education education-me delete`</a>
-
-##### <a name="Parameterseducation.meDeleteRefUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="education.meCreateRefClasses">Command `az education education-me create-ref-class`</a>
 
 ##### <a name="Parameterseducation.meCreateRefClasses">Parameters</a> 
@@ -545,6 +542,13 @@
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="education.meDeleteRefUser">Command `az education education-me delete-ref-user`</a>
+
+##### <a name="Parameterseducation.meDeleteRefUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="education.meListClasses">Command `az education education-me list-class`</a>
 
@@ -672,14 +676,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az education education-user`
-#### <a name="education.usersDeleteRefUser">Command `az education education-user delete`</a>
-
-##### <a name="Parameterseducation.usersDeleteRefUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="education.usersCreateRefClasses">Command `az education education-user create-ref-class`</a>
 
 ##### <a name="Parameterseducation.usersCreateRefClasses">Parameters</a> 
@@ -695,6 +691,14 @@
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="education.usersDeleteRefUser">Command `az education education-user delete-ref-user`</a>
+
+##### <a name="Parameterseducation.usersDeleteRefUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="education.usersListClasses">Command `az education education-user list-class`</a>
 

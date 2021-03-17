@@ -27,9 +27,11 @@ def load_command_table(self, _):
         schemaextensions_v1_0_schema_extension_schema_extension,
         client_factory=cf_schema_extension_schema_extension,
     ) as g:
-        g.custom_command('delete', 'schemaextensions_schema_extension_schema_extension_delete', confirmation=True)
         g.custom_command(
             'create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_extension'
+        )
+        g.custom_command(
+            'delete-schema-extension', 'schemaextensions_schema_extension_schema_extension_delete_schema_extension'
         )
         g.custom_command(
             'list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_extension'

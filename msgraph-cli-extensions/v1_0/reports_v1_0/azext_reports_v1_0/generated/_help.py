@@ -75,12 +75,6 @@ helps['reports audit-log'] = """
     short-summary: Manage audit log with reports_v1_0
 """
 
-helps['reports audit-log delete'] = """
-    type: command
-    short-summary: "Delete navigation property directoryAudits for auditLogs And Delete navigation property \
-restrictedSignIns for auditLogs And Delete navigation property signIns for auditLogs."
-"""
-
 helps['reports audit-log create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs."
@@ -94,23 +88,6 @@ helps['reports audit-log create-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -234,6 +211,21 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
+helps['reports audit-log delete-directory-audit'] = """
+    type: command
+    short-summary: "Delete navigation property directoryAudits for auditLogs."
+"""
+
+helps['reports audit-log delete-restricted-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property restrictedSignIns for auditLogs."
+"""
+
+helps['reports audit-log delete-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property signIns for auditLogs."
+"""
+
 helps['reports audit-log list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
@@ -277,23 +269,6 @@ helps['reports audit-log update-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |

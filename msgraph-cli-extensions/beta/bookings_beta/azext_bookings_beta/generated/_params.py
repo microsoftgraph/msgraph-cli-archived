@@ -17,28 +17,22 @@ from msgraph.cli.core.commands.parameters import (
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_bookings_beta.action import (
     AddAddress,
-    AddBusinessHours,
     AddSchedulingPolicy,
     AddCustomers,
     AddEnd,
     AddReminders,
     AddCoordinates,
-    AddDefaultReminders,
-    AddWorkingHours
+    AddDefaultReminders
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('bookings booking-business-booking-business delete') as c:
-        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('bookings booking-business-booking-business create-booking-business') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
-        c.argument('business_hours', action=AddBusinessHours, nargs='+', help='')
+        c.argument('business_hours', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('business_type', type=str, help='')
         c.argument('default_currency_iso', type=str, help='')
         c.argument('email', type=str, help='')
@@ -57,6 +51,10 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('staff_members', type=validate_file_or_dict, help='All staff members that provides services in this '
                    'business. Expected value: json-string/@json-file.')
+
+    with self.argument_context('bookings booking-business-booking-business delete-booking-business') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('bookings booking-business-booking-business list-booking-business') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -73,7 +71,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Display name of this entity.')
         c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
-        c.argument('business_hours', action=AddBusinessHours, nargs='+', help='')
+        c.argument('business_hours', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('business_type', type=str, help='')
         c.argument('default_currency_iso', type=str, help='')
         c.argument('email', type=str, help='')
@@ -92,14 +90,6 @@ def load_arguments(self, _):
                    'value: json-string/@json-file.')
         c.argument('staff_members', type=validate_file_or_dict, help='All staff members that provides services in this '
                    'business. Expected value: json-string/@json-file.')
-
-    with self.argument_context('bookings booking-business delete') as c:
-        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
-        c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('booking_customer_id', type=str, help='key: id of bookingCustomer')
-        c.argument('booking_service_id', type=str, help='key: id of bookingService')
-        c.argument('booking_staff_member_id', type=str, help='key: id of bookingStaffMember')
 
     with self.argument_context('bookings booking-business create-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
@@ -297,7 +287,32 @@ def load_arguments(self, _):
         c.argument('color_index', type=int, help='')
         c.argument('role', arg_type=get_enum_type(['guest', 'administrator', 'viewer', 'externalGuest']), help='')
         c.argument('use_business_hours', arg_type=get_three_state_flag(), help='')
-        c.argument('working_hours', action=AddWorkingHours, nargs='+', help='')
+        c.argument('working_hours', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('bookings booking-business delete-appointment') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('bookings booking-business delete-calendar-view') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('bookings booking-business delete-customer') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('booking_customer_id', type=str, help='key: id of bookingCustomer')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('bookings booking-business delete-service') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('booking_service_id', type=str, help='key: id of bookingService')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('bookings booking-business delete-staff-member') as c:
+        c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
+        c.argument('booking_staff_member_id', type=str, help='key: id of bookingStaffMember')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('bookings booking-business list-appointment') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
@@ -574,7 +589,7 @@ def load_arguments(self, _):
         c.argument('color_index', type=int, help='')
         c.argument('role', arg_type=get_enum_type(['guest', 'administrator', 'viewer', 'externalGuest']), help='')
         c.argument('use_business_hours', arg_type=get_three_state_flag(), help='')
-        c.argument('working_hours', action=AddWorkingHours, nargs='+', help='')
+        c.argument('working_hours', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('bookings booking-business-appointment cancel') as c:
         c.argument('booking_business_id', type=str, help='key: id of bookingBusiness')
@@ -586,13 +601,13 @@ def load_arguments(self, _):
         c.argument('booking_appointment_id', type=str, help='key: id of bookingAppointment')
         c.argument('cancellation_message', type=str, help='')
 
-    with self.argument_context('bookings booking-currency-booking-currency delete') as c:
-        c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('bookings booking-currency-booking-currency create-booking-currency') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('symbol', type=str, help='')
+
+    with self.argument_context('bookings booking-currency-booking-currency delete-booking-currency') as c:
+        c.argument('booking_currency_id', type=str, help='key: id of bookingCurrency')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('bookings booking-currency-booking-currency list-booking-currency') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')

@@ -28,21 +28,6 @@ def reports_audit_log_audit_log_root_update_audit_log_root(client,
                                         sign_ins=sign_ins)
 
 
-def reports_audit_log_delete(client,
-                             directory_audit_id=None,
-                             if_match=None,
-                             restricted_sign_in_id=None,
-                             sign_in_id=None):
-    if directory_audit_id is not None:
-        return client.delete_directory_audit(directory_audit_id=directory_audit_id,
-                                             if_match=if_match)
-    elif restricted_sign_in_id is not None:
-        return client.delete_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                                if_match=if_match)
-    return client.delete_sign_in(sign_in_id=sign_in_id,
-                                 if_match=if_match)
-
-
 def reports_audit_log_create_directory_audit(client,
                                              id_=None,
                                              activity_date_time=None,
@@ -186,6 +171,27 @@ def reports_audit_log_create_sign_in(client,
                                  country_or_region=country_or_region,
                                  geo_coordinates=geo_coordinates,
                                  state=state)
+
+
+def reports_audit_log_delete_directory_audit(client,
+                                             directory_audit_id,
+                                             if_match=None):
+    return client.delete_directory_audit(directory_audit_id=directory_audit_id,
+                                         if_match=if_match)
+
+
+def reports_audit_log_delete_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                if_match=None):
+    return client.delete_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
+                                            if_match=if_match)
+
+
+def reports_audit_log_delete_sign_in(client,
+                                     sign_in_id,
+                                     if_match=None):
+    return client.delete_sign_in(sign_in_id=sign_in_id,
+                                 if_match=if_match)
 
 
 def reports_audit_log_list_directory_audit(client,

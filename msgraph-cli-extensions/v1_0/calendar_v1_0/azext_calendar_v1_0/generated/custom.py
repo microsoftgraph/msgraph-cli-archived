@@ -11,22 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def calendar_group_delete(client,
-                          group_id,
-                          event_id=None,
-                          if_match=None):
-    if group_id is not None and event_id is not None:
-        return client.delete_calendar_view(group_id=group_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif group_id is not None and event_id is not None:
-        return client.delete_event(group_id=group_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    return client.delete_calendar(group_id=group_id,
-                                  if_match=if_match)
-
-
 def calendar_group_create_calendar_view(client,
                                         group_id,
                                         body,
@@ -267,6 +251,31 @@ def calendar_group_create_event(client,
                                location_uri=location_uri,
                                unique_id=unique_id,
                                unique_id_type=unique_id_type)
+
+
+def calendar_group_delete_calendar(client,
+                                   group_id,
+                                   if_match=None):
+    return client.delete_calendar(group_id=group_id,
+                                  if_match=if_match)
+
+
+def calendar_group_delete_calendar_view(client,
+                                        group_id,
+                                        event_id,
+                                        if_match=None):
+    return client.delete_calendar_view(group_id=group_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_group_delete_event(client,
+                                group_id,
+                                event_id,
+                                if_match=None):
+    return client.delete_event(group_id=group_id,
+                               event_id=event_id,
+                               if_match=if_match)
 
 
 def calendar_group_list_calendar_view(client,
@@ -615,34 +624,6 @@ def calendar_group_update_event(client,
                                unique_id_type=unique_id_type)
 
 
-def calendar_group_calendar_delete(client,
-                                   group_id,
-                                   calendar_permission_id=None,
-                                   if_match=None,
-                                   event_id=None,
-                                   multi_value_legacy_extended_property_id=None,
-                                   single_value_legacy_extended_property_id=None):
-    if group_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(group_id=group_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif group_id is not None and event_id is not None:
-        return client.delete_calendar_view(group_id=group_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif group_id is not None and event_id is not None:
-        return client.delete_event(group_id=group_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    elif group_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_group_calendar_create_calendar_permission(client,
                                                        group_id,
                                                        id_=None,
@@ -918,6 +899,51 @@ def calendar_group_calendar_create_single_value_extended_property(client,
     return client.create_single_value_extended_property(group_id=group_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_calendar_delete_calendar_permission(client,
+                                                       group_id,
+                                                       calendar_permission_id,
+                                                       if_match=None):
+    return client.delete_calendar_permission(group_id=group_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_group_calendar_delete_calendar_view(client,
+                                                 group_id,
+                                                 event_id,
+                                                 if_match=None):
+    return client.delete_calendar_view(group_id=group_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_group_calendar_delete_event(client,
+                                         group_id,
+                                         event_id,
+                                         if_match=None):
+    return client.delete_event(group_id=group_id,
+                               event_id=event_id,
+                               if_match=if_match)
+
+
+def calendar_group_calendar_delete_multi_value_extended_property(client,
+                                                                 group_id,
+                                                                 multi_value_legacy_extended_property_id,
+                                                                 if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_calendar_delete_single_value_extended_property(client,
+                                                                  group_id,
+                                                                  single_value_legacy_extended_property_id,
+                                                                  if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_calendar_list_calendar_permission(client,
@@ -1325,45 +1351,6 @@ def calendar_group_calendar_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_group_calendar_view_delete(client,
-                                        group_id,
-                                        event_id,
-                                        attachment_id=None,
-                                        if_match=None,
-                                        extension_id=None,
-                                        event_id1=None,
-                                        multi_value_legacy_extended_property_id=None,
-                                        single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(group_id=group_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif group_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(group_id=group_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(group_id=group_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(group_id=group_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(group_id=group_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_group_calendar_view_create_attachment(client,
                                                    group_id,
                                                    event_id,
@@ -1535,6 +1522,70 @@ def calendar_group_calendar_view_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_calendar_view_delete_attachment(client,
+                                                   group_id,
+                                                   event_id,
+                                                   attachment_id,
+                                                   if_match=None):
+    return client.delete_attachment(group_id=group_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_calendar(client,
+                                                 group_id,
+                                                 event_id,
+                                                 if_match=None):
+    return client.delete_calendar(group_id=group_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_extension(client,
+                                                  group_id,
+                                                  event_id,
+                                                  extension_id,
+                                                  if_match=None):
+    return client.delete_extension(group_id=group_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_instance(client,
+                                                 group_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 if_match=None):
+    return client.delete_instance(group_id=group_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_multi_value_extended_property(client,
+                                                                      group_id,
+                                                                      event_id,
+                                                                      multi_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_single_value_extended_property(client,
+                                                                       group_id,
+                                                                       event_id,
+                                                                       single_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_calendar_view_list_attachment(client,
@@ -1902,45 +1953,6 @@ def calendar_group_calendar_view_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_group_calendar_event_delete(client,
-                                         group_id,
-                                         event_id,
-                                         attachment_id=None,
-                                         if_match=None,
-                                         extension_id=None,
-                                         event_id1=None,
-                                         multi_value_legacy_extended_property_id=None,
-                                         single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(group_id=group_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif group_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(group_id=group_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(group_id=group_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(group_id=group_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(group_id=group_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_group_calendar_event_create_attachment(client,
                                                     group_id,
                                                     event_id,
@@ -2112,6 +2124,70 @@ def calendar_group_calendar_event_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_calendar_event_delete_attachment(client,
+                                                    group_id,
+                                                    event_id,
+                                                    attachment_id,
+                                                    if_match=None):
+    return client.delete_attachment(group_id=group_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_group_calendar_event_delete_calendar(client,
+                                                  group_id,
+                                                  event_id,
+                                                  if_match=None):
+    return client.delete_calendar(group_id=group_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_event_delete_extension(client,
+                                                   group_id,
+                                                   event_id,
+                                                   extension_id,
+                                                   if_match=None):
+    return client.delete_extension(group_id=group_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_group_calendar_event_delete_instance(client,
+                                                  group_id,
+                                                  event_id,
+                                                  event_id1,
+                                                  if_match=None):
+    return client.delete_instance(group_id=group_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_event_delete_multi_value_extended_property(client,
+                                                                       group_id,
+                                                                       event_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_calendar_event_delete_single_value_extended_property(client,
+                                                                        group_id,
+                                                                        event_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_calendar_event_list_attachment(client,
@@ -2479,45 +2555,6 @@ def calendar_group_calendar_event_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_group_calendar_view_delete(client,
-                                        group_id,
-                                        event_id,
-                                        attachment_id=None,
-                                        if_match=None,
-                                        extension_id=None,
-                                        event_id1=None,
-                                        multi_value_legacy_extended_property_id=None,
-                                        single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(group_id=group_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif group_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(group_id=group_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(group_id=group_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(group_id=group_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(group_id=group_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_group_calendar_view_create_attachment(client,
                                                    group_id,
                                                    event_id,
@@ -2689,6 +2726,70 @@ def calendar_group_calendar_view_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_calendar_view_delete_attachment(client,
+                                                   group_id,
+                                                   event_id,
+                                                   attachment_id,
+                                                   if_match=None):
+    return client.delete_attachment(group_id=group_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_calendar(client,
+                                                 group_id,
+                                                 event_id,
+                                                 if_match=None):
+    return client.delete_calendar(group_id=group_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_extension(client,
+                                                  group_id,
+                                                  event_id,
+                                                  extension_id,
+                                                  if_match=None):
+    return client.delete_extension(group_id=group_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_instance(client,
+                                                 group_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 if_match=None):
+    return client.delete_instance(group_id=group_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_multi_value_extended_property(client,
+                                                                      group_id,
+                                                                      event_id,
+                                                                      multi_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_calendar_view_delete_single_value_extended_property(client,
+                                                                       group_id,
+                                                                       event_id,
+                                                                       single_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_calendar_view_list_attachment(client,
@@ -3056,40 +3157,6 @@ def calendar_group_calendar_view_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_group_calendar_view_calendar_delete(client,
-                                                 group_id,
-                                                 event_id,
-                                                 calendar_permission_id=None,
-                                                 if_match=None,
-                                                 event_id1=None,
-                                                 multi_value_legacy_extended_property_id=None,
-                                                 single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(group_id=group_id,
-                                                 event_id=event_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_calendar_view(group_id=group_id,
-                                           event_id=event_id,
-                                           event_id1=event_id1,
-                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_event(group_id=group_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1,
-                                   if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_group_calendar_view_calendar_create_calendar_permission(client,
                                                                      group_id,
                                                                      event_id,
@@ -3375,6 +3442,61 @@ def calendar_group_calendar_view_calendar_create_single_value_extended_property(
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_calendar_view_calendar_delete_calendar_permission(client,
+                                                                     group_id,
+                                                                     event_id,
+                                                                     calendar_permission_id,
+                                                                     if_match=None):
+    return client.delete_calendar_permission(group_id=group_id,
+                                             event_id=event_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_group_calendar_view_calendar_delete_calendar_view(client,
+                                                               group_id,
+                                                               event_id,
+                                                               event_id1,
+                                                               if_match=None):
+    return client.delete_calendar_view(group_id=group_id,
+                                       event_id=event_id,
+                                       event_id1=event_id1,
+                                       if_match=if_match)
+
+
+def calendar_group_calendar_view_calendar_delete_event(client,
+                                                       group_id,
+                                                       event_id,
+                                                       event_id1,
+                                                       if_match=None):
+    return client.delete_event(group_id=group_id,
+                               event_id=event_id,
+                               event_id1=event_id1,
+                               if_match=if_match)
+
+
+def calendar_group_calendar_view_calendar_delete_multi_value_extended_property(client,
+                                                                               group_id,
+                                                                               event_id,
+                                                                               multi_value_legacy_extended_property_id,
+                                                                               if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_calendar_view_calendar_delete_single_value_extended_property(client,
+                                                                                group_id,
+                                                                                event_id,
+                                                                                single_value_legacy_extended_property_id,
+                                                                                if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_calendar_view_calendar_list_calendar_permission(client,
@@ -3804,45 +3926,6 @@ def calendar_group_calendar_view_calendar_update_single_value_extended_property(
                                                         value=value)
 
 
-def calendar_group_event_delete(client,
-                                group_id,
-                                event_id,
-                                attachment_id=None,
-                                if_match=None,
-                                extension_id=None,
-                                event_id1=None,
-                                multi_value_legacy_extended_property_id=None,
-                                single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(group_id=group_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif group_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(group_id=group_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(group_id=group_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(group_id=group_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(group_id=group_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_group_event_create_attachment(client,
                                            group_id,
                                            event_id,
@@ -4014,6 +4097,70 @@ def calendar_group_event_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_event_delete_attachment(client,
+                                           group_id,
+                                           event_id,
+                                           attachment_id,
+                                           if_match=None):
+    return client.delete_attachment(group_id=group_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_group_event_delete_calendar(client,
+                                         group_id,
+                                         event_id,
+                                         if_match=None):
+    return client.delete_calendar(group_id=group_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_group_event_delete_extension(client,
+                                          group_id,
+                                          event_id,
+                                          extension_id,
+                                          if_match=None):
+    return client.delete_extension(group_id=group_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_group_event_delete_instance(client,
+                                         group_id,
+                                         event_id,
+                                         event_id1,
+                                         if_match=None):
+    return client.delete_instance(group_id=group_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_group_event_delete_multi_value_extended_property(client,
+                                                              group_id,
+                                                              event_id,
+                                                              multi_value_legacy_extended_property_id,
+                                                              if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_event_delete_single_value_extended_property(client,
+                                                               group_id,
+                                                               event_id,
+                                                               single_value_legacy_extended_property_id,
+                                                               if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_event_list_attachment(client,
@@ -4381,40 +4528,6 @@ def calendar_group_event_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_group_event_calendar_delete(client,
-                                         group_id,
-                                         event_id,
-                                         calendar_permission_id=None,
-                                         if_match=None,
-                                         event_id1=None,
-                                         multi_value_legacy_extended_property_id=None,
-                                         single_value_legacy_extended_property_id=None):
-    if group_id is not None and event_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(group_id=group_id,
-                                                 event_id=event_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_calendar_view(group_id=group_id,
-                                           event_id=event_id,
-                                           event_id1=event_id1,
-                                           if_match=if_match)
-    elif group_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_event(group_id=group_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1,
-                                   if_match=if_match)
-    elif group_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(group_id=group_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(group_id=group_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_group_event_calendar_create_calendar_permission(client,
                                                              group_id,
                                                              event_id,
@@ -4700,6 +4813,61 @@ def calendar_group_event_calendar_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_group_event_calendar_delete_calendar_permission(client,
+                                                             group_id,
+                                                             event_id,
+                                                             calendar_permission_id,
+                                                             if_match=None):
+    return client.delete_calendar_permission(group_id=group_id,
+                                             event_id=event_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_group_event_calendar_delete_calendar_view(client,
+                                                       group_id,
+                                                       event_id,
+                                                       event_id1,
+                                                       if_match=None):
+    return client.delete_calendar_view(group_id=group_id,
+                                       event_id=event_id,
+                                       event_id1=event_id1,
+                                       if_match=if_match)
+
+
+def calendar_group_event_calendar_delete_event(client,
+                                               group_id,
+                                               event_id,
+                                               event_id1,
+                                               if_match=None):
+    return client.delete_event(group_id=group_id,
+                               event_id=event_id,
+                               event_id1=event_id1,
+                               if_match=if_match)
+
+
+def calendar_group_event_calendar_delete_multi_value_extended_property(client,
+                                                                       group_id,
+                                                                       event_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_multi_value_extended_property(group_id=group_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_group_event_calendar_delete_single_value_extended_property(client,
+                                                                        group_id,
+                                                                        event_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        if_match=None):
+    return client.delete_single_value_extended_property(group_id=group_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_group_event_calendar_list_calendar_permission(client,
@@ -5129,13 +5297,6 @@ def calendar_group_event_calendar_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_place_place_delete(client,
-                                place_id,
-                                if_match=None):
-    return client.delete_place(place_id=place_id,
-                               if_match=if_match)
-
-
 def calendar_place_place_create_place(client,
                                       id_=None,
                                       address=None,
@@ -5147,6 +5308,13 @@ def calendar_place_place_create_place(client,
                                display_name=display_name,
                                geo_coordinates=geo_coordinates,
                                phone=phone)
+
+
+def calendar_place_place_delete_place(client,
+                                      place_id,
+                                      if_match=None):
+    return client.delete_place(place_id=place_id,
+                               if_match=if_match)
 
 
 def calendar_place_place_list_place(client,
@@ -5180,32 +5348,6 @@ def calendar_place_place_update_place(client,
                                display_name=display_name,
                                geo_coordinates=geo_coordinates,
                                phone=phone)
-
-
-def calendar_user_delete(client,
-                         user_id,
-                         calendar_group_id=None,
-                         if_match=None,
-                         calendar_id=None,
-                         event_id=None):
-    if user_id is not None and calendar_group_id is not None:
-        return client.delete_calendar_group(user_id=user_id,
-                                            calendar_group_id=calendar_group_id,
-                                            if_match=if_match)
-    elif user_id is not None and calendar_id is not None:
-        return client.delete_calendar(user_id=user_id,
-                                      calendar_id=calendar_id,
-                                      if_match=if_match)
-    elif user_id is not None and event_id is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif user_id is not None and event_id is not None:
-        return client.delete_event(user_id=user_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  if_match=if_match)
 
 
 def calendar_user_create_calendar(client,
@@ -5502,6 +5644,45 @@ def calendar_user_create_event(client,
                                location_uri=location_uri,
                                unique_id=unique_id,
                                unique_id_type=unique_id_type)
+
+
+def calendar_user_delete_calendar(client,
+                                  user_id,
+                                  calendar_id=None,
+                                  if_match=None):
+    if user_id is not None and calendar_id is not None:
+        return client.delete_calendar(user_id=user_id,
+                                      calendar_id=calendar_id,
+                                      if_match=if_match)
+    return client.delete_calendar(user_id=user_id,
+                                  if_match=if_match)
+
+
+def calendar_user_delete_calendar_group(client,
+                                        user_id,
+                                        calendar_group_id,
+                                        if_match=None):
+    return client.delete_calendar_group(user_id=user_id,
+                                        calendar_group_id=calendar_group_id,
+                                        if_match=if_match)
+
+
+def calendar_user_delete_calendar_view(client,
+                                       user_id,
+                                       event_id,
+                                       if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_user_delete_event(client,
+                               user_id,
+                               event_id,
+                               if_match=None):
+    return client.delete_event(user_id=user_id,
+                               event_id=event_id,
+                               if_match=if_match)
 
 
 def calendar_user_list_calendar(client,
@@ -5927,34 +6108,6 @@ def calendar_user_update_event(client,
                                unique_id_type=unique_id_type)
 
 
-def calendar_user_calendar_delete(client,
-                                  user_id,
-                                  calendar_permission_id=None,
-                                  if_match=None,
-                                  event_id=None,
-                                  multi_value_legacy_extended_property_id=None,
-                                  single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(user_id=user_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif user_id is not None and event_id is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif user_id is not None and event_id is not None:
-        return client.delete_event(user_id=user_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    elif user_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_user_calendar_create_calendar_permission(client,
                                                       user_id,
                                                       id_=None,
@@ -6230,6 +6383,51 @@ def calendar_user_calendar_create_single_value_extended_property(client,
     return client.create_single_value_extended_property(user_id=user_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_delete_calendar_permission(client,
+                                                      user_id,
+                                                      calendar_permission_id,
+                                                      if_match=None):
+    return client.delete_calendar_permission(user_id=user_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_user_calendar_delete_calendar_view(client,
+                                                user_id,
+                                                event_id,
+                                                if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_user_calendar_delete_event(client,
+                                        user_id,
+                                        event_id,
+                                        if_match=None):
+    return client.delete_event(user_id=user_id,
+                               event_id=event_id,
+                               if_match=if_match)
+
+
+def calendar_user_calendar_delete_multi_value_extended_property(client,
+                                                                user_id,
+                                                                multi_value_legacy_extended_property_id,
+                                                                if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_delete_single_value_extended_property(client,
+                                                                 user_id,
+                                                                 single_value_legacy_extended_property_id,
+                                                                 if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_list_calendar_permission(client,
@@ -6637,45 +6835,6 @@ def calendar_user_calendar_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_view_delete(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_id=None,
-                                       if_match=None,
-                                       extension_id=None,
-                                       event_id1=None,
-                                       multi_value_legacy_extended_property_id=None,
-                                       single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_view_create_attachment(client,
                                                   user_id,
                                                   event_id,
@@ -6847,6 +7006,70 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_view_delete_attachment(client,
+                                                  user_id,
+                                                  event_id,
+                                                  attachment_id,
+                                                  if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_calendar(client,
+                                                user_id,
+                                                event_id,
+                                                if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_extension(client,
+                                                 user_id,
+                                                 event_id,
+                                                 extension_id,
+                                                 if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_instance(client,
+                                                user_id,
+                                                event_id,
+                                                event_id1,
+                                                if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     event_id,
+                                                                     multi_value_legacy_extended_property_id,
+                                                                     if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      event_id,
+                                                                      single_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -7214,45 +7437,6 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_event_delete(client,
-                                        user_id,
-                                        event_id,
-                                        attachment_id=None,
-                                        if_match=None,
-                                        extension_id=None,
-                                        event_id1=None,
-                                        multi_value_legacy_extended_property_id=None,
-                                        single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_event_create_attachment(client,
                                                    user_id,
                                                    event_id,
@@ -7424,6 +7608,70 @@ def calendar_user_calendar_event_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_event_delete_attachment(client,
+                                                   user_id,
+                                                   event_id,
+                                                   attachment_id,
+                                                   if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_calendar(client,
+                                                 user_id,
+                                                 event_id,
+                                                 if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_extension(client,
+                                                  user_id,
+                                                  event_id,
+                                                  extension_id,
+                                                  if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_instance(client,
+                                                 user_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_multi_value_extended_property(client,
+                                                                      user_id,
+                                                                      event_id,
+                                                                      multi_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_single_value_extended_property(client,
+                                                                       user_id,
+                                                                       event_id,
+                                                                       single_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_event_list_attachment(client,
@@ -7791,17 +8039,6 @@ def calendar_user_calendar_event_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_group_delete(client,
-                                        user_id,
-                                        calendar_group_id,
-                                        calendar_id,
-                                        if_match=None):
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_group_create_calendar(client,
                                                  user_id,
                                                  calendar_group_id,
@@ -7841,6 +8078,17 @@ def calendar_user_calendar_group_create_calendar(client,
                                   events=events,
                                   multi_value_extended_properties=multi_value_extended_properties,
                                   single_value_extended_properties=single_value_extended_properties)
+
+
+def calendar_user_calendar_group_delete_calendar(client,
+                                                 user_id,
+                                                 calendar_group_id,
+                                                 calendar_id,
+                                                 if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  if_match=if_match)
 
 
 def calendar_user_calendar_group_list_calendar(client,
@@ -7910,46 +8158,6 @@ def calendar_user_calendar_group_update_calendar(client,
                                   events=events,
                                   multi_value_extended_properties=multi_value_extended_properties,
                                   single_value_extended_properties=single_value_extended_properties)
-
-
-def calendar_user_calendar_group_calendar_delete(client,
-                                                 user_id,
-                                                 calendar_group_id,
-                                                 calendar_id,
-                                                 calendar_permission_id=None,
-                                                 if_match=None,
-                                                 event_id=None,
-                                                 multi_value_legacy_extended_property_id=None,
-                                                 single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_group_id is not None and calendar_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(user_id=user_id,
-                                                 calendar_group_id=calendar_group_id,
-                                                 calendar_id=calendar_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           calendar_group_id=calendar_group_id,
-                                           calendar_id=calendar_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None:
-        return client.delete_event(user_id=user_id,
-                                   calendar_group_id=calendar_group_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_group_id=calendar_group_id,
-                                                           calendar_id=calendar_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_group_id=calendar_group_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_create_calendar_permission(client,
@@ -8247,6 +8455,71 @@ def calendar_user_calendar_group_calendar_create_single_value_extended_property(
                                                         calendar_id=calendar_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_group_calendar_delete_calendar_permission(client,
+                                                                     user_id,
+                                                                     calendar_group_id,
+                                                                     calendar_id,
+                                                                     calendar_permission_id,
+                                                                     if_match=None):
+    return client.delete_calendar_permission(user_id=user_id,
+                                             calendar_group_id=calendar_group_id,
+                                             calendar_id=calendar_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_delete_calendar_view(client,
+                                                               user_id,
+                                                               calendar_group_id,
+                                                               calendar_id,
+                                                               event_id,
+                                                               if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       calendar_group_id=calendar_group_id,
+                                       calendar_id=calendar_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_delete_event(client,
+                                                       user_id,
+                                                       calendar_group_id,
+                                                       calendar_id,
+                                                       event_id,
+                                                       if_match=None):
+    return client.delete_event(user_id=user_id,
+                               calendar_group_id=calendar_group_id,
+                               calendar_id=calendar_id,
+                               event_id=event_id,
+                               if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_delete_multi_value_extended_property(client,
+                                                                               user_id,
+                                                                               calendar_group_id,
+                                                                               calendar_id,
+                                                                               multi_value_legacy_extended_property_id,
+                                                                               if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_delete_single_value_extended_property(client,
+                                                                                user_id,
+                                                                                calendar_group_id,
+                                                                                calendar_id,
+                                                                                single_value_legacy_extended_property_id,
+                                                                                if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_list_calendar_permission(client,
@@ -8706,59 +8979,6 @@ def calendar_user_calendar_group_calendar_update_single_value_extended_property(
                                                         value=value)
 
 
-def calendar_user_calendar_group_calendar_view_delete(client,
-                                                      user_id,
-                                                      calendar_group_id,
-                                                      calendar_id,
-                                                      event_id,
-                                                      attachment_id=None,
-                                                      if_match=None,
-                                                      extension_id=None,
-                                                      event_id1=None,
-                                                      multi_value_legacy_extended_property_id=None,
-                                                      single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       calendar_group_id=calendar_group_id,
-                                       calendar_id=calendar_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      calendar_group_id=calendar_group_id,
-                                      calendar_id=calendar_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_group_id=calendar_group_id,
-                                                           calendar_id=calendar_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            calendar_group_id=calendar_group_id,
-                                                            calendar_id=calendar_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_group_calendar_view_create_attachment(client,
                                                                  user_id,
                                                                  calendar_group_id,
@@ -8950,6 +9170,94 @@ def calendar_user_calendar_group_calendar_view_create_single_value_extended_prop
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_group_calendar_view_delete_attachment(client,
+                                                                 user_id,
+                                                                 calendar_group_id,
+                                                                 calendar_id,
+                                                                 event_id,
+                                                                 attachment_id,
+                                                                 if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_view_delete_calendar(client,
+                                                               user_id,
+                                                               calendar_group_id,
+                                                               calendar_id,
+                                                               event_id,
+                                                               if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_view_delete_extension(client,
+                                                                user_id,
+                                                                calendar_group_id,
+                                                                calendar_id,
+                                                                event_id,
+                                                                extension_id,
+                                                                if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_view_delete_instance(client,
+                                                               user_id,
+                                                               calendar_group_id,
+                                                               calendar_id,
+                                                               event_id,
+                                                               event_id1,
+                                                               if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_view_delete_multi_value_extended_property(client,
+                                                                                    user_id,
+                                                                                    calendar_group_id,
+                                                                                    calendar_id,
+                                                                                    event_id,
+                                                                                    multi_value_legacy_extended_property_id,
+                                                                                    if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_view_delete_single_value_extended_property(client,
+                                                                                     user_id,
+                                                                                     calendar_group_id,
+                                                                                     calendar_id,
+                                                                                     event_id,
+                                                                                     single_value_legacy_extended_property_id,
+                                                                                     if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_view_list_attachment(client,
@@ -9385,59 +9693,6 @@ def calendar_user_calendar_group_calendar_view_update_single_value_extended_prop
                                                         value=value)
 
 
-def calendar_user_calendar_group_calendar_event_delete(client,
-                                                       user_id,
-                                                       calendar_group_id,
-                                                       calendar_id,
-                                                       event_id,
-                                                       attachment_id=None,
-                                                       if_match=None,
-                                                       extension_id=None,
-                                                       event_id1=None,
-                                                       multi_value_legacy_extended_property_id=None,
-                                                       single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        calendar_group_id=calendar_group_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       calendar_group_id=calendar_group_id,
-                                       calendar_id=calendar_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      calendar_group_id=calendar_group_id,
-                                      calendar_id=calendar_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_group_id=calendar_group_id,
-                                                           calendar_id=calendar_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and calendar_group_id is not None and calendar_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            calendar_group_id=calendar_group_id,
-                                                            calendar_id=calendar_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_group_id=calendar_group_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_group_calendar_event_create_attachment(client,
                                                                   user_id,
                                                                   calendar_group_id,
@@ -9629,6 +9884,94 @@ def calendar_user_calendar_group_calendar_event_create_single_value_extended_pro
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_group_calendar_event_delete_attachment(client,
+                                                                  user_id,
+                                                                  calendar_group_id,
+                                                                  calendar_id,
+                                                                  event_id,
+                                                                  attachment_id,
+                                                                  if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    calendar_group_id=calendar_group_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_event_delete_calendar(client,
+                                                                user_id,
+                                                                calendar_group_id,
+                                                                calendar_id,
+                                                                event_id,
+                                                                if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_event_delete_extension(client,
+                                                                 user_id,
+                                                                 calendar_group_id,
+                                                                 calendar_id,
+                                                                 event_id,
+                                                                 extension_id,
+                                                                 if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   calendar_group_id=calendar_group_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_event_delete_instance(client,
+                                                                user_id,
+                                                                calendar_group_id,
+                                                                calendar_id,
+                                                                event_id,
+                                                                event_id1,
+                                                                if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  calendar_group_id=calendar_group_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_event_delete_multi_value_extended_property(client,
+                                                                                     user_id,
+                                                                                     calendar_group_id,
+                                                                                     calendar_id,
+                                                                                     event_id,
+                                                                                     multi_value_legacy_extended_property_id,
+                                                                                     if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_group_id=calendar_group_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_group_calendar_event_delete_single_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      calendar_group_id,
+                                                                                      calendar_id,
+                                                                                      event_id,
+                                                                                      single_value_legacy_extended_property_id,
+                                                                                      if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_group_id=calendar_group_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_group_calendar_event_list_attachment(client,
@@ -10064,40 +10407,6 @@ def calendar_user_calendar_group_calendar_event_update_single_value_extended_pro
                                                         value=value)
 
 
-def calendar_user_calendar_delete(client,
-                                  user_id,
-                                  calendar_id,
-                                  calendar_permission_id=None,
-                                  if_match=None,
-                                  event_id=None,
-                                  multi_value_legacy_extended_property_id=None,
-                                  single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(user_id=user_id,
-                                                 calendar_id=calendar_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           calendar_id=calendar_id,
-                                           event_id=event_id,
-                                           if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None:
-        return client.delete_event(user_id=user_id,
-                                   calendar_id=calendar_id,
-                                   event_id=event_id,
-                                   if_match=if_match)
-    elif user_id is not None and calendar_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_id=calendar_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        calendar_id=calendar_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_user_calendar_create_calendar_permission(client,
                                                       user_id,
                                                       calendar_id,
@@ -10383,6 +10692,61 @@ def calendar_user_calendar_create_single_value_extended_property(client,
                                                         calendar_id=calendar_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_delete_calendar_permission(client,
+                                                      user_id,
+                                                      calendar_id,
+                                                      calendar_permission_id,
+                                                      if_match=None):
+    return client.delete_calendar_permission(user_id=user_id,
+                                             calendar_id=calendar_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_user_calendar_delete_calendar_view(client,
+                                                user_id,
+                                                calendar_id,
+                                                event_id,
+                                                if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       calendar_id=calendar_id,
+                                       event_id=event_id,
+                                       if_match=if_match)
+
+
+def calendar_user_calendar_delete_event(client,
+                                        user_id,
+                                        calendar_id,
+                                        event_id,
+                                        if_match=None):
+    return client.delete_event(user_id=user_id,
+                               calendar_id=calendar_id,
+                               event_id=event_id,
+                               if_match=if_match)
+
+
+def calendar_user_calendar_delete_multi_value_extended_property(client,
+                                                                user_id,
+                                                                calendar_id,
+                                                                multi_value_legacy_extended_property_id,
+                                                                if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_delete_single_value_extended_property(client,
+                                                                 user_id,
+                                                                 calendar_id,
+                                                                 single_value_legacy_extended_property_id,
+                                                                 if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_list_calendar_permission(client,
@@ -10820,52 +11184,6 @@ def calendar_user_calendar_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_view_delete(client,
-                                       user_id,
-                                       calendar_id,
-                                       event_id,
-                                       attachment_id=None,
-                                       if_match=None,
-                                       extension_id=None,
-                                       event_id1=None,
-                                       multi_value_legacy_extended_property_id=None,
-                                       single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       calendar_id=calendar_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      calendar_id=calendar_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_id=calendar_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            calendar_id=calendar_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_view_create_attachment(client,
                                                   user_id,
                                                   calendar_id,
@@ -11047,6 +11365,82 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_view_delete_attachment(client,
+                                                  user_id,
+                                                  calendar_id,
+                                                  event_id,
+                                                  attachment_id,
+                                                  if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_calendar(client,
+                                                user_id,
+                                                calendar_id,
+                                                event_id,
+                                                if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_extension(client,
+                                                 user_id,
+                                                 calendar_id,
+                                                 event_id,
+                                                 extension_id,
+                                                 if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_instance(client,
+                                                user_id,
+                                                calendar_id,
+                                                event_id,
+                                                event_id1,
+                                                if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     calendar_id,
+                                                                     event_id,
+                                                                     multi_value_legacy_extended_property_id,
+                                                                     if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      calendar_id,
+                                                                      event_id,
+                                                                      single_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -11448,52 +11842,6 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_event_delete(client,
-                                        user_id,
-                                        calendar_id,
-                                        event_id,
-                                        attachment_id=None,
-                                        if_match=None,
-                                        extension_id=None,
-                                        event_id1=None,
-                                        multi_value_legacy_extended_property_id=None,
-                                        single_value_legacy_extended_property_id=None):
-    if user_id is not None and calendar_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        calendar_id=calendar_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       calendar_id=calendar_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      calendar_id=calendar_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           calendar_id=calendar_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and calendar_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            calendar_id=calendar_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  calendar_id=calendar_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_event_create_attachment(client,
                                                    user_id,
                                                    calendar_id,
@@ -11675,6 +12023,82 @@ def calendar_user_calendar_event_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_event_delete_attachment(client,
+                                                   user_id,
+                                                   calendar_id,
+                                                   event_id,
+                                                   attachment_id,
+                                                   if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    calendar_id=calendar_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_calendar(client,
+                                                 user_id,
+                                                 calendar_id,
+                                                 event_id,
+                                                 if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_extension(client,
+                                                  user_id,
+                                                  calendar_id,
+                                                  event_id,
+                                                  extension_id,
+                                                  if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   calendar_id=calendar_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_instance(client,
+                                                 user_id,
+                                                 calendar_id,
+                                                 event_id,
+                                                 event_id1,
+                                                 if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  calendar_id=calendar_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_multi_value_extended_property(client,
+                                                                      user_id,
+                                                                      calendar_id,
+                                                                      event_id,
+                                                                      multi_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       calendar_id=calendar_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_event_delete_single_value_extended_property(client,
+                                                                       user_id,
+                                                                       calendar_id,
+                                                                       event_id,
+                                                                       single_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        calendar_id=calendar_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_event_list_attachment(client,
@@ -12076,45 +12500,6 @@ def calendar_user_calendar_event_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_view_delete(client,
-                                       user_id,
-                                       event_id,
-                                       attachment_id=None,
-                                       if_match=None,
-                                       extension_id=None,
-                                       event_id1=None,
-                                       multi_value_legacy_extended_property_id=None,
-                                       single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_calendar_view_create_attachment(client,
                                                   user_id,
                                                   event_id,
@@ -12286,6 +12671,70 @@ def calendar_user_calendar_view_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_view_delete_attachment(client,
+                                                  user_id,
+                                                  event_id,
+                                                  attachment_id,
+                                                  if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_calendar(client,
+                                                user_id,
+                                                event_id,
+                                                if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_extension(client,
+                                                 user_id,
+                                                 event_id,
+                                                 extension_id,
+                                                 if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_instance(client,
+                                                user_id,
+                                                event_id,
+                                                event_id1,
+                                                if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_multi_value_extended_property(client,
+                                                                     user_id,
+                                                                     event_id,
+                                                                     multi_value_legacy_extended_property_id,
+                                                                     if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_view_delete_single_value_extended_property(client,
+                                                                      user_id,
+                                                                      event_id,
+                                                                      single_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_view_list_attachment(client,
@@ -12653,40 +13102,6 @@ def calendar_user_calendar_view_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_calendar_view_calendar_delete(client,
-                                                user_id,
-                                                event_id,
-                                                calendar_permission_id=None,
-                                                if_match=None,
-                                                event_id1=None,
-                                                multi_value_legacy_extended_property_id=None,
-                                                single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(user_id=user_id,
-                                                 event_id=event_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           event_id=event_id,
-                                           event_id1=event_id1,
-                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_event(user_id=user_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1,
-                                   if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_user_calendar_view_calendar_create_calendar_permission(client,
                                                                     user_id,
                                                                     event_id,
@@ -12972,6 +13387,61 @@ def calendar_user_calendar_view_calendar_create_single_value_extended_property(c
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_calendar_view_calendar_delete_calendar_permission(client,
+                                                                    user_id,
+                                                                    event_id,
+                                                                    calendar_permission_id,
+                                                                    if_match=None):
+    return client.delete_calendar_permission(user_id=user_id,
+                                             event_id=event_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_user_calendar_view_calendar_delete_calendar_view(client,
+                                                              user_id,
+                                                              event_id,
+                                                              event_id1,
+                                                              if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       event_id=event_id,
+                                       event_id1=event_id1,
+                                       if_match=if_match)
+
+
+def calendar_user_calendar_view_calendar_delete_event(client,
+                                                      user_id,
+                                                      event_id,
+                                                      event_id1,
+                                                      if_match=None):
+    return client.delete_event(user_id=user_id,
+                               event_id=event_id,
+                               event_id1=event_id1,
+                               if_match=if_match)
+
+
+def calendar_user_calendar_view_calendar_delete_multi_value_extended_property(client,
+                                                                              user_id,
+                                                                              event_id,
+                                                                              multi_value_legacy_extended_property_id,
+                                                                              if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_calendar_view_calendar_delete_single_value_extended_property(client,
+                                                                               user_id,
+                                                                               event_id,
+                                                                               single_value_legacy_extended_property_id,
+                                                                               if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_calendar_view_calendar_list_calendar_permission(client,
@@ -13401,45 +13871,6 @@ def calendar_user_calendar_view_calendar_update_single_value_extended_property(c
                                                         value=value)
 
 
-def calendar_user_event_delete(client,
-                               user_id,
-                               event_id,
-                               attachment_id=None,
-                               if_match=None,
-                               extension_id=None,
-                               event_id1=None,
-                               multi_value_legacy_extended_property_id=None,
-                               single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        event_id=event_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and event_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       event_id=event_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_instance(user_id=user_id,
-                                      event_id=event_id,
-                                      event_id1=event_id1,
-                                      if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            event_id=event_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_calendar(user_id=user_id,
-                                  event_id=event_id,
-                                  if_match=if_match)
-
-
 def calendar_user_event_create_attachment(client,
                                           user_id,
                                           event_id,
@@ -13611,6 +14042,70 @@ def calendar_user_event_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_event_delete_attachment(client,
+                                          user_id,
+                                          event_id,
+                                          attachment_id,
+                                          if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    event_id=event_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def calendar_user_event_delete_calendar(client,
+                                        user_id,
+                                        event_id,
+                                        if_match=None):
+    return client.delete_calendar(user_id=user_id,
+                                  event_id=event_id,
+                                  if_match=if_match)
+
+
+def calendar_user_event_delete_extension(client,
+                                         user_id,
+                                         event_id,
+                                         extension_id,
+                                         if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   event_id=event_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def calendar_user_event_delete_instance(client,
+                                        user_id,
+                                        event_id,
+                                        event_id1,
+                                        if_match=None):
+    return client.delete_instance(user_id=user_id,
+                                  event_id=event_id,
+                                  event_id1=event_id1,
+                                  if_match=if_match)
+
+
+def calendar_user_event_delete_multi_value_extended_property(client,
+                                                             user_id,
+                                                             event_id,
+                                                             multi_value_legacy_extended_property_id,
+                                                             if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_event_delete_single_value_extended_property(client,
+                                                              user_id,
+                                                              event_id,
+                                                              single_value_legacy_extended_property_id,
+                                                              if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_event_list_attachment(client,
@@ -13978,40 +14473,6 @@ def calendar_user_event_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def calendar_user_event_calendar_delete(client,
-                                        user_id,
-                                        event_id,
-                                        calendar_permission_id=None,
-                                        if_match=None,
-                                        event_id1=None,
-                                        multi_value_legacy_extended_property_id=None,
-                                        single_value_legacy_extended_property_id=None):
-    if user_id is not None and event_id is not None and calendar_permission_id is not None:
-        return client.delete_calendar_permission(user_id=user_id,
-                                                 event_id=event_id,
-                                                 calendar_permission_id=calendar_permission_id,
-                                                 if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_calendar_view(user_id=user_id,
-                                           event_id=event_id,
-                                           event_id1=event_id1,
-                                           if_match=if_match)
-    elif user_id is not None and event_id is not None and event_id1 is not None:
-        return client.delete_event(user_id=user_id,
-                                   event_id=event_id,
-                                   event_id1=event_id1,
-                                   if_match=if_match)
-    elif user_id is not None and event_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           event_id=event_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        event_id=event_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def calendar_user_event_calendar_create_calendar_permission(client,
                                                             user_id,
                                                             event_id,
@@ -14297,6 +14758,61 @@ def calendar_user_event_calendar_create_single_value_extended_property(client,
                                                         event_id=event_id,
                                                         id=id_,
                                                         value=value)
+
+
+def calendar_user_event_calendar_delete_calendar_permission(client,
+                                                            user_id,
+                                                            event_id,
+                                                            calendar_permission_id,
+                                                            if_match=None):
+    return client.delete_calendar_permission(user_id=user_id,
+                                             event_id=event_id,
+                                             calendar_permission_id=calendar_permission_id,
+                                             if_match=if_match)
+
+
+def calendar_user_event_calendar_delete_calendar_view(client,
+                                                      user_id,
+                                                      event_id,
+                                                      event_id1,
+                                                      if_match=None):
+    return client.delete_calendar_view(user_id=user_id,
+                                       event_id=event_id,
+                                       event_id1=event_id1,
+                                       if_match=if_match)
+
+
+def calendar_user_event_calendar_delete_event(client,
+                                              user_id,
+                                              event_id,
+                                              event_id1,
+                                              if_match=None):
+    return client.delete_event(user_id=user_id,
+                               event_id=event_id,
+                               event_id1=event_id1,
+                               if_match=if_match)
+
+
+def calendar_user_event_calendar_delete_multi_value_extended_property(client,
+                                                                      user_id,
+                                                                      event_id,
+                                                                      multi_value_legacy_extended_property_id,
+                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       event_id=event_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def calendar_user_event_calendar_delete_single_value_extended_property(client,
+                                                                       user_id,
+                                                                       event_id,
+                                                                       single_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        event_id=event_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def calendar_user_event_calendar_list_calendar_permission(client,

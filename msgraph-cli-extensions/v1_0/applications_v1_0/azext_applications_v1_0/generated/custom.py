@@ -158,9 +158,9 @@ def applications_application_create(client,
                                      requested_access_token_version=requested_access_token_version)
 
 
-def applications_application_delete(client,
-                                    application_id,
-                                    if_match=None):
+def applications_application_delete_application(client,
+                                                application_id,
+                                                if_match=None):
     return client.delete_application(application_id=application_id,
                                      if_match=if_match)
 
@@ -184,18 +184,6 @@ def applications_application_show_application(client,
 def applications_application_show_logo(client,
                                        application_id):
     return client.get_logo(application_id=application_id)
-
-
-def applications_application_delete(client,
-                                    application_id,
-                                    extension_property_id=None,
-                                    if_match=None):
-    if application_id is not None and extension_property_id is not None:
-        return client.delete_extension_property(application_id=application_id,
-                                                extension_property_id=extension_property_id,
-                                                if_match=if_match)
-    return client.delete_ref_created_on_behalf_of(application_id=application_id,
-                                                  if_match=if_match)
 
 
 def applications_application_add_key(client,
@@ -275,6 +263,22 @@ def applications_application_create_ref_token_lifetime_policy(client,
                                                               body):
     return client.create_ref_token_lifetime_policy(application_id=application_id,
                                                    body=body)
+
+
+def applications_application_delete_extension_property(client,
+                                                       application_id,
+                                                       extension_property_id,
+                                                       if_match=None):
+    return client.delete_extension_property(application_id=application_id,
+                                            extension_property_id=extension_property_id,
+                                            if_match=if_match)
+
+
+def applications_application_delete_ref_created_on_behalf_of(client,
+                                                             application_id,
+                                                             if_match=None):
+    return client.delete_ref_created_on_behalf_of(application_id=application_id,
+                                                  if_match=if_match)
 
 
 def applications_application_delta(client):
@@ -481,15 +485,6 @@ def applications_application_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def applications_group_delete(client,
-                              group_id,
-                              app_role_assignment_id,
-                              if_match=None):
-    return client.delete_app_role_assignment(group_id=group_id,
-                                             app_role_assignment_id=app_role_assignment_id,
-                                             if_match=if_match)
-
-
 def applications_group_create_app_role_assignment(client,
                                                   group_id,
                                                   id_=None,
@@ -511,6 +506,15 @@ def applications_group_create_app_role_assignment(client,
                                              principal_type=principal_type,
                                              resource_display_name=resource_display_name,
                                              resource_id=resource_id)
+
+
+def applications_group_delete_app_role_assignment(client,
+                                                  group_id,
+                                                  app_role_assignment_id,
+                                                  if_match=None):
+    return client.delete_app_role_assignment(group_id=group_id,
+                                             app_role_assignment_id=app_role_assignment_id,
+                                             if_match=if_match)
 
 
 def applications_group_list_app_role_assignment(client,
@@ -558,13 +562,6 @@ def applications_group_update_app_role_assignment(client,
                                              principal_type=principal_type,
                                              resource_display_name=resource_display_name,
                                              resource_id=resource_id)
-
-
-def applications_service_principal_service_principal_delete(client,
-                                                            service_principal_id,
-                                                            if_match=None):
-    return client.delete_service_principal(service_principal_id=service_principal_id,
-                                           if_match=if_match)
 
 
 def applications_service_principal_service_principal_create_service_principal(client,
@@ -656,6 +653,13 @@ def applications_service_principal_service_principal_create_service_principal(cl
                                            token_lifetime_policies=token_lifetime_policies,
                                            transitive_member_of=transitive_member_of,
                                            relay_state=relay_state)
+
+
+def applications_service_principal_service_principal_delete_service_principal(client,
+                                                                              service_principal_id,
+                                                                              if_match=None):
+    return client.delete_service_principal(service_principal_id=service_principal_id,
+                                           if_match=if_match)
 
 
 def applications_service_principal_service_principal_list_service_principal(client,
@@ -767,24 +771,6 @@ def applications_service_principal_service_principal_update_service_principal(cl
                                            token_lifetime_policies=token_lifetime_policies,
                                            transitive_member_of=transitive_member_of,
                                            relay_state=relay_state)
-
-
-def applications_service_principal_delete(client,
-                                          service_principal_id,
-                                          app_role_assignment_id=None,
-                                          if_match=None,
-                                          endpoint_id=None):
-    if service_principal_id is not None and app_role_assignment_id is not None:
-        return client.delete_app_role_assigned_to(service_principal_id=service_principal_id,
-                                                  app_role_assignment_id=app_role_assignment_id,
-                                                  if_match=if_match)
-    elif service_principal_id is not None and app_role_assignment_id is not None:
-        return client.delete_app_role_assignment(service_principal_id=service_principal_id,
-                                                 app_role_assignment_id=app_role_assignment_id,
-                                                 if_match=if_match)
-    return client.delete_endpoint(service_principal_id=service_principal_id,
-                                  endpoint_id=endpoint_id,
-                                  if_match=if_match)
 
 
 def applications_service_principal_add_key(client,
@@ -952,6 +938,33 @@ def applications_service_principal_create_ref_transitive_member_of(client,
                                                                    body):
     return client.create_ref_transitive_member_of(service_principal_id=service_principal_id,
                                                   body=body)
+
+
+def applications_service_principal_delete_app_role_assigned_to(client,
+                                                               service_principal_id,
+                                                               app_role_assignment_id,
+                                                               if_match=None):
+    return client.delete_app_role_assigned_to(service_principal_id=service_principal_id,
+                                              app_role_assignment_id=app_role_assignment_id,
+                                              if_match=if_match)
+
+
+def applications_service_principal_delete_app_role_assignment(client,
+                                                              service_principal_id,
+                                                              app_role_assignment_id,
+                                                              if_match=None):
+    return client.delete_app_role_assignment(service_principal_id=service_principal_id,
+                                             app_role_assignment_id=app_role_assignment_id,
+                                             if_match=if_match)
+
+
+def applications_service_principal_delete_endpoint(client,
+                                                   service_principal_id,
+                                                   endpoint_id,
+                                                   if_match=None):
+    return client.delete_endpoint(service_principal_id=service_principal_id,
+                                  endpoint_id=endpoint_id,
+                                  if_match=if_match)
 
 
 def applications_service_principal_delta(client):
@@ -1339,15 +1352,6 @@ def applications_service_principal_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def applications_user_delete(client,
-                             user_id,
-                             app_role_assignment_id,
-                             if_match=None):
-    return client.delete_app_role_assignment(user_id=user_id,
-                                             app_role_assignment_id=app_role_assignment_id,
-                                             if_match=if_match)
-
-
 def applications_user_create_app_role_assignment(client,
                                                  user_id,
                                                  id_=None,
@@ -1369,6 +1373,15 @@ def applications_user_create_app_role_assignment(client,
                                              principal_type=principal_type,
                                              resource_display_name=resource_display_name,
                                              resource_id=resource_id)
+
+
+def applications_user_delete_app_role_assignment(client,
+                                                 user_id,
+                                                 app_role_assignment_id,
+                                                 if_match=None):
+    return client.delete_app_role_assignment(user_id=user_id,
+                                             app_role_assignment_id=app_role_assignment_id,
+                                             if_match=if_match)
 
 
 def applications_user_list_app_role_assignment(client,

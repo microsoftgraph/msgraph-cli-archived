@@ -44,11 +44,14 @@ def load_command_table(self, _):
     with self.command_group(
         'cloudcommunications communication', cloudcommunications_beta_communication, client_factory=cf_communication
     ) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_delete', confirmation=True)
         g.custom_command('create-call', 'cloudcommunications_communication_create_call')
         g.custom_command('create-call-record', 'cloudcommunications_communication_create_call_record')
         g.custom_command('create-online-meeting', 'cloudcommunications_communication_create_online_meeting')
         g.custom_command('create-presence', 'cloudcommunications_communication_create_presence')
+        g.custom_command('delete-call', 'cloudcommunications_communication_delete_call')
+        g.custom_command('delete-call-record', 'cloudcommunications_communication_delete_call_record')
+        g.custom_command('delete-online-meeting', 'cloudcommunications_communication_delete_online_meeting')
+        g.custom_command('delete-presence', 'cloudcommunications_communication_delete_presence')
         g.custom_command('get-presence-by-user-id', 'cloudcommunications_communication_get_presence_by_user_id')
         g.custom_command('list-call', 'cloudcommunications_communication_list_call')
         g.custom_command('list-call-record', 'cloudcommunications_communication_list_call_record')
@@ -74,8 +77,8 @@ def load_command_table(self, _):
         cloudcommunications_beta_communication_call_record,
         client_factory=cf_communication_call_record,
     ) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_record_delete', confirmation=True)
         g.custom_command('create-session', 'cloudcommunications_communication_call_record_create_session')
+        g.custom_command('delete-session', 'cloudcommunications_communication_call_record_delete_session')
         g.custom_command('list-session', 'cloudcommunications_communication_call_record_list_session')
         g.custom_command('show-session', 'cloudcommunications_communication_call_record_show_session')
         g.custom_command('update-session', 'cloudcommunications_communication_call_record_update_session')
@@ -91,8 +94,8 @@ def load_command_table(self, _):
         cloudcommunications_beta_communication_call_record_session,
         client_factory=cf_communication_call_record_session,
     ) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_record_session_delete', confirmation=True)
         g.custom_command('create-segment', 'cloudcommunications_communication_call_record_session_create_segment')
+        g.custom_command('delete-segment', 'cloudcommunications_communication_call_record_session_delete_segment')
         g.custom_command('list-segment', 'cloudcommunications_communication_call_record_session_list_segment')
         g.custom_command('show-segment', 'cloudcommunications_communication_call_record_session_show_segment')
         g.custom_command('update-segment', 'cloudcommunications_communication_call_record_session_update_segment')
@@ -108,7 +111,6 @@ def load_command_table(self, _):
         cloudcommunications_beta_communication_call,
         client_factory=cf_communication_call,
     ) as g:
-        g.custom_command('delete', 'cloudcommunications_communication_call_delete', confirmation=True)
         g.custom_command('answer', 'cloudcommunications_communication_call_answer')
         g.custom_command('cancel-media-processing', 'cloudcommunications_communication_call_cancel_media_processing')
         g.custom_command(
@@ -119,6 +121,11 @@ def load_command_table(self, _):
         )
         g.custom_command('create-operation', 'cloudcommunications_communication_call_create_operation')
         g.custom_command('create-participant', 'cloudcommunications_communication_call_create_participant')
+        g.custom_command(
+            'delete-audio-routing-group', 'cloudcommunications_communication_call_delete_audio_routing_group'
+        )
+        g.custom_command('delete-operation', 'cloudcommunications_communication_call_delete_operation')
+        g.custom_command('delete-participant', 'cloudcommunications_communication_call_delete_participant')
         g.custom_command('keep-alive', 'cloudcommunications_communication_call_keep_alive')
         g.custom_command('list-audio-routing-group', 'cloudcommunications_communication_call_list_audio_routing_group')
         g.custom_command('list-operation', 'cloudcommunications_communication_call_list_operation')
@@ -181,8 +188,9 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('cloudcommunications user', cloudcommunications_beta_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'cloudcommunications_user_delete', confirmation=True)
         g.custom_command('create-online-meeting', 'cloudcommunications_user_create_online_meeting')
+        g.custom_command('delete-online-meeting', 'cloudcommunications_user_delete_online_meeting')
+        g.custom_command('delete-presence', 'cloudcommunications_user_delete_presence')
         g.custom_command('list-online-meeting', 'cloudcommunications_user_list_online_meeting')
         g.custom_command('show-online-meeting', 'cloudcommunications_user_show_online_meeting')
         g.custom_command('show-presence', 'cloudcommunications_user_show_presence')

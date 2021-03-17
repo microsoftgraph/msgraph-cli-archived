@@ -38,11 +38,11 @@
 ### <a name="CommandsIngroups">Commands in `az calendar group` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group delete](#groupsDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersgroupsDeleteCalendarView)|Not Found|
-|[az calendar group delete](#groupsDeleteEvents)|DeleteEvents|[Parameters](#ParametersgroupsDeleteEvents)|Not Found|
-|[az calendar group delete](#groupsDeleteCalendar)|DeleteCalendar|[Parameters](#ParametersgroupsDeleteCalendar)|Not Found|
 |[az calendar group create-calendar-view](#groupsCreateCalendarView)|CreateCalendarView|[Parameters](#ParametersgroupsCreateCalendarView)|Not Found|
 |[az calendar group create-event](#groupsCreateEvents)|CreateEvents|[Parameters](#ParametersgroupsCreateEvents)|Not Found|
+|[az calendar group delete-calendar](#groupsDeleteCalendar)|DeleteCalendar|[Parameters](#ParametersgroupsDeleteCalendar)|Not Found|
+|[az calendar group delete-calendar-view](#groupsDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersgroupsDeleteCalendarView)|Not Found|
+|[az calendar group delete-event](#groupsDeleteEvents)|DeleteEvents|[Parameters](#ParametersgroupsDeleteEvents)|Not Found|
 |[az calendar group list-calendar-view](#groupsListCalendarView)|ListCalendarView|[Parameters](#ParametersgroupsListCalendarView)|Not Found|
 |[az calendar group list-event](#groupsListEvents)|ListEvents|[Parameters](#ParametersgroupsListEvents)|Not Found|
 |[az calendar group show-calendar](#groupsGetCalendar)|GetCalendar|[Parameters](#ParametersgroupsGetCalendar)|Not Found|
@@ -55,16 +55,16 @@
 ### <a name="CommandsIngroups.calendar">Commands in `az calendar group-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-calendar delete](#groups.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar group-calendar delete](#groups.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.calendarDeleteCalendarView)|Not Found|
-|[az calendar group-calendar delete](#groups.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.calendarDeleteEvents)|Not Found|
-|[az calendar group-calendar delete](#groups.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-calendar delete](#groups.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar create-calendar-permission](#groups.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersgroups.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar group-calendar create-calendar-view](#groups.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersgroups.calendarCreateCalendarView)|Not Found|
 |[az calendar group-calendar create-event](#groups.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersgroups.calendarCreateEvents)|Not Found|
 |[az calendar group-calendar create-multi-value-extended-property](#groups.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-calendar create-single-value-extended-property](#groups.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-calendar delete-calendar-permission](#groups.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar group-calendar delete-calendar-view](#groups.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.calendarDeleteCalendarView)|Not Found|
+|[az calendar group-calendar delete-event](#groups.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.calendarDeleteEvents)|Not Found|
+|[az calendar group-calendar delete-multi-value-extended-property](#groups.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-calendar delete-single-value-extended-property](#groups.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar list-calendar-permission](#groups.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersgroups.calendarListCalendarPermissions)|Not Found|
 |[az calendar group-calendar list-calendar-view](#groups.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersgroups.calendarListCalendarView)|Not Found|
 |[az calendar group-calendar list-event](#groups.calendarListEvents)|ListEvents|[Parameters](#Parametersgroups.calendarListEvents)|Not Found|
@@ -84,17 +84,17 @@
 ### <a name="CommandsIngroups.calendar.events">Commands in `az calendar group-calendar-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendar.eventsDeleteAttachments)|Not Found|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendar.eventsDeleteExtensions)|Not Found|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendar.eventsDeleteInstances)|Not Found|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-event delete](#groups.calendar.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendar.eventsDeleteCalendar)|Not Found|
 |[az calendar group-calendar-event create-attachment](#groups.calendar.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersgroups.calendar.eventsCreateAttachments)|Not Found|
 |[az calendar group-calendar-event create-extension](#groups.calendar.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersgroups.calendar.eventsCreateExtensions)|Not Found|
 |[az calendar group-calendar-event create-instance](#groups.calendar.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersgroups.calendar.eventsCreateInstances)|Not Found|
 |[az calendar group-calendar-event create-multi-value-extended-property](#groups.calendar.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-event create-single-value-extended-property](#groups.calendar.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-event delete-attachment](#groups.calendar.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendar.eventsDeleteAttachments)|Not Found|
+|[az calendar group-calendar-event delete-calendar](#groups.calendar.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendar.eventsDeleteCalendar)|Not Found|
+|[az calendar group-calendar-event delete-extension](#groups.calendar.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendar.eventsDeleteExtensions)|Not Found|
+|[az calendar group-calendar-event delete-instance](#groups.calendar.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendar.eventsDeleteInstances)|Not Found|
+|[az calendar group-calendar-event delete-multi-value-extended-property](#groups.calendar.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-event delete-single-value-extended-property](#groups.calendar.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-event list-attachment](#groups.calendar.eventsListAttachments)|ListAttachments|[Parameters](#Parametersgroups.calendar.eventsListAttachments)|Not Found|
 |[az calendar group-calendar-event list-extension](#groups.calendar.eventsListExtensions)|ListExtensions|[Parameters](#Parametersgroups.calendar.eventsListExtensions)|Not Found|
 |[az calendar group-calendar-event list-instance](#groups.calendar.eventsListInstances)|ListInstances|[Parameters](#Parametersgroups.calendar.eventsListInstances)|Not Found|
@@ -116,17 +116,17 @@
 ### <a name="CommandsIngroups.calendar.calendarView">Commands in `az calendar group-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendar.calendarViewDeleteAttachments)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendar.calendarViewDeleteExtensions)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendar.calendarViewDeleteInstances)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendar.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendar.calendarViewDeleteCalendar)|Not Found|
 |[az calendar group-calendar-view create-attachment](#groups.calendar.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersgroups.calendar.calendarViewCreateAttachments)|Not Found|
 |[az calendar group-calendar-view create-extension](#groups.calendar.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersgroups.calendar.calendarViewCreateExtensions)|Not Found|
 |[az calendar group-calendar-view create-instance](#groups.calendar.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersgroups.calendar.calendarViewCreateInstances)|Not Found|
 |[az calendar group-calendar-view create-multi-value-extended-property](#groups.calendar.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view create-single-value-extended-property](#groups.calendar.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view delete-attachment](#groups.calendar.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendar.calendarViewDeleteAttachments)|Not Found|
+|[az calendar group-calendar-view delete-calendar](#groups.calendar.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendar.calendarViewDeleteCalendar)|Not Found|
+|[az calendar group-calendar-view delete-extension](#groups.calendar.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendar.calendarViewDeleteExtensions)|Not Found|
+|[az calendar group-calendar-view delete-instance](#groups.calendar.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendar.calendarViewDeleteInstances)|Not Found|
+|[az calendar group-calendar-view delete-multi-value-extended-property](#groups.calendar.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view delete-single-value-extended-property](#groups.calendar.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendar.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view list-attachment](#groups.calendar.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersgroups.calendar.calendarViewListAttachments)|Not Found|
 |[az calendar group-calendar-view list-extension](#groups.calendar.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersgroups.calendar.calendarViewListExtensions)|Not Found|
 |[az calendar group-calendar-view list-instance](#groups.calendar.calendarViewListInstances)|ListInstances|[Parameters](#Parametersgroups.calendar.calendarViewListInstances)|Not Found|
@@ -148,17 +148,17 @@
 ### <a name="CommandsIngroups.calendarView">Commands in `az calendar group-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendarViewDeleteAttachments)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendarViewDeleteExtensions)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendarViewDeleteInstances)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-view delete](#groups.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendarViewDeleteCalendar)|Not Found|
 |[az calendar group-calendar-view create-attachment](#groups.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersgroups.calendarViewCreateAttachments)|Not Found|
 |[az calendar group-calendar-view create-extension](#groups.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersgroups.calendarViewCreateExtensions)|Not Found|
 |[az calendar group-calendar-view create-instance](#groups.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersgroups.calendarViewCreateInstances)|Not Found|
 |[az calendar group-calendar-view create-multi-value-extended-property](#groups.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view create-single-value-extended-property](#groups.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view delete-attachment](#groups.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.calendarViewDeleteAttachments)|Not Found|
+|[az calendar group-calendar-view delete-calendar](#groups.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.calendarViewDeleteCalendar)|Not Found|
+|[az calendar group-calendar-view delete-extension](#groups.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.calendarViewDeleteExtensions)|Not Found|
+|[az calendar group-calendar-view delete-instance](#groups.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.calendarViewDeleteInstances)|Not Found|
+|[az calendar group-calendar-view delete-multi-value-extended-property](#groups.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view delete-single-value-extended-property](#groups.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view list-attachment](#groups.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersgroups.calendarViewListAttachments)|Not Found|
 |[az calendar group-calendar-view list-extension](#groups.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersgroups.calendarViewListExtensions)|Not Found|
 |[az calendar group-calendar-view list-instance](#groups.calendarViewListInstances)|ListInstances|[Parameters](#Parametersgroups.calendarViewListInstances)|Not Found|
@@ -180,16 +180,16 @@
 ### <a name="CommandsIngroups.calendarView.calendar">Commands in `az calendar group-calendar-view-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-calendar-view-calendar delete](#groups.calendarView.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.calendarView.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar group-calendar-view-calendar delete](#groups.calendarView.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.calendarView.calendarDeleteCalendarView)|Not Found|
-|[az calendar group-calendar-view-calendar delete](#groups.calendarView.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.calendarView.calendarDeleteEvents)|Not Found|
-|[az calendar group-calendar-view-calendar delete](#groups.calendarView.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-calendar-view-calendar delete](#groups.calendarView.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view-calendar create-calendar-permission](#groups.calendarView.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersgroups.calendarView.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar group-calendar-view-calendar create-calendar-view](#groups.calendarView.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersgroups.calendarView.calendarCreateCalendarView)|Not Found|
 |[az calendar group-calendar-view-calendar create-event](#groups.calendarView.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersgroups.calendarView.calendarCreateEvents)|Not Found|
 |[az calendar group-calendar-view-calendar create-multi-value-extended-property](#groups.calendarView.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view-calendar create-single-value-extended-property](#groups.calendarView.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view-calendar delete-calendar-permission](#groups.calendarView.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.calendarView.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar group-calendar-view-calendar delete-calendar-view](#groups.calendarView.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.calendarView.calendarDeleteCalendarView)|Not Found|
+|[az calendar group-calendar-view-calendar delete-event](#groups.calendarView.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.calendarView.calendarDeleteEvents)|Not Found|
+|[az calendar group-calendar-view-calendar delete-multi-value-extended-property](#groups.calendarView.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-calendar-view-calendar delete-single-value-extended-property](#groups.calendarView.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.calendarView.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-calendar-view-calendar list-calendar-permission](#groups.calendarView.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersgroups.calendarView.calendarListCalendarPermissions)|Not Found|
 |[az calendar group-calendar-view-calendar list-calendar-view](#groups.calendarView.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersgroups.calendarView.calendarListCalendarView)|Not Found|
 |[az calendar group-calendar-view-calendar list-event](#groups.calendarView.calendarListEvents)|ListEvents|[Parameters](#Parametersgroups.calendarView.calendarListEvents)|Not Found|
@@ -209,17 +209,17 @@
 ### <a name="CommandsIngroups.events">Commands in `az calendar group-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-event delete](#groups.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.eventsDeleteAttachments)|Not Found|
-|[az calendar group-event delete](#groups.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.eventsDeleteExtensions)|Not Found|
-|[az calendar group-event delete](#groups.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.eventsDeleteInstances)|Not Found|
-|[az calendar group-event delete](#groups.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-event delete](#groups.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar group-event delete](#groups.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.eventsDeleteCalendar)|Not Found|
 |[az calendar group-event create-attachment](#groups.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersgroups.eventsCreateAttachments)|Not Found|
 |[az calendar group-event create-extension](#groups.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersgroups.eventsCreateExtensions)|Not Found|
 |[az calendar group-event create-instance](#groups.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersgroups.eventsCreateInstances)|Not Found|
 |[az calendar group-event create-multi-value-extended-property](#groups.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-event create-single-value-extended-property](#groups.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-event delete-attachment](#groups.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersgroups.eventsDeleteAttachments)|Not Found|
+|[az calendar group-event delete-calendar](#groups.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersgroups.eventsDeleteCalendar)|Not Found|
+|[az calendar group-event delete-extension](#groups.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersgroups.eventsDeleteExtensions)|Not Found|
+|[az calendar group-event delete-instance](#groups.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersgroups.eventsDeleteInstances)|Not Found|
+|[az calendar group-event delete-multi-value-extended-property](#groups.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-event delete-single-value-extended-property](#groups.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-event list-attachment](#groups.eventsListAttachments)|ListAttachments|[Parameters](#Parametersgroups.eventsListAttachments)|Not Found|
 |[az calendar group-event list-extension](#groups.eventsListExtensions)|ListExtensions|[Parameters](#Parametersgroups.eventsListExtensions)|Not Found|
 |[az calendar group-event list-instance](#groups.eventsListInstances)|ListInstances|[Parameters](#Parametersgroups.eventsListInstances)|Not Found|
@@ -241,16 +241,16 @@
 ### <a name="CommandsIngroups.events.calendar">Commands in `az calendar group-event-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar group-event-calendar delete](#groups.events.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.events.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar group-event-calendar delete](#groups.events.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.events.calendarDeleteCalendarView)|Not Found|
-|[az calendar group-event-calendar delete](#groups.events.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.events.calendarDeleteEvents)|Not Found|
-|[az calendar group-event-calendar delete](#groups.events.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar group-event-calendar delete](#groups.events.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-event-calendar create-calendar-permission](#groups.events.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersgroups.events.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar group-event-calendar create-calendar-view](#groups.events.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersgroups.events.calendarCreateCalendarView)|Not Found|
 |[az calendar group-event-calendar create-event](#groups.events.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersgroups.events.calendarCreateEvents)|Not Found|
 |[az calendar group-event-calendar create-multi-value-extended-property](#groups.events.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar group-event-calendar create-single-value-extended-property](#groups.events.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar group-event-calendar delete-calendar-permission](#groups.events.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersgroups.events.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar group-event-calendar delete-calendar-view](#groups.events.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersgroups.events.calendarDeleteCalendarView)|Not Found|
+|[az calendar group-event-calendar delete-event](#groups.events.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersgroups.events.calendarDeleteEvents)|Not Found|
+|[az calendar group-event-calendar delete-multi-value-extended-property](#groups.events.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar group-event-calendar delete-single-value-extended-property](#groups.events.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersgroups.events.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar group-event-calendar list-calendar-permission](#groups.events.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersgroups.events.calendarListCalendarPermissions)|Not Found|
 |[az calendar group-event-calendar list-calendar-view](#groups.events.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersgroups.events.calendarListCalendarView)|Not Found|
 |[az calendar group-event-calendar list-event](#groups.events.calendarListEvents)|ListEvents|[Parameters](#Parametersgroups.events.calendarListEvents)|Not Found|
@@ -270,8 +270,8 @@
 ### <a name="CommandsInplaces.place">Commands in `az calendar place-place` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar place-place delete](#places.placeDeletePlace)|DeletePlace|[Parameters](#Parametersplaces.placeDeletePlace)|Not Found|
 |[az calendar place-place create-place](#places.placeCreatePlace)|CreatePlace|[Parameters](#Parametersplaces.placeCreatePlace)|Not Found|
+|[az calendar place-place delete-place](#places.placeDeletePlace)|DeletePlace|[Parameters](#Parametersplaces.placeDeletePlace)|Not Found|
 |[az calendar place-place list-place](#places.placeListPlace)|ListPlace|[Parameters](#Parametersplaces.placeListPlace)|Not Found|
 |[az calendar place-place show-place](#places.placeGetPlace)|GetPlace|[Parameters](#Parametersplaces.placeGetPlace)|Not Found|
 |[az calendar place-place update-place](#places.placeUpdatePlace)|UpdatePlace|[Parameters](#Parametersplaces.placeUpdatePlace)|Not Found|
@@ -279,15 +279,15 @@
 ### <a name="CommandsInusers">Commands in `az calendar user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user delete](#usersDeleteCalendarGroups)|DeleteCalendarGroups|[Parameters](#ParametersusersDeleteCalendarGroups)|Not Found|
-|[az calendar user delete](#usersDeleteCalendars)|DeleteCalendars|[Parameters](#ParametersusersDeleteCalendars)|Not Found|
-|[az calendar user delete](#usersDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersusersDeleteCalendarView)|Not Found|
-|[az calendar user delete](#usersDeleteEvents)|DeleteEvents|[Parameters](#ParametersusersDeleteEvents)|Not Found|
-|[az calendar user delete](#usersDeleteCalendar)|DeleteCalendar|[Parameters](#ParametersusersDeleteCalendar)|Not Found|
 |[az calendar user create-calendar](#usersCreateCalendars)|CreateCalendars|[Parameters](#ParametersusersCreateCalendars)|Not Found|
 |[az calendar user create-calendar-group](#usersCreateCalendarGroups)|CreateCalendarGroups|[Parameters](#ParametersusersCreateCalendarGroups)|Not Found|
 |[az calendar user create-calendar-view](#usersCreateCalendarView)|CreateCalendarView|[Parameters](#ParametersusersCreateCalendarView)|Not Found|
 |[az calendar user create-event](#usersCreateEvents)|CreateEvents|[Parameters](#ParametersusersCreateEvents)|Not Found|
+|[az calendar user delete-calendar](#usersDeleteCalendars)|DeleteCalendars|[Parameters](#ParametersusersDeleteCalendars)|Not Found|
+|[az calendar user delete-calendar](#usersDeleteCalendar)|DeleteCalendar|[Parameters](#ParametersusersDeleteCalendar)|Not Found|
+|[az calendar user delete-calendar-group](#usersDeleteCalendarGroups)|DeleteCalendarGroups|[Parameters](#ParametersusersDeleteCalendarGroups)|Not Found|
+|[az calendar user delete-calendar-view](#usersDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersusersDeleteCalendarView)|Not Found|
+|[az calendar user delete-event](#usersDeleteEvents)|DeleteEvents|[Parameters](#ParametersusersDeleteEvents)|Not Found|
 |[az calendar user list-calendar](#usersListCalendars)|ListCalendars|[Parameters](#ParametersusersListCalendars)|Not Found|
 |[az calendar user list-calendar-group](#usersListCalendarGroups)|ListCalendarGroups|[Parameters](#ParametersusersListCalendarGroups)|Not Found|
 |[az calendar user list-calendar-view](#usersListCalendarView)|ListCalendarView|[Parameters](#ParametersusersListCalendarView)|Not Found|
@@ -306,16 +306,16 @@
 ### <a name="CommandsInusers.calendar">Commands in `az calendar user-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar delete](#users.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar user-calendar delete](#users.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarDeleteCalendarView)|Not Found|
-|[az calendar user-calendar delete](#users.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarDeleteEvents)|Not Found|
-|[az calendar user-calendar delete](#users.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar delete](#users.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar create-calendar-permission](#users.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersusers.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar user-calendar create-calendar-view](#users.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersusers.calendarCreateCalendarView)|Not Found|
 |[az calendar user-calendar create-event](#users.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersusers.calendarCreateEvents)|Not Found|
 |[az calendar user-calendar create-multi-value-extended-property](#users.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar create-single-value-extended-property](#users.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar delete-calendar-permission](#users.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar user-calendar delete-calendar-view](#users.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarDeleteCalendarView)|Not Found|
+|[az calendar user-calendar delete-event](#users.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarDeleteEvents)|Not Found|
+|[az calendar user-calendar delete-multi-value-extended-property](#users.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar delete-single-value-extended-property](#users.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar list-calendar-permission](#users.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersusers.calendarListCalendarPermissions)|Not Found|
 |[az calendar user-calendar list-calendar-view](#users.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersusers.calendarListCalendarView)|Not Found|
 |[az calendar user-calendar list-event](#users.calendarListEvents)|ListEvents|[Parameters](#Parametersusers.calendarListEvents)|Not Found|
@@ -335,16 +335,16 @@
 ### <a name="CommandsInusers.calendars">Commands in `az calendar user-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar delete](#users.calendarsDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarsDeleteCalendarPermissions)|Not Found|
-|[az calendar user-calendar delete](#users.calendarsDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarsDeleteCalendarView)|Not Found|
-|[az calendar user-calendar delete](#users.calendarsDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarsDeleteEvents)|Not Found|
-|[az calendar user-calendar delete](#users.calendarsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar delete](#users.calendarsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar create-calendar-permission](#users.calendarsCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersusers.calendarsCreateCalendarPermissions)|Not Found|
 |[az calendar user-calendar create-calendar-view](#users.calendarsCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersusers.calendarsCreateCalendarView)|Not Found|
 |[az calendar user-calendar create-event](#users.calendarsCreateEvents)|CreateEvents|[Parameters](#Parametersusers.calendarsCreateEvents)|Not Found|
 |[az calendar user-calendar create-multi-value-extended-property](#users.calendarsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar create-single-value-extended-property](#users.calendarsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar delete-calendar-permission](#users.calendarsDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarsDeleteCalendarPermissions)|Not Found|
+|[az calendar user-calendar delete-calendar-view](#users.calendarsDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarsDeleteCalendarView)|Not Found|
+|[az calendar user-calendar delete-event](#users.calendarsDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarsDeleteEvents)|Not Found|
+|[az calendar user-calendar delete-multi-value-extended-property](#users.calendarsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar delete-single-value-extended-property](#users.calendarsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar list-calendar-permission](#users.calendarsListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersusers.calendarsListCalendarPermissions)|Not Found|
 |[az calendar user-calendar list-calendar-view](#users.calendarsListCalendarView)|ListCalendarView|[Parameters](#Parametersusers.calendarsListCalendarView)|Not Found|
 |[az calendar user-calendar list-event](#users.calendarsListEvents)|ListEvents|[Parameters](#Parametersusers.calendarsListEvents)|Not Found|
@@ -364,17 +364,17 @@
 ### <a name="CommandsInusers.calendar.events">Commands in `az calendar user-calendar-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendar.eventsDeleteAttachments)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendar.eventsDeleteExtensions)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendar.eventsDeleteInstances)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendar.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendar.eventsDeleteCalendar)|Not Found|
 |[az calendar user-calendar-event create-attachment](#users.calendar.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendar.eventsCreateAttachments)|Not Found|
 |[az calendar user-calendar-event create-extension](#users.calendar.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendar.eventsCreateExtensions)|Not Found|
 |[az calendar user-calendar-event create-instance](#users.calendar.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendar.eventsCreateInstances)|Not Found|
 |[az calendar user-calendar-event create-multi-value-extended-property](#users.calendar.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-event create-single-value-extended-property](#users.calendar.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-event delete-attachment](#users.calendar.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendar.eventsDeleteAttachments)|Not Found|
+|[az calendar user-calendar-event delete-calendar](#users.calendar.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendar.eventsDeleteCalendar)|Not Found|
+|[az calendar user-calendar-event delete-extension](#users.calendar.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendar.eventsDeleteExtensions)|Not Found|
+|[az calendar user-calendar-event delete-instance](#users.calendar.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendar.eventsDeleteInstances)|Not Found|
+|[az calendar user-calendar-event delete-multi-value-extended-property](#users.calendar.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-event delete-single-value-extended-property](#users.calendar.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-event list-attachment](#users.calendar.eventsListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendar.eventsListAttachments)|Not Found|
 |[az calendar user-calendar-event list-extension](#users.calendar.eventsListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendar.eventsListExtensions)|Not Found|
 |[az calendar user-calendar-event list-instance](#users.calendar.eventsListInstances)|ListInstances|[Parameters](#Parametersusers.calendar.eventsListInstances)|Not Found|
@@ -396,17 +396,17 @@
 ### <a name="CommandsInusers.calendars.events">Commands in `az calendar user-calendar-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendars.eventsDeleteAttachments)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendars.eventsDeleteExtensions)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendars.eventsDeleteInstances)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-event delete](#users.calendars.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendars.eventsDeleteCalendar)|Not Found|
 |[az calendar user-calendar-event create-attachment](#users.calendars.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendars.eventsCreateAttachments)|Not Found|
 |[az calendar user-calendar-event create-extension](#users.calendars.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendars.eventsCreateExtensions)|Not Found|
 |[az calendar user-calendar-event create-instance](#users.calendars.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendars.eventsCreateInstances)|Not Found|
 |[az calendar user-calendar-event create-multi-value-extended-property](#users.calendars.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-event create-single-value-extended-property](#users.calendars.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-event delete-attachment](#users.calendars.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendars.eventsDeleteAttachments)|Not Found|
+|[az calendar user-calendar-event delete-calendar](#users.calendars.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendars.eventsDeleteCalendar)|Not Found|
+|[az calendar user-calendar-event delete-extension](#users.calendars.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendars.eventsDeleteExtensions)|Not Found|
+|[az calendar user-calendar-event delete-instance](#users.calendars.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendars.eventsDeleteInstances)|Not Found|
+|[az calendar user-calendar-event delete-multi-value-extended-property](#users.calendars.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-event delete-single-value-extended-property](#users.calendars.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-event list-attachment](#users.calendars.eventsListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendars.eventsListAttachments)|Not Found|
 |[az calendar user-calendar-event list-extension](#users.calendars.eventsListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendars.eventsListExtensions)|Not Found|
 |[az calendar user-calendar-event list-instance](#users.calendars.eventsListInstances)|ListInstances|[Parameters](#Parametersusers.calendars.eventsListInstances)|Not Found|
@@ -428,8 +428,8 @@
 ### <a name="CommandsInusers.calendarGroups">Commands in `az calendar user-calendar-group` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-group delete](#users.calendarGroupsDeleteCalendars)|DeleteCalendars|[Parameters](#Parametersusers.calendarGroupsDeleteCalendars)|Not Found|
 |[az calendar user-calendar-group create-calendar](#users.calendarGroupsCreateCalendars)|CreateCalendars|[Parameters](#Parametersusers.calendarGroupsCreateCalendars)|Not Found|
+|[az calendar user-calendar-group delete-calendar](#users.calendarGroupsDeleteCalendars)|DeleteCalendars|[Parameters](#Parametersusers.calendarGroupsDeleteCalendars)|Not Found|
 |[az calendar user-calendar-group list-calendar](#users.calendarGroupsListCalendars)|ListCalendars|[Parameters](#Parametersusers.calendarGroupsListCalendars)|Not Found|
 |[az calendar user-calendar-group show-calendar](#users.calendarGroupsGetCalendars)|GetCalendars|[Parameters](#Parametersusers.calendarGroupsGetCalendars)|Not Found|
 |[az calendar user-calendar-group update-calendar](#users.calendarGroupsUpdateCalendars)|UpdateCalendars|[Parameters](#Parametersusers.calendarGroupsUpdateCalendars)|Not Found|
@@ -437,16 +437,16 @@
 ### <a name="CommandsInusers.calendarGroups.calendars">Commands in `az calendar user-calendar-group-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-group-calendar delete](#users.calendarGroups.calendarsDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteCalendarPermissions)|Not Found|
-|[az calendar user-calendar-group-calendar delete](#users.calendarGroups.calendarsDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteCalendarView)|Not Found|
-|[az calendar user-calendar-group-calendar delete](#users.calendarGroups.calendarsDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteEvents)|Not Found|
-|[az calendar user-calendar-group-calendar delete](#users.calendarGroups.calendarsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-group-calendar delete](#users.calendarGroups.calendarsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar create-calendar-permission](#users.calendarGroups.calendarsCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersusers.calendarGroups.calendarsCreateCalendarPermissions)|Not Found|
 |[az calendar user-calendar-group-calendar create-calendar-view](#users.calendarGroups.calendarsCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersusers.calendarGroups.calendarsCreateCalendarView)|Not Found|
 |[az calendar user-calendar-group-calendar create-event](#users.calendarGroups.calendarsCreateEvents)|CreateEvents|[Parameters](#Parametersusers.calendarGroups.calendarsCreateEvents)|Not Found|
 |[az calendar user-calendar-group-calendar create-multi-value-extended-property](#users.calendarGroups.calendarsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar create-single-value-extended-property](#users.calendarGroups.calendarsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar delete-calendar-permission](#users.calendarGroups.calendarsDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteCalendarPermissions)|Not Found|
+|[az calendar user-calendar-group-calendar delete-calendar-view](#users.calendarGroups.calendarsDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteCalendarView)|Not Found|
+|[az calendar user-calendar-group-calendar delete-event](#users.calendarGroups.calendarsDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteEvents)|Not Found|
+|[az calendar user-calendar-group-calendar delete-multi-value-extended-property](#users.calendarGroups.calendarsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar delete-single-value-extended-property](#users.calendarGroups.calendarsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendarsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar list-calendar-permission](#users.calendarGroups.calendarsListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersusers.calendarGroups.calendarsListCalendarPermissions)|Not Found|
 |[az calendar user-calendar-group-calendar list-calendar-view](#users.calendarGroups.calendarsListCalendarView)|ListCalendarView|[Parameters](#Parametersusers.calendarGroups.calendarsListCalendarView)|Not Found|
 |[az calendar user-calendar-group-calendar list-event](#users.calendarGroups.calendarsListEvents)|ListEvents|[Parameters](#Parametersusers.calendarGroups.calendarsListEvents)|Not Found|
@@ -466,17 +466,17 @@
 ### <a name="CommandsInusers.calendarGroups.calendars.events">Commands in `az calendar user-calendar-group-calendar-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteAttachments)|Not Found|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteExtensions)|Not Found|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteInstances)|Not Found|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-group-calendar-event delete](#users.calendarGroups.calendars.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteCalendar)|Not Found|
 |[az calendar user-calendar-group-calendar-event create-attachment](#users.calendarGroups.calendars.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.eventsCreateAttachments)|Not Found|
 |[az calendar user-calendar-group-calendar-event create-extension](#users.calendarGroups.calendars.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.eventsCreateExtensions)|Not Found|
 |[az calendar user-calendar-group-calendar-event create-instance](#users.calendarGroups.calendars.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendarGroups.calendars.eventsCreateInstances)|Not Found|
 |[az calendar user-calendar-group-calendar-event create-multi-value-extended-property](#users.calendarGroups.calendars.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar-event create-single-value-extended-property](#users.calendarGroups.calendars.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-attachment](#users.calendarGroups.calendars.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteAttachments)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-calendar](#users.calendarGroups.calendars.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteCalendar)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-extension](#users.calendarGroups.calendars.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteExtensions)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-instance](#users.calendarGroups.calendars.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteInstances)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-multi-value-extended-property](#users.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar-event delete-single-value-extended-property](#users.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar-event list-attachment](#users.calendarGroups.calendars.eventsListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.eventsListAttachments)|Not Found|
 |[az calendar user-calendar-group-calendar-event list-extension](#users.calendarGroups.calendars.eventsListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.eventsListExtensions)|Not Found|
 |[az calendar user-calendar-group-calendar-event list-instance](#users.calendarGroups.calendars.eventsListInstances)|ListInstances|[Parameters](#Parametersusers.calendarGroups.calendars.eventsListInstances)|Not Found|
@@ -498,17 +498,17 @@
 ### <a name="CommandsInusers.calendarGroups.calendars.calendarView">Commands in `az calendar user-calendar-group-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteAttachments)|Not Found|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteExtensions)|Not Found|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteInstances)|Not Found|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-group-calendar-view delete](#users.calendarGroups.calendars.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteCalendar)|Not Found|
 |[az calendar user-calendar-group-calendar-view create-attachment](#users.calendarGroups.calendars.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewCreateAttachments)|Not Found|
 |[az calendar user-calendar-group-calendar-view create-extension](#users.calendarGroups.calendars.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewCreateExtensions)|Not Found|
 |[az calendar user-calendar-group-calendar-view create-instance](#users.calendarGroups.calendars.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewCreateInstances)|Not Found|
 |[az calendar user-calendar-group-calendar-view create-multi-value-extended-property](#users.calendarGroups.calendars.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar-view create-single-value-extended-property](#users.calendarGroups.calendars.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-attachment](#users.calendarGroups.calendars.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteAttachments)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-calendar](#users.calendarGroups.calendars.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteCalendar)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-extension](#users.calendarGroups.calendars.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteExtensions)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-instance](#users.calendarGroups.calendars.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteInstances)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-multi-value-extended-property](#users.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-group-calendar-view delete-single-value-extended-property](#users.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-group-calendar-view list-attachment](#users.calendarGroups.calendars.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewListAttachments)|Not Found|
 |[az calendar user-calendar-group-calendar-view list-extension](#users.calendarGroups.calendars.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewListExtensions)|Not Found|
 |[az calendar user-calendar-group-calendar-view list-instance](#users.calendarGroups.calendars.calendarViewListInstances)|ListInstances|[Parameters](#Parametersusers.calendarGroups.calendars.calendarViewListInstances)|Not Found|
@@ -530,17 +530,17 @@
 ### <a name="CommandsInusers.calendar.calendarView">Commands in `az calendar user-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendar.calendarViewDeleteAttachments)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendar.calendarViewDeleteExtensions)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendar.calendarViewDeleteInstances)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendar.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendar.calendarViewDeleteCalendar)|Not Found|
 |[az calendar user-calendar-view create-attachment](#users.calendar.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendar.calendarViewCreateAttachments)|Not Found|
 |[az calendar user-calendar-view create-extension](#users.calendar.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendar.calendarViewCreateExtensions)|Not Found|
 |[az calendar user-calendar-view create-instance](#users.calendar.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendar.calendarViewCreateInstances)|Not Found|
 |[az calendar user-calendar-view create-multi-value-extended-property](#users.calendar.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view create-single-value-extended-property](#users.calendar.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-attachment](#users.calendar.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendar.calendarViewDeleteAttachments)|Not Found|
+|[az calendar user-calendar-view delete-calendar](#users.calendar.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendar.calendarViewDeleteCalendar)|Not Found|
+|[az calendar user-calendar-view delete-extension](#users.calendar.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendar.calendarViewDeleteExtensions)|Not Found|
+|[az calendar user-calendar-view delete-instance](#users.calendar.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendar.calendarViewDeleteInstances)|Not Found|
+|[az calendar user-calendar-view delete-multi-value-extended-property](#users.calendar.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-single-value-extended-property](#users.calendar.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendar.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view list-attachment](#users.calendar.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendar.calendarViewListAttachments)|Not Found|
 |[az calendar user-calendar-view list-extension](#users.calendar.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendar.calendarViewListExtensions)|Not Found|
 |[az calendar user-calendar-view list-instance](#users.calendar.calendarViewListInstances)|ListInstances|[Parameters](#Parametersusers.calendar.calendarViewListInstances)|Not Found|
@@ -562,17 +562,17 @@
 ### <a name="CommandsInusers.calendars.calendarView">Commands in `az calendar user-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendars.calendarViewDeleteAttachments)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendars.calendarViewDeleteExtensions)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendars.calendarViewDeleteInstances)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendars.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendars.calendarViewDeleteCalendar)|Not Found|
 |[az calendar user-calendar-view create-attachment](#users.calendars.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendars.calendarViewCreateAttachments)|Not Found|
 |[az calendar user-calendar-view create-extension](#users.calendars.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendars.calendarViewCreateExtensions)|Not Found|
 |[az calendar user-calendar-view create-instance](#users.calendars.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendars.calendarViewCreateInstances)|Not Found|
 |[az calendar user-calendar-view create-multi-value-extended-property](#users.calendars.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view create-single-value-extended-property](#users.calendars.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-attachment](#users.calendars.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendars.calendarViewDeleteAttachments)|Not Found|
+|[az calendar user-calendar-view delete-calendar](#users.calendars.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendars.calendarViewDeleteCalendar)|Not Found|
+|[az calendar user-calendar-view delete-extension](#users.calendars.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendars.calendarViewDeleteExtensions)|Not Found|
+|[az calendar user-calendar-view delete-instance](#users.calendars.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendars.calendarViewDeleteInstances)|Not Found|
+|[az calendar user-calendar-view delete-multi-value-extended-property](#users.calendars.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-single-value-extended-property](#users.calendars.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendars.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view list-attachment](#users.calendars.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendars.calendarViewListAttachments)|Not Found|
 |[az calendar user-calendar-view list-extension](#users.calendars.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendars.calendarViewListExtensions)|Not Found|
 |[az calendar user-calendar-view list-instance](#users.calendars.calendarViewListInstances)|ListInstances|[Parameters](#Parametersusers.calendars.calendarViewListInstances)|Not Found|
@@ -594,17 +594,17 @@
 ### <a name="CommandsInusers.calendarView">Commands in `az calendar user-calendar-view` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarViewDeleteAttachments)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarViewDeleteExtensions)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarViewDeleteInstances)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view delete](#users.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarViewDeleteCalendar)|Not Found|
 |[az calendar user-calendar-view create-attachment](#users.calendarViewCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.calendarViewCreateAttachments)|Not Found|
 |[az calendar user-calendar-view create-extension](#users.calendarViewCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.calendarViewCreateExtensions)|Not Found|
 |[az calendar user-calendar-view create-instance](#users.calendarViewCreateInstances)|CreateInstances|[Parameters](#Parametersusers.calendarViewCreateInstances)|Not Found|
 |[az calendar user-calendar-view create-multi-value-extended-property](#users.calendarViewCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarViewCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view create-single-value-extended-property](#users.calendarViewCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarViewCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-attachment](#users.calendarViewDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.calendarViewDeleteAttachments)|Not Found|
+|[az calendar user-calendar-view delete-calendar](#users.calendarViewDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.calendarViewDeleteCalendar)|Not Found|
+|[az calendar user-calendar-view delete-extension](#users.calendarViewDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.calendarViewDeleteExtensions)|Not Found|
+|[az calendar user-calendar-view delete-instance](#users.calendarViewDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.calendarViewDeleteInstances)|Not Found|
+|[az calendar user-calendar-view delete-multi-value-extended-property](#users.calendarViewDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarViewDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view delete-single-value-extended-property](#users.calendarViewDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarViewDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view list-attachment](#users.calendarViewListAttachments)|ListAttachments|[Parameters](#Parametersusers.calendarViewListAttachments)|Not Found|
 |[az calendar user-calendar-view list-extension](#users.calendarViewListExtensions)|ListExtensions|[Parameters](#Parametersusers.calendarViewListExtensions)|Not Found|
 |[az calendar user-calendar-view list-instance](#users.calendarViewListInstances)|ListInstances|[Parameters](#Parametersusers.calendarViewListInstances)|Not Found|
@@ -626,16 +626,16 @@
 ### <a name="CommandsInusers.calendarView.calendar">Commands in `az calendar user-calendar-view-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-calendar-view-calendar delete](#users.calendarView.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarView.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar user-calendar-view-calendar delete](#users.calendarView.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarView.calendarDeleteCalendarView)|Not Found|
-|[az calendar user-calendar-view-calendar delete](#users.calendarView.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarView.calendarDeleteEvents)|Not Found|
-|[az calendar user-calendar-view-calendar delete](#users.calendarView.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-calendar-view-calendar delete](#users.calendarView.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view-calendar create-calendar-permission](#users.calendarView.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersusers.calendarView.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar user-calendar-view-calendar create-calendar-view](#users.calendarView.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersusers.calendarView.calendarCreateCalendarView)|Not Found|
 |[az calendar user-calendar-view-calendar create-event](#users.calendarView.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersusers.calendarView.calendarCreateEvents)|Not Found|
 |[az calendar user-calendar-view-calendar create-multi-value-extended-property](#users.calendarView.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view-calendar create-single-value-extended-property](#users.calendarView.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view-calendar delete-calendar-permission](#users.calendarView.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.calendarView.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar user-calendar-view-calendar delete-calendar-view](#users.calendarView.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.calendarView.calendarDeleteCalendarView)|Not Found|
+|[az calendar user-calendar-view-calendar delete-event](#users.calendarView.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.calendarView.calendarDeleteEvents)|Not Found|
+|[az calendar user-calendar-view-calendar delete-multi-value-extended-property](#users.calendarView.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-calendar-view-calendar delete-single-value-extended-property](#users.calendarView.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.calendarView.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-calendar-view-calendar list-calendar-permission](#users.calendarView.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersusers.calendarView.calendarListCalendarPermissions)|Not Found|
 |[az calendar user-calendar-view-calendar list-calendar-view](#users.calendarView.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersusers.calendarView.calendarListCalendarView)|Not Found|
 |[az calendar user-calendar-view-calendar list-event](#users.calendarView.calendarListEvents)|ListEvents|[Parameters](#Parametersusers.calendarView.calendarListEvents)|Not Found|
@@ -655,17 +655,17 @@
 ### <a name="CommandsInusers.events">Commands in `az calendar user-event` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-event delete](#users.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.eventsDeleteAttachments)|Not Found|
-|[az calendar user-event delete](#users.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.eventsDeleteExtensions)|Not Found|
-|[az calendar user-event delete](#users.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.eventsDeleteInstances)|Not Found|
-|[az calendar user-event delete](#users.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.eventsDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-event delete](#users.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.eventsDeleteSingleValueExtendedProperties)|Not Found|
-|[az calendar user-event delete](#users.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.eventsDeleteCalendar)|Not Found|
 |[az calendar user-event create-attachment](#users.eventsCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.eventsCreateAttachments)|Not Found|
 |[az calendar user-event create-extension](#users.eventsCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.eventsCreateExtensions)|Not Found|
 |[az calendar user-event create-instance](#users.eventsCreateInstances)|CreateInstances|[Parameters](#Parametersusers.eventsCreateInstances)|Not Found|
 |[az calendar user-event create-multi-value-extended-property](#users.eventsCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.eventsCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-event create-single-value-extended-property](#users.eventsCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.eventsCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-event delete-attachment](#users.eventsDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.eventsDeleteAttachments)|Not Found|
+|[az calendar user-event delete-calendar](#users.eventsDeleteCalendar)|DeleteCalendar|[Parameters](#Parametersusers.eventsDeleteCalendar)|Not Found|
+|[az calendar user-event delete-extension](#users.eventsDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.eventsDeleteExtensions)|Not Found|
+|[az calendar user-event delete-instance](#users.eventsDeleteInstances)|DeleteInstances|[Parameters](#Parametersusers.eventsDeleteInstances)|Not Found|
+|[az calendar user-event delete-multi-value-extended-property](#users.eventsDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.eventsDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-event delete-single-value-extended-property](#users.eventsDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.eventsDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-event list-attachment](#users.eventsListAttachments)|ListAttachments|[Parameters](#Parametersusers.eventsListAttachments)|Not Found|
 |[az calendar user-event list-extension](#users.eventsListExtensions)|ListExtensions|[Parameters](#Parametersusers.eventsListExtensions)|Not Found|
 |[az calendar user-event list-instance](#users.eventsListInstances)|ListInstances|[Parameters](#Parametersusers.eventsListInstances)|Not Found|
@@ -687,16 +687,16 @@
 ### <a name="CommandsInusers.events.calendar">Commands in `az calendar user-event-calendar` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az calendar user-event-calendar delete](#users.events.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.events.calendarDeleteCalendarPermissions)|Not Found|
-|[az calendar user-event-calendar delete](#users.events.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.events.calendarDeleteCalendarView)|Not Found|
-|[az calendar user-event-calendar delete](#users.events.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.events.calendarDeleteEvents)|Not Found|
-|[az calendar user-event-calendar delete](#users.events.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.events.calendarDeleteMultiValueExtendedProperties)|Not Found|
-|[az calendar user-event-calendar delete](#users.events.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.events.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-event-calendar create-calendar-permission](#users.events.calendarCreateCalendarPermissions)|CreateCalendarPermissions|[Parameters](#Parametersusers.events.calendarCreateCalendarPermissions)|Not Found|
 |[az calendar user-event-calendar create-calendar-view](#users.events.calendarCreateCalendarView)|CreateCalendarView|[Parameters](#Parametersusers.events.calendarCreateCalendarView)|Not Found|
 |[az calendar user-event-calendar create-event](#users.events.calendarCreateEvents)|CreateEvents|[Parameters](#Parametersusers.events.calendarCreateEvents)|Not Found|
 |[az calendar user-event-calendar create-multi-value-extended-property](#users.events.calendarCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.events.calendarCreateMultiValueExtendedProperties)|Not Found|
 |[az calendar user-event-calendar create-single-value-extended-property](#users.events.calendarCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.events.calendarCreateSingleValueExtendedProperties)|Not Found|
+|[az calendar user-event-calendar delete-calendar-permission](#users.events.calendarDeleteCalendarPermissions)|DeleteCalendarPermissions|[Parameters](#Parametersusers.events.calendarDeleteCalendarPermissions)|Not Found|
+|[az calendar user-event-calendar delete-calendar-view](#users.events.calendarDeleteCalendarView)|DeleteCalendarView|[Parameters](#Parametersusers.events.calendarDeleteCalendarView)|Not Found|
+|[az calendar user-event-calendar delete-event](#users.events.calendarDeleteEvents)|DeleteEvents|[Parameters](#Parametersusers.events.calendarDeleteEvents)|Not Found|
+|[az calendar user-event-calendar delete-multi-value-extended-property](#users.events.calendarDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.events.calendarDeleteMultiValueExtendedProperties)|Not Found|
+|[az calendar user-event-calendar delete-single-value-extended-property](#users.events.calendarDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.events.calendarDeleteSingleValueExtendedProperties)|Not Found|
 |[az calendar user-event-calendar list-calendar-permission](#users.events.calendarListCalendarPermissions)|ListCalendarPermissions|[Parameters](#Parametersusers.events.calendarListCalendarPermissions)|Not Found|
 |[az calendar user-event-calendar list-calendar-view](#users.events.calendarListCalendarView)|ListCalendarView|[Parameters](#Parametersusers.events.calendarListCalendarView)|Not Found|
 |[az calendar user-event-calendar list-event](#users.events.calendarListEvents)|ListEvents|[Parameters](#Parametersusers.events.calendarListEvents)|Not Found|
@@ -717,25 +717,6 @@
 ## COMMAND DETAILS
 
 ### group `az calendar group`
-#### <a name="groupsDeleteCalendarView">Command `az calendar group delete`</a>
-
-##### <a name="ParametersgroupsDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groupsDeleteEvents">Command `az calendar group delete`</a>
-
-##### <a name="ParametersgroupsDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="groupsDeleteCalendar">Command `az calendar group delete`</a>
-
-##### <a name="ParametersgroupsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groupsCreateCalendarView">Command `az calendar group create-calendar-view`</a>
 
 ##### <a name="ParametersgroupsCreateCalendarView">Parameters</a> 
@@ -865,6 +846,32 @@
 |**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+
+#### <a name="groupsDeleteCalendar">Command `az calendar group delete-calendar`</a>
+
+##### <a name="ParametersgroupsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groupsDeleteCalendarView">Command `az calendar group delete-calendar-view`</a>
+
+##### <a name="ParametersgroupsDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groupsDeleteEvents">Command `az calendar group delete-event`</a>
+
+##### <a name="ParametersgroupsDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groupsListCalendarView">Command `az calendar group list-calendar-view`</a>
 
@@ -1076,41 +1083,6 @@
 |**--unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### group `az calendar group-calendar`
-#### <a name="groups.calendarDeleteCalendarPermissions">Command `az calendar group-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.calendarDeleteCalendarView">Command `az calendar group-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id**|string|key: id of event|event_id|event-id|
-
-#### <a name="groups.calendarDeleteEvents">Command `az calendar group-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="groups.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="groups.calendarCreateCalendarPermissions">Command `az calendar group-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersgroups.calendarCreateCalendarPermissions">Parameters</a> 
@@ -1271,6 +1243,51 @@
 |**--group-id**|string|key: id of group|group_id|group-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.calendarDeleteCalendarPermissions">Command `az calendar group-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersgroups.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarDeleteCalendarView">Command `az calendar group-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersgroups.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarDeleteEvents">Command `az calendar group-calendar delete-event`</a>
+
+##### <a name="Parametersgroups.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.calendarListCalendarPermissions">Command `az calendar group-calendar list-calendar-permission`</a>
 
@@ -1543,49 +1560,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-calendar-event`
-#### <a name="groups.calendar.eventsDeleteAttachments">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.calendar.eventsDeleteExtensions">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="groups.calendar.eventsDeleteInstances">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.calendar.eventsDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendar.eventsDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendar.eventsDeleteCalendar">Command `az calendar group-calendar-event delete`</a>
-
-##### <a name="Parametersgroups.calendar.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groups.calendar.eventsCreateAttachments">Command `az calendar group-calendar-event create-attachment`</a>
 
 ##### <a name="Parametersgroups.calendar.eventsCreateAttachments">Parameters</a> 
@@ -1694,6 +1668,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.calendar.eventsDeleteAttachments">Command `az calendar group-calendar-event delete-attachment`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.eventsDeleteCalendar">Command `az calendar group-calendar-event delete-calendar`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.eventsDeleteExtensions">Command `az calendar group-calendar-event delete-extension`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.eventsDeleteInstances">Command `az calendar group-calendar-event delete-instance`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.eventsDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.eventsDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendar.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.calendar.eventsListAttachments">Command `az calendar group-calendar-event list-attachment`</a>
 
@@ -1955,49 +1988,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-calendar-view`
-#### <a name="groups.calendar.calendarViewDeleteAttachments">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.calendar.calendarViewDeleteExtensions">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="groups.calendar.calendarViewDeleteInstances">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.calendar.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendar.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendar.calendarViewDeleteCalendar">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendar.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groups.calendar.calendarViewCreateAttachments">Command `az calendar group-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersgroups.calendar.calendarViewCreateAttachments">Parameters</a> 
@@ -2106,6 +2096,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.calendar.calendarViewDeleteAttachments">Command `az calendar group-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.calendarViewDeleteCalendar">Command `az calendar group-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.calendarViewDeleteExtensions">Command `az calendar group-calendar-view delete-extension`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.calendarViewDeleteInstances">Command `az calendar group-calendar-view delete-instance`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendar.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendar.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.calendar.calendarViewListAttachments">Command `az calendar group-calendar-view list-attachment`</a>
 
@@ -2367,49 +2416,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-calendar-view`
-#### <a name="groups.calendarViewDeleteAttachments">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.calendarViewDeleteExtensions">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="groups.calendarViewDeleteInstances">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendarViewDeleteCalendar">Command `az calendar group-calendar-view delete`</a>
-
-##### <a name="Parametersgroups.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groups.calendarViewCreateAttachments">Command `az calendar group-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersgroups.calendarViewCreateAttachments">Parameters</a> 
@@ -2518,6 +2524,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.calendarViewDeleteAttachments">Command `az calendar group-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarViewDeleteCalendar">Command `az calendar group-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarViewDeleteExtensions">Command `az calendar group-calendar-view delete-extension`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarViewDeleteInstances">Command `az calendar group-calendar-view delete-instance`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.calendarViewListAttachments">Command `az calendar group-calendar-view list-attachment`</a>
 
@@ -2779,42 +2844,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-calendar-view-calendar`
-#### <a name="groups.calendarView.calendarDeleteCalendarPermissions">Command `az calendar group-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarView.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.calendarView.calendarDeleteCalendarView">Command `az calendar group-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarView.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.calendarView.calendarDeleteEvents">Command `az calendar group-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarView.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="groups.calendarView.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarView.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.calendarView.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersgroups.calendarView.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="groups.calendarView.calendarCreateCalendarPermissions">Command `az calendar group-calendar-view-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersgroups.calendarView.calendarCreateCalendarPermissions">Parameters</a> 
@@ -2980,6 +3009,56 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.calendarView.calendarDeleteCalendarPermissions">Command `az calendar group-calendar-view-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersgroups.calendarView.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarView.calendarDeleteCalendarView">Command `az calendar group-calendar-view-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersgroups.calendarView.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarView.calendarDeleteEvents">Command `az calendar group-calendar-view-calendar delete-event`</a>
+
+##### <a name="Parametersgroups.calendarView.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarView.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-calendar-view-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarView.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.calendarView.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-calendar-view-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.calendarView.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.calendarView.calendarListCalendarPermissions">Command `az calendar group-calendar-view-calendar list-calendar-permission`</a>
 
@@ -3263,49 +3342,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-event`
-#### <a name="groups.eventsDeleteAttachments">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.eventsDeleteExtensions">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="groups.eventsDeleteInstances">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.eventsDeleteMultiValueExtendedProperties">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.eventsDeleteSingleValueExtendedProperties">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="groups.eventsDeleteCalendar">Command `az calendar group-event delete`</a>
-
-##### <a name="Parametersgroups.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groups.eventsCreateAttachments">Command `az calendar group-event create-attachment`</a>
 
 ##### <a name="Parametersgroups.eventsCreateAttachments">Parameters</a> 
@@ -3414,6 +3450,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.eventsDeleteAttachments">Command `az calendar group-event delete-attachment`</a>
+
+##### <a name="Parametersgroups.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.eventsDeleteCalendar">Command `az calendar group-event delete-calendar`</a>
+
+##### <a name="Parametersgroups.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.eventsDeleteExtensions">Command `az calendar group-event delete-extension`</a>
+
+##### <a name="Parametersgroups.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.eventsDeleteInstances">Command `az calendar group-event delete-instance`</a>
+
+##### <a name="Parametersgroups.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.eventsDeleteMultiValueExtendedProperties">Command `az calendar group-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.eventsDeleteSingleValueExtendedProperties">Command `az calendar group-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.eventsListAttachments">Command `az calendar group-event list-attachment`</a>
 
@@ -3675,42 +3770,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar group-event-calendar`
-#### <a name="groups.events.calendarDeleteCalendarPermissions">Command `az calendar group-event-calendar delete`</a>
-
-##### <a name="Parametersgroups.events.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.events.calendarDeleteCalendarView">Command `az calendar group-event-calendar delete`</a>
-
-##### <a name="Parametersgroups.events.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="groups.events.calendarDeleteEvents">Command `az calendar group-event-calendar delete`</a>
-
-##### <a name="Parametersgroups.events.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="groups.events.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-event-calendar delete`</a>
-
-##### <a name="Parametersgroups.events.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="groups.events.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-event-calendar delete`</a>
-
-##### <a name="Parametersgroups.events.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="groups.events.calendarCreateCalendarPermissions">Command `az calendar group-event-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersgroups.events.calendarCreateCalendarPermissions">Parameters</a> 
@@ -3876,6 +3935,56 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="groups.events.calendarDeleteCalendarPermissions">Command `az calendar group-event-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersgroups.events.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.events.calendarDeleteCalendarView">Command `az calendar group-event-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersgroups.events.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.events.calendarDeleteEvents">Command `az calendar group-event-calendar delete-event`</a>
+
+##### <a name="Parametersgroups.events.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.events.calendarDeleteMultiValueExtendedProperties">Command `az calendar group-event-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersgroups.events.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.events.calendarDeleteSingleValueExtendedProperties">Command `az calendar group-event-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersgroups.events.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.events.calendarListCalendarPermissions">Command `az calendar group-event-calendar list-calendar-permission`</a>
 
@@ -4159,14 +4268,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar place-place`
-#### <a name="places.placeDeletePlace">Command `az calendar place-place delete`</a>
-
-##### <a name="Parametersplaces.placeDeletePlace">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--place-id**|string|key: id of place|place_id|place-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="places.placeCreatePlace">Command `az calendar place-place create-place`</a>
 
 ##### <a name="Parametersplaces.placeCreatePlace">Parameters</a> 
@@ -4177,6 +4278,14 @@
 |**--display-name**|string|The name associated with the place.|display_name|displayName|
 |**--geo-coordinates**|object|outlookGeoCoordinates|geo_coordinates|geoCoordinates|
 |**--phone**|string|The phone number of the place.|phone|phone|
+
+#### <a name="places.placeDeletePlace">Command `az calendar place-place delete-place`</a>
+
+##### <a name="Parametersplaces.placeDeletePlace">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--place-id**|string|key: id of place|place_id|place-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="places.placeListPlace">Command `az calendar place-place list-place`</a>
 
@@ -4209,39 +4318,6 @@
 |**--phone**|string|The phone number of the place.|phone|phone|
 
 ### group `az calendar user`
-#### <a name="usersDeleteCalendarGroups">Command `az calendar user delete`</a>
-
-##### <a name="ParametersusersDeleteCalendarGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteCalendars">Command `az calendar user delete`</a>
-
-##### <a name="ParametersusersDeleteCalendars">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-
-#### <a name="usersDeleteCalendarView">Command `az calendar user delete`</a>
-
-##### <a name="ParametersusersDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id**|string|key: id of event|event_id|event-id|
-
-#### <a name="usersDeleteEvents">Command `az calendar user delete`</a>
-
-##### <a name="ParametersusersDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="usersDeleteCalendar">Command `az calendar user delete`</a>
-
-##### <a name="ParametersusersDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreateCalendars">Command `az calendar user create-calendar`</a>
 
 ##### <a name="ParametersusersCreateCalendars">Parameters</a> 
@@ -4407,6 +4483,47 @@
 |**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
 |**--unique-id**|string|For internal use only.|unique_id|uniqueId|
 |**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+
+#### <a name="usersDeleteCalendars">Command `az calendar user delete-calendar`</a>
+
+##### <a name="ParametersusersDeleteCalendars">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteCalendar">Command `az calendar user delete-calendar`</a>
+
+##### <a name="ParametersusersDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersDeleteCalendarGroups">Command `az calendar user delete-calendar-group`</a>
+
+##### <a name="ParametersusersDeleteCalendarGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteCalendarView">Command `az calendar user delete-calendar-view`</a>
+
+##### <a name="ParametersusersDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteEvents">Command `az calendar user delete-event`</a>
+
+##### <a name="ParametersusersDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListCalendars">Command `az calendar user list-calendar`</a>
 
@@ -4673,41 +4790,6 @@
 |**--unique-id-type**|choice||unique_id_type|uniqueIdType|
 
 ### group `az calendar user-calendar`
-#### <a name="users.calendarDeleteCalendarPermissions">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarDeleteCalendarView">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id**|string|key: id of event|event_id|event-id|
-
-#### <a name="users.calendarDeleteEvents">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="users.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.calendarCreateCalendarPermissions">Command `az calendar user-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersusers.calendarCreateCalendarPermissions">Parameters</a> 
@@ -4868,6 +4950,51 @@
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarDeleteCalendarPermissions">Command `az calendar user-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersusers.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarDeleteCalendarView">Command `az calendar user-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersusers.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarDeleteEvents">Command `az calendar user-calendar delete-event`</a>
+
+##### <a name="Parametersusers.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarListCalendarPermissions">Command `az calendar user-calendar list-calendar-permission`</a>
 
@@ -5140,42 +5267,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar`
-#### <a name="users.calendarsDeleteCalendarPermissions">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarsDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarsDeleteCalendarView">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarsDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id**|string|key: id of event|event_id|event-id|
-
-#### <a name="users.calendarsDeleteEvents">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarsDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="users.calendarsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.calendarsCreateCalendarPermissions">Command `az calendar user-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersusers.calendarsCreateCalendarPermissions">Parameters</a> 
@@ -5341,6 +5432,56 @@
 |**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarsDeleteCalendarPermissions">Command `az calendar user-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersusers.calendarsDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarsDeleteCalendarView">Command `az calendar user-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersusers.calendarsDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarsDeleteEvents">Command `az calendar user-calendar delete-event`</a>
+
+##### <a name="Parametersusers.calendarsDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarsListCalendarPermissions">Command `az calendar user-calendar list-calendar-permission`</a>
 
@@ -5628,49 +5769,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-event`
-#### <a name="users.calendar.eventsDeleteAttachments">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendar.eventsDeleteExtensions">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendar.eventsDeleteInstances">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendar.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendar.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendar.eventsDeleteCalendar">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendar.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendar.eventsCreateAttachments">Command `az calendar user-calendar-event create-attachment`</a>
 
 ##### <a name="Parametersusers.calendar.eventsCreateAttachments">Parameters</a> 
@@ -5779,6 +5877,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendar.eventsDeleteAttachments">Command `az calendar user-calendar-event delete-attachment`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.eventsDeleteCalendar">Command `az calendar user-calendar-event delete-calendar`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.eventsDeleteExtensions">Command `az calendar user-calendar-event delete-extension`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.eventsDeleteInstances">Command `az calendar user-calendar-event delete-instance`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendar.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendar.eventsListAttachments">Command `az calendar user-calendar-event list-attachment`</a>
 
@@ -6040,50 +6197,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-event`
-#### <a name="users.calendars.eventsDeleteAttachments">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendars.eventsDeleteExtensions">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendars.eventsDeleteInstances">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendars.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendars.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendars.eventsDeleteCalendar">Command `az calendar user-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendars.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendars.eventsCreateAttachments">Command `az calendar user-calendar-event create-attachment`</a>
 
 ##### <a name="Parametersusers.calendars.eventsCreateAttachments">Parameters</a> 
@@ -6197,6 +6310,71 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendars.eventsDeleteAttachments">Command `az calendar user-calendar-event delete-attachment`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.eventsDeleteCalendar">Command `az calendar user-calendar-event delete-calendar`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.eventsDeleteExtensions">Command `az calendar user-calendar-event delete-extension`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.eventsDeleteInstances">Command `az calendar user-calendar-event delete-instance`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendars.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendars.eventsListAttachments">Command `az calendar user-calendar-event list-attachment`</a>
 
@@ -6475,16 +6653,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-group`
-#### <a name="users.calendarGroupsDeleteCalendars">Command `az calendar user-calendar-group delete`</a>
-
-##### <a name="Parametersusers.calendarGroupsDeleteCalendars">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.calendarGroupsCreateCalendars">Command `az calendar user-calendar-group create-calendar`</a>
 
 ##### <a name="Parametersusers.calendarGroupsCreateCalendars">Parameters</a> 
@@ -6509,6 +6677,16 @@
 |**--events**|array|The events in the calendar. Navigation property. Read-only.|events|events|
 |**--multi-value-extended-properties**|array|The collection of multi-value extended properties defined for the calendar. Read-only. Nullable.|multi_value_extended_properties|multiValueExtendedProperties|
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the calendar. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
+
+#### <a name="users.calendarGroupsDeleteCalendars">Command `az calendar user-calendar-group delete-calendar`</a>
+
+##### <a name="Parametersusers.calendarGroupsDeleteCalendars">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarGroupsListCalendars">Command `az calendar user-calendar-group list-calendar`</a>
 
@@ -6559,43 +6737,6 @@
 |**--single-value-extended-properties**|array|The collection of single-value extended properties defined for the calendar. Read-only. Nullable.|single_value_extended_properties|singleValueExtendedProperties|
 
 ### group `az calendar user-calendar-group-calendar`
-#### <a name="users.calendarGroups.calendarsDeleteCalendarPermissions">Command `az calendar user-calendar-group-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendarsDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarGroups.calendarsDeleteCalendarView">Command `az calendar user-calendar-group-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendarsDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id**|string|key: id of event|event_id|event-id|
-
-#### <a name="users.calendarGroups.calendarsDeleteEvents">Command `az calendar user-calendar-group-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendarsDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="users.calendarGroups.calendarsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendarsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarGroups.calendarsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendarsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.calendarGroups.calendarsCreateCalendarPermissions">Command `az calendar user-calendar-group-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersusers.calendarGroups.calendarsCreateCalendarPermissions">Parameters</a> 
@@ -6766,6 +6907,61 @@
 |**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarGroups.calendarsDeleteCalendarPermissions">Command `az calendar user-calendar-group-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendarsDeleteCalendarView">Command `az calendar user-calendar-group-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendarsDeleteEvents">Command `az calendar user-calendar-group-calendar delete-event`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendarsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendarsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendarsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarGroups.calendarsListCalendarPermissions">Command `az calendar user-calendar-group-calendar list-calendar-permission`</a>
 
@@ -7064,51 +7260,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-group-calendar-event`
-#### <a name="users.calendarGroups.calendars.eventsDeleteAttachments">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarGroups.calendars.eventsDeleteExtensions">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendarGroups.calendars.eventsDeleteInstances">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarGroups.calendars.eventsDeleteCalendar">Command `az calendar user-calendar-group-calendar-event delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendarGroups.calendars.eventsCreateAttachments">Command `az calendar user-calendar-group-calendar-event create-attachment`</a>
 
 ##### <a name="Parametersusers.calendarGroups.calendars.eventsCreateAttachments">Parameters</a> 
@@ -7227,6 +7378,77 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteAttachments">Command `az calendar user-calendar-group-calendar-event delete-attachment`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteCalendar">Command `az calendar user-calendar-group-calendar-event delete-calendar`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteExtensions">Command `az calendar user-calendar-group-calendar-event delete-extension`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteInstances">Command `az calendar user-calendar-group-calendar-event delete-instance`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarGroups.calendars.eventsListAttachments">Command `az calendar user-calendar-group-calendar-event list-attachment`</a>
 
@@ -7522,51 +7744,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-group-calendar-view`
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteAttachments">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteExtensions">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteInstances">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarGroups.calendars.calendarViewDeleteCalendar">Command `az calendar user-calendar-group-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendarGroups.calendars.calendarViewCreateAttachments">Command `az calendar user-calendar-group-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersusers.calendarGroups.calendars.calendarViewCreateAttachments">Parameters</a> 
@@ -7685,6 +7862,77 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteAttachments">Command `az calendar user-calendar-group-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteCalendar">Command `az calendar user-calendar-group-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteExtensions">Command `az calendar user-calendar-group-calendar-view delete-extension`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteInstances">Command `az calendar user-calendar-group-calendar-view delete-instance`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-group-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-group-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarGroups.calendars.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-group-id**|string|key: id of calendarGroup|calendar_group_id|calendarGroup-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarGroups.calendars.calendarViewListAttachments">Command `az calendar user-calendar-group-calendar-view list-attachment`</a>
 
@@ -7980,49 +8228,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-view`
-#### <a name="users.calendar.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendar.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendar.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendar.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendar.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendar.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendar.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendar.calendarViewCreateAttachments">Command `az calendar user-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersusers.calendar.calendarViewCreateAttachments">Parameters</a> 
@@ -8131,6 +8336,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendar.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete-extension`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete-instance`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendar.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendar.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendar.calendarViewListAttachments">Command `az calendar user-calendar-view list-attachment`</a>
 
@@ -8392,50 +8656,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-view`
-#### <a name="users.calendars.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendars.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendars.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendars.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendars.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendars.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendars.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendars.calendarViewCreateAttachments">Command `az calendar user-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersusers.calendars.calendarViewCreateAttachments">Parameters</a> 
@@ -8549,6 +8769,71 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendars.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete-extension`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete-instance`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendars.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendars.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--calendar-id**|string|key: id of calendar|calendar_id|calendar-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendars.calendarViewListAttachments">Command `az calendar user-calendar-view list-attachment`</a>
 
@@ -8827,49 +9112,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-view`
-#### <a name="users.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete`</a>
-
-##### <a name="Parametersusers.calendarViewDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.calendarViewCreateAttachments">Command `az calendar user-calendar-view create-attachment`</a>
 
 ##### <a name="Parametersusers.calendarViewCreateAttachments">Parameters</a> 
@@ -8978,6 +9220,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarViewDeleteAttachments">Command `az calendar user-calendar-view delete-attachment`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarViewDeleteCalendar">Command `az calendar user-calendar-view delete-calendar`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarViewDeleteExtensions">Command `az calendar user-calendar-view delete-extension`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarViewDeleteInstances">Command `az calendar user-calendar-view delete-instance`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarViewDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarViewDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarViewDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarViewListAttachments">Command `az calendar user-calendar-view list-attachment`</a>
 
@@ -9239,42 +9540,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-calendar-view-calendar`
-#### <a name="users.calendarView.calendarDeleteCalendarPermissions">Command `az calendar user-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarView.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.calendarView.calendarDeleteCalendarView">Command `az calendar user-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarView.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.calendarView.calendarDeleteEvents">Command `az calendar user-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarView.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="users.calendarView.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarView.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.calendarView.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view-calendar delete`</a>
-
-##### <a name="Parametersusers.calendarView.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.calendarView.calendarCreateCalendarPermissions">Command `az calendar user-calendar-view-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersusers.calendarView.calendarCreateCalendarPermissions">Parameters</a> 
@@ -9440,6 +9705,56 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.calendarView.calendarDeleteCalendarPermissions">Command `az calendar user-calendar-view-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersusers.calendarView.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarView.calendarDeleteCalendarView">Command `az calendar user-calendar-view-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersusers.calendarView.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarView.calendarDeleteEvents">Command `az calendar user-calendar-view-calendar delete-event`</a>
+
+##### <a name="Parametersusers.calendarView.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarView.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-calendar-view-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarView.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.calendarView.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-calendar-view-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.calendarView.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.calendarView.calendarListCalendarPermissions">Command `az calendar user-calendar-view-calendar list-calendar-permission`</a>
 
@@ -9723,49 +10038,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-event`
-#### <a name="users.eventsDeleteAttachments">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.eventsDeleteExtensions">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.eventsDeleteInstances">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteInstances">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
-#### <a name="users.eventsDeleteCalendar">Command `az calendar user-event delete`</a>
-
-##### <a name="Parametersusers.eventsDeleteCalendar">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.eventsCreateAttachments">Command `az calendar user-event create-attachment`</a>
 
 ##### <a name="Parametersusers.eventsCreateAttachments">Parameters</a> 
@@ -9874,6 +10146,65 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.eventsDeleteAttachments">Command `az calendar user-event delete-attachment`</a>
+
+##### <a name="Parametersusers.eventsDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.eventsDeleteCalendar">Command `az calendar user-event delete-calendar`</a>
+
+##### <a name="Parametersusers.eventsDeleteCalendar">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.eventsDeleteExtensions">Command `az calendar user-event delete-extension`</a>
+
+##### <a name="Parametersusers.eventsDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.eventsDeleteInstances">Command `az calendar user-event delete-instance`</a>
+
+##### <a name="Parametersusers.eventsDeleteInstances">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.eventsDeleteMultiValueExtendedProperties">Command `az calendar user-event delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.eventsDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.eventsDeleteSingleValueExtendedProperties">Command `az calendar user-event delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.eventsDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.eventsListAttachments">Command `az calendar user-event list-attachment`</a>
 
@@ -10135,42 +10466,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az calendar user-event-calendar`
-#### <a name="users.events.calendarDeleteCalendarPermissions">Command `az calendar user-event-calendar delete`</a>
-
-##### <a name="Parametersusers.events.calendarDeleteCalendarPermissions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--event-id**|string|key: id of event|event_id|event-id|
-|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.events.calendarDeleteCalendarView">Command `az calendar user-event-calendar delete`</a>
-
-##### <a name="Parametersusers.events.calendarDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--event-id1**|string|key: id of event|event_id1|event-id1|
-
-#### <a name="users.events.calendarDeleteEvents">Command `az calendar user-event-calendar delete`</a>
-
-##### <a name="Parametersusers.events.calendarDeleteEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="users.events.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-event-calendar delete`</a>
-
-##### <a name="Parametersusers.events.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.events.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-event-calendar delete`</a>
-
-##### <a name="Parametersusers.events.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.events.calendarCreateCalendarPermissions">Command `az calendar user-event-calendar create-calendar-permission`</a>
 
 ##### <a name="Parametersusers.events.calendarCreateCalendarPermissions">Parameters</a> 
@@ -10336,6 +10631,56 @@
 |**--event-id**|string|key: id of event|event_id|event-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.events.calendarDeleteCalendarPermissions">Command `az calendar user-event-calendar delete-calendar-permission`</a>
+
+##### <a name="Parametersusers.events.calendarDeleteCalendarPermissions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--calendar-permission-id**|string|key: id of calendarPermission|calendar_permission_id|calendarPermission-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.events.calendarDeleteCalendarView">Command `az calendar user-event-calendar delete-calendar-view`</a>
+
+##### <a name="Parametersusers.events.calendarDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.events.calendarDeleteEvents">Command `az calendar user-event-calendar delete-event`</a>
+
+##### <a name="Parametersusers.events.calendarDeleteEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--event-id1**|string|key: id of event|event_id1|event-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.events.calendarDeleteMultiValueExtendedProperties">Command `az calendar user-event-calendar delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.events.calendarDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.events.calendarDeleteSingleValueExtendedProperties">Command `az calendar user-event-calendar delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.events.calendarDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--event-id**|string|key: id of event|event_id|event-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.events.calendarListCalendarPermissions">Command `az calendar user-event-calendar list-calendar-permission`</a>
 

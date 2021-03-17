@@ -183,19 +183,6 @@ manager property set to this user.) Read-only. Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --direct-reports argument.
-      - name: --license-details
-        short-summary: "A collection of this user's license details. Read-only."
-        long-summary: |
-            Usage: --license-details service-plans=XX sku-id=XX sku-part-number=XX id=XX
-
-            service-plans: Information about the service plans assigned with the license. Read-only, Not nullable
-            sku-id: Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related \
-SubscribedSku object. Read-only
-            sku-part-number: Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; \
-for example: 'AAD_Premium'. Read-only
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --license-details argument.
       - name: --manager
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -517,19 +504,6 @@ manager property set to this user.) Read-only. Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --direct-reports argument.
-      - name: --license-details
-        short-summary: "A collection of this user's license details. Read-only."
-        long-summary: |
-            Usage: --license-details service-plans=XX sku-id=XX sku-part-number=XX id=XX
-
-            service-plans: Information about the service plans assigned with the license. Read-only, Not nullable
-            sku-id: Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related \
-SubscribedSku object. Read-only
-            sku-part-number: Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; \
-for example: 'AAD_Premium'. Read-only
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --license-details argument.
       - name: --manager
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -696,7 +670,7 @@ country/region. For example, 'en-us'. The language component follows 2-letter co
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 """
 
-helps['users user delete'] = """
+helps['users user delete-user'] = """
     type: command
     short-summary: "Delete entity from users."
 """
@@ -709,14 +683,6 @@ helps['users user show-user'] = """
 helps['users user'] = """
     type: group
     short-summary: Manage user with users_v1_0
-"""
-
-helps['users user delete'] = """
-    type: command
-    short-summary: "Delete navigation property extensions for users And Delete navigation property licenseDetails for \
-users And Delete navigation property photos for users And Delete ref of navigation property manager for users And \
-Delete navigation property outlook for users And Delete navigation property photo for users And Delete navigation \
-property settings for users."
 """
 
 helps['users user create-extension'] = """
@@ -789,6 +755,36 @@ helps['users user create-ref-registered-device'] = """
 helps['users user create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for users."
+"""
+
+helps['users user delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['users user delete-license-detail'] = """
+    type: command
+    short-summary: "Delete navigation property licenseDetails for users."
+"""
+
+helps['users user delete-outlook'] = """
+    type: command
+    short-summary: "Delete navigation property outlook for users."
+"""
+
+helps['users user delete-photo'] = """
+    type: command
+    short-summary: "Delete navigation property photos for users And Delete navigation property photo for users."
+"""
+
+helps['users user delete-ref-manager'] = """
+    type: command
+    short-summary: "Delete ref of navigation property manager for users."
+"""
+
+helps['users user delete-setting'] = """
+    type: command
+    short-summary: "Delete navigation property settings for users."
 """
 
 helps['users user list-created-object'] = """
@@ -1012,14 +1008,14 @@ helps['users user-outlook'] = """
     short-summary: Manage user outlook with users_v1_0
 """
 
-helps['users user-outlook delete'] = """
-    type: command
-    short-summary: "Delete navigation property masterCategories for users."
-"""
-
 helps['users user-outlook create-master-category'] = """
     type: command
     short-summary: "Create new navigation property to masterCategories for users."
+"""
+
+helps['users user-outlook delete-master-category'] = """
+    type: command
+    short-summary: "Delete navigation property masterCategories for users."
 """
 
 helps['users user-outlook list-master-category'] = """
@@ -1042,7 +1038,7 @@ helps['users user-setting'] = """
     short-summary: Manage user setting with users_v1_0
 """
 
-helps['users user-setting delete'] = """
+helps['users user-setting delete-shift-preference'] = """
     type: command
     short-summary: "Delete navigation property shiftPreferences for users."
 """

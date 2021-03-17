@@ -37,10 +37,13 @@ def load_command_table(self, _):
         client_factory=cf_education,
     )
     with self.command_group('education education', education_v1_0_education, client_factory=cf_education) as g:
-        g.custom_command('delete', 'education_education_delete', confirmation=True)
         g.custom_command('create-class', 'education_education_create_class')
         g.custom_command('create-school', 'education_education_create_school')
         g.custom_command('create-user', 'education_education_create_user')
+        g.custom_command('delete-class', 'education_education_delete_class')
+        g.custom_command('delete-me', 'education_education_delete_me')
+        g.custom_command('delete-school', 'education_education_delete_school')
+        g.custom_command('delete-user', 'education_education_delete_user')
         g.custom_command('list-class', 'education_education_list_class')
         g.custom_command('list-school', 'education_education_list_school')
         g.custom_command('list-user', 'education_education_list_user')
@@ -62,10 +65,10 @@ def load_command_table(self, _):
     with self.command_group(
         'education education-class', education_v1_0_education_class, client_factory=cf_education_class
     ) as g:
-        g.custom_command('delete', 'education_education_class_delete', confirmation=True)
         g.custom_command('create-ref-member', 'education_education_class_create_ref_member')
         g.custom_command('create-ref-school', 'education_education_class_create_ref_school')
         g.custom_command('create-ref-teacher', 'education_education_class_create_ref_teacher')
+        g.custom_command('delete-ref-group', 'education_education_class_delete_ref_group')
         g.custom_command('list-member', 'education_education_class_list_member')
         g.custom_command('list-ref-member', 'education_education_class_list_ref_member')
         g.custom_command('list-ref-school', 'education_education_class_list_ref_school')
@@ -85,9 +88,9 @@ def load_command_table(self, _):
         client_factory=cf_education_me,
     )
     with self.command_group('education education-me', education_v1_0_education_me, client_factory=cf_education_me) as g:
-        g.custom_command('delete', 'education_education_me_delete', confirmation=True)
         g.custom_command('create-ref-class', 'education_education_me_create_ref_class')
         g.custom_command('create-ref-school', 'education_education_me_create_ref_school')
+        g.custom_command('delete-ref-user', 'education_education_me_delete_ref_user')
         g.custom_command('list-class', 'education_education_me_list_class')
         g.custom_command('list-ref-class', 'education_education_me_list_ref_class')
         g.custom_command('list-ref-school', 'education_education_me_list_ref_school')
@@ -121,9 +124,9 @@ def load_command_table(self, _):
     with self.command_group(
         'education education-user', education_v1_0_education_user, client_factory=cf_education_user
     ) as g:
-        g.custom_command('delete', 'education_education_user_delete', confirmation=True)
         g.custom_command('create-ref-class', 'education_education_user_create_ref_class')
         g.custom_command('create-ref-school', 'education_education_user_create_ref_school')
+        g.custom_command('delete-ref-user', 'education_education_user_delete_ref_user')
         g.custom_command('list-class', 'education_education_user_list_class')
         g.custom_command('list-ref-class', 'education_education_user_list_ref_class')
         g.custom_command('list-ref-school', 'education_education_user_list_ref_school')

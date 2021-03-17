@@ -760,33 +760,6 @@ class AddVerifiedDomains(argparse._AppendAction):
         return d
 
 
-class AddCertificateBasedAuthConfiguration(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCertificateBasedAuthConfiguration, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'certificate-authorities':
-                d['certificate_authorities'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter certificate_based_auth_configuration. All '
-                               'possible keys are: certificate-authorities, id'.format(k))
-        return d
-
-
 class AddExtensions(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

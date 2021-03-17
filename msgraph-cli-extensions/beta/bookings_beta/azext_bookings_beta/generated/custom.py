@@ -11,13 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def bookings_booking_business_booking_business_delete(client,
-                                                      booking_business_id,
-                                                      if_match=None):
-    return client.delete_booking_business(booking_business_id=booking_business_id,
-                                          if_match=if_match)
-
-
 def bookings_booking_business_booking_business_create_booking_business(client,
                                                                        id_=None,
                                                                        display_name=None,
@@ -53,6 +46,13 @@ def bookings_booking_business_booking_business_create_booking_business(client,
                                           customers=customers,
                                           services=services,
                                           staff_members=staff_members)
+
+
+def bookings_booking_business_booking_business_delete_booking_business(client,
+                                                                       booking_business_id,
+                                                                       if_match=None):
+    return client.delete_booking_business(booking_business_id=booking_business_id,
+                                          if_match=if_match)
 
 
 def bookings_booking_business_booking_business_list_booking_business(client,
@@ -110,34 +110,6 @@ def bookings_booking_business_booking_business_update_booking_business(client,
                                           customers=customers,
                                           services=services,
                                           staff_members=staff_members)
-
-
-def bookings_booking_business_delete(client,
-                                     booking_business_id,
-                                     booking_appointment_id=None,
-                                     if_match=None,
-                                     booking_customer_id=None,
-                                     booking_service_id=None,
-                                     booking_staff_member_id=None):
-    if booking_business_id is not None and booking_appointment_id is not None:
-        return client.delete_appointment(booking_business_id=booking_business_id,
-                                         booking_appointment_id=booking_appointment_id,
-                                         if_match=if_match)
-    elif booking_business_id is not None and booking_appointment_id is not None:
-        return client.delete_calendar_view(booking_business_id=booking_business_id,
-                                           booking_appointment_id=booking_appointment_id,
-                                           if_match=if_match)
-    elif booking_business_id is not None and booking_customer_id is not None:
-        return client.delete_customer(booking_business_id=booking_business_id,
-                                      booking_customer_id=booking_customer_id,
-                                      if_match=if_match)
-    elif booking_business_id is not None and booking_service_id is not None:
-        return client.delete_service(booking_business_id=booking_business_id,
-                                     booking_service_id=booking_service_id,
-                                     if_match=if_match)
-    return client.delete_staff_member(booking_business_id=booking_business_id,
-                                      booking_staff_member_id=booking_staff_member_id,
-                                      if_match=if_match)
 
 
 def bookings_booking_business_create_appointment(client,
@@ -407,6 +379,51 @@ def bookings_booking_business_create_staff_member(client,
                                       role=role,
                                       use_business_hours=use_business_hours,
                                       working_hours=working_hours)
+
+
+def bookings_booking_business_delete_appointment(client,
+                                                 booking_business_id,
+                                                 booking_appointment_id,
+                                                 if_match=None):
+    return client.delete_appointment(booking_business_id=booking_business_id,
+                                     booking_appointment_id=booking_appointment_id,
+                                     if_match=if_match)
+
+
+def bookings_booking_business_delete_calendar_view(client,
+                                                   booking_business_id,
+                                                   booking_appointment_id,
+                                                   if_match=None):
+    return client.delete_calendar_view(booking_business_id=booking_business_id,
+                                       booking_appointment_id=booking_appointment_id,
+                                       if_match=if_match)
+
+
+def bookings_booking_business_delete_customer(client,
+                                              booking_business_id,
+                                              booking_customer_id,
+                                              if_match=None):
+    return client.delete_customer(booking_business_id=booking_business_id,
+                                  booking_customer_id=booking_customer_id,
+                                  if_match=if_match)
+
+
+def bookings_booking_business_delete_service(client,
+                                             booking_business_id,
+                                             booking_service_id,
+                                             if_match=None):
+    return client.delete_service(booking_business_id=booking_business_id,
+                                 booking_service_id=booking_service_id,
+                                 if_match=if_match)
+
+
+def bookings_booking_business_delete_staff_member(client,
+                                                  booking_business_id,
+                                                  booking_staff_member_id,
+                                                  if_match=None):
+    return client.delete_staff_member(booking_business_id=booking_business_id,
+                                      booking_staff_member_id=booking_staff_member_id,
+                                      if_match=if_match)
 
 
 def bookings_booking_business_list_appointment(client,
@@ -834,18 +851,18 @@ def bookings_booking_business_calendar_view_cancel(client,
                          cancellation_message=cancellation_message)
 
 
-def bookings_booking_currency_booking_currency_delete(client,
-                                                      booking_currency_id,
-                                                      if_match=None):
-    return client.delete_booking_currency(booking_currency_id=booking_currency_id,
-                                          if_match=if_match)
-
-
 def bookings_booking_currency_booking_currency_create_booking_currency(client,
                                                                        id_=None,
                                                                        symbol=None):
     return client.create_booking_currency(id=id_,
                                           symbol=symbol)
+
+
+def bookings_booking_currency_booking_currency_delete_booking_currency(client,
+                                                                       booking_currency_id,
+                                                                       if_match=None):
+    return client.delete_booking_currency(booking_currency_id=booking_currency_id,
+                                          if_match=if_match)
 
 
 def bookings_booking_currency_booking_currency_list_booking_currency(client,

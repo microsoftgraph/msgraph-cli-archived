@@ -27,9 +27,11 @@ def load_command_table(self, _):
         bookings_beta_booking_business_booking_business,
         client_factory=cf_booking_business_booking_business,
     ) as g:
-        g.custom_command('delete', 'bookings_booking_business_booking_business_delete', confirmation=True)
         g.custom_command(
             'create-booking-business', 'bookings_booking_business_booking_business_create_booking_business'
+        )
+        g.custom_command(
+            'delete-booking-business', 'bookings_booking_business_booking_business_delete_booking_business'
         )
         g.custom_command('list-booking-business', 'bookings_booking_business_booking_business_list_booking_business')
         g.custom_command('show-booking-business', 'bookings_booking_business_booking_business_show_booking_business')
@@ -46,12 +48,16 @@ def load_command_table(self, _):
     with self.command_group(
         'bookings booking-business', bookings_beta_booking_business, client_factory=cf_booking_business
     ) as g:
-        g.custom_command('delete', 'bookings_booking_business_delete', confirmation=True)
         g.custom_command('create-appointment', 'bookings_booking_business_create_appointment')
         g.custom_command('create-calendar-view', 'bookings_booking_business_create_calendar_view')
         g.custom_command('create-customer', 'bookings_booking_business_create_customer')
         g.custom_command('create-service', 'bookings_booking_business_create_service')
         g.custom_command('create-staff-member', 'bookings_booking_business_create_staff_member')
+        g.custom_command('delete-appointment', 'bookings_booking_business_delete_appointment')
+        g.custom_command('delete-calendar-view', 'bookings_booking_business_delete_calendar_view')
+        g.custom_command('delete-customer', 'bookings_booking_business_delete_customer')
+        g.custom_command('delete-service', 'bookings_booking_business_delete_service')
+        g.custom_command('delete-staff-member', 'bookings_booking_business_delete_staff_member')
         g.custom_command('list-appointment', 'bookings_booking_business_list_appointment')
         g.custom_command('list-calendar-view', 'bookings_booking_business_list_calendar_view')
         g.custom_command('list-customer', 'bookings_booking_business_list_customer')
@@ -107,9 +113,11 @@ def load_command_table(self, _):
         bookings_beta_booking_currency_booking_currency,
         client_factory=cf_booking_currency_booking_currency,
     ) as g:
-        g.custom_command('delete', 'bookings_booking_currency_booking_currency_delete', confirmation=True)
         g.custom_command(
             'create-booking-currency', 'bookings_booking_currency_booking_currency_create_booking_currency'
+        )
+        g.custom_command(
+            'delete-booking-currency', 'bookings_booking_currency_booking_currency_delete_booking_currency'
         )
         g.custom_command('list-booking-currency', 'bookings_booking_currency_booking_currency_list_booking_currency')
         g.custom_command('show-booking-currency', 'bookings_booking_currency_booking_currency_show_booking_currency')

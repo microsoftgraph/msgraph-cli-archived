@@ -7,7 +7,6 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 
 
@@ -27,21 +26,6 @@ def security_security_show_security(client,
                                     expand=None):
     return client.get_security(select=select,
                                expand=expand)
-
-
-def security_security_delete(client,
-                             alert_id=None,
-                             if_match=None,
-                             secure_score_control_profile_id=None,
-                             secure_score_id=None):
-    if alert_id is not None:
-        return client.delete_alert(alert_id=alert_id,
-                                   if_match=if_match)
-    elif secure_score_control_profile_id is not None:
-        return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                          if_match=if_match)
-    return client.delete_secure_score(secure_score_id=secure_score_id,
-                                      if_match=if_match)
 
 
 def security_security_create_alert(client,
@@ -183,6 +167,27 @@ def security_security_create_secure_score_control_profile(client,
                                                       title=title,
                                                       user_impact=user_impact,
                                                       vendor_information=vendor_information)
+
+
+def security_security_delete_alert(client,
+                                   alert_id,
+                                   if_match=None):
+    return client.delete_alert(alert_id=alert_id,
+                               if_match=if_match)
+
+
+def security_security_delete_secure_score(client,
+                                          secure_score_id,
+                                          if_match=None):
+    return client.delete_secure_score(secure_score_id=secure_score_id,
+                                      if_match=if_match)
+
+
+def security_security_delete_secure_score_control_profile(client,
+                                                          secure_score_control_profile_id,
+                                                          if_match=None):
+    return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                      if_match=if_match)
 
 
 def security_security_list_alert(client,

@@ -51,33 +51,6 @@ class AddAddress(argparse.Action):
         return d
 
 
-class AddBusinessHours(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddBusinessHours, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'day':
-                d['day'] = v[0]
-            elif kl == 'time-slots':
-                d['time_slots'] = v
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter business_hours. All possible keys are: '
-                               'day, time-slots'.format(k))
-        return d
-
-
 class AddSchedulingPolicy(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -256,31 +229,4 @@ class AddDefaultReminders(argparse._AppendAction):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter default_reminders. All possible keys are: '
                                'message, offset, recipients'.format(k))
-        return d
-
-
-class AddWorkingHours(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddWorkingHours, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'day':
-                d['day'] = v[0]
-            elif kl == 'time-slots':
-                d['time_slots'] = v
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter working_hours. All possible keys are: '
-                               'day, time-slots'.format(k))
         return d

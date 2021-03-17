@@ -23,7 +23,7 @@ def load_command_table(self, _):
         client_factory=cf_group,
     )
     with self.command_group('planner group', planner_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'planner_group_delete', confirmation=True)
+        g.custom_command('delete-planner', 'planner_group_delete_planner')
         g.custom_command('show-planner', 'planner_group_show_planner')
         g.custom_command('update-planner', 'planner_group_update_planner')
 
@@ -36,8 +36,8 @@ def load_command_table(self, _):
         client_factory=cf_group_planner,
     )
     with self.command_group('planner group-planner', planner_v1_0_group_planner, client_factory=cf_group_planner) as g:
-        g.custom_command('delete', 'planner_group_planner_delete', confirmation=True)
         g.custom_command('create-plan', 'planner_group_planner_create_plan')
+        g.custom_command('delete-plan', 'planner_group_planner_delete_plan')
         g.custom_command('list-plan', 'planner_group_planner_list_plan')
         g.custom_command('show-plan', 'planner_group_planner_show_plan')
         g.custom_command('update-plan', 'planner_group_planner_update_plan')
@@ -51,9 +51,11 @@ def load_command_table(self, _):
     with self.command_group(
         'planner group-planner-plan', planner_v1_0_group_planner_plan, client_factory=cf_group_planner_plan
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_delete', confirmation=True)
         g.custom_command('create-bucket', 'planner_group_planner_plan_create_bucket')
         g.custom_command('create-task', 'planner_group_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_group_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_group_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_group_planner_plan_delete_task')
         g.custom_command('list-bucket', 'planner_group_planner_plan_list_bucket')
         g.custom_command('list-task', 'planner_group_planner_plan_list_task')
         g.custom_command('show-bucket', 'planner_group_planner_plan_show_bucket')
@@ -74,8 +76,8 @@ def load_command_table(self, _):
         planner_v1_0_group_planner_plan_bucket,
         client_factory=cf_group_planner_plan_bucket,
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_bucket_delete', confirmation=True)
         g.custom_command('create-task', 'planner_group_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_group_planner_plan_bucket_delete_task')
         g.custom_command('list-task', 'planner_group_planner_plan_bucket_list_task')
         g.custom_command('show-task', 'planner_group_planner_plan_bucket_show_task')
         g.custom_command('update-task', 'planner_group_planner_plan_bucket_update_task')
@@ -91,7 +93,18 @@ def load_command_table(self, _):
         planner_v1_0_group_planner_plan_bucket_task,
         client_factory=cf_group_planner_plan_bucket_task,
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_group_planner_plan_bucket_task_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_group_planner_plan_bucket_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format',
+            'planner_group_planner_plan_bucket_task_delete_progress_task_board_format',
+        )
         g.custom_command(
             'show-assigned-to-task-board-format',
             'planner_group_planner_plan_bucket_task_show_assigned_to_task_board_format',
@@ -127,7 +140,17 @@ def load_command_table(self, _):
         planner_v1_0_group_planner_plan_task,
         client_factory=cf_group_planner_plan_task,
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_group_planner_plan_task_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_group_planner_plan_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_group_planner_plan_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_group_planner_plan_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_group_planner_plan_task_show_assigned_to_task_board_format'
         )
@@ -167,10 +190,12 @@ def load_command_table(self, _):
         client_factory=cf_planner,
     )
     with self.command_group('planner planner', planner_v1_0_planner, client_factory=cf_planner) as g:
-        g.custom_command('delete', 'planner_planner_delete', confirmation=True)
         g.custom_command('create-bucket', 'planner_planner_create_bucket')
         g.custom_command('create-plan', 'planner_planner_create_plan')
         g.custom_command('create-task', 'planner_planner_create_task')
+        g.custom_command('delete-bucket', 'planner_planner_delete_bucket')
+        g.custom_command('delete-plan', 'planner_planner_delete_plan')
+        g.custom_command('delete-task', 'planner_planner_delete_task')
         g.custom_command('list-bucket', 'planner_planner_list_bucket')
         g.custom_command('list-plan', 'planner_planner_list_plan')
         g.custom_command('list-task', 'planner_planner_list_task')
@@ -192,8 +217,8 @@ def load_command_table(self, _):
     with self.command_group(
         'planner planner-bucket', planner_v1_0_planner_bucket, client_factory=cf_planner_bucket
     ) as g:
-        g.custom_command('delete', 'planner_planner_bucket_delete', confirmation=True)
         g.custom_command('create-task', 'planner_planner_bucket_create_task')
+        g.custom_command('delete-task', 'planner_planner_bucket_delete_task')
         g.custom_command('list-task', 'planner_planner_bucket_list_task')
         g.custom_command('show-task', 'planner_planner_bucket_show_task')
         g.custom_command('update-task', 'planner_planner_bucket_update_task')
@@ -207,7 +232,16 @@ def load_command_table(self, _):
     with self.command_group(
         'planner planner-bucket-task', planner_v1_0_planner_bucket_task, client_factory=cf_planner_bucket_task
     ) as g:
-        g.custom_command('delete', 'planner_planner_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format', 'planner_planner_bucket_task_delete_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_planner_bucket_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_planner_bucket_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_planner_bucket_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_planner_bucket_task_show_assigned_to_task_board_format'
         )
@@ -236,9 +270,11 @@ def load_command_table(self, _):
         client_factory=cf_planner_plan,
     )
     with self.command_group('planner planner-plan', planner_v1_0_planner_plan, client_factory=cf_planner_plan) as g:
-        g.custom_command('delete', 'planner_planner_plan_delete', confirmation=True)
         g.custom_command('create-bucket', 'planner_planner_plan_create_bucket')
         g.custom_command('create-task', 'planner_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_planner_plan_delete_task')
         g.custom_command('list-bucket', 'planner_planner_plan_list_bucket')
         g.custom_command('list-task', 'planner_planner_plan_list_task')
         g.custom_command('show-bucket', 'planner_planner_plan_show_bucket')
@@ -257,8 +293,8 @@ def load_command_table(self, _):
     with self.command_group(
         'planner planner-plan-bucket', planner_v1_0_planner_plan_bucket, client_factory=cf_planner_plan_bucket
     ) as g:
-        g.custom_command('delete', 'planner_planner_plan_bucket_delete', confirmation=True)
         g.custom_command('create-task', 'planner_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_planner_plan_bucket_delete_task')
         g.custom_command('list-task', 'planner_planner_plan_bucket_list_task')
         g.custom_command('show-task', 'planner_planner_plan_bucket_show_task')
         g.custom_command('update-task', 'planner_planner_plan_bucket_update_task')
@@ -274,7 +310,17 @@ def load_command_table(self, _):
         planner_v1_0_planner_plan_bucket_task,
         client_factory=cf_planner_plan_bucket_task,
     ) as g:
-        g.custom_command('delete', 'planner_planner_plan_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_planner_plan_bucket_task_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_planner_plan_bucket_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_planner_plan_bucket_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_planner_plan_bucket_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_planner_plan_bucket_task_show_assigned_to_task_board_format'
         )
@@ -306,7 +352,14 @@ def load_command_table(self, _):
     with self.command_group(
         'planner planner-plan-task', planner_v1_0_planner_plan_task, client_factory=cf_planner_plan_task
     ) as g:
-        g.custom_command('delete', 'planner_planner_plan_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format', 'planner_planner_plan_task_delete_assigned_to_task_board_format'
+        )
+        g.custom_command('delete-bucket-task-board-format', 'planner_planner_plan_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_planner_plan_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_planner_plan_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_planner_plan_task_show_assigned_to_task_board_format'
         )
@@ -331,7 +384,12 @@ def load_command_table(self, _):
         client_factory=cf_planner_task,
     )
     with self.command_group('planner planner-task', planner_v1_0_planner_task, client_factory=cf_planner_task) as g:
-        g.custom_command('delete', 'planner_planner_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format', 'planner_planner_task_delete_assigned_to_task_board_format'
+        )
+        g.custom_command('delete-bucket-task-board-format', 'planner_planner_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_planner_task_delete_detail')
+        g.custom_command('delete-progress-task-board-format', 'planner_planner_task_delete_progress_task_board_format')
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_planner_task_show_assigned_to_task_board_format'
         )
@@ -352,7 +410,7 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('planner user', planner_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'planner_user_delete', confirmation=True)
+        g.custom_command('delete-planner', 'planner_user_delete_planner')
         g.custom_command('show-planner', 'planner_user_show_planner')
         g.custom_command('update-planner', 'planner_user_update_planner')
 
@@ -365,9 +423,10 @@ def load_command_table(self, _):
         client_factory=cf_user_planner,
     )
     with self.command_group('planner user-planner', planner_v1_0_user_planner, client_factory=cf_user_planner) as g:
-        g.custom_command('delete', 'planner_user_planner_delete', confirmation=True)
         g.custom_command('create-plan', 'planner_user_planner_create_plan')
         g.custom_command('create-task', 'planner_user_planner_create_task')
+        g.custom_command('delete-plan', 'planner_user_planner_delete_plan')
+        g.custom_command('delete-task', 'planner_user_planner_delete_task')
         g.custom_command('list-plan', 'planner_user_planner_list_plan')
         g.custom_command('list-task', 'planner_user_planner_list_task')
         g.custom_command('show-plan', 'planner_user_planner_show_plan')
@@ -384,9 +443,11 @@ def load_command_table(self, _):
     with self.command_group(
         'planner user-planner-plan', planner_v1_0_user_planner_plan, client_factory=cf_user_planner_plan
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_delete', confirmation=True)
         g.custom_command('create-bucket', 'planner_user_planner_plan_create_bucket')
         g.custom_command('create-task', 'planner_user_planner_plan_create_task')
+        g.custom_command('delete-bucket', 'planner_user_planner_plan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_user_planner_plan_delete_detail')
+        g.custom_command('delete-task', 'planner_user_planner_plan_delete_task')
         g.custom_command('list-bucket', 'planner_user_planner_plan_list_bucket')
         g.custom_command('list-task', 'planner_user_planner_plan_list_task')
         g.custom_command('show-bucket', 'planner_user_planner_plan_show_bucket')
@@ -407,8 +468,8 @@ def load_command_table(self, _):
         planner_v1_0_user_planner_plan_bucket,
         client_factory=cf_user_planner_plan_bucket,
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_bucket_delete', confirmation=True)
         g.custom_command('create-task', 'planner_user_planner_plan_bucket_create_task')
+        g.custom_command('delete-task', 'planner_user_planner_plan_bucket_delete_task')
         g.custom_command('list-task', 'planner_user_planner_plan_bucket_list_task')
         g.custom_command('show-task', 'planner_user_planner_plan_bucket_show_task')
         g.custom_command('update-task', 'planner_user_planner_plan_bucket_update_task')
@@ -424,7 +485,18 @@ def load_command_table(self, _):
         planner_v1_0_user_planner_plan_bucket_task,
         client_factory=cf_user_planner_plan_bucket_task,
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_user_planner_plan_bucket_task_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_user_planner_plan_bucket_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format',
+            'planner_user_planner_plan_bucket_task_delete_progress_task_board_format',
+        )
         g.custom_command(
             'show-assigned-to-task-board-format',
             'planner_user_planner_plan_bucket_task_show_assigned_to_task_board_format',
@@ -458,7 +530,17 @@ def load_command_table(self, _):
     with self.command_group(
         'planner user-planner-plan-task', planner_v1_0_user_planner_plan_task, client_factory=cf_user_planner_plan_task
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_user_planner_plan_task_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_user_planner_plan_task_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_user_planner_plan_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_user_planner_plan_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_user_planner_plan_task_show_assigned_to_task_board_format'
         )
@@ -490,7 +572,14 @@ def load_command_table(self, _):
     with self.command_group(
         'planner user-planner-task', planner_v1_0_user_planner_task, client_factory=cf_user_planner_task
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format', 'planner_user_planner_task_delete_assigned_to_task_board_format'
+        )
+        g.custom_command('delete-bucket-task-board-format', 'planner_user_planner_task_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_user_planner_task_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_user_planner_task_delete_progress_task_board_format'
+        )
         g.custom_command(
             'show-assigned-to-task-board-format', 'planner_user_planner_task_show_assigned_to_task_board_format'
         )

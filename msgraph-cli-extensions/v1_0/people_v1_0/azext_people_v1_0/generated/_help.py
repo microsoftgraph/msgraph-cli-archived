@@ -17,11 +17,6 @@ helps['people user'] = """
     short-summary: Manage user with people_v1_0
 """
 
-helps['people user delete'] = """
-    type: command
-    short-summary: "Delete navigation property people for users And Delete navigation property insights for users."
-"""
-
 helps['people user create-person'] = """
     type: command
     short-summary: "Create new navigation property to people for users."
@@ -61,6 +56,16 @@ Relevance is determined by the user’s communication and collaboration patterns
             display-name: The display name of the web site.
 
             Multiple actions can be specified by using more than one --websites argument.
+"""
+
+helps['people user delete-insight'] = """
+    type: command
+    short-summary: "Delete navigation property insights for users."
+"""
+
+helps['people user delete-person'] = """
+    type: command
+    short-summary: "Delete navigation property people for users."
 """
 
 helps['people user list-person'] = """
@@ -127,12 +132,6 @@ Relevance is determined by the user’s communication and collaboration patterns
 helps['people user-insight'] = """
     type: group
     short-summary: Manage user insight with people_v1_0
-"""
-
-helps['people user-insight delete'] = """
-    type: command
-    short-summary: "Delete navigation property shared for users And Delete navigation property trending for users And \
-Delete navigation property used for users."
 """
 
 helps['people user-insight create-shared'] = """
@@ -256,6 +255,21 @@ supported IANA Media Mime Types. Note that not all Media Mime Types are supporte
             title: The item's title text.
             type: The item's media type. Can be used for filtering for a specific file based on a specific type. See \
 below for supported types.
+"""
+
+helps['people user-insight delete-shared'] = """
+    type: command
+    short-summary: "Delete navigation property shared for users."
+"""
+
+helps['people user-insight delete-trending'] = """
+    type: command
+    short-summary: "Delete navigation property trending for users."
+"""
+
+helps['people user-insight delete-used'] = """
+    type: command
+    short-summary: "Delete navigation property used for users."
 """
 
 helps['people user-insight list-shared'] = """
@@ -416,10 +430,14 @@ helps['people user-insight-shared'] = """
     short-summary: Manage user insight shared with people_v1_0
 """
 
-helps['people user-insight-shared delete'] = """
+helps['people user-insight-shared delete-ref-last-shared-method'] = """
     type: command
-    short-summary: "Delete ref of navigation property lastSharedMethod for users And Delete ref of navigation property \
-resource for users."
+    short-summary: "Delete ref of navigation property lastSharedMethod for users."
+"""
+
+helps['people user-insight-shared delete-ref-resource'] = """
+    type: command
+    short-summary: "Delete ref of navigation property resource for users."
 """
 
 helps['people user-insight-shared set-ref-last-shared-method'] = """
@@ -457,7 +475,7 @@ helps['people user-insight-trending'] = """
     short-summary: Manage user insight trending with people_v1_0
 """
 
-helps['people user-insight-trending delete'] = """
+helps['people user-insight-trending delete-ref-resource'] = """
     type: command
     short-summary: "Delete ref of navigation property resource for users."
 """
@@ -482,7 +500,7 @@ helps['people user-insight-used'] = """
     short-summary: Manage user insight used with people_v1_0
 """
 
-helps['people user-insight-used delete'] = """
+helps['people user-insight-used delete-ref-resource'] = """
     type: command
     short-summary: "Delete ref of navigation property resource for users."
 """

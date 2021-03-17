@@ -18,16 +18,16 @@
 ### <a name="CommandsInauditLogs">Commands in `az reports audit-log` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryProvisioning)|DeleteDirectoryProvisioning|[Parameters](#ParametersauditLogsDeleteDirectoryProvisioning)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteProvisioning)|DeleteProvisioning|[Parameters](#ParametersauditLogsDeleteProvisioning)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
 |[az reports audit-log create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
 |[az reports audit-log create-directory-provisioning](#auditLogsCreateDirectoryProvisioning)|CreateDirectoryProvisioning|[Parameters](#ParametersauditLogsCreateDirectoryProvisioning)|Not Found|
 |[az reports audit-log create-provisioning](#auditLogsCreateProvisioning)|CreateProvisioning|[Parameters](#ParametersauditLogsCreateProvisioning)|Not Found|
 |[az reports audit-log create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
 |[az reports audit-log create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
+|[az reports audit-log delete-directory-audit](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
+|[az reports audit-log delete-directory-provisioning](#auditLogsDeleteDirectoryProvisioning)|DeleteDirectoryProvisioning|[Parameters](#ParametersauditLogsDeleteDirectoryProvisioning)|Not Found|
+|[az reports audit-log delete-provisioning](#auditLogsDeleteProvisioning)|DeleteProvisioning|[Parameters](#ParametersauditLogsDeleteProvisioning)|Not Found|
+|[az reports audit-log delete-restricted-sign-in](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
+|[az reports audit-log delete-sign-in](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
 |[az reports audit-log list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
 |[az reports audit-log list-directory-provisioning](#auditLogsListDirectoryProvisioning)|ListDirectoryProvisioning|[Parameters](#ParametersauditLogsListDirectoryProvisioning)|Not Found|
 |[az reports audit-log list-provisioning](#auditLogsListProvisioning)|ListProvisioning|[Parameters](#ParametersauditLogsListProvisioning)|Not Found|
@@ -53,13 +53,6 @@
 ### <a name="CommandsInreports">Commands in `az reports report` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports report delete](#reportsDeleteApplicationSignInDetailedSummary)|DeleteApplicationSignInDetailedSummary|[Parameters](#ParametersreportsDeleteApplicationSignInDetailedSummary)|Not Found|
-|[az reports report delete](#reportsDeleteCredentialUserRegistrationDetails)|DeleteCredentialUserRegistrationDetails|[Parameters](#ParametersreportsDeleteCredentialUserRegistrationDetails)|Not Found|
-|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByPrinter)|DeleteDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByPrinter)|Not Found|
-|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByUser)|DeleteDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByUser)|Not Found|
-|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByPrinter)|DeleteMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter)|Not Found|
-|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByUser)|DeleteMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByUser)|Not Found|
-|[az reports report delete](#reportsDeleteUserCredentialUsageDetails)|DeleteUserCredentialUsageDetails|[Parameters](#ParametersreportsDeleteUserCredentialUsageDetails)|Not Found|
 |[az reports report create-application-sign-in-detailed-summary](#reportsCreateApplicationSignInDetailedSummary)|CreateApplicationSignInDetailedSummary|[Parameters](#ParametersreportsCreateApplicationSignInDetailedSummary)|Not Found|
 |[az reports report create-credential-user-registration-detail](#reportsCreateCredentialUserRegistrationDetails)|CreateCredentialUserRegistrationDetails|[Parameters](#ParametersreportsCreateCredentialUserRegistrationDetails)|Not Found|
 |[az reports report create-daily-print-usage-summary-by-printer](#reportsCreateDailyPrintUsageSummariesByPrinter)|CreateDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateDailyPrintUsageSummariesByPrinter)|Not Found|
@@ -67,6 +60,13 @@
 |[az reports report create-monthly-print-usage-summary-by-printer](#reportsCreateMonthlyPrintUsageSummariesByPrinter)|CreateMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByPrinter)|Not Found|
 |[az reports report create-monthly-print-usage-summary-by-user](#reportsCreateMonthlyPrintUsageSummariesByUser)|CreateMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByUser)|Not Found|
 |[az reports report create-user-credential-usage-detail](#reportsCreateUserCredentialUsageDetails)|CreateUserCredentialUsageDetails|[Parameters](#ParametersreportsCreateUserCredentialUsageDetails)|Not Found|
+|[az reports report delete-application-sign-in-detailed-summary](#reportsDeleteApplicationSignInDetailedSummary)|DeleteApplicationSignInDetailedSummary|[Parameters](#ParametersreportsDeleteApplicationSignInDetailedSummary)|Not Found|
+|[az reports report delete-credential-user-registration-detail](#reportsDeleteCredentialUserRegistrationDetails)|DeleteCredentialUserRegistrationDetails|[Parameters](#ParametersreportsDeleteCredentialUserRegistrationDetails)|Not Found|
+|[az reports report delete-daily-print-usage-summary](#reportsDeleteDailyPrintUsageSummariesByPrinter)|DeleteDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete-daily-print-usage-summary](#reportsDeleteDailyPrintUsageSummariesByUser)|DeleteDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete-monthly-print-usage-summary](#reportsDeleteMonthlyPrintUsageSummariesByPrinter)|DeleteMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete-monthly-print-usage-summary](#reportsDeleteMonthlyPrintUsageSummariesByUser)|DeleteMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete-user-credential-usage-detail](#reportsDeleteUserCredentialUsageDetails)|DeleteUserCredentialUsageDetails|[Parameters](#ParametersreportsDeleteUserCredentialUsageDetails)|Not Found|
 |[az reports report device-configuration-device-activity](#reportsdeviceConfigurationDeviceActivity)|deviceConfigurationDeviceActivity|[Parameters](#ParametersreportsdeviceConfigurationDeviceActivity)|Not Found|
 |[az reports report device-configuration-user-activity](#reportsdeviceConfigurationUserActivity)|deviceConfigurationUserActivity|[Parameters](#ParametersreportsdeviceConfigurationUserActivity)|Not Found|
 |[az reports report list-application-sign-in-detailed-summary](#reportsListApplicationSignInDetailedSummary)|ListApplicationSignInDetailedSummary|[Parameters](#ParametersreportsListApplicationSignInDetailedSummary)|Not Found|
@@ -203,40 +203,6 @@
 ## COMMAND DETAILS
 
 ### group `az reports audit-log`
-#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="auditLogsDeleteDirectoryProvisioning">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryProvisioning">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-
-#### <a name="auditLogsDeleteProvisioning">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteProvisioning">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
-
-#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
-
 #### <a name="auditLogsCreateDirectoryAudits">Command `az reports audit-log create-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsCreateDirectoryAudits">Parameters</a> 
@@ -422,6 +388,46 @@
 |**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+
+#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete-directory-audit`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteDirectoryProvisioning">Command `az reports audit-log delete-directory-provisioning`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteProvisioning">Command `az reports audit-log delete-provisioning`</a>
+
+##### <a name="ParametersauditLogsDeleteProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="auditLogsListDirectoryAudits">Command `az reports audit-log list-directory-audit`</a>
 
@@ -726,52 +732,6 @@
 |**--sign-ins**|array|Read-only. Nullable.|sign_ins|signIns|
 
 ### group `az reports report`
-#### <a name="reportsDeleteApplicationSignInDetailedSummary">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteApplicationSignInDetailedSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="reportsDeleteCredentialUserRegistrationDetails">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteCredentialUserRegistrationDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
-
-#### <a name="reportsDeleteDailyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-
-#### <a name="reportsDeleteDailyPrintUsageSummariesByUser">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-
-#### <a name="reportsDeleteMonthlyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="reportsDeleteMonthlyPrintUsageSummariesByUser">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="reportsDeleteUserCredentialUsageDetails">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteUserCredentialUsageDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
-
 #### <a name="reportsCreateApplicationSignInDetailedSummary">Command `az reports report create-application-sign-in-detailed-summary`</a>
 
 ##### <a name="ParametersreportsCreateApplicationSignInDetailedSummary">Parameters</a> 
@@ -859,6 +819,60 @@
 |**--is-success**|boolean||is_success|isSuccess|
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
+
+#### <a name="reportsDeleteApplicationSignInDetailedSummary">Command `az reports report delete-application-sign-in-detailed-summary`</a>
+
+##### <a name="ParametersreportsDeleteApplicationSignInDetailedSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteCredentialUserRegistrationDetails">Command `az reports report delete-credential-user-registration-detail`</a>
+
+##### <a name="ParametersreportsDeleteCredentialUserRegistrationDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteDailyPrintUsageSummariesByPrinter">Command `az reports report delete-daily-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteDailyPrintUsageSummariesByUser">Command `az reports report delete-daily-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByPrinter">Command `az reports report delete-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByUser">Command `az reports report delete-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+
+#### <a name="reportsDeleteUserCredentialUsageDetails">Command `az reports report delete-user-credential-usage-detail`</a>
+
+##### <a name="ParametersreportsDeleteUserCredentialUsageDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="reportsdeviceConfigurationDeviceActivity">Command `az reports report device-configuration-device-activity`</a>
 

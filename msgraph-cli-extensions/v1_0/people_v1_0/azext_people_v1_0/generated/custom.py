@@ -10,18 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def people_user_delete(client,
-                       user_id,
-                       person_id=None,
-                       if_match=None):
-    if user_id is not None and person_id is not None:
-        return client.delete_person(user_id=user_id,
-                                    person_id=person_id,
-                                    if_match=if_match)
-    return client.delete_insight(user_id=user_id,
-                                 if_match=if_match)
-
-
 def people_user_create_person(client,
                               user_id,
                               id_=None,
@@ -65,6 +53,22 @@ def people_user_create_person(client,
                                 user_principal_name=user_principal_name,
                                 websites=websites,
                                 yomi_company=yomi_company)
+
+
+def people_user_delete_insight(client,
+                               user_id,
+                               if_match=None):
+    return client.delete_insight(user_id=user_id,
+                                 if_match=if_match)
+
+
+def people_user_delete_person(client,
+                              user_id,
+                              person_id,
+                              if_match=None):
+    return client.delete_person(user_id=user_id,
+                                person_id=person_id,
+                                if_match=if_match)
 
 
 def people_user_list_person(client,
@@ -158,25 +162,6 @@ def people_user_update_person(client,
                                 yomi_company=yomi_company)
 
 
-def people_user_insight_delete(client,
-                               user_id,
-                               shared_insight_id=None,
-                               if_match=None,
-                               trending_id=None,
-                               used_insight_id=None):
-    if user_id is not None and shared_insight_id is not None:
-        return client.delete_shared(user_id=user_id,
-                                    shared_insight_id=shared_insight_id,
-                                    if_match=if_match)
-    elif user_id is not None and trending_id is not None:
-        return client.delete_trending(user_id=user_id,
-                                      trending_id=trending_id,
-                                      if_match=if_match)
-    return client.delete_used(user_id=user_id,
-                              used_insight_id=used_insight_id,
-                              if_match=if_match)
-
-
 def people_user_insight_create_shared(client,
                                       user_id,
                                       id_=None,
@@ -234,6 +219,33 @@ def people_user_insight_create_used(client,
                               resource_reference=resource_reference,
                               resource_visualization=resource_visualization,
                               microsoft_graph_entity_id=microsoft_graph_entity_id)
+
+
+def people_user_insight_delete_shared(client,
+                                      user_id,
+                                      shared_insight_id,
+                                      if_match=None):
+    return client.delete_shared(user_id=user_id,
+                                shared_insight_id=shared_insight_id,
+                                if_match=if_match)
+
+
+def people_user_insight_delete_trending(client,
+                                        user_id,
+                                        trending_id,
+                                        if_match=None):
+    return client.delete_trending(user_id=user_id,
+                                  trending_id=trending_id,
+                                  if_match=if_match)
+
+
+def people_user_insight_delete_used(client,
+                                    user_id,
+                                    used_insight_id,
+                                    if_match=None):
+    return client.delete_used(user_id=user_id,
+                              used_insight_id=used_insight_id,
+                              if_match=if_match)
 
 
 def people_user_insight_list_shared(client,
@@ -367,14 +379,19 @@ def people_user_insight_update_used(client,
                               microsoft_graph_entity_id=microsoft_graph_entity_id)
 
 
-def people_user_insight_shared_delete(client,
-                                      user_id,
-                                      shared_insight_id,
-                                      if_match=None):
-    if user_id is not None and shared_insight_id is not None:
-        return client.delete_ref_last_shared_method(user_id=user_id,
-                                                    shared_insight_id=shared_insight_id,
-                                                    if_match=if_match)
+def people_user_insight_shared_delete_ref_last_shared_method(client,
+                                                             user_id,
+                                                             shared_insight_id,
+                                                             if_match=None):
+    return client.delete_ref_last_shared_method(user_id=user_id,
+                                                shared_insight_id=shared_insight_id,
+                                                if_match=if_match)
+
+
+def people_user_insight_shared_delete_ref_resource(client,
+                                                   user_id,
+                                                   shared_insight_id,
+                                                   if_match=None):
     return client.delete_ref_resource(user_id=user_id,
                                       shared_insight_id=shared_insight_id,
                                       if_match=if_match)
@@ -434,10 +451,10 @@ def people_user_insight_shared_show_resource(client,
                                expand=expand)
 
 
-def people_user_insight_trending_delete(client,
-                                        user_id,
-                                        trending_id,
-                                        if_match=None):
+def people_user_insight_trending_delete_ref_resource(client,
+                                                     user_id,
+                                                     trending_id,
+                                                     if_match=None):
     return client.delete_ref_resource(user_id=user_id,
                                       trending_id=trending_id,
                                       if_match=if_match)
@@ -470,10 +487,10 @@ def people_user_insight_trending_show_resource(client,
                                expand=expand)
 
 
-def people_user_insight_used_delete(client,
-                                    user_id,
-                                    used_insight_id,
-                                    if_match=None):
+def people_user_insight_used_delete_ref_resource(client,
+                                                 user_id,
+                                                 used_insight_id,
+                                                 if_match=None):
     return client.delete_ref_resource(user_id=user_id,
                                       used_insight_id=used_insight_id,
                                       if_match=if_match)

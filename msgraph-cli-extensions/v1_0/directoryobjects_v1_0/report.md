@@ -28,8 +28,8 @@
 ### <a name="CommandsIndirectoryObjects.directoryObject">Commands in `az directoryobjects directory-object-directory-object` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az directoryobjects directory-object-directory-object delete](#directoryObjects.directoryObjectDeleteDirectoryObject)|DeleteDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectDeleteDirectoryObject)|Not Found|
 |[az directoryobjects directory-object-directory-object create-directory-object](#directoryObjects.directoryObjectCreateDirectoryObject)|CreateDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectCreateDirectoryObject)|Not Found|
+|[az directoryobjects directory-object-directory-object delete-directory-object](#directoryObjects.directoryObjectDeleteDirectoryObject)|DeleteDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectDeleteDirectoryObject)|Not Found|
 |[az directoryobjects directory-object-directory-object list-directory-object](#directoryObjects.directoryObjectListDirectoryObject)|ListDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectListDirectoryObject)|Not Found|
 |[az directoryobjects directory-object-directory-object show-directory-object](#directoryObjects.directoryObjectGetDirectoryObject)|GetDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectGetDirectoryObject)|Not Found|
 |[az directoryobjects directory-object-directory-object update-directory-object](#directoryObjects.directoryObjectUpdateDirectoryObject)|UpdateDirectoryObject|[Parameters](#ParametersdirectoryObjects.directoryObjectUpdateDirectoryObject)|Not Found|
@@ -103,14 +103,6 @@
 |**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
 
 ### group `az directoryobjects directory-object-directory-object`
-#### <a name="directoryObjects.directoryObjectDeleteDirectoryObject">Command `az directoryobjects directory-object-directory-object delete`</a>
-
-##### <a name="ParametersdirectoryObjects.directoryObjectDeleteDirectoryObject">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="directoryObjects.directoryObjectCreateDirectoryObject">Command `az directoryobjects directory-object-directory-object create-directory-object`</a>
 
 ##### <a name="ParametersdirectoryObjects.directoryObjectCreateDirectoryObject">Parameters</a> 
@@ -118,6 +110,14 @@
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--deleted-date-time**|date-time||deleted_date_time|deletedDateTime|
+
+#### <a name="directoryObjects.directoryObjectDeleteDirectoryObject">Command `az directoryobjects directory-object-directory-object delete-directory-object`</a>
+
+##### <a name="ParametersdirectoryObjects.directoryObjectDeleteDirectoryObject">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-object-id**|string|key: id of directoryObject|directory_object_id|directoryObject-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="directoryObjects.directoryObjectListDirectoryObject">Command `az directoryobjects directory-object-directory-object list-directory-object`</a>
 

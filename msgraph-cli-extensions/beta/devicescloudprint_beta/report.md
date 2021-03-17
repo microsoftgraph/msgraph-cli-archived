@@ -26,14 +26,6 @@
 ### <a name="CommandsInprint">Commands in `az devicescloudprint print` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print delete](#printDeleteConnectors)|DeleteConnectors|[Parameters](#ParametersprintDeleteConnectors)|Not Found|
-|[az devicescloudprint print delete](#printDeleteOperations)|DeleteOperations|[Parameters](#ParametersprintDeleteOperations)|Not Found|
-|[az devicescloudprint print delete](#printDeletePrinters)|DeletePrinters|[Parameters](#ParametersprintDeletePrinters)|Not Found|
-|[az devicescloudprint print delete](#printDeletePrinterShares)|DeletePrinterShares|[Parameters](#ParametersprintDeletePrinterShares)|Not Found|
-|[az devicescloudprint print delete](#printDeleteReports)|DeleteReports|[Parameters](#ParametersprintDeleteReports)|Not Found|
-|[az devicescloudprint print delete](#printDeleteServices)|DeleteServices|[Parameters](#ParametersprintDeleteServices)|Not Found|
-|[az devicescloudprint print delete](#printDeleteShares)|DeleteShares|[Parameters](#ParametersprintDeleteShares)|Not Found|
-|[az devicescloudprint print delete](#printDeleteTaskDefinitions)|DeleteTaskDefinitions|[Parameters](#ParametersprintDeleteTaskDefinitions)|Not Found|
 |[az devicescloudprint print create-connector](#printCreateConnectors)|CreateConnectors|[Parameters](#ParametersprintCreateConnectors)|Not Found|
 |[az devicescloudprint print create-operation](#printCreateOperations)|CreateOperations|[Parameters](#ParametersprintCreateOperations)|Not Found|
 |[az devicescloudprint print create-printer](#printCreatePrinters)|CreatePrinters|[Parameters](#ParametersprintCreatePrinters)|Not Found|
@@ -42,6 +34,14 @@
 |[az devicescloudprint print create-service](#printCreateServices)|CreateServices|[Parameters](#ParametersprintCreateServices)|Not Found|
 |[az devicescloudprint print create-share](#printCreateShares)|CreateShares|[Parameters](#ParametersprintCreateShares)|Not Found|
 |[az devicescloudprint print create-task-definition](#printCreateTaskDefinitions)|CreateTaskDefinitions|[Parameters](#ParametersprintCreateTaskDefinitions)|Not Found|
+|[az devicescloudprint print delete-connector](#printDeleteConnectors)|DeleteConnectors|[Parameters](#ParametersprintDeleteConnectors)|Not Found|
+|[az devicescloudprint print delete-operation](#printDeleteOperations)|DeleteOperations|[Parameters](#ParametersprintDeleteOperations)|Not Found|
+|[az devicescloudprint print delete-printer](#printDeletePrinters)|DeletePrinters|[Parameters](#ParametersprintDeletePrinters)|Not Found|
+|[az devicescloudprint print delete-printer-share](#printDeletePrinterShares)|DeletePrinterShares|[Parameters](#ParametersprintDeletePrinterShares)|Not Found|
+|[az devicescloudprint print delete-report](#printDeleteReports)|DeleteReports|[Parameters](#ParametersprintDeleteReports)|Not Found|
+|[az devicescloudprint print delete-service](#printDeleteServices)|DeleteServices|[Parameters](#ParametersprintDeleteServices)|Not Found|
+|[az devicescloudprint print delete-share](#printDeleteShares)|DeleteShares|[Parameters](#ParametersprintDeleteShares)|Not Found|
+|[az devicescloudprint print delete-task-definition](#printDeleteTaskDefinitions)|DeleteTaskDefinitions|[Parameters](#ParametersprintDeleteTaskDefinitions)|Not Found|
 |[az devicescloudprint print list-connector](#printListConnectors)|ListConnectors|[Parameters](#ParametersprintListConnectors)|Not Found|
 |[az devicescloudprint print list-operation](#printListOperations)|ListOperations|[Parameters](#ParametersprintListOperations)|Not Found|
 |[az devicescloudprint print list-printer](#printListPrinters)|ListPrinters|[Parameters](#ParametersprintListPrinters)|Not Found|
@@ -77,15 +77,15 @@
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
 |[az devicescloudprint print-printer create](#print.printerscreate)|create|[Parameters](#Parametersprint.printerscreate)|Not Found|
-|[az devicescloudprint print-printer delete](#print.printersDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.printersDeleteAllowedGroups)|Not Found|
-|[az devicescloudprint print-printer delete](#print.printersDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.printersDeleteAllowedUsers)|Not Found|
-|[az devicescloudprint print-printer delete](#print.printersDeleteTaskTriggers)|DeleteTaskTriggers|[Parameters](#Parametersprint.printersDeleteTaskTriggers)|Not Found|
-|[az devicescloudprint print-printer delete](#print.printersDeleteRefShare)|DeleteRefShare|[Parameters](#Parametersprint.printersDeleteRefShare)|Not Found|
 |[az devicescloudprint print-printer create-allowed-group](#print.printersCreateAllowedGroups)|CreateAllowedGroups|[Parameters](#Parametersprint.printersCreateAllowedGroups)|Not Found|
 |[az devicescloudprint print-printer create-allowed-user](#print.printersCreateAllowedUsers)|CreateAllowedUsers|[Parameters](#Parametersprint.printersCreateAllowedUsers)|Not Found|
 |[az devicescloudprint print-printer create-ref-connector](#print.printersCreateRefConnectors)|CreateRefConnectors|[Parameters](#Parametersprint.printersCreateRefConnectors)|Not Found|
 |[az devicescloudprint print-printer create-ref-share](#print.printersCreateRefShares)|CreateRefShares|[Parameters](#Parametersprint.printersCreateRefShares)|Not Found|
 |[az devicescloudprint print-printer create-task-trigger](#print.printersCreateTaskTriggers)|CreateTaskTriggers|[Parameters](#Parametersprint.printersCreateTaskTriggers)|Not Found|
+|[az devicescloudprint print-printer delete-allowed-group](#print.printersDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.printersDeleteAllowedGroups)|Not Found|
+|[az devicescloudprint print-printer delete-allowed-user](#print.printersDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.printersDeleteAllowedUsers)|Not Found|
+|[az devicescloudprint print-printer delete-ref-share](#print.printersDeleteRefShare)|DeleteRefShare|[Parameters](#Parametersprint.printersDeleteRefShare)|Not Found|
+|[az devicescloudprint print-printer delete-task-trigger](#print.printersDeleteTaskTriggers)|DeleteTaskTriggers|[Parameters](#Parametersprint.printersDeleteTaskTriggers)|Not Found|
 |[az devicescloudprint print-printer list-allowed-group](#print.printersListAllowedGroups)|ListAllowedGroups|[Parameters](#Parametersprint.printersListAllowedGroups)|Not Found|
 |[az devicescloudprint print-printer list-allowed-user](#print.printersListAllowedUsers)|ListAllowedUsers|[Parameters](#Parametersprint.printersListAllowedUsers)|Not Found|
 |[az devicescloudprint print-printer list-connector](#print.printersListConnectors)|ListConnectors|[Parameters](#Parametersprint.printersListConnectors)|Not Found|
@@ -109,11 +109,11 @@
 ### <a name="CommandsInprint.printerShares">Commands in `az devicescloudprint print-printer-share` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-printer-share delete](#print.printerSharesDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.printerSharesDeleteAllowedGroups)|Not Found|
-|[az devicescloudprint print-printer-share delete](#print.printerSharesDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.printerSharesDeleteAllowedUsers)|Not Found|
-|[az devicescloudprint print-printer-share delete](#print.printerSharesDeleteRefPrinter)|DeleteRefPrinter|[Parameters](#Parametersprint.printerSharesDeleteRefPrinter)|Not Found|
 |[az devicescloudprint print-printer-share create-allowed-group](#print.printerSharesCreateAllowedGroups)|CreateAllowedGroups|[Parameters](#Parametersprint.printerSharesCreateAllowedGroups)|Not Found|
 |[az devicescloudprint print-printer-share create-allowed-user](#print.printerSharesCreateAllowedUsers)|CreateAllowedUsers|[Parameters](#Parametersprint.printerSharesCreateAllowedUsers)|Not Found|
+|[az devicescloudprint print-printer-share delete-allowed-group](#print.printerSharesDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.printerSharesDeleteAllowedGroups)|Not Found|
+|[az devicescloudprint print-printer-share delete-allowed-user](#print.printerSharesDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.printerSharesDeleteAllowedUsers)|Not Found|
+|[az devicescloudprint print-printer-share delete-ref-printer](#print.printerSharesDeleteRefPrinter)|DeleteRefPrinter|[Parameters](#Parametersprint.printerSharesDeleteRefPrinter)|Not Found|
 |[az devicescloudprint print-printer-share list-allowed-group](#print.printerSharesListAllowedGroups)|ListAllowedGroups|[Parameters](#Parametersprint.printerSharesListAllowedGroups)|Not Found|
 |[az devicescloudprint print-printer-share list-allowed-user](#print.printerSharesListAllowedUsers)|ListAllowedUsers|[Parameters](#Parametersprint.printerSharesListAllowedUsers)|Not Found|
 |[az devicescloudprint print-printer-share set-ref-printer](#print.printerSharesSetRefPrinter)|SetRefPrinter|[Parameters](#Parametersprint.printerSharesSetRefPrinter)|Not Found|
@@ -134,7 +134,7 @@
 ### <a name="CommandsInprint.printers.taskTriggers">Commands in `az devicescloudprint print-printer-task-trigger` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-printer-task-trigger delete](#print.printers.taskTriggersDeleteRefDefinition)|DeleteRefDefinition|[Parameters](#Parametersprint.printers.taskTriggersDeleteRefDefinition)|Not Found|
+|[az devicescloudprint print-printer-task-trigger delete-ref-definition](#print.printers.taskTriggersDeleteRefDefinition)|DeleteRefDefinition|[Parameters](#Parametersprint.printers.taskTriggersDeleteRefDefinition)|Not Found|
 |[az devicescloudprint print-printer-task-trigger set-ref-definition](#print.printers.taskTriggersSetRefDefinition)|SetRefDefinition|[Parameters](#Parametersprint.printers.taskTriggersSetRefDefinition)|Not Found|
 |[az devicescloudprint print-printer-task-trigger show-definition](#print.printers.taskTriggersGetDefinition)|GetDefinition|[Parameters](#Parametersprint.printers.taskTriggersGetDefinition)|Not Found|
 |[az devicescloudprint print-printer-task-trigger show-ref-definition](#print.printers.taskTriggersGetRefDefinition)|GetRefDefinition|[Parameters](#Parametersprint.printers.taskTriggersGetRefDefinition)|Not Found|
@@ -157,8 +157,8 @@
 ### <a name="CommandsInprint.services">Commands in `az devicescloudprint print-service` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-service delete](#print.servicesDeleteEndpoints)|DeleteEndpoints|[Parameters](#Parametersprint.servicesDeleteEndpoints)|Not Found|
 |[az devicescloudprint print-service create-endpoint](#print.servicesCreateEndpoints)|CreateEndpoints|[Parameters](#Parametersprint.servicesCreateEndpoints)|Not Found|
+|[az devicescloudprint print-service delete-endpoint](#print.servicesDeleteEndpoints)|DeleteEndpoints|[Parameters](#Parametersprint.servicesDeleteEndpoints)|Not Found|
 |[az devicescloudprint print-service list-endpoint](#print.servicesListEndpoints)|ListEndpoints|[Parameters](#Parametersprint.servicesListEndpoints)|Not Found|
 |[az devicescloudprint print-service show-endpoint](#print.servicesGetEndpoints)|GetEndpoints|[Parameters](#Parametersprint.servicesGetEndpoints)|Not Found|
 |[az devicescloudprint print-service update-endpoint](#print.servicesUpdateEndpoints)|UpdateEndpoints|[Parameters](#Parametersprint.servicesUpdateEndpoints)|Not Found|
@@ -166,11 +166,11 @@
 ### <a name="CommandsInprint.shares">Commands in `az devicescloudprint print-share` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-share delete](#print.sharesDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.sharesDeleteAllowedGroups)|Not Found|
-|[az devicescloudprint print-share delete](#print.sharesDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.sharesDeleteAllowedUsers)|Not Found|
-|[az devicescloudprint print-share delete](#print.sharesDeleteRefPrinter)|DeleteRefPrinter|[Parameters](#Parametersprint.sharesDeleteRefPrinter)|Not Found|
 |[az devicescloudprint print-share create-allowed-group](#print.sharesCreateAllowedGroups)|CreateAllowedGroups|[Parameters](#Parametersprint.sharesCreateAllowedGroups)|Not Found|
 |[az devicescloudprint print-share create-allowed-user](#print.sharesCreateAllowedUsers)|CreateAllowedUsers|[Parameters](#Parametersprint.sharesCreateAllowedUsers)|Not Found|
+|[az devicescloudprint print-share delete-allowed-group](#print.sharesDeleteAllowedGroups)|DeleteAllowedGroups|[Parameters](#Parametersprint.sharesDeleteAllowedGroups)|Not Found|
+|[az devicescloudprint print-share delete-allowed-user](#print.sharesDeleteAllowedUsers)|DeleteAllowedUsers|[Parameters](#Parametersprint.sharesDeleteAllowedUsers)|Not Found|
+|[az devicescloudprint print-share delete-ref-printer](#print.sharesDeleteRefPrinter)|DeleteRefPrinter|[Parameters](#Parametersprint.sharesDeleteRefPrinter)|Not Found|
 |[az devicescloudprint print-share list-allowed-group](#print.sharesListAllowedGroups)|ListAllowedGroups|[Parameters](#Parametersprint.sharesListAllowedGroups)|Not Found|
 |[az devicescloudprint print-share list-allowed-user](#print.sharesListAllowedUsers)|ListAllowedUsers|[Parameters](#Parametersprint.sharesListAllowedUsers)|Not Found|
 |[az devicescloudprint print-share set-ref-printer](#print.sharesSetRefPrinter)|SetRefPrinter|[Parameters](#Parametersprint.sharesSetRefPrinter)|Not Found|
@@ -191,8 +191,8 @@
 ### <a name="CommandsInprint.taskDefinitions">Commands in `az devicescloudprint print-task-definition` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-task-definition delete](#print.taskDefinitionsDeleteTasks)|DeleteTasks|[Parameters](#Parametersprint.taskDefinitionsDeleteTasks)|Not Found|
 |[az devicescloudprint print-task-definition create-task](#print.taskDefinitionsCreateTasks)|CreateTasks|[Parameters](#Parametersprint.taskDefinitionsCreateTasks)|Not Found|
+|[az devicescloudprint print-task-definition delete-task](#print.taskDefinitionsDeleteTasks)|DeleteTasks|[Parameters](#Parametersprint.taskDefinitionsDeleteTasks)|Not Found|
 |[az devicescloudprint print-task-definition list-task](#print.taskDefinitionsListTasks)|ListTasks|[Parameters](#Parametersprint.taskDefinitionsListTasks)|Not Found|
 |[az devicescloudprint print-task-definition show-task](#print.taskDefinitionsGetTasks)|GetTasks|[Parameters](#Parametersprint.taskDefinitionsGetTasks)|Not Found|
 |[az devicescloudprint print-task-definition update-task](#print.taskDefinitionsUpdateTasks)|UpdateTasks|[Parameters](#Parametersprint.taskDefinitionsUpdateTasks)|Not Found|
@@ -200,8 +200,8 @@
 ### <a name="CommandsInprint.taskDefinitions.tasks">Commands in `az devicescloudprint print-task-definition-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescloudprint print-task-definition-task delete](#print.taskDefinitions.tasksDeleteRefDefinition)|DeleteRefDefinition|[Parameters](#Parametersprint.taskDefinitions.tasksDeleteRefDefinition)|Not Found|
-|[az devicescloudprint print-task-definition-task delete](#print.taskDefinitions.tasksDeleteRefTrigger)|DeleteRefTrigger|[Parameters](#Parametersprint.taskDefinitions.tasksDeleteRefTrigger)|Not Found|
+|[az devicescloudprint print-task-definition-task delete-ref-definition](#print.taskDefinitions.tasksDeleteRefDefinition)|DeleteRefDefinition|[Parameters](#Parametersprint.taskDefinitions.tasksDeleteRefDefinition)|Not Found|
+|[az devicescloudprint print-task-definition-task delete-ref-trigger](#print.taskDefinitions.tasksDeleteRefTrigger)|DeleteRefTrigger|[Parameters](#Parametersprint.taskDefinitions.tasksDeleteRefTrigger)|Not Found|
 |[az devicescloudprint print-task-definition-task set-ref-definition](#print.taskDefinitions.tasksSetRefDefinition)|SetRefDefinition|[Parameters](#Parametersprint.taskDefinitions.tasksSetRefDefinition)|Not Found|
 |[az devicescloudprint print-task-definition-task set-ref-trigger](#print.taskDefinitions.tasksSetRefTrigger)|SetRefTrigger|[Parameters](#Parametersprint.taskDefinitions.tasksSetRefTrigger)|Not Found|
 |[az devicescloudprint print-task-definition-task show-definition](#print.taskDefinitions.tasksGetDefinition)|GetDefinition|[Parameters](#Parametersprint.taskDefinitions.tasksGetDefinition)|Not Found|
@@ -213,61 +213,6 @@
 ## COMMAND DETAILS
 
 ### group `az devicescloudprint print`
-#### <a name="printDeleteConnectors">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteConnectors">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-connector-id**|string|key: id of printConnector|print_connector_id|printConnector-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="printDeleteOperations">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteOperations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-operation-id**|string|key: id of printOperation|print_operation_id|printOperation-id|
-
-#### <a name="printDeletePrinters">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeletePrinters">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--printer-id**|string|key: id of printer|printer_id|printer-id|
-
-#### <a name="printDeletePrinterShares">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeletePrinterShares">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
-
-#### <a name="printDeleteReports">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteReports">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--report-root-id**|string|key: id of reportRoot|report_root_id|reportRoot-id|
-
-#### <a name="printDeleteServices">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteServices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-service-id**|string|key: id of printService|print_service_id|printService-id|
-
-#### <a name="printDeleteShares">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteShares">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="printDeleteTaskDefinitions">Command `az devicescloudprint print delete`</a>
-
-##### <a name="ParametersprintDeleteTaskDefinitions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-task-definition-id**|string|key: id of printTaskDefinition|print_task_definition_id|printTaskDefinition-id|
-
 #### <a name="printCreateConnectors">Command `az devicescloudprint print create-connector`</a>
 
 ##### <a name="ParametersprintCreateConnectors">Parameters</a> 
@@ -507,6 +452,70 @@
 |**--created-by**|object|appIdentity|created_by|createdBy|
 |**--display-name**|string||display_name|displayName|
 |**--tasks**|array||tasks|tasks|
+
+#### <a name="printDeleteConnectors">Command `az devicescloudprint print delete-connector`</a>
+
+##### <a name="ParametersprintDeleteConnectors">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-connector-id**|string|key: id of printConnector|print_connector_id|printConnector-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeleteOperations">Command `az devicescloudprint print delete-operation`</a>
+
+##### <a name="ParametersprintDeleteOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-operation-id**|string|key: id of printOperation|print_operation_id|printOperation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeletePrinters">Command `az devicescloudprint print delete-printer`</a>
+
+##### <a name="ParametersprintDeletePrinters">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-id**|string|key: id of printer|printer_id|printer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeletePrinterShares">Command `az devicescloudprint print delete-printer-share`</a>
+
+##### <a name="ParametersprintDeletePrinterShares">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeleteReports">Command `az devicescloudprint print delete-report`</a>
+
+##### <a name="ParametersprintDeleteReports">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--report-root-id**|string|key: id of reportRoot|report_root_id|reportRoot-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeleteServices">Command `az devicescloudprint print delete-service`</a>
+
+##### <a name="ParametersprintDeleteServices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-service-id**|string|key: id of printService|print_service_id|printService-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeleteShares">Command `az devicescloudprint print delete-share`</a>
+
+##### <a name="ParametersprintDeleteShares">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="printDeleteTaskDefinitions">Command `az devicescloudprint print delete-task-definition`</a>
+
+##### <a name="ParametersprintDeleteTaskDefinitions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-task-definition-id**|string|key: id of printTaskDefinition|print_task_definition_id|printTaskDefinition-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="printListConnectors">Command `az devicescloudprint print list-connector`</a>
 
@@ -938,34 +947,6 @@
 |**--certificate-signing-request**|object|printCertificateSigningRequest|certificate_signing_request|certificateSigningRequest|
 |**--connector-id**|string||connector_id|connectorId|
 
-#### <a name="print.printersDeleteAllowedGroups">Command `az devicescloudprint print-printer delete`</a>
-
-##### <a name="Parametersprint.printersDeleteAllowedGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--printer-id**|string|key: id of printer|printer_id|printer-id|
-|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="print.printersDeleteAllowedUsers">Command `az devicescloudprint print-printer delete`</a>
-
-##### <a name="Parametersprint.printersDeleteAllowedUsers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
-
-#### <a name="print.printersDeleteTaskTriggers">Command `az devicescloudprint print-printer delete`</a>
-
-##### <a name="Parametersprint.printersDeleteTaskTriggers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-task-trigger-id**|string|key: id of printTaskTrigger|print_task_trigger_id|printTaskTrigger-id|
-
-#### <a name="print.printersDeleteRefShare">Command `az devicescloudprint print-printer delete`</a>
-
-##### <a name="Parametersprint.printersDeleteRefShare">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="print.printersCreateAllowedGroups">Command `az devicescloudprint print-printer create-allowed-group`</a>
 
 ##### <a name="Parametersprint.printersCreateAllowedGroups">Parameters</a> 
@@ -1011,6 +992,41 @@
 |**--id**|string|Read-only.|id|id|
 |**--event**|choice||event|event|
 |**--definition**|object|printTaskDefinition|definition|definition|
+
+#### <a name="print.printersDeleteAllowedGroups">Command `az devicescloudprint print-printer delete-allowed-group`</a>
+
+##### <a name="Parametersprint.printersDeleteAllowedGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-id**|string|key: id of printer|printer_id|printer-id|
+|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.printersDeleteAllowedUsers">Command `az devicescloudprint print-printer delete-allowed-user`</a>
+
+##### <a name="Parametersprint.printersDeleteAllowedUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-id**|string|key: id of printer|printer_id|printer-id|
+|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.printersDeleteRefShare">Command `az devicescloudprint print-printer delete-ref-share`</a>
+
+##### <a name="Parametersprint.printersDeleteRefShare">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-id**|string|key: id of printer|printer_id|printer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.printersDeleteTaskTriggers">Command `az devicescloudprint print-printer delete-task-trigger`</a>
+
+##### <a name="Parametersprint.printersDeleteTaskTriggers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-id**|string|key: id of printer|printer_id|printer-id|
+|**--print-task-trigger-id**|string|key: id of printTaskTrigger|print_task_trigger_id|printTaskTrigger-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="print.printersListAllowedGroups">Command `az devicescloudprint print-printer list-allowed-group`</a>
 
@@ -1187,27 +1203,6 @@
 |**--definition**|object|printTaskDefinition|definition|definition|
 
 ### group `az devicescloudprint print-printer-share`
-#### <a name="print.printerSharesDeleteAllowedGroups">Command `az devicescloudprint print-printer-share delete`</a>
-
-##### <a name="Parametersprint.printerSharesDeleteAllowedGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
-|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="print.printerSharesDeleteAllowedUsers">Command `az devicescloudprint print-printer-share delete`</a>
-
-##### <a name="Parametersprint.printerSharesDeleteAllowedUsers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
-
-#### <a name="print.printerSharesDeleteRefPrinter">Command `az devicescloudprint print-printer-share delete`</a>
-
-##### <a name="Parametersprint.printerSharesDeleteRefPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="print.printerSharesCreateAllowedGroups">Command `az devicescloudprint print-printer-share create-allowed-group`</a>
 
 ##### <a name="Parametersprint.printerSharesCreateAllowedGroups">Parameters</a> 
@@ -1227,6 +1222,32 @@
 |**--display-name**|string||display_name|displayName|
 |**--ip-address**|string||ip_address|ipAddress|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
+
+#### <a name="print.printerSharesDeleteAllowedGroups">Command `az devicescloudprint print-printer-share delete-allowed-group`</a>
+
+##### <a name="Parametersprint.printerSharesDeleteAllowedGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.printerSharesDeleteAllowedUsers">Command `az devicescloudprint print-printer-share delete-allowed-user`</a>
+
+##### <a name="Parametersprint.printerSharesDeleteAllowedUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.printerSharesDeleteRefPrinter">Command `az devicescloudprint print-printer-share delete-ref-printer`</a>
+
+##### <a name="Parametersprint.printerSharesDeleteRefPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="print.printerSharesListAllowedGroups">Command `az devicescloudprint print-printer-share list-allowed-group`</a>
 
@@ -1337,7 +1358,7 @@
 |**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
 
 ### group `az devicescloudprint print-printer-task-trigger`
-#### <a name="print.printers.taskTriggersDeleteRefDefinition">Command `az devicescloudprint print-printer-task-trigger delete`</a>
+#### <a name="print.printers.taskTriggersDeleteRefDefinition">Command `az devicescloudprint print-printer-task-trigger delete-ref-definition`</a>
 
 ##### <a name="Parametersprint.printers.taskTriggersDeleteRefDefinition">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1462,15 +1483,6 @@
 |**--period-end**|date-time||period_end|periodEnd|
 
 ### group `az devicescloudprint print-service`
-#### <a name="print.servicesDeleteEndpoints">Command `az devicescloudprint print-service delete`</a>
-
-##### <a name="Parametersprint.servicesDeleteEndpoints">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-service-id**|string|key: id of printService|print_service_id|printService-id|
-|**--print-service-endpoint-id**|string|key: id of printServiceEndpoint|print_service_endpoint_id|printServiceEndpoint-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="print.servicesCreateEndpoints">Command `az devicescloudprint print-service create-endpoint`</a>
 
 ##### <a name="Parametersprint.servicesCreateEndpoints">Parameters</a> 
@@ -1480,6 +1492,15 @@
 |**--id**|string|Read-only.|id|id|
 |**--display-name**|string||display_name|displayName|
 |**--uri**|string||uri|uri|
+
+#### <a name="print.servicesDeleteEndpoints">Command `az devicescloudprint print-service delete-endpoint`</a>
+
+##### <a name="Parametersprint.servicesDeleteEndpoints">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-service-id**|string|key: id of printService|print_service_id|printService-id|
+|**--print-service-endpoint-id**|string|key: id of printServiceEndpoint|print_service_endpoint_id|printServiceEndpoint-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="print.servicesListEndpoints">Command `az devicescloudprint print-service list-endpoint`</a>
 
@@ -1513,27 +1534,6 @@
 |**--uri**|string||uri|uri|
 
 ### group `az devicescloudprint print-share`
-#### <a name="print.sharesDeleteAllowedGroups">Command `az devicescloudprint print-share delete`</a>
-
-##### <a name="Parametersprint.sharesDeleteAllowedGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
-|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="print.sharesDeleteAllowedUsers">Command `az devicescloudprint print-share delete`</a>
-
-##### <a name="Parametersprint.sharesDeleteAllowedUsers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
-
-#### <a name="print.sharesDeleteRefPrinter">Command `az devicescloudprint print-share delete`</a>
-
-##### <a name="Parametersprint.sharesDeleteRefPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="print.sharesCreateAllowedGroups">Command `az devicescloudprint print-share create-allowed-group`</a>
 
 ##### <a name="Parametersprint.sharesCreateAllowedGroups">Parameters</a> 
@@ -1553,6 +1553,32 @@
 |**--display-name**|string||display_name|displayName|
 |**--ip-address**|string||ip_address|ipAddress|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
+
+#### <a name="print.sharesDeleteAllowedGroups">Command `az devicescloudprint print-share delete-allowed-group`</a>
+
+##### <a name="Parametersprint.sharesDeleteAllowedGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--print-identity-id**|string|key: id of printIdentity|print_identity_id|printIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.sharesDeleteAllowedUsers">Command `az devicescloudprint print-share delete-allowed-user`</a>
+
+##### <a name="Parametersprint.sharesDeleteAllowedUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--print-user-identity-id**|string|key: id of printUserIdentity|print_user_identity_id|printUserIdentity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="print.sharesDeleteRefPrinter">Command `az devicescloudprint print-share delete-ref-printer`</a>
+
+##### <a name="Parametersprint.sharesDeleteRefPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="print.sharesListAllowedGroups">Command `az devicescloudprint print-share list-allowed-group`</a>
 
@@ -1663,15 +1689,6 @@
 |**--printer-share-id**|string|key: id of printerShare|printer_share_id|printerShare-id|
 
 ### group `az devicescloudprint print-task-definition`
-#### <a name="print.taskDefinitionsDeleteTasks">Command `az devicescloudprint print-task-definition delete`</a>
-
-##### <a name="Parametersprint.taskDefinitionsDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-task-definition-id**|string|key: id of printTaskDefinition|print_task_definition_id|printTaskDefinition-id|
-|**--print-task-id**|string|key: id of printTask|print_task_id|printTask-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="print.taskDefinitionsCreateTasks">Command `az devicescloudprint print-task-definition create-task`</a>
 
 ##### <a name="Parametersprint.taskDefinitionsCreateTasks">Parameters</a> 
@@ -1685,6 +1702,15 @@
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 |**--event**|choice||event|event|
 |**--microsoft-graph-print-task-definition**|object|printTaskDefinition|microsoft_graph_print_task_definition|definition|
+
+#### <a name="print.taskDefinitionsDeleteTasks">Command `az devicescloudprint print-task-definition delete-task`</a>
+
+##### <a name="Parametersprint.taskDefinitionsDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-task-definition-id**|string|key: id of printTaskDefinition|print_task_definition_id|printTaskDefinition-id|
+|**--print-task-id**|string|key: id of printTask|print_task_id|printTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="print.taskDefinitionsListTasks">Command `az devicescloudprint print-task-definition list-task`</a>
 
@@ -1722,7 +1748,7 @@
 |**--microsoft-graph-print-task-definition**|object|printTaskDefinition|microsoft_graph_print_task_definition|definition|
 
 ### group `az devicescloudprint print-task-definition-task`
-#### <a name="print.taskDefinitions.tasksDeleteRefDefinition">Command `az devicescloudprint print-task-definition-task delete`</a>
+#### <a name="print.taskDefinitions.tasksDeleteRefDefinition">Command `az devicescloudprint print-task-definition-task delete-ref-definition`</a>
 
 ##### <a name="Parametersprint.taskDefinitions.tasksDeleteRefDefinition">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1731,11 +1757,15 @@
 |**--print-task-id**|string|key: id of printTask|print_task_id|printTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="print.taskDefinitions.tasksDeleteRefTrigger">Command `az devicescloudprint print-task-definition-task delete`</a>
+#### <a name="print.taskDefinitions.tasksDeleteRefTrigger">Command `az devicescloudprint print-task-definition-task delete-ref-trigger`</a>
 
 ##### <a name="Parametersprint.taskDefinitions.tasksDeleteRefTrigger">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--print-task-definition-id**|string|key: id of printTaskDefinition|print_task_definition_id|printTaskDefinition-id|
+|**--print-task-id**|string|key: id of printTask|print_task_id|printTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="print.taskDefinitions.tasksSetRefDefinition">Command `az devicescloudprint print-task-definition-task set-ref-definition`</a>
 
 ##### <a name="Parametersprint.taskDefinitions.tasksSetRefDefinition">Parameters</a> 

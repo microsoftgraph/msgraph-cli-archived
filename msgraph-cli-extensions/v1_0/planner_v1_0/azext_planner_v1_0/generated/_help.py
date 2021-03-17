@@ -17,7 +17,7 @@ helps['planner group'] = """
     short-summary: Manage group with planner_v1_0
 """
 
-helps['planner group delete'] = """
+helps['planner group delete-planner'] = """
     type: command
     short-summary: "Delete navigation property planner for groups."
 """
@@ -35,11 +35,6 @@ helps['planner group update-planner'] = """
 helps['planner group-planner'] = """
     type: group
     short-summary: Manage group planner with planner_v1_0
-"""
-
-helps['planner group-planner delete'] = """
-    type: command
-    short-summary: "Delete navigation property plans for groups."
 """
 
 helps['planner group-planner create-plan'] = """
@@ -85,6 +80,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner group-planner delete-plan'] = """
+    type: command
+    short-summary: "Delete navigation property plans for groups."
 """
 
 helps['planner group-planner list-plan'] = """
@@ -145,12 +145,6 @@ associated with the user won't show up as having changed when using delta.
 helps['planner group-planner-plan'] = """
     type: group
     short-summary: Manage group planner plan with planner_v1_0
-"""
-
-helps['planner group-planner-plan delete'] = """
-    type: command
-    short-summary: "Delete navigation property buckets for groups And Delete navigation property tasks for groups And \
-Delete navigation property details for groups."
 """
 
 helps['planner group-planner-plan create-bucket'] = """
@@ -232,6 +226,21 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner group-planner-plan delete-bucket'] = """
+    type: command
+    short-summary: "Delete navigation property buckets for groups."
+"""
+
+helps['planner group-planner-plan delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for groups."
+"""
+
+helps['planner group-planner-plan delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for groups."
 """
 
 helps['planner group-planner-plan list-bucket'] = """
@@ -363,11 +372,6 @@ helps['planner group-planner-plan-bucket'] = """
     short-summary: Manage group planner plan bucket with planner_v1_0
 """
 
-helps['planner group-planner-plan-bucket delete'] = """
-    type: command
-    short-summary: "Delete navigation property tasks for groups."
-"""
-
 helps['planner group-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for groups."
@@ -442,6 +446,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner group-planner-plan-bucket delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for groups."
 """
 
 helps['planner group-planner-plan-bucket list-task'] = """
@@ -535,11 +544,24 @@ helps['planner group-planner-plan-bucket-task'] = """
     short-summary: Manage group planner plan bucket task with planner_v1_0
 """
 
-helps['planner group-planner-plan-bucket-task delete'] = """
+helps['planner group-planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for groups And Delete navigation property \
-bucketTaskBoardFormat for groups And Delete navigation property details for groups And Delete navigation property \
-progressTaskBoardFormat for groups."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for groups."
+"""
+
+helps['planner group-planner-plan-bucket-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for groups."
+"""
+
+helps['planner group-planner-plan-bucket-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for groups."
+"""
+
+helps['planner group-planner-plan-bucket-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for groups."
 """
 
 helps['planner group-planner-plan-bucket-task show-assigned-to-task-board-format'] = """
@@ -587,11 +609,24 @@ helps['planner group-planner-plan-task'] = """
     short-summary: Manage group planner plan task with planner_v1_0
 """
 
-helps['planner group-planner-plan-task delete'] = """
+helps['planner group-planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for groups And Delete navigation property \
-bucketTaskBoardFormat for groups And Delete navigation property details for groups And Delete navigation property \
-progressTaskBoardFormat for groups."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for groups."
+"""
+
+helps['planner group-planner-plan-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for groups."
+"""
+
+helps['planner group-planner-plan-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for groups."
+"""
+
+helps['planner group-planner-plan-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for groups."
 """
 
 helps['planner group-planner-plan-task show-assigned-to-task-board-format'] = """
@@ -652,12 +687,6 @@ helps['planner planner show-planner'] = """
 helps['planner planner'] = """
     type: group
     short-summary: Manage planner with planner_v1_0
-"""
-
-helps['planner planner delete'] = """
-    type: command
-    short-summary: "Delete navigation property buckets for planner And Delete navigation property plans for planner \
-And Delete navigation property tasks for planner."
 """
 
 helps['planner planner create-bucket'] = """
@@ -784,6 +813,21 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner planner delete-bucket'] = """
+    type: command
+    short-summary: "Delete navigation property buckets for planner."
+"""
+
+helps['planner planner delete-plan'] = """
+    type: command
+    short-summary: "Delete navigation property plans for planner."
+"""
+
+helps['planner planner delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for planner."
 """
 
 helps['planner planner list-bucket'] = """
@@ -947,11 +991,6 @@ helps['planner planner-bucket'] = """
     short-summary: Manage planner bucket with planner_v1_0
 """
 
-helps['planner planner-bucket delete'] = """
-    type: command
-    short-summary: "Delete navigation property tasks for planner."
-"""
-
 helps['planner planner-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
@@ -1026,6 +1065,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner planner-bucket delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for planner."
 """
 
 helps['planner planner-bucket list-task'] = """
@@ -1119,11 +1163,24 @@ helps['planner planner-bucket-task'] = """
     short-summary: Manage planner bucket task with planner_v1_0
 """
 
-helps['planner planner-bucket-task delete'] = """
+helps['planner planner-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner And Delete navigation property \
-bucketTaskBoardFormat for planner And Delete navigation property details for planner And Delete navigation property \
-progressTaskBoardFormat for planner."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
+"""
+
+helps['planner planner-bucket-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
+"""
+
+helps['planner planner-bucket-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for planner."
+"""
+
+helps['planner planner-bucket-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
 helps['planner planner-bucket-task show-assigned-to-task-board-format'] = """
@@ -1169,12 +1226,6 @@ helps['planner planner-bucket-task update-progress-task-board-format'] = """
 helps['planner planner-plan'] = """
     type: group
     short-summary: Manage planner plan with planner_v1_0
-"""
-
-helps['planner planner-plan delete'] = """
-    type: command
-    short-summary: "Delete navigation property buckets for planner And Delete navigation property tasks for planner \
-And Delete navigation property details for planner."
 """
 
 helps['planner planner-plan create-bucket'] = """
@@ -1256,6 +1307,21 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner planner-plan delete-bucket'] = """
+    type: command
+    short-summary: "Delete navigation property buckets for planner."
+"""
+
+helps['planner planner-plan delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for planner."
+"""
+
+helps['planner planner-plan delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for planner."
 """
 
 helps['planner planner-plan list-bucket'] = """
@@ -1387,11 +1453,6 @@ helps['planner planner-plan-bucket'] = """
     short-summary: Manage planner plan bucket with planner_v1_0
 """
 
-helps['planner planner-plan-bucket delete'] = """
-    type: command
-    short-summary: "Delete navigation property tasks for planner."
-"""
-
 helps['planner planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for planner."
@@ -1466,6 +1527,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner planner-plan-bucket delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for planner."
 """
 
 helps['planner planner-plan-bucket list-task'] = """
@@ -1559,11 +1625,24 @@ helps['planner planner-plan-bucket-task'] = """
     short-summary: Manage planner plan bucket task with planner_v1_0
 """
 
-helps['planner planner-plan-bucket-task delete'] = """
+helps['planner planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner And Delete navigation property \
-bucketTaskBoardFormat for planner And Delete navigation property details for planner And Delete navigation property \
-progressTaskBoardFormat for planner."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
+"""
+
+helps['planner planner-plan-bucket-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
+"""
+
+helps['planner planner-plan-bucket-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for planner."
+"""
+
+helps['planner planner-plan-bucket-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
 helps['planner planner-plan-bucket-task show-assigned-to-task-board-format'] = """
@@ -1611,11 +1690,24 @@ helps['planner planner-plan-task'] = """
     short-summary: Manage planner plan task with planner_v1_0
 """
 
-helps['planner planner-plan-task delete'] = """
+helps['planner planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner And Delete navigation property \
-bucketTaskBoardFormat for planner And Delete navigation property details for planner And Delete navigation property \
-progressTaskBoardFormat for planner."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
+"""
+
+helps['planner planner-plan-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
+"""
+
+helps['planner planner-plan-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for planner."
+"""
+
+helps['planner planner-plan-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
 helps['planner planner-plan-task show-assigned-to-task-board-format'] = """
@@ -1663,11 +1755,24 @@ helps['planner planner-task'] = """
     short-summary: Manage planner task with planner_v1_0
 """
 
-helps['planner planner-task delete'] = """
+helps['planner planner-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner And Delete navigation property \
-bucketTaskBoardFormat for planner And Delete navigation property details for planner And Delete navigation property \
-progressTaskBoardFormat for planner."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for planner."
+"""
+
+helps['planner planner-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for planner."
+"""
+
+helps['planner planner-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for planner."
+"""
+
+helps['planner planner-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for planner."
 """
 
 helps['planner planner-task show-assigned-to-task-board-format'] = """
@@ -1715,7 +1820,7 @@ helps['planner user'] = """
     short-summary: Manage user with planner_v1_0
 """
 
-helps['planner user delete'] = """
+helps['planner user delete-planner'] = """
     type: command
     short-summary: "Delete navigation property planner for users."
 """
@@ -1733,11 +1838,6 @@ helps['planner user update-planner'] = """
 helps['planner user-planner'] = """
     type: group
     short-summary: Manage user planner with planner_v1_0
-"""
-
-helps['planner user-planner delete'] = """
-    type: command
-    short-summary: "Delete navigation property plans for users And Delete navigation property tasks for users."
 """
 
 helps['planner user-planner create-plan'] = """
@@ -1859,6 +1959,16 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner user-planner delete-plan'] = """
+    type: command
+    short-summary: "Delete navigation property plans for users."
+"""
+
+helps['planner user-planner delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for users."
 """
 
 helps['planner user-planner list-plan'] = """
@@ -2007,12 +2117,6 @@ helps['planner user-planner-plan'] = """
     short-summary: Manage user planner plan with planner_v1_0
 """
 
-helps['planner user-planner-plan delete'] = """
-    type: command
-    short-summary: "Delete navigation property buckets for users And Delete navigation property tasks for users And \
-Delete navigation property details for users."
-"""
-
 helps['planner user-planner-plan create-bucket'] = """
     type: command
     short-summary: "Create new navigation property to buckets for users."
@@ -2092,6 +2196,21 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner user-planner-plan delete-bucket'] = """
+    type: command
+    short-summary: "Delete navigation property buckets for users."
+"""
+
+helps['planner user-planner-plan delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for users."
+"""
+
+helps['planner user-planner-plan delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for users."
 """
 
 helps['planner user-planner-plan list-bucket'] = """
@@ -2223,11 +2342,6 @@ helps['planner user-planner-plan-bucket'] = """
     short-summary: Manage user planner plan bucket with planner_v1_0
 """
 
-helps['planner user-planner-plan-bucket delete'] = """
-    type: command
-    short-summary: "Delete navigation property tasks for users."
-"""
-
 helps['planner user-planner-plan-bucket create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for users."
@@ -2302,6 +2416,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['planner user-planner-plan-bucket delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for users."
 """
 
 helps['planner user-planner-plan-bucket list-task'] = """
@@ -2395,11 +2514,24 @@ helps['planner user-planner-plan-bucket-task'] = """
     short-summary: Manage user planner plan bucket task with planner_v1_0
 """
 
-helps['planner user-planner-plan-bucket-task delete'] = """
+helps['planner user-planner-plan-bucket-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for users And Delete navigation property \
-bucketTaskBoardFormat for users And Delete navigation property details for users And Delete navigation property \
-progressTaskBoardFormat for users."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-plan-bucket-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-plan-bucket-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for users."
+"""
+
+helps['planner user-planner-plan-bucket-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
 helps['planner user-planner-plan-bucket-task show-assigned-to-task-board-format'] = """
@@ -2447,11 +2579,24 @@ helps['planner user-planner-plan-task'] = """
     short-summary: Manage user planner plan task with planner_v1_0
 """
 
-helps['planner user-planner-plan-task delete'] = """
+helps['planner user-planner-plan-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for users And Delete navigation property \
-bucketTaskBoardFormat for users And Delete navigation property details for users And Delete navigation property \
-progressTaskBoardFormat for users."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-plan-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-plan-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for users."
+"""
+
+helps['planner user-planner-plan-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
 helps['planner user-planner-plan-task show-assigned-to-task-board-format'] = """
@@ -2499,11 +2644,24 @@ helps['planner user-planner-task'] = """
     short-summary: Manage user planner task with planner_v1_0
 """
 
-helps['planner user-planner-task delete'] = """
+helps['planner user-planner-task delete-assigned-to-task-board-format'] = """
     type: command
-    short-summary: "Delete navigation property assignedToTaskBoardFormat for users And Delete navigation property \
-bucketTaskBoardFormat for users And Delete navigation property details for users And Delete navigation property \
-progressTaskBoardFormat for users."
+    short-summary: "Delete navigation property assignedToTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-task delete-bucket-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property bucketTaskBoardFormat for users."
+"""
+
+helps['planner user-planner-task delete-detail'] = """
+    type: command
+    short-summary: "Delete navigation property details for users."
+"""
+
+helps['planner user-planner-task delete-progress-task-board-format'] = """
+    type: command
+    short-summary: "Delete navigation property progressTaskBoardFormat for users."
 """
 
 helps['planner user-planner-task show-assigned-to-task-board-format'] = """

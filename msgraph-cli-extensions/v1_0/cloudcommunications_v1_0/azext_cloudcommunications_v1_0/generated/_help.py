@@ -17,11 +17,6 @@ helps['cloudcommunications user'] = """
     short-summary: Manage user with cloudcommunications_v1_0
 """
 
-helps['cloudcommunications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property onlineMeetings for users."
-"""
-
 helps['cloudcommunications user create-online-meeting'] = """
     type: command
     short-summary: "Create new navigation property to onlineMeetings for users."
@@ -48,6 +43,11 @@ helps['cloudcommunications user create-online-meeting'] = """
             Usage: --join-information content=XX content-type=XX
 
             content: The content of the item.
+"""
+
+helps['cloudcommunications user delete-online-meeting'] = """
+    type: command
+    short-summary: "Delete navigation property onlineMeetings for users."
 """
 
 helps['cloudcommunications user list-online-meeting'] = """

@@ -10,15 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def cloudcommunications_user_delete(client,
-                                    user_id,
-                                    online_meeting_id,
-                                    if_match=None):
-    return client.delete_online_meeting(user_id=user_id,
-                                        online_meeting_id=online_meeting_id,
-                                        if_match=if_match)
-
-
 def cloudcommunications_user_create_online_meeting(client,
                                                    user_id,
                                                    id_=None,
@@ -48,6 +39,15 @@ def cloudcommunications_user_create_online_meeting(client,
                                         video_teleconference_id=video_teleconference_id,
                                         attendees=attendees,
                                         organizer=organizer)
+
+
+def cloudcommunications_user_delete_online_meeting(client,
+                                                   user_id,
+                                                   online_meeting_id,
+                                                   if_match=None):
+    return client.delete_online_meeting(user_id=user_id,
+                                        online_meeting_id=online_meeting_id,
+                                        if_match=if_match)
 
 
 def cloudcommunications_user_list_online_meeting(client,

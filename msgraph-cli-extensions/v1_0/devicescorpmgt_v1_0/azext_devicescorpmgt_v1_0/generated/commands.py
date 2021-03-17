@@ -47,7 +47,6 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management,
         client_factory=cf_device_app_management,
     ) as g:
-        g.custom_command('delete', 'devicescorpmgt_device_app_management_delete', confirmation=True)
         g.custom_command(
             'create-android-managed-app-protection',
             'devicescorpmgt_device_app_management_create_android_managed_app_protection',
@@ -86,6 +85,45 @@ def load_command_table(self, _):
         g.custom_command(
             'create-window-information-protection-policy',
             'devicescorpmgt_device_app_management_create_window_information_protection_policy',
+        )
+        g.custom_command(
+            'delete-android-managed-app-protection',
+            'devicescorpmgt_device_app_management_delete_android_managed_app_protection',
+        )
+        g.custom_command(
+            'delete-default-managed-app-protection',
+            'devicescorpmgt_device_app_management_delete_default_managed_app_protection',
+        )
+        g.custom_command(
+            'delete-io-managed-app-protection', 'devicescorpmgt_device_app_management_delete_io_managed_app_protection'
+        )
+        g.custom_command('delete-managed-app-policy', 'devicescorpmgt_device_app_management_delete_managed_app_policy')
+        g.custom_command(
+            'delete-managed-app-registration', 'devicescorpmgt_device_app_management_delete_managed_app_registration'
+        )
+        g.custom_command(
+            'delete-managed-app-statuses', 'devicescorpmgt_device_app_management_delete_managed_app_statuses'
+        )
+        g.custom_command('delete-managed-e-book', 'devicescorpmgt_device_app_management_delete_managed_e_book')
+        g.custom_command(
+            'delete-mdm-window-information-protection-policy',
+            'devicescorpmgt_device_app_management_delete_mdm_window_information_protection_policy',
+        )
+        g.custom_command('delete-mobile-app', 'devicescorpmgt_device_app_management_delete_mobile_app')
+        g.custom_command(
+            'delete-mobile-app-category', 'devicescorpmgt_device_app_management_delete_mobile_app_category'
+        )
+        g.custom_command(
+            'delete-mobile-app-configuration', 'devicescorpmgt_device_app_management_delete_mobile_app_configuration'
+        )
+        g.custom_command(
+            'delete-targeted-managed-app-configuration',
+            'devicescorpmgt_device_app_management_delete_targeted_managed_app_configuration',
+        )
+        g.custom_command('delete-vpp-token', 'devicescorpmgt_device_app_management_delete_vpp_token')
+        g.custom_command(
+            'delete-window-information-protection-policy',
+            'devicescorpmgt_device_app_management_delete_window_information_protection_policy',
         )
         g.custom_command(
             'list-android-managed-app-protection',
@@ -214,10 +252,12 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_android_managed_app_protection,
         client_factory=cf_device_app_management_android_managed_app_protection,
     ) as g:
-        g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_android_managed_app_protection_delete', confirmation=True
-        )
         g.custom_command('create-app', 'devicescorpmgt_device_app_management_android_managed_app_protection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_device_app_management_android_managed_app_protection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_device_app_management_android_managed_app_protection_delete_deployment_summary',
+        )
         g.custom_command('list-app', 'devicescorpmgt_device_app_management_android_managed_app_protection_list_app')
         g.custom_command('show-app', 'devicescorpmgt_device_app_management_android_managed_app_protection_show_app')
         g.custom_command(
@@ -243,10 +283,12 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_default_managed_app_protection,
         client_factory=cf_device_app_management_default_managed_app_protection,
     ) as g:
-        g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_default_managed_app_protection_delete', confirmation=True
-        )
         g.custom_command('create-app', 'devicescorpmgt_device_app_management_default_managed_app_protection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_device_app_management_default_managed_app_protection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_device_app_management_default_managed_app_protection_delete_deployment_summary',
+        )
         g.custom_command('list-app', 'devicescorpmgt_device_app_management_default_managed_app_protection_list_app')
         g.custom_command('show-app', 'devicescorpmgt_device_app_management_default_managed_app_protection_show_app')
         g.custom_command(
@@ -270,10 +312,12 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_io_managed_app_protection,
         client_factory=cf_device_app_management_io_managed_app_protection,
     ) as g:
-        g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_io_managed_app_protection_delete', confirmation=True
-        )
         g.custom_command('create-app', 'devicescorpmgt_device_app_management_io_managed_app_protection_create_app')
+        g.custom_command('delete-app', 'devicescorpmgt_device_app_management_io_managed_app_protection_delete_app')
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_device_app_management_io_managed_app_protection_delete_deployment_summary',
+        )
         g.custom_command('list-app', 'devicescorpmgt_device_app_management_io_managed_app_protection_list_app')
         g.custom_command('show-app', 'devicescorpmgt_device_app_management_io_managed_app_protection_show_app')
         g.custom_command(
@@ -311,9 +355,6 @@ def load_command_table(self, _):
         client_factory=cf_device_app_management_managed_app_registration,
     ) as g:
         g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_managed_app_registration_delete', confirmation=True
-        )
-        g.custom_command(
             'create-applied-policy',
             'devicescorpmgt_device_app_management_managed_app_registration_create_applied_policy',
         )
@@ -323,6 +364,17 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-operation', 'devicescorpmgt_device_app_management_managed_app_registration_create_operation'
+        )
+        g.custom_command(
+            'delete-applied-policy',
+            'devicescorpmgt_device_app_management_managed_app_registration_delete_applied_policy',
+        )
+        g.custom_command(
+            'delete-intended-policy',
+            'devicescorpmgt_device_app_management_managed_app_registration_delete_intended_policy',
+        )
+        g.custom_command(
+            'delete-operation', 'devicescorpmgt_device_app_management_managed_app_registration_delete_operation'
         )
         g.custom_command(
             'list-applied-policy', 'devicescorpmgt_device_app_management_managed_app_registration_list_applied_policy'
@@ -403,7 +455,6 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_managed_ebook,
         client_factory=cf_device_app_management_managed_ebook,
     ) as g:
-        g.custom_command('delete', 'devicescorpmgt_device_app_management_managed_e_book_delete', confirmation=True)
         g.custom_command('assign', 'devicescorpmgt_device_app_management_managed_e_book_assign')
         g.custom_command('create-assignment', 'devicescorpmgt_device_app_management_managed_e_book_create_assignment')
         g.custom_command(
@@ -411,6 +462,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-user-state-summary', 'devicescorpmgt_device_app_management_managed_e_book_create_user_state_summary'
+        )
+        g.custom_command('delete-assignment', 'devicescorpmgt_device_app_management_managed_e_book_delete_assignment')
+        g.custom_command(
+            'delete-device-state', 'devicescorpmgt_device_app_management_managed_e_book_delete_device_state'
+        )
+        g.custom_command(
+            'delete-install-summary', 'devicescorpmgt_device_app_management_managed_e_book_delete_install_summary'
+        )
+        g.custom_command(
+            'delete-user-state-summary', 'devicescorpmgt_device_app_management_managed_e_book_delete_user_state_summary'
         )
         g.custom_command('list-assignment', 'devicescorpmgt_device_app_management_managed_e_book_list_assignment')
         g.custom_command('list-device-state', 'devicescorpmgt_device_app_management_managed_e_book_list_device_state')
@@ -450,11 +511,12 @@ def load_command_table(self, _):
         client_factory=cf_device_app_management_managed_ebook_user_state_summary,
     ) as g:
         g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_managed_e_book_user_state_summary_delete', confirmation=True
-        )
-        g.custom_command(
             'create-device-state',
             'devicescorpmgt_device_app_management_managed_e_book_user_state_summary_create_device_state',
+        )
+        g.custom_command(
+            'delete-device-state',
+            'devicescorpmgt_device_app_management_managed_e_book_user_state_summary_delete_device_state',
         )
         g.custom_command(
             'list-device-state',
@@ -480,9 +542,6 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_mobile_app_configuration,
         client_factory=cf_device_app_management_mobile_app_configuration,
     ) as g:
-        g.custom_command(
-            'delete', 'devicescorpmgt_device_app_management_mobile_app_configuration_delete', confirmation=True
-        )
         g.custom_command('assign', 'devicescorpmgt_device_app_management_mobile_app_configuration_assign')
         g.custom_command(
             'create-assignment', 'devicescorpmgt_device_app_management_mobile_app_configuration_create_assignment'
@@ -493,6 +552,24 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-user-statuses', 'devicescorpmgt_device_app_management_mobile_app_configuration_create_user_statuses'
+        )
+        g.custom_command(
+            'delete-assignment', 'devicescorpmgt_device_app_management_mobile_app_configuration_delete_assignment'
+        )
+        g.custom_command(
+            'delete-device-status-summary',
+            'devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_status_summary',
+        )
+        g.custom_command(
+            'delete-device-statuses',
+            'devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_statuses',
+        )
+        g.custom_command(
+            'delete-user-status-summary',
+            'devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_status_summary',
+        )
+        g.custom_command(
+            'delete-user-statuses', 'devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_statuses'
         )
         g.custom_command(
             'list-assignment', 'devicescorpmgt_device_app_management_mobile_app_configuration_list_assignment'
@@ -550,10 +627,10 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_mobile_app,
         client_factory=cf_device_app_management_mobile_app,
     ) as g:
-        g.custom_command('delete', 'devicescorpmgt_device_app_management_mobile_app_delete', confirmation=True)
         g.custom_command('assign', 'devicescorpmgt_device_app_management_mobile_app_assign')
         g.custom_command('create-assignment', 'devicescorpmgt_device_app_management_mobile_app_create_assignment')
         g.custom_command('create-ref-category', 'devicescorpmgt_device_app_management_mobile_app_create_ref_category')
+        g.custom_command('delete-assignment', 'devicescorpmgt_device_app_management_mobile_app_delete_assignment')
         g.custom_command('list-assignment', 'devicescorpmgt_device_app_management_mobile_app_list_assignment')
         g.custom_command('list-category', 'devicescorpmgt_device_app_management_mobile_app_list_category')
         g.custom_command('list-ref-category', 'devicescorpmgt_device_app_management_mobile_app_list_ref_category')
@@ -573,11 +650,6 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_device_app_management_targeted_managed_app_configuration,
         client_factory=cf_device_app_management_targeted_managed_app_configuration,
     ) as g:
-        g.custom_command(
-            'delete',
-            'devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete',
-            confirmation=True,
-        )
         g.custom_command('assign', 'devicescorpmgt_device_app_management_targeted_managed_app_configuration_assign')
         g.custom_command(
             'create-app', 'devicescorpmgt_device_app_management_targeted_managed_app_configuration_create_app'
@@ -585,6 +657,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-assignment',
             'devicescorpmgt_device_app_management_targeted_managed_app_configuration_create_assignment',
+        )
+        g.custom_command(
+            'delete-app', 'devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_app'
+        )
+        g.custom_command(
+            'delete-assignment',
+            'devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_assignment',
+        )
+        g.custom_command(
+            'delete-deployment-summary',
+            'devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_deployment_summary',
         )
         g.custom_command('list-app', 'devicescorpmgt_device_app_management_targeted_managed_app_configuration_list_app')
         g.custom_command(
@@ -635,7 +718,6 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('devicescorpmgt user', devicescorpmgt_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'devicescorpmgt_user_delete', confirmation=True)
         g.custom_command(
             'create-device-management-troubleshooting-event',
             'devicescorpmgt_user_create_device_management_troubleshooting_event',
@@ -644,6 +726,11 @@ def load_command_table(self, _):
         g.custom_command(
             'create-ref-managed-app-registration', 'devicescorpmgt_user_create_ref_managed_app_registration'
         )
+        g.custom_command(
+            'delete-device-management-troubleshooting-event',
+            'devicescorpmgt_user_delete_device_management_troubleshooting_event',
+        )
+        g.custom_command('delete-managed-device', 'devicescorpmgt_user_delete_managed_device')
         g.custom_command(
             'list-device-management-troubleshooting-event',
             'devicescorpmgt_user_list_device_management_troubleshooting_event',
@@ -673,13 +760,20 @@ def load_command_table(self, _):
         devicescorpmgt_v1_0_user_managed_device,
         client_factory=cf_user_managed_device,
     ) as g:
-        g.custom_command('delete', 'devicescorpmgt_user_managed_device_delete', confirmation=True)
         g.custom_command(
             'create-device-compliance-policy-state',
             'devicescorpmgt_user_managed_device_create_device_compliance_policy_state',
         )
         g.custom_command(
             'create-device-configuration-state', 'devicescorpmgt_user_managed_device_create_device_configuration_state'
+        )
+        g.custom_command('delete-device-category', 'devicescorpmgt_user_managed_device_delete_device_category')
+        g.custom_command(
+            'delete-device-compliance-policy-state',
+            'devicescorpmgt_user_managed_device_delete_device_compliance_policy_state',
+        )
+        g.custom_command(
+            'delete-device-configuration-state', 'devicescorpmgt_user_managed_device_delete_device_configuration_state'
         )
         g.custom_command(
             'list-device-compliance-policy-state',

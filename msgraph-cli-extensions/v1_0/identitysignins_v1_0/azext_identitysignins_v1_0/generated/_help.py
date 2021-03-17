@@ -17,14 +17,14 @@ helps['identitysignins data-policy-operation-data-policy-operation'] = """
     short-summary: Manage data policy operation data policy operation with identitysignins_v1_0
 """
 
-helps['identitysignins data-policy-operation-data-policy-operation delete'] = """
-    type: command
-    short-summary: "Delete entity from dataPolicyOperations."
-"""
-
 helps['identitysignins data-policy-operation-data-policy-operation create-data-policy-operation'] = """
     type: command
     short-summary: "Add new entity to dataPolicyOperations."
+"""
+
+helps['identitysignins data-policy-operation-data-policy-operation delete-data-policy-operation'] = """
+    type: command
+    short-summary: "Delete entity from dataPolicyOperations."
 """
 
 helps['identitysignins data-policy-operation-data-policy-operation list-data-policy-operation'] = """
@@ -47,7 +47,7 @@ helps['identitysignins identity'] = """
     short-summary: Manage identity with identitysignins_v1_0
 """
 
-helps['identitysignins identity delete'] = """
+helps['identitysignins identity delete-conditional-access'] = """
     type: command
     short-summary: "Delete navigation property conditionalAccess for identity."
 """
@@ -80,12 +80,6 @@ format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would
 helps['identitysignins identity-conditional-access'] = """
     type: group
     short-summary: Manage identity conditional access with identitysignins_v1_0
-"""
-
-helps['identitysignins identity-conditional-access delete'] = """
-    type: command
-    short-summary: "Delete navigation property namedLocations for identity And Delete navigation property policies for \
-identity."
 """
 
 helps['identitysignins identity-conditional-access create-named-location'] = """
@@ -170,6 +164,16 @@ include-users=XX
             include-roles: Role IDs in scope of policy unless explicitly excluded, or All.
             include-users: User IDs in scope of policy unless explicitly excluded, or None or All or \
 GuestsOrExternalUsers.
+"""
+
+helps['identitysignins identity-conditional-access delete-named-location'] = """
+    type: command
+    short-summary: "Delete navigation property namedLocations for identity."
+"""
+
+helps['identitysignins identity-conditional-access delete-policy'] = """
+    type: command
+    short-summary: "Delete navigation property policies for identity."
 """
 
 helps['identitysignins identity-conditional-access list-named-location'] = """
@@ -281,14 +285,14 @@ helps['identitysignins identity-provider-identity-provider'] = """
     short-summary: Manage identity provider identity provider with identitysignins_v1_0
 """
 
-helps['identitysignins identity-provider-identity-provider delete'] = """
-    type: command
-    short-summary: "Delete entity from identityProviders."
-"""
-
 helps['identitysignins identity-provider-identity-provider create-identity-provider'] = """
     type: command
     short-summary: "Add new entity to identityProviders."
+"""
+
+helps['identitysignins identity-provider-identity-provider delete-identity-provider'] = """
+    type: command
+    short-summary: "Delete entity from identityProviders."
 """
 
 helps['identitysignins identity-provider-identity-provider list-identity-provider'] = """
@@ -324,11 +328,6 @@ helps['identitysignins information-protection-information-protection update-info
 helps['identitysignins information-protection'] = """
     type: group
     short-summary: Manage information protection with identitysignins_v1_0
-"""
-
-helps['identitysignins information-protection delete'] = """
-    type: command
-    short-summary: "Delete navigation property threatAssessmentRequests for informationProtection."
 """
 
 helps['identitysignins information-protection create-threat-assessment-request'] = """
@@ -374,6 +373,11 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['identitysignins information-protection delete-threat-assessment-request'] = """
+    type: command
+    short-summary: "Delete navigation property threatAssessmentRequests for informationProtection."
 """
 
 helps['identitysignins information-protection list-threat-assessment-request'] = """
@@ -436,14 +440,14 @@ helps['identitysignins information-protection-threat-assessment-request'] = """
     short-summary: Manage information protection threat assessment request with identitysignins_v1_0
 """
 
-helps['identitysignins information-protection-threat-assessment-request delete'] = """
-    type: command
-    short-summary: "Delete navigation property results for informationProtection."
-"""
-
 helps['identitysignins information-protection-threat-assessment-request create-result'] = """
     type: command
     short-summary: "Create new navigation property to results for informationProtection."
+"""
+
+helps['identitysignins information-protection-threat-assessment-request delete-result'] = """
+    type: command
+    short-summary: "Delete navigation property results for informationProtection."
 """
 
 helps['identitysignins information-protection-threat-assessment-request list-result'] = """
@@ -466,14 +470,14 @@ helps['identitysignins invitation-invitation'] = """
     short-summary: Manage invitation invitation with identitysignins_v1_0
 """
 
-helps['identitysignins invitation-invitation delete'] = """
-    type: command
-    short-summary: "Delete entity from invitations."
-"""
-
 helps['identitysignins invitation-invitation create-invitation'] = """
     type: command
     short-summary: "Add new entity to invitations."
+"""
+
+helps['identitysignins invitation-invitation delete-invitation'] = """
+    type: command
+    short-summary: "Delete entity from invitations."
 """
 
 helps['identitysignins invitation-invitation list-invitation'] = """
@@ -496,7 +500,7 @@ helps['identitysignins invitation'] = """
     short-summary: Manage invitation with identitysignins_v1_0
 """
 
-helps['identitysignins invitation delete'] = """
+helps['identitysignins invitation delete-ref-invited-user'] = """
     type: command
     short-summary: "Delete ref of navigation property invitedUser for invitations."
 """
@@ -521,14 +525,14 @@ helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant'] = """
     short-summary: Manage oauth2 permission grant o auth2 permission grant with identitysignins_v1_0
 """
 
-helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant delete'] = """
-    type: command
-    short-summary: "Delete entity from oauth2PermissionGrants."
-"""
-
 helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant create-o-auth2-permission-grant'] = """
     type: command
     short-summary: "Add new entity to oauth2PermissionGrants."
+"""
+
+helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant delete-o-auth2-permission-grant'] = """
+    type: command
+    short-summary: "Delete entity from oauth2PermissionGrants."
 """
 
 helps['identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant'] = """
@@ -676,16 +680,6 @@ deleted-date-time=XX id=XX
 helps['identitysignins policy'] = """
     type: group
     short-summary: Manage policy with identitysignins_v1_0
-"""
-
-helps['identitysignins policy delete'] = """
-    type: command
-    short-summary: "Delete navigation property activityBasedTimeoutPolicies for policies And Delete navigation \
-property claimsMappingPolicies for policies And Delete navigation property conditionalAccessPolicies for policies And \
-Delete navigation property homeRealmDiscoveryPolicies for policies And Delete navigation property \
-permissionGrantPolicies for policies And Delete navigation property tokenIssuancePolicies for policies And Delete \
-navigation property tokenLifetimePolicies for policies And Delete navigation property identitySecurityDefaultsEnforceme\
-ntPolicy for policies."
 """
 
 helps['identitysignins policy create-activity-based-timeout-policy'] = """
@@ -854,6 +848,46 @@ helps['identitysignins policy create-token-lifetime-policy'] = """
             id: Read-only.
 
             Multiple actions can be specified by using more than one --applies-to argument.
+"""
+
+helps['identitysignins policy delete-activity-based-timeout-policy'] = """
+    type: command
+    short-summary: "Delete navigation property activityBasedTimeoutPolicies for policies."
+"""
+
+helps['identitysignins policy delete-claim-mapping-policy'] = """
+    type: command
+    short-summary: "Delete navigation property claimsMappingPolicies for policies."
+"""
+
+helps['identitysignins policy delete-conditional-access-policy'] = """
+    type: command
+    short-summary: "Delete navigation property conditionalAccessPolicies for policies."
+"""
+
+helps['identitysignins policy delete-home-realm-discovery-policy'] = """
+    type: command
+    short-summary: "Delete navigation property homeRealmDiscoveryPolicies for policies."
+"""
+
+helps['identitysignins policy delete-identity-security-default-enforcement-policy'] = """
+    type: command
+    short-summary: "Delete navigation property identitySecurityDefaultsEnforcementPolicy for policies."
+"""
+
+helps['identitysignins policy delete-permission-grant-policy'] = """
+    type: command
+    short-summary: "Delete navigation property permissionGrantPolicies for policies."
+"""
+
+helps['identitysignins policy delete-token-issuance-policy'] = """
+    type: command
+    short-summary: "Delete navigation property tokenIssuancePolicies for policies."
+"""
+
+helps['identitysignins policy delete-token-lifetime-policy'] = """
+    type: command
+    short-summary: "Delete navigation property tokenLifetimePolicies for policies."
 """
 
 helps['identitysignins policy list-activity-based-timeout-policy'] = """
@@ -1109,12 +1143,6 @@ helps['identitysignins policy-permission-grant-policy'] = """
     short-summary: Manage policy permission grant policy with identitysignins_v1_0
 """
 
-helps['identitysignins policy-permission-grant-policy delete'] = """
-    type: command
-    short-summary: "Delete navigation property excludes for policies And Delete navigation property includes for \
-policies."
-"""
-
 helps['identitysignins policy-permission-grant-policy create-exclude'] = """
     type: command
     short-summary: "Create new navigation property to excludes for policies."
@@ -1123,6 +1151,16 @@ helps['identitysignins policy-permission-grant-policy create-exclude'] = """
 helps['identitysignins policy-permission-grant-policy create-include'] = """
     type: command
     short-summary: "Create new navigation property to includes for policies."
+"""
+
+helps['identitysignins policy-permission-grant-policy delete-exclude'] = """
+    type: command
+    short-summary: "Delete navigation property excludes for policies."
+"""
+
+helps['identitysignins policy-permission-grant-policy delete-include'] = """
+    type: command
+    short-summary: "Delete navigation property includes for policies."
 """
 
 helps['identitysignins policy-permission-grant-policy list-exclude'] = """

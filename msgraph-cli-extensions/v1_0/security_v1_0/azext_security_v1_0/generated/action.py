@@ -493,33 +493,6 @@ class AddControlScores(argparse._AppendAction):
         return d
 
 
-class AddComplianceInformation(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddComplianceInformation, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'certification-controls':
-                d['certification_controls'] = v
-            elif kl == 'certification-name':
-                d['certification_name'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter compliance_information. All possible keys '
-                               'are: certification-controls, certification-name'.format(k))
-        return d
-
-
 class AddControlStateUpdates(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

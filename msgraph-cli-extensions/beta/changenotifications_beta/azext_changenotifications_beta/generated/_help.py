@@ -17,14 +17,14 @@ helps['changenotifications subscription-subscription'] = """
     short-summary: Manage subscription subscription with changenotifications_beta
 """
 
-helps['changenotifications subscription-subscription delete'] = """
-    type: command
-    short-summary: "Delete entity from subscriptions."
-"""
-
 helps['changenotifications subscription-subscription create-subscription'] = """
     type: command
     short-summary: "Add new entity to subscriptions."
+"""
+
+helps['changenotifications subscription-subscription delete-subscription'] = """
+    type: command
+    short-summary: "Delete entity from subscriptions."
 """
 
 helps['changenotifications subscription-subscription list-subscription'] = """

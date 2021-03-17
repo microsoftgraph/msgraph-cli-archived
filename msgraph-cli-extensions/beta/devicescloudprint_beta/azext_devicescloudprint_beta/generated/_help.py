@@ -25,27 +25,11 @@ helps['devicescloudprint print-print show-print'] = """
 helps['devicescloudprint print-print update-print'] = """
     type: command
     short-summary: "Update print."
-    parameters:
-      - name: --services
-        long-summary: |
-            Usage: --services endpoints=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --services argument.
 """
 
 helps['devicescloudprint print'] = """
     type: group
     short-summary: Manage print with devicescloudprint_beta
-"""
-
-helps['devicescloudprint print delete'] = """
-    type: command
-    short-summary: "Delete navigation property connectors for print And Delete navigation property operations for \
-print And Delete navigation property printers for print And Delete navigation property printerShares for print And \
-Delete navigation property reports for print And Delete navigation property services for print And Delete navigation \
-property shares for print And Delete navigation property taskDefinitions for print."
 """
 
 helps['devicescloudprint print create-connector'] = """
@@ -323,6 +307,46 @@ helps['devicescloudprint print create-task-definition'] = """
             service-principal-id: Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory \
 for the corresponding App.
             service-principal-name: Refers to the Service Principal Name is the Application name in the tenant.
+"""
+
+helps['devicescloudprint print delete-connector'] = """
+    type: command
+    short-summary: "Delete navigation property connectors for print."
+"""
+
+helps['devicescloudprint print delete-operation'] = """
+    type: command
+    short-summary: "Delete navigation property operations for print."
+"""
+
+helps['devicescloudprint print delete-printer'] = """
+    type: command
+    short-summary: "Delete navigation property printers for print."
+"""
+
+helps['devicescloudprint print delete-printer-share'] = """
+    type: command
+    short-summary: "Delete navigation property printerShares for print."
+"""
+
+helps['devicescloudprint print delete-report'] = """
+    type: command
+    short-summary: "Delete navigation property reports for print."
+"""
+
+helps['devicescloudprint print delete-service'] = """
+    type: command
+    short-summary: "Delete navigation property services for print."
+"""
+
+helps['devicescloudprint print delete-share'] = """
+    type: command
+    short-summary: "Delete navigation property shares for print."
+"""
+
+helps['devicescloudprint print delete-task-definition'] = """
+    type: command
+    short-summary: "Delete navigation property taskDefinitions for print."
 """
 
 helps['devicescloudprint print list-connector'] = """
@@ -698,12 +722,6 @@ helps['devicescloudprint print-printer create'] = """
 
 """
 
-helps['devicescloudprint print-printer delete'] = """
-    type: command
-    short-summary: "Delete navigation property allowedGroups for print And Delete navigation property allowedUsers for \
-print And Delete navigation property taskTriggers for print And Delete ref of navigation property share for print."
-"""
-
 helps['devicescloudprint print-printer create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print."
@@ -727,6 +745,26 @@ helps['devicescloudprint print-printer create-ref-share'] = """
 helps['devicescloudprint print-printer create-task-trigger'] = """
     type: command
     short-summary: "Create new navigation property to taskTriggers for print."
+"""
+
+helps['devicescloudprint print-printer delete-allowed-group'] = """
+    type: command
+    short-summary: "Delete navigation property allowedGroups for print."
+"""
+
+helps['devicescloudprint print-printer delete-allowed-user'] = """
+    type: command
+    short-summary: "Delete navigation property allowedUsers for print."
+"""
+
+helps['devicescloudprint print-printer delete-ref-share'] = """
+    type: command
+    short-summary: "Delete ref of navigation property share for print."
+"""
+
+helps['devicescloudprint print-printer delete-task-trigger'] = """
+    type: command
+    short-summary: "Delete navigation property taskTriggers for print."
 """
 
 helps['devicescloudprint print-printer list-allowed-group'] = """
@@ -829,7 +867,7 @@ helps['devicescloudprint print-printer-task-trigger'] = """
     short-summary: Manage print printer task trigger with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-printer-task-trigger delete'] = """
+helps['devicescloudprint print-printer-task-trigger delete-ref-definition'] = """
     type: command
     short-summary: "Delete ref of navigation property definition for print."
 """
@@ -854,12 +892,6 @@ helps['devicescloudprint print-printer-share'] = """
     short-summary: Manage print printer share with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-printer-share delete'] = """
-    type: command
-    short-summary: "Delete navigation property allowedGroups for print And Delete navigation property allowedUsers for \
-print And Delete ref of navigation property printer for print."
-"""
-
 helps['devicescloudprint print-printer-share create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print."
@@ -868,6 +900,21 @@ helps['devicescloudprint print-printer-share create-allowed-group'] = """
 helps['devicescloudprint print-printer-share create-allowed-user'] = """
     type: command
     short-summary: "Create new navigation property to allowedUsers for print."
+"""
+
+helps['devicescloudprint print-printer-share delete-allowed-group'] = """
+    type: command
+    short-summary: "Delete navigation property allowedGroups for print."
+"""
+
+helps['devicescloudprint print-printer-share delete-allowed-user'] = """
+    type: command
+    short-summary: "Delete navigation property allowedUsers for print."
+"""
+
+helps['devicescloudprint print-printer-share delete-ref-printer'] = """
+    type: command
+    short-summary: "Delete ref of navigation property printer for print."
 """
 
 helps['devicescloudprint print-printer-share list-allowed-group'] = """
@@ -986,14 +1033,14 @@ helps['devicescloudprint print-service'] = """
     short-summary: Manage print service with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-service delete'] = """
-    type: command
-    short-summary: "Delete navigation property endpoints for print."
-"""
-
 helps['devicescloudprint print-service create-endpoint'] = """
     type: command
     short-summary: "Create new navigation property to endpoints for print."
+"""
+
+helps['devicescloudprint print-service delete-endpoint'] = """
+    type: command
+    short-summary: "Delete navigation property endpoints for print."
 """
 
 helps['devicescloudprint print-service list-endpoint'] = """
@@ -1016,12 +1063,6 @@ helps['devicescloudprint print-share'] = """
     short-summary: Manage print share with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-share delete'] = """
-    type: command
-    short-summary: "Delete navigation property allowedGroups for print And Delete navigation property allowedUsers for \
-print And Delete ref of navigation property printer for print."
-"""
-
 helps['devicescloudprint print-share create-allowed-group'] = """
     type: command
     short-summary: "Create new navigation property to allowedGroups for print."
@@ -1030,6 +1071,21 @@ helps['devicescloudprint print-share create-allowed-group'] = """
 helps['devicescloudprint print-share create-allowed-user'] = """
     type: command
     short-summary: "Create new navigation property to allowedUsers for print."
+"""
+
+helps['devicescloudprint print-share delete-allowed-group'] = """
+    type: command
+    short-summary: "Delete navigation property allowedGroups for print."
+"""
+
+helps['devicescloudprint print-share delete-allowed-user'] = """
+    type: command
+    short-summary: "Delete navigation property allowedUsers for print."
+"""
+
+helps['devicescloudprint print-share delete-ref-printer'] = """
+    type: command
+    short-summary: "Delete ref of navigation property printer for print."
 """
 
 helps['devicescloudprint print-share list-allowed-group'] = """
@@ -1102,11 +1158,6 @@ helps['devicescloudprint print-task-definition'] = """
     short-summary: Manage print task definition with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-task-definition delete'] = """
-    type: command
-    short-summary: "Delete navigation property tasks for print."
-"""
-
 helps['devicescloudprint print-task-definition create-task'] = """
     type: command
     short-summary: "Create new navigation property to tasks for print."
@@ -1116,6 +1167,11 @@ helps['devicescloudprint print-task-definition create-task'] = """
         long-summary: |
             Usage: --status description=XX state=XX
 
+"""
+
+helps['devicescloudprint print-task-definition delete-task'] = """
+    type: command
+    short-summary: "Delete navigation property tasks for print."
 """
 
 helps['devicescloudprint print-task-definition list-task'] = """
@@ -1144,10 +1200,14 @@ helps['devicescloudprint print-task-definition-task'] = """
     short-summary: Manage print task definition task with devicescloudprint_beta
 """
 
-helps['devicescloudprint print-task-definition-task delete'] = """
+helps['devicescloudprint print-task-definition-task delete-ref-definition'] = """
     type: command
-    short-summary: "Delete ref of navigation property definition for print And Delete ref of navigation property \
-trigger for print."
+    short-summary: "Delete ref of navigation property definition for print."
+"""
+
+helps['devicescloudprint print-task-definition-task delete-ref-trigger'] = """
+    type: command
+    short-summary: "Delete ref of navigation property trigger for print."
 """
 
 helps['devicescloudprint print-task-definition-task set-ref-definition'] = """

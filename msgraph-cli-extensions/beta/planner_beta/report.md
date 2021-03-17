@@ -36,15 +36,15 @@
 ### <a name="CommandsIngroups">Commands in `az planner group` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group delete](#groupsDeletePlanner)|DeletePlanner|[Parameters](#ParametersgroupsDeletePlanner)|Not Found|
+|[az planner group delete-planner](#groupsDeletePlanner)|DeletePlanner|[Parameters](#ParametersgroupsDeletePlanner)|Not Found|
 |[az planner group show-planner](#groupsGetPlanner)|GetPlanner|[Parameters](#ParametersgroupsGetPlanner)|Not Found|
 |[az planner group update-planner](#groupsUpdatePlanner)|UpdatePlanner|[Parameters](#ParametersgroupsUpdatePlanner)|Not Found|
 
 ### <a name="CommandsIngroups.planner">Commands in `az planner group-planner` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group-planner delete](#groups.plannerDeletePlans)|DeletePlans|[Parameters](#Parametersgroups.plannerDeletePlans)|Not Found|
 |[az planner group-planner create-plan](#groups.plannerCreatePlans)|CreatePlans|[Parameters](#Parametersgroups.plannerCreatePlans)|Not Found|
+|[az planner group-planner delete-plan](#groups.plannerDeletePlans)|DeletePlans|[Parameters](#Parametersgroups.plannerDeletePlans)|Not Found|
 |[az planner group-planner list-plan](#groups.plannerListPlans)|ListPlans|[Parameters](#Parametersgroups.plannerListPlans)|Not Found|
 |[az planner group-planner show-plan](#groups.plannerGetPlans)|GetPlans|[Parameters](#Parametersgroups.plannerGetPlans)|Not Found|
 |[az planner group-planner update-plan](#groups.plannerUpdatePlans)|UpdatePlans|[Parameters](#Parametersgroups.plannerUpdatePlans)|Not Found|
@@ -52,11 +52,11 @@
 ### <a name="CommandsIngroups.planner.plans">Commands in `az planner group-planner-plan` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group-planner-plan delete](#groups.planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersgroups.planner.plansDeleteBuckets)|Not Found|
-|[az planner group-planner-plan delete](#groups.planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersgroups.planner.plansDeleteTasks)|Not Found|
-|[az planner group-planner-plan delete](#groups.planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plansDeleteDetails)|Not Found|
 |[az planner group-planner-plan create-bucket](#groups.planner.plansCreateBuckets)|CreateBuckets|[Parameters](#Parametersgroups.planner.plansCreateBuckets)|Not Found|
 |[az planner group-planner-plan create-task](#groups.planner.plansCreateTasks)|CreateTasks|[Parameters](#Parametersgroups.planner.plansCreateTasks)|Not Found|
+|[az planner group-planner-plan delete-bucket](#groups.planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersgroups.planner.plansDeleteBuckets)|Not Found|
+|[az planner group-planner-plan delete-detail](#groups.planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plansDeleteDetails)|Not Found|
+|[az planner group-planner-plan delete-task](#groups.planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersgroups.planner.plansDeleteTasks)|Not Found|
 |[az planner group-planner-plan list-bucket](#groups.planner.plansListBuckets)|ListBuckets|[Parameters](#Parametersgroups.planner.plansListBuckets)|Not Found|
 |[az planner group-planner-plan list-task](#groups.planner.plansListTasks)|ListTasks|[Parameters](#Parametersgroups.planner.plansListTasks)|Not Found|
 |[az planner group-planner-plan show-bucket](#groups.planner.plansGetBuckets)|GetBuckets|[Parameters](#Parametersgroups.planner.plansGetBuckets)|Not Found|
@@ -69,8 +69,8 @@
 ### <a name="CommandsIngroups.planner.plans.buckets">Commands in `az planner group-planner-plan-bucket` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group-planner-plan-bucket delete](#groups.planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersgroups.planner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner group-planner-plan-bucket create-task](#groups.planner.plans.bucketsCreateTasks)|CreateTasks|[Parameters](#Parametersgroups.planner.plans.bucketsCreateTasks)|Not Found|
+|[az planner group-planner-plan-bucket delete-task](#groups.planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersgroups.planner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner group-planner-plan-bucket list-task](#groups.planner.plans.bucketsListTasks)|ListTasks|[Parameters](#Parametersgroups.planner.plans.bucketsListTasks)|Not Found|
 |[az planner group-planner-plan-bucket show-task](#groups.planner.plans.bucketsGetTasks)|GetTasks|[Parameters](#Parametersgroups.planner.plans.bucketsGetTasks)|Not Found|
 |[az planner group-planner-plan-bucket update-task](#groups.planner.plans.bucketsUpdateTasks)|UpdateTasks|[Parameters](#Parametersgroups.planner.plans.bucketsUpdateTasks)|Not Found|
@@ -78,10 +78,10 @@
 ### <a name="CommandsIngroups.planner.plans.buckets.tasks">Commands in `az planner group-planner-plan-bucket-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group-planner-plan-bucket-task delete](#groups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner group-planner-plan-bucket-task delete](#groups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner group-planner-plan-bucket-task delete](#groups.planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteDetails)|Not Found|
-|[az planner group-planner-plan-bucket-task delete](#groups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-bucket-task delete-assigned-to-task-board-format](#groups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-bucket-task delete-bucket-task-board-format](#groups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-bucket-task delete-detail](#groups.planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteDetails)|Not Found|
+|[az planner group-planner-plan-bucket-task delete-progress-task-board-format](#groups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-bucket-task show-assigned-to-task-board-format](#groups.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-bucket-task show-bucket-task-board-format](#groups.planner.plans.buckets.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.buckets.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-bucket-task show-detail](#groups.planner.plans.buckets.tasksGetDetails)|GetDetails|[Parameters](#Parametersgroups.planner.plans.buckets.tasksGetDetails)|Not Found|
@@ -94,10 +94,10 @@
 ### <a name="CommandsIngroups.planner.plans.tasks">Commands in `az planner group-planner-plan-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner group-planner-plan-task delete](#groups.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner group-planner-plan-task delete](#groups.planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner group-planner-plan-task delete](#groups.planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plans.tasksDeleteDetails)|Not Found|
-|[az planner group-planner-plan-task delete](#groups.planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-task delete-assigned-to-task-board-format](#groups.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-task delete-bucket-task-board-format](#groups.planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner group-planner-plan-task delete-detail](#groups.planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersgroups.planner.plans.tasksDeleteDetails)|Not Found|
+|[az planner group-planner-plan-task delete-progress-task-board-format](#groups.planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-task show-assigned-to-task-board-format](#groups.planner.plans.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-task show-bucket-task-board-format](#groups.planner.plans.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersgroups.planner.plans.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner group-planner-plan-task show-detail](#groups.planner.plans.tasksGetDetails)|GetDetails|[Parameters](#Parametersgroups.planner.plans.tasksGetDetails)|Not Found|
@@ -116,12 +116,12 @@
 ### <a name="CommandsInplanner">Commands in `az planner planner` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner delete](#plannerDeleteBuckets)|DeleteBuckets|[Parameters](#ParametersplannerDeleteBuckets)|Not Found|
-|[az planner planner delete](#plannerDeletePlans)|DeletePlans|[Parameters](#ParametersplannerDeletePlans)|Not Found|
-|[az planner planner delete](#plannerDeleteTasks)|DeleteTasks|[Parameters](#ParametersplannerDeleteTasks)|Not Found|
 |[az planner planner create-bucket](#plannerCreateBuckets)|CreateBuckets|[Parameters](#ParametersplannerCreateBuckets)|Not Found|
 |[az planner planner create-plan](#plannerCreatePlans)|CreatePlans|[Parameters](#ParametersplannerCreatePlans)|Not Found|
 |[az planner planner create-task](#plannerCreateTasks)|CreateTasks|[Parameters](#ParametersplannerCreateTasks)|Not Found|
+|[az planner planner delete-bucket](#plannerDeleteBuckets)|DeleteBuckets|[Parameters](#ParametersplannerDeleteBuckets)|Not Found|
+|[az planner planner delete-plan](#plannerDeletePlans)|DeletePlans|[Parameters](#ParametersplannerDeletePlans)|Not Found|
+|[az planner planner delete-task](#plannerDeleteTasks)|DeleteTasks|[Parameters](#ParametersplannerDeleteTasks)|Not Found|
 |[az planner planner list-bucket](#plannerListBuckets)|ListBuckets|[Parameters](#ParametersplannerListBuckets)|Not Found|
 |[az planner planner list-plan](#plannerListPlans)|ListPlans|[Parameters](#ParametersplannerListPlans)|Not Found|
 |[az planner planner list-task](#plannerListTasks)|ListTasks|[Parameters](#ParametersplannerListTasks)|Not Found|
@@ -135,8 +135,8 @@
 ### <a name="CommandsInplanner.buckets">Commands in `az planner planner-bucket` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-bucket delete](#planner.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.bucketsDeleteTasks)|Not Found|
 |[az planner planner-bucket create-task](#planner.bucketsCreateTasks)|CreateTasks|[Parameters](#Parametersplanner.bucketsCreateTasks)|Not Found|
+|[az planner planner-bucket delete-task](#planner.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.bucketsDeleteTasks)|Not Found|
 |[az planner planner-bucket list-task](#planner.bucketsListTasks)|ListTasks|[Parameters](#Parametersplanner.bucketsListTasks)|Not Found|
 |[az planner planner-bucket show-task](#planner.bucketsGetTasks)|GetTasks|[Parameters](#Parametersplanner.bucketsGetTasks)|Not Found|
 |[az planner planner-bucket update-task](#planner.bucketsUpdateTasks)|UpdateTasks|[Parameters](#Parametersplanner.bucketsUpdateTasks)|Not Found|
@@ -144,10 +144,10 @@
 ### <a name="CommandsInplanner.buckets.tasks">Commands in `az planner planner-bucket-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-bucket-task delete](#planner.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner planner-bucket-task delete](#planner.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner planner-bucket-task delete](#planner.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.buckets.tasksDeleteDetails)|Not Found|
-|[az planner planner-bucket-task delete](#planner.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner planner-bucket-task delete-assigned-to-task-board-format](#planner.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner planner-bucket-task delete-bucket-task-board-format](#planner.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner planner-bucket-task delete-detail](#planner.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.buckets.tasksDeleteDetails)|Not Found|
+|[az planner planner-bucket-task delete-progress-task-board-format](#planner.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner planner-bucket-task show-assigned-to-task-board-format](#planner.buckets.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner planner-bucket-task show-bucket-task-board-format](#planner.buckets.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersplanner.buckets.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner planner-bucket-task show-detail](#planner.buckets.tasksGetDetails)|GetDetails|[Parameters](#Parametersplanner.buckets.tasksGetDetails)|Not Found|
@@ -160,11 +160,11 @@
 ### <a name="CommandsInplanner.plans">Commands in `az planner planner-plan` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-plan delete](#planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersplanner.plansDeleteBuckets)|Not Found|
-|[az planner planner-plan delete](#planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.plansDeleteTasks)|Not Found|
-|[az planner planner-plan delete](#planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plansDeleteDetails)|Not Found|
 |[az planner planner-plan create-bucket](#planner.plansCreateBuckets)|CreateBuckets|[Parameters](#Parametersplanner.plansCreateBuckets)|Not Found|
 |[az planner planner-plan create-task](#planner.plansCreateTasks)|CreateTasks|[Parameters](#Parametersplanner.plansCreateTasks)|Not Found|
+|[az planner planner-plan delete-bucket](#planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersplanner.plansDeleteBuckets)|Not Found|
+|[az planner planner-plan delete-detail](#planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plansDeleteDetails)|Not Found|
+|[az planner planner-plan delete-task](#planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.plansDeleteTasks)|Not Found|
 |[az planner planner-plan list-bucket](#planner.plansListBuckets)|ListBuckets|[Parameters](#Parametersplanner.plansListBuckets)|Not Found|
 |[az planner planner-plan list-task](#planner.plansListTasks)|ListTasks|[Parameters](#Parametersplanner.plansListTasks)|Not Found|
 |[az planner planner-plan show-bucket](#planner.plansGetBuckets)|GetBuckets|[Parameters](#Parametersplanner.plansGetBuckets)|Not Found|
@@ -177,8 +177,8 @@
 ### <a name="CommandsInplanner.plans.buckets">Commands in `az planner planner-plan-bucket` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-plan-bucket delete](#planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner planner-plan-bucket create-task](#planner.plans.bucketsCreateTasks)|CreateTasks|[Parameters](#Parametersplanner.plans.bucketsCreateTasks)|Not Found|
+|[az planner planner-plan-bucket delete-task](#planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersplanner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner planner-plan-bucket list-task](#planner.plans.bucketsListTasks)|ListTasks|[Parameters](#Parametersplanner.plans.bucketsListTasks)|Not Found|
 |[az planner planner-plan-bucket show-task](#planner.plans.bucketsGetTasks)|GetTasks|[Parameters](#Parametersplanner.plans.bucketsGetTasks)|Not Found|
 |[az planner planner-plan-bucket update-task](#planner.plans.bucketsUpdateTasks)|UpdateTasks|[Parameters](#Parametersplanner.plans.bucketsUpdateTasks)|Not Found|
@@ -186,10 +186,10 @@
 ### <a name="CommandsInplanner.plans.buckets.tasks">Commands in `az planner planner-plan-bucket-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-plan-bucket-task delete](#planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner planner-plan-bucket-task delete](#planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner planner-plan-bucket-task delete](#planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteDetails)|Not Found|
-|[az planner planner-plan-bucket-task delete](#planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner planner-plan-bucket-task delete-assigned-to-task-board-format](#planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner planner-plan-bucket-task delete-bucket-task-board-format](#planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner planner-plan-bucket-task delete-detail](#planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteDetails)|Not Found|
+|[az planner planner-plan-bucket-task delete-progress-task-board-format](#planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner planner-plan-bucket-task show-assigned-to-task-board-format](#planner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner planner-plan-bucket-task show-bucket-task-board-format](#planner.plans.buckets.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.buckets.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner planner-plan-bucket-task show-detail](#planner.plans.buckets.tasksGetDetails)|GetDetails|[Parameters](#Parametersplanner.plans.buckets.tasksGetDetails)|Not Found|
@@ -202,10 +202,10 @@
 ### <a name="CommandsInplanner.plans.tasks">Commands in `az planner planner-plan-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-plan-task delete](#planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner planner-plan-task delete](#planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner planner-plan-task delete](#planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plans.tasksDeleteDetails)|Not Found|
-|[az planner planner-plan-task delete](#planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner planner-plan-task delete-assigned-to-task-board-format](#planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner planner-plan-task delete-bucket-task-board-format](#planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner planner-plan-task delete-detail](#planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.plans.tasksDeleteDetails)|Not Found|
+|[az planner planner-plan-task delete-progress-task-board-format](#planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner planner-plan-task show-assigned-to-task-board-format](#planner.plans.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner planner-plan-task show-bucket-task-board-format](#planner.plans.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersplanner.plans.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner planner-plan-task show-detail](#planner.plans.tasksGetDetails)|GetDetails|[Parameters](#Parametersplanner.plans.tasksGetDetails)|Not Found|
@@ -218,10 +218,10 @@
 ### <a name="CommandsInplanner.tasks">Commands in `az planner planner-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner planner-task delete](#planner.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner planner-task delete](#planner.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner planner-task delete](#planner.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.tasksDeleteDetails)|Not Found|
-|[az planner planner-task delete](#planner.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner planner-task delete-assigned-to-task-board-format](#planner.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner planner-task delete-bucket-task-board-format](#planner.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner planner-task delete-detail](#planner.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersplanner.tasksDeleteDetails)|Not Found|
+|[az planner planner-task delete-progress-task-board-format](#planner.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersplanner.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner planner-task show-assigned-to-task-board-format](#planner.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersplanner.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner planner-task show-bucket-task-board-format](#planner.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersplanner.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner planner-task show-detail](#planner.tasksGetDetails)|GetDetails|[Parameters](#Parametersplanner.tasksGetDetails)|Not Found|
@@ -234,21 +234,21 @@
 ### <a name="CommandsInusers">Commands in `az planner user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user delete](#usersDeletePlanner)|DeletePlanner|[Parameters](#ParametersusersDeletePlanner)|Not Found|
+|[az planner user delete-planner](#usersDeletePlanner)|DeletePlanner|[Parameters](#ParametersusersDeletePlanner)|Not Found|
 |[az planner user show-planner](#usersGetPlanner)|GetPlanner|[Parameters](#ParametersusersGetPlanner)|Not Found|
 |[az planner user update-planner](#usersUpdatePlanner)|UpdatePlanner|[Parameters](#ParametersusersUpdatePlanner)|Not Found|
 
 ### <a name="CommandsInusers.planner">Commands in `az planner user-planner` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner delete](#users.plannerDeleteAll)|DeleteAll|[Parameters](#Parametersusers.plannerDeleteAll)|Not Found|
-|[az planner user-planner delete](#users.plannerDeletePlans)|DeletePlans|[Parameters](#Parametersusers.plannerDeletePlans)|Not Found|
-|[az planner user-planner delete](#users.plannerDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.plannerDeleteTasks)|Not Found|
 |[az planner user-planner create-all](#users.plannerCreateAll)|CreateAll|[Parameters](#Parametersusers.plannerCreateAll)|Not Found|
 |[az planner user-planner create-plan](#users.plannerCreatePlans)|CreatePlans|[Parameters](#Parametersusers.plannerCreatePlans)|Not Found|
 |[az planner user-planner create-ref-favorite-plan](#users.plannerCreateRefFavoritePlans)|CreateRefFavoritePlans|[Parameters](#Parametersusers.plannerCreateRefFavoritePlans)|Not Found|
 |[az planner user-planner create-ref-recent-plan](#users.plannerCreateRefRecentPlans)|CreateRefRecentPlans|[Parameters](#Parametersusers.plannerCreateRefRecentPlans)|Not Found|
 |[az planner user-planner create-task](#users.plannerCreateTasks)|CreateTasks|[Parameters](#Parametersusers.plannerCreateTasks)|Not Found|
+|[az planner user-planner delete-all](#users.plannerDeleteAll)|DeleteAll|[Parameters](#Parametersusers.plannerDeleteAll)|Not Found|
+|[az planner user-planner delete-plan](#users.plannerDeletePlans)|DeletePlans|[Parameters](#Parametersusers.plannerDeletePlans)|Not Found|
+|[az planner user-planner delete-task](#users.plannerDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.plannerDeleteTasks)|Not Found|
 |[az planner user-planner list-all](#users.plannerListAll)|ListAll|[Parameters](#Parametersusers.plannerListAll)|Not Found|
 |[az planner user-planner list-favorite-plan](#users.plannerListFavoritePlans)|ListFavoritePlans|[Parameters](#Parametersusers.plannerListFavoritePlans)|Not Found|
 |[az planner user-planner list-plan](#users.plannerListPlans)|ListPlans|[Parameters](#Parametersusers.plannerListPlans)|Not Found|
@@ -266,11 +266,11 @@
 ### <a name="CommandsInusers.planner.plans">Commands in `az planner user-planner-plan` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner-plan delete](#users.planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersusers.planner.plansDeleteBuckets)|Not Found|
-|[az planner user-planner-plan delete](#users.planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.planner.plansDeleteTasks)|Not Found|
-|[az planner user-planner-plan delete](#users.planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plansDeleteDetails)|Not Found|
 |[az planner user-planner-plan create-bucket](#users.planner.plansCreateBuckets)|CreateBuckets|[Parameters](#Parametersusers.planner.plansCreateBuckets)|Not Found|
 |[az planner user-planner-plan create-task](#users.planner.plansCreateTasks)|CreateTasks|[Parameters](#Parametersusers.planner.plansCreateTasks)|Not Found|
+|[az planner user-planner-plan delete-bucket](#users.planner.plansDeleteBuckets)|DeleteBuckets|[Parameters](#Parametersusers.planner.plansDeleteBuckets)|Not Found|
+|[az planner user-planner-plan delete-detail](#users.planner.plansDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plansDeleteDetails)|Not Found|
+|[az planner user-planner-plan delete-task](#users.planner.plansDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.planner.plansDeleteTasks)|Not Found|
 |[az planner user-planner-plan list-bucket](#users.planner.plansListBuckets)|ListBuckets|[Parameters](#Parametersusers.planner.plansListBuckets)|Not Found|
 |[az planner user-planner-plan list-task](#users.planner.plansListTasks)|ListTasks|[Parameters](#Parametersusers.planner.plansListTasks)|Not Found|
 |[az planner user-planner-plan show-bucket](#users.planner.plansGetBuckets)|GetBuckets|[Parameters](#Parametersusers.planner.plansGetBuckets)|Not Found|
@@ -283,8 +283,8 @@
 ### <a name="CommandsInusers.planner.plans.buckets">Commands in `az planner user-planner-plan-bucket` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner-plan-bucket delete](#users.planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.planner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner user-planner-plan-bucket create-task](#users.planner.plans.bucketsCreateTasks)|CreateTasks|[Parameters](#Parametersusers.planner.plans.bucketsCreateTasks)|Not Found|
+|[az planner user-planner-plan-bucket delete-task](#users.planner.plans.bucketsDeleteTasks)|DeleteTasks|[Parameters](#Parametersusers.planner.plans.bucketsDeleteTasks)|Not Found|
 |[az planner user-planner-plan-bucket list-task](#users.planner.plans.bucketsListTasks)|ListTasks|[Parameters](#Parametersusers.planner.plans.bucketsListTasks)|Not Found|
 |[az planner user-planner-plan-bucket show-task](#users.planner.plans.bucketsGetTasks)|GetTasks|[Parameters](#Parametersusers.planner.plans.bucketsGetTasks)|Not Found|
 |[az planner user-planner-plan-bucket update-task](#users.planner.plans.bucketsUpdateTasks)|UpdateTasks|[Parameters](#Parametersusers.planner.plans.bucketsUpdateTasks)|Not Found|
@@ -292,10 +292,10 @@
 ### <a name="CommandsInusers.planner.plans.buckets.tasks">Commands in `az planner user-planner-plan-bucket-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner-plan-bucket-task delete](#users.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner user-planner-plan-bucket-task delete](#users.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner user-planner-plan-bucket-task delete](#users.planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteDetails)|Not Found|
-|[az planner user-planner-plan-bucket-task delete](#users.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-bucket-task delete-assigned-to-task-board-format](#users.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-bucket-task delete-bucket-task-board-format](#users.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-bucket-task delete-detail](#users.planner.plans.buckets.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteDetails)|Not Found|
+|[az planner user-planner-plan-bucket-task delete-progress-task-board-format](#users.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-bucket-task show-assigned-to-task-board-format](#users.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-bucket-task show-bucket-task-board-format](#users.planner.plans.buckets.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.buckets.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-bucket-task show-detail](#users.planner.plans.buckets.tasksGetDetails)|GetDetails|[Parameters](#Parametersusers.planner.plans.buckets.tasksGetDetails)|Not Found|
@@ -308,10 +308,10 @@
 ### <a name="CommandsInusers.planner.plans.tasks">Commands in `az planner user-planner-plan-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner-plan-task delete](#users.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner user-planner-plan-task delete](#users.planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner user-planner-plan-task delete](#users.planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plans.tasksDeleteDetails)|Not Found|
-|[az planner user-planner-plan-task delete](#users.planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-task delete-assigned-to-task-board-format](#users.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-task delete-bucket-task-board-format](#users.planner.plans.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner user-planner-plan-task delete-detail](#users.planner.plans.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.plans.tasksDeleteDetails)|Not Found|
+|[az planner user-planner-plan-task delete-progress-task-board-format](#users.planner.plans.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-task show-assigned-to-task-board-format](#users.planner.plans.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-task show-bucket-task-board-format](#users.planner.plans.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.plans.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner user-planner-plan-task show-detail](#users.planner.plans.tasksGetDetails)|GetDetails|[Parameters](#Parametersusers.planner.plans.tasksGetDetails)|Not Found|
@@ -324,10 +324,10 @@
 ### <a name="CommandsInusers.planner.tasks">Commands in `az planner user-planner-task` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az planner user-planner-task delete](#users.planner.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
-|[az planner user-planner-task delete](#users.planner.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteBucketTaskBoardFormat)|Not Found|
-|[az planner user-planner-task delete](#users.planner.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.tasksDeleteDetails)|Not Found|
-|[az planner user-planner-task delete](#users.planner.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteProgressTaskBoardFormat)|Not Found|
+|[az planner user-planner-task delete-assigned-to-task-board-format](#users.planner.tasksDeleteAssignedToTaskBoardFormat)|DeleteAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteAssignedToTaskBoardFormat)|Not Found|
+|[az planner user-planner-task delete-bucket-task-board-format](#users.planner.tasksDeleteBucketTaskBoardFormat)|DeleteBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteBucketTaskBoardFormat)|Not Found|
+|[az planner user-planner-task delete-detail](#users.planner.tasksDeleteDetails)|DeleteDetails|[Parameters](#Parametersusers.planner.tasksDeleteDetails)|Not Found|
+|[az planner user-planner-task delete-progress-task-board-format](#users.planner.tasksDeleteProgressTaskBoardFormat)|DeleteProgressTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksDeleteProgressTaskBoardFormat)|Not Found|
 |[az planner user-planner-task show-assigned-to-task-board-format](#users.planner.tasksGetAssignedToTaskBoardFormat)|GetAssignedToTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksGetAssignedToTaskBoardFormat)|Not Found|
 |[az planner user-planner-task show-bucket-task-board-format](#users.planner.tasksGetBucketTaskBoardFormat)|GetBucketTaskBoardFormat|[Parameters](#Parametersusers.planner.tasksGetBucketTaskBoardFormat)|Not Found|
 |[az planner user-planner-task show-detail](#users.planner.tasksGetDetails)|GetDetails|[Parameters](#Parametersusers.planner.tasksGetDetails)|Not Found|
@@ -341,7 +341,7 @@
 ## COMMAND DETAILS
 
 ### group `az planner group`
-#### <a name="groupsDeletePlanner">Command `az planner group delete`</a>
+#### <a name="groupsDeletePlanner">Command `az planner group delete-planner`</a>
 
 ##### <a name="ParametersgroupsDeletePlanner">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -368,15 +368,6 @@
 |**--plans**|array|Read-only. Nullable. Returns the plannerPlans owned by the group.|plans|plans|
 
 ### group `az planner group-planner`
-#### <a name="groups.plannerDeletePlans">Command `az planner group-planner delete`</a>
-
-##### <a name="Parametersgroups.plannerDeletePlans">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="groups.plannerCreatePlans">Command `az planner group-planner create-plan`</a>
 
 ##### <a name="Parametersgroups.plannerCreatePlans">Parameters</a> 
@@ -397,6 +388,15 @@
 |**--application**|object|identity|application|application|
 |**--device**|object|identity|device|device|
 |**--user**|object|identity|user|user|
+
+#### <a name="groups.plannerDeletePlans">Command `az planner group-planner delete-plan`</a>
+
+##### <a name="Parametersgroups.plannerDeletePlans">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.plannerListPlans">Command `az planner group-planner list-plan`</a>
 
@@ -441,28 +441,6 @@
 |**--user**|object|identity|user|user|
 
 ### group `az planner group-planner-plan`
-#### <a name="groups.planner.plansDeleteBuckets">Command `az planner group-planner-plan delete`</a>
-
-##### <a name="Parametersgroups.planner.plansDeleteBuckets">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="groups.planner.plansDeleteTasks">Command `az planner group-planner-plan delete`</a>
-
-##### <a name="Parametersgroups.planner.plansDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-
-#### <a name="groups.planner.plansDeleteDetails">Command `az planner group-planner-plan delete`</a>
-
-##### <a name="Parametersgroups.planner.plansDeleteDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="groups.planner.plansCreateBuckets">Command `az planner group-planner-plan create-bucket`</a>
 
 ##### <a name="Parametersgroups.planner.plansCreateBuckets">Parameters</a> 
@@ -519,6 +497,35 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="groups.planner.plansDeleteBuckets">Command `az planner group-planner-plan delete-bucket`</a>
+
+##### <a name="Parametersgroups.planner.plansDeleteBuckets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plansDeleteDetails">Command `az planner group-planner-plan delete-detail`</a>
+
+##### <a name="Parametersgroups.planner.plansDeleteDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plansDeleteTasks">Command `az planner group-planner-plan delete-task`</a>
+
+##### <a name="Parametersgroups.planner.plansDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.planner.plansListBuckets">Command `az planner group-planner-plan list-bucket`</a>
 
@@ -646,17 +653,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner group-planner-plan-bucket`
-#### <a name="groups.planner.plans.bucketsDeleteTasks">Command `az planner group-planner-plan-bucket delete`</a>
-
-##### <a name="Parametersgroups.planner.plans.bucketsDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="groups.planner.plans.bucketsCreateTasks">Command `az planner group-planner-plan-bucket create-task`</a>
 
 ##### <a name="Parametersgroups.planner.plans.bucketsCreateTasks">Parameters</a> 
@@ -701,6 +697,17 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="groups.planner.plans.bucketsDeleteTasks">Command `az planner group-planner-plan-bucket delete-task`</a>
+
+##### <a name="Parametersgroups.planner.plans.bucketsDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groups.planner.plans.bucketsListTasks">Command `az planner group-planner-plan-bucket list-task`</a>
 
@@ -773,7 +780,7 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner group-planner-plan-bucket-task`
-#### <a name="groups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete`</a>
+#### <a name="groups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -784,21 +791,39 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="groups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete`</a>
+#### <a name="groups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="groups.planner.plans.buckets.tasksDeleteDetails">Command `az planner group-planner-plan-bucket-task delete`</a>
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plans.buckets.tasksDeleteDetails">Command `az planner group-planner-plan-bucket-task delete-detail`</a>
 
 ##### <a name="Parametersgroups.planner.plans.buckets.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="groups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete`</a>
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner group-planner-plan-bucket-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="groups.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Command `az planner group-planner-plan-bucket-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -900,7 +925,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner group-planner-plan-task`
-#### <a name="groups.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner group-planner-plan-task delete`</a>
+#### <a name="groups.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner group-planner-plan-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -910,21 +935,36 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="groups.planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner group-planner-plan-task delete`</a>
+#### <a name="groups.planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner group-planner-plan-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="groups.planner.plans.tasksDeleteDetails">Command `az planner group-planner-plan-task delete`</a>
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plans.tasksDeleteDetails">Command `az planner group-planner-plan-task delete-detail`</a>
 
 ##### <a name="Parametersgroups.planner.plans.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="groups.planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner group-planner-plan-task delete`</a>
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="groups.planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner group-planner-plan-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="groups.planner.plans.tasksGetAssignedToTaskBoardFormat">Command `az planner group-planner-plan-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersgroups.planner.plans.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -1037,28 +1077,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az planner planner`
-#### <a name="plannerDeleteBuckets">Command `az planner planner delete`</a>
-
-##### <a name="ParametersplannerDeleteBuckets">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="plannerDeletePlans">Command `az planner planner delete`</a>
-
-##### <a name="ParametersplannerDeletePlans">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-
-#### <a name="plannerDeleteTasks">Command `az planner planner delete`</a>
-
-##### <a name="ParametersplannerDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-
 #### <a name="plannerCreateBuckets">Command `az planner planner create-bucket`</a>
 
 ##### <a name="ParametersplannerCreateBuckets">Parameters</a> 
@@ -1131,6 +1149,30 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="plannerDeleteBuckets">Command `az planner planner delete-bucket`</a>
+
+##### <a name="ParametersplannerDeleteBuckets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="plannerDeletePlans">Command `az planner planner delete-plan`</a>
+
+##### <a name="ParametersplannerDeletePlans">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="plannerDeleteTasks">Command `az planner planner delete-task`</a>
+
+##### <a name="ParametersplannerDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="plannerListBuckets">Command `az planner planner list-bucket`</a>
 
@@ -1263,15 +1305,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner planner-bucket`
-#### <a name="planner.bucketsDeleteTasks">Command `az planner planner-bucket delete`</a>
-
-##### <a name="Parametersplanner.bucketsDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="planner.bucketsCreateTasks">Command `az planner planner-bucket create-task`</a>
 
 ##### <a name="Parametersplanner.bucketsCreateTasks">Parameters</a> 
@@ -1314,6 +1347,15 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="planner.bucketsDeleteTasks">Command `az planner planner-bucket delete-task`</a>
+
+##### <a name="Parametersplanner.bucketsDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="planner.bucketsListTasks">Command `az planner planner-bucket list-task`</a>
 
@@ -1380,7 +1422,7 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner planner-bucket-task`
-#### <a name="planner.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-bucket-task delete`</a>
+#### <a name="planner.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-bucket-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.buckets.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1389,21 +1431,33 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="planner.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-bucket-task delete`</a>
+#### <a name="planner.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-bucket-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersplanner.buckets.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.buckets.tasksDeleteDetails">Command `az planner planner-bucket-task delete`</a>
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.buckets.tasksDeleteDetails">Command `az planner planner-bucket-task delete-detail`</a>
 
 ##### <a name="Parametersplanner.buckets.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-bucket-task delete`</a>
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-bucket-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersplanner.buckets.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="planner.buckets.tasksGetAssignedToTaskBoardFormat">Command `az planner planner-bucket-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.buckets.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -1489,27 +1543,6 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner planner-plan`
-#### <a name="planner.plansDeleteBuckets">Command `az planner planner-plan delete`</a>
-
-##### <a name="Parametersplanner.plansDeleteBuckets">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="planner.plansDeleteTasks">Command `az planner planner-plan delete`</a>
-
-##### <a name="Parametersplanner.plansDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-
-#### <a name="planner.plansDeleteDetails">Command `az planner planner-plan delete`</a>
-
-##### <a name="Parametersplanner.plansDeleteDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="planner.plansCreateBuckets">Command `az planner planner-plan create-bucket`</a>
 
 ##### <a name="Parametersplanner.plansCreateBuckets">Parameters</a> 
@@ -1564,6 +1597,32 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="planner.plansDeleteBuckets">Command `az planner planner-plan delete-bucket`</a>
+
+##### <a name="Parametersplanner.plansDeleteBuckets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plansDeleteDetails">Command `az planner planner-plan delete-detail`</a>
+
+##### <a name="Parametersplanner.plansDeleteDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plansDeleteTasks">Command `az planner planner-plan delete-task`</a>
+
+##### <a name="Parametersplanner.plansDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="planner.plansListBuckets">Command `az planner planner-plan list-bucket`</a>
 
@@ -1683,16 +1742,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner planner-plan-bucket`
-#### <a name="planner.plans.bucketsDeleteTasks">Command `az planner planner-plan-bucket delete`</a>
-
-##### <a name="Parametersplanner.plans.bucketsDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="planner.plans.bucketsCreateTasks">Command `az planner planner-plan-bucket create-task`</a>
 
 ##### <a name="Parametersplanner.plans.bucketsCreateTasks">Parameters</a> 
@@ -1736,6 +1785,16 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="planner.plans.bucketsDeleteTasks">Command `az planner planner-plan-bucket delete-task`</a>
+
+##### <a name="Parametersplanner.plans.bucketsDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="planner.plans.bucketsListTasks">Command `az planner planner-plan-bucket list-task`</a>
 
@@ -1805,7 +1864,7 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner planner-plan-bucket-task`
-#### <a name="planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-plan-bucket-task delete`</a>
+#### <a name="planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-plan-bucket-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1815,21 +1874,36 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-plan-bucket-task delete`</a>
+#### <a name="planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-plan-bucket-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.plans.buckets.tasksDeleteDetails">Command `az planner planner-plan-bucket-task delete`</a>
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plans.buckets.tasksDeleteDetails">Command `az planner planner-plan-bucket-task delete-detail`</a>
 
 ##### <a name="Parametersplanner.plans.buckets.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-plan-bucket-task delete`</a>
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-plan-bucket-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="planner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Command `az planner planner-plan-bucket-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -1923,7 +1997,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner planner-plan-task`
-#### <a name="planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-plan-task delete`</a>
+#### <a name="planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-plan-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1932,21 +2006,33 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-plan-task delete`</a>
+#### <a name="planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-plan-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.plans.tasksDeleteDetails">Command `az planner planner-plan-task delete`</a>
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plans.tasksDeleteDetails">Command `az planner planner-plan-task delete-detail`</a>
 
 ##### <a name="Parametersplanner.plans.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-plan-task delete`</a>
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-plan-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="planner.plans.tasksGetAssignedToTaskBoardFormat">Command `az planner planner-plan-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.plans.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -2032,7 +2118,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner planner-task`
-#### <a name="planner.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-task delete`</a>
+#### <a name="planner.tasksDeleteAssignedToTaskBoardFormat">Command `az planner planner-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2040,21 +2126,30 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="planner.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-task delete`</a>
+#### <a name="planner.tasksDeleteBucketTaskBoardFormat">Command `az planner planner-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersplanner.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.tasksDeleteDetails">Command `az planner planner-task delete`</a>
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.tasksDeleteDetails">Command `az planner planner-task delete-detail`</a>
 
 ##### <a name="Parametersplanner.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="planner.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-task delete`</a>
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="planner.tasksDeleteProgressTaskBoardFormat">Command `az planner planner-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersplanner.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="planner.tasksGetAssignedToTaskBoardFormat">Command `az planner planner-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersplanner.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -2132,7 +2227,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner user`
-#### <a name="usersDeletePlanner">Command `az planner user delete`</a>
+#### <a name="usersDeletePlanner">Command `az planner user delete-planner`</a>
 
 ##### <a name="ParametersusersDeletePlanner">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2165,29 +2260,6 @@
 |**--tasks**|array|Read-only. Nullable. Returns the plannerPlans shared with the user.|tasks|tasks|
 
 ### group `az planner user-planner`
-#### <a name="users.plannerDeleteAll">Command `az planner user-planner delete`</a>
-
-##### <a name="Parametersusers.plannerDeleteAll">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--planner-delta-id**|string|key: id of plannerDelta|planner_delta_id|plannerDelta-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.plannerDeletePlans">Command `az planner user-planner delete`</a>
-
-##### <a name="Parametersusers.plannerDeletePlans">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-
-#### <a name="users.plannerDeleteTasks">Command `az planner user-planner delete`</a>
-
-##### <a name="Parametersusers.plannerDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-
 #### <a name="users.plannerCreateAll">Command `az planner user-planner create-all`</a>
 
 ##### <a name="Parametersusers.plannerCreateAll">Parameters</a> 
@@ -2275,6 +2347,33 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="users.plannerDeleteAll">Command `az planner user-planner delete-all`</a>
+
+##### <a name="Parametersusers.plannerDeleteAll">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-delta-id**|string|key: id of plannerDelta|planner_delta_id|plannerDelta-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.plannerDeletePlans">Command `az planner user-planner delete-plan`</a>
+
+##### <a name="Parametersusers.plannerDeletePlans">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.plannerDeleteTasks">Command `az planner user-planner delete-task`</a>
+
+##### <a name="Parametersusers.plannerDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.plannerListAll">Command `az planner user-planner list-all`</a>
 
@@ -2448,28 +2547,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner user-planner-plan`
-#### <a name="users.planner.plansDeleteBuckets">Command `az planner user-planner-plan delete`</a>
-
-##### <a name="Parametersusers.planner.plansDeleteBuckets">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.planner.plansDeleteTasks">Command `az planner user-planner-plan delete`</a>
-
-##### <a name="Parametersusers.planner.plansDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-
-#### <a name="users.planner.plansDeleteDetails">Command `az planner user-planner-plan delete`</a>
-
-##### <a name="Parametersusers.planner.plansDeleteDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.planner.plansCreateBuckets">Command `az planner user-planner-plan create-bucket`</a>
 
 ##### <a name="Parametersusers.planner.plansCreateBuckets">Parameters</a> 
@@ -2526,6 +2603,35 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="users.planner.plansDeleteBuckets">Command `az planner user-planner-plan delete-bucket`</a>
+
+##### <a name="Parametersusers.planner.plansDeleteBuckets">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plansDeleteDetails">Command `az planner user-planner-plan delete-detail`</a>
+
+##### <a name="Parametersusers.planner.plansDeleteDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plansDeleteTasks">Command `az planner user-planner-plan delete-task`</a>
+
+##### <a name="Parametersusers.planner.plansDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.planner.plansListBuckets">Command `az planner user-planner-plan list-bucket`</a>
 
@@ -2653,17 +2759,6 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner user-planner-plan-bucket`
-#### <a name="users.planner.plans.bucketsDeleteTasks">Command `az planner user-planner-plan-bucket delete`</a>
-
-##### <a name="Parametersusers.planner.plans.bucketsDeleteTasks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
-|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
-|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.planner.plans.bucketsCreateTasks">Command `az planner user-planner-plan-bucket create-task`</a>
 
 ##### <a name="Parametersusers.planner.plans.bucketsCreateTasks">Parameters</a> 
@@ -2708,6 +2803,17 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
+
+#### <a name="users.planner.plans.bucketsDeleteTasks">Command `az planner user-planner-plan-bucket delete-task`</a>
+
+##### <a name="Parametersusers.planner.plans.bucketsDeleteTasks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.planner.plans.bucketsListTasks">Command `az planner user-planner-plan-bucket list-task`</a>
 
@@ -2780,7 +2886,7 @@
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
 ### group `az planner user-planner-plan-bucket-task`
-#### <a name="users.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete`</a>
+#### <a name="users.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.buckets.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2791,21 +2897,39 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="users.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete`</a>
+#### <a name="users.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.buckets.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.plans.buckets.tasksDeleteDetails">Command `az planner user-planner-plan-bucket-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plans.buckets.tasksDeleteDetails">Command `az planner user-planner-plan-bucket-task delete-detail`</a>
 
 ##### <a name="Parametersusers.planner.plans.buckets.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-plan-bucket-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.buckets.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-bucket-id**|string|key: id of plannerBucket|planner_bucket_id|plannerBucket-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="users.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Command `az planner user-planner-plan-bucket-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.buckets.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -2907,7 +3031,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner user-planner-plan-task`
-#### <a name="users.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-plan-task delete`</a>
+#### <a name="users.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-plan-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -2917,21 +3041,36 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="users.planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-plan-task delete`</a>
+#### <a name="users.planner.plans.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-plan-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.plans.tasksDeleteDetails">Command `az planner user-planner-plan-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plans.tasksDeleteDetails">Command `az planner user-planner-plan-task delete-detail`</a>
 
 ##### <a name="Parametersusers.planner.plans.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-plan-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.plans.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-plan-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-plan-id**|string|key: id of plannerPlan|planner_plan_id|plannerPlan-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="users.planner.plans.tasksGetAssignedToTaskBoardFormat">Command `az planner user-planner-plan-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.plans.tasksGetAssignedToTaskBoardFormat">Parameters</a> 
@@ -3025,7 +3164,7 @@
 |**--order-hint**|string|Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.|order_hint|orderHint|
 
 ### group `az planner user-planner-task`
-#### <a name="users.planner.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-task delete`</a>
+#### <a name="users.planner.tasksDeleteAssignedToTaskBoardFormat">Command `az planner user-planner-task delete-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.tasksDeleteAssignedToTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -3034,21 +3173,33 @@
 |**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="users.planner.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-task delete`</a>
+#### <a name="users.planner.tasksDeleteBucketTaskBoardFormat">Command `az planner user-planner-task delete-bucket-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.tasksDeleteBucketTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.tasksDeleteDetails">Command `az planner user-planner-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.tasksDeleteDetails">Command `az planner user-planner-task delete-detail`</a>
 
 ##### <a name="Parametersusers.planner.tasksDeleteDetails">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.planner.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-task delete`</a>
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.planner.tasksDeleteProgressTaskBoardFormat">Command `az planner user-planner-task delete-progress-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.tasksDeleteProgressTaskBoardFormat">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--planner-task-id**|string|key: id of plannerTask|planner_task_id|plannerTask-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="users.planner.tasksGetAssignedToTaskBoardFormat">Command `az planner user-planner-task show-assigned-to-task-board-format`</a>
 
 ##### <a name="Parametersusers.planner.tasksGetAssignedToTaskBoardFormat">Parameters</a> 

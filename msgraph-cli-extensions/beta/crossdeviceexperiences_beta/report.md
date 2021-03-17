@@ -17,10 +17,10 @@
 ### <a name="CommandsInusers">Commands in `az crossdeviceexperiences user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az crossdeviceexperiences user delete](#usersDeleteActivities)|DeleteActivities|[Parameters](#ParametersusersDeleteActivities)|Not Found|
-|[az crossdeviceexperiences user delete](#usersDeleteDevices)|DeleteDevices|[Parameters](#ParametersusersDeleteDevices)|Not Found|
 |[az crossdeviceexperiences user create-activity](#usersCreateActivities)|CreateActivities|[Parameters](#ParametersusersCreateActivities)|Not Found|
 |[az crossdeviceexperiences user create-device](#usersCreateDevices)|CreateDevices|[Parameters](#ParametersusersCreateDevices)|Not Found|
+|[az crossdeviceexperiences user delete-activity](#usersDeleteActivities)|DeleteActivities|[Parameters](#ParametersusersDeleteActivities)|Not Found|
+|[az crossdeviceexperiences user delete-device](#usersDeleteDevices)|DeleteDevices|[Parameters](#ParametersusersDeleteDevices)|Not Found|
 |[az crossdeviceexperiences user list-activity](#usersListActivities)|ListActivities|[Parameters](#ParametersusersListActivities)|Not Found|
 |[az crossdeviceexperiences user list-device](#usersListDevices)|ListDevices|[Parameters](#ParametersusersListDevices)|Not Found|
 |[az crossdeviceexperiences user show-activity](#usersGetActivities)|GetActivities|[Parameters](#ParametersusersGetActivities)|Not Found|
@@ -31,8 +31,8 @@
 ### <a name="CommandsInusers.activities">Commands in `az crossdeviceexperiences user-activity` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az crossdeviceexperiences user-activity delete](#users.activitiesDeleteHistoryItems)|DeleteHistoryItems|[Parameters](#Parametersusers.activitiesDeleteHistoryItems)|Not Found|
 |[az crossdeviceexperiences user-activity create-history-item](#users.activitiesCreateHistoryItems)|CreateHistoryItems|[Parameters](#Parametersusers.activitiesCreateHistoryItems)|Not Found|
+|[az crossdeviceexperiences user-activity delete-history-item](#users.activitiesDeleteHistoryItems)|DeleteHistoryItems|[Parameters](#Parametersusers.activitiesDeleteHistoryItems)|Not Found|
 |[az crossdeviceexperiences user-activity list-history-item](#users.activitiesListHistoryItems)|ListHistoryItems|[Parameters](#Parametersusers.activitiesListHistoryItems)|Not Found|
 |[az crossdeviceexperiences user-activity show-history-item](#users.activitiesGetHistoryItems)|GetHistoryItems|[Parameters](#Parametersusers.activitiesGetHistoryItems)|Not Found|
 |[az crossdeviceexperiences user-activity update-history-item](#users.activitiesUpdateHistoryItems)|UpdateHistoryItems|[Parameters](#Parametersusers.activitiesUpdateHistoryItems)|Not Found|
@@ -40,7 +40,7 @@
 ### <a name="CommandsInusers.activities.historyItems">Commands in `az crossdeviceexperiences user-activity-history-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az crossdeviceexperiences user-activity-history-item delete](#users.activities.historyItemsDeleteRefActivity)|DeleteRefActivity|[Parameters](#Parametersusers.activities.historyItemsDeleteRefActivity)|Not Found|
+|[az crossdeviceexperiences user-activity-history-item delete-ref-activity](#users.activities.historyItemsDeleteRefActivity)|DeleteRefActivity|[Parameters](#Parametersusers.activities.historyItemsDeleteRefActivity)|Not Found|
 |[az crossdeviceexperiences user-activity-history-item set-ref-activity](#users.activities.historyItemsSetRefActivity)|SetRefActivity|[Parameters](#Parametersusers.activities.historyItemsSetRefActivity)|Not Found|
 |[az crossdeviceexperiences user-activity-history-item show-activity](#users.activities.historyItemsGetActivity)|GetActivity|[Parameters](#Parametersusers.activities.historyItemsGetActivity)|Not Found|
 |[az crossdeviceexperiences user-activity-history-item show-ref-activity](#users.activities.historyItemsGetRefActivity)|GetRefActivity|[Parameters](#Parametersusers.activities.historyItemsGetRefActivity)|Not Found|
@@ -49,22 +49,6 @@
 ## COMMAND DETAILS
 
 ### group `az crossdeviceexperiences user`
-#### <a name="usersDeleteActivities">Command `az crossdeviceexperiences user delete`</a>
-
-##### <a name="ParametersusersDeleteActivities">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteDevices">Command `az crossdeviceexperiences user delete`</a>
-
-##### <a name="ParametersusersDeleteDevices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-id**|string|key: id of device|device_id|device-id|
-
 #### <a name="usersCreateActivities">Command `az crossdeviceexperiences user create-activity`</a>
 
 ##### <a name="ParametersusersCreateActivities">Parameters</a> 
@@ -138,6 +122,24 @@
 |**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
 |**--extensions**|array|The collection of open extensions defined for the device. Read-only. Nullable.|extensions|extensions|
 |**--commands**|array||commands|commands|
+
+#### <a name="usersDeleteActivities">Command `az crossdeviceexperiences user delete-activity`</a>
+
+##### <a name="ParametersusersDeleteActivities">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteDevices">Command `az crossdeviceexperiences user delete-device`</a>
+
+##### <a name="ParametersusersDeleteDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--device-id**|string|key: id of device|device_id|device-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListActivities">Command `az crossdeviceexperiences user list-activity`</a>
 
@@ -256,16 +258,6 @@
 |**--commands**|array||commands|commands|
 
 ### group `az crossdeviceexperiences user-activity`
-#### <a name="users.activitiesDeleteHistoryItems">Command `az crossdeviceexperiences user-activity delete`</a>
-
-##### <a name="Parametersusers.activitiesDeleteHistoryItems">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
-|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.activitiesCreateHistoryItems">Command `az crossdeviceexperiences user-activity create-history-item`</a>
 
 ##### <a name="Parametersusers.activitiesCreateHistoryItems">Parameters</a> 
@@ -283,6 +275,16 @@
 |**--status**|choice||status|status|
 |**--user-timezone**|string|Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.|user_timezone|userTimezone|
 |**--activity**|object|userActivity|activity|activity|
+
+#### <a name="users.activitiesDeleteHistoryItems">Command `az crossdeviceexperiences user-activity delete-history-item`</a>
+
+##### <a name="Parametersusers.activitiesDeleteHistoryItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-activity-id**|string|key: id of userActivity|user_activity_id|userActivity-id|
+|**--activity-history-item-id**|string|key: id of activityHistoryItem|activity_history_item_id|activityHistoryItem-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.activitiesListHistoryItems">Command `az crossdeviceexperiences user-activity list-history-item`</a>
 
@@ -326,7 +328,7 @@
 |**--activity**|object|userActivity|activity|activity|
 
 ### group `az crossdeviceexperiences user-activity-history-item`
-#### <a name="users.activities.historyItemsDeleteRefActivity">Command `az crossdeviceexperiences user-activity-history-item delete`</a>
+#### <a name="users.activities.historyItemsDeleteRefActivity">Command `az crossdeviceexperiences user-activity-history-item delete-ref-activity`</a>
 
 ##### <a name="Parametersusers.activities.historyItemsDeleteRefActivity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

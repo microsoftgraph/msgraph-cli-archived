@@ -35,7 +35,6 @@ def load_command_table(self, _):
         client_factory=cf_print,
     )
     with self.command_group('devicescloudprint print', devicescloudprint_beta_print, client_factory=cf_print) as g:
-        g.custom_command('delete', 'devicescloudprint_print_delete', confirmation=True)
         g.custom_command('create-connector', 'devicescloudprint_print_create_connector')
         g.custom_command('create-operation', 'devicescloudprint_print_create_operation')
         g.custom_command('create-printer', 'devicescloudprint_print_create_printer')
@@ -44,6 +43,14 @@ def load_command_table(self, _):
         g.custom_command('create-service', 'devicescloudprint_print_create_service')
         g.custom_command('create-share', 'devicescloudprint_print_create_share')
         g.custom_command('create-task-definition', 'devicescloudprint_print_create_task_definition')
+        g.custom_command('delete-connector', 'devicescloudprint_print_delete_connector')
+        g.custom_command('delete-operation', 'devicescloudprint_print_delete_operation')
+        g.custom_command('delete-printer', 'devicescloudprint_print_delete_printer')
+        g.custom_command('delete-printer-share', 'devicescloudprint_print_delete_printer_share')
+        g.custom_command('delete-report', 'devicescloudprint_print_delete_report')
+        g.custom_command('delete-service', 'devicescloudprint_print_delete_service')
+        g.custom_command('delete-share', 'devicescloudprint_print_delete_share')
+        g.custom_command('delete-task-definition', 'devicescloudprint_print_delete_task_definition')
         g.custom_command('list-connector', 'devicescloudprint_print_list_connector')
         g.custom_command('list-operation', 'devicescloudprint_print_list_operation')
         g.custom_command('list-printer', 'devicescloudprint_print_list_printer')
@@ -79,12 +86,15 @@ def load_command_table(self, _):
         'devicescloudprint print-printer', devicescloudprint_beta_print_printer, client_factory=cf_print_printer
     ) as g:
         g.custom_command('create', 'devicescloudprint_print_printer_create')
-        g.custom_command('delete', 'devicescloudprint_print_printer_delete', confirmation=True)
         g.custom_command('create-allowed-group', 'devicescloudprint_print_printer_create_allowed_group')
         g.custom_command('create-allowed-user', 'devicescloudprint_print_printer_create_allowed_user')
         g.custom_command('create-ref-connector', 'devicescloudprint_print_printer_create_ref_connector')
         g.custom_command('create-ref-share', 'devicescloudprint_print_printer_create_ref_share')
         g.custom_command('create-task-trigger', 'devicescloudprint_print_printer_create_task_trigger')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_printer_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_printer_delete_allowed_user')
+        g.custom_command('delete-ref-share', 'devicescloudprint_print_printer_delete_ref_share')
+        g.custom_command('delete-task-trigger', 'devicescloudprint_print_printer_delete_task_trigger')
         g.custom_command('list-allowed-group', 'devicescloudprint_print_printer_list_allowed_group')
         g.custom_command('list-allowed-user', 'devicescloudprint_print_printer_list_allowed_user')
         g.custom_command('list-connector', 'devicescloudprint_print_printer_list_connector')
@@ -116,7 +126,7 @@ def load_command_table(self, _):
         devicescloudprint_beta_print_printer_task_trigger,
         client_factory=cf_print_printer_task_trigger,
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_printer_task_trigger_delete', confirmation=True)
+        g.custom_command('delete-ref-definition', 'devicescloudprint_print_printer_task_trigger_delete_ref_definition')
         g.custom_command('set-ref-definition', 'devicescloudprint_print_printer_task_trigger_set_ref_definition')
         g.custom_command('show-definition', 'devicescloudprint_print_printer_task_trigger_show_definition')
         g.custom_command('show-ref-definition', 'devicescloudprint_print_printer_task_trigger_show_ref_definition')
@@ -132,9 +142,11 @@ def load_command_table(self, _):
         devicescloudprint_beta_print_printer_share,
         client_factory=cf_print_printer_share,
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_printer_share_delete', confirmation=True)
         g.custom_command('create-allowed-group', 'devicescloudprint_print_printer_share_create_allowed_group')
         g.custom_command('create-allowed-user', 'devicescloudprint_print_printer_share_create_allowed_user')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_printer_share_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_printer_share_delete_allowed_user')
+        g.custom_command('delete-ref-printer', 'devicescloudprint_print_printer_share_delete_ref_printer')
         g.custom_command('list-allowed-group', 'devicescloudprint_print_printer_share_list_allowed_group')
         g.custom_command('list-allowed-user', 'devicescloudprint_print_printer_share_list_allowed_user')
         g.custom_command('set-ref-printer', 'devicescloudprint_print_printer_share_set_ref_printer')
@@ -199,8 +211,8 @@ def load_command_table(self, _):
     with self.command_group(
         'devicescloudprint print-service', devicescloudprint_beta_print_service, client_factory=cf_print_service
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_service_delete', confirmation=True)
         g.custom_command('create-endpoint', 'devicescloudprint_print_service_create_endpoint')
+        g.custom_command('delete-endpoint', 'devicescloudprint_print_service_delete_endpoint')
         g.custom_command('list-endpoint', 'devicescloudprint_print_service_list_endpoint')
         g.custom_command('show-endpoint', 'devicescloudprint_print_service_show_endpoint')
         g.custom_command('update-endpoint', 'devicescloudprint_print_service_update_endpoint')
@@ -214,9 +226,11 @@ def load_command_table(self, _):
     with self.command_group(
         'devicescloudprint print-share', devicescloudprint_beta_print_share, client_factory=cf_print_share
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_share_delete', confirmation=True)
         g.custom_command('create-allowed-group', 'devicescloudprint_print_share_create_allowed_group')
         g.custom_command('create-allowed-user', 'devicescloudprint_print_share_create_allowed_user')
+        g.custom_command('delete-allowed-group', 'devicescloudprint_print_share_delete_allowed_group')
+        g.custom_command('delete-allowed-user', 'devicescloudprint_print_share_delete_allowed_user')
+        g.custom_command('delete-ref-printer', 'devicescloudprint_print_share_delete_ref_printer')
         g.custom_command('list-allowed-group', 'devicescloudprint_print_share_list_allowed_group')
         g.custom_command('list-allowed-user', 'devicescloudprint_print_share_list_allowed_user')
         g.custom_command('set-ref-printer', 'devicescloudprint_print_share_set_ref_printer')
@@ -253,8 +267,8 @@ def load_command_table(self, _):
         devicescloudprint_beta_print_task_definition,
         client_factory=cf_print_task_definition,
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_task_definition_delete', confirmation=True)
         g.custom_command('create-task', 'devicescloudprint_print_task_definition_create_task')
+        g.custom_command('delete-task', 'devicescloudprint_print_task_definition_delete_task')
         g.custom_command('list-task', 'devicescloudprint_print_task_definition_list_task')
         g.custom_command('show-task', 'devicescloudprint_print_task_definition_show_task')
         g.custom_command('update-task', 'devicescloudprint_print_task_definition_update_task')
@@ -270,7 +284,8 @@ def load_command_table(self, _):
         devicescloudprint_beta_print_task_definition_task,
         client_factory=cf_print_task_definition_task,
     ) as g:
-        g.custom_command('delete', 'devicescloudprint_print_task_definition_task_delete', confirmation=True)
+        g.custom_command('delete-ref-definition', 'devicescloudprint_print_task_definition_task_delete_ref_definition')
+        g.custom_command('delete-ref-trigger', 'devicescloudprint_print_task_definition_task_delete_ref_trigger')
         g.custom_command('set-ref-definition', 'devicescloudprint_print_task_definition_task_set_ref_definition')
         g.custom_command('set-ref-trigger', 'devicescloudprint_print_task_definition_task_set_ref_trigger')
         g.custom_command('show-definition', 'devicescloudprint_print_task_definition_task_show_definition')

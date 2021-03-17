@@ -30,23 +30,6 @@ def education_education_root_update_education_root(client,
                                         users=users)
 
 
-def education_education_delete(client,
-                               education_class_id=None,
-                               if_match=None,
-                               education_school_id=None,
-                               education_user_id=None):
-    if education_class_id is not None:
-        return client.delete_class(education_class_id=education_class_id,
-                                   if_match=if_match)
-    elif education_school_id is not None:
-        return client.delete_school(education_school_id=education_school_id,
-                                    if_match=if_match)
-    elif education_user_id is not None:
-        return client.delete_user(education_user_id=education_user_id,
-                                  if_match=if_match)
-    return client.delete_me(if_match=if_match)
-
-
 def education_education_create_class(client,
                                      id_=None,
                                      class_code=None,
@@ -194,6 +177,32 @@ def education_education_create_user(client,
                               application=application,
                               device=device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def education_education_delete_class(client,
+                                     education_class_id,
+                                     if_match=None):
+    return client.delete_class(education_class_id=education_class_id,
+                               if_match=if_match)
+
+
+def education_education_delete_me(client,
+                                  if_match=None):
+    return client.delete_me(if_match=if_match)
+
+
+def education_education_delete_school(client,
+                                      education_school_id,
+                                      if_match=None):
+    return client.delete_school(education_school_id=education_school_id,
+                                if_match=if_match)
+
+
+def education_education_delete_user(client,
+                                    education_user_id,
+                                    if_match=None):
+    return client.delete_user(education_user_id=education_user_id,
+                              if_match=if_match)
 
 
 def education_education_list_class(client,
@@ -485,13 +494,6 @@ def education_education_update_user(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def education_education_class_delete(client,
-                                     education_class_id,
-                                     if_match=None):
-    return client.delete_ref_group(education_class_id=education_class_id,
-                                   if_match=if_match)
-
-
 def education_education_class_create_ref_member(client,
                                                 education_class_id,
                                                 body):
@@ -511,6 +513,13 @@ def education_education_class_create_ref_teacher(client,
                                                  body):
     return client.create_ref_teacher(education_class_id=education_class_id,
                                      body=body)
+
+
+def education_education_class_delete_ref_group(client,
+                                               education_class_id,
+                                               if_match=None):
+    return client.delete_ref_group(education_class_id=education_class_id,
+                                   if_match=if_match)
 
 
 def education_education_class_list_member(client,
@@ -588,11 +597,6 @@ def education_education_class_show_ref_group(client,
     return client.get_ref_group(education_class_id=education_class_id)
 
 
-def education_education_me_delete(client,
-                                  if_match=None):
-    return client.delete_ref_user(if_match=if_match)
-
-
 def education_education_me_create_ref_class(client,
                                             body):
     return client.create_ref_class(body=body)
@@ -601,6 +605,11 @@ def education_education_me_create_ref_class(client,
 def education_education_me_create_ref_school(client,
                                              body):
     return client.create_ref_school(body=body)
+
+
+def education_education_me_delete_ref_user(client,
+                                           if_match=None):
+    return client.delete_ref_user(if_match=if_match)
 
 
 def education_education_me_list_class(client,
@@ -697,13 +706,6 @@ def education_education_school_list_user(client,
                             expand=expand)
 
 
-def education_education_user_delete(client,
-                                    education_user_id,
-                                    if_match=None):
-    return client.delete_ref_user(education_user_id=education_user_id,
-                                  if_match=if_match)
-
-
 def education_education_user_create_ref_class(client,
                                               education_user_id,
                                               body):
@@ -716,6 +718,13 @@ def education_education_user_create_ref_school(client,
                                                body):
     return client.create_ref_school(education_user_id=education_user_id,
                                     body=body)
+
+
+def education_education_user_delete_ref_user(client,
+                                             education_user_id,
+                                             if_match=None):
+    return client.delete_ref_user(education_user_id=education_user_id,
+                                  if_match=if_match)
 
 
 def education_education_user_list_class(client,

@@ -14,35 +14,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddApplicationsApplicationAddIns(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddApplicationsApplicationAddIns, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'properties':
-                d['properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter add_ins. All possible keys are: id, '
-                               'properties, type'.format(k))
-        return d
-
-
 class AddApplicationsApplicationAppRoles(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -240,33 +211,6 @@ class AddPublicClient(argparse.Action):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter public_client. All possible keys are: '
                                'redirect-uris'.format(k))
-        return d
-
-
-class AddRequiredResourceAccess(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddRequiredResourceAccess, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'resource-access':
-                d['resource_access'] = v
-            elif kl == 'resource-app-id':
-                d['resource_app_id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter required_resource_access. All possible '
-                               'keys are: resource-access, resource-app-id'.format(k))
         return d
 
 
@@ -740,35 +684,6 @@ class AddPasswordCredential(argparse.Action):
                 raise CLIError('Unsupported Key {} is provided for parameter password_credential. All possible keys '
                                'are: custom-key-identifier, display-name, end-date-time, hint, key-id, secret-text, '
                                'start-date-time'.format(k))
-        return d
-
-
-class AddServiceprincipalsServiceprincipalAddIns(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddServiceprincipalsServiceprincipalAddIns, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'properties':
-                d['properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter add_ins. All possible keys are: id, '
-                               'properties, type'.format(k))
         return d
 
 

@@ -10,18 +10,18 @@
 # pylint: disable=too-many-lines
 
 
-def directoryobjects_directory_object_directory_object_delete(client,
-                                                              directory_object_id,
-                                                              if_match=None):
-    return client.delete_directory_object(directory_object_id=directory_object_id,
-                                          if_match=if_match)
-
-
 def directoryobjects_directory_object_directory_object_create_directory_object(client,
                                                                                id_=None,
                                                                                deleted_date_time=None):
     return client.create_directory_object(id=id_,
                                           deleted_date_time=deleted_date_time)
+
+
+def directoryobjects_directory_object_directory_object_delete_directory_object(client,
+                                                                               directory_object_id,
+                                                                               if_match=None):
+    return client.delete_directory_object(directory_object_id=directory_object_id,
+                                          if_match=if_match)
 
 
 def directoryobjects_directory_object_directory_object_list_directory_object(client,

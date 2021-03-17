@@ -39,12 +39,16 @@ def load_command_table(self, _):
         client_factory=cf_audit_log,
     )
     with self.command_group('reports audit-log', reports_beta_audit_log, client_factory=cf_audit_log) as g:
-        g.custom_command('delete', 'reports_audit_log_delete', confirmation=True)
         g.custom_command('create-directory-audit', 'reports_audit_log_create_directory_audit')
         g.custom_command('create-directory-provisioning', 'reports_audit_log_create_directory_provisioning')
         g.custom_command('create-provisioning', 'reports_audit_log_create_provisioning')
         g.custom_command('create-restricted-sign-in', 'reports_audit_log_create_restricted_sign_in')
         g.custom_command('create-sign-in', 'reports_audit_log_create_sign_in')
+        g.custom_command('delete-directory-audit', 'reports_audit_log_delete_directory_audit')
+        g.custom_command('delete-directory-provisioning', 'reports_audit_log_delete_directory_provisioning')
+        g.custom_command('delete-provisioning', 'reports_audit_log_delete_provisioning')
+        g.custom_command('delete-restricted-sign-in', 'reports_audit_log_delete_restricted_sign_in')
+        g.custom_command('delete-sign-in', 'reports_audit_log_delete_sign_in')
         g.custom_command('list-directory-audit', 'reports_audit_log_list_directory_audit')
         g.custom_command('list-directory-provisioning', 'reports_audit_log_list_directory_provisioning')
         g.custom_command('list-provisioning', 'reports_audit_log_list_provisioning')
@@ -80,7 +84,6 @@ def load_command_table(self, _):
         client_factory=cf_report,
     )
     with self.command_group('reports report', reports_beta_report, client_factory=cf_report) as g:
-        g.custom_command('delete', 'reports_report_delete', confirmation=True)
         g.custom_command(
             'create-application-sign-in-detailed-summary', 'reports_report_create_application_sign_in_detailed_summary'
         )
@@ -101,6 +104,15 @@ def load_command_table(self, _):
             'create-monthly-print-usage-summary-by-user', 'reports_report_create_monthly_print_usage_summary_by_user'
         )
         g.custom_command('create-user-credential-usage-detail', 'reports_report_create_user_credential_usage_detail')
+        g.custom_command(
+            'delete-application-sign-in-detailed-summary', 'reports_report_delete_application_sign_in_detailed_summary'
+        )
+        g.custom_command(
+            'delete-credential-user-registration-detail', 'reports_report_delete_credential_user_registration_detail'
+        )
+        g.custom_command('delete-daily-print-usage-summary', 'reports_report_delete_daily_print_usage_summary')
+        g.custom_command('delete-monthly-print-usage-summary', 'reports_report_delete_monthly_print_usage_summary')
+        g.custom_command('delete-user-credential-usage-detail', 'reports_report_delete_user_credential_usage_detail')
         g.custom_command('device-configuration-device-activity', 'reports_report_device_configuration_device_activity')
         g.custom_command('device-configuration-user-activity', 'reports_report_device_configuration_user_activity')
         g.custom_command(

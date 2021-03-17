@@ -22,14 +22,14 @@
 ### <a name="CommandsIncommunications">Commands in `az cloudcommunications communication` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications communication delete](#communicationsDeleteCallRecords)|DeleteCallRecords|[Parameters](#ParameterscommunicationsDeleteCallRecords)|Not Found|
-|[az cloudcommunications communication delete](#communicationsDeleteCalls)|DeleteCalls|[Parameters](#ParameterscommunicationsDeleteCalls)|Not Found|
-|[az cloudcommunications communication delete](#communicationsDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParameterscommunicationsDeleteOnlineMeetings)|Not Found|
-|[az cloudcommunications communication delete](#communicationsDeletePresences)|DeletePresences|[Parameters](#ParameterscommunicationsDeletePresences)|Not Found|
 |[az cloudcommunications communication create-call](#communicationsCreateCalls)|CreateCalls|[Parameters](#ParameterscommunicationsCreateCalls)|Not Found|
 |[az cloudcommunications communication create-call-record](#communicationsCreateCallRecords)|CreateCallRecords|[Parameters](#ParameterscommunicationsCreateCallRecords)|Not Found|
 |[az cloudcommunications communication create-online-meeting](#communicationsCreateOnlineMeetings)|CreateOnlineMeetings|[Parameters](#ParameterscommunicationsCreateOnlineMeetings)|Not Found|
 |[az cloudcommunications communication create-presence](#communicationsCreatePresences)|CreatePresences|[Parameters](#ParameterscommunicationsCreatePresences)|Not Found|
+|[az cloudcommunications communication delete-call](#communicationsDeleteCalls)|DeleteCalls|[Parameters](#ParameterscommunicationsDeleteCalls)|Not Found|
+|[az cloudcommunications communication delete-call-record](#communicationsDeleteCallRecords)|DeleteCallRecords|[Parameters](#ParameterscommunicationsDeleteCallRecords)|Not Found|
+|[az cloudcommunications communication delete-online-meeting](#communicationsDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParameterscommunicationsDeleteOnlineMeetings)|Not Found|
+|[az cloudcommunications communication delete-presence](#communicationsDeletePresences)|DeletePresences|[Parameters](#ParameterscommunicationsDeletePresences)|Not Found|
 |[az cloudcommunications communication get-presence-by-user-id](#communicationsgetPresencesByUserId)|getPresencesByUserId|[Parameters](#ParameterscommunicationsgetPresencesByUserId)|Not Found|
 |[az cloudcommunications communication list-call](#communicationsListCalls)|ListCalls|[Parameters](#ParameterscommunicationsListCalls)|Not Found|
 |[az cloudcommunications communication list-call-record](#communicationsListCallRecords)|ListCallRecords|[Parameters](#ParameterscommunicationsListCallRecords)|Not Found|
@@ -47,15 +47,15 @@
 ### <a name="CommandsIncommunications.calls">Commands in `az cloudcommunications communication-call` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications communication-call delete](#communications.callsDeleteAudioRoutingGroups)|DeleteAudioRoutingGroups|[Parameters](#Parameterscommunications.callsDeleteAudioRoutingGroups)|Not Found|
-|[az cloudcommunications communication-call delete](#communications.callsDeleteOperations)|DeleteOperations|[Parameters](#Parameterscommunications.callsDeleteOperations)|Not Found|
-|[az cloudcommunications communication-call delete](#communications.callsDeleteParticipants)|DeleteParticipants|[Parameters](#Parameterscommunications.callsDeleteParticipants)|Not Found|
 |[az cloudcommunications communication-call answer](#communications.callsanswer)|answer|[Parameters](#Parameterscommunications.callsanswer)|Not Found|
 |[az cloudcommunications communication-call cancel-media-processing](#communications.callscancelMediaProcessing)|cancelMediaProcessing|[Parameters](#Parameterscommunications.callscancelMediaProcessing)|Not Found|
 |[az cloudcommunications communication-call change-screen-sharing-role](#communications.callschangeScreenSharingRole)|changeScreenSharingRole|[Parameters](#Parameterscommunications.callschangeScreenSharingRole)|Not Found|
 |[az cloudcommunications communication-call create-audio-routing-group](#communications.callsCreateAudioRoutingGroups)|CreateAudioRoutingGroups|[Parameters](#Parameterscommunications.callsCreateAudioRoutingGroups)|Not Found|
 |[az cloudcommunications communication-call create-operation](#communications.callsCreateOperations)|CreateOperations|[Parameters](#Parameterscommunications.callsCreateOperations)|Not Found|
 |[az cloudcommunications communication-call create-participant](#communications.callsCreateParticipants)|CreateParticipants|[Parameters](#Parameterscommunications.callsCreateParticipants)|Not Found|
+|[az cloudcommunications communication-call delete-audio-routing-group](#communications.callsDeleteAudioRoutingGroups)|DeleteAudioRoutingGroups|[Parameters](#Parameterscommunications.callsDeleteAudioRoutingGroups)|Not Found|
+|[az cloudcommunications communication-call delete-operation](#communications.callsDeleteOperations)|DeleteOperations|[Parameters](#Parameterscommunications.callsDeleteOperations)|Not Found|
+|[az cloudcommunications communication-call delete-participant](#communications.callsDeleteParticipants)|DeleteParticipants|[Parameters](#Parameterscommunications.callsDeleteParticipants)|Not Found|
 |[az cloudcommunications communication-call keep-alive](#communications.callskeepAlive)|keepAlive|[Parameters](#Parameterscommunications.callskeepAlive)|Not Found|
 |[az cloudcommunications communication-call list-audio-routing-group](#communications.callsListAudioRoutingGroups)|ListAudioRoutingGroups|[Parameters](#Parameterscommunications.callsListAudioRoutingGroups)|Not Found|
 |[az cloudcommunications communication-call list-operation](#communications.callsListOperations)|ListOperations|[Parameters](#Parameterscommunications.callsListOperations)|Not Found|
@@ -88,8 +88,8 @@
 ### <a name="CommandsIncommunications.callRecords">Commands in `az cloudcommunications communication-call-record` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications communication-call-record delete](#communications.callRecordsDeleteSessions)|DeleteSessions|[Parameters](#Parameterscommunications.callRecordsDeleteSessions)|Not Found|
 |[az cloudcommunications communication-call-record create-session](#communications.callRecordsCreateSessions)|CreateSessions|[Parameters](#Parameterscommunications.callRecordsCreateSessions)|Not Found|
+|[az cloudcommunications communication-call-record delete-session](#communications.callRecordsDeleteSessions)|DeleteSessions|[Parameters](#Parameterscommunications.callRecordsDeleteSessions)|Not Found|
 |[az cloudcommunications communication-call-record list-session](#communications.callRecordsListSessions)|ListSessions|[Parameters](#Parameterscommunications.callRecordsListSessions)|Not Found|
 |[az cloudcommunications communication-call-record show-session](#communications.callRecordsGetSessions)|GetSessions|[Parameters](#Parameterscommunications.callRecordsGetSessions)|Not Found|
 |[az cloudcommunications communication-call-record update-session](#communications.callRecordsUpdateSessions)|UpdateSessions|[Parameters](#Parameterscommunications.callRecordsUpdateSessions)|Not Found|
@@ -97,8 +97,8 @@
 ### <a name="CommandsIncommunications.callRecords.sessions">Commands in `az cloudcommunications communication-call-record-session` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications communication-call-record-session delete](#communications.callRecords.sessionsDeleteSegments)|DeleteSegments|[Parameters](#Parameterscommunications.callRecords.sessionsDeleteSegments)|Not Found|
 |[az cloudcommunications communication-call-record-session create-segment](#communications.callRecords.sessionsCreateSegments)|CreateSegments|[Parameters](#Parameterscommunications.callRecords.sessionsCreateSegments)|Not Found|
+|[az cloudcommunications communication-call-record-session delete-segment](#communications.callRecords.sessionsDeleteSegments)|DeleteSegments|[Parameters](#Parameterscommunications.callRecords.sessionsDeleteSegments)|Not Found|
 |[az cloudcommunications communication-call-record-session list-segment](#communications.callRecords.sessionsListSegments)|ListSegments|[Parameters](#Parameterscommunications.callRecords.sessionsListSegments)|Not Found|
 |[az cloudcommunications communication-call-record-session show-segment](#communications.callRecords.sessionsGetSegments)|GetSegments|[Parameters](#Parameterscommunications.callRecords.sessionsGetSegments)|Not Found|
 |[az cloudcommunications communication-call-record-session update-segment](#communications.callRecords.sessionsUpdateSegments)|UpdateSegments|[Parameters](#Parameterscommunications.callRecords.sessionsUpdateSegments)|Not Found|
@@ -117,9 +117,9 @@
 ### <a name="CommandsInusers">Commands in `az cloudcommunications user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications user delete](#usersDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParametersusersDeleteOnlineMeetings)|Not Found|
-|[az cloudcommunications user delete](#usersDeletePresence)|DeletePresence|[Parameters](#ParametersusersDeletePresence)|Not Found|
 |[az cloudcommunications user create-online-meeting](#usersCreateOnlineMeetings)|CreateOnlineMeetings|[Parameters](#ParametersusersCreateOnlineMeetings)|Not Found|
+|[az cloudcommunications user delete-online-meeting](#usersDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParametersusersDeleteOnlineMeetings)|Not Found|
+|[az cloudcommunications user delete-presence](#usersDeletePresence)|DeletePresence|[Parameters](#ParametersusersDeletePresence)|Not Found|
 |[az cloudcommunications user list-online-meeting](#usersListOnlineMeetings)|ListOnlineMeetings|[Parameters](#ParametersusersListOnlineMeetings)|Not Found|
 |[az cloudcommunications user show-online-meeting](#usersGetOnlineMeetings)|GetOnlineMeetings|[Parameters](#ParametersusersGetOnlineMeetings)|Not Found|
 |[az cloudcommunications user show-presence](#usersGetPresence)|GetPresence|[Parameters](#ParametersusersGetPresence)|Not Found|
@@ -130,35 +130,6 @@
 ## COMMAND DETAILS
 
 ### group `az cloudcommunications communication`
-#### <a name="communicationsDeleteCallRecords">Command `az cloudcommunications communication delete`</a>
-
-##### <a name="ParameterscommunicationsDeleteCallRecords">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="communicationsDeleteCalls">Command `az cloudcommunications communication delete`</a>
-
-##### <a name="ParameterscommunicationsDeleteCalls">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--call-id**|string|key: id of call|call_id|call-id|
-
-#### <a name="communicationsDeleteOnlineMeetings">Command `az cloudcommunications communication delete`</a>
-
-##### <a name="ParameterscommunicationsDeleteOnlineMeetings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
-
-#### <a name="communicationsDeletePresences">Command `az cloudcommunications communication delete`</a>
-
-##### <a name="ParameterscommunicationsDeletePresences">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--presence-id**|string|key: id of presence|presence_id|presence-id|
-
 #### <a name="communicationsCreateCalls">Command `az cloudcommunications communication create-call`</a>
 
 ##### <a name="ParameterscommunicationsCreateCalls">Parameters</a> 
@@ -264,6 +235,38 @@
 |**--id**|string|Read-only.|id|id|
 |**--activity**|string||activity|activity|
 |**--availability**|string||availability|availability|
+
+#### <a name="communicationsDeleteCalls">Command `az cloudcommunications communication delete-call`</a>
+
+##### <a name="ParameterscommunicationsDeleteCalls">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-id**|string|key: id of call|call_id|call-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="communicationsDeleteCallRecords">Command `az cloudcommunications communication delete-call-record`</a>
+
+##### <a name="ParameterscommunicationsDeleteCallRecords">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="communicationsDeleteOnlineMeetings">Command `az cloudcommunications communication delete-online-meeting`</a>
+
+##### <a name="ParameterscommunicationsDeleteOnlineMeetings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="communicationsDeletePresences">Command `az cloudcommunications communication delete-presence`</a>
+
+##### <a name="ParameterscommunicationsDeletePresences">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--presence-id**|string|key: id of presence|presence_id|presence-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="communicationsgetPresencesByUserId">Command `az cloudcommunications communication get-presence-by-user-id`</a>
 
@@ -455,29 +458,6 @@
 |**--availability**|string||availability|availability|
 
 ### group `az cloudcommunications communication-call`
-#### <a name="communications.callsDeleteAudioRoutingGroups">Command `az cloudcommunications communication-call delete`</a>
-
-##### <a name="Parameterscommunications.callsDeleteAudioRoutingGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--call-id**|string|key: id of call|call_id|call-id|
-|**--audio-routing-group-id**|string|key: id of audioRoutingGroup|audio_routing_group_id|audioRoutingGroup-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="communications.callsDeleteOperations">Command `az cloudcommunications communication-call delete`</a>
-
-##### <a name="Parameterscommunications.callsDeleteOperations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--comms-operation-id**|string|key: id of commsOperation|comms_operation_id|commsOperation-id|
-
-#### <a name="communications.callsDeleteParticipants">Command `az cloudcommunications communication-call delete`</a>
-
-##### <a name="Parameterscommunications.callsDeleteParticipants">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--participant-id**|string|key: id of participant|participant_id|participant-id|
-
 #### <a name="communications.callsanswer">Command `az cloudcommunications communication-call answer`</a>
 
 ##### <a name="Parameterscommunications.callsanswer">Parameters</a> 
@@ -545,6 +525,33 @@
 |**--identity**|object|identitySet|identity|identity|
 |**--language-id**|string|The language culture string. Read-only.|language_id|languageId|
 |**--region**|string|The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.|region|region|
+
+#### <a name="communications.callsDeleteAudioRoutingGroups">Command `az cloudcommunications communication-call delete-audio-routing-group`</a>
+
+##### <a name="Parameterscommunications.callsDeleteAudioRoutingGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-id**|string|key: id of call|call_id|call-id|
+|**--audio-routing-group-id**|string|key: id of audioRoutingGroup|audio_routing_group_id|audioRoutingGroup-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="communications.callsDeleteOperations">Command `az cloudcommunications communication-call delete-operation`</a>
+
+##### <a name="Parameterscommunications.callsDeleteOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-id**|string|key: id of call|call_id|call-id|
+|**--comms-operation-id**|string|key: id of commsOperation|comms_operation_id|commsOperation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="communications.callsDeleteParticipants">Command `az cloudcommunications communication-call delete-participant`</a>
+
+##### <a name="Parameterscommunications.callsDeleteParticipants">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-id**|string|key: id of call|call_id|call-id|
+|**--participant-id**|string|key: id of participant|participant_id|participant-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="communications.callskeepAlive">Command `az cloudcommunications communication-call keep-alive`</a>
 
@@ -812,15 +819,6 @@
 |**--client-context**|string||client_context|clientContext|
 
 ### group `az cloudcommunications communication-call-record`
-#### <a name="communications.callRecordsDeleteSessions">Command `az cloudcommunications communication-call-record delete`</a>
-
-##### <a name="Parameterscommunications.callRecordsDeleteSessions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
-|**--session-id**|string|key: id of session|session_id|session-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="communications.callRecordsCreateSessions">Command `az cloudcommunications communication-call-record create-session`</a>
 
 ##### <a name="Parameterscommunications.callRecordsCreateSessions">Parameters</a> 
@@ -835,6 +833,15 @@
 |**--segments**|array|The list of segments involved in the session. Read-only. Nullable.|segments|segments|
 |**--user-agent**|object|userAgent|user_agent|userAgent|
 |**--microsoft-graph-call-records-user-agent**|object|userAgent|microsoft_graph_call_records_user_agent|userAgent|
+
+#### <a name="communications.callRecordsDeleteSessions">Command `az cloudcommunications communication-call-record delete-session`</a>
+
+##### <a name="Parameterscommunications.callRecordsDeleteSessions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
+|**--session-id**|string|key: id of session|session_id|session-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="communications.callRecordsListSessions">Command `az cloudcommunications communication-call-record list-session`</a>
 
@@ -873,16 +880,6 @@
 |**--microsoft-graph-call-records-user-agent**|object|userAgent|microsoft_graph_call_records_user_agent|userAgent|
 
 ### group `az cloudcommunications communication-call-record-session`
-#### <a name="communications.callRecords.sessionsDeleteSegments">Command `az cloudcommunications communication-call-record-session delete`</a>
-
-##### <a name="Parameterscommunications.callRecords.sessionsDeleteSegments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
-|**--session-id**|string|key: id of session|session_id|session-id|
-|**--segment-id**|string|key: id of segment|segment_id|segment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="communications.callRecords.sessionsCreateSegments">Command `az cloudcommunications communication-call-record-session create-segment`</a>
 
 ##### <a name="Parameterscommunications.callRecords.sessionsCreateSegments">Parameters</a> 
@@ -897,6 +894,16 @@
 |**--start-date-time**|date-time|UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|start_date_time|startDateTime|
 |**--user-agent**|object|userAgent|user_agent|userAgent|
 |**--microsoft-graph-call-records-user-agent**|object|userAgent|microsoft_graph_call_records_user_agent|userAgent|
+
+#### <a name="communications.callRecords.sessionsDeleteSegments">Command `az cloudcommunications communication-call-record-session delete-segment`</a>
+
+##### <a name="Parameterscommunications.callRecords.sessionsDeleteSegments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--call-record-id**|string|key: id of callRecord|call_record_id|callRecord-id|
+|**--session-id**|string|key: id of session|session_id|session-id|
+|**--segment-id**|string|key: id of segment|segment_id|segment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="communications.callRecords.sessionsListSegments">Command `az cloudcommunications communication-call-record-session list-segment`</a>
 
@@ -973,20 +980,6 @@
 |**--producers**|array||producers|producers|
 
 ### group `az cloudcommunications user`
-#### <a name="usersDeleteOnlineMeetings">Command `az cloudcommunications user delete`</a>
-
-##### <a name="ParametersusersDeleteOnlineMeetings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeletePresence">Command `az cloudcommunications user delete`</a>
-
-##### <a name="ParametersusersDeletePresence">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreateOnlineMeetings">Command `az cloudcommunications user create-online-meeting`</a>
 
 ##### <a name="ParametersusersCreateOnlineMeetings">Parameters</a> 
@@ -1018,6 +1011,23 @@
 |**--contributors**|array||contributors|contributors|
 |**--organizer**|object|meetingParticipantInfo|organizer|organizer|
 |**--producers**|array||producers|producers|
+
+#### <a name="usersDeleteOnlineMeetings">Command `az cloudcommunications user delete-online-meeting`</a>
+
+##### <a name="ParametersusersDeleteOnlineMeetings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeletePresence">Command `az cloudcommunications user delete-presence`</a>
+
+##### <a name="ParametersusersDeletePresence">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListOnlineMeetings">Command `az cloudcommunications user list-online-meeting`</a>
 

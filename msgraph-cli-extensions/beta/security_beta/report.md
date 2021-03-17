@@ -28,18 +28,6 @@
 ### <a name="CommandsInSecurity">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security delete](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
-|[az security security delete](#SecurityDeleteCloudAppSecurityProfiles)|DeleteCloudAppSecurityProfiles|[Parameters](#ParametersSecurityDeleteCloudAppSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteDomainSecurityProfiles)|DeleteDomainSecurityProfiles|[Parameters](#ParametersSecurityDeleteDomainSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteFileSecurityProfiles)|DeleteFileSecurityProfiles|[Parameters](#ParametersSecurityDeleteFileSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteHostSecurityProfiles)|DeleteHostSecurityProfiles|[Parameters](#ParametersSecurityDeleteHostSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteIpSecurityProfiles)|DeleteIpSecurityProfiles|[Parameters](#ParametersSecurityDeleteIpSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteProviderTenantSettings)|DeleteProviderTenantSettings|[Parameters](#ParametersSecurityDeleteProviderTenantSettings)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
-|[az security security delete](#SecurityDeleteSecurityActions)|DeleteSecurityActions|[Parameters](#ParametersSecurityDeleteSecurityActions)|Not Found|
-|[az security security delete](#SecurityDeleteTiIndicators)|DeleteTiIndicators|[Parameters](#ParametersSecurityDeleteTiIndicators)|Not Found|
-|[az security security delete](#SecurityDeleteUserSecurityProfiles)|DeleteUserSecurityProfiles|[Parameters](#ParametersSecurityDeleteUserSecurityProfiles)|Not Found|
 |[az security security create-alert](#SecurityCreateAlerts)|CreateAlerts|[Parameters](#ParametersSecurityCreateAlerts)|Not Found|
 |[az security security create-cloud-app-security-profile](#SecurityCreateCloudAppSecurityProfiles)|CreateCloudAppSecurityProfiles|[Parameters](#ParametersSecurityCreateCloudAppSecurityProfiles)|Not Found|
 |[az security security create-domain-security-profile](#SecurityCreateDomainSecurityProfiles)|CreateDomainSecurityProfiles|[Parameters](#ParametersSecurityCreateDomainSecurityProfiles)|Not Found|
@@ -51,6 +39,18 @@
 |[az security security create-secure-score-control-profile](#SecurityCreateSecureScoreControlProfiles)|CreateSecureScoreControlProfiles|[Parameters](#ParametersSecurityCreateSecureScoreControlProfiles)|Not Found|
 |[az security security create-ti-indicator](#SecurityCreateTiIndicators)|CreateTiIndicators|[Parameters](#ParametersSecurityCreateTiIndicators)|Not Found|
 |[az security security create-user-security-profile](#SecurityCreateUserSecurityProfiles)|CreateUserSecurityProfiles|[Parameters](#ParametersSecurityCreateUserSecurityProfiles)|Not Found|
+|[az security security delete-alert](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
+|[az security security delete-cloud-app-security-profile](#SecurityDeleteCloudAppSecurityProfiles)|DeleteCloudAppSecurityProfiles|[Parameters](#ParametersSecurityDeleteCloudAppSecurityProfiles)|Not Found|
+|[az security security delete-domain-security-profile](#SecurityDeleteDomainSecurityProfiles)|DeleteDomainSecurityProfiles|[Parameters](#ParametersSecurityDeleteDomainSecurityProfiles)|Not Found|
+|[az security security delete-file-security-profile](#SecurityDeleteFileSecurityProfiles)|DeleteFileSecurityProfiles|[Parameters](#ParametersSecurityDeleteFileSecurityProfiles)|Not Found|
+|[az security security delete-host-security-profile](#SecurityDeleteHostSecurityProfiles)|DeleteHostSecurityProfiles|[Parameters](#ParametersSecurityDeleteHostSecurityProfiles)|Not Found|
+|[az security security delete-ip-security-profile](#SecurityDeleteIpSecurityProfiles)|DeleteIpSecurityProfiles|[Parameters](#ParametersSecurityDeleteIpSecurityProfiles)|Not Found|
+|[az security security delete-provider-tenant-setting](#SecurityDeleteProviderTenantSettings)|DeleteProviderTenantSettings|[Parameters](#ParametersSecurityDeleteProviderTenantSettings)|Not Found|
+|[az security security delete-secure-score](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
+|[az security security delete-secure-score-control-profile](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
+|[az security security delete-security-action](#SecurityDeleteSecurityActions)|DeleteSecurityActions|[Parameters](#ParametersSecurityDeleteSecurityActions)|Not Found|
+|[az security security delete-ti-indicator](#SecurityDeleteTiIndicators)|DeleteTiIndicators|[Parameters](#ParametersSecurityDeleteTiIndicators)|Not Found|
+|[az security security delete-user-security-profile](#SecurityDeleteUserSecurityProfiles)|DeleteUserSecurityProfiles|[Parameters](#ParametersSecurityDeleteUserSecurityProfiles)|Not Found|
 |[az security security list-alert](#SecurityListAlerts)|ListAlerts|[Parameters](#ParametersSecurityListAlerts)|Not Found|
 |[az security security list-cloud-app-security-profile](#SecurityListCloudAppSecurityProfiles)|ListCloudAppSecurityProfiles|[Parameters](#ParametersSecurityListCloudAppSecurityProfiles)|Not Found|
 |[az security security list-domain-security-profile](#SecurityListDomainSecurityProfiles)|ListDomainSecurityProfiles|[Parameters](#ParametersSecurityListDomainSecurityProfiles)|Not Found|
@@ -173,91 +173,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az security security`
-#### <a name="SecurityDeleteAlerts">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--alert-id**|string|key: id of alert|alert_id|alert-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="SecurityDeleteCloudAppSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteCloudAppSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
-
-#### <a name="SecurityDeleteDomainSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteDomainSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
-
-#### <a name="SecurityDeleteFileSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteFileSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
-
-#### <a name="SecurityDeleteHostSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteHostSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
-
-#### <a name="SecurityDeleteIpSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteIpSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
-
-#### <a name="SecurityDeleteProviderTenantSettings">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteProviderTenantSettings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
-
-#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
-
-#### <a name="SecurityDeleteSecureScores">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
-
-#### <a name="SecurityDeleteSecurityActions">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
-
-#### <a name="SecurityDeleteTiIndicators">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteTiIndicators">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
-
-#### <a name="SecurityDeleteUserSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteUserSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
-
 #### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>
 
 ##### <a name="ParametersSecurityCreateAlerts">Parameters</a> 
@@ -548,6 +463,102 @@
 |**--tags**|array||tags|tags|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
+#### <a name="SecurityDeleteAlerts">Command `az security security delete-alert`</a>
+
+##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteCloudAppSecurityProfiles">Command `az security security delete-cloud-app-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteCloudAppSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteDomainSecurityProfiles">Command `az security security delete-domain-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteDomainSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteFileSecurityProfiles">Command `az security security delete-file-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteFileSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteHostSecurityProfiles">Command `az security security delete-host-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteHostSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteIpSecurityProfiles">Command `az security security delete-ip-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteIpSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteProviderTenantSettings">Command `az security security delete-provider-tenant-setting`</a>
+
+##### <a name="ParametersSecurityDeleteProviderTenantSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScores">Command `az security security delete-secure-score`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete-secure-score-control-profile`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecurityActions">Command `az security security delete-security-action`</a>
+
+##### <a name="ParametersSecurityDeleteSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteTiIndicators">Command `az security security delete-ti-indicator`</a>
+
+##### <a name="ParametersSecurityDeleteTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteUserSecurityProfiles">Command `az security security delete-user-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteUserSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="SecurityListAlerts">Command `az security security list-alert`</a>
 

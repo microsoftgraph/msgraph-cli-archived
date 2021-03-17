@@ -17,11 +17,6 @@ helps['schemaextensions schema-extension-schema-extension'] = """
     short-summary: Manage schema extension schema extension with schemaextensions_beta
 """
 
-helps['schemaextensions schema-extension-schema-extension delete'] = """
-    type: command
-    short-summary: "Delete entity from schemaExtensions."
-"""
-
 helps['schemaextensions schema-extension-schema-extension create-schema-extension'] = """
     type: command
     short-summary: "Add new entity to schemaExtensions."
@@ -36,6 +31,11 @@ helps['schemaextensions schema-extension-schema-extension create-schema-extensio
 Boolean, DateTime, Integer or String.  See the table below for more details.
 
             Multiple actions can be specified by using more than one --properties argument.
+"""
+
+helps['schemaextensions schema-extension-schema-extension delete-schema-extension'] = """
+    type: command
+    short-summary: "Delete entity from schemaExtensions."
 """
 
 helps['schemaextensions schema-extension-schema-extension list-schema-extension'] = """

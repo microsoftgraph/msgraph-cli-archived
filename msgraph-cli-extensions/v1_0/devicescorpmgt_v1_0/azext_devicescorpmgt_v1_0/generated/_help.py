@@ -257,21 +257,6 @@ helps['devicescorpmgt device-app-management'] = """
     short-summary: Manage device app management with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management delete'] = """
-    type: command
-    short-summary: "Delete navigation property androidManagedAppProtections for deviceAppManagement And Delete \
-navigation property defaultManagedAppProtections for deviceAppManagement And Delete navigation property \
-iosManagedAppProtections for deviceAppManagement And Delete navigation property managedAppPolicies for \
-deviceAppManagement And Delete navigation property managedAppRegistrations for deviceAppManagement And Delete \
-navigation property managedAppStatuses for deviceAppManagement And Delete navigation property managedEBooks for \
-deviceAppManagement And Delete navigation property mdmWindowsInformationProtectionPolicies for deviceAppManagement And \
-Delete navigation property mobileAppCategories for deviceAppManagement And Delete navigation property \
-mobileAppConfigurations for deviceAppManagement And Delete navigation property mobileApps for deviceAppManagement And \
-Delete navigation property targetedManagedAppConfigurations for deviceAppManagement And Delete navigation property \
-vppTokens for deviceAppManagement And Delete navigation property windowsInformationProtectionPolicies for \
-deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management create-android-managed-app-protection'] = """
     type: command
     short-summary: "Create new navigation property to androidManagedAppProtections for deviceAppManagement."
@@ -395,20 +380,6 @@ installed-user-count=XX not-installed-device-count=XX not-installed-user-count=X
             not-installed-device-count: Number of Devices that does not have this book installed.
             not-installed-user-count: Number of Users that did not install this book.
             id: Read-only.
-      - name: --user-state-summary
-        short-summary: "The list of installation states for this eBook."
-        long-summary: |
-            Usage: --user-state-summary failed-device-count=XX installed-device-count=XX not-installed-device-count=XX \
-user-name=XX device-states=XX id=XX
-
-            failed-device-count: Failed Device Count.
-            installed-device-count: Installed Device Count.
-            not-installed-device-count: Not installed device count.
-            user-name: User name.
-            device-states: The install state of the eBook.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --user-state-summary argument.
 """
 
 helps['devicescorpmgt device-app-management create-mdm-window-information-protection-policy'] = """
@@ -438,17 +409,6 @@ these proxies"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-internal-proxy-servers argument.
-      - name: --enterprise-ip-ranges
-        short-summary: "Sets the enterprise IP ranges that define the computers in the enterprise network. Data that \
-comes from those computers will be considered part of the enterprise and protected. These locations will be considered \
-a safe destination for enterprise data to be shared to"
-        long-summary: |
-            Usage: --enterprise-ip-ranges display-name=XX ranges=XX
-
-            display-name: Display name
-            ranges: Collection of Internet protocol address ranges
-
-            Multiple actions can be specified by using more than one --enterprise-ip-ranges argument.
       - name: --enterprise-network-domain-names
         short-summary: "This is the list of domains that comprise the boundaries of the enterprise. Data from one of \
 these domains that is sent to a device will be considered enterprise data and protected These locations will be \
@@ -469,18 +429,6 @@ considered a safe destination for enterprise data to be shared to"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-protected-domain-names argument.
-      - name: --enterprise-proxied-domains
-        short-summary: "Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. \
-Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to \
-the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy \
-server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy"
-        long-summary: |
-            Usage: --enterprise-proxied-domains display-name=XX proxied-domains=XX
-
-            display-name: Display name
-            proxied-domains: Collection of proxied domains
-
-            Multiple actions can be specified by using more than one --enterprise-proxied-domains argument.
       - name: --enterprise-proxy-servers
         short-summary: "This is a list of proxy servers. Any server not on this list is considered non-enterprise"
         long-summary: |
@@ -701,17 +649,6 @@ these proxies"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-internal-proxy-servers argument.
-      - name: --enterprise-ip-ranges
-        short-summary: "Sets the enterprise IP ranges that define the computers in the enterprise network. Data that \
-comes from those computers will be considered part of the enterprise and protected. These locations will be considered \
-a safe destination for enterprise data to be shared to"
-        long-summary: |
-            Usage: --enterprise-ip-ranges display-name=XX ranges=XX
-
-            display-name: Display name
-            ranges: Collection of Internet protocol address ranges
-
-            Multiple actions can be specified by using more than one --enterprise-ip-ranges argument.
       - name: --enterprise-network-domain-names
         short-summary: "This is the list of domains that comprise the boundaries of the enterprise. Data from one of \
 these domains that is sent to a device will be considered enterprise data and protected These locations will be \
@@ -732,18 +669,6 @@ considered a safe destination for enterprise data to be shared to"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-protected-domain-names argument.
-      - name: --enterprise-proxied-domains
-        short-summary: "Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. \
-Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to \
-the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy \
-server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy"
-        long-summary: |
-            Usage: --enterprise-proxied-domains display-name=XX proxied-domains=XX
-
-            display-name: Display name
-            proxied-domains: Collection of proxied domains
-
-            Multiple actions can be specified by using more than one --enterprise-proxied-domains argument.
       - name: --enterprise-proxy-servers
         short-summary: "This is a list of proxy servers. Any server not on this list is considered non-enterprise"
         long-summary: |
@@ -823,6 +748,76 @@ copying from an SMB share within the corporate boundary"
             id: Read-only.
 
             Multiple actions can be specified by using more than one --protected-app-locker-files argument.
+"""
+
+helps['devicescorpmgt device-app-management delete-android-managed-app-protection'] = """
+    type: command
+    short-summary: "Delete navigation property androidManagedAppProtections for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-default-managed-app-protection'] = """
+    type: command
+    short-summary: "Delete navigation property defaultManagedAppProtections for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-io-managed-app-protection'] = """
+    type: command
+    short-summary: "Delete navigation property iosManagedAppProtections for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-managed-app-policy'] = """
+    type: command
+    short-summary: "Delete navigation property managedAppPolicies for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-managed-app-registration'] = """
+    type: command
+    short-summary: "Delete navigation property managedAppRegistrations for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-managed-app-statuses'] = """
+    type: command
+    short-summary: "Delete navigation property managedAppStatuses for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-managed-e-book'] = """
+    type: command
+    short-summary: "Delete navigation property managedEBooks for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-mdm-window-information-protection-policy'] = """
+    type: command
+    short-summary: "Delete navigation property mdmWindowsInformationProtectionPolicies for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-mobile-app'] = """
+    type: command
+    short-summary: "Delete navigation property mobileApps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-mobile-app-category'] = """
+    type: command
+    short-summary: "Delete navigation property mobileAppCategories for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-mobile-app-configuration'] = """
+    type: command
+    short-summary: "Delete navigation property mobileAppConfigurations for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-targeted-managed-app-configuration'] = """
+    type: command
+    short-summary: "Delete navigation property targetedManagedAppConfigurations for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-vpp-token'] = """
+    type: command
+    short-summary: "Delete navigation property vppTokens for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management delete-window-information-protection-policy'] = """
+    type: command
+    short-summary: "Delete navigation property windowsInformationProtectionPolicies for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management list-android-managed-app-protection'] = """
@@ -1093,20 +1088,6 @@ installed-user-count=XX not-installed-device-count=XX not-installed-user-count=X
             not-installed-device-count: Number of Devices that does not have this book installed.
             not-installed-user-count: Number of Users that did not install this book.
             id: Read-only.
-      - name: --user-state-summary
-        short-summary: "The list of installation states for this eBook."
-        long-summary: |
-            Usage: --user-state-summary failed-device-count=XX installed-device-count=XX not-installed-device-count=XX \
-user-name=XX device-states=XX id=XX
-
-            failed-device-count: Failed Device Count.
-            installed-device-count: Installed Device Count.
-            not-installed-device-count: Not installed device count.
-            user-name: User name.
-            device-states: The install state of the eBook.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --user-state-summary argument.
 """
 
 helps['devicescorpmgt device-app-management update-mdm-window-information-protection-policy'] = """
@@ -1135,17 +1116,6 @@ these proxies"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-internal-proxy-servers argument.
-      - name: --enterprise-ip-ranges
-        short-summary: "Sets the enterprise IP ranges that define the computers in the enterprise network. Data that \
-comes from those computers will be considered part of the enterprise and protected. These locations will be considered \
-a safe destination for enterprise data to be shared to"
-        long-summary: |
-            Usage: --enterprise-ip-ranges display-name=XX ranges=XX
-
-            display-name: Display name
-            ranges: Collection of Internet protocol address ranges
-
-            Multiple actions can be specified by using more than one --enterprise-ip-ranges argument.
       - name: --enterprise-network-domain-names
         short-summary: "This is the list of domains that comprise the boundaries of the enterprise. Data from one of \
 these domains that is sent to a device will be considered enterprise data and protected These locations will be \
@@ -1166,18 +1136,6 @@ considered a safe destination for enterprise data to be shared to"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-protected-domain-names argument.
-      - name: --enterprise-proxied-domains
-        short-summary: "Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. \
-Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to \
-the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy \
-server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy"
-        long-summary: |
-            Usage: --enterprise-proxied-domains display-name=XX proxied-domains=XX
-
-            display-name: Display name
-            proxied-domains: Collection of proxied domains
-
-            Multiple actions can be specified by using more than one --enterprise-proxied-domains argument.
       - name: --enterprise-proxy-servers
         short-summary: "This is a list of proxy servers. Any server not on this list is considered non-enterprise"
         long-summary: |
@@ -1398,17 +1356,6 @@ these proxies"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-internal-proxy-servers argument.
-      - name: --enterprise-ip-ranges
-        short-summary: "Sets the enterprise IP ranges that define the computers in the enterprise network. Data that \
-comes from those computers will be considered part of the enterprise and protected. These locations will be considered \
-a safe destination for enterprise data to be shared to"
-        long-summary: |
-            Usage: --enterprise-ip-ranges display-name=XX ranges=XX
-
-            display-name: Display name
-            ranges: Collection of Internet protocol address ranges
-
-            Multiple actions can be specified by using more than one --enterprise-ip-ranges argument.
       - name: --enterprise-network-domain-names
         short-summary: "This is the list of domains that comprise the boundaries of the enterprise. Data from one of \
 these domains that is sent to a device will be considered enterprise data and protected These locations will be \
@@ -1429,18 +1376,6 @@ considered a safe destination for enterprise data to be shared to"
             resources: Collection of resources
 
             Multiple actions can be specified by using more than one --enterprise-protected-domain-names argument.
-      - name: --enterprise-proxied-domains
-        short-summary: "Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. \
-Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to \
-the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy \
-server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy"
-        long-summary: |
-            Usage: --enterprise-proxied-domains display-name=XX proxied-domains=XX
-
-            display-name: Display name
-            proxied-domains: Collection of proxied domains
-
-            Multiple actions can be specified by using more than one --enterprise-proxied-domains argument.
       - name: --enterprise-proxy-servers
         short-summary: "This is a list of proxy servers. Any server not on this list is considered non-enterprise"
         long-summary: |
@@ -1527,15 +1462,19 @@ helps['devicescorpmgt device-app-management-android-managed-app-protection'] = "
     short-summary: Manage device app management android managed app protection with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-android-managed-app-protection delete'] = """
-    type: command
-    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
-deploymentSummary for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-android-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-android-managed-app-protection delete-app'] = """
+    type: command
+    short-summary: "Delete navigation property apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-android-managed-app-protection delete-deployment-summary'] = """
+    type: command
+    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-android-managed-app-protection list-app'] = """
@@ -1568,15 +1507,19 @@ helps['devicescorpmgt device-app-management-default-managed-app-protection'] = "
     short-summary: Manage device app management default managed app protection with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-default-managed-app-protection delete'] = """
-    type: command
-    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
-deploymentSummary for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-default-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-default-managed-app-protection delete-app'] = """
+    type: command
+    short-summary: "Delete navigation property apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-default-managed-app-protection delete-deployment-summary'] = """
+    type: command
+    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-default-managed-app-protection list-app'] = """
@@ -1609,15 +1552,19 @@ helps['devicescorpmgt device-app-management-io-managed-app-protection'] = """
     short-summary: Manage device app management io managed app protection with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-io-managed-app-protection delete'] = """
-    type: command
-    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property \
-deploymentSummary for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-io-managed-app-protection create-app'] = """
     type: command
     short-summary: "Create new navigation property to apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-io-managed-app-protection delete-app'] = """
+    type: command
+    short-summary: "Delete navigation property apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-io-managed-app-protection delete-deployment-summary'] = """
+    type: command
+    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-io-managed-app-protection list-app'] = """
@@ -1660,12 +1607,6 @@ helps['devicescorpmgt device-app-management-managed-app-registration'] = """
     short-summary: Manage device app management managed app registration with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-managed-app-registration delete'] = """
-    type: command
-    short-summary: "Delete navigation property appliedPolicies for deviceAppManagement And Delete navigation property \
-intendedPolicies for deviceAppManagement And Delete navigation property operations for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-managed-app-registration create-applied-policy'] = """
     type: command
     short-summary: "Create new navigation property to appliedPolicies for deviceAppManagement."
@@ -1679,6 +1620,21 @@ helps['devicescorpmgt device-app-management-managed-app-registration create-inte
 helps['devicescorpmgt device-app-management-managed-app-registration create-operation'] = """
     type: command
     short-summary: "Create new navigation property to operations for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration delete-applied-policy'] = """
+    type: command
+    short-summary: "Delete navigation property appliedPolicies for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration delete-intended-policy'] = """
+    type: command
+    short-summary: "Delete navigation property intendedPolicies for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-app-registration delete-operation'] = """
+    type: command
+    short-summary: "Delete navigation property operations for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-app-registration list-applied-policy'] = """
@@ -1756,13 +1712,6 @@ helps['devicescorpmgt device-app-management-managed-e-book'] = """
     short-summary: Manage device app management managed e book with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-managed-e-book delete'] = """
-    type: command
-    short-summary: "Delete navigation property assignments for deviceAppManagement And Delete navigation property \
-deviceStates for deviceAppManagement And Delete navigation property userStateSummary for deviceAppManagement And \
-Delete navigation property installSummary for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-managed-e-book assign'] = """
     type: command
     short-summary: "Invoke action assign."
@@ -1798,6 +1747,26 @@ os-description=XX os-version=XX user-name=XX id=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --device-states argument.
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book delete-device-state'] = """
+    type: command
+    short-summary: "Delete navigation property deviceStates for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book delete-install-summary'] = """
+    type: command
+    short-summary: "Delete navigation property installSummary for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book delete-user-state-summary'] = """
+    type: command
+    short-summary: "Delete navigation property userStateSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book list-assignment'] = """
@@ -1877,14 +1846,14 @@ helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary'] 
     short-summary: Manage device app management managed e book user state summary with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary delete'] = """
-    type: command
-    short-summary: "Delete navigation property deviceStates for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceStates for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary delete-device-state'] = """
+    type: command
+    short-summary: "Delete navigation property deviceStates for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state'] = """
@@ -1907,14 +1876,6 @@ helps['devicescorpmgt device-app-management-mobile-app-configuration'] = """
     short-summary: Manage device app management mobile app configuration with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-mobile-app-configuration delete'] = """
-    type: command
-    short-summary: "Delete navigation property assignments for deviceAppManagement And Delete navigation property \
-deviceStatuses for deviceAppManagement And Delete navigation property userStatuses for deviceAppManagement And Delete \
-navigation property deviceStatusSummary for deviceAppManagement And Delete navigation property userStatusSummary for \
-deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-mobile-app-configuration assign'] = """
     type: command
     short-summary: "Invoke action assign."
@@ -1933,6 +1894,31 @@ helps['devicescorpmgt device-app-management-mobile-app-configuration create-devi
 helps['devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses'] = """
     type: command
     short-summary: "Create new navigation property to userStatuses for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete-device-status-summary'] = """
+    type: command
+    short-summary: "Delete navigation property deviceStatusSummary for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete-device-statuses'] = """
+    type: command
+    short-summary: "Delete navigation property deviceStatuses for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete-user-status-summary'] = """
+    type: command
+    short-summary: "Delete navigation property userStatusSummary for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app-configuration delete-user-statuses'] = """
+    type: command
+    short-summary: "Delete navigation property userStatuses for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app-configuration list-assignment'] = """
@@ -2005,11 +1991,6 @@ helps['devicescorpmgt device-app-management-mobile-app'] = """
     short-summary: Manage device app management mobile app with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-mobile-app delete'] = """
-    type: command
-    short-summary: "Delete navigation property assignments for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-mobile-app assign'] = """
     type: command
     short-summary: "Invoke action assign."
@@ -2023,6 +2004,11 @@ helps['devicescorpmgt device-app-management-mobile-app create-assignment'] = """
 helps['devicescorpmgt device-app-management-mobile-app create-ref-category'] = """
     type: command
     short-summary: "Create new navigation property ref to categories for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-mobile-app delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-mobile-app list-assignment'] = """
@@ -2055,12 +2041,6 @@ helps['devicescorpmgt device-app-management-targeted-managed-app-configuration']
     short-summary: Manage device app management targeted managed app configuration with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete'] = """
-    type: command
-    short-summary: "Delete navigation property apps for deviceAppManagement And Delete navigation property assignments \
-for deviceAppManagement And Delete navigation property deploymentSummary for deviceAppManagement."
-"""
-
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration assign'] = """
     type: command
     short-summary: "Invoke action assign."
@@ -2074,6 +2054,21 @@ helps['devicescorpmgt device-app-management-targeted-managed-app-configuration c
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment'] = """
     type: command
     short-summary: "Create new navigation property to assignments for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete-app'] = """
+    type: command
+    short-summary: "Delete navigation property apps for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property assignments for deviceAppManagement."
+"""
+
+helps['devicescorpmgt device-app-management-targeted-managed-app-configuration delete-deployment-summary'] = """
+    type: command
+    short-summary: "Delete navigation property deploymentSummary for deviceAppManagement."
 """
 
 helps['devicescorpmgt device-app-management-targeted-managed-app-configuration list-app'] = """
@@ -2134,12 +2129,6 @@ helps['devicescorpmgt device-app-management-vpp-token sync-license'] = """
 helps['devicescorpmgt user'] = """
     type: group
     short-summary: Manage user with devicescorpmgt_v1_0
-"""
-
-helps['devicescorpmgt user delete'] = """
-    type: command
-    short-summary: "Delete navigation property deviceManagementTroubleshootingEvents for users And Delete navigation \
-property managedDevices for users."
 """
 
 helps['devicescorpmgt user create-device-management-troubleshooting-event'] = """
@@ -2239,6 +2228,16 @@ create dynamic Azure Active Directory device groups based on device categories."
 helps['devicescorpmgt user create-ref-managed-app-registration'] = """
     type: command
     short-summary: "Create new navigation property ref to managedAppRegistrations for users."
+"""
+
+helps['devicescorpmgt user delete-device-management-troubleshooting-event'] = """
+    type: command
+    short-summary: "Delete navigation property deviceManagementTroubleshootingEvents for users."
+"""
+
+helps['devicescorpmgt user delete-managed-device'] = """
+    type: command
+    short-summary: "Delete navigation property managedDevices for users."
 """
 
 helps['devicescorpmgt user list-device-management-troubleshooting-event'] = """
@@ -2370,58 +2369,29 @@ helps['devicescorpmgt user-managed-device'] = """
     short-summary: Manage user managed device with devicescorpmgt_v1_0
 """
 
-helps['devicescorpmgt user-managed-device delete'] = """
-    type: command
-    short-summary: "Delete navigation property deviceCompliancePolicyStates for users And Delete navigation property \
-deviceConfigurationStates for users And Delete navigation property deviceCategory for users."
-"""
-
 helps['devicescorpmgt user-managed-device create-device-compliance-policy-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceCompliancePolicyStates for users."
-    parameters:
-      - name: --setting-states
-        long-summary: |
-            Usage: --setting-states current-value=XX error-code=XX error-description=XX instance-display-name=XX \
-setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-name=XX user-principal-name=XX
-
-            current-value: Current value of setting on device
-            error-code: Error code for the setting
-            error-description: Error description
-            instance-display-name: Name of setting instance that is being reported.
-            setting: The setting that is being reported
-            setting-name: Localized/user friendly setting name that is being reported
-            sources: Contributing policies
-            user-email: UserEmail
-            user-id: UserId
-            user-name: UserName
-            user-principal-name: UserPrincipalName.
-
-            Multiple actions can be specified by using more than one --setting-states argument.
 """
 
 helps['devicescorpmgt user-managed-device create-device-configuration-state'] = """
     type: command
     short-summary: "Create new navigation property to deviceConfigurationStates for users."
-    parameters:
-      - name: --setting-states
-        long-summary: |
-            Usage: --setting-states current-value=XX error-code=XX error-description=XX instance-display-name=XX \
-setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-name=XX user-principal-name=XX
+"""
 
-            current-value: Current value of setting on device
-            error-code: Error code for the setting
-            error-description: Error description
-            instance-display-name: Name of setting instance that is being reported.
-            setting: The setting that is being reported
-            setting-name: Localized/user friendly setting name that is being reported
-            sources: Contributing policies
-            user-email: UserEmail
-            user-id: UserId
-            user-name: UserName
-            user-principal-name: UserPrincipalName.
+helps['devicescorpmgt user-managed-device delete-device-category'] = """
+    type: command
+    short-summary: "Delete navigation property deviceCategory for users."
+"""
 
-            Multiple actions can be specified by using more than one --setting-states argument.
+helps['devicescorpmgt user-managed-device delete-device-compliance-policy-state'] = """
+    type: command
+    short-summary: "Delete navigation property deviceCompliancePolicyStates for users."
+"""
+
+helps['devicescorpmgt user-managed-device delete-device-configuration-state'] = """
+    type: command
+    short-summary: "Delete navigation property deviceConfigurationStates for users."
 """
 
 helps['devicescorpmgt user-managed-device list-device-compliance-policy-state'] = """
@@ -2457,47 +2427,9 @@ helps['devicescorpmgt user-managed-device update-device-category'] = """
 helps['devicescorpmgt user-managed-device update-device-compliance-policy-state'] = """
     type: command
     short-summary: "Update the navigation property deviceCompliancePolicyStates in users."
-    parameters:
-      - name: --setting-states
-        long-summary: |
-            Usage: --setting-states current-value=XX error-code=XX error-description=XX instance-display-name=XX \
-setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-name=XX user-principal-name=XX
-
-            current-value: Current value of setting on device
-            error-code: Error code for the setting
-            error-description: Error description
-            instance-display-name: Name of setting instance that is being reported.
-            setting: The setting that is being reported
-            setting-name: Localized/user friendly setting name that is being reported
-            sources: Contributing policies
-            user-email: UserEmail
-            user-id: UserId
-            user-name: UserName
-            user-principal-name: UserPrincipalName.
-
-            Multiple actions can be specified by using more than one --setting-states argument.
 """
 
 helps['devicescorpmgt user-managed-device update-device-configuration-state'] = """
     type: command
     short-summary: "Update the navigation property deviceConfigurationStates in users."
-    parameters:
-      - name: --setting-states
-        long-summary: |
-            Usage: --setting-states current-value=XX error-code=XX error-description=XX instance-display-name=XX \
-setting=XX setting-name=XX sources=XX state=XX user-email=XX user-id=XX user-name=XX user-principal-name=XX
-
-            current-value: Current value of setting on device
-            error-code: Error code for the setting
-            error-description: Error description
-            instance-display-name: Name of setting instance that is being reported.
-            setting: The setting that is being reported
-            setting-name: Localized/user friendly setting name that is being reported
-            sources: Contributing policies
-            user-email: UserEmail
-            user-id: UserId
-            user-name: UserName
-            user-principal-name: UserPrincipalName.
-
-            Multiple actions can be specified by using more than one --setting-states argument.
 """

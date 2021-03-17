@@ -11,23 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def mail_user_delete(client,
-                     user_id,
-                     mail_folder_id=None,
-                     if_match=None,
-                     message_id=None):
-    if user_id is not None and mail_folder_id is not None:
-        return client.delete_mail_folder(user_id=user_id,
-                                         mail_folder_id=mail_folder_id,
-                                         if_match=if_match)
-    elif user_id is not None and message_id is not None:
-        return client.delete_message(user_id=user_id,
-                                     message_id=message_id,
-                                     if_match=if_match)
-    return client.delete_inference_classification(user_id=user_id,
-                                                  if_match=if_match)
-
-
 def mail_user_create_mail_folder(client,
                                  user_id,
                                  id_=None,
@@ -134,6 +117,31 @@ def mail_user_create_message(client,
                                  due_date_time=due_date_time,
                                  flag_status=flag_status,
                                  start_date_time=start_date_time)
+
+
+def mail_user_delete_inference_classification(client,
+                                              user_id,
+                                              if_match=None):
+    return client.delete_inference_classification(user_id=user_id,
+                                                  if_match=if_match)
+
+
+def mail_user_delete_mail_folder(client,
+                                 user_id,
+                                 mail_folder_id,
+                                 if_match=None):
+    return client.delete_mail_folder(user_id=user_id,
+                                     mail_folder_id=mail_folder_id,
+                                     if_match=if_match)
+
+
+def mail_user_delete_message(client,
+                             user_id,
+                             message_id,
+                             if_match=None):
+    return client.delete_message(user_id=user_id,
+                                 message_id=message_id,
+                                 if_match=if_match)
 
 
 def mail_user_list_mail_folder(client,
@@ -310,15 +318,6 @@ def mail_user_update_message(client,
                                  start_date_time=start_date_time)
 
 
-def mail_user_inference_classification_delete(client,
-                                              user_id,
-                                              inference_classification_override_id,
-                                              if_match=None):
-    return client.delete_override(user_id=user_id,
-                                  inference_classification_override_id=inference_classification_override_id,
-                                  if_match=if_match)
-
-
 def mail_user_inference_classification_create_override(client,
                                                        user_id,
                                                        id_=None,
@@ -328,6 +327,15 @@ def mail_user_inference_classification_create_override(client,
                                   id=id_,
                                   classify_as=classify_as,
                                   sender_email_address=sender_email_address)
+
+
+def mail_user_inference_classification_delete_override(client,
+                                                       user_id,
+                                                       inference_classification_override_id,
+                                                       if_match=None):
+    return client.delete_override(user_id=user_id,
+                                  inference_classification_override_id=inference_classification_override_id,
+                                  if_match=if_match)
 
 
 def mail_user_inference_classification_list_override(client,
@@ -363,41 +371,6 @@ def mail_user_inference_classification_update_override(client,
                                   id=id_,
                                   classify_as=classify_as,
                                   sender_email_address=sender_email_address)
-
-
-def mail_user_mail_folder_delete(client,
-                                 user_id,
-                                 mail_folder_id,
-                                 mail_folder_id1=None,
-                                 if_match=None,
-                                 message_rule_id=None,
-                                 message_id=None,
-                                 multi_value_legacy_extended_property_id=None,
-                                 single_value_legacy_extended_property_id=None):
-    if user_id is not None and mail_folder_id is not None and mail_folder_id1 is not None:
-        return client.delete_child_folder(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          mail_folder_id1=mail_folder_id1,
-                                          if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_rule_id is not None:
-        return client.delete_message_rule(user_id=user_id,
-                                          mail_folder_id=mail_folder_id,
-                                          message_rule_id=message_rule_id,
-                                          if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None:
-        return client.delete_message(user_id=user_id,
-                                     mail_folder_id=mail_folder_id,
-                                     message_id=message_id,
-                                     if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
 
 
 def mail_user_mail_folder_create_child_folder(client,
@@ -682,6 +655,61 @@ def mail_user_mail_folder_create_single_value_extended_property(client,
                                                         mail_folder_id=mail_folder_id,
                                                         id=id_,
                                                         value=value)
+
+
+def mail_user_mail_folder_delete_child_folder(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              mail_folder_id1,
+                                              if_match=None):
+    return client.delete_child_folder(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      mail_folder_id1=mail_folder_id1,
+                                      if_match=if_match)
+
+
+def mail_user_mail_folder_delete_message(client,
+                                         user_id,
+                                         mail_folder_id,
+                                         message_id,
+                                         if_match=None):
+    return client.delete_message(user_id=user_id,
+                                 mail_folder_id=mail_folder_id,
+                                 message_id=message_id,
+                                 if_match=if_match)
+
+
+def mail_user_mail_folder_delete_message_rule(client,
+                                              user_id,
+                                              mail_folder_id,
+                                              message_rule_id,
+                                              if_match=None):
+    return client.delete_message_rule(user_id=user_id,
+                                      mail_folder_id=mail_folder_id,
+                                      message_rule_id=message_rule_id,
+                                      if_match=if_match)
+
+
+def mail_user_mail_folder_delete_multi_value_extended_property(client,
+                                                               user_id,
+                                                               mail_folder_id,
+                                                               multi_value_legacy_extended_property_id,
+                                                               if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def mail_user_mail_folder_delete_single_value_extended_property(client,
+                                                                user_id,
+                                                                mail_folder_id,
+                                                                single_value_legacy_extended_property_id,
+                                                                if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        mail_folder_id=mail_folder_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def mail_user_mail_folder_list_child_folder(client,
@@ -1108,40 +1136,6 @@ def mail_user_mail_folder_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def mail_user_mail_folder_message_delete(client,
-                                         user_id,
-                                         mail_folder_id,
-                                         message_id,
-                                         attachment_id=None,
-                                         if_match=None,
-                                         extension_id=None,
-                                         multi_value_legacy_extended_property_id=None,
-                                         single_value_legacy_extended_property_id=None):
-    if user_id is not None and mail_folder_id is not None and message_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        mail_folder_id=mail_folder_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       mail_folder_id=mail_folder_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and mail_folder_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           mail_folder_id=mail_folder_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        mail_folder_id=mail_folder_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def mail_user_mail_folder_message_create_attachment(client,
                                                     user_id,
                                                     mail_folder_id,
@@ -1198,6 +1192,58 @@ def mail_user_mail_folder_message_create_single_value_extended_property(client,
                                                         message_id=message_id,
                                                         id=id_,
                                                         value=value)
+
+
+def mail_user_mail_folder_message_delete_attachment(client,
+                                                    user_id,
+                                                    mail_folder_id,
+                                                    message_id,
+                                                    attachment_id,
+                                                    if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    mail_folder_id=mail_folder_id,
+                                    message_id=message_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def mail_user_mail_folder_message_delete_extension(client,
+                                                   user_id,
+                                                   mail_folder_id,
+                                                   message_id,
+                                                   extension_id,
+                                                   if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   mail_folder_id=mail_folder_id,
+                                   message_id=message_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def mail_user_mail_folder_message_delete_multi_value_extended_property(client,
+                                                                       user_id,
+                                                                       mail_folder_id,
+                                                                       message_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       mail_folder_id=mail_folder_id,
+                                                       message_id=message_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def mail_user_mail_folder_message_delete_single_value_extended_property(client,
+                                                                        user_id,
+                                                                        mail_folder_id,
+                                                                        message_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        mail_folder_id=mail_folder_id,
+                                                        message_id=message_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def mail_user_mail_folder_message_list_attachment(client,
@@ -1386,35 +1432,6 @@ def mail_user_mail_folder_message_update_single_value_extended_property(client,
                                                         value=value)
 
 
-def mail_user_message_delete(client,
-                             user_id,
-                             message_id,
-                             attachment_id=None,
-                             if_match=None,
-                             extension_id=None,
-                             multi_value_legacy_extended_property_id=None,
-                             single_value_legacy_extended_property_id=None):
-    if user_id is not None and message_id is not None and attachment_id is not None:
-        return client.delete_attachment(user_id=user_id,
-                                        message_id=message_id,
-                                        attachment_id=attachment_id,
-                                        if_match=if_match)
-    elif user_id is not None and message_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       message_id=message_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and message_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           message_id=message_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        message_id=message_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def mail_user_message_create_attachment(client,
                                         user_id,
                                         message_id,
@@ -1463,6 +1480,50 @@ def mail_user_message_create_single_value_extended_property(client,
                                                         message_id=message_id,
                                                         id=id_,
                                                         value=value)
+
+
+def mail_user_message_delete_attachment(client,
+                                        user_id,
+                                        message_id,
+                                        attachment_id,
+                                        if_match=None):
+    return client.delete_attachment(user_id=user_id,
+                                    message_id=message_id,
+                                    attachment_id=attachment_id,
+                                    if_match=if_match)
+
+
+def mail_user_message_delete_extension(client,
+                                       user_id,
+                                       message_id,
+                                       extension_id,
+                                       if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   message_id=message_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def mail_user_message_delete_multi_value_extended_property(client,
+                                                           user_id,
+                                                           message_id,
+                                                           multi_value_legacy_extended_property_id,
+                                                           if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       message_id=message_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def mail_user_message_delete_single_value_extended_property(client,
+                                                            user_id,
+                                                            message_id,
+                                                            single_value_legacy_extended_property_id,
+                                                            if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        message_id=message_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def mail_user_message_list_attachment(client,

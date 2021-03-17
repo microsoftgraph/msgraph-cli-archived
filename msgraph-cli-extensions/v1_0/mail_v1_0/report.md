@@ -19,11 +19,11 @@
 ### <a name="CommandsInusers">Commands in `az mail user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az mail user delete](#usersDeleteMailFolders)|DeleteMailFolders|[Parameters](#ParametersusersDeleteMailFolders)|Not Found|
-|[az mail user delete](#usersDeleteMessages)|DeleteMessages|[Parameters](#ParametersusersDeleteMessages)|Not Found|
-|[az mail user delete](#usersDeleteInferenceClassification)|DeleteInferenceClassification|[Parameters](#ParametersusersDeleteInferenceClassification)|Not Found|
 |[az mail user create-mail-folder](#usersCreateMailFolders)|CreateMailFolders|[Parameters](#ParametersusersCreateMailFolders)|Not Found|
 |[az mail user create-message](#usersCreateMessages)|CreateMessages|[Parameters](#ParametersusersCreateMessages)|Not Found|
+|[az mail user delete-inference-classification](#usersDeleteInferenceClassification)|DeleteInferenceClassification|[Parameters](#ParametersusersDeleteInferenceClassification)|Not Found|
+|[az mail user delete-mail-folder](#usersDeleteMailFolders)|DeleteMailFolders|[Parameters](#ParametersusersDeleteMailFolders)|Not Found|
+|[az mail user delete-message](#usersDeleteMessages)|DeleteMessages|[Parameters](#ParametersusersDeleteMessages)|Not Found|
 |[az mail user list-mail-folder](#usersListMailFolders)|ListMailFolders|[Parameters](#ParametersusersListMailFolders)|Not Found|
 |[az mail user list-message](#usersListMessages)|ListMessages|[Parameters](#ParametersusersListMessages)|Not Found|
 |[az mail user show-inference-classification](#usersGetInferenceClassification)|GetInferenceClassification|[Parameters](#ParametersusersGetInferenceClassification)|Not Found|
@@ -36,8 +36,8 @@
 ### <a name="CommandsInusers.inferenceClassification">Commands in `az mail user-inference-classification` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az mail user-inference-classification delete](#users.inferenceClassificationDeleteOverrides)|DeleteOverrides|[Parameters](#Parametersusers.inferenceClassificationDeleteOverrides)|Not Found|
 |[az mail user-inference-classification create-override](#users.inferenceClassificationCreateOverrides)|CreateOverrides|[Parameters](#Parametersusers.inferenceClassificationCreateOverrides)|Not Found|
+|[az mail user-inference-classification delete-override](#users.inferenceClassificationDeleteOverrides)|DeleteOverrides|[Parameters](#Parametersusers.inferenceClassificationDeleteOverrides)|Not Found|
 |[az mail user-inference-classification list-override](#users.inferenceClassificationListOverrides)|ListOverrides|[Parameters](#Parametersusers.inferenceClassificationListOverrides)|Not Found|
 |[az mail user-inference-classification show-override](#users.inferenceClassificationGetOverrides)|GetOverrides|[Parameters](#Parametersusers.inferenceClassificationGetOverrides)|Not Found|
 |[az mail user-inference-classification update-override](#users.inferenceClassificationUpdateOverrides)|UpdateOverrides|[Parameters](#Parametersusers.inferenceClassificationUpdateOverrides)|Not Found|
@@ -45,16 +45,16 @@
 ### <a name="CommandsInusers.mailFolders">Commands in `az mail user-mail-folder` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az mail user-mail-folder delete](#users.mailFoldersDeleteChildFolders)|DeleteChildFolders|[Parameters](#Parametersusers.mailFoldersDeleteChildFolders)|Not Found|
-|[az mail user-mail-folder delete](#users.mailFoldersDeleteMessageRules)|DeleteMessageRules|[Parameters](#Parametersusers.mailFoldersDeleteMessageRules)|Not Found|
-|[az mail user-mail-folder delete](#users.mailFoldersDeleteMessages)|DeleteMessages|[Parameters](#Parametersusers.mailFoldersDeleteMessages)|Not Found|
-|[az mail user-mail-folder delete](#users.mailFoldersDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersDeleteMultiValueExtendedProperties)|Not Found|
-|[az mail user-mail-folder delete](#users.mailFoldersDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder create-child-folder](#users.mailFoldersCreateChildFolders)|CreateChildFolders|[Parameters](#Parametersusers.mailFoldersCreateChildFolders)|Not Found|
 |[az mail user-mail-folder create-message](#users.mailFoldersCreateMessages)|CreateMessages|[Parameters](#Parametersusers.mailFoldersCreateMessages)|Not Found|
 |[az mail user-mail-folder create-message-rule](#users.mailFoldersCreateMessageRules)|CreateMessageRules|[Parameters](#Parametersusers.mailFoldersCreateMessageRules)|Not Found|
 |[az mail user-mail-folder create-multi-value-extended-property](#users.mailFoldersCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersCreateMultiValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder create-single-value-extended-property](#users.mailFoldersCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersCreateSingleValueExtendedProperties)|Not Found|
+|[az mail user-mail-folder delete-child-folder](#users.mailFoldersDeleteChildFolders)|DeleteChildFolders|[Parameters](#Parametersusers.mailFoldersDeleteChildFolders)|Not Found|
+|[az mail user-mail-folder delete-message](#users.mailFoldersDeleteMessages)|DeleteMessages|[Parameters](#Parametersusers.mailFoldersDeleteMessages)|Not Found|
+|[az mail user-mail-folder delete-message-rule](#users.mailFoldersDeleteMessageRules)|DeleteMessageRules|[Parameters](#Parametersusers.mailFoldersDeleteMessageRules)|Not Found|
+|[az mail user-mail-folder delete-multi-value-extended-property](#users.mailFoldersDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersDeleteMultiValueExtendedProperties)|Not Found|
+|[az mail user-mail-folder delete-single-value-extended-property](#users.mailFoldersDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFoldersDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder list-child-folder](#users.mailFoldersListChildFolders)|ListChildFolders|[Parameters](#Parametersusers.mailFoldersListChildFolders)|Not Found|
 |[az mail user-mail-folder list-message](#users.mailFoldersListMessages)|ListMessages|[Parameters](#Parametersusers.mailFoldersListMessages)|Not Found|
 |[az mail user-mail-folder list-message-rule](#users.mailFoldersListMessageRules)|ListMessageRules|[Parameters](#Parametersusers.mailFoldersListMessageRules)|Not Found|
@@ -74,14 +74,14 @@
 ### <a name="CommandsInusers.mailFolders.messages">Commands in `az mail user-mail-folder-message` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az mail user-mail-folder-message delete](#users.mailFolders.messagesDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.mailFolders.messagesDeleteAttachments)|Not Found|
-|[az mail user-mail-folder-message delete](#users.mailFolders.messagesDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.mailFolders.messagesDeleteExtensions)|Not Found|
-|[az mail user-mail-folder-message delete](#users.mailFolders.messagesDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesDeleteMultiValueExtendedProperties)|Not Found|
-|[az mail user-mail-folder-message delete](#users.mailFolders.messagesDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder-message create-attachment](#users.mailFolders.messagesCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.mailFolders.messagesCreateAttachments)|Not Found|
 |[az mail user-mail-folder-message create-extension](#users.mailFolders.messagesCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.mailFolders.messagesCreateExtensions)|Not Found|
 |[az mail user-mail-folder-message create-multi-value-extended-property](#users.mailFolders.messagesCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesCreateMultiValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder-message create-single-value-extended-property](#users.mailFolders.messagesCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesCreateSingleValueExtendedProperties)|Not Found|
+|[az mail user-mail-folder-message delete-attachment](#users.mailFolders.messagesDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.mailFolders.messagesDeleteAttachments)|Not Found|
+|[az mail user-mail-folder-message delete-extension](#users.mailFolders.messagesDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.mailFolders.messagesDeleteExtensions)|Not Found|
+|[az mail user-mail-folder-message delete-multi-value-extended-property](#users.mailFolders.messagesDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesDeleteMultiValueExtendedProperties)|Not Found|
+|[az mail user-mail-folder-message delete-single-value-extended-property](#users.mailFolders.messagesDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-mail-folder-message list-attachment](#users.mailFolders.messagesListAttachments)|ListAttachments|[Parameters](#Parametersusers.mailFolders.messagesListAttachments)|Not Found|
 |[az mail user-mail-folder-message list-extension](#users.mailFolders.messagesListExtensions)|ListExtensions|[Parameters](#Parametersusers.mailFolders.messagesListExtensions)|Not Found|
 |[az mail user-mail-folder-message list-multi-value-extended-property](#users.mailFolders.messagesListMultiValueExtendedProperties)|ListMultiValueExtendedProperties|[Parameters](#Parametersusers.mailFolders.messagesListMultiValueExtendedProperties)|Not Found|
@@ -98,14 +98,14 @@
 ### <a name="CommandsInusers.messages">Commands in `az mail user-message` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az mail user-message delete](#users.messagesDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.messagesDeleteAttachments)|Not Found|
-|[az mail user-message delete](#users.messagesDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.messagesDeleteExtensions)|Not Found|
-|[az mail user-message delete](#users.messagesDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.messagesDeleteMultiValueExtendedProperties)|Not Found|
-|[az mail user-message delete](#users.messagesDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.messagesDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-message create-attachment](#users.messagesCreateAttachments)|CreateAttachments|[Parameters](#Parametersusers.messagesCreateAttachments)|Not Found|
 |[az mail user-message create-extension](#users.messagesCreateExtensions)|CreateExtensions|[Parameters](#Parametersusers.messagesCreateExtensions)|Not Found|
 |[az mail user-message create-multi-value-extended-property](#users.messagesCreateMultiValueExtendedProperties)|CreateMultiValueExtendedProperties|[Parameters](#Parametersusers.messagesCreateMultiValueExtendedProperties)|Not Found|
 |[az mail user-message create-single-value-extended-property](#users.messagesCreateSingleValueExtendedProperties)|CreateSingleValueExtendedProperties|[Parameters](#Parametersusers.messagesCreateSingleValueExtendedProperties)|Not Found|
+|[az mail user-message delete-attachment](#users.messagesDeleteAttachments)|DeleteAttachments|[Parameters](#Parametersusers.messagesDeleteAttachments)|Not Found|
+|[az mail user-message delete-extension](#users.messagesDeleteExtensions)|DeleteExtensions|[Parameters](#Parametersusers.messagesDeleteExtensions)|Not Found|
+|[az mail user-message delete-multi-value-extended-property](#users.messagesDeleteMultiValueExtendedProperties)|DeleteMultiValueExtendedProperties|[Parameters](#Parametersusers.messagesDeleteMultiValueExtendedProperties)|Not Found|
+|[az mail user-message delete-single-value-extended-property](#users.messagesDeleteSingleValueExtendedProperties)|DeleteSingleValueExtendedProperties|[Parameters](#Parametersusers.messagesDeleteSingleValueExtendedProperties)|Not Found|
 |[az mail user-message list-attachment](#users.messagesListAttachments)|ListAttachments|[Parameters](#Parametersusers.messagesListAttachments)|Not Found|
 |[az mail user-message list-extension](#users.messagesListExtensions)|ListExtensions|[Parameters](#Parametersusers.messagesListExtensions)|Not Found|
 |[az mail user-message list-multi-value-extended-property](#users.messagesListMultiValueExtendedProperties)|ListMultiValueExtendedProperties|[Parameters](#Parametersusers.messagesListMultiValueExtendedProperties)|Not Found|
@@ -123,27 +123,6 @@
 ## COMMAND DETAILS
 
 ### group `az mail user`
-#### <a name="usersDeleteMailFolders">Command `az mail user delete`</a>
-
-##### <a name="ParametersusersDeleteMailFolders">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteMessages">Command `az mail user delete`</a>
-
-##### <a name="ParametersusersDeleteMessages">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--message-id**|string|key: id of message|message_id|message-id|
-
-#### <a name="usersDeleteInferenceClassification">Command `az mail user delete`</a>
-
-##### <a name="ParametersusersDeleteInferenceClassification">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreateMailFolders">Command `az mail user create-mail-folder`</a>
 
 ##### <a name="ParametersusersCreateMailFolders">Parameters</a> 
@@ -206,6 +185,32 @@
 |**--due-date-time**|object|dateTimeTimeZone|due_date_time|dueDateTime|
 |**--flag-status**|choice||flag_status|flagStatus|
 |**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
+
+#### <a name="usersDeleteInferenceClassification">Command `az mail user delete-inference-classification`</a>
+
+##### <a name="ParametersusersDeleteInferenceClassification">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteMailFolders">Command `az mail user delete-mail-folder`</a>
+
+##### <a name="ParametersusersDeleteMailFolders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteMessages">Command `az mail user delete-message`</a>
+
+##### <a name="ParametersusersDeleteMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListMailFolders">Command `az mail user list-mail-folder`</a>
 
@@ -331,15 +336,6 @@
 |**--start-date-time**|object|dateTimeTimeZone|start_date_time|startDateTime|
 
 ### group `az mail user-inference-classification`
-#### <a name="users.inferenceClassificationDeleteOverrides">Command `az mail user-inference-classification delete`</a>
-
-##### <a name="Parametersusers.inferenceClassificationDeleteOverrides">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--inference-classification-override-id**|string|key: id of inferenceClassificationOverride|inference_classification_override_id|inferenceClassificationOverride-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.inferenceClassificationCreateOverrides">Command `az mail user-inference-classification create-override`</a>
 
 ##### <a name="Parametersusers.inferenceClassificationCreateOverrides">Parameters</a> 
@@ -349,6 +345,15 @@
 |**--id**|string|Read-only.|id|id|
 |**--classify-as**|choice||classify_as|classifyAs|
 |**--sender-email-address**|object|emailAddress|sender_email_address|senderEmailAddress|
+
+#### <a name="users.inferenceClassificationDeleteOverrides">Command `az mail user-inference-classification delete-override`</a>
+
+##### <a name="Parametersusers.inferenceClassificationDeleteOverrides">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--inference-classification-override-id**|string|key: id of inferenceClassificationOverride|inference_classification_override_id|inferenceClassificationOverride-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.inferenceClassificationListOverrides">Command `az mail user-inference-classification list-override`</a>
 
@@ -382,44 +387,6 @@
 |**--sender-email-address**|object|emailAddress|sender_email_address|senderEmailAddress|
 
 ### group `az mail user-mail-folder`
-#### <a name="users.mailFoldersDeleteChildFolders">Command `az mail user-mail-folder delete`</a>
-
-##### <a name="Parametersusers.mailFoldersDeleteChildFolders">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--mail-folder-id1**|string|key: id of mailFolder|mail_folder_id1|mailFolder-id1|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.mailFoldersDeleteMessageRules">Command `az mail user-mail-folder delete`</a>
-
-##### <a name="Parametersusers.mailFoldersDeleteMessageRules">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--message-rule-id**|string|key: id of messageRule|message_rule_id|messageRule-id|
-
-#### <a name="users.mailFoldersDeleteMessages">Command `az mail user-mail-folder delete`</a>
-
-##### <a name="Parametersusers.mailFoldersDeleteMessages">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--message-id**|string|key: id of message|message_id|message-id|
-
-#### <a name="users.mailFoldersDeleteMultiValueExtendedProperties">Command `az mail user-mail-folder delete`</a>
-
-##### <a name="Parametersusers.mailFoldersDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.mailFoldersDeleteSingleValueExtendedProperties">Command `az mail user-mail-folder delete`</a>
-
-##### <a name="Parametersusers.mailFoldersDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.mailFoldersCreateChildFolders">Command `az mail user-mail-folder create-child-folder`</a>
 
 ##### <a name="Parametersusers.mailFoldersCreateChildFolders">Parameters</a> 
@@ -578,6 +545,56 @@
 |**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.mailFoldersDeleteChildFolders">Command `az mail user-mail-folder delete-child-folder`</a>
+
+##### <a name="Parametersusers.mailFoldersDeleteChildFolders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--mail-folder-id1**|string|key: id of mailFolder|mail_folder_id1|mailFolder-id1|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFoldersDeleteMessages">Command `az mail user-mail-folder delete-message`</a>
+
+##### <a name="Parametersusers.mailFoldersDeleteMessages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFoldersDeleteMessageRules">Command `az mail user-mail-folder delete-message-rule`</a>
+
+##### <a name="Parametersusers.mailFoldersDeleteMessageRules">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-rule-id**|string|key: id of messageRule|message_rule_id|messageRule-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFoldersDeleteMultiValueExtendedProperties">Command `az mail user-mail-folder delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.mailFoldersDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFoldersDeleteSingleValueExtendedProperties">Command `az mail user-mail-folder delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.mailFoldersDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.mailFoldersListChildFolders">Command `az mail user-mail-folder list-child-folder`</a>
 
@@ -854,38 +871,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az mail user-mail-folder-message`
-#### <a name="users.mailFolders.messagesDeleteAttachments">Command `az mail user-mail-folder-message delete`</a>
-
-##### <a name="Parametersusers.mailFolders.messagesDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
-|**--message-id**|string|key: id of message|message_id|message-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.mailFolders.messagesDeleteExtensions">Command `az mail user-mail-folder-message delete`</a>
-
-##### <a name="Parametersusers.mailFolders.messagesDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.mailFolders.messagesDeleteMultiValueExtendedProperties">Command `az mail user-mail-folder-message delete`</a>
-
-##### <a name="Parametersusers.mailFolders.messagesDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.mailFolders.messagesDeleteSingleValueExtendedProperties">Command `az mail user-mail-folder-message delete`</a>
-
-##### <a name="Parametersusers.mailFolders.messagesDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.mailFolders.messagesCreateAttachments">Command `az mail user-mail-folder-message create-attachment`</a>
 
 ##### <a name="Parametersusers.mailFolders.messagesCreateAttachments">Parameters</a> 
@@ -932,6 +917,50 @@
 |**--message-id**|string|key: id of message|message_id|message-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.mailFolders.messagesDeleteAttachments">Command `az mail user-mail-folder-message delete-attachment`</a>
+
+##### <a name="Parametersusers.mailFolders.messagesDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFolders.messagesDeleteExtensions">Command `az mail user-mail-folder-message delete-extension`</a>
+
+##### <a name="Parametersusers.mailFolders.messagesDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFolders.messagesDeleteMultiValueExtendedProperties">Command `az mail user-mail-folder-message delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.mailFolders.messagesDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.mailFolders.messagesDeleteSingleValueExtendedProperties">Command `az mail user-mail-folder-message delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.mailFolders.messagesDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--mail-folder-id**|string|key: id of mailFolder|mail_folder_id|mailFolder-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.mailFolders.messagesListAttachments">Command `az mail user-mail-folder-message list-attachment`</a>
 
@@ -1081,37 +1110,6 @@
 |**--value**|string|A property value.|value|value|
 
 ### group `az mail user-message`
-#### <a name="users.messagesDeleteAttachments">Command `az mail user-message delete`</a>
-
-##### <a name="Parametersusers.messagesDeleteAttachments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--message-id**|string|key: id of message|message_id|message-id|
-|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.messagesDeleteExtensions">Command `az mail user-message delete`</a>
-
-##### <a name="Parametersusers.messagesDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-
-#### <a name="users.messagesDeleteMultiValueExtendedProperties">Command `az mail user-message delete`</a>
-
-##### <a name="Parametersusers.messagesDeleteMultiValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
-
-#### <a name="users.messagesDeleteSingleValueExtendedProperties">Command `az mail user-message delete`</a>
-
-##### <a name="Parametersusers.messagesDeleteSingleValueExtendedProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
-
 #### <a name="users.messagesCreateAttachments">Command `az mail user-message create-attachment`</a>
 
 ##### <a name="Parametersusers.messagesCreateAttachments">Parameters</a> 
@@ -1154,6 +1152,46 @@
 |**--message-id**|string|key: id of message|message_id|message-id|
 |**--id**|string|Read-only.|id|id|
 |**--value**|string|A property value.|value|value|
+
+#### <a name="users.messagesDeleteAttachments">Command `az mail user-message delete-attachment`</a>
+
+##### <a name="Parametersusers.messagesDeleteAttachments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--attachment-id**|string|key: id of attachment|attachment_id|attachment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.messagesDeleteExtensions">Command `az mail user-message delete-extension`</a>
+
+##### <a name="Parametersusers.messagesDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.messagesDeleteMultiValueExtendedProperties">Command `az mail user-message delete-multi-value-extended-property`</a>
+
+##### <a name="Parametersusers.messagesDeleteMultiValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--multi-value-legacy-extended-property-id**|string|key: id of multiValueLegacyExtendedProperty|multi_value_legacy_extended_property_id|multiValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.messagesDeleteSingleValueExtendedProperties">Command `az mail user-message delete-single-value-extended-property`</a>
+
+##### <a name="Parametersusers.messagesDeleteSingleValueExtendedProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--message-id**|string|key: id of message|message_id|message-id|
+|**--single-value-legacy-extended-property-id**|string|key: id of singleValueLegacyExtendedProperty|single_value_legacy_extended_property_id|singleValueLegacyExtendedProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.messagesListAttachments">Command `az mail user-message list-attachment`</a>
 

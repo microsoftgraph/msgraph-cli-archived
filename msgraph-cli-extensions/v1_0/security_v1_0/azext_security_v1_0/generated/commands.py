@@ -37,10 +37,12 @@ def load_command_table(self, _):
         client_factory=cf_security,
     )
     with self.command_group('security security', security_v1_0_security, client_factory=cf_security) as g:
-        g.custom_command('delete', 'security_security_delete', confirmation=True)
         g.custom_command('create-alert', 'security_security_create_alert')
         g.custom_command('create-secure-score', 'security_security_create_secure_score')
         g.custom_command('create-secure-score-control-profile', 'security_security_create_secure_score_control_profile')
+        g.custom_command('delete-alert', 'security_security_delete_alert')
+        g.custom_command('delete-secure-score', 'security_security_delete_secure_score')
+        g.custom_command('delete-secure-score-control-profile', 'security_security_delete_secure_score_control_profile')
         g.custom_command('list-alert', 'security_security_list_alert')
         g.custom_command('list-secure-score', 'security_security_list_secure_score')
         g.custom_command('list-secure-score-control-profile', 'security_security_list_secure_score_control_profile')

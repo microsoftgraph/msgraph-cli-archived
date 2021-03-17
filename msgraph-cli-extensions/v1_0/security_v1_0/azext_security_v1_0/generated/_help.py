@@ -32,12 +32,6 @@ helps['security security'] = """
     short-summary: Manage security with security_v1_0
 """
 
-helps['security security delete'] = """
-    type: command
-    short-summary: "Delete navigation property alerts for Security And Delete navigation property \
-secureScoreControlProfiles for Security And Delete navigation property secureScores for Security."
-"""
-
 helps['security security create-alert'] = """
     type: command
     short-summary: "Create new navigation property to alerts for Security."
@@ -255,15 +249,6 @@ helps['security security create-secure-score-control-profile'] = """
     type: command
     short-summary: "Create new navigation property to secureScoreControlProfiles for Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX
@@ -285,6 +270,21 @@ helps['security security create-secure-score-control-profile'] = """
             sub-provider: Specific subprovider (under aggregating provider); for example, \
 WindowsDefenderATP.SmartScreen.
             vendor: Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
+"""
+
+helps['security security delete-alert'] = """
+    type: command
+    short-summary: "Delete navigation property alerts for Security."
+"""
+
+helps['security security delete-secure-score'] = """
+    type: command
+    short-summary: "Delete navigation property secureScores for Security."
+"""
+
+helps['security security delete-secure-score-control-profile'] = """
+    type: command
+    short-summary: "Delete navigation property secureScoreControlProfiles for Security."
 """
 
 helps['security security list-alert'] = """
@@ -534,15 +534,6 @@ helps['security security update-secure-score-control-profile'] = """
     type: command
     short-summary: "Update the navigation property secureScoreControlProfiles in Security."
     parameters:
-      - name: --compliance-information
-        long-summary: |
-            Usage: --compliance-information certification-controls=XX certification-name=XX
-
-            certification-controls: Collection of the certification controls associated with certification
-            certification-name: Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST \
-800-171)
-
-            Multiple actions can be specified by using more than one --compliance-information argument.
       - name: --control-state-updates
         long-summary: |
             Usage: --control-state-updates assigned-to=XX comment=XX state=XX updated-by=XX updated-date-time=XX

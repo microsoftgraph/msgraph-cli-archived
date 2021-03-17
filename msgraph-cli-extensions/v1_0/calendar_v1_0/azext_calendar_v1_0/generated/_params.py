@@ -37,11 +37,6 @@ from azext_calendar_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('calendar group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('calendar group create-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -283,6 +278,20 @@ def load_arguments(self, _):
         c.argument('unique_id', type=str, help='For internal use only.', arg_group='Location')
         c.argument('unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', 'private',
                                                              'bing']), help='', arg_group='Location')
+
+    with self.argument_context('calendar group delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group delete-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group delete-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group list-calendar-view') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -607,16 +616,6 @@ def load_arguments(self, _):
         c.argument('unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', 'private',
                                                              'bing']), help='', arg_group='Location')
 
-    with self.argument_context('calendar group-calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-calendar create-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -885,6 +884,33 @@ def load_arguments(self, _):
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-calendar delete-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar delete-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar delete-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-calendar list-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1232,18 +1258,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-calendar-view delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-calendar-view create-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -1395,6 +1409,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-calendar-view delete-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-calendar-view list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -1676,18 +1727,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-calendar-event delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-calendar-event create-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -1839,6 +1878,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-calendar-event delete-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-event delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-event delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-event delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-event delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-event delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-calendar-event list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2120,18 +2196,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-calendar-view delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-calendar-view create-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -2283,6 +2347,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-calendar-view delete-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-calendar-view list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -2564,17 +2665,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-calendar-view-calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-calendar-view-calendar create-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -2848,6 +2938,38 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-calendar-view-calendar delete-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view-calendar delete-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view-calendar delete-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view-calendar delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-calendar-view-calendar delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-calendar-view-calendar list-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3202,18 +3324,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-event delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-event create-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3365,6 +3475,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-event delete-attachment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event delete-calendar') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event delete-extension') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event delete-instance') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-event list-attachment') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -3646,17 +3793,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar group-event-calendar delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar group-event-calendar create-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('event_id', type=str, help='key: id of event')
@@ -3930,6 +4066,38 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar group-event-calendar delete-calendar-permission') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event-calendar delete-calendar-view') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event-calendar delete-event') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event-calendar delete-multi-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar group-event-calendar delete-single-value-extended-property') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar group-event-calendar list-calendar-permission') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -4284,16 +4452,16 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar place-place delete') as c:
-        c.argument('place_id', type=str, help='key: id of place')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('calendar place-place create-place') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('address', action=AddAddress, nargs='+', help='physicalAddress')
         c.argument('display_name', type=str, help='The name associated with the place.')
         c.argument('geo_coordinates', action=AddCoordinates, nargs='+', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
+
+    with self.argument_context('calendar place-place delete-place') as c:
+        c.argument('place_id', type=str, help='key: id of place')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar place-place list-place') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -4312,13 +4480,6 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='The name associated with the place.')
         c.argument('geo_coordinates', action=AddCoordinates, nargs='+', help='outlookGeoCoordinates')
         c.argument('phone', type=str, help='The phone number of the place.')
-
-    with self.argument_context('calendar user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
 
     with self.argument_context('calendar user create-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4614,6 +4775,26 @@ def load_arguments(self, _):
         c.argument('unique_id', type=str, help='For internal use only.', arg_group='Location')
         c.argument('unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', 'private',
                                                              'bing']), help='', arg_group='Location')
+
+    with self.argument_context('calendar user delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user delete-calendar-group') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user list-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -4970,16 +5151,6 @@ def load_arguments(self, _):
         c.argument('unique_id_type', arg_type=get_enum_type(['unknown', 'locationStore', 'directory', 'private',
                                                              'bing']), help='', arg_group='Location')
 
-    with self.argument_context('calendar user-calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -5248,6 +5419,33 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar delete-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -5595,18 +5793,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-view delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-view create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -5758,6 +5944,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-view delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-view list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -6039,18 +6262,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-event delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-event create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -6202,6 +6413,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-event delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-event list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -6483,12 +6731,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-group delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('calendar user-calendar-group create-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
@@ -6531,6 +6773,12 @@ def load_arguments(self, _):
         c.argument('single_value_extended_properties',
                    action=AddCalendarGroupUpdateCalendarSingleValueExtendedProperties, nargs='+', help='The collection '
                    'of single-value extended properties defined for the calendar. Read-only. Nullable.')
+
+    with self.argument_context('calendar user-calendar-group delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-group list-calendar') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -6589,18 +6837,6 @@ def load_arguments(self, _):
         c.argument('single_value_extended_properties',
                    action=AddCalendarGroupUpdateCalendarSingleValueExtendedProperties, nargs='+', help='The collection '
                    'of single-value extended properties defined for the calendar. Read-only. Nullable.')
-
-    with self.argument_context('calendar user-calendar-group-calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
 
     with self.argument_context('calendar user-calendar-group-calendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -6880,6 +7116,43 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-group-calendar delete-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-group-calendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -7249,20 +7522,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-group-calendar-view delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-group-calendar-view create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
@@ -7424,6 +7683,55 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-view delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-group-calendar-view list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -7739,20 +8047,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-group-calendar-event delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-group-calendar-event create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
@@ -7914,6 +8208,55 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-group-calendar-event delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_group_id', type=str, help='key: id of calendarGroup')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-group-calendar-event list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -8229,17 +8572,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -8513,6 +8845,38 @@ def load_arguments(self, _):
         c.argument('calendar_id', type=str, help='key: id of calendar')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar delete-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -8875,19 +9239,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-view delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-view create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -9044,6 +9395,49 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-view delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-view list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -9342,19 +9736,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-event delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('calendar_id', type=str, help='key: id of calendar')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-event create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('calendar_id', type=str, help='key: id of calendar')
@@ -9511,6 +9892,49 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-event delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-event delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('calendar_id', type=str, help='key: id of calendar')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-event list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -9809,18 +10233,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-view delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-view create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -9972,6 +10384,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-view delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-view list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10253,17 +10702,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-calendar-view-calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-calendar-view-calendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -10537,6 +10975,38 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-calendar-view-calendar delete-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view-calendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view-calendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view-calendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-calendar-view-calendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-calendar-view-calendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -10891,18 +11361,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-event delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-event create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -11054,6 +11512,43 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-event delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event delete-calendar') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event delete-instance') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-event list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -11335,17 +11830,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('calendar user-event-calendar delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('event_id', type=str, help='key: id of event')
-        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('event_id1', type=str, help='key: id of event')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('calendar user-event-calendar create-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('event_id', type=str, help='key: id of event')
@@ -11619,6 +12103,38 @@ def load_arguments(self, _):
         c.argument('event_id', type=str, help='key: id of event')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('calendar user-event-calendar delete-calendar-permission') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('calendar_permission_id', type=str, help='key: id of calendarPermission')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event-calendar delete-calendar-view') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event-calendar delete-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('event_id1', type=str, help='key: id of event')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event-calendar delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('calendar user-event-calendar delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('event_id', type=str, help='key: id of event')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('calendar user-event-calendar list-calendar-permission') as c:
         c.argument('user_id', type=str, help='key: id of user')

@@ -27,8 +27,8 @@ def load_command_table(self, _):
         changenotifications_v1_0_subscription_subscription,
         client_factory=cf_subscription_subscription,
     ) as g:
-        g.custom_command('delete', 'changenotifications_subscription_subscription_delete', confirmation=True)
         g.custom_command('create-subscription', 'changenotifications_subscription_subscription_create_subscription')
+        g.custom_command('delete-subscription', 'changenotifications_subscription_subscription_delete_subscription')
         g.custom_command('list-subscription', 'changenotifications_subscription_subscription_list_subscription')
         g.custom_command('show-subscription', 'changenotifications_subscription_subscription_show_subscription')
         g.custom_command('update-subscription', 'changenotifications_subscription_subscription_update_subscription')

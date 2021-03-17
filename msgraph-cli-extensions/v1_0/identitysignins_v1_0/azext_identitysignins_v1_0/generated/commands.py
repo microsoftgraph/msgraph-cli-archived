@@ -28,11 +28,12 @@ def load_command_table(self, _):
         client_factory=cf_data_policy_operation_data_policy_operation,
     ) as g:
         g.custom_command(
-            'delete', 'identitysignins_data_policy_operation_data_policy_operation_delete', confirmation=True
-        )
-        g.custom_command(
             'create-data-policy-operation',
             'identitysignins_data_policy_operation_data_policy_operation_create_data_policy_operation',
+        )
+        g.custom_command(
+            'delete-data-policy-operation',
+            'identitysignins_data_policy_operation_data_policy_operation_delete_data_policy_operation',
         )
         g.custom_command(
             'list-data-policy-operation',
@@ -54,7 +55,7 @@ def load_command_table(self, _):
         client_factory=cf_identity,
     )
     with self.command_group('identitysignins identity', identitysignins_v1_0_identity, client_factory=cf_identity) as g:
-        g.custom_command('delete', 'identitysignins_identity_delete', confirmation=True)
+        g.custom_command('delete-conditional-access', 'identitysignins_identity_delete_conditional_access')
         g.custom_command('show-conditional-access', 'identitysignins_identity_show_conditional_access')
         g.custom_command('update-conditional-access', 'identitysignins_identity_update_conditional_access')
 
@@ -69,9 +70,10 @@ def load_command_table(self, _):
         identitysignins_v1_0_identity_conditional_access,
         client_factory=cf_identity_conditional_access,
     ) as g:
-        g.custom_command('delete', 'identitysignins_identity_conditional_access_delete', confirmation=True)
         g.custom_command('create-named-location', 'identitysignins_identity_conditional_access_create_named_location')
         g.custom_command('create-policy', 'identitysignins_identity_conditional_access_create_policy')
+        g.custom_command('delete-named-location', 'identitysignins_identity_conditional_access_delete_named_location')
+        g.custom_command('delete-policy', 'identitysignins_identity_conditional_access_delete_policy')
         g.custom_command('list-named-location', 'identitysignins_identity_conditional_access_list_named_location')
         g.custom_command('list-policy', 'identitysignins_identity_conditional_access_list_policy')
         g.custom_command('show-named-location', 'identitysignins_identity_conditional_access_show_named_location')
@@ -90,9 +92,11 @@ def load_command_table(self, _):
         identitysignins_v1_0_identity_provider_identity_provider,
         client_factory=cf_identity_provider_identity_provider,
     ) as g:
-        g.custom_command('delete', 'identitysignins_identity_provider_identity_provider_delete', confirmation=True)
         g.custom_command(
             'create-identity-provider', 'identitysignins_identity_provider_identity_provider_create_identity_provider'
+        )
+        g.custom_command(
+            'delete-identity-provider', 'identitysignins_identity_provider_identity_provider_delete_identity_provider'
         )
         g.custom_command(
             'list-identity-provider', 'identitysignins_identity_provider_identity_provider_list_identity_provider'
@@ -135,10 +139,13 @@ def load_command_table(self, _):
         identitysignins_v1_0_information_protection,
         client_factory=cf_information_protection,
     ) as g:
-        g.custom_command('delete', 'identitysignins_information_protection_delete', confirmation=True)
         g.custom_command(
             'create-threat-assessment-request',
             'identitysignins_information_protection_create_threat_assessment_request',
+        )
+        g.custom_command(
+            'delete-threat-assessment-request',
+            'identitysignins_information_protection_delete_threat_assessment_request',
         )
         g.custom_command(
             'list-threat-assessment-request', 'identitysignins_information_protection_list_threat_assessment_request'
@@ -163,10 +170,10 @@ def load_command_table(self, _):
         client_factory=cf_information_protection_threat_assessment_request,
     ) as g:
         g.custom_command(
-            'delete', 'identitysignins_information_protection_threat_assessment_request_delete', confirmation=True
+            'create-result', 'identitysignins_information_protection_threat_assessment_request_create_result'
         )
         g.custom_command(
-            'create-result', 'identitysignins_information_protection_threat_assessment_request_create_result'
+            'delete-result', 'identitysignins_information_protection_threat_assessment_request_delete_result'
         )
         g.custom_command('list-result', 'identitysignins_information_protection_threat_assessment_request_list_result')
         g.custom_command('show-result', 'identitysignins_information_protection_threat_assessment_request_show_result')
@@ -185,8 +192,8 @@ def load_command_table(self, _):
         identitysignins_v1_0_invitation_invitation,
         client_factory=cf_invitation_invitation,
     ) as g:
-        g.custom_command('delete', 'identitysignins_invitation_invitation_delete', confirmation=True)
         g.custom_command('create-invitation', 'identitysignins_invitation_invitation_create_invitation')
+        g.custom_command('delete-invitation', 'identitysignins_invitation_invitation_delete_invitation')
         g.custom_command('list-invitation', 'identitysignins_invitation_invitation_list_invitation')
         g.custom_command('show-invitation', 'identitysignins_invitation_invitation_show_invitation')
         g.custom_command('update-invitation', 'identitysignins_invitation_invitation_update_invitation')
@@ -200,7 +207,7 @@ def load_command_table(self, _):
     with self.command_group(
         'identitysignins invitation', identitysignins_v1_0_invitation, client_factory=cf_invitation
     ) as g:
-        g.custom_command('delete', 'identitysignins_invitation_delete', confirmation=True)
+        g.custom_command('delete-ref-invited-user', 'identitysignins_invitation_delete_ref_invited_user')
         g.custom_command('set-ref-invited-user', 'identitysignins_invitation_set_ref_invited_user')
         g.custom_command('show-invited-user', 'identitysignins_invitation_show_invited_user')
         g.custom_command('show-ref-invited-user', 'identitysignins_invitation_show_ref_invited_user')
@@ -217,11 +224,12 @@ def load_command_table(self, _):
         client_factory=cf_oauth2permission_grant_oauth2permission_grant,
     ) as g:
         g.custom_command(
-            'delete', 'identitysignins_oauth2_permission_grant_o_auth2_permission_grant_delete', confirmation=True
-        )
-        g.custom_command(
             'create-o-auth2-permission-grant',
             'identitysignins_oauth2_permission_grant_o_auth2_permission_grant_create_o_auth2_permission_grant',
+        )
+        g.custom_command(
+            'delete-o-auth2-permission-grant',
+            'identitysignins_oauth2_permission_grant_o_auth2_permission_grant_delete_o_auth2_permission_grant',
         )
         g.custom_command(
             'list-o-auth2-permission-grant',
@@ -294,7 +302,6 @@ def load_command_table(self, _):
         client_factory=cf_policy,
     )
     with self.command_group('identitysignins policy', identitysignins_v1_0_policy, client_factory=cf_policy) as g:
-        g.custom_command('delete', 'identitysignins_policy_delete', confirmation=True)
         g.custom_command(
             'create-activity-based-timeout-policy', 'identitysignins_policy_create_activity_based_timeout_policy'
         )
@@ -306,6 +313,21 @@ def load_command_table(self, _):
         g.custom_command('create-permission-grant-policy', 'identitysignins_policy_create_permission_grant_policy')
         g.custom_command('create-token-issuance-policy', 'identitysignins_policy_create_token_issuance_policy')
         g.custom_command('create-token-lifetime-policy', 'identitysignins_policy_create_token_lifetime_policy')
+        g.custom_command(
+            'delete-activity-based-timeout-policy', 'identitysignins_policy_delete_activity_based_timeout_policy'
+        )
+        g.custom_command('delete-claim-mapping-policy', 'identitysignins_policy_delete_claim_mapping_policy')
+        g.custom_command('delete-conditional-access-policy', 'identitysignins_policy_delete_conditional_access_policy')
+        g.custom_command(
+            'delete-home-realm-discovery-policy', 'identitysignins_policy_delete_home_realm_discovery_policy'
+        )
+        g.custom_command(
+            'delete-identity-security-default-enforcement-policy',
+            'identitysignins_policy_delete_identity_security_default_enforcement_policy',
+        )
+        g.custom_command('delete-permission-grant-policy', 'identitysignins_policy_delete_permission_grant_policy')
+        g.custom_command('delete-token-issuance-policy', 'identitysignins_policy_delete_token_issuance_policy')
+        g.custom_command('delete-token-lifetime-policy', 'identitysignins_policy_delete_token_lifetime_policy')
         g.custom_command(
             'list-activity-based-timeout-policy', 'identitysignins_policy_list_activity_based_timeout_policy'
         )
@@ -355,9 +377,10 @@ def load_command_table(self, _):
         identitysignins_v1_0_policy_permission_grant_policy,
         client_factory=cf_policy_permission_grant_policy,
     ) as g:
-        g.custom_command('delete', 'identitysignins_policy_permission_grant_policy_delete', confirmation=True)
         g.custom_command('create-exclude', 'identitysignins_policy_permission_grant_policy_create_exclude')
         g.custom_command('create-include', 'identitysignins_policy_permission_grant_policy_create_include')
+        g.custom_command('delete-exclude', 'identitysignins_policy_permission_grant_policy_delete_exclude')
+        g.custom_command('delete-include', 'identitysignins_policy_permission_grant_policy_delete_include')
         g.custom_command('list-exclude', 'identitysignins_policy_permission_grant_policy_list_exclude')
         g.custom_command('list-include', 'identitysignins_policy_permission_grant_policy_list_include')
         g.custom_command('show-exclude', 'identitysignins_policy_permission_grant_policy_show_exclude')

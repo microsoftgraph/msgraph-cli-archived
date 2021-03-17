@@ -35,8 +35,8 @@ def load_command_table(self, _):
         client_factory=cf_external,
     )
     with self.command_group('search external', search_beta_external, client_factory=cf_external) as g:
-        g.custom_command('delete', 'search_external_delete', confirmation=True)
         g.custom_command('create-connection', 'search_external_create_connection')
+        g.custom_command('delete-connection', 'search_external_delete_connection')
         g.custom_command('list-connection', 'search_external_list_connection')
         g.custom_command('show-connection', 'search_external_show_connection')
         g.custom_command('update-connection', 'search_external_update_connection')

@@ -23,9 +23,11 @@ def load_command_table(self, _):
         client_factory=cf_group,
     )
     with self.command_group('calendar group', calendar_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'calendar_group_delete', confirmation=True)
         g.custom_command('create-calendar-view', 'calendar_group_create_calendar_view')
         g.custom_command('create-event', 'calendar_group_create_event')
+        g.custom_command('delete-calendar', 'calendar_group_delete_calendar')
+        g.custom_command('delete-calendar-view', 'calendar_group_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_group_delete_event')
         g.custom_command('list-calendar-view', 'calendar_group_list_calendar_view')
         g.custom_command('list-event', 'calendar_group_list_event')
         g.custom_command('show-calendar', 'calendar_group_show_calendar')
@@ -44,7 +46,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar group-calendar', calendar_v1_0_group_calendar, client_factory=cf_group_calendar
     ) as g:
-        g.custom_command('delete', 'calendar_group_calendar_delete', confirmation=True)
         g.custom_command('create-calendar-permission', 'calendar_group_calendar_create_calendar_permission')
         g.custom_command('create-calendar-view', 'calendar_group_calendar_create_calendar_view')
         g.custom_command('create-event', 'calendar_group_calendar_create_event')
@@ -53,6 +54,15 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_group_calendar_create_single_value_extended_property'
+        )
+        g.custom_command('delete-calendar-permission', 'calendar_group_calendar_delete_calendar_permission')
+        g.custom_command('delete-calendar-view', 'calendar_group_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_group_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_calendar_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_group_calendar_delete_single_value_extended_property'
         )
         g.custom_command('list-calendar-permission', 'calendar_group_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_group_calendar_list_calendar_view')
@@ -93,7 +103,6 @@ def load_command_table(self, _):
         calendar_v1_0_group_calendar_calendar_view,
         client_factory=cf_group_calendar_calendar_view,
     ) as g:
-        g.custom_command('delete', 'calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_view_create_instance')
@@ -103,6 +112,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_group_calendar_view_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_group_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_group_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_group_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_group_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_calendar_view_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_group_calendar_view_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_view_list_extension')
@@ -144,7 +164,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar group-calendar-event', calendar_v1_0_group_calendar_event, client_factory=cf_group_calendar_event
     ) as g:
-        g.custom_command('delete', 'calendar_group_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_event_create_instance')
@@ -154,6 +173,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_group_calendar_event_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_group_calendar_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_group_calendar_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_group_calendar_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_group_calendar_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_calendar_event_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_group_calendar_event_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_group_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_event_list_extension')
@@ -195,7 +225,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar group-calendar-view', calendar_v1_0_group_calendar_view, client_factory=cf_group_calendar_view
     ) as g:
-        g.custom_command('delete', 'calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_group_calendar_view_create_instance')
@@ -205,6 +234,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_group_calendar_view_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_group_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_group_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_group_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_group_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_calendar_view_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_group_calendar_view_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_group_calendar_view_list_extension')
@@ -248,7 +288,6 @@ def load_command_table(self, _):
         calendar_v1_0_group_calendar_view_calendar,
         client_factory=cf_group_calendar_view_calendar,
     ) as g:
-        g.custom_command('delete', 'calendar_group_calendar_view_calendar_delete', confirmation=True)
         g.custom_command(
             'create-calendar-permission', 'calendar_group_calendar_view_calendar_create_calendar_permission'
         )
@@ -261,6 +300,19 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_group_calendar_view_calendar_create_single_value_extended_property',
+        )
+        g.custom_command(
+            'delete-calendar-permission', 'calendar_group_calendar_view_calendar_delete_calendar_permission'
+        )
+        g.custom_command('delete-calendar-view', 'calendar_group_calendar_view_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_group_calendar_view_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'calendar_group_calendar_view_calendar_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_group_calendar_view_calendar_delete_single_value_extended_property',
         )
         g.custom_command('list-calendar-permission', 'calendar_group_calendar_view_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_group_calendar_view_calendar_list_calendar_view')
@@ -307,7 +359,6 @@ def load_command_table(self, _):
         client_factory=cf_group_event,
     )
     with self.command_group('calendar group-event', calendar_v1_0_group_event, client_factory=cf_group_event) as g:
-        g.custom_command('delete', 'calendar_group_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_group_event_create_attachment')
         g.custom_command('create-extension', 'calendar_group_event_create_extension')
         g.custom_command('create-instance', 'calendar_group_event_create_instance')
@@ -316,6 +367,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_group_event_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'calendar_group_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_group_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_group_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_group_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_event_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_group_event_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'calendar_group_event_list_attachment')
         g.custom_command('list-extension', 'calendar_group_event_list_extension')
@@ -356,7 +417,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar group-event-calendar', calendar_v1_0_group_event_calendar, client_factory=cf_group_event_calendar
     ) as g:
-        g.custom_command('delete', 'calendar_group_event_calendar_delete', confirmation=True)
         g.custom_command('create-calendar-permission', 'calendar_group_event_calendar_create_calendar_permission')
         g.custom_command('create-calendar-view', 'calendar_group_event_calendar_create_calendar_view')
         g.custom_command('create-event', 'calendar_group_event_calendar_create_event')
@@ -366,6 +426,16 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_group_event_calendar_create_single_value_extended_property',
+        )
+        g.custom_command('delete-calendar-permission', 'calendar_group_event_calendar_delete_calendar_permission')
+        g.custom_command('delete-calendar-view', 'calendar_group_event_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_group_event_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_group_event_calendar_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_group_event_calendar_delete_single_value_extended_property',
         )
         g.custom_command('list-calendar-permission', 'calendar_group_event_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_group_event_calendar_list_calendar_view')
@@ -405,8 +475,8 @@ def load_command_table(self, _):
         client_factory=cf_place_place,
     )
     with self.command_group('calendar place-place', calendar_v1_0_place_place, client_factory=cf_place_place) as g:
-        g.custom_command('delete', 'calendar_place_place_delete', confirmation=True)
         g.custom_command('create-place', 'calendar_place_place_create_place')
+        g.custom_command('delete-place', 'calendar_place_place_delete_place')
         g.custom_command('list-place', 'calendar_place_place_list_place')
         g.custom_command('show-place', 'calendar_place_place_show_place')
         g.custom_command('update-place', 'calendar_place_place_update_place')
@@ -418,11 +488,14 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('calendar user', calendar_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'calendar_user_delete', confirmation=True)
         g.custom_command('create-calendar', 'calendar_user_create_calendar')
         g.custom_command('create-calendar-group', 'calendar_user_create_calendar_group')
         g.custom_command('create-calendar-view', 'calendar_user_create_calendar_view')
         g.custom_command('create-event', 'calendar_user_create_event')
+        g.custom_command('delete-calendar', 'calendar_user_delete_calendar')
+        g.custom_command('delete-calendar-group', 'calendar_user_delete_calendar_group')
+        g.custom_command('delete-calendar-view', 'calendar_user_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_delete_event')
         g.custom_command('list-calendar', 'calendar_user_list_calendar')
         g.custom_command('list-calendar-group', 'calendar_user_list_calendar_group')
         g.custom_command('list-calendar-view', 'calendar_user_list_calendar_view')
@@ -447,7 +520,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar', calendar_v1_0_user_calendar, client_factory=cf_user_calendar
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_delete', confirmation=True)
         g.custom_command('create-calendar-permission', 'calendar_user_calendar_create_calendar_permission')
         g.custom_command('create-calendar-view', 'calendar_user_calendar_create_calendar_view')
         g.custom_command('create-event', 'calendar_user_calendar_create_event')
@@ -456,6 +528,15 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_property'
+        )
+        g.custom_command('delete-calendar-permission', 'calendar_user_calendar_delete_calendar_permission')
+        g.custom_command('delete-calendar-view', 'calendar_user_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_calendar_delete_single_value_extended_property'
         )
         g.custom_command('list-calendar-permission', 'calendar_user_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_user_calendar_list_calendar_view')
@@ -496,7 +577,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_calendar_view,
         client_factory=cf_user_calendar_calendar_view,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
@@ -505,6 +585,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_view_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_calendar_view_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
@@ -545,7 +635,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar-event', calendar_v1_0_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_event_create_instance')
@@ -555,6 +644,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_event_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_event_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_event_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_event_list_extension')
@@ -596,8 +696,8 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar-group', calendar_v1_0_user_calendar_group, client_factory=cf_user_calendar_group
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_group_delete', confirmation=True)
         g.custom_command('create-calendar', 'calendar_user_calendar_group_create_calendar')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_group_delete_calendar')
         g.custom_command('list-calendar', 'calendar_user_calendar_group_list_calendar')
         g.custom_command('show-calendar', 'calendar_user_calendar_group_show_calendar')
         g.custom_command('update-calendar', 'calendar_user_calendar_group_update_calendar')
@@ -613,7 +713,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_group_calendar,
         client_factory=cf_user_calendar_group_calendar,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_group_calendar_delete', confirmation=True)
         g.custom_command(
             'create-calendar-permission', 'calendar_user_calendar_group_calendar_create_calendar_permission'
         )
@@ -626,6 +725,19 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_group_calendar_create_single_value_extended_property',
+        )
+        g.custom_command(
+            'delete-calendar-permission', 'calendar_user_calendar_group_calendar_delete_calendar_permission'
+        )
+        g.custom_command('delete-calendar-view', 'calendar_user_calendar_group_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_calendar_group_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_delete_single_value_extended_property',
         )
         g.custom_command('list-calendar-permission', 'calendar_user_calendar_group_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_user_calendar_group_calendar_list_calendar_view')
@@ -674,7 +786,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_group_calendar_calendar_view,
         client_factory=cf_user_calendar_group_calendar_calendar_view,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_group_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_group_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_group_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_group_calendar_view_create_instance')
@@ -685,6 +796,18 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_group_calendar_view_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_group_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_group_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_group_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_group_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_view_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_group_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_group_calendar_view_list_extension')
@@ -733,7 +856,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_group_calendar_event,
         client_factory=cf_user_calendar_group_calendar_event,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_group_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_group_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_group_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_group_calendar_event_create_instance')
@@ -744,6 +866,18 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_group_calendar_event_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_group_calendar_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_group_calendar_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_group_calendar_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_group_calendar_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_group_calendar_event_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_group_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_group_calendar_event_list_extension')
@@ -792,7 +926,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar', calendar_v1_0_user_calendar, client_factory=cf_user_calendar
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_delete', confirmation=True)
         g.custom_command('create-calendar-permission', 'calendar_user_calendar_create_calendar_permission')
         g.custom_command('create-calendar-view', 'calendar_user_calendar_create_calendar_view')
         g.custom_command('create-event', 'calendar_user_calendar_create_event')
@@ -801,6 +934,15 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_calendar_create_single_value_extended_property'
+        )
+        g.custom_command('delete-calendar-permission', 'calendar_user_calendar_delete_calendar_permission')
+        g.custom_command('delete-calendar-view', 'calendar_user_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_calendar_delete_single_value_extended_property'
         )
         g.custom_command('list-calendar-permission', 'calendar_user_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_user_calendar_list_calendar_view')
@@ -841,7 +983,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_calendar_view,
         client_factory=cf_user_calendar_calendar_view,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
@@ -850,6 +991,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_view_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_calendar_view_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
@@ -890,7 +1041,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar-event', calendar_v1_0_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_event_create_instance')
@@ -900,6 +1050,17 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_event_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_event_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_event_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_event_list_extension')
@@ -941,7 +1102,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-calendar-view', calendar_v1_0_user_calendar_view, client_factory=cf_user_calendar_view
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_view_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_calendar_view_create_attachment')
         g.custom_command('create-extension', 'calendar_user_calendar_view_create_extension')
         g.custom_command('create-instance', 'calendar_user_calendar_view_create_instance')
@@ -950,6 +1110,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_calendar_view_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'calendar_user_calendar_view_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_calendar_view_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_calendar_view_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_calendar_view_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_calendar_view_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_calendar_view_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'calendar_user_calendar_view_list_attachment')
         g.custom_command('list-extension', 'calendar_user_calendar_view_list_extension')
@@ -992,7 +1162,6 @@ def load_command_table(self, _):
         calendar_v1_0_user_calendar_view_calendar,
         client_factory=cf_user_calendar_view_calendar,
     ) as g:
-        g.custom_command('delete', 'calendar_user_calendar_view_calendar_delete', confirmation=True)
         g.custom_command(
             'create-calendar-permission', 'calendar_user_calendar_view_calendar_create_calendar_permission'
         )
@@ -1005,6 +1174,19 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_calendar_view_calendar_create_single_value_extended_property',
+        )
+        g.custom_command(
+            'delete-calendar-permission', 'calendar_user_calendar_view_calendar_delete_calendar_permission'
+        )
+        g.custom_command('delete-calendar-view', 'calendar_user_calendar_view_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_calendar_view_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property',
+            'calendar_user_calendar_view_calendar_delete_multi_value_extended_property',
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_calendar_view_calendar_delete_single_value_extended_property',
         )
         g.custom_command('list-calendar-permission', 'calendar_user_calendar_view_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_user_calendar_view_calendar_list_calendar_view')
@@ -1051,7 +1233,6 @@ def load_command_table(self, _):
         client_factory=cf_user_event,
     )
     with self.command_group('calendar user-event', calendar_v1_0_user_event, client_factory=cf_user_event) as g:
-        g.custom_command('delete', 'calendar_user_event_delete', confirmation=True)
         g.custom_command('create-attachment', 'calendar_user_event_create_attachment')
         g.custom_command('create-extension', 'calendar_user_event_create_extension')
         g.custom_command('create-instance', 'calendar_user_event_create_instance')
@@ -1060,6 +1241,16 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'calendar_user_event_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'calendar_user_event_delete_attachment')
+        g.custom_command('delete-calendar', 'calendar_user_event_delete_calendar')
+        g.custom_command('delete-extension', 'calendar_user_event_delete_extension')
+        g.custom_command('delete-instance', 'calendar_user_event_delete_instance')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_event_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'calendar_user_event_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'calendar_user_event_list_attachment')
         g.custom_command('list-extension', 'calendar_user_event_list_extension')
@@ -1096,7 +1287,6 @@ def load_command_table(self, _):
     with self.command_group(
         'calendar user-event-calendar', calendar_v1_0_user_event_calendar, client_factory=cf_user_event_calendar
     ) as g:
-        g.custom_command('delete', 'calendar_user_event_calendar_delete', confirmation=True)
         g.custom_command('create-calendar-permission', 'calendar_user_event_calendar_create_calendar_permission')
         g.custom_command('create-calendar-view', 'calendar_user_event_calendar_create_calendar_view')
         g.custom_command('create-event', 'calendar_user_event_calendar_create_event')
@@ -1106,6 +1296,16 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'calendar_user_event_calendar_create_single_value_extended_property',
+        )
+        g.custom_command('delete-calendar-permission', 'calendar_user_event_calendar_delete_calendar_permission')
+        g.custom_command('delete-calendar-view', 'calendar_user_event_calendar_delete_calendar_view')
+        g.custom_command('delete-event', 'calendar_user_event_calendar_delete_event')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'calendar_user_event_calendar_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'calendar_user_event_calendar_delete_single_value_extended_property',
         )
         g.custom_command('list-calendar-permission', 'calendar_user_event_calendar_list_calendar_permission')
         g.custom_command('list-calendar-view', 'calendar_user_event_calendar_list_calendar_view')

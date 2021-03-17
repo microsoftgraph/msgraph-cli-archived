@@ -39,10 +39,12 @@ def load_command_table(self, _):
         client_factory=cf_audit_log,
     )
     with self.command_group('reports audit-log', reports_v1_0_audit_log, client_factory=cf_audit_log) as g:
-        g.custom_command('delete', 'reports_audit_log_delete', confirmation=True)
         g.custom_command('create-directory-audit', 'reports_audit_log_create_directory_audit')
         g.custom_command('create-restricted-sign-in', 'reports_audit_log_create_restricted_sign_in')
         g.custom_command('create-sign-in', 'reports_audit_log_create_sign_in')
+        g.custom_command('delete-directory-audit', 'reports_audit_log_delete_directory_audit')
+        g.custom_command('delete-restricted-sign-in', 'reports_audit_log_delete_restricted_sign_in')
+        g.custom_command('delete-sign-in', 'reports_audit_log_delete_sign_in')
         g.custom_command('list-directory-audit', 'reports_audit_log_list_directory_audit')
         g.custom_command('list-restricted-sign-in', 'reports_audit_log_list_restricted_sign_in')
         g.custom_command('list-sign-in', 'reports_audit_log_list_sign_in')

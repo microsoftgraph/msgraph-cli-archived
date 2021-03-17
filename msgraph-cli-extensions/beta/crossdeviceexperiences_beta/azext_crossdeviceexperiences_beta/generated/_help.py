@@ -17,11 +17,6 @@ helps['crossdeviceexperiences user'] = """
     short-summary: Manage user with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences user delete'] = """
-    type: command
-    short-summary: "Delete navigation property activities for users And Delete navigation property devices for users."
-"""
-
 helps['crossdeviceexperiences user create-activity'] = """
     type: command
     short-summary: "Create new navigation property to activities for users."
@@ -118,6 +113,16 @@ Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --extensions argument.
+"""
+
+helps['crossdeviceexperiences user delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for users."
+"""
+
+helps['crossdeviceexperiences user delete-device'] = """
+    type: command
+    short-summary: "Delete navigation property devices for users."
 """
 
 helps['crossdeviceexperiences user list-activity'] = """
@@ -243,14 +248,14 @@ helps['crossdeviceexperiences user-activity'] = """
     short-summary: Manage user activity with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences user-activity delete'] = """
-    type: command
-    short-summary: "Delete navigation property historyItems for users."
-"""
-
 helps['crossdeviceexperiences user-activity create-history-item'] = """
     type: command
     short-summary: "Create new navigation property to historyItems for users."
+"""
+
+helps['crossdeviceexperiences user-activity delete-history-item'] = """
+    type: command
+    short-summary: "Delete navigation property historyItems for users."
 """
 
 helps['crossdeviceexperiences user-activity list-history-item'] = """
@@ -273,7 +278,7 @@ helps['crossdeviceexperiences user-activity-history-item'] = """
     short-summary: Manage user activity history item with crossdeviceexperiences_beta
 """
 
-helps['crossdeviceexperiences user-activity-history-item delete'] = """
+helps['crossdeviceexperiences user-activity-history-item delete-ref-activity'] = """
     type: command
     short-summary: "Delete ref of navigation property activity for users."
 """

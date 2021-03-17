@@ -18,7 +18,6 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_reports_beta.action import (
     AddRestrictedSignIns,
     AddAdditionalDetails,
-    AddTargetResources,
     AddApp,
     AddUser,
     AddInitiatedBy,
@@ -59,13 +58,6 @@ def load_arguments(self, _):
         c.argument('sign_ins', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('reports audit-log delete') as c:
-        c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
-        c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
-        c.argument('sign_in_id', type=str, help='key: id of signIn')
-
     with self.argument_context('reports audit-log create-directory-audit') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
@@ -86,9 +78,9 @@ def load_arguments(self, _):
         c.argument('operation_type', type=str, help='')
         c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
         c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
-        c.argument('target_resources', action=AddTargetResources, nargs='+', help='Indicates information on which '
-                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
-                   'App, Role, Group, Policy or Other.')
+        c.argument('target_resources', type=validate_file_or_dict, help='Indicates information on which resource was '
+                   'changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, '
+                   'Group, Policy or Other. Expected value: json-string/@json-file.')
         c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
         c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
 
@@ -319,6 +311,26 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
 
+    with self.argument_context('reports audit-log delete-directory-audit') as c:
+        c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports audit-log delete-directory-provisioning') as c:
+        c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports audit-log delete-provisioning') as c:
+        c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports audit-log delete-restricted-sign-in') as c:
+        c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports audit-log delete-sign-in') as c:
+        c.argument('sign_in_id', type=str, help='key: id of signIn')
+        c.argument('if_match', type=str, help='ETag')
+
     with self.argument_context('reports audit-log list-directory-audit') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
@@ -390,9 +402,9 @@ def load_arguments(self, _):
         c.argument('operation_type', type=str, help='')
         c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
         c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
-        c.argument('target_resources', action=AddTargetResources, nargs='+', help='Indicates information on which '
-                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
-                   'App, Role, Group, Policy or Other.')
+        c.argument('target_resources', type=validate_file_or_dict, help='Indicates information on which resource was '
+                   'changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, '
+                   'Group, Policy or Other. Expected value: json-string/@json-file.')
         c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
         c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
 
@@ -647,16 +659,6 @@ def load_arguments(self, _):
         c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='+',
                    help='')
 
-    with self.argument_context('reports report delete') as c:
-        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: id of '
-                   'applicationSignInDetailedSummary')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('credential_user_registration_details_id', type=str, help='key: id of '
-                   'credentialUserRegistrationDetails')
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
-        c.argument('user_credential_usage_details_id', type=str, help='key: id of userCredentialUsageDetails')
-
     with self.argument_context('reports report create-application-sign-in-detailed-summary') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('aggregated_event_date_time', help='')
@@ -719,6 +721,30 @@ def load_arguments(self, _):
         c.argument('is_success', arg_type=get_three_state_flag(), help='')
         c.argument('user_display_name', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
+
+    with self.argument_context('reports report delete-application-sign-in-detailed-summary') as c:
+        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: id of '
+                   'applicationSignInDetailedSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports report delete-credential-user-registration-detail') as c:
+        c.argument('credential_user_registration_details_id', type=str, help='key: id of '
+                   'credentialUserRegistrationDetails')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports report delete-daily-print-usage-summary') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
+
+    with self.argument_context('reports report delete-monthly-print-usage-summary') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
+
+    with self.argument_context('reports report delete-user-credential-usage-detail') as c:
+        c.argument('user_credential_usage_details_id', type=str, help='key: id of userCredentialUsageDetails')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('reports report list-application-sign-in-detailed-summary') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')

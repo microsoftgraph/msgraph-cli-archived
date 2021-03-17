@@ -11,21 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def people_user_delete(client,
-                       user_id,
-                       person_id=None,
-                       if_match=None):
-    if user_id is not None and person_id is not None:
-        return client.delete_person(user_id=user_id,
-                                    person_id=person_id,
-                                    if_match=if_match)
-    elif user_id is not None:
-        return client.delete_analytic(user_id=user_id,
-                                      if_match=if_match)
-    return client.delete_profile(user_id=user_id,
-                                 if_match=if_match)
-
-
 def people_user_create_person(client,
                               user_id,
                               id_=None,
@@ -71,6 +56,29 @@ def people_user_create_person(client,
                                 user_principal_name=user_principal_name,
                                 websites=websites,
                                 yomi_company=yomi_company)
+
+
+def people_user_delete_analytic(client,
+                                user_id,
+                                if_match=None):
+    return client.delete_analytic(user_id=user_id,
+                                  if_match=if_match)
+
+
+def people_user_delete_person(client,
+                              user_id,
+                              person_id,
+                              if_match=None):
+    return client.delete_person(user_id=user_id,
+                                person_id=person_id,
+                                if_match=if_match)
+
+
+def people_user_delete_profile(client,
+                               user_id,
+                               if_match=None):
+    return client.delete_profile(user_id=user_id,
+                                 if_match=if_match)
 
 
 def people_user_list_person(client,
@@ -218,15 +226,6 @@ def people_user_update_profile(client,
                                  websites=websites)
 
 
-def people_user_analytic_delete(client,
-                                user_id,
-                                activity_statistics_id,
-                                if_match=None):
-    return client.delete_activity_statistics(user_id=user_id,
-                                             activity_statistics_id=activity_statistics_id,
-                                             if_match=if_match)
-
-
 def people_user_analytic_create_activity_statistics(client,
                                                     user_id,
                                                     id_=None,
@@ -242,6 +241,15 @@ def people_user_analytic_create_activity_statistics(client,
                                              end_date=end_date,
                                              start_date=start_date,
                                              time_zone_used=time_zone_used)
+
+
+def people_user_analytic_delete_activity_statistics(client,
+                                                    user_id,
+                                                    activity_statistics_id,
+                                                    if_match=None):
+    return client.delete_activity_statistics(user_id=user_id,
+                                             activity_statistics_id=activity_statistics_id,
+                                             if_match=if_match)
 
 
 def people_user_analytic_list_activity_statistics(client,
@@ -283,105 +291,6 @@ def people_user_analytic_update_activity_statistics(client,
                                              end_date=end_date,
                                              start_date=start_date,
                                              time_zone_used=time_zone_used)
-
-
-def people_user_profile_delete(client,
-                               user_id,
-                               user_account_information_id=None,
-                               if_match=None,
-                               item_address_id=None,
-                               person_anniversary_id=None,
-                               person_award_id=None,
-                               person_certification_id=None,
-                               educational_activity_id=None,
-                               item_email_id=None,
-                               person_interest_id=None,
-                               language_proficiency_id=None,
-                               person_name_id=None,
-                               person_annotation_id=None,
-                               item_patent_id=None,
-                               item_phone_id=None,
-                               work_position_id=None,
-                               project_participation_id=None,
-                               item_publication_id=None,
-                               skill_proficiency_id=None,
-                               web_account_id=None,
-                               person_website_id=None):
-    if user_id is not None and user_account_information_id is not None:
-        return client.delete_account(user_id=user_id,
-                                     user_account_information_id=user_account_information_id,
-                                     if_match=if_match)
-    elif user_id is not None and item_address_id is not None:
-        return client.delete_address(user_id=user_id,
-                                     item_address_id=item_address_id,
-                                     if_match=if_match)
-    elif user_id is not None and person_anniversary_id is not None:
-        return client.delete_anniversary(user_id=user_id,
-                                         person_anniversary_id=person_anniversary_id,
-                                         if_match=if_match)
-    elif user_id is not None and person_award_id is not None:
-        return client.delete_award(user_id=user_id,
-                                   person_award_id=person_award_id,
-                                   if_match=if_match)
-    elif user_id is not None and person_certification_id is not None:
-        return client.delete_certification(user_id=user_id,
-                                           person_certification_id=person_certification_id,
-                                           if_match=if_match)
-    elif user_id is not None and educational_activity_id is not None:
-        return client.delete_educational_activity(user_id=user_id,
-                                                  educational_activity_id=educational_activity_id,
-                                                  if_match=if_match)
-    elif user_id is not None and item_email_id is not None:
-        return client.delete_email(user_id=user_id,
-                                   item_email_id=item_email_id,
-                                   if_match=if_match)
-    elif user_id is not None and person_interest_id is not None:
-        return client.delete_interest(user_id=user_id,
-                                      person_interest_id=person_interest_id,
-                                      if_match=if_match)
-    elif user_id is not None and language_proficiency_id is not None:
-        return client.delete_language(user_id=user_id,
-                                      language_proficiency_id=language_proficiency_id,
-                                      if_match=if_match)
-    elif user_id is not None and person_name_id is not None:
-        return client.delete_name(user_id=user_id,
-                                  person_name_id=person_name_id,
-                                  if_match=if_match)
-    elif user_id is not None and person_annotation_id is not None:
-        return client.delete_note(user_id=user_id,
-                                  person_annotation_id=person_annotation_id,
-                                  if_match=if_match)
-    elif user_id is not None and item_patent_id is not None:
-        return client.delete_patent(user_id=user_id,
-                                    item_patent_id=item_patent_id,
-                                    if_match=if_match)
-    elif user_id is not None and item_phone_id is not None:
-        return client.delete_phone(user_id=user_id,
-                                   item_phone_id=item_phone_id,
-                                   if_match=if_match)
-    elif user_id is not None and work_position_id is not None:
-        return client.delete_position(user_id=user_id,
-                                      work_position_id=work_position_id,
-                                      if_match=if_match)
-    elif user_id is not None and project_participation_id is not None:
-        return client.delete_project(user_id=user_id,
-                                     project_participation_id=project_participation_id,
-                                     if_match=if_match)
-    elif user_id is not None and item_publication_id is not None:
-        return client.delete_publication(user_id=user_id,
-                                         item_publication_id=item_publication_id,
-                                         if_match=if_match)
-    elif user_id is not None and skill_proficiency_id is not None:
-        return client.delete_skill(user_id=user_id,
-                                   skill_proficiency_id=skill_proficiency_id,
-                                   if_match=if_match)
-    elif user_id is not None and web_account_id is not None:
-        return client.delete_web_account(user_id=user_id,
-                                         web_account_id=web_account_id,
-                                         if_match=if_match)
-    return client.delete_website(user_id=user_id,
-                                 person_website_id=person_website_id,
-                                 if_match=if_match)
 
 
 def people_user_profile_create_account(client,
@@ -1171,6 +1080,177 @@ def people_user_profile_create_website(client,
                                  description=description,
                                  display_name=display_name,
                                  web_url=web_url)
+
+
+def people_user_profile_delete_account(client,
+                                       user_id,
+                                       user_account_information_id,
+                                       if_match=None):
+    return client.delete_account(user_id=user_id,
+                                 user_account_information_id=user_account_information_id,
+                                 if_match=if_match)
+
+
+def people_user_profile_delete_address(client,
+                                       user_id,
+                                       item_address_id,
+                                       if_match=None):
+    return client.delete_address(user_id=user_id,
+                                 item_address_id=item_address_id,
+                                 if_match=if_match)
+
+
+def people_user_profile_delete_anniversary(client,
+                                           user_id,
+                                           person_anniversary_id,
+                                           if_match=None):
+    return client.delete_anniversary(user_id=user_id,
+                                     person_anniversary_id=person_anniversary_id,
+                                     if_match=if_match)
+
+
+def people_user_profile_delete_award(client,
+                                     user_id,
+                                     person_award_id,
+                                     if_match=None):
+    return client.delete_award(user_id=user_id,
+                               person_award_id=person_award_id,
+                               if_match=if_match)
+
+
+def people_user_profile_delete_certification(client,
+                                             user_id,
+                                             person_certification_id,
+                                             if_match=None):
+    return client.delete_certification(user_id=user_id,
+                                       person_certification_id=person_certification_id,
+                                       if_match=if_match)
+
+
+def people_user_profile_delete_educational_activity(client,
+                                                    user_id,
+                                                    educational_activity_id,
+                                                    if_match=None):
+    return client.delete_educational_activity(user_id=user_id,
+                                              educational_activity_id=educational_activity_id,
+                                              if_match=if_match)
+
+
+def people_user_profile_delete_email(client,
+                                     user_id,
+                                     item_email_id,
+                                     if_match=None):
+    return client.delete_email(user_id=user_id,
+                               item_email_id=item_email_id,
+                               if_match=if_match)
+
+
+def people_user_profile_delete_interest(client,
+                                        user_id,
+                                        person_interest_id,
+                                        if_match=None):
+    return client.delete_interest(user_id=user_id,
+                                  person_interest_id=person_interest_id,
+                                  if_match=if_match)
+
+
+def people_user_profile_delete_language(client,
+                                        user_id,
+                                        language_proficiency_id,
+                                        if_match=None):
+    return client.delete_language(user_id=user_id,
+                                  language_proficiency_id=language_proficiency_id,
+                                  if_match=if_match)
+
+
+def people_user_profile_delete_name(client,
+                                    user_id,
+                                    person_name_id,
+                                    if_match=None):
+    return client.delete_name(user_id=user_id,
+                              person_name_id=person_name_id,
+                              if_match=if_match)
+
+
+def people_user_profile_delete_note(client,
+                                    user_id,
+                                    person_annotation_id,
+                                    if_match=None):
+    return client.delete_note(user_id=user_id,
+                              person_annotation_id=person_annotation_id,
+                              if_match=if_match)
+
+
+def people_user_profile_delete_patent(client,
+                                      user_id,
+                                      item_patent_id,
+                                      if_match=None):
+    return client.delete_patent(user_id=user_id,
+                                item_patent_id=item_patent_id,
+                                if_match=if_match)
+
+
+def people_user_profile_delete_phone(client,
+                                     user_id,
+                                     item_phone_id,
+                                     if_match=None):
+    return client.delete_phone(user_id=user_id,
+                               item_phone_id=item_phone_id,
+                               if_match=if_match)
+
+
+def people_user_profile_delete_position(client,
+                                        user_id,
+                                        work_position_id,
+                                        if_match=None):
+    return client.delete_position(user_id=user_id,
+                                  work_position_id=work_position_id,
+                                  if_match=if_match)
+
+
+def people_user_profile_delete_project(client,
+                                       user_id,
+                                       project_participation_id,
+                                       if_match=None):
+    return client.delete_project(user_id=user_id,
+                                 project_participation_id=project_participation_id,
+                                 if_match=if_match)
+
+
+def people_user_profile_delete_publication(client,
+                                           user_id,
+                                           item_publication_id,
+                                           if_match=None):
+    return client.delete_publication(user_id=user_id,
+                                     item_publication_id=item_publication_id,
+                                     if_match=if_match)
+
+
+def people_user_profile_delete_skill(client,
+                                     user_id,
+                                     skill_proficiency_id,
+                                     if_match=None):
+    return client.delete_skill(user_id=user_id,
+                               skill_proficiency_id=skill_proficiency_id,
+                               if_match=if_match)
+
+
+def people_user_profile_delete_web_account(client,
+                                           user_id,
+                                           web_account_id,
+                                           if_match=None):
+    return client.delete_web_account(user_id=user_id,
+                                     web_account_id=web_account_id,
+                                     if_match=if_match)
+
+
+def people_user_profile_delete_website(client,
+                                       user_id,
+                                       person_website_id,
+                                       if_match=None):
+    return client.delete_website(user_id=user_id,
+                                 person_website_id=person_website_id,
+                                 if_match=if_match)
 
 
 def people_user_profile_list_account(client,

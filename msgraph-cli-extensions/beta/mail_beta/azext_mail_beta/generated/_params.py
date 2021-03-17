@@ -34,12 +34,6 @@ from azext_mail_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('mail user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('message_id', type=str, help='key: id of message')
-
     with self.argument_context('mail user create-mail-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -146,6 +140,20 @@ def load_arguments(self, _):
                    arg_group='Flag')
         c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
                    arg_group='Flag')
+
+    with self.argument_context('mail user delete-inference-classification') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user delete-mail-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user delete-message') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user list-mail-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -301,17 +309,17 @@ def load_arguments(self, _):
         c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
                    arg_group='Flag')
 
-    with self.argument_context('mail user-inference-classification delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('inference_classification_override_id', type=str,
-                   help='key: id of inferenceClassificationOverride')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('mail user-inference-classification create-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
+
+    with self.argument_context('mail user-inference-classification delete-override') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('inference_classification_override_id', type=str,
+                   help='key: id of inferenceClassificationOverride')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-inference-classification list-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -333,19 +341,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
-
-    with self.argument_context('mail user-mail-folder delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('message_rule_id', type=str, help='key: id of messageRule')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-        c.argument('user_configuration_id', type=str, help='key: id of userConfiguration')
 
     with self.argument_context('mail user-mail-folder create-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -646,6 +641,44 @@ def load_arguments(self, _):
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('binary_data', help='')
+
+    with self.argument_context('mail user-mail-folder delete-child-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-message') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-message-rule') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_rule_id', type=str, help='key: id of messageRule')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-user-configuration') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('user_configuration_id', type=str, help='key: id of userConfiguration')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-mail-folder list-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1052,19 +1085,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('binary_data', help='')
 
-    with self.argument_context('mail user-mail-folder-message delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('mention_id', type=str, help='key: id of mention')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('mail user-mail-folder-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
@@ -1112,6 +1132,43 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('mail user-mail-folder-message delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-mention') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('mention_id', type=str, help='key: id of mention')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-mail-folder-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1250,18 +1307,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail user-message delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('mention_id', type=str, help='key: id of mention')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('mail user-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
@@ -1304,6 +1349,38 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('mail user-message delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-mention') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('mention_id', type=str, help='key: id of mention')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')

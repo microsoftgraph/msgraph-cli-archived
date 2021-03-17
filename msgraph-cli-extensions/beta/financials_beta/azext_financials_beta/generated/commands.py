@@ -37,8 +37,8 @@ def load_command_table(self, _):
         client_factory=cf_financial,
     )
     with self.command_group('financials financial', financials_beta_financial, client_factory=cf_financial) as g:
-        g.custom_command('delete', 'financials_financial_delete', confirmation=True)
         g.custom_command('create-company', 'financials_financial_create_company')
+        g.custom_command('delete-company', 'financials_financial_delete_company')
         g.custom_command('list-company', 'financials_financial_list_company')
         g.custom_command('show-company', 'financials_financial_show_company')
         g.custom_command('update-company', 'financials_financial_update_company')
@@ -52,7 +52,6 @@ def load_command_table(self, _):
     with self.command_group(
         'financials financial-company', financials_beta_financial_company, client_factory=cf_financial_company
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_delete', confirmation=True)
         g.custom_command('create-account', 'financials_financial_company_create_account')
         g.custom_command('create-aged-account-payable', 'financials_financial_company_create_aged_account_payable')
         g.custom_command(
@@ -92,6 +91,45 @@ def load_command_table(self, _):
         g.custom_command('create-tax-group', 'financials_financial_company_create_tax_group')
         g.custom_command('create-unit-of-measure', 'financials_financial_company_create_unit_of_measure')
         g.custom_command('create-vendor', 'financials_financial_company_create_vendor')
+        g.custom_command('delete-account', 'financials_financial_company_delete_account')
+        g.custom_command('delete-aged-account-payable', 'financials_financial_company_delete_aged_account_payable')
+        g.custom_command(
+            'delete-aged-account-receivable', 'financials_financial_company_delete_aged_account_receivable'
+        )
+        g.custom_command('delete-company-information', 'financials_financial_company_delete_company_information')
+        g.custom_command('delete-country-region', 'financials_financial_company_delete_country_region')
+        g.custom_command('delete-currency', 'financials_financial_company_delete_currency')
+        g.custom_command('delete-customer', 'financials_financial_company_delete_customer')
+        g.custom_command('delete-customer-payment', 'financials_financial_company_delete_customer_payment')
+        g.custom_command(
+            'delete-customer-payment-journal', 'financials_financial_company_delete_customer_payment_journal'
+        )
+        g.custom_command('delete-dimension', 'financials_financial_company_delete_dimension')
+        g.custom_command('delete-dimension-value', 'financials_financial_company_delete_dimension_value')
+        g.custom_command('delete-employee', 'financials_financial_company_delete_employee')
+        g.custom_command('delete-general-ledger-entry', 'financials_financial_company_delete_general_ledger_entry')
+        g.custom_command('delete-item', 'financials_financial_company_delete_item')
+        g.custom_command('delete-item-category', 'financials_financial_company_delete_item_category')
+        g.custom_command('delete-journal', 'financials_financial_company_delete_journal')
+        g.custom_command('delete-journal-line', 'financials_financial_company_delete_journal_line')
+        g.custom_command('delete-payment-method', 'financials_financial_company_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financial_company_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financial_company_delete_picture')
+        g.custom_command('delete-purchase-invoice', 'financials_financial_company_delete_purchase_invoice')
+        g.custom_command('delete-purchase-invoice-line', 'financials_financial_company_delete_purchase_invoice_line')
+        g.custom_command('delete-sale-credit-memo', 'financials_financial_company_delete_sale_credit_memo')
+        g.custom_command('delete-sale-credit-memo-line', 'financials_financial_company_delete_sale_credit_memo_line')
+        g.custom_command('delete-sale-invoice', 'financials_financial_company_delete_sale_invoice')
+        g.custom_command('delete-sale-invoice-line', 'financials_financial_company_delete_sale_invoice_line')
+        g.custom_command('delete-sale-order', 'financials_financial_company_delete_sale_order')
+        g.custom_command('delete-sale-order-line', 'financials_financial_company_delete_sale_order_line')
+        g.custom_command('delete-sale-quote', 'financials_financial_company_delete_sale_quote')
+        g.custom_command('delete-sale-quote-line', 'financials_financial_company_delete_sale_quote_line')
+        g.custom_command('delete-shipment-method', 'financials_financial_company_delete_shipment_method')
+        g.custom_command('delete-tax-area', 'financials_financial_company_delete_tax_area')
+        g.custom_command('delete-tax-group', 'financials_financial_company_delete_tax_group')
+        g.custom_command('delete-unit-of-measure', 'financials_financial_company_delete_unit_of_measure')
+        g.custom_command('delete-vendor', 'financials_financial_company_delete_vendor')
         g.custom_command('list-account', 'financials_financial_company_list_account')
         g.custom_command('list-aged-account-payable', 'financials_financial_company_list_aged_account_payable')
         g.custom_command('list-aged-account-receivable', 'financials_financial_company_list_aged_account_receivable')
@@ -221,9 +259,12 @@ def load_command_table(self, _):
         financials_beta_financial_company_customer_payment_journal,
         client_factory=cf_financial_company_customer_payment_journal,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_customer_payment_journal_delete', confirmation=True)
         g.custom_command(
             'create-customer-payment', 'financials_financial_company_customer_payment_journal_create_customer_payment'
+        )
+        g.custom_command('delete-account', 'financials_financial_company_customer_payment_journal_delete_account')
+        g.custom_command(
+            'delete-customer-payment', 'financials_financial_company_customer_payment_journal_delete_customer_payment'
         )
         g.custom_command(
             'list-customer-payment', 'financials_financial_company_customer_payment_journal_list_customer_payment'
@@ -251,7 +292,7 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_customer_payment_journal_customer_payment,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_customer_payment_journal_customer_payment_delete', confirmation=True
+            'delete-customer', 'financials_financial_company_customer_payment_journal_customer_payment_delete_customer'
         )
         g.custom_command(
             'show-customer', 'financials_financial_company_customer_payment_journal_customer_payment_show_customer'
@@ -274,13 +315,28 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer,
     ) as g:
         g.custom_command(
-            'delete',
-            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete',
-            confirmation=True,
-        )
-        g.custom_command(
             'create-picture',
             'financials_financial_company_customer_payment_journal_customer_payment_customer_create_picture',
+        )
+        g.custom_command(
+            'delete-currency',
+            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete_currency',
+        )
+        g.custom_command(
+            'delete-payment-method',
+            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete_payment_method',
+        )
+        g.custom_command(
+            'delete-payment-term',
+            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete_payment_term',
+        )
+        g.custom_command(
+            'delete-picture',
+            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete_picture',
+        )
+        g.custom_command(
+            'delete-shipment-method',
+            'financials_financial_company_customer_payment_journal_customer_payment_customer_delete_shipment_method',
         )
         g.custom_command(
             'list-picture',
@@ -346,7 +402,7 @@ def load_command_table(self, _):
         financials_beta_financial_company_customer_payment,
         client_factory=cf_financial_company_customer_payment,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_customer_payment_delete', confirmation=True)
+        g.custom_command('delete-customer', 'financials_financial_company_customer_payment_delete_customer')
         g.custom_command('show-customer', 'financials_financial_company_customer_payment_show_customer')
         g.custom_command('update-customer', 'financials_financial_company_customer_payment_update_customer')
 
@@ -361,8 +417,18 @@ def load_command_table(self, _):
         financials_beta_financial_company_customer_payment_customer,
         client_factory=cf_financial_company_customer_payment_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_customer_payment_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_customer_payment_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_customer_payment_customer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_customer_payment_customer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financial_company_customer_payment_customer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_customer_payment_customer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financial_company_customer_payment_customer_delete_shipment_method'
+        )
         g.custom_command('list-picture', 'financials_financial_company_customer_payment_customer_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_customer_payment_customer_set_picture_content'
@@ -404,8 +470,12 @@ def load_command_table(self, _):
         financials_beta_financial_company_customer,
         client_factory=cf_financial_company_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_customer_delete_currency')
+        g.custom_command('delete-payment-method', 'financials_financial_company_customer_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financial_company_customer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financial_company_customer_delete_picture')
+        g.custom_command('delete-shipment-method', 'financials_financial_company_customer_delete_shipment_method')
         g.custom_command('list-picture', 'financials_financial_company_customer_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_customer_set_picture_content')
         g.custom_command('show-currency', 'financials_financial_company_customer_show_currency')
@@ -431,8 +501,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_dimension,
         client_factory=cf_financial_company_dimension,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_dimension_delete', confirmation=True)
         g.custom_command('create-dimension-value', 'financials_financial_company_dimension_create_dimension_value')
+        g.custom_command('delete-dimension-value', 'financials_financial_company_dimension_delete_dimension_value')
         g.custom_command('list-dimension-value', 'financials_financial_company_dimension_list_dimension_value')
         g.custom_command('show-dimension-value', 'financials_financial_company_dimension_show_dimension_value')
         g.custom_command('update-dimension-value', 'financials_financial_company_dimension_update_dimension_value')
@@ -448,8 +518,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_employee,
         client_factory=cf_financial_company_employee,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_employee_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_employee_create_picture')
+        g.custom_command('delete-picture', 'financials_financial_company_employee_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_employee_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_employee_set_picture_content')
         g.custom_command('show-picture', 'financials_financial_company_employee_show_picture')
@@ -467,7 +537,7 @@ def load_command_table(self, _):
         financials_beta_financial_company_general_ledger_entry,
         client_factory=cf_financial_company_general_ledger_entry,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_general_ledger_entry_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_general_ledger_entry_delete_account')
         g.custom_command('show-account', 'financials_financial_company_general_ledger_entry_show_account')
         g.custom_command('update-account', 'financials_financial_company_general_ledger_entry_update_account')
 
@@ -482,8 +552,9 @@ def load_command_table(self, _):
         financials_beta_financial_company_item,
         client_factory=cf_financial_company_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_item_create_picture')
+        g.custom_command('delete-item-category', 'financials_financial_company_item_delete_item_category')
+        g.custom_command('delete-picture', 'financials_financial_company_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_item_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_item_set_picture_content')
         g.custom_command('show-item-category', 'financials_financial_company_item_show_item_category')
@@ -503,7 +574,7 @@ def load_command_table(self, _):
         financials_beta_financial_company_journal_line,
         client_factory=cf_financial_company_journal_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_journal_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_journal_line_delete_account')
         g.custom_command('show-account', 'financials_financial_company_journal_line_show_account')
         g.custom_command('update-account', 'financials_financial_company_journal_line_update_account')
 
@@ -518,8 +589,9 @@ def load_command_table(self, _):
         financials_beta_financial_company_journal,
         client_factory=cf_financial_company_journal,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_journal_delete', confirmation=True)
         g.custom_command('create-journal-line', 'financials_financial_company_journal_create_journal_line')
+        g.custom_command('delete-account', 'financials_financial_company_journal_delete_account')
+        g.custom_command('delete-journal-line', 'financials_financial_company_journal_delete_journal_line')
         g.custom_command('list-journal-line', 'financials_financial_company_journal_list_journal_line')
         g.custom_command('post', 'financials_financial_company_journal_post')
         g.custom_command('show-account', 'financials_financial_company_journal_show_account')
@@ -538,7 +610,7 @@ def load_command_table(self, _):
         financials_beta_financial_company_journal_journal_line,
         client_factory=cf_financial_company_journal_journal_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_journal_journal_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_journal_journal_line_delete_account')
         g.custom_command('show-account', 'financials_financial_company_journal_journal_line_show_account')
         g.custom_command('update-account', 'financials_financial_company_journal_journal_line_update_account')
 
@@ -553,7 +625,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_purchase_invoice_line,
         client_factory=cf_financial_company_purchase_invoice_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_purchase_invoice_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_purchase_invoice_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_purchase_invoice_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_purchase_invoice_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_purchase_invoice_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_purchase_invoice_line_update_account')
@@ -570,8 +643,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_purchase_invoice_line_item,
         client_factory=cf_financial_company_purchase_invoice_line_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_purchase_invoice_line_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_purchase_invoice_line_item_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financial_company_purchase_invoice_line_item_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_purchase_invoice_line_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_purchase_invoice_line_item_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_purchase_invoice_line_item_set_picture_content'
@@ -599,10 +675,14 @@ def load_command_table(self, _):
         financials_beta_financial_company_purchase_invoice,
         client_factory=cf_financial_company_purchase_invoice,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_purchase_invoice_delete', confirmation=True)
         g.custom_command(
             'create-purchase-invoice-line', 'financials_financial_company_purchase_invoice_create_purchase_invoice_line'
         )
+        g.custom_command('delete-currency', 'financials_financial_company_purchase_invoice_delete_currency')
+        g.custom_command(
+            'delete-purchase-invoice-line', 'financials_financial_company_purchase_invoice_delete_purchase_invoice_line'
+        )
+        g.custom_command('delete-vendor', 'financials_financial_company_purchase_invoice_delete_vendor')
         g.custom_command(
             'list-purchase-invoice-line', 'financials_financial_company_purchase_invoice_list_purchase_invoice_line'
         )
@@ -632,7 +712,10 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_purchase_invoice_purchase_invoice_line_delete', confirmation=True
+            'delete-account', 'financials_financial_company_purchase_invoice_purchase_invoice_line_delete_account'
+        )
+        g.custom_command(
+            'delete-item', 'financials_financial_company_purchase_invoice_purchase_invoice_line_delete_item'
         )
         g.custom_command(
             'show-account', 'financials_financial_company_purchase_invoice_purchase_invoice_line_show_account'
@@ -659,12 +742,14 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item,
     ) as g:
         g.custom_command(
-            'delete',
-            'financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete',
-            confirmation=True,
+            'create-picture', 'financials_financial_company_purchase_invoice_purchase_invoice_line_item_create_picture'
         )
         g.custom_command(
-            'create-picture', 'financials_financial_company_purchase_invoice_purchase_invoice_line_item_create_picture'
+            'delete-item-category',
+            'financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete_picture'
         )
         g.custom_command(
             'list-picture', 'financials_financial_company_purchase_invoice_purchase_invoice_line_item_list_picture'
@@ -703,8 +788,15 @@ def load_command_table(self, _):
         financials_beta_financial_company_purchase_invoice_vendor,
         client_factory=cf_financial_company_purchase_invoice_vendor,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_purchase_invoice_vendor_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_purchase_invoice_vendor_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_purchase_invoice_vendor_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_purchase_invoice_vendor_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financial_company_purchase_invoice_vendor_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_purchase_invoice_vendor_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_purchase_invoice_vendor_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_purchase_invoice_vendor_set_picture_content'
@@ -738,7 +830,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_credit_memo_line,
         client_factory=cf_financial_company_sale_credit_memo_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_credit_memo_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_credit_memo_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_credit_memo_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_credit_memo_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_credit_memo_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_credit_memo_line_update_account')
@@ -755,8 +848,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_credit_memo_line_item,
         client_factory=cf_financial_company_sale_credit_memo_line_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_credit_memo_line_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_credit_memo_line_item_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financial_company_sale_credit_memo_line_item_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_credit_memo_line_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_sale_credit_memo_line_item_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_sale_credit_memo_line_item_set_picture_content'
@@ -784,9 +880,14 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_credit_memo,
         client_factory=cf_financial_company_sale_credit_memo,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_credit_memo_delete', confirmation=True)
         g.custom_command(
             'create-sale-credit-memo-line', 'financials_financial_company_sale_credit_memo_create_sale_credit_memo_line'
+        )
+        g.custom_command('delete-currency', 'financials_financial_company_sale_credit_memo_delete_currency')
+        g.custom_command('delete-customer', 'financials_financial_company_sale_credit_memo_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_credit_memo_delete_payment_term')
+        g.custom_command(
+            'delete-sale-credit-memo-line', 'financials_financial_company_sale_credit_memo_delete_sale_credit_memo_line'
         )
         g.custom_command(
             'list-sale-credit-memo-line', 'financials_financial_company_sale_credit_memo_list_sale_credit_memo_line'
@@ -815,8 +916,18 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_credit_memo_customer,
         client_factory=cf_financial_company_sale_credit_memo_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_credit_memo_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_credit_memo_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_credit_memo_customer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_sale_credit_memo_customer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financial_company_sale_credit_memo_customer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_credit_memo_customer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financial_company_sale_credit_memo_customer_delete_shipment_method'
+        )
         g.custom_command('list-picture', 'financials_financial_company_sale_credit_memo_customer_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_sale_credit_memo_customer_set_picture_content'
@@ -861,7 +972,10 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete', confirmation=True
+            'delete-account', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete_account'
+        )
+        g.custom_command(
+            'delete-item', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete_item'
         )
         g.custom_command(
             'show-account', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_show_account'
@@ -888,12 +1002,14 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
     ) as g:
         g.custom_command(
-            'delete',
-            'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete',
-            confirmation=True,
+            'create-picture', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_create_picture'
         )
         g.custom_command(
-            'create-picture', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_create_picture'
+            'delete-item-category',
+            'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete_picture'
         )
         g.custom_command(
             'list-picture', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_list_picture'
@@ -932,7 +1048,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_invoice_line,
         client_factory=cf_financial_company_sale_invoice_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_invoice_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_invoice_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_invoice_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_invoice_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_invoice_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_invoice_line_update_account')
@@ -949,8 +1066,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_invoice_line_item,
         client_factory=cf_financial_company_sale_invoice_line_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_invoice_line_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_invoice_line_item_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financial_company_sale_invoice_line_item_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_invoice_line_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_sale_invoice_line_item_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_sale_invoice_line_item_set_picture_content'
@@ -976,12 +1096,18 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_invoice,
         client_factory=cf_financial_company_sale_invoice,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_invoice_delete', confirmation=True)
         g.custom_command('cancel', 'financials_financial_company_sale_invoice_cancel')
         g.custom_command('cancel-and-send', 'financials_financial_company_sale_invoice_cancel_and_send')
         g.custom_command(
             'create-sale-invoice-line', 'financials_financial_company_sale_invoice_create_sale_invoice_line'
         )
+        g.custom_command('delete-currency', 'financials_financial_company_sale_invoice_delete_currency')
+        g.custom_command('delete-customer', 'financials_financial_company_sale_invoice_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_invoice_delete_payment_term')
+        g.custom_command(
+            'delete-sale-invoice-line', 'financials_financial_company_sale_invoice_delete_sale_invoice_line'
+        )
+        g.custom_command('delete-shipment-method', 'financials_financial_company_sale_invoice_delete_shipment_method')
         g.custom_command('list-sale-invoice-line', 'financials_financial_company_sale_invoice_list_sale_invoice_line')
         g.custom_command('post', 'financials_financial_company_sale_invoice_post')
         g.custom_command('post-and-send', 'financials_financial_company_sale_invoice_post_and_send')
@@ -1010,8 +1136,18 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_invoice_customer,
         client_factory=cf_financial_company_sale_invoice_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_invoice_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_invoice_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_invoice_customer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_sale_invoice_customer_delete_payment_method'
+        )
+        g.custom_command(
+            'delete-payment-term', 'financials_financial_company_sale_invoice_customer_delete_payment_term'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_invoice_customer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financial_company_sale_invoice_customer_delete_shipment_method'
+        )
         g.custom_command('list-picture', 'financials_financial_company_sale_invoice_customer_list_picture')
         g.custom_command(
             'set-picture-content', 'financials_financial_company_sale_invoice_customer_set_picture_content'
@@ -1051,9 +1187,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_invoice_sale_invoice_line,
         client_factory=cf_financial_company_sale_invoice_sale_invoice_line,
     ) as g:
-        g.custom_command(
-            'delete', 'financials_financial_company_sale_invoice_sale_invoice_line_delete', confirmation=True
-        )
+        g.custom_command('delete-account', 'financials_financial_company_sale_invoice_sale_invoice_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_invoice_sale_invoice_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_invoice_sale_invoice_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_invoice_sale_invoice_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_invoice_sale_invoice_line_update_account')
@@ -1071,10 +1206,14 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_sale_invoice_sale_invoice_line_item_delete', confirmation=True
+            'create-picture', 'financials_financial_company_sale_invoice_sale_invoice_line_item_create_picture'
         )
         g.custom_command(
-            'create-picture', 'financials_financial_company_sale_invoice_sale_invoice_line_item_create_picture'
+            'delete-item-category',
+            'financials_financial_company_sale_invoice_sale_invoice_line_item_delete_item_category',
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financial_company_sale_invoice_sale_invoice_line_item_delete_picture'
         )
         g.custom_command(
             'list-picture', 'financials_financial_company_sale_invoice_sale_invoice_line_item_list_picture'
@@ -1112,7 +1251,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_order_line,
         client_factory=cf_financial_company_sale_order_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_order_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_order_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_order_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_order_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_order_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_order_line_update_account')
@@ -1129,8 +1269,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_order_line_item,
         client_factory=cf_financial_company_sale_order_line_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_order_line_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_order_line_item_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financial_company_sale_order_line_item_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_order_line_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_sale_order_line_item_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_sale_order_line_item_set_picture_content')
         g.custom_command('show-item-category', 'financials_financial_company_sale_order_line_item_show_item_category')
@@ -1154,8 +1297,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_order,
         client_factory=cf_financial_company_sale_order,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_order_delete', confirmation=True)
         g.custom_command('create-sale-order-line', 'financials_financial_company_sale_order_create_sale_order_line')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_order_delete_currency')
+        g.custom_command('delete-customer', 'financials_financial_company_sale_order_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_order_delete_payment_term')
+        g.custom_command('delete-sale-order-line', 'financials_financial_company_sale_order_delete_sale_order_line')
         g.custom_command('list-sale-order-line', 'financials_financial_company_sale_order_list_sale_order_line')
         g.custom_command('show-currency', 'financials_financial_company_sale_order_show_currency')
         g.custom_command('show-customer', 'financials_financial_company_sale_order_show_customer')
@@ -1177,8 +1323,16 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_order_customer,
         client_factory=cf_financial_company_sale_order_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_order_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_order_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_order_customer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_sale_order_customer_delete_payment_method'
+        )
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_order_customer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financial_company_sale_order_customer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financial_company_sale_order_customer_delete_shipment_method'
+        )
         g.custom_command('list-picture', 'financials_financial_company_sale_order_customer_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_sale_order_customer_set_picture_content')
         g.custom_command('show-currency', 'financials_financial_company_sale_order_customer_show_currency')
@@ -1212,7 +1366,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_order_sale_order_line,
         client_factory=cf_financial_company_sale_order_sale_order_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_order_sale_order_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_order_sale_order_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_order_sale_order_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_order_sale_order_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_order_sale_order_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_order_sale_order_line_update_account')
@@ -1230,10 +1385,13 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_sale_order_sale_order_line_item,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_sale_order_sale_order_line_item_delete', confirmation=True
+            'create-picture', 'financials_financial_company_sale_order_sale_order_line_item_create_picture'
         )
         g.custom_command(
-            'create-picture', 'financials_financial_company_sale_order_sale_order_line_item_create_picture'
+            'delete-item-category', 'financials_financial_company_sale_order_sale_order_line_item_delete_item_category'
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financial_company_sale_order_sale_order_line_item_delete_picture'
         )
         g.custom_command('list-picture', 'financials_financial_company_sale_order_sale_order_line_item_list_picture')
         g.custom_command(
@@ -1264,7 +1422,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_quote_line,
         client_factory=cf_financial_company_sale_quote_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_quote_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_quote_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_quote_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_quote_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_quote_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_quote_line_update_account')
@@ -1281,8 +1440,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_quote_line_item,
         client_factory=cf_financial_company_sale_quote_line_item,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_quote_line_item_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_quote_line_item_create_picture')
+        g.custom_command(
+            'delete-item-category', 'financials_financial_company_sale_quote_line_item_delete_item_category'
+        )
+        g.custom_command('delete-picture', 'financials_financial_company_sale_quote_line_item_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_sale_quote_line_item_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_sale_quote_line_item_set_picture_content')
         g.custom_command('show-item-category', 'financials_financial_company_sale_quote_line_item_show_item_category')
@@ -1306,8 +1468,12 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_quote,
         client_factory=cf_financial_company_sale_quote,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_quote_delete', confirmation=True)
         g.custom_command('create-sale-quote-line', 'financials_financial_company_sale_quote_create_sale_quote_line')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_quote_delete_currency')
+        g.custom_command('delete-customer', 'financials_financial_company_sale_quote_delete_customer')
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_quote_delete_payment_term')
+        g.custom_command('delete-sale-quote-line', 'financials_financial_company_sale_quote_delete_sale_quote_line')
+        g.custom_command('delete-shipment-method', 'financials_financial_company_sale_quote_delete_shipment_method')
         g.custom_command('list-sale-quote-line', 'financials_financial_company_sale_quote_list_sale_quote_line')
         g.custom_command('make-invoice', 'financials_financial_company_sale_quote_make_invoice')
         g.custom_command('send', 'financials_financial_company_sale_quote_send')
@@ -1333,8 +1499,16 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_quote_customer,
         client_factory=cf_financial_company_sale_quote_customer,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_quote_customer_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_sale_quote_customer_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_sale_quote_customer_delete_currency')
+        g.custom_command(
+            'delete-payment-method', 'financials_financial_company_sale_quote_customer_delete_payment_method'
+        )
+        g.custom_command('delete-payment-term', 'financials_financial_company_sale_quote_customer_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financial_company_sale_quote_customer_delete_picture')
+        g.custom_command(
+            'delete-shipment-method', 'financials_financial_company_sale_quote_customer_delete_shipment_method'
+        )
         g.custom_command('list-picture', 'financials_financial_company_sale_quote_customer_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_sale_quote_customer_set_picture_content')
         g.custom_command('show-currency', 'financials_financial_company_sale_quote_customer_show_currency')
@@ -1368,7 +1542,8 @@ def load_command_table(self, _):
         financials_beta_financial_company_sale_quote_sale_quote_line,
         client_factory=cf_financial_company_sale_quote_sale_quote_line,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_sale_quote_sale_quote_line_delete', confirmation=True)
+        g.custom_command('delete-account', 'financials_financial_company_sale_quote_sale_quote_line_delete_account')
+        g.custom_command('delete-item', 'financials_financial_company_sale_quote_sale_quote_line_delete_item')
         g.custom_command('show-account', 'financials_financial_company_sale_quote_sale_quote_line_show_account')
         g.custom_command('show-item', 'financials_financial_company_sale_quote_sale_quote_line_show_item')
         g.custom_command('update-account', 'financials_financial_company_sale_quote_sale_quote_line_update_account')
@@ -1386,10 +1561,13 @@ def load_command_table(self, _):
         client_factory=cf_financial_company_sale_quote_sale_quote_line_item,
     ) as g:
         g.custom_command(
-            'delete', 'financials_financial_company_sale_quote_sale_quote_line_item_delete', confirmation=True
+            'create-picture', 'financials_financial_company_sale_quote_sale_quote_line_item_create_picture'
         )
         g.custom_command(
-            'create-picture', 'financials_financial_company_sale_quote_sale_quote_line_item_create_picture'
+            'delete-item-category', 'financials_financial_company_sale_quote_sale_quote_line_item_delete_item_category'
+        )
+        g.custom_command(
+            'delete-picture', 'financials_financial_company_sale_quote_sale_quote_line_item_delete_picture'
         )
         g.custom_command('list-picture', 'financials_financial_company_sale_quote_sale_quote_line_item_list_picture')
         g.custom_command(
@@ -1420,8 +1598,11 @@ def load_command_table(self, _):
         financials_beta_financial_company_vendor,
         client_factory=cf_financial_company_vendor,
     ) as g:
-        g.custom_command('delete', 'financials_financial_company_vendor_delete', confirmation=True)
         g.custom_command('create-picture', 'financials_financial_company_vendor_create_picture')
+        g.custom_command('delete-currency', 'financials_financial_company_vendor_delete_currency')
+        g.custom_command('delete-payment-method', 'financials_financial_company_vendor_delete_payment_method')
+        g.custom_command('delete-payment-term', 'financials_financial_company_vendor_delete_payment_term')
+        g.custom_command('delete-picture', 'financials_financial_company_vendor_delete_picture')
         g.custom_command('list-picture', 'financials_financial_company_vendor_list_picture')
         g.custom_command('set-picture-content', 'financials_financial_company_vendor_set_picture_content')
         g.custom_command('show-currency', 'financials_financial_company_vendor_show_currency')

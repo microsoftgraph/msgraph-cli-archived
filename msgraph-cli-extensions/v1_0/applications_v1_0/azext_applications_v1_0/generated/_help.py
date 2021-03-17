@@ -26,16 +26,6 @@ helps['applications application create'] = """
     type: command
     short-summary: "Update entity in applications And Add new entity to applications."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
 be assigned to users, groups, or other applications' service principals. Not nullable."
@@ -134,19 +124,6 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
             redirect-uris: Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth \
 2.0 authorization codes and access tokens are sent.
-      - name: --required-resource-access
-        short-summary: "Specifies resources that this application requires access to and the set of OAuth permission \
-scopes and application roles that it needs under each of those resources. This pre-configuration of required resource \
-access drives the consent experience. Not nullable."
-        long-summary: |
-            Usage: --required-resource-access resource-access=XX resource-app-id=XX
-
-            resource-access: The list of OAuth2.0 permission scopes and app roles that the application requires from \
-the specified resource.
-            resource-app-id: The unique identifier for the resource that the application requires access to.  This \
-should be equal to the appId declared on the target resource application.
-
-            Multiple actions can be specified by using more than one --required-resource-access argument.
       - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -322,16 +299,6 @@ incremental consent for example) will require user consent."
             delegated-permission-ids: The unique identifier for the oauth2PermissionScopes the application requires.
 
             Multiple actions can be specified by using more than one --pre-authorized-applications argument.
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The collection of roles the application declares. With app role assignments, these roles can \
 be assigned to users, groups, or other applications' service principals. Not nullable."
@@ -430,19 +397,6 @@ look like this: '2014-01-01T00:00:00Z'. Optional.
 
             redirect-uris: Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth \
 2.0 authorization codes and access tokens are sent.
-      - name: --required-resource-access
-        short-summary: "Specifies resources that this application requires access to and the set of OAuth permission \
-scopes and application roles that it needs under each of those resources. This pre-configuration of required resource \
-access drives the consent experience. Not nullable."
-        long-summary: |
-            Usage: --required-resource-access resource-access=XX resource-app-id=XX
-
-            resource-access: The list of OAuth2.0 permission scopes and app roles that the application requires from \
-the specified resource.
-            resource-app-id: The unique identifier for the resource that the application requires access to.  This \
-should be equal to the appId declared on the target resource application.
-
-            Multiple actions can be specified by using more than one --required-resource-access argument.
       - name: --created-on-behalf-of
         short-summary: "Represents an Azure Active Directory object. The directoryObject type is the base type for \
 many other directory entity types."
@@ -620,7 +574,7 @@ incremental consent for example) will require user consent."
             Multiple actions can be specified by using more than one --pre-authorized-applications argument.
 """
 
-helps['applications application delete'] = """
+helps['applications application delete-application'] = """
     type: command
     short-summary: "Delete entity from applications."
 """
@@ -643,12 +597,6 @@ helps['applications application show-logo'] = """
 helps['applications application'] = """
     type: group
     short-summary: Manage application with applications_v1_0
-"""
-
-helps['applications application delete'] = """
-    type: command
-    short-summary: "Delete navigation property extensionProperties for applications And Delete ref of navigation \
-property createdOnBehalfOf for applications."
 """
 
 helps['applications application add-key'] = """
@@ -750,6 +698,16 @@ helps['applications application create-ref-token-issuance-policy'] = """
 helps['applications application create-ref-token-lifetime-policy'] = """
     type: command
     short-summary: "Create new navigation property ref to tokenLifetimePolicies for applications."
+"""
+
+helps['applications application delete-extension-property'] = """
+    type: command
+    short-summary: "Delete navigation property extensionProperties for applications."
+"""
+
+helps['applications application delete-ref-created-on-behalf-of'] = """
+    type: command
+    short-summary: "Delete ref of navigation property createdOnBehalfOf for applications."
 """
 
 helps['applications application delta'] = """
@@ -872,14 +830,14 @@ helps['applications group'] = """
     short-summary: Manage group with applications_v1_0
 """
 
-helps['applications group delete'] = """
-    type: command
-    short-summary: "Delete navigation property appRoleAssignments for groups."
-"""
-
 helps['applications group create-app-role-assignment'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignments for groups."
+"""
+
+helps['applications group delete-app-role-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignments for groups."
 """
 
 helps['applications group list-app-role-assignment'] = """
@@ -902,25 +860,10 @@ helps['applications service-principal-service-principal'] = """
     short-summary: Manage service principal service principal with applications_v1_0
 """
 
-helps['applications service-principal-service-principal delete'] = """
-    type: command
-    short-summary: "Delete entity from servicePrincipals."
-"""
-
 helps['applications service-principal-service-principal create-service-principal'] = """
     type: command
     short-summary: "Add new entity to servicePrincipals."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The roles exposed by the application which this service principal represents. For more \
 information see the appRoles property definition on the application entity. Not nullable."
@@ -1224,6 +1167,11 @@ policy type, but only one can be activated as the organization default. Optional
             Multiple actions can be specified by using more than one --transitive-member-of argument.
 """
 
+helps['applications service-principal-service-principal delete-service-principal'] = """
+    type: command
+    short-summary: "Delete entity from servicePrincipals."
+"""
+
 helps['applications service-principal-service-principal list-service-principal'] = """
     type: command
     short-summary: "Get entities from servicePrincipals."
@@ -1238,16 +1186,6 @@ helps['applications service-principal-service-principal update-service-principal
     type: command
     short-summary: "Update entity in servicePrincipals."
     parameters:
-      - name: --add-ins
-        short-summary: "Defines custom behavior that a consuming service can use to call an app in specific contexts. \
-For example, applications that can render file streams may set the addIns property for its 'FileHandler' \
-functionality. This will let services like Microsoft 365 call the application in the context of a document the user is \
-working on."
-        long-summary: |
-            Usage: --add-ins id=XX properties=XX type=XX
-
-
-            Multiple actions can be specified by using more than one --add-ins argument.
       - name: --app-roles
         short-summary: "The roles exposed by the application which this service principal represents. For more \
 information see the appRoles property definition on the application entity. Not nullable."
@@ -1556,12 +1494,6 @@ helps['applications service-principal'] = """
     short-summary: Manage service principal with applications_v1_0
 """
 
-helps['applications service-principal delete'] = """
-    type: command
-    short-summary: "Delete navigation property appRoleAssignedTo for servicePrincipals And Delete navigation property \
-appRoleAssignments for servicePrincipals And Delete navigation property endpoints for servicePrincipals."
-"""
-
 helps['applications service-principal add-key'] = """
     type: command
     short-summary: "Invoke action addKey."
@@ -1701,6 +1633,21 @@ helps['applications service-principal create-ref-token-lifetime-policy'] = """
 helps['applications service-principal create-ref-transitive-member-of'] = """
     type: command
     short-summary: "Create new navigation property ref to transitiveMemberOf for servicePrincipals."
+"""
+
+helps['applications service-principal delete-app-role-assigned-to'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignedTo for servicePrincipals."
+"""
+
+helps['applications service-principal delete-app-role-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignments for servicePrincipals."
+"""
+
+helps['applications service-principal delete-endpoint'] = """
+    type: command
+    short-summary: "Delete navigation property endpoints for servicePrincipals."
 """
 
 helps['applications service-principal delta'] = """
@@ -1898,14 +1845,14 @@ helps['applications user'] = """
     short-summary: Manage user with applications_v1_0
 """
 
-helps['applications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property appRoleAssignments for users."
-"""
-
 helps['applications user create-app-role-assignment'] = """
     type: command
     short-summary: "Create new navigation property to appRoleAssignments for users."
+"""
+
+helps['applications user delete-app-role-assignment'] = """
+    type: command
+    short-summary: "Delete navigation property appRoleAssignments for users."
 """
 
 helps['applications user list-app-role-assignment'] = """

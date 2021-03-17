@@ -23,9 +23,11 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('mail user', mail_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'mail_user_delete', confirmation=True)
         g.custom_command('create-mail-folder', 'mail_user_create_mail_folder')
         g.custom_command('create-message', 'mail_user_create_message')
+        g.custom_command('delete-inference-classification', 'mail_user_delete_inference_classification')
+        g.custom_command('delete-mail-folder', 'mail_user_delete_mail_folder')
+        g.custom_command('delete-message', 'mail_user_delete_message')
         g.custom_command('list-mail-folder', 'mail_user_list_mail_folder')
         g.custom_command('list-message', 'mail_user_list_message')
         g.custom_command('show-inference-classification', 'mail_user_show_inference_classification')
@@ -46,8 +48,8 @@ def load_command_table(self, _):
         mail_v1_0_user_inference_classification,
         client_factory=cf_user_inference_classification,
     ) as g:
-        g.custom_command('delete', 'mail_user_inference_classification_delete', confirmation=True)
         g.custom_command('create-override', 'mail_user_inference_classification_create_override')
+        g.custom_command('delete-override', 'mail_user_inference_classification_delete_override')
         g.custom_command('list-override', 'mail_user_inference_classification_list_override')
         g.custom_command('show-override', 'mail_user_inference_classification_show_override')
         g.custom_command('update-override', 'mail_user_inference_classification_update_override')
@@ -63,7 +65,6 @@ def load_command_table(self, _):
     with self.command_group(
         'mail user-mail-folder', mail_v1_0_user_mail_folder, client_factory=cf_user_mail_folder
     ) as g:
-        g.custom_command('delete', 'mail_user_mail_folder_delete', confirmation=True)
         g.custom_command('create-child-folder', 'mail_user_mail_folder_create_child_folder')
         g.custom_command('create-message', 'mail_user_mail_folder_create_message')
         g.custom_command('create-message-rule', 'mail_user_mail_folder_create_message_rule')
@@ -72,6 +73,15 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'mail_user_mail_folder_create_single_value_extended_property'
+        )
+        g.custom_command('delete-child-folder', 'mail_user_mail_folder_delete_child_folder')
+        g.custom_command('delete-message', 'mail_user_mail_folder_delete_message')
+        g.custom_command('delete-message-rule', 'mail_user_mail_folder_delete_message_rule')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'mail_user_mail_folder_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'mail_user_mail_folder_delete_single_value_extended_property'
         )
         g.custom_command('list-child-folder', 'mail_user_mail_folder_list_child_folder')
         g.custom_command('list-message', 'mail_user_mail_folder_list_message')
@@ -110,7 +120,6 @@ def load_command_table(self, _):
     with self.command_group(
         'mail user-mail-folder-message', mail_v1_0_user_mail_folder_message, client_factory=cf_user_mail_folder_message
     ) as g:
-        g.custom_command('delete', 'mail_user_mail_folder_message_delete', confirmation=True)
         g.custom_command('create-attachment', 'mail_user_mail_folder_message_create_attachment')
         g.custom_command('create-extension', 'mail_user_mail_folder_message_create_extension')
         g.custom_command(
@@ -119,6 +128,15 @@ def load_command_table(self, _):
         g.custom_command(
             'create-single-value-extended-property',
             'mail_user_mail_folder_message_create_single_value_extended_property',
+        )
+        g.custom_command('delete-attachment', 'mail_user_mail_folder_message_delete_attachment')
+        g.custom_command('delete-extension', 'mail_user_mail_folder_message_delete_extension')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'mail_user_mail_folder_message_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property',
+            'mail_user_mail_folder_message_delete_single_value_extended_property',
         )
         g.custom_command('list-attachment', 'mail_user_mail_folder_message_list_attachment')
         g.custom_command('list-extension', 'mail_user_mail_folder_message_list_extension')
@@ -155,7 +173,6 @@ def load_command_table(self, _):
         client_factory=cf_user_message,
     )
     with self.command_group('mail user-message', mail_v1_0_user_message, client_factory=cf_user_message) as g:
-        g.custom_command('delete', 'mail_user_message_delete', confirmation=True)
         g.custom_command('create-attachment', 'mail_user_message_create_attachment')
         g.custom_command('create-extension', 'mail_user_message_create_extension')
         g.custom_command(
@@ -163,6 +180,14 @@ def load_command_table(self, _):
         )
         g.custom_command(
             'create-single-value-extended-property', 'mail_user_message_create_single_value_extended_property'
+        )
+        g.custom_command('delete-attachment', 'mail_user_message_delete_attachment')
+        g.custom_command('delete-extension', 'mail_user_message_delete_extension')
+        g.custom_command(
+            'delete-multi-value-extended-property', 'mail_user_message_delete_multi_value_extended_property'
+        )
+        g.custom_command(
+            'delete-single-value-extended-property', 'mail_user_message_delete_single_value_extended_property'
         )
         g.custom_command('list-attachment', 'mail_user_message_list_attachment')
         g.custom_command('list-extension', 'mail_user_message_list_extension')

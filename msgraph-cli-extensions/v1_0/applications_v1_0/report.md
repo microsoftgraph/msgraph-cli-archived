@@ -23,7 +23,7 @@
 |[az applications application list](#applications.applicationListApplication)|ListApplication|[Parameters](#Parametersapplications.applicationListApplication)|Not Found|
 |[az applications application create](#applications.applicationUpdateApplication)|UpdateApplication|[Parameters](#Parametersapplications.applicationUpdateApplication)|Not Found|
 |[az applications application create](#applications.applicationCreateApplication)|CreateApplication|[Parameters](#Parametersapplications.applicationCreateApplication)|Not Found|
-|[az applications application delete](#applications.applicationDeleteApplication)|DeleteApplication|[Parameters](#Parametersapplications.applicationDeleteApplication)|Not Found|
+|[az applications application delete-application](#applications.applicationDeleteApplication)|DeleteApplication|[Parameters](#Parametersapplications.applicationDeleteApplication)|Not Found|
 |[az applications application set-logo](#applications.applicationSetLogo)|SetLogo|[Parameters](#Parametersapplications.applicationSetLogo)|Not Found|
 |[az applications application show-application](#applications.applicationGetApplication)|GetApplication|[Parameters](#Parametersapplications.applicationGetApplication)|Not Found|
 |[az applications application show-logo](#applications.applicationGetLogo)|GetLogo|[Parameters](#Parametersapplications.applicationGetLogo)|Not Found|
@@ -31,8 +31,6 @@
 ### <a name="CommandsInapplications">Commands in `az applications application` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az applications application delete](#applicationsDeleteExtensionProperties)|DeleteExtensionProperties|[Parameters](#ParametersapplicationsDeleteExtensionProperties)|Not Found|
-|[az applications application delete](#applicationsDeleteRefCreatedOnBehalfOf)|DeleteRefCreatedOnBehalfOf|[Parameters](#ParametersapplicationsDeleteRefCreatedOnBehalfOf)|Not Found|
 |[az applications application add-key](#applicationsaddKey)|addKey|[Parameters](#ParametersapplicationsaddKey)|Not Found|
 |[az applications application add-password](#applicationsaddPassword)|addPassword|[Parameters](#ParametersapplicationsaddPassword)|Not Found|
 |[az applications application check-member-group](#applicationscheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersapplicationscheckMemberGroups)|Not Found|
@@ -42,6 +40,8 @@
 |[az applications application create-ref-owner](#applicationsCreateRefOwners)|CreateRefOwners|[Parameters](#ParametersapplicationsCreateRefOwners)|Not Found|
 |[az applications application create-ref-token-issuance-policy](#applicationsCreateRefTokenIssuancePolicies)|CreateRefTokenIssuancePolicies|[Parameters](#ParametersapplicationsCreateRefTokenIssuancePolicies)|Not Found|
 |[az applications application create-ref-token-lifetime-policy](#applicationsCreateRefTokenLifetimePolicies)|CreateRefTokenLifetimePolicies|[Parameters](#ParametersapplicationsCreateRefTokenLifetimePolicies)|Not Found|
+|[az applications application delete-extension-property](#applicationsDeleteExtensionProperties)|DeleteExtensionProperties|[Parameters](#ParametersapplicationsDeleteExtensionProperties)|Not Found|
+|[az applications application delete-ref-created-on-behalf-of](#applicationsDeleteRefCreatedOnBehalfOf)|DeleteRefCreatedOnBehalfOf|[Parameters](#ParametersapplicationsDeleteRefCreatedOnBehalfOf)|Not Found|
 |[az applications application delta](#applicationsdelta)|delta|[Parameters](#Parametersapplicationsdelta)|Not Found|
 |[az applications application get-available-extension-property](#applicationsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersapplicationsgetAvailableExtensionProperties)|Not Found|
 |[az applications application get-by-id](#applicationsgetByIds)|getByIds|[Parameters](#ParametersapplicationsgetByIds)|Not Found|
@@ -69,8 +69,8 @@
 ### <a name="CommandsIngroups">Commands in `az applications group` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az applications group delete](#groupsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersgroupsDeleteAppRoleAssignments)|Not Found|
 |[az applications group create-app-role-assignment](#groupsCreateAppRoleAssignments)|CreateAppRoleAssignments|[Parameters](#ParametersgroupsCreateAppRoleAssignments)|Not Found|
+|[az applications group delete-app-role-assignment](#groupsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersgroupsDeleteAppRoleAssignments)|Not Found|
 |[az applications group list-app-role-assignment](#groupsListAppRoleAssignments)|ListAppRoleAssignments|[Parameters](#ParametersgroupsListAppRoleAssignments)|Not Found|
 |[az applications group show-app-role-assignment](#groupsGetAppRoleAssignments)|GetAppRoleAssignments|[Parameters](#ParametersgroupsGetAppRoleAssignments)|Not Found|
 |[az applications group update-app-role-assignment](#groupsUpdateAppRoleAssignments)|UpdateAppRoleAssignments|[Parameters](#ParametersgroupsUpdateAppRoleAssignments)|Not Found|
@@ -78,9 +78,6 @@
 ### <a name="CommandsInservicePrincipals">Commands in `az applications service-principal` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az applications service-principal delete](#servicePrincipalsDeleteAppRoleAssignedTo)|DeleteAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignedTo)|Not Found|
-|[az applications service-principal delete](#servicePrincipalsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignments)|Not Found|
-|[az applications service-principal delete](#servicePrincipalsDeleteEndpoints)|DeleteEndpoints|[Parameters](#ParametersservicePrincipalsDeleteEndpoints)|Not Found|
 |[az applications service-principal add-key](#servicePrincipalsaddKey)|addKey|[Parameters](#ParametersservicePrincipalsaddKey)|Not Found|
 |[az applications service-principal add-password](#servicePrincipalsaddPassword)|addPassword|[Parameters](#ParametersservicePrincipalsaddPassword)|Not Found|
 |[az applications service-principal check-member-group](#servicePrincipalscheckMemberGroups)|checkMemberGroups|[Parameters](#ParametersservicePrincipalscheckMemberGroups)|Not Found|
@@ -98,6 +95,9 @@
 |[az applications service-principal create-ref-token-issuance-policy](#servicePrincipalsCreateRefTokenIssuancePolicies)|CreateRefTokenIssuancePolicies|[Parameters](#ParametersservicePrincipalsCreateRefTokenIssuancePolicies)|Not Found|
 |[az applications service-principal create-ref-token-lifetime-policy](#servicePrincipalsCreateRefTokenLifetimePolicies)|CreateRefTokenLifetimePolicies|[Parameters](#ParametersservicePrincipalsCreateRefTokenLifetimePolicies)|Not Found|
 |[az applications service-principal create-ref-transitive-member-of](#servicePrincipalsCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParametersservicePrincipalsCreateRefTransitiveMemberOf)|Not Found|
+|[az applications service-principal delete-app-role-assigned-to](#servicePrincipalsDeleteAppRoleAssignedTo)|DeleteAppRoleAssignedTo|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignedTo)|Not Found|
+|[az applications service-principal delete-app-role-assignment](#servicePrincipalsDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersservicePrincipalsDeleteAppRoleAssignments)|Not Found|
+|[az applications service-principal delete-endpoint](#servicePrincipalsDeleteEndpoints)|DeleteEndpoints|[Parameters](#ParametersservicePrincipalsDeleteEndpoints)|Not Found|
 |[az applications service-principal delta](#servicePrincipalsdelta)|delta|[Parameters](#ParametersservicePrincipalsdelta)|Not Found|
 |[az applications service-principal get-available-extension-property](#servicePrincipalsgetAvailableExtensionProperties)|getAvailableExtensionProperties|[Parameters](#ParametersservicePrincipalsgetAvailableExtensionProperties)|Not Found|
 |[az applications service-principal get-by-id](#servicePrincipalsgetByIds)|getByIds|[Parameters](#ParametersservicePrincipalsgetByIds)|Not Found|
@@ -140,8 +140,8 @@
 ### <a name="CommandsInservicePrincipals.servicePrincipal">Commands in `az applications service-principal-service-principal` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az applications service-principal-service-principal delete](#servicePrincipals.servicePrincipalDeleteServicePrincipal)|DeleteServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal)|Not Found|
 |[az applications service-principal-service-principal create-service-principal](#servicePrincipals.servicePrincipalCreateServicePrincipal)|CreateServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalCreateServicePrincipal)|Not Found|
+|[az applications service-principal-service-principal delete-service-principal](#servicePrincipals.servicePrincipalDeleteServicePrincipal)|DeleteServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal)|Not Found|
 |[az applications service-principal-service-principal list-service-principal](#servicePrincipals.servicePrincipalListServicePrincipal)|ListServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalListServicePrincipal)|Not Found|
 |[az applications service-principal-service-principal show-service-principal](#servicePrincipals.servicePrincipalGetServicePrincipal)|GetServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalGetServicePrincipal)|Not Found|
 |[az applications service-principal-service-principal update-service-principal](#servicePrincipals.servicePrincipalUpdateServicePrincipal)|UpdateServicePrincipal|[Parameters](#ParametersservicePrincipals.servicePrincipalUpdateServicePrincipal)|Not Found|
@@ -149,8 +149,8 @@
 ### <a name="CommandsInusers">Commands in `az applications user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az applications user delete](#usersDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersusersDeleteAppRoleAssignments)|Not Found|
 |[az applications user create-app-role-assignment](#usersCreateAppRoleAssignments)|CreateAppRoleAssignments|[Parameters](#ParametersusersCreateAppRoleAssignments)|Not Found|
+|[az applications user delete-app-role-assignment](#usersDeleteAppRoleAssignments)|DeleteAppRoleAssignments|[Parameters](#ParametersusersDeleteAppRoleAssignments)|Not Found|
 |[az applications user list-app-role-assignment](#usersListAppRoleAssignments)|ListAppRoleAssignments|[Parameters](#ParametersusersListAppRoleAssignments)|Not Found|
 |[az applications user show-app-role-assignment](#usersGetAppRoleAssignments)|GetAppRoleAssignments|[Parameters](#ParametersusersGetAppRoleAssignments)|Not Found|
 |[az applications user update-app-role-assignment](#usersUpdateAppRoleAssignments)|UpdateAppRoleAssignments|[Parameters](#ParametersusersUpdateAppRoleAssignments)|Not Found|
@@ -224,7 +224,7 @@
 ##### <a name="Parametersapplications.applicationCreateApplication">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="applications.applicationDeleteApplication">Command `az applications application delete`</a>
+#### <a name="applications.applicationDeleteApplication">Command `az applications application delete-application`</a>
 
 ##### <a name="Parametersapplications.applicationDeleteApplication">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -257,20 +257,6 @@
 |**--application-id**|string|key: id of application|application_id|application-id|
 
 ### group `az applications application`
-#### <a name="applicationsDeleteExtensionProperties">Command `az applications application delete`</a>
-
-##### <a name="ParametersapplicationsDeleteExtensionProperties">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-id**|string|key: id of application|application_id|application-id|
-|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="applicationsDeleteRefCreatedOnBehalfOf">Command `az applications application delete`</a>
-
-##### <a name="ParametersapplicationsDeleteRefCreatedOnBehalfOf">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="applicationsaddKey">Command `az applications application add-key`</a>
 
 ##### <a name="ParametersapplicationsaddKey">Parameters</a> 
@@ -350,6 +336,23 @@
 |------|----|-----------|----------|------------|
 |**--application-id**|string|key: id of application|application_id|application-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="applicationsDeleteExtensionProperties">Command `az applications application delete-extension-property`</a>
+
+##### <a name="ParametersapplicationsDeleteExtensionProperties">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--extension-property-id**|string|key: id of extensionProperty|extension_property_id|extensionProperty-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="applicationsDeleteRefCreatedOnBehalfOf">Command `az applications application delete-ref-created-on-behalf-of`</a>
+
+##### <a name="ParametersapplicationsDeleteRefCreatedOnBehalfOf">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-id**|string|key: id of application|application_id|application-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="applicationsdelta">Command `az applications application delta`</a>
 
@@ -553,15 +556,6 @@
 |**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
 
 ### group `az applications group`
-#### <a name="groupsDeleteAppRoleAssignments">Command `az applications group delete`</a>
-
-##### <a name="ParametersgroupsDeleteAppRoleAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--group-id**|string|key: id of group|group_id|group-id|
-|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="groupsCreateAppRoleAssignments">Command `az applications group create-app-role-assignment`</a>
 
 ##### <a name="ParametersgroupsCreateAppRoleAssignments">Parameters</a> 
@@ -577,6 +571,15 @@
 |**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
+
+#### <a name="groupsDeleteAppRoleAssignments">Command `az applications group delete-app-role-assignment`</a>
+
+##### <a name="ParametersgroupsDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--group-id**|string|key: id of group|group_id|group-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="groupsListAppRoleAssignments">Command `az applications group list-app-role-assignment`</a>
 
@@ -616,27 +619,6 @@
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
 
 ### group `az applications service-principal`
-#### <a name="servicePrincipalsDeleteAppRoleAssignedTo">Command `az applications service-principal delete`</a>
-
-##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignedTo">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="servicePrincipalsDeleteAppRoleAssignments">Command `az applications service-principal delete`</a>
-
-##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="servicePrincipalsDeleteEndpoints">Command `az applications service-principal delete`</a>
-
-##### <a name="ParametersservicePrincipalsDeleteEndpoints">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
-
 #### <a name="servicePrincipalsaddKey">Command `az applications service-principal add-key`</a>
 
 ##### <a name="ParametersservicePrincipalsaddKey">Parameters</a> 
@@ -796,6 +778,33 @@
 |------|----|-----------|----------|------------|
 |**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="servicePrincipalsDeleteAppRoleAssignedTo">Command `az applications service-principal delete-app-role-assigned-to`</a>
+
+##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignedTo">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="servicePrincipalsDeleteAppRoleAssignments">Command `az applications service-principal delete-app-role-assignment`</a>
+
+##### <a name="ParametersservicePrincipalsDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="servicePrincipalsDeleteEndpoints">Command `az applications service-principal delete-endpoint`</a>
+
+##### <a name="ParametersservicePrincipalsDeleteEndpoints">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--endpoint-id**|string|key: id of endpoint|endpoint_id|endpoint-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="servicePrincipalsdelta">Command `az applications service-principal delta`</a>
 
@@ -1157,14 +1166,6 @@
 |**--on-behalf-of-user-id**|uuid||on_behalf_of_user_id|onBehalfOfUserId|
 
 ### group `az applications service-principal-service-principal`
-#### <a name="servicePrincipals.servicePrincipalDeleteServicePrincipal">Command `az applications service-principal-service-principal delete`</a>
-
-##### <a name="ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="servicePrincipals.servicePrincipalCreateServicePrincipal">Command `az applications service-principal-service-principal create-service-principal`</a>
 
 ##### <a name="ParametersservicePrincipals.servicePrincipalCreateServicePrincipal">Parameters</a> 
@@ -1214,6 +1215,14 @@
 |**--token-lifetime-policies**|array|The tokenLifetimePolicies assigned to this service principal.|token_lifetime_policies|tokenLifetimePolicies|
 |**--transitive-member-of**|array||transitive_member_of|transitiveMemberOf|
 |**--relay-state**|string|The relative URI the service provider would redirect to after completion of the single sign-on flow.|relay_state|relayState|
+
+#### <a name="servicePrincipals.servicePrincipalDeleteServicePrincipal">Command `az applications service-principal-service-principal delete-service-principal`</a>
+
+##### <a name="ParametersservicePrincipals.servicePrincipalDeleteServicePrincipal">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--service-principal-id**|string|key: id of servicePrincipal|service_principal_id|servicePrincipal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="servicePrincipals.servicePrincipalListServicePrincipal">Command `az applications service-principal-service-principal list-service-principal`</a>
 
@@ -1285,15 +1294,6 @@
 |**--relay-state**|string|The relative URI the service provider would redirect to after completion of the single sign-on flow.|relay_state|relayState|
 
 ### group `az applications user`
-#### <a name="usersDeleteAppRoleAssignments">Command `az applications user delete`</a>
-
-##### <a name="ParametersusersDeleteAppRoleAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="usersCreateAppRoleAssignments">Command `az applications user create-app-role-assignment`</a>
 
 ##### <a name="ParametersusersCreateAppRoleAssignments">Parameters</a> 
@@ -1309,6 +1309,15 @@
 |**--principal-type**|string|The type of the assigned principal. This can either be 'User', 'Group' or 'ServicePrincipal'. Read-only. Does not support $filter.|principal_type|principalType|
 |**--resource-display-name**|string|The display name of the resource app's service principal to which the assignment is made. Does not support $filter.|resource_display_name|resourceDisplayName|
 |**--resource-id**|uuid|The unique identifier (id) for the resource service principal for which the assignment is made. Required on create. Supports $filter (eq only).|resource_id|resourceId|
+
+#### <a name="usersDeleteAppRoleAssignments">Command `az applications user delete-app-role-assignment`</a>
+
+##### <a name="ParametersusersDeleteAppRoleAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--app-role-assignment-id**|string|key: id of appRoleAssignment|app_role_assignment_id|appRoleAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListAppRoleAssignments">Command `az applications user list-app-role-assignment`</a>
 

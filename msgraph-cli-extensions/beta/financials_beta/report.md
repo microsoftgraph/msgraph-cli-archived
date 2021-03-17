@@ -67,8 +67,8 @@
 ### <a name="CommandsInfinancials">Commands in `az financials financial` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial delete](#financialsDeleteCompanies)|DeleteCompanies|[Parameters](#ParametersfinancialsDeleteCompanies)|Not Found|
 |[az financials financial create-company](#financialsCreateCompanies)|CreateCompanies|[Parameters](#ParametersfinancialsCreateCompanies)|Not Found|
+|[az financials financial delete-company](#financialsDeleteCompanies)|DeleteCompanies|[Parameters](#ParametersfinancialsDeleteCompanies)|Not Found|
 |[az financials financial list-company](#financialsListCompanies)|ListCompanies|[Parameters](#ParametersfinancialsListCompanies)|Not Found|
 |[az financials financial show-company](#financialsGetCompanies)|GetCompanies|[Parameters](#ParametersfinancialsGetCompanies)|Not Found|
 |[az financials financial update-company](#financialsUpdateCompanies)|UpdateCompanies|[Parameters](#ParametersfinancialsUpdateCompanies)|Not Found|
@@ -76,41 +76,6 @@
 ### <a name="CommandsInfinancials.companies">Commands in `az financials financial-company` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company delete](#financials.companiesDeleteAccounts)|DeleteAccounts|[Parameters](#Parametersfinancials.companiesDeleteAccounts)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteAgedAccountsPayable)|DeleteAgedAccountsPayable|[Parameters](#Parametersfinancials.companiesDeleteAgedAccountsPayable)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteAgedAccountsReceivable)|DeleteAgedAccountsReceivable|[Parameters](#Parametersfinancials.companiesDeleteAgedAccountsReceivable)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCompanyInformation)|DeleteCompanyInformation|[Parameters](#Parametersfinancials.companiesDeleteCompanyInformation)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCountriesRegions)|DeleteCountriesRegions|[Parameters](#Parametersfinancials.companiesDeleteCountriesRegions)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCurrencies)|DeleteCurrencies|[Parameters](#Parametersfinancials.companiesDeleteCurrencies)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCustomerPaymentJournals)|DeleteCustomerPaymentJournals|[Parameters](#Parametersfinancials.companiesDeleteCustomerPaymentJournals)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCustomerPayments)|DeleteCustomerPayments|[Parameters](#Parametersfinancials.companiesDeleteCustomerPayments)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteCustomers)|DeleteCustomers|[Parameters](#Parametersfinancials.companiesDeleteCustomers)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteDimensions)|DeleteDimensions|[Parameters](#Parametersfinancials.companiesDeleteDimensions)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteDimensionValues)|DeleteDimensionValues|[Parameters](#Parametersfinancials.companiesDeleteDimensionValues)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteEmployees)|DeleteEmployees|[Parameters](#Parametersfinancials.companiesDeleteEmployees)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteGeneralLedgerEntries)|DeleteGeneralLedgerEntries|[Parameters](#Parametersfinancials.companiesDeleteGeneralLedgerEntries)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteItemCategories)|DeleteItemCategories|[Parameters](#Parametersfinancials.companiesDeleteItemCategories)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteItems)|DeleteItems|[Parameters](#Parametersfinancials.companiesDeleteItems)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteJournalLines)|DeleteJournalLines|[Parameters](#Parametersfinancials.companiesDeleteJournalLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteJournals)|DeleteJournals|[Parameters](#Parametersfinancials.companiesDeleteJournals)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeletePaymentMethods)|DeletePaymentMethods|[Parameters](#Parametersfinancials.companiesDeletePaymentMethods)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeletePaymentTerms)|DeletePaymentTerms|[Parameters](#Parametersfinancials.companiesDeletePaymentTerms)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companiesDeletePicture)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeletePurchaseInvoiceLines)|DeletePurchaseInvoiceLines|[Parameters](#Parametersfinancials.companiesDeletePurchaseInvoiceLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeletePurchaseInvoices)|DeletePurchaseInvoices|[Parameters](#Parametersfinancials.companiesDeletePurchaseInvoices)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesCreditMemoLines)|DeleteSalesCreditMemoLines|[Parameters](#Parametersfinancials.companiesDeleteSalesCreditMemoLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesCreditMemos)|DeleteSalesCreditMemos|[Parameters](#Parametersfinancials.companiesDeleteSalesCreditMemos)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesInvoiceLines)|DeleteSalesInvoiceLines|[Parameters](#Parametersfinancials.companiesDeleteSalesInvoiceLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesInvoices)|DeleteSalesInvoices|[Parameters](#Parametersfinancials.companiesDeleteSalesInvoices)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesOrderLines)|DeleteSalesOrderLines|[Parameters](#Parametersfinancials.companiesDeleteSalesOrderLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesOrders)|DeleteSalesOrders|[Parameters](#Parametersfinancials.companiesDeleteSalesOrders)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesQuoteLines)|DeleteSalesQuoteLines|[Parameters](#Parametersfinancials.companiesDeleteSalesQuoteLines)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteSalesQuotes)|DeleteSalesQuotes|[Parameters](#Parametersfinancials.companiesDeleteSalesQuotes)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteShipmentMethods)|DeleteShipmentMethods|[Parameters](#Parametersfinancials.companiesDeleteShipmentMethods)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteTaxAreas)|DeleteTaxAreas|[Parameters](#Parametersfinancials.companiesDeleteTaxAreas)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteTaxGroups)|DeleteTaxGroups|[Parameters](#Parametersfinancials.companiesDeleteTaxGroups)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteUnitsOfMeasure)|DeleteUnitsOfMeasure|[Parameters](#Parametersfinancials.companiesDeleteUnitsOfMeasure)|Not Found|
-|[az financials financial-company delete](#financials.companiesDeleteVendors)|DeleteVendors|[Parameters](#Parametersfinancials.companiesDeleteVendors)|Not Found|
 |[az financials financial-company create-account](#financials.companiesCreateAccounts)|CreateAccounts|[Parameters](#Parametersfinancials.companiesCreateAccounts)|Not Found|
 |[az financials financial-company create-aged-account-payable](#financials.companiesCreateAgedAccountsPayable)|CreateAgedAccountsPayable|[Parameters](#Parametersfinancials.companiesCreateAgedAccountsPayable)|Not Found|
 |[az financials financial-company create-aged-account-receivable](#financials.companiesCreateAgedAccountsReceivable)|CreateAgedAccountsReceivable|[Parameters](#Parametersfinancials.companiesCreateAgedAccountsReceivable)|Not Found|
@@ -146,6 +111,41 @@
 |[az financials financial-company create-tax-group](#financials.companiesCreateTaxGroups)|CreateTaxGroups|[Parameters](#Parametersfinancials.companiesCreateTaxGroups)|Not Found|
 |[az financials financial-company create-unit-of-measure](#financials.companiesCreateUnitsOfMeasure)|CreateUnitsOfMeasure|[Parameters](#Parametersfinancials.companiesCreateUnitsOfMeasure)|Not Found|
 |[az financials financial-company create-vendor](#financials.companiesCreateVendors)|CreateVendors|[Parameters](#Parametersfinancials.companiesCreateVendors)|Not Found|
+|[az financials financial-company delete-account](#financials.companiesDeleteAccounts)|DeleteAccounts|[Parameters](#Parametersfinancials.companiesDeleteAccounts)|Not Found|
+|[az financials financial-company delete-aged-account-payable](#financials.companiesDeleteAgedAccountsPayable)|DeleteAgedAccountsPayable|[Parameters](#Parametersfinancials.companiesDeleteAgedAccountsPayable)|Not Found|
+|[az financials financial-company delete-aged-account-receivable](#financials.companiesDeleteAgedAccountsReceivable)|DeleteAgedAccountsReceivable|[Parameters](#Parametersfinancials.companiesDeleteAgedAccountsReceivable)|Not Found|
+|[az financials financial-company delete-company-information](#financials.companiesDeleteCompanyInformation)|DeleteCompanyInformation|[Parameters](#Parametersfinancials.companiesDeleteCompanyInformation)|Not Found|
+|[az financials financial-company delete-country-region](#financials.companiesDeleteCountriesRegions)|DeleteCountriesRegions|[Parameters](#Parametersfinancials.companiesDeleteCountriesRegions)|Not Found|
+|[az financials financial-company delete-currency](#financials.companiesDeleteCurrencies)|DeleteCurrencies|[Parameters](#Parametersfinancials.companiesDeleteCurrencies)|Not Found|
+|[az financials financial-company delete-customer](#financials.companiesDeleteCustomers)|DeleteCustomers|[Parameters](#Parametersfinancials.companiesDeleteCustomers)|Not Found|
+|[az financials financial-company delete-customer-payment](#financials.companiesDeleteCustomerPayments)|DeleteCustomerPayments|[Parameters](#Parametersfinancials.companiesDeleteCustomerPayments)|Not Found|
+|[az financials financial-company delete-customer-payment-journal](#financials.companiesDeleteCustomerPaymentJournals)|DeleteCustomerPaymentJournals|[Parameters](#Parametersfinancials.companiesDeleteCustomerPaymentJournals)|Not Found|
+|[az financials financial-company delete-dimension](#financials.companiesDeleteDimensions)|DeleteDimensions|[Parameters](#Parametersfinancials.companiesDeleteDimensions)|Not Found|
+|[az financials financial-company delete-dimension-value](#financials.companiesDeleteDimensionValues)|DeleteDimensionValues|[Parameters](#Parametersfinancials.companiesDeleteDimensionValues)|Not Found|
+|[az financials financial-company delete-employee](#financials.companiesDeleteEmployees)|DeleteEmployees|[Parameters](#Parametersfinancials.companiesDeleteEmployees)|Not Found|
+|[az financials financial-company delete-general-ledger-entry](#financials.companiesDeleteGeneralLedgerEntries)|DeleteGeneralLedgerEntries|[Parameters](#Parametersfinancials.companiesDeleteGeneralLedgerEntries)|Not Found|
+|[az financials financial-company delete-item](#financials.companiesDeleteItems)|DeleteItems|[Parameters](#Parametersfinancials.companiesDeleteItems)|Not Found|
+|[az financials financial-company delete-item-category](#financials.companiesDeleteItemCategories)|DeleteItemCategories|[Parameters](#Parametersfinancials.companiesDeleteItemCategories)|Not Found|
+|[az financials financial-company delete-journal](#financials.companiesDeleteJournals)|DeleteJournals|[Parameters](#Parametersfinancials.companiesDeleteJournals)|Not Found|
+|[az financials financial-company delete-journal-line](#financials.companiesDeleteJournalLines)|DeleteJournalLines|[Parameters](#Parametersfinancials.companiesDeleteJournalLines)|Not Found|
+|[az financials financial-company delete-payment-method](#financials.companiesDeletePaymentMethods)|DeletePaymentMethods|[Parameters](#Parametersfinancials.companiesDeletePaymentMethods)|Not Found|
+|[az financials financial-company delete-payment-term](#financials.companiesDeletePaymentTerms)|DeletePaymentTerms|[Parameters](#Parametersfinancials.companiesDeletePaymentTerms)|Not Found|
+|[az financials financial-company delete-picture](#financials.companiesDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companiesDeletePicture)|Not Found|
+|[az financials financial-company delete-purchase-invoice](#financials.companiesDeletePurchaseInvoices)|DeletePurchaseInvoices|[Parameters](#Parametersfinancials.companiesDeletePurchaseInvoices)|Not Found|
+|[az financials financial-company delete-purchase-invoice-line](#financials.companiesDeletePurchaseInvoiceLines)|DeletePurchaseInvoiceLines|[Parameters](#Parametersfinancials.companiesDeletePurchaseInvoiceLines)|Not Found|
+|[az financials financial-company delete-sale-credit-memo](#financials.companiesDeleteSalesCreditMemos)|DeleteSalesCreditMemos|[Parameters](#Parametersfinancials.companiesDeleteSalesCreditMemos)|Not Found|
+|[az financials financial-company delete-sale-credit-memo-line](#financials.companiesDeleteSalesCreditMemoLines)|DeleteSalesCreditMemoLines|[Parameters](#Parametersfinancials.companiesDeleteSalesCreditMemoLines)|Not Found|
+|[az financials financial-company delete-sale-invoice](#financials.companiesDeleteSalesInvoices)|DeleteSalesInvoices|[Parameters](#Parametersfinancials.companiesDeleteSalesInvoices)|Not Found|
+|[az financials financial-company delete-sale-invoice-line](#financials.companiesDeleteSalesInvoiceLines)|DeleteSalesInvoiceLines|[Parameters](#Parametersfinancials.companiesDeleteSalesInvoiceLines)|Not Found|
+|[az financials financial-company delete-sale-order](#financials.companiesDeleteSalesOrders)|DeleteSalesOrders|[Parameters](#Parametersfinancials.companiesDeleteSalesOrders)|Not Found|
+|[az financials financial-company delete-sale-order-line](#financials.companiesDeleteSalesOrderLines)|DeleteSalesOrderLines|[Parameters](#Parametersfinancials.companiesDeleteSalesOrderLines)|Not Found|
+|[az financials financial-company delete-sale-quote](#financials.companiesDeleteSalesQuotes)|DeleteSalesQuotes|[Parameters](#Parametersfinancials.companiesDeleteSalesQuotes)|Not Found|
+|[az financials financial-company delete-sale-quote-line](#financials.companiesDeleteSalesQuoteLines)|DeleteSalesQuoteLines|[Parameters](#Parametersfinancials.companiesDeleteSalesQuoteLines)|Not Found|
+|[az financials financial-company delete-shipment-method](#financials.companiesDeleteShipmentMethods)|DeleteShipmentMethods|[Parameters](#Parametersfinancials.companiesDeleteShipmentMethods)|Not Found|
+|[az financials financial-company delete-tax-area](#financials.companiesDeleteTaxAreas)|DeleteTaxAreas|[Parameters](#Parametersfinancials.companiesDeleteTaxAreas)|Not Found|
+|[az financials financial-company delete-tax-group](#financials.companiesDeleteTaxGroups)|DeleteTaxGroups|[Parameters](#Parametersfinancials.companiesDeleteTaxGroups)|Not Found|
+|[az financials financial-company delete-unit-of-measure](#financials.companiesDeleteUnitsOfMeasure)|DeleteUnitsOfMeasure|[Parameters](#Parametersfinancials.companiesDeleteUnitsOfMeasure)|Not Found|
+|[az financials financial-company delete-vendor](#financials.companiesDeleteVendors)|DeleteVendors|[Parameters](#Parametersfinancials.companiesDeleteVendors)|Not Found|
 |[az financials financial-company list-account](#financials.companiesListAccounts)|ListAccounts|[Parameters](#Parametersfinancials.companiesListAccounts)|Not Found|
 |[az financials financial-company list-aged-account-payable](#financials.companiesListAgedAccountsPayable)|ListAgedAccountsPayable|[Parameters](#Parametersfinancials.companiesListAgedAccountsPayable)|Not Found|
 |[az financials financial-company list-aged-account-receivable](#financials.companiesListAgedAccountsReceivable)|ListAgedAccountsReceivable|[Parameters](#Parametersfinancials.companiesListAgedAccountsReceivable)|Not Found|
@@ -259,12 +259,12 @@
 ### <a name="CommandsInfinancials.companies.customers">Commands in `az financials financial-company-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer delete](#financials.companies.customersDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customersDeletePicture)|Not Found|
-|[az financials financial-company-customer delete](#financials.companies.customersDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customersDeleteCurrency)|Not Found|
-|[az financials financial-company-customer delete](#financials.companies.customersDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customersDeletePaymentMethod)|Not Found|
-|[az financials financial-company-customer delete](#financials.companies.customersDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customersDeletePaymentTerm)|Not Found|
-|[az financials financial-company-customer delete](#financials.companies.customersDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customersDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer create-picture](#financials.companies.customersCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.customersCreatePicture)|Not Found|
+|[az financials financial-company-customer delete-currency](#financials.companies.customersDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customersDeleteCurrency)|Not Found|
+|[az financials financial-company-customer delete-payment-method](#financials.companies.customersDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customersDeletePaymentMethod)|Not Found|
+|[az financials financial-company-customer delete-payment-term](#financials.companies.customersDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customersDeletePaymentTerm)|Not Found|
+|[az financials financial-company-customer delete-picture](#financials.companies.customersDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customersDeletePicture)|Not Found|
+|[az financials financial-company-customer delete-shipment-method](#financials.companies.customersDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customersDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer list-picture](#financials.companies.customersListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.customersListPicture)|Not Found|
 |[az financials financial-company-customer set-picture-content](#financials.companies.customersSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.customersSetPictureContent)|Not Found|
 |[az financials financial-company-customer show-currency](#financials.companies.customersGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.customersGetCurrency)|Not Found|
@@ -282,19 +282,19 @@
 ### <a name="CommandsInfinancials.companies.customerPayments">Commands in `az financials financial-company-customer-payment` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer-payment delete](#financials.companies.customerPaymentsDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentsDeleteCustomer)|Not Found|
+|[az financials financial-company-customer-payment delete-customer](#financials.companies.customerPaymentsDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentsDeleteCustomer)|Not Found|
 |[az financials financial-company-customer-payment show-customer](#financials.companies.customerPaymentsGetCustomer)|GetCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentsGetCustomer)|Not Found|
 |[az financials financial-company-customer-payment update-customer](#financials.companies.customerPaymentsUpdateCustomer)|UpdateCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentsUpdateCustomer)|Not Found|
 
 ### <a name="CommandsInfinancials.companies.customerPayments.customer">Commands in `az financials financial-company-customer-payment-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer-payment-customer delete](#financials.companies.customerPayments.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePicture)|Not Found|
-|[az financials financial-company-customer-payment-customer delete](#financials.companies.customerPayments.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-customer-payment-customer delete](#financials.companies.customerPayments.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-customer-payment-customer delete](#financials.companies.customerPayments.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-customer-payment-customer delete](#financials.companies.customerPayments.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer-payment-customer create-picture](#financials.companies.customerPayments.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.customerPayments.customerCreatePicture)|Not Found|
+|[az financials financial-company-customer-payment-customer delete-currency](#financials.companies.customerPayments.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-customer-payment-customer delete-payment-method](#financials.companies.customerPayments.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-customer-payment-customer delete-payment-term](#financials.companies.customerPayments.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-customer-payment-customer delete-picture](#financials.companies.customerPayments.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeletePicture)|Not Found|
+|[az financials financial-company-customer-payment-customer delete-shipment-method](#financials.companies.customerPayments.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customerPayments.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer-payment-customer list-picture](#financials.companies.customerPayments.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.customerPayments.customerListPicture)|Not Found|
 |[az financials financial-company-customer-payment-customer set-picture-content](#financials.companies.customerPayments.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.customerPayments.customerSetPictureContent)|Not Found|
 |[az financials financial-company-customer-payment-customer show-currency](#financials.companies.customerPayments.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.customerPayments.customerGetCurrency)|Not Found|
@@ -312,9 +312,9 @@
 ### <a name="CommandsInfinancials.companies.customerPaymentJournals">Commands in `az financials financial-company-customer-payment-journal` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer-payment-journal delete](#financials.companies.customerPaymentJournalsDeleteCustomerPayments)|DeleteCustomerPayments|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsDeleteCustomerPayments)|Not Found|
-|[az financials financial-company-customer-payment-journal delete](#financials.companies.customerPaymentJournalsDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsDeleteAccount)|Not Found|
 |[az financials financial-company-customer-payment-journal create-customer-payment](#financials.companies.customerPaymentJournalsCreateCustomerPayments)|CreateCustomerPayments|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsCreateCustomerPayments)|Not Found|
+|[az financials financial-company-customer-payment-journal delete-account](#financials.companies.customerPaymentJournalsDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsDeleteAccount)|Not Found|
+|[az financials financial-company-customer-payment-journal delete-customer-payment](#financials.companies.customerPaymentJournalsDeleteCustomerPayments)|DeleteCustomerPayments|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsDeleteCustomerPayments)|Not Found|
 |[az financials financial-company-customer-payment-journal list-customer-payment](#financials.companies.customerPaymentJournalsListCustomerPayments)|ListCustomerPayments|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsListCustomerPayments)|Not Found|
 |[az financials financial-company-customer-payment-journal show-account](#financials.companies.customerPaymentJournalsGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsGetAccount)|Not Found|
 |[az financials financial-company-customer-payment-journal show-customer-payment](#financials.companies.customerPaymentJournalsGetCustomerPayments)|GetCustomerPayments|[Parameters](#Parametersfinancials.companies.customerPaymentJournalsGetCustomerPayments)|Not Found|
@@ -324,19 +324,19 @@
 ### <a name="CommandsInfinancials.companies.customerPaymentJournals.customerPayments">Commands in `az financials financial-company-customer-payment-journal-customer-payment` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer-payment-journal-customer-payment delete](#financials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment delete-customer](#financials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment show-customer](#financials.companies.customerPaymentJournals.customerPaymentsGetCustomer)|GetCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPaymentsGetCustomer)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment update-customer](#financials.companies.customerPaymentJournals.customerPaymentsUpdateCustomer)|UpdateCustomer|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPaymentsUpdateCustomer)|Not Found|
 
 ### <a name="CommandsInfinancials.companies.customerPaymentJournals.customerPayments.customer">Commands in `az financials financial-company-customer-payment-journal-customer-payment-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-customer-payment-journal-customer-payment-customer delete](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePicture)|Not Found|
-|[az financials financial-company-customer-payment-journal-customer-payment-customer delete](#financials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-customer-payment-journal-customer-payment-customer delete](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-customer-payment-journal-customer-payment-customer delete](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-customer-payment-journal-customer-payment-customer delete](#financials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment-customer create-picture](#financials.companies.customerPaymentJournals.customerPayments.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerCreatePicture)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment-customer delete-currency](#financials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-method](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-term](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment-customer delete-picture](#financials.companies.customerPaymentJournals.customerPayments.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePicture)|Not Found|
+|[az financials financial-company-customer-payment-journal-customer-payment-customer delete-shipment-method](#financials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment-customer list-picture](#financials.companies.customerPaymentJournals.customerPayments.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerListPicture)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment-customer set-picture-content](#financials.companies.customerPaymentJournals.customerPayments.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerSetPictureContent)|Not Found|
 |[az financials financial-company-customer-payment-journal-customer-payment-customer show-currency](#financials.companies.customerPaymentJournals.customerPayments.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerGetCurrency)|Not Found|
@@ -354,8 +354,8 @@
 ### <a name="CommandsInfinancials.companies.dimensions">Commands in `az financials financial-company-dimension` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-dimension delete](#financials.companies.dimensionsDeleteDimensionValues)|DeleteDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsDeleteDimensionValues)|Not Found|
 |[az financials financial-company-dimension create-dimension-value](#financials.companies.dimensionsCreateDimensionValues)|CreateDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsCreateDimensionValues)|Not Found|
+|[az financials financial-company-dimension delete-dimension-value](#financials.companies.dimensionsDeleteDimensionValues)|DeleteDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsDeleteDimensionValues)|Not Found|
 |[az financials financial-company-dimension list-dimension-value](#financials.companies.dimensionsListDimensionValues)|ListDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsListDimensionValues)|Not Found|
 |[az financials financial-company-dimension show-dimension-value](#financials.companies.dimensionsGetDimensionValues)|GetDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsGetDimensionValues)|Not Found|
 |[az financials financial-company-dimension update-dimension-value](#financials.companies.dimensionsUpdateDimensionValues)|UpdateDimensionValues|[Parameters](#Parametersfinancials.companies.dimensionsUpdateDimensionValues)|Not Found|
@@ -363,8 +363,8 @@
 ### <a name="CommandsInfinancials.companies.employees">Commands in `az financials financial-company-employee` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-employee delete](#financials.companies.employeesDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.employeesDeletePicture)|Not Found|
 |[az financials financial-company-employee create-picture](#financials.companies.employeesCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.employeesCreatePicture)|Not Found|
+|[az financials financial-company-employee delete-picture](#financials.companies.employeesDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.employeesDeletePicture)|Not Found|
 |[az financials financial-company-employee list-picture](#financials.companies.employeesListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.employeesListPicture)|Not Found|
 |[az financials financial-company-employee set-picture-content](#financials.companies.employeesSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.employeesSetPictureContent)|Not Found|
 |[az financials financial-company-employee show-picture](#financials.companies.employeesGetPicture)|GetPicture|[Parameters](#Parametersfinancials.companies.employeesGetPicture)|Not Found|
@@ -374,16 +374,16 @@
 ### <a name="CommandsInfinancials.companies.generalLedgerEntries">Commands in `az financials financial-company-general-ledger-entry` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-general-ledger-entry delete](#financials.companies.generalLedgerEntriesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.generalLedgerEntriesDeleteAccount)|Not Found|
+|[az financials financial-company-general-ledger-entry delete-account](#financials.companies.generalLedgerEntriesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.generalLedgerEntriesDeleteAccount)|Not Found|
 |[az financials financial-company-general-ledger-entry show-account](#financials.companies.generalLedgerEntriesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.generalLedgerEntriesGetAccount)|Not Found|
 |[az financials financial-company-general-ledger-entry update-account](#financials.companies.generalLedgerEntriesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.generalLedgerEntriesUpdateAccount)|Not Found|
 
 ### <a name="CommandsInfinancials.companies.items">Commands in `az financials financial-company-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-item delete](#financials.companies.itemsDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.itemsDeletePicture)|Not Found|
-|[az financials financial-company-item delete](#financials.companies.itemsDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.itemsDeleteItemCategory)|Not Found|
 |[az financials financial-company-item create-picture](#financials.companies.itemsCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.itemsCreatePicture)|Not Found|
+|[az financials financial-company-item delete-item-category](#financials.companies.itemsDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.itemsDeleteItemCategory)|Not Found|
+|[az financials financial-company-item delete-picture](#financials.companies.itemsDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.itemsDeletePicture)|Not Found|
 |[az financials financial-company-item list-picture](#financials.companies.itemsListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.itemsListPicture)|Not Found|
 |[az financials financial-company-item set-picture-content](#financials.companies.itemsSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.itemsSetPictureContent)|Not Found|
 |[az financials financial-company-item show-item-category](#financials.companies.itemsGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.itemsGetItemCategory)|Not Found|
@@ -395,9 +395,9 @@
 ### <a name="CommandsInfinancials.companies.journals">Commands in `az financials financial-company-journal` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-journal delete](#financials.companies.journalsDeleteJournalLines)|DeleteJournalLines|[Parameters](#Parametersfinancials.companies.journalsDeleteJournalLines)|Not Found|
-|[az financials financial-company-journal delete](#financials.companies.journalsDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journalsDeleteAccount)|Not Found|
 |[az financials financial-company-journal create-journal-line](#financials.companies.journalsCreateJournalLines)|CreateJournalLines|[Parameters](#Parametersfinancials.companies.journalsCreateJournalLines)|Not Found|
+|[az financials financial-company-journal delete-account](#financials.companies.journalsDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journalsDeleteAccount)|Not Found|
+|[az financials financial-company-journal delete-journal-line](#financials.companies.journalsDeleteJournalLines)|DeleteJournalLines|[Parameters](#Parametersfinancials.companies.journalsDeleteJournalLines)|Not Found|
 |[az financials financial-company-journal list-journal-line](#financials.companies.journalsListJournalLines)|ListJournalLines|[Parameters](#Parametersfinancials.companies.journalsListJournalLines)|Not Found|
 |[az financials financial-company-journal post](#financials.companies.journalspost)|post|[Parameters](#Parametersfinancials.companies.journalspost)|Not Found|
 |[az financials financial-company-journal show-account](#financials.companies.journalsGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.journalsGetAccount)|Not Found|
@@ -408,24 +408,24 @@
 ### <a name="CommandsInfinancials.companies.journals.journalLines">Commands in `az financials financial-company-journal-journal-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-journal-journal-line delete](#financials.companies.journals.journalLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journals.journalLinesDeleteAccount)|Not Found|
+|[az financials financial-company-journal-journal-line delete-account](#financials.companies.journals.journalLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journals.journalLinesDeleteAccount)|Not Found|
 |[az financials financial-company-journal-journal-line show-account](#financials.companies.journals.journalLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.journals.journalLinesGetAccount)|Not Found|
 |[az financials financial-company-journal-journal-line update-account](#financials.companies.journals.journalLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.journals.journalLinesUpdateAccount)|Not Found|
 
 ### <a name="CommandsInfinancials.companies.journalLines">Commands in `az financials financial-company-journal-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-journal-line delete](#financials.companies.journalLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journalLinesDeleteAccount)|Not Found|
+|[az financials financial-company-journal-line delete-account](#financials.companies.journalLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.journalLinesDeleteAccount)|Not Found|
 |[az financials financial-company-journal-line show-account](#financials.companies.journalLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.journalLinesGetAccount)|Not Found|
 |[az financials financial-company-journal-line update-account](#financials.companies.journalLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.journalLinesUpdateAccount)|Not Found|
 
 ### <a name="CommandsInfinancials.companies.purchaseInvoices">Commands in `az financials financial-company-purchase-invoice` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice delete](#financials.companies.purchaseInvoicesDeletePurchaseInvoiceLines)|DeletePurchaseInvoiceLines|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeletePurchaseInvoiceLines)|Not Found|
-|[az financials financial-company-purchase-invoice delete](#financials.companies.purchaseInvoicesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeleteCurrency)|Not Found|
-|[az financials financial-company-purchase-invoice delete](#financials.companies.purchaseInvoicesDeleteVendor)|DeleteVendor|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeleteVendor)|Not Found|
 |[az financials financial-company-purchase-invoice create-purchase-invoice-line](#financials.companies.purchaseInvoicesCreatePurchaseInvoiceLines)|CreatePurchaseInvoiceLines|[Parameters](#Parametersfinancials.companies.purchaseInvoicesCreatePurchaseInvoiceLines)|Not Found|
+|[az financials financial-company-purchase-invoice delete-currency](#financials.companies.purchaseInvoicesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeleteCurrency)|Not Found|
+|[az financials financial-company-purchase-invoice delete-purchase-invoice-line](#financials.companies.purchaseInvoicesDeletePurchaseInvoiceLines)|DeletePurchaseInvoiceLines|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeletePurchaseInvoiceLines)|Not Found|
+|[az financials financial-company-purchase-invoice delete-vendor](#financials.companies.purchaseInvoicesDeleteVendor)|DeleteVendor|[Parameters](#Parametersfinancials.companies.purchaseInvoicesDeleteVendor)|Not Found|
 |[az financials financial-company-purchase-invoice list-purchase-invoice-line](#financials.companies.purchaseInvoicesListPurchaseInvoiceLines)|ListPurchaseInvoiceLines|[Parameters](#Parametersfinancials.companies.purchaseInvoicesListPurchaseInvoiceLines)|Not Found|
 |[az financials financial-company-purchase-invoice post](#financials.companies.purchaseInvoicespost)|post|[Parameters](#Parametersfinancials.companies.purchaseInvoicespost)|Not Found|
 |[az financials financial-company-purchase-invoice show-currency](#financials.companies.purchaseInvoicesGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoicesGetCurrency)|Not Found|
@@ -438,8 +438,8 @@
 ### <a name="CommandsInfinancials.companies.purchaseInvoiceLines">Commands in `az financials financial-company-purchase-invoice-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice-line delete](#financials.companies.purchaseInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesDeleteAccount)|Not Found|
-|[az financials financial-company-purchase-invoice-line delete](#financials.companies.purchaseInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesDeleteItem)|Not Found|
+|[az financials financial-company-purchase-invoice-line delete-account](#financials.companies.purchaseInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesDeleteAccount)|Not Found|
+|[az financials financial-company-purchase-invoice-line delete-item](#financials.companies.purchaseInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesDeleteItem)|Not Found|
 |[az financials financial-company-purchase-invoice-line show-account](#financials.companies.purchaseInvoiceLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesGetAccount)|Not Found|
 |[az financials financial-company-purchase-invoice-line show-item](#financials.companies.purchaseInvoiceLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesGetItem)|Not Found|
 |[az financials financial-company-purchase-invoice-line update-account](#financials.companies.purchaseInvoiceLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLinesUpdateAccount)|Not Found|
@@ -448,9 +448,9 @@
 ### <a name="CommandsInfinancials.companies.purchaseInvoiceLines.item">Commands in `az financials financial-company-purchase-invoice-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice-line-item delete](#financials.companies.purchaseInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-purchase-invoice-line-item delete](#financials.companies.purchaseInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-purchase-invoice-line-item create-picture](#financials.companies.purchaseInvoiceLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-purchase-invoice-line-item delete-item-category](#financials.companies.purchaseInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-purchase-invoice-line-item delete-picture](#financials.companies.purchaseInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-purchase-invoice-line-item list-picture](#financials.companies.purchaseInvoiceLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemListPicture)|Not Found|
 |[az financials financial-company-purchase-invoice-line-item set-picture-content](#financials.companies.purchaseInvoiceLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-purchase-invoice-line-item show-item-category](#financials.companies.purchaseInvoiceLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoiceLines.itemGetItemCategory)|Not Found|
@@ -462,8 +462,8 @@
 ### <a name="CommandsInfinancials.companies.purchaseInvoices.purchaseInvoiceLines">Commands in `az financials financial-company-purchase-invoice-purchase-invoice-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice-purchase-invoice-line delete](#financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount)|Not Found|
-|[az financials financial-company-purchase-invoice-purchase-invoice-line delete](#financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem)|Not Found|
+|[az financials financial-company-purchase-invoice-purchase-invoice-line delete-account](#financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount)|Not Found|
+|[az financials financial-company-purchase-invoice-purchase-invoice-line delete-item](#financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line show-account](#financials.companies.purchaseInvoices.purchaseInvoiceLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesGetAccount)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line show-item](#financials.companies.purchaseInvoices.purchaseInvoiceLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesGetItem)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line update-account](#financials.companies.purchaseInvoices.purchaseInvoiceLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesUpdateAccount)|Not Found|
@@ -472,9 +472,9 @@
 ### <a name="CommandsInfinancials.companies.purchaseInvoices.purchaseInvoiceLines.item">Commands in `az financials financial-company-purchase-invoice-purchase-invoice-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice-purchase-invoice-line-item delete](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-purchase-invoice-purchase-invoice-line-item delete](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line-item create-picture](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-purchase-invoice-purchase-invoice-line-item delete-item-category](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-purchase-invoice-purchase-invoice-line-item delete-picture](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line-item list-picture](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemListPicture)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line-item set-picture-content](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-purchase-invoice-purchase-invoice-line-item show-item-category](#financials.companies.purchaseInvoices.purchaseInvoiceLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemGetItemCategory)|Not Found|
@@ -486,11 +486,11 @@
 ### <a name="CommandsInfinancials.companies.purchaseInvoices.vendor">Commands in `az financials financial-company-purchase-invoice-vendor` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-purchase-invoice-vendor delete](#financials.companies.purchaseInvoices.vendorDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePicture)|Not Found|
-|[az financials financial-company-purchase-invoice-vendor delete](#financials.companies.purchaseInvoices.vendorDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeleteCurrency)|Not Found|
-|[az financials financial-company-purchase-invoice-vendor delete](#financials.companies.purchaseInvoices.vendorDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentMethod)|Not Found|
-|[az financials financial-company-purchase-invoice-vendor delete](#financials.companies.purchaseInvoices.vendorDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentTerm)|Not Found|
 |[az financials financial-company-purchase-invoice-vendor create-picture](#financials.companies.purchaseInvoices.vendorCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorCreatePicture)|Not Found|
+|[az financials financial-company-purchase-invoice-vendor delete-currency](#financials.companies.purchaseInvoices.vendorDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeleteCurrency)|Not Found|
+|[az financials financial-company-purchase-invoice-vendor delete-payment-method](#financials.companies.purchaseInvoices.vendorDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentMethod)|Not Found|
+|[az financials financial-company-purchase-invoice-vendor delete-payment-term](#financials.companies.purchaseInvoices.vendorDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentTerm)|Not Found|
+|[az financials financial-company-purchase-invoice-vendor delete-picture](#financials.companies.purchaseInvoices.vendorDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorDeletePicture)|Not Found|
 |[az financials financial-company-purchase-invoice-vendor list-picture](#financials.companies.purchaseInvoices.vendorListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorListPicture)|Not Found|
 |[az financials financial-company-purchase-invoice-vendor set-picture-content](#financials.companies.purchaseInvoices.vendorSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorSetPictureContent)|Not Found|
 |[az financials financial-company-purchase-invoice-vendor show-currency](#financials.companies.purchaseInvoices.vendorGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.purchaseInvoices.vendorGetCurrency)|Not Found|
@@ -506,11 +506,11 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemos">Commands in `az financials financial-company-sale-credit-memo` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo delete](#financials.companies.salesCreditMemosDeleteSalesCreditMemoLines)|DeleteSalesCreditMemoLines|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteSalesCreditMemoLines)|Not Found|
-|[az financials financial-company-sale-credit-memo delete](#financials.companies.salesCreditMemosDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-credit-memo delete](#financials.companies.salesCreditMemosDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteCustomer)|Not Found|
-|[az financials financial-company-sale-credit-memo delete](#financials.companies.salesCreditMemosDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeletePaymentTerm)|Not Found|
 |[az financials financial-company-sale-credit-memo create-sale-credit-memo-line](#financials.companies.salesCreditMemosCreateSalesCreditMemoLines)|CreateSalesCreditMemoLines|[Parameters](#Parametersfinancials.companies.salesCreditMemosCreateSalesCreditMemoLines)|Not Found|
+|[az financials financial-company-sale-credit-memo delete-currency](#financials.companies.salesCreditMemosDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-credit-memo delete-customer](#financials.companies.salesCreditMemosDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteCustomer)|Not Found|
+|[az financials financial-company-sale-credit-memo delete-payment-term](#financials.companies.salesCreditMemosDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-credit-memo delete-sale-credit-memo-line](#financials.companies.salesCreditMemosDeleteSalesCreditMemoLines)|DeleteSalesCreditMemoLines|[Parameters](#Parametersfinancials.companies.salesCreditMemosDeleteSalesCreditMemoLines)|Not Found|
 |[az financials financial-company-sale-credit-memo list-sale-credit-memo-line](#financials.companies.salesCreditMemosListSalesCreditMemoLines)|ListSalesCreditMemoLines|[Parameters](#Parametersfinancials.companies.salesCreditMemosListSalesCreditMemoLines)|Not Found|
 |[az financials financial-company-sale-credit-memo show-currency](#financials.companies.salesCreditMemosGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemosGetCurrency)|Not Found|
 |[az financials financial-company-sale-credit-memo show-customer](#financials.companies.salesCreditMemosGetCustomer)|GetCustomer|[Parameters](#Parametersfinancials.companies.salesCreditMemosGetCustomer)|Not Found|
@@ -524,12 +524,12 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemos.customer">Commands in `az financials financial-company-sale-credit-memo-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo-customer delete](#financials.companies.salesCreditMemos.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePicture)|Not Found|
-|[az financials financial-company-sale-credit-memo-customer delete](#financials.companies.salesCreditMemos.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-credit-memo-customer delete](#financials.companies.salesCreditMemos.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-sale-credit-memo-customer delete](#financials.companies.salesCreditMemos.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-credit-memo-customer delete](#financials.companies.salesCreditMemos.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-credit-memo-customer create-picture](#financials.companies.salesCreditMemos.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerCreatePicture)|Not Found|
+|[az financials financial-company-sale-credit-memo-customer delete-currency](#financials.companies.salesCreditMemos.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-credit-memo-customer delete-payment-method](#financials.companies.salesCreditMemos.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-sale-credit-memo-customer delete-payment-term](#financials.companies.salesCreditMemos.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-credit-memo-customer delete-picture](#financials.companies.salesCreditMemos.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeletePicture)|Not Found|
+|[az financials financial-company-sale-credit-memo-customer delete-shipment-method](#financials.companies.salesCreditMemos.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-credit-memo-customer list-picture](#financials.companies.salesCreditMemos.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerListPicture)|Not Found|
 |[az financials financial-company-sale-credit-memo-customer set-picture-content](#financials.companies.salesCreditMemos.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerSetPictureContent)|Not Found|
 |[az financials financial-company-sale-credit-memo-customer show-currency](#financials.companies.salesCreditMemos.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesCreditMemos.customerGetCurrency)|Not Found|
@@ -547,8 +547,8 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemoLines">Commands in `az financials financial-company-sale-credit-memo-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo-line delete](#financials.companies.salesCreditMemoLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-credit-memo-line delete](#financials.companies.salesCreditMemoLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-credit-memo-line delete-account](#financials.companies.salesCreditMemoLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-credit-memo-line delete-item](#financials.companies.salesCreditMemoLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-credit-memo-line show-account](#financials.companies.salesCreditMemoLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-credit-memo-line show-item](#financials.companies.salesCreditMemoLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesGetItem)|Not Found|
 |[az financials financial-company-sale-credit-memo-line update-account](#financials.companies.salesCreditMemoLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemoLinesUpdateAccount)|Not Found|
@@ -557,9 +557,9 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemoLines.item">Commands in `az financials financial-company-sale-credit-memo-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo-line-item delete](#financials.companies.salesCreditMemoLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-credit-memo-line-item delete](#financials.companies.salesCreditMemoLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-credit-memo-line-item create-picture](#financials.companies.salesCreditMemoLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-credit-memo-line-item delete-item-category](#financials.companies.salesCreditMemoLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-credit-memo-line-item delete-picture](#financials.companies.salesCreditMemoLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-credit-memo-line-item list-picture](#financials.companies.salesCreditMemoLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-credit-memo-line-item set-picture-content](#financials.companies.salesCreditMemoLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-credit-memo-line-item show-item-category](#financials.companies.salesCreditMemoLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemoLines.itemGetItemCategory)|Not Found|
@@ -571,8 +571,8 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemos.salesCreditMemoLines">Commands in `az financials financial-company-sale-credit-memo-sale-credit-memo-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo-sale-credit-memo-line delete](#financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-credit-memo-sale-credit-memo-line delete](#financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-credit-memo-sale-credit-memo-line delete-account](#financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-credit-memo-sale-credit-memo-line delete-item](#financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line show-account](#financials.companies.salesCreditMemos.salesCreditMemoLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line show-item](#financials.companies.salesCreditMemos.salesCreditMemoLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesGetItem)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line update-account](#financials.companies.salesCreditMemos.salesCreditMemoLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesUpdateAccount)|Not Found|
@@ -581,9 +581,9 @@
 ### <a name="CommandsInfinancials.companies.salesCreditMemos.salesCreditMemoLines.item">Commands in `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item create-picture](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-item-category](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-picture](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item list-picture](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item set-picture-content](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-credit-memo-sale-credit-memo-line-item show-item-category](#financials.companies.salesCreditMemos.salesCreditMemoLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemGetItemCategory)|Not Found|
@@ -595,14 +595,14 @@
 ### <a name="CommandsInfinancials.companies.salesInvoices">Commands in `az financials financial-company-sale-invoice` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice delete](#financials.companies.salesInvoicesDeleteSalesInvoiceLines)|DeleteSalesInvoiceLines|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteSalesInvoiceLines)|Not Found|
-|[az financials financial-company-sale-invoice delete](#financials.companies.salesInvoicesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-invoice delete](#financials.companies.salesInvoicesDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteCustomer)|Not Found|
-|[az financials financial-company-sale-invoice delete](#financials.companies.salesInvoicesDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesInvoicesDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-invoice delete](#financials.companies.salesInvoicesDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-invoice cancel](#financials.companies.salesInvoicescancel)|cancel|[Parameters](#Parametersfinancials.companies.salesInvoicescancel)|Not Found|
 |[az financials financial-company-sale-invoice cancel-and-send](#financials.companies.salesInvoicescancelAndSend)|cancelAndSend|[Parameters](#Parametersfinancials.companies.salesInvoicescancelAndSend)|Not Found|
 |[az financials financial-company-sale-invoice create-sale-invoice-line](#financials.companies.salesInvoicesCreateSalesInvoiceLines)|CreateSalesInvoiceLines|[Parameters](#Parametersfinancials.companies.salesInvoicesCreateSalesInvoiceLines)|Not Found|
+|[az financials financial-company-sale-invoice delete-currency](#financials.companies.salesInvoicesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-invoice delete-customer](#financials.companies.salesInvoicesDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteCustomer)|Not Found|
+|[az financials financial-company-sale-invoice delete-payment-term](#financials.companies.salesInvoicesDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesInvoicesDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-invoice delete-sale-invoice-line](#financials.companies.salesInvoicesDeleteSalesInvoiceLines)|DeleteSalesInvoiceLines|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteSalesInvoiceLines)|Not Found|
+|[az financials financial-company-sale-invoice delete-shipment-method](#financials.companies.salesInvoicesDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesInvoicesDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-invoice list-sale-invoice-line](#financials.companies.salesInvoicesListSalesInvoiceLines)|ListSalesInvoiceLines|[Parameters](#Parametersfinancials.companies.salesInvoicesListSalesInvoiceLines)|Not Found|
 |[az financials financial-company-sale-invoice post](#financials.companies.salesInvoicespost)|post|[Parameters](#Parametersfinancials.companies.salesInvoicespost)|Not Found|
 |[az financials financial-company-sale-invoice post-and-send](#financials.companies.salesInvoicespostAndSend)|postAndSend|[Parameters](#Parametersfinancials.companies.salesInvoicespostAndSend)|Not Found|
@@ -621,12 +621,12 @@
 ### <a name="CommandsInfinancials.companies.salesInvoices.customer">Commands in `az financials financial-company-sale-invoice-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice-customer delete](#financials.companies.salesInvoices.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePicture)|Not Found|
-|[az financials financial-company-sale-invoice-customer delete](#financials.companies.salesInvoices.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-invoice-customer delete](#financials.companies.salesInvoices.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-sale-invoice-customer delete](#financials.companies.salesInvoices.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-invoice-customer delete](#financials.companies.salesInvoices.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-invoice-customer create-picture](#financials.companies.salesInvoices.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.customerCreatePicture)|Not Found|
+|[az financials financial-company-sale-invoice-customer delete-currency](#financials.companies.salesInvoices.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-invoice-customer delete-payment-method](#financials.companies.salesInvoices.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-sale-invoice-customer delete-payment-term](#financials.companies.salesInvoices.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-invoice-customer delete-picture](#financials.companies.salesInvoices.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeletePicture)|Not Found|
+|[az financials financial-company-sale-invoice-customer delete-shipment-method](#financials.companies.salesInvoices.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesInvoices.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-invoice-customer list-picture](#financials.companies.salesInvoices.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesInvoices.customerListPicture)|Not Found|
 |[az financials financial-company-sale-invoice-customer set-picture-content](#financials.companies.salesInvoices.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesInvoices.customerSetPictureContent)|Not Found|
 |[az financials financial-company-sale-invoice-customer show-currency](#financials.companies.salesInvoices.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesInvoices.customerGetCurrency)|Not Found|
@@ -644,8 +644,8 @@
 ### <a name="CommandsInfinancials.companies.salesInvoiceLines">Commands in `az financials financial-company-sale-invoice-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice-line delete](#financials.companies.salesInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-invoice-line delete](#financials.companies.salesInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-invoice-line delete-account](#financials.companies.salesInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-invoice-line delete-item](#financials.companies.salesInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-invoice-line show-account](#financials.companies.salesInvoiceLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-invoice-line show-item](#financials.companies.salesInvoiceLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesGetItem)|Not Found|
 |[az financials financial-company-sale-invoice-line update-account](#financials.companies.salesInvoiceLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesInvoiceLinesUpdateAccount)|Not Found|
@@ -654,9 +654,9 @@
 ### <a name="CommandsInfinancials.companies.salesInvoiceLines.item">Commands in `az financials financial-company-sale-invoice-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice-line-item delete](#financials.companies.salesInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-invoice-line-item delete](#financials.companies.salesInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-invoice-line-item create-picture](#financials.companies.salesInvoiceLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-invoice-line-item delete-item-category](#financials.companies.salesInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-invoice-line-item delete-picture](#financials.companies.salesInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-invoice-line-item list-picture](#financials.companies.salesInvoiceLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-invoice-line-item set-picture-content](#financials.companies.salesInvoiceLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-invoice-line-item show-item-category](#financials.companies.salesInvoiceLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoiceLines.itemGetItemCategory)|Not Found|
@@ -668,8 +668,8 @@
 ### <a name="CommandsInfinancials.companies.salesInvoices.salesInvoiceLines">Commands in `az financials financial-company-sale-invoice-sale-invoice-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice-sale-invoice-line delete](#financials.companies.salesInvoices.salesInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-invoice-sale-invoice-line delete](#financials.companies.salesInvoices.salesInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-invoice-sale-invoice-line delete-account](#financials.companies.salesInvoices.salesInvoiceLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-invoice-sale-invoice-line delete-item](#financials.companies.salesInvoices.salesInvoiceLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line show-account](#financials.companies.salesInvoices.salesInvoiceLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line show-item](#financials.companies.salesInvoices.salesInvoiceLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesGetItem)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line update-account](#financials.companies.salesInvoices.salesInvoiceLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLinesUpdateAccount)|Not Found|
@@ -678,9 +678,9 @@
 ### <a name="CommandsInfinancials.companies.salesInvoices.salesInvoiceLines.item">Commands in `az financials financial-company-sale-invoice-sale-invoice-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-invoice-sale-invoice-line-item delete](#financials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-invoice-sale-invoice-line-item delete](#financials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line-item create-picture](#financials.companies.salesInvoices.salesInvoiceLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-invoice-sale-invoice-line-item delete-item-category](#financials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-invoice-sale-invoice-line-item delete-picture](#financials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line-item list-picture](#financials.companies.salesInvoices.salesInvoiceLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line-item set-picture-content](#financials.companies.salesInvoices.salesInvoiceLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-invoice-sale-invoice-line-item show-item-category](#financials.companies.salesInvoices.salesInvoiceLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemGetItemCategory)|Not Found|
@@ -692,11 +692,11 @@
 ### <a name="CommandsInfinancials.companies.salesOrders">Commands in `az financials financial-company-sale-order` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order delete](#financials.companies.salesOrdersDeleteSalesOrderLines)|DeleteSalesOrderLines|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteSalesOrderLines)|Not Found|
-|[az financials financial-company-sale-order delete](#financials.companies.salesOrdersDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-order delete](#financials.companies.salesOrdersDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteCustomer)|Not Found|
-|[az financials financial-company-sale-order delete](#financials.companies.salesOrdersDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesOrdersDeletePaymentTerm)|Not Found|
 |[az financials financial-company-sale-order create-sale-order-line](#financials.companies.salesOrdersCreateSalesOrderLines)|CreateSalesOrderLines|[Parameters](#Parametersfinancials.companies.salesOrdersCreateSalesOrderLines)|Not Found|
+|[az financials financial-company-sale-order delete-currency](#financials.companies.salesOrdersDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-order delete-customer](#financials.companies.salesOrdersDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteCustomer)|Not Found|
+|[az financials financial-company-sale-order delete-payment-term](#financials.companies.salesOrdersDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesOrdersDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-order delete-sale-order-line](#financials.companies.salesOrdersDeleteSalesOrderLines)|DeleteSalesOrderLines|[Parameters](#Parametersfinancials.companies.salesOrdersDeleteSalesOrderLines)|Not Found|
 |[az financials financial-company-sale-order list-sale-order-line](#financials.companies.salesOrdersListSalesOrderLines)|ListSalesOrderLines|[Parameters](#Parametersfinancials.companies.salesOrdersListSalesOrderLines)|Not Found|
 |[az financials financial-company-sale-order show-currency](#financials.companies.salesOrdersGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesOrdersGetCurrency)|Not Found|
 |[az financials financial-company-sale-order show-customer](#financials.companies.salesOrdersGetCustomer)|GetCustomer|[Parameters](#Parametersfinancials.companies.salesOrdersGetCustomer)|Not Found|
@@ -710,12 +710,12 @@
 ### <a name="CommandsInfinancials.companies.salesOrders.customer">Commands in `az financials financial-company-sale-order-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order-customer delete](#financials.companies.salesOrders.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePicture)|Not Found|
-|[az financials financial-company-sale-order-customer delete](#financials.companies.salesOrders.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-order-customer delete](#financials.companies.salesOrders.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-sale-order-customer delete](#financials.companies.salesOrders.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-order-customer delete](#financials.companies.salesOrders.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-order-customer create-picture](#financials.companies.salesOrders.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesOrders.customerCreatePicture)|Not Found|
+|[az financials financial-company-sale-order-customer delete-currency](#financials.companies.salesOrders.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-order-customer delete-payment-method](#financials.companies.salesOrders.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-sale-order-customer delete-payment-term](#financials.companies.salesOrders.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-order-customer delete-picture](#financials.companies.salesOrders.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeletePicture)|Not Found|
+|[az financials financial-company-sale-order-customer delete-shipment-method](#financials.companies.salesOrders.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesOrders.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-order-customer list-picture](#financials.companies.salesOrders.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesOrders.customerListPicture)|Not Found|
 |[az financials financial-company-sale-order-customer set-picture-content](#financials.companies.salesOrders.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesOrders.customerSetPictureContent)|Not Found|
 |[az financials financial-company-sale-order-customer show-currency](#financials.companies.salesOrders.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesOrders.customerGetCurrency)|Not Found|
@@ -733,8 +733,8 @@
 ### <a name="CommandsInfinancials.companies.salesOrderLines">Commands in `az financials financial-company-sale-order-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order-line delete](#financials.companies.salesOrderLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesOrderLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-order-line delete](#financials.companies.salesOrderLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesOrderLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-order-line delete-account](#financials.companies.salesOrderLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesOrderLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-order-line delete-item](#financials.companies.salesOrderLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesOrderLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-order-line show-account](#financials.companies.salesOrderLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesOrderLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-order-line show-item](#financials.companies.salesOrderLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesOrderLinesGetItem)|Not Found|
 |[az financials financial-company-sale-order-line update-account](#financials.companies.salesOrderLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesOrderLinesUpdateAccount)|Not Found|
@@ -743,9 +743,9 @@
 ### <a name="CommandsInfinancials.companies.salesOrderLines.item">Commands in `az financials financial-company-sale-order-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order-line-item delete](#financials.companies.salesOrderLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-order-line-item delete](#financials.companies.salesOrderLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-order-line-item create-picture](#financials.companies.salesOrderLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-order-line-item delete-item-category](#financials.companies.salesOrderLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-order-line-item delete-picture](#financials.companies.salesOrderLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-order-line-item list-picture](#financials.companies.salesOrderLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-order-line-item set-picture-content](#financials.companies.salesOrderLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-order-line-item show-item-category](#financials.companies.salesOrderLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesOrderLines.itemGetItemCategory)|Not Found|
@@ -757,8 +757,8 @@
 ### <a name="CommandsInfinancials.companies.salesOrders.salesOrderLines">Commands in `az financials financial-company-sale-order-sale-order-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order-sale-order-line delete](#financials.companies.salesOrders.salesOrderLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-order-sale-order-line delete](#financials.companies.salesOrders.salesOrderLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-order-sale-order-line delete-account](#financials.companies.salesOrders.salesOrderLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-order-sale-order-line delete-item](#financials.companies.salesOrders.salesOrderLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line show-account](#financials.companies.salesOrders.salesOrderLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line show-item](#financials.companies.salesOrders.salesOrderLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesGetItem)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line update-account](#financials.companies.salesOrders.salesOrderLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLinesUpdateAccount)|Not Found|
@@ -767,9 +767,9 @@
 ### <a name="CommandsInfinancials.companies.salesOrders.salesOrderLines.item">Commands in `az financials financial-company-sale-order-sale-order-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-order-sale-order-line-item delete](#financials.companies.salesOrders.salesOrderLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-order-sale-order-line-item delete](#financials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line-item create-picture](#financials.companies.salesOrders.salesOrderLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-order-sale-order-line-item delete-item-category](#financials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-order-sale-order-line-item delete-picture](#financials.companies.salesOrders.salesOrderLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line-item list-picture](#financials.companies.salesOrders.salesOrderLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line-item set-picture-content](#financials.companies.salesOrders.salesOrderLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-order-sale-order-line-item show-item-category](#financials.companies.salesOrders.salesOrderLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesOrders.salesOrderLines.itemGetItemCategory)|Not Found|
@@ -781,12 +781,12 @@
 ### <a name="CommandsInfinancials.companies.salesQuotes">Commands in `az financials financial-company-sale-quote` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote delete](#financials.companies.salesQuotesDeleteSalesQuoteLines)|DeleteSalesQuoteLines|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteSalesQuoteLines)|Not Found|
-|[az financials financial-company-sale-quote delete](#financials.companies.salesQuotesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-quote delete](#financials.companies.salesQuotesDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteCustomer)|Not Found|
-|[az financials financial-company-sale-quote delete](#financials.companies.salesQuotesDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesQuotesDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-quote delete](#financials.companies.salesQuotesDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-quote create-sale-quote-line](#financials.companies.salesQuotesCreateSalesQuoteLines)|CreateSalesQuoteLines|[Parameters](#Parametersfinancials.companies.salesQuotesCreateSalesQuoteLines)|Not Found|
+|[az financials financial-company-sale-quote delete-currency](#financials.companies.salesQuotesDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-quote delete-customer](#financials.companies.salesQuotesDeleteCustomer)|DeleteCustomer|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteCustomer)|Not Found|
+|[az financials financial-company-sale-quote delete-payment-term](#financials.companies.salesQuotesDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesQuotesDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-quote delete-sale-quote-line](#financials.companies.salesQuotesDeleteSalesQuoteLines)|DeleteSalesQuoteLines|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteSalesQuoteLines)|Not Found|
+|[az financials financial-company-sale-quote delete-shipment-method](#financials.companies.salesQuotesDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesQuotesDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-quote list-sale-quote-line](#financials.companies.salesQuotesListSalesQuoteLines)|ListSalesQuoteLines|[Parameters](#Parametersfinancials.companies.salesQuotesListSalesQuoteLines)|Not Found|
 |[az financials financial-company-sale-quote make-invoice](#financials.companies.salesQuotesmakeInvoice)|makeInvoice|[Parameters](#Parametersfinancials.companies.salesQuotesmakeInvoice)|Not Found|
 |[az financials financial-company-sale-quote send](#financials.companies.salesQuotessend)|send|[Parameters](#Parametersfinancials.companies.salesQuotessend)|Not Found|
@@ -804,12 +804,12 @@
 ### <a name="CommandsInfinancials.companies.salesQuotes.customer">Commands in `az financials financial-company-sale-quote-customer` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote-customer delete](#financials.companies.salesQuotes.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePicture)|Not Found|
-|[az financials financial-company-sale-quote-customer delete](#financials.companies.salesQuotes.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeleteCurrency)|Not Found|
-|[az financials financial-company-sale-quote-customer delete](#financials.companies.salesQuotes.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePaymentMethod)|Not Found|
-|[az financials financial-company-sale-quote-customer delete](#financials.companies.salesQuotes.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePaymentTerm)|Not Found|
-|[az financials financial-company-sale-quote-customer delete](#financials.companies.salesQuotes.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-quote-customer create-picture](#financials.companies.salesQuotes.customerCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.customerCreatePicture)|Not Found|
+|[az financials financial-company-sale-quote-customer delete-currency](#financials.companies.salesQuotes.customerDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeleteCurrency)|Not Found|
+|[az financials financial-company-sale-quote-customer delete-payment-method](#financials.companies.salesQuotes.customerDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePaymentMethod)|Not Found|
+|[az financials financial-company-sale-quote-customer delete-payment-term](#financials.companies.salesQuotes.customerDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePaymentTerm)|Not Found|
+|[az financials financial-company-sale-quote-customer delete-picture](#financials.companies.salesQuotes.customerDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeletePicture)|Not Found|
+|[az financials financial-company-sale-quote-customer delete-shipment-method](#financials.companies.salesQuotes.customerDeleteShipmentMethod)|DeleteShipmentMethod|[Parameters](#Parametersfinancials.companies.salesQuotes.customerDeleteShipmentMethod)|Not Found|
 |[az financials financial-company-sale-quote-customer list-picture](#financials.companies.salesQuotes.customerListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesQuotes.customerListPicture)|Not Found|
 |[az financials financial-company-sale-quote-customer set-picture-content](#financials.companies.salesQuotes.customerSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesQuotes.customerSetPictureContent)|Not Found|
 |[az financials financial-company-sale-quote-customer show-currency](#financials.companies.salesQuotes.customerGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.salesQuotes.customerGetCurrency)|Not Found|
@@ -827,8 +827,8 @@
 ### <a name="CommandsInfinancials.companies.salesQuoteLines">Commands in `az financials financial-company-sale-quote-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote-line delete](#financials.companies.salesQuoteLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesQuoteLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-quote-line delete](#financials.companies.salesQuoteLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesQuoteLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-quote-line delete-account](#financials.companies.salesQuoteLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesQuoteLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-quote-line delete-item](#financials.companies.salesQuoteLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesQuoteLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-quote-line show-account](#financials.companies.salesQuoteLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesQuoteLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-quote-line show-item](#financials.companies.salesQuoteLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesQuoteLinesGetItem)|Not Found|
 |[az financials financial-company-sale-quote-line update-account](#financials.companies.salesQuoteLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesQuoteLinesUpdateAccount)|Not Found|
@@ -837,9 +837,9 @@
 ### <a name="CommandsInfinancials.companies.salesQuoteLines.item">Commands in `az financials financial-company-sale-quote-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote-line-item delete](#financials.companies.salesQuoteLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-quote-line-item delete](#financials.companies.salesQuoteLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-quote-line-item create-picture](#financials.companies.salesQuoteLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-quote-line-item delete-item-category](#financials.companies.salesQuoteLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-quote-line-item delete-picture](#financials.companies.salesQuoteLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-quote-line-item list-picture](#financials.companies.salesQuoteLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-quote-line-item set-picture-content](#financials.companies.salesQuoteLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-quote-line-item show-item-category](#financials.companies.salesQuoteLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesQuoteLines.itemGetItemCategory)|Not Found|
@@ -851,8 +851,8 @@
 ### <a name="CommandsInfinancials.companies.salesQuotes.salesQuoteLines">Commands in `az financials financial-company-sale-quote-sale-quote-line` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote-sale-quote-line delete](#financials.companies.salesQuotes.salesQuoteLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteAccount)|Not Found|
-|[az financials financial-company-sale-quote-sale-quote-line delete](#financials.companies.salesQuotes.salesQuoteLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteItem)|Not Found|
+|[az financials financial-company-sale-quote-sale-quote-line delete-account](#financials.companies.salesQuotes.salesQuoteLinesDeleteAccount)|DeleteAccount|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteAccount)|Not Found|
+|[az financials financial-company-sale-quote-sale-quote-line delete-item](#financials.companies.salesQuotes.salesQuoteLinesDeleteItem)|DeleteItem|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteItem)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line show-account](#financials.companies.salesQuotes.salesQuoteLinesGetAccount)|GetAccount|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesGetAccount)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line show-item](#financials.companies.salesQuotes.salesQuoteLinesGetItem)|GetItem|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesGetItem)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line update-account](#financials.companies.salesQuotes.salesQuoteLinesUpdateAccount)|UpdateAccount|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLinesUpdateAccount)|Not Found|
@@ -861,9 +861,9 @@
 ### <a name="CommandsInfinancials.companies.salesQuotes.salesQuoteLines.item">Commands in `az financials financial-company-sale-quote-sale-quote-line-item` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-sale-quote-sale-quote-line-item delete](#financials.companies.salesQuotes.salesQuoteLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeletePicture)|Not Found|
-|[az financials financial-company-sale-quote-sale-quote-line-item delete](#financials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line-item create-picture](#financials.companies.salesQuotes.salesQuoteLines.itemCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemCreatePicture)|Not Found|
+|[az financials financial-company-sale-quote-sale-quote-line-item delete-item-category](#financials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory)|DeleteItemCategory|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory)|Not Found|
+|[az financials financial-company-sale-quote-sale-quote-line-item delete-picture](#financials.companies.salesQuotes.salesQuoteLines.itemDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeletePicture)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line-item list-picture](#financials.companies.salesQuotes.salesQuoteLines.itemListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemListPicture)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line-item set-picture-content](#financials.companies.salesQuotes.salesQuoteLines.itemSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemSetPictureContent)|Not Found|
 |[az financials financial-company-sale-quote-sale-quote-line-item show-item-category](#financials.companies.salesQuotes.salesQuoteLines.itemGetItemCategory)|GetItemCategory|[Parameters](#Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemGetItemCategory)|Not Found|
@@ -875,11 +875,11 @@
 ### <a name="CommandsInfinancials.companies.vendors">Commands in `az financials financial-company-vendor` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az financials financial-company-vendor delete](#financials.companies.vendorsDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.vendorsDeletePicture)|Not Found|
-|[az financials financial-company-vendor delete](#financials.companies.vendorsDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.vendorsDeleteCurrency)|Not Found|
-|[az financials financial-company-vendor delete](#financials.companies.vendorsDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.vendorsDeletePaymentMethod)|Not Found|
-|[az financials financial-company-vendor delete](#financials.companies.vendorsDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.vendorsDeletePaymentTerm)|Not Found|
 |[az financials financial-company-vendor create-picture](#financials.companies.vendorsCreatePicture)|CreatePicture|[Parameters](#Parametersfinancials.companies.vendorsCreatePicture)|Not Found|
+|[az financials financial-company-vendor delete-currency](#financials.companies.vendorsDeleteCurrency)|DeleteCurrency|[Parameters](#Parametersfinancials.companies.vendorsDeleteCurrency)|Not Found|
+|[az financials financial-company-vendor delete-payment-method](#financials.companies.vendorsDeletePaymentMethod)|DeletePaymentMethod|[Parameters](#Parametersfinancials.companies.vendorsDeletePaymentMethod)|Not Found|
+|[az financials financial-company-vendor delete-payment-term](#financials.companies.vendorsDeletePaymentTerm)|DeletePaymentTerm|[Parameters](#Parametersfinancials.companies.vendorsDeletePaymentTerm)|Not Found|
+|[az financials financial-company-vendor delete-picture](#financials.companies.vendorsDeletePicture)|DeletePicture|[Parameters](#Parametersfinancials.companies.vendorsDeletePicture)|Not Found|
 |[az financials financial-company-vendor list-picture](#financials.companies.vendorsListPicture)|ListPicture|[Parameters](#Parametersfinancials.companies.vendorsListPicture)|Not Found|
 |[az financials financial-company-vendor set-picture-content](#financials.companies.vendorsSetPictureContent)|SetPictureContent|[Parameters](#Parametersfinancials.companies.vendorsSetPictureContent)|Not Found|
 |[az financials financial-company-vendor show-currency](#financials.companies.vendorsGetCurrency)|GetCurrency|[Parameters](#Parametersfinancials.companies.vendorsGetCurrency)|Not Found|
@@ -912,14 +912,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az financials financial`
-#### <a name="financialsDeleteCompanies">Command `az financials financial delete`</a>
-
-##### <a name="ParametersfinancialsDeleteCompanies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="financialsCreateCompanies">Command `az financials financial create-company`</a>
 
 ##### <a name="ParametersfinancialsCreateCompanies">Parameters</a> 
@@ -965,6 +957,14 @@
 |**--tax-groups**|array||tax_groups|taxGroups|
 |**--units-of-measure**|array||units_of_measure|unitsOfMeasure|
 |**--vendors**|array||vendors|vendors|
+
+#### <a name="financialsDeleteCompanies">Command `az financials financial delete-company`</a>
+
+##### <a name="ParametersfinancialsDeleteCompanies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financialsListCompanies">Command `az financials financial list-company`</a>
 
@@ -1032,253 +1032,6 @@
 |**--vendors**|array||vendors|vendors|
 
 ### group `az financials financial-company`
-#### <a name="financials.companiesDeleteAccounts">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteAccounts">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--account-id**|string|key: id of account|account_id|account-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companiesDeleteAgedAccountsPayable">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteAgedAccountsPayable">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--aged-accounts-payable-id**|string|key: id of agedAccountsPayable|aged_accounts_payable_id|agedAccountsPayable-id|
-
-#### <a name="financials.companiesDeleteAgedAccountsReceivable">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteAgedAccountsReceivable">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--aged-accounts-receivable-id**|string|key: id of agedAccountsReceivable|aged_accounts_receivable_id|agedAccountsReceivable-id|
-
-#### <a name="financials.companiesDeleteCompanyInformation">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCompanyInformation">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-information-id**|string|key: id of companyInformation|company_information_id|companyInformation-id|
-
-#### <a name="financials.companiesDeleteCountriesRegions">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCountriesRegions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--country-region-id**|string|key: id of countryRegion|country_region_id|countryRegion-id|
-
-#### <a name="financials.companiesDeleteCurrencies">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCurrencies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--currency-id**|string|key: id of currency|currency_id|currency-id|
-
-#### <a name="financials.companiesDeleteCustomerPaymentJournals">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCustomerPaymentJournals">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
-
-#### <a name="financials.companiesDeleteCustomerPayments">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCustomerPayments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
-
-#### <a name="financials.companiesDeleteCustomers">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteCustomers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--customer-id**|string|key: id of customer|customer_id|customer-id|
-
-#### <a name="financials.companiesDeleteDimensions">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteDimensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--dimension-id**|string|key: id of dimension|dimension_id|dimension-id|
-
-#### <a name="financials.companiesDeleteDimensionValues">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteDimensionValues">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--dimension-value-id**|string|key: id of dimensionValue|dimension_value_id|dimensionValue-id|
-
-#### <a name="financials.companiesDeleteEmployees">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteEmployees">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--employee-id**|string|key: id of employee|employee_id|employee-id|
-
-#### <a name="financials.companiesDeleteGeneralLedgerEntries">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteGeneralLedgerEntries">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--general-ledger-entry-id**|string|key: id of generalLedgerEntry|general_ledger_entry_id|generalLedgerEntry-id|
-
-#### <a name="financials.companiesDeleteItemCategories">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteItemCategories">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-category-id**|string|key: id of itemCategory|item_category_id|itemCategory-id|
-
-#### <a name="financials.companiesDeleteItems">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteItems">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-id**|string|key: id of item|item_id|item-id|
-
-#### <a name="financials.companiesDeleteJournalLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteJournalLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--journal-line-id**|string|key: id of journalLine|journal_line_id|journalLine-id|
-
-#### <a name="financials.companiesDeleteJournals">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteJournals">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--journal-id**|string|key: id of journal|journal_id|journal-id|
-
-#### <a name="financials.companiesDeletePaymentMethods">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeletePaymentMethods">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--payment-method-id**|string|key: id of paymentMethod|payment_method_id|paymentMethod-id|
-
-#### <a name="financials.companiesDeletePaymentTerms">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeletePaymentTerms">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--payment-term-id**|string|key: id of paymentTerm|payment_term_id|paymentTerm-id|
-
-#### <a name="financials.companiesDeletePicture">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-
-#### <a name="financials.companiesDeletePurchaseInvoiceLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeletePurchaseInvoiceLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
-
-#### <a name="financials.companiesDeletePurchaseInvoices">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeletePurchaseInvoices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
-
-#### <a name="financials.companiesDeleteSalesCreditMemoLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesCreditMemoLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
-
-#### <a name="financials.companiesDeleteSalesCreditMemos">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesCreditMemos">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
-
-#### <a name="financials.companiesDeleteSalesInvoiceLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesInvoiceLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
-
-#### <a name="financials.companiesDeleteSalesInvoices">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesInvoices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
-
-#### <a name="financials.companiesDeleteSalesOrderLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesOrderLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
-
-#### <a name="financials.companiesDeleteSalesOrders">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesOrders">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
-
-#### <a name="financials.companiesDeleteSalesQuoteLines">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesQuoteLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
-
-#### <a name="financials.companiesDeleteSalesQuotes">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteSalesQuotes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
-
-#### <a name="financials.companiesDeleteShipmentMethods">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteShipmentMethods">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--shipment-method-id**|string|key: id of shipmentMethod|shipment_method_id|shipmentMethod-id|
-
-#### <a name="financials.companiesDeleteTaxAreas">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteTaxAreas">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--tax-area-id**|string|key: id of taxArea|tax_area_id|taxArea-id|
-
-#### <a name="financials.companiesDeleteTaxGroups">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteTaxGroups">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--tax-group-id**|string|key: id of taxGroup|tax_group_id|taxGroup-id|
-
-#### <a name="financials.companiesDeleteUnitsOfMeasure">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteUnitsOfMeasure">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--unit-of-measure-id**|string|key: id of unitOfMeasure|unit_of_measure_id|unitOfMeasure-id|
-
-#### <a name="financials.companiesDeleteVendors">Command `az financials financial-company delete`</a>
-
-##### <a name="Parametersfinancials.companiesDeleteVendors">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
-
 #### <a name="financials.companiesCreateAccounts">Command `az financials financial-company create-account`</a>
 
 ##### <a name="Parametersfinancials.companiesCreateAccounts">Parameters</a> 
@@ -2283,6 +2036,321 @@
 |**--payment-method**|object|paymentMethod|payment_method|paymentMethod|
 |**--payment-term**|object|paymentTerm|payment_term|paymentTerm|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companiesDeleteAccounts">Command `az financials financial-company delete-account`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteAccounts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--account-id**|string|key: id of account|account_id|account-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteAgedAccountsPayable">Command `az financials financial-company delete-aged-account-payable`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteAgedAccountsPayable">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--aged-accounts-payable-id**|string|key: id of agedAccountsPayable|aged_accounts_payable_id|agedAccountsPayable-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteAgedAccountsReceivable">Command `az financials financial-company delete-aged-account-receivable`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteAgedAccountsReceivable">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--aged-accounts-receivable-id**|string|key: id of agedAccountsReceivable|aged_accounts_receivable_id|agedAccountsReceivable-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCompanyInformation">Command `az financials financial-company delete-company-information`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCompanyInformation">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--company-information-id**|string|key: id of companyInformation|company_information_id|companyInformation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCountriesRegions">Command `az financials financial-company delete-country-region`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCountriesRegions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--country-region-id**|string|key: id of countryRegion|country_region_id|countryRegion-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCurrencies">Command `az financials financial-company delete-currency`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCurrencies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--currency-id**|string|key: id of currency|currency_id|currency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCustomers">Command `az financials financial-company delete-customer`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCustomers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCustomerPayments">Command `az financials financial-company delete-customer-payment`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCustomerPayments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteCustomerPaymentJournals">Command `az financials financial-company delete-customer-payment-journal`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteCustomerPaymentJournals">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteDimensions">Command `az financials financial-company delete-dimension`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteDimensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--dimension-id**|string|key: id of dimension|dimension_id|dimension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteDimensionValues">Command `az financials financial-company delete-dimension-value`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteDimensionValues">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--dimension-value-id**|string|key: id of dimensionValue|dimension_value_id|dimensionValue-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteEmployees">Command `az financials financial-company delete-employee`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteEmployees">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--employee-id**|string|key: id of employee|employee_id|employee-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteGeneralLedgerEntries">Command `az financials financial-company delete-general-ledger-entry`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteGeneralLedgerEntries">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--general-ledger-entry-id**|string|key: id of generalLedgerEntry|general_ledger_entry_id|generalLedgerEntry-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteItems">Command `az financials financial-company delete-item`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteItems">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--item-id**|string|key: id of item|item_id|item-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteItemCategories">Command `az financials financial-company delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteItemCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--item-category-id**|string|key: id of itemCategory|item_category_id|itemCategory-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteJournals">Command `az financials financial-company delete-journal`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteJournals">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--journal-id**|string|key: id of journal|journal_id|journal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteJournalLines">Command `az financials financial-company delete-journal-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteJournalLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--journal-line-id**|string|key: id of journalLine|journal_line_id|journalLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeletePaymentMethods">Command `az financials financial-company delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companiesDeletePaymentMethods">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--payment-method-id**|string|key: id of paymentMethod|payment_method_id|paymentMethod-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeletePaymentTerms">Command `az financials financial-company delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companiesDeletePaymentTerms">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--payment-term-id**|string|key: id of paymentTerm|payment_term_id|paymentTerm-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeletePicture">Command `az financials financial-company delete-picture`</a>
+
+##### <a name="Parametersfinancials.companiesDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeletePurchaseInvoices">Command `az financials financial-company delete-purchase-invoice`</a>
+
+##### <a name="Parametersfinancials.companiesDeletePurchaseInvoices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeletePurchaseInvoiceLines">Command `az financials financial-company delete-purchase-invoice-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeletePurchaseInvoiceLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesCreditMemos">Command `az financials financial-company delete-sale-credit-memo`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesCreditMemos">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesCreditMemoLines">Command `az financials financial-company delete-sale-credit-memo-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesCreditMemoLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesInvoices">Command `az financials financial-company delete-sale-invoice`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesInvoices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesInvoiceLines">Command `az financials financial-company delete-sale-invoice-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesInvoiceLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesOrders">Command `az financials financial-company delete-sale-order`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesOrders">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesOrderLines">Command `az financials financial-company delete-sale-order-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesOrderLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesQuotes">Command `az financials financial-company delete-sale-quote`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesQuotes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteSalesQuoteLines">Command `az financials financial-company delete-sale-quote-line`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteSalesQuoteLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteShipmentMethods">Command `az financials financial-company delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteShipmentMethods">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--shipment-method-id**|string|key: id of shipmentMethod|shipment_method_id|shipmentMethod-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteTaxAreas">Command `az financials financial-company delete-tax-area`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteTaxAreas">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--tax-area-id**|string|key: id of taxArea|tax_area_id|taxArea-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteTaxGroups">Command `az financials financial-company delete-tax-group`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteTaxGroups">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--tax-group-id**|string|key: id of taxGroup|tax_group_id|taxGroup-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteUnitsOfMeasure">Command `az financials financial-company delete-unit-of-measure`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteUnitsOfMeasure">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--unit-of-measure-id**|string|key: id of unitOfMeasure|unit_of_measure_id|unitOfMeasure-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companiesDeleteVendors">Command `az financials financial-company delete-vendor`</a>
+
+##### <a name="Parametersfinancials.companiesDeleteVendors">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companiesListAccounts">Command `az financials financial-company list-account`</a>
 
@@ -4059,36 +4127,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-customer`
-#### <a name="financials.companies.customersDeletePicture">Command `az financials financial-company-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customersDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--customer-id**|string|key: id of customer|customer_id|customer-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.customersDeleteCurrency">Command `az financials financial-company-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customersDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customersDeletePaymentMethod">Command `az financials financial-company-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customersDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customersDeletePaymentTerm">Command `az financials financial-company-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customersDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customersDeleteShipmentMethod">Command `az financials financial-company-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customersDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.customersCreatePicture">Command `az financials financial-company-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.customersCreatePicture">Parameters</a> 
@@ -4101,6 +4139,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.customersDeleteCurrency">Command `az financials financial-company-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.customersDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customersDeletePaymentMethod">Command `az financials financial-company-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customersDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customersDeletePaymentTerm">Command `az financials financial-company-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.customersDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customersDeletePicture">Command `az financials financial-company-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.customersDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customersDeleteShipmentMethod">Command `az financials financial-company-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customersDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-id**|string|key: id of customer|customer_id|customer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.customersListPicture">Command `az financials financial-company-customer list-picture`</a>
 
@@ -4253,7 +4337,7 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-customer-payment`
-#### <a name="financials.companies.customerPaymentsDeleteCustomer">Command `az financials financial-company-customer-payment delete`</a>
+#### <a name="financials.companies.customerPaymentsDeleteCustomer">Command `az financials financial-company-customer-payment delete-customer`</a>
 
 ##### <a name="Parametersfinancials.companies.customerPaymentsDeleteCustomer">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -4305,36 +4389,6 @@
 |**--shipment-method**|object|shipmentMethod|shipment_method|shipmentMethod|
 
 ### group `az financials financial-company-customer-payment-customer`
-#### <a name="financials.companies.customerPayments.customerDeletePicture">Command `az financials financial-company-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.customerPayments.customerDeleteCurrency">Command `az financials financial-company-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPayments.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPayments.customerDeletePaymentMethod">Command `az financials financial-company-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPayments.customerDeletePaymentTerm">Command `az financials financial-company-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPayments.customerDeleteShipmentMethod">Command `az financials financial-company-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPayments.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.customerPayments.customerCreatePicture">Command `az financials financial-company-customer-payment-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.customerPayments.customerCreatePicture">Parameters</a> 
@@ -4347,6 +4401,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.customerPayments.customerDeleteCurrency">Command `az financials financial-company-customer-payment-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.customerPayments.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPayments.customerDeletePaymentMethod">Command `az financials financial-company-customer-payment-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPayments.customerDeletePaymentTerm">Command `az financials financial-company-customer-payment-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPayments.customerDeletePicture">Command `az financials financial-company-customer-payment-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.customerPayments.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPayments.customerDeleteShipmentMethod">Command `az financials financial-company-customer-payment-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customerPayments.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.customerPayments.customerListPicture">Command `az financials financial-company-customer-payment-customer list-picture`</a>
 
@@ -4499,21 +4599,6 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-customer-payment-journal`
-#### <a name="financials.companies.customerPaymentJournalsDeleteCustomerPayments">Command `az financials financial-company-customer-payment-journal delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournalsDeleteCustomerPayments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
-|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.customerPaymentJournalsDeleteAccount">Command `az financials financial-company-customer-payment-journal delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournalsDeleteAccount">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.customerPaymentJournalsCreateCustomerPayments">Command `az financials financial-company-customer-payment-journal create-customer-payment`</a>
 
 ##### <a name="Parametersfinancials.companies.customerPaymentJournalsCreateCustomerPayments">Parameters</a> 
@@ -4560,6 +4645,25 @@
 |**--payment-term**|object|paymentTerm|payment_term|paymentTerm|
 |**--picture**|array||picture|picture|
 |**--shipment-method**|object|shipmentMethod|shipment_method|shipmentMethod|
+
+#### <a name="financials.companies.customerPaymentJournalsDeleteAccount">Command `az financials financial-company-customer-payment-journal delete-account`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournalsDeleteAccount">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPaymentJournalsDeleteCustomerPayments">Command `az financials financial-company-customer-payment-journal delete-customer-payment`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournalsDeleteCustomerPayments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.customerPaymentJournalsListCustomerPayments">Command `az financials financial-company-customer-payment-journal list-customer-payment`</a>
 
@@ -4657,7 +4761,7 @@
 |**--shipment-method**|object|shipmentMethod|shipment_method|shipmentMethod|
 
 ### group `az financials financial-company-customer-payment-journal-customer-payment`
-#### <a name="financials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer">Command `az financials financial-company-customer-payment-journal-customer-payment delete`</a>
+#### <a name="financials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer">Command `az financials financial-company-customer-payment-journal-customer-payment delete-customer`</a>
 
 ##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPaymentsDeleteCustomer">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -4712,37 +4816,6 @@
 |**--shipment-method**|object|shipmentMethod|shipment_method|shipmentMethod|
 
 ### group `az financials financial-company-customer-payment-journal-customer-payment-customer`
-#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePicture">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
-|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.customerPaymentJournals.customerPayments.customerCreatePicture">Command `az financials financial-company-customer-payment-journal-customer-payment-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerCreatePicture">Parameters</a> 
@@ -4756,6 +4829,57 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeletePicture">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod">Command `az financials financial-company-customer-payment-journal-customer-payment-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.customerPaymentJournals.customerPayments.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--customer-payment-journal-id**|string|key: id of customerPaymentJournal|customer_payment_journal_id|customerPaymentJournal-id|
+|**--customer-payment-id**|string|key: id of customerPayment|customer_payment_id|customerPayment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.customerPaymentJournals.customerPayments.customerListPicture">Command `az financials financial-company-customer-payment-journal-customer-payment-customer list-picture`</a>
 
@@ -4921,16 +5045,6 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-dimension`
-#### <a name="financials.companies.dimensionsDeleteDimensionValues">Command `az financials financial-company-dimension delete`</a>
-
-##### <a name="Parametersfinancials.companies.dimensionsDeleteDimensionValues">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--dimension-id**|string|key: id of dimension|dimension_id|dimension-id|
-|**--dimension-value-id**|string|key: id of dimensionValue|dimension_value_id|dimensionValue-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="financials.companies.dimensionsCreateDimensionValues">Command `az financials financial-company-dimension create-dimension-value`</a>
 
 ##### <a name="Parametersfinancials.companies.dimensionsCreateDimensionValues">Parameters</a> 
@@ -4942,6 +5056,16 @@
 |**--code**|string||code|code|
 |**--display-name**|string||display_name|displayName|
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
+
+#### <a name="financials.companies.dimensionsDeleteDimensionValues">Command `az financials financial-company-dimension delete-dimension-value`</a>
+
+##### <a name="Parametersfinancials.companies.dimensionsDeleteDimensionValues">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--dimension-id**|string|key: id of dimension|dimension_id|dimension-id|
+|**--dimension-value-id**|string|key: id of dimensionValue|dimension_value_id|dimensionValue-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.dimensionsListDimensionValues">Command `az financials financial-company-dimension list-dimension-value`</a>
 
@@ -4979,16 +5103,6 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-employee`
-#### <a name="financials.companies.employeesDeletePicture">Command `az financials financial-company-employee delete`</a>
-
-##### <a name="Parametersfinancials.companies.employeesDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--employee-id**|string|key: id of employee|employee_id|employee-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="financials.companies.employeesCreatePicture">Command `az financials financial-company-employee create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.employeesCreatePicture">Parameters</a> 
@@ -5001,6 +5115,16 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.employeesDeletePicture">Command `az financials financial-company-employee delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.employeesDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--employee-id**|string|key: id of employee|employee_id|employee-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.employeesListPicture">Command `az financials financial-company-employee list-picture`</a>
 
@@ -5058,7 +5182,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-general-ledger-entry`
-#### <a name="financials.companies.generalLedgerEntriesDeleteAccount">Command `az financials financial-company-general-ledger-entry delete`</a>
+#### <a name="financials.companies.generalLedgerEntriesDeleteAccount">Command `az financials financial-company-general-ledger-entry delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.generalLedgerEntriesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -5093,21 +5217,6 @@
 |**--sub-category**|string||sub_category|subCategory|
 
 ### group `az financials financial-company-item`
-#### <a name="financials.companies.itemsDeletePicture">Command `az financials financial-company-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.itemsDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--item-id**|string|key: id of item|item_id|item-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.itemsDeleteItemCategory">Command `az financials financial-company-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.itemsDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.itemsCreatePicture">Command `az financials financial-company-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.itemsCreatePicture">Parameters</a> 
@@ -5120,6 +5229,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.itemsDeleteItemCategory">Command `az financials financial-company-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.itemsDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--item-id**|string|key: id of item|item_id|item-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.itemsDeletePicture">Command `az financials financial-company-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.itemsDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--item-id**|string|key: id of item|item_id|item-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.itemsListPicture">Command `az financials financial-company-item list-picture`</a>
 
@@ -5199,21 +5327,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-journal`
-#### <a name="financials.companies.journalsDeleteJournalLines">Command `az financials financial-company-journal delete`</a>
-
-##### <a name="Parametersfinancials.companies.journalsDeleteJournalLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--journal-id**|string|key: id of journal|journal_id|journal-id|
-|**--journal-line-id**|string|key: id of journalLine|journal_line_id|journalLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.journalsDeleteAccount">Command `az financials financial-company-journal delete`</a>
-
-##### <a name="Parametersfinancials.companies.journalsDeleteAccount">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.journalsCreateJournalLines">Command `az financials financial-company-journal create-journal-line`</a>
 
 ##### <a name="Parametersfinancials.companies.journalsCreateJournalLines">Parameters</a> 
@@ -5234,6 +5347,25 @@
 |**--line-number**|integer||line_number|lineNumber|
 |**--posting-date**|date||posting_date|postingDate|
 |**--account**|object|account|account|account|
+
+#### <a name="financials.companies.journalsDeleteAccount">Command `az financials financial-company-journal delete-account`</a>
+
+##### <a name="Parametersfinancials.companies.journalsDeleteAccount">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--journal-id**|string|key: id of journal|journal_id|journal-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.journalsDeleteJournalLines">Command `az financials financial-company-journal delete-journal-line`</a>
+
+##### <a name="Parametersfinancials.companies.journalsDeleteJournalLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--journal-id**|string|key: id of journal|journal_id|journal-id|
+|**--journal-line-id**|string|key: id of journalLine|journal_line_id|journalLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.journalsListJournalLines">Command `az financials financial-company-journal list-journal-line`</a>
 
@@ -5313,7 +5445,7 @@
 |**--account**|object|account|account|account|
 
 ### group `az financials financial-company-journal-journal-line`
-#### <a name="financials.companies.journals.journalLinesDeleteAccount">Command `az financials financial-company-journal-journal-line delete`</a>
+#### <a name="financials.companies.journals.journalLinesDeleteAccount">Command `az financials financial-company-journal-journal-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.journals.journalLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -5351,7 +5483,7 @@
 |**--sub-category**|string||sub_category|subCategory|
 
 ### group `az financials financial-company-journal-line`
-#### <a name="financials.companies.journalLinesDeleteAccount">Command `az financials financial-company-journal-line delete`</a>
+#### <a name="financials.companies.journalLinesDeleteAccount">Command `az financials financial-company-journal-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.journalLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -5386,26 +5518,6 @@
 |**--sub-category**|string||sub_category|subCategory|
 
 ### group `az financials financial-company-purchase-invoice`
-#### <a name="financials.companies.purchaseInvoicesDeletePurchaseInvoiceLines">Command `az financials financial-company-purchase-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoicesDeletePurchaseInvoiceLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
-|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.purchaseInvoicesDeleteCurrency">Command `az financials financial-company-purchase-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoicesDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.purchaseInvoicesDeleteVendor">Command `az financials financial-company-purchase-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoicesDeleteVendor">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.purchaseInvoicesCreatePurchaseInvoiceLines">Command `az financials financial-company-purchase-invoice create-purchase-invoice-line`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoicesCreatePurchaseInvoiceLines">Parameters</a> 
@@ -5454,6 +5566,34 @@
 |**--unit-price**|number||unit_price|unitPrice|
 |**--item-category**|object|itemCategory|item_category|itemCategory|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companies.purchaseInvoicesDeleteCurrency">Command `az financials financial-company-purchase-invoice delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoicesDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoicesDeletePurchaseInvoiceLines">Command `az financials financial-company-purchase-invoice delete-purchase-invoice-line`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoicesDeletePurchaseInvoiceLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoicesDeleteVendor">Command `az financials financial-company-purchase-invoice delete-vendor`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoicesDeleteVendor">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.purchaseInvoicesListPurchaseInvoiceLines">Command `az financials financial-company-purchase-invoice list-purchase-invoice-line`</a>
 
@@ -5599,7 +5739,7 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-purchase-invoice-line`
-#### <a name="financials.companies.purchaseInvoiceLinesDeleteAccount">Command `az financials financial-company-purchase-invoice-line delete`</a>
+#### <a name="financials.companies.purchaseInvoiceLinesDeleteAccount">Command `az financials financial-company-purchase-invoice-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoiceLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -5608,11 +5748,15 @@
 |**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.purchaseInvoiceLinesDeleteItem">Command `az financials financial-company-purchase-invoice-line delete`</a>
+#### <a name="financials.companies.purchaseInvoiceLinesDeleteItem">Command `az financials financial-company-purchase-invoice-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoiceLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.purchaseInvoiceLinesGetAccount">Command `az financials financial-company-purchase-invoice-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoiceLinesGetAccount">Parameters</a> 
@@ -5675,21 +5819,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-purchase-invoice-line-item`
-#### <a name="financials.companies.purchaseInvoiceLines.itemDeletePicture">Command `az financials financial-company-purchase-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoiceLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.purchaseInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-purchase-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoiceLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.purchaseInvoiceLines.itemCreatePicture">Command `az financials financial-company-purchase-invoice-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoiceLines.itemCreatePicture">Parameters</a> 
@@ -5702,6 +5831,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.purchaseInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-purchase-invoice-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoiceLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoiceLines.itemDeletePicture">Command `az financials financial-company-purchase-invoice-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoiceLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.purchaseInvoiceLines.itemListPicture">Command `az financials financial-company-purchase-invoice-line-item list-picture`</a>
 
@@ -5781,7 +5929,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-purchase-invoice-purchase-invoice-line`
-#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount">Command `az financials financial-company-purchase-invoice-purchase-invoice-line delete`</a>
+#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount">Command `az financials financial-company-purchase-invoice-purchase-invoice-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -5791,11 +5939,16 @@
 |**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem">Command `az financials financial-company-purchase-invoice-purchase-invoice-line delete`</a>
+#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem">Command `az financials financial-company-purchase-invoice-purchase-invoice-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLinesGetAccount">Command `az financials financial-company-purchase-invoice-purchase-invoice-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLinesGetAccount">Parameters</a> 
@@ -5862,22 +6015,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-purchase-invoice-purchase-invoice-line-item`
-#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
-|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemCreatePicture">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemCreatePicture">Parameters</a> 
@@ -5891,6 +6028,27 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.purchaseInvoiceLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--purchase-invoice-line-id**|string|key: id of purchaseInvoiceLine|purchase_invoice_line_id|purchaseInvoiceLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.purchaseInvoices.purchaseInvoiceLines.itemListPicture">Command `az financials financial-company-purchase-invoice-purchase-invoice-line-item list-picture`</a>
 
@@ -5977,31 +6135,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-purchase-invoice-vendor`
-#### <a name="financials.companies.purchaseInvoices.vendorDeletePicture">Command `az financials financial-company-purchase-invoice-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.purchaseInvoices.vendorDeleteCurrency">Command `az financials financial-company-purchase-invoice-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.purchaseInvoices.vendorDeletePaymentMethod">Command `az financials financial-company-purchase-invoice-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.purchaseInvoices.vendorDeletePaymentTerm">Command `az financials financial-company-purchase-invoice-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.purchaseInvoices.vendorCreatePicture">Command `az financials financial-company-purchase-invoice-vendor create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorCreatePicture">Parameters</a> 
@@ -6014,6 +6147,43 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.purchaseInvoices.vendorDeleteCurrency">Command `az financials financial-company-purchase-invoice-vendor delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoices.vendorDeletePaymentMethod">Command `az financials financial-company-purchase-invoice-vendor delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoices.vendorDeletePaymentTerm">Command `az financials financial-company-purchase-invoice-vendor delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.purchaseInvoices.vendorDeletePicture">Command `az financials financial-company-purchase-invoice-vendor delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.purchaseInvoices.vendorDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--purchase-invoice-id**|string|key: id of purchaseInvoice|purchase_invoice_id|purchaseInvoice-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.purchaseInvoices.vendorListPicture">Command `az financials financial-company-purchase-invoice-vendor list-picture`</a>
 
@@ -6144,31 +6314,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-credit-memo`
-#### <a name="financials.companies.salesCreditMemosDeleteSalesCreditMemoLines">Command `az financials financial-company-sale-credit-memo delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteSalesCreditMemoLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
-|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesCreditMemosDeleteCurrency">Command `az financials financial-company-sale-credit-memo delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesCreditMemosDeleteCustomer">Command `az financials financial-company-sale-credit-memo delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteCustomer">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesCreditMemosDeletePaymentTerm">Command `az financials financial-company-sale-credit-memo delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemosDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesCreditMemosCreateSalesCreditMemoLines">Command `az financials financial-company-sale-credit-memo create-sale-credit-memo-line`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemosCreateSalesCreditMemoLines">Parameters</a> 
@@ -6218,6 +6363,43 @@
 |**--number-unit-price**|number||number_unit_price|unitPrice|
 |**--item-category**|object|itemCategory|item_category|itemCategory|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companies.salesCreditMemosDeleteCurrency">Command `az financials financial-company-sale-credit-memo delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemosDeleteCustomer">Command `az financials financial-company-sale-credit-memo delete-customer`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteCustomer">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemosDeletePaymentTerm">Command `az financials financial-company-sale-credit-memo delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemosDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemosDeleteSalesCreditMemoLines">Command `az financials financial-company-sale-credit-memo delete-sale-credit-memo-line`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemosDeleteSalesCreditMemoLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesCreditMemosListSalesCreditMemoLines">Command `az financials financial-company-sale-credit-memo list-sale-credit-memo-line`</a>
 
@@ -6386,36 +6568,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-credit-memo-customer`
-#### <a name="financials.companies.salesCreditMemos.customerDeletePicture">Command `az financials financial-company-sale-credit-memo-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesCreditMemos.customerDeleteCurrency">Command `az financials financial-company-sale-credit-memo-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesCreditMemos.customerDeletePaymentMethod">Command `az financials financial-company-sale-credit-memo-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesCreditMemos.customerDeletePaymentTerm">Command `az financials financial-company-sale-credit-memo-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesCreditMemos.customerDeleteShipmentMethod">Command `az financials financial-company-sale-credit-memo-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesCreditMemos.customerCreatePicture">Command `az financials financial-company-sale-credit-memo-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemos.customerCreatePicture">Parameters</a> 
@@ -6428,6 +6580,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesCreditMemos.customerDeleteCurrency">Command `az financials financial-company-sale-credit-memo-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemos.customerDeletePaymentMethod">Command `az financials financial-company-sale-credit-memo-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemos.customerDeletePaymentTerm">Command `az financials financial-company-sale-credit-memo-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemos.customerDeletePicture">Command `az financials financial-company-sale-credit-memo-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemos.customerDeleteShipmentMethod">Command `az financials financial-company-sale-credit-memo-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesCreditMemos.customerListPicture">Command `az financials financial-company-sale-credit-memo-customer list-picture`</a>
 
@@ -6580,7 +6778,7 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-credit-memo-line`
-#### <a name="financials.companies.salesCreditMemoLinesDeleteAccount">Command `az financials financial-company-sale-credit-memo-line delete`</a>
+#### <a name="financials.companies.salesCreditMemoLinesDeleteAccount">Command `az financials financial-company-sale-credit-memo-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemoLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -6589,11 +6787,15 @@
 |**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesCreditMemoLinesDeleteItem">Command `az financials financial-company-sale-credit-memo-line delete`</a>
+#### <a name="financials.companies.salesCreditMemoLinesDeleteItem">Command `az financials financial-company-sale-credit-memo-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemoLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesCreditMemoLinesGetAccount">Command `az financials financial-company-sale-credit-memo-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemoLinesGetAccount">Parameters</a> 
@@ -6656,21 +6858,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-credit-memo-line-item`
-#### <a name="financials.companies.salesCreditMemoLines.itemDeletePicture">Command `az financials financial-company-sale-credit-memo-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemoLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesCreditMemoLines.itemDeleteItemCategory">Command `az financials financial-company-sale-credit-memo-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemoLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesCreditMemoLines.itemCreatePicture">Command `az financials financial-company-sale-credit-memo-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemoLines.itemCreatePicture">Parameters</a> 
@@ -6683,6 +6870,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesCreditMemoLines.itemDeleteItemCategory">Command `az financials financial-company-sale-credit-memo-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemoLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemoLines.itemDeletePicture">Command `az financials financial-company-sale-credit-memo-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemoLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesCreditMemoLines.itemListPicture">Command `az financials financial-company-sale-credit-memo-line-item list-picture`</a>
 
@@ -6762,7 +6968,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-credit-memo-sale-credit-memo-line`
-#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line delete`</a>
+#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -6772,11 +6978,16 @@
 |**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line delete`</a>
+#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesCreditMemos.salesCreditMemoLinesGetAccount">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLinesGetAccount">Parameters</a> 
@@ -6843,22 +7054,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item`
-#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
-|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemCreatePicture">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemCreatePicture">Parameters</a> 
@@ -6872,6 +7067,27 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesCreditMemos.salesCreditMemoLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-credit-memo-id**|string|key: id of salesCreditMemo|sales_credit_memo_id|salesCreditMemo-id|
+|**--sales-credit-memo-line-id**|string|key: id of salesCreditMemoLine|sales_credit_memo_line_id|salesCreditMemoLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesCreditMemos.salesCreditMemoLines.itemListPicture">Command `az financials financial-company-sale-credit-memo-sale-credit-memo-line-item list-picture`</a>
 
@@ -6958,36 +7174,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-invoice`
-#### <a name="financials.companies.salesInvoicesDeleteSalesInvoiceLines">Command `az financials financial-company-sale-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoicesDeleteSalesInvoiceLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
-|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesInvoicesDeleteCurrency">Command `az financials financial-company-sale-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoicesDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoicesDeleteCustomer">Command `az financials financial-company-sale-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoicesDeleteCustomer">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoicesDeletePaymentTerm">Command `az financials financial-company-sale-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoicesDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoicesDeleteShipmentMethod">Command `az financials financial-company-sale-invoice delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoicesDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesInvoicescancel">Command `az financials financial-company-sale-invoice cancel`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoicescancel">Parameters</a> 
@@ -7053,6 +7239,52 @@
 |**--number-unit-price**|number||number_unit_price|unitPrice|
 |**--item-category**|object|itemCategory|item_category|itemCategory|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companies.salesInvoicesDeleteCurrency">Command `az financials financial-company-sale-invoice delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoicesDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoicesDeleteCustomer">Command `az financials financial-company-sale-invoice delete-customer`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoicesDeleteCustomer">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoicesDeletePaymentTerm">Command `az financials financial-company-sale-invoice delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoicesDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoicesDeleteSalesInvoiceLines">Command `az financials financial-company-sale-invoice delete-sale-invoice-line`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoicesDeleteSalesInvoiceLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoicesDeleteShipmentMethod">Command `az financials financial-company-sale-invoice delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoicesDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesInvoicesListSalesInvoiceLines">Command `az financials financial-company-sale-invoice list-sale-invoice-line`</a>
 
@@ -7267,36 +7499,6 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-invoice-customer`
-#### <a name="financials.companies.salesInvoices.customerDeletePicture">Command `az financials financial-company-sale-invoice-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesInvoices.customerDeleteCurrency">Command `az financials financial-company-sale-invoice-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoices.customerDeletePaymentMethod">Command `az financials financial-company-sale-invoice-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoices.customerDeletePaymentTerm">Command `az financials financial-company-sale-invoice-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesInvoices.customerDeleteShipmentMethod">Command `az financials financial-company-sale-invoice-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesInvoices.customerCreatePicture">Command `az financials financial-company-sale-invoice-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoices.customerCreatePicture">Parameters</a> 
@@ -7309,6 +7511,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesInvoices.customerDeleteCurrency">Command `az financials financial-company-sale-invoice-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoices.customerDeletePaymentMethod">Command `az financials financial-company-sale-invoice-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoices.customerDeletePaymentTerm">Command `az financials financial-company-sale-invoice-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoices.customerDeletePicture">Command `az financials financial-company-sale-invoice-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoices.customerDeleteShipmentMethod">Command `az financials financial-company-sale-invoice-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesInvoices.customerListPicture">Command `az financials financial-company-sale-invoice-customer list-picture`</a>
 
@@ -7461,7 +7709,7 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-invoice-line`
-#### <a name="financials.companies.salesInvoiceLinesDeleteAccount">Command `az financials financial-company-sale-invoice-line delete`</a>
+#### <a name="financials.companies.salesInvoiceLinesDeleteAccount">Command `az financials financial-company-sale-invoice-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoiceLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -7470,11 +7718,15 @@
 |**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesInvoiceLinesDeleteItem">Command `az financials financial-company-sale-invoice-line delete`</a>
+#### <a name="financials.companies.salesInvoiceLinesDeleteItem">Command `az financials financial-company-sale-invoice-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoiceLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesInvoiceLinesGetAccount">Command `az financials financial-company-sale-invoice-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoiceLinesGetAccount">Parameters</a> 
@@ -7537,21 +7789,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-invoice-line-item`
-#### <a name="financials.companies.salesInvoiceLines.itemDeletePicture">Command `az financials financial-company-sale-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoiceLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-sale-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoiceLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesInvoiceLines.itemCreatePicture">Command `az financials financial-company-sale-invoice-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoiceLines.itemCreatePicture">Parameters</a> 
@@ -7564,6 +7801,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-sale-invoice-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoiceLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoiceLines.itemDeletePicture">Command `az financials financial-company-sale-invoice-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoiceLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesInvoiceLines.itemListPicture">Command `az financials financial-company-sale-invoice-line-item list-picture`</a>
 
@@ -7643,7 +7899,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-invoice-sale-invoice-line`
-#### <a name="financials.companies.salesInvoices.salesInvoiceLinesDeleteAccount">Command `az financials financial-company-sale-invoice-sale-invoice-line delete`</a>
+#### <a name="financials.companies.salesInvoices.salesInvoiceLinesDeleteAccount">Command `az financials financial-company-sale-invoice-sale-invoice-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -7653,11 +7909,16 @@
 |**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesInvoices.salesInvoiceLinesDeleteItem">Command `az financials financial-company-sale-invoice-sale-invoice-line delete`</a>
+#### <a name="financials.companies.salesInvoices.salesInvoiceLinesDeleteItem">Command `az financials financial-company-sale-invoice-sale-invoice-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesInvoices.salesInvoiceLinesGetAccount">Command `az financials financial-company-sale-invoice-sale-invoice-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLinesGetAccount">Parameters</a> 
@@ -7724,22 +7985,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-invoice-sale-invoice-line-item`
-#### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture">Command `az financials financial-company-sale-invoice-sale-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
-|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-sale-invoice-sale-invoice-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemCreatePicture">Command `az financials financial-company-sale-invoice-sale-invoice-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemCreatePicture">Parameters</a> 
@@ -7753,6 +7998,27 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory">Command `az financials financial-company-sale-invoice-sale-invoice-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture">Command `az financials financial-company-sale-invoice-sale-invoice-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesInvoices.salesInvoiceLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-invoice-id**|string|key: id of salesInvoice|sales_invoice_id|salesInvoice-id|
+|**--sales-invoice-line-id**|string|key: id of salesInvoiceLine|sales_invoice_line_id|salesInvoiceLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesInvoices.salesInvoiceLines.itemListPicture">Command `az financials financial-company-sale-invoice-sale-invoice-line-item list-picture`</a>
 
@@ -7839,31 +8105,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-order`
-#### <a name="financials.companies.salesOrdersDeleteSalesOrderLines">Command `az financials financial-company-sale-order delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrdersDeleteSalesOrderLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
-|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesOrdersDeleteCurrency">Command `az financials financial-company-sale-order delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrdersDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesOrdersDeleteCustomer">Command `az financials financial-company-sale-order delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrdersDeleteCustomer">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesOrdersDeletePaymentTerm">Command `az financials financial-company-sale-order delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrdersDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesOrdersCreateSalesOrderLines">Command `az financials financial-company-sale-order create-sale-order-line`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrdersCreateSalesOrderLines">Parameters</a> 
@@ -7917,6 +8158,43 @@
 |**--number-unit-price**|number||number_unit_price|unitPrice|
 |**--item-category**|object|itemCategory|item_category|itemCategory|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companies.salesOrdersDeleteCurrency">Command `az financials financial-company-sale-order delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrdersDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrdersDeleteCustomer">Command `az financials financial-company-sale-order delete-customer`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrdersDeleteCustomer">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrdersDeletePaymentTerm">Command `az financials financial-company-sale-order delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrdersDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrdersDeleteSalesOrderLines">Command `az financials financial-company-sale-order delete-sale-order-line`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrdersDeleteSalesOrderLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesOrdersListSalesOrderLines">Command `az financials financial-company-sale-order list-sale-order-line`</a>
 
@@ -8089,36 +8367,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-order-customer`
-#### <a name="financials.companies.salesOrders.customerDeletePicture">Command `az financials financial-company-sale-order-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesOrders.customerDeleteCurrency">Command `az financials financial-company-sale-order-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesOrders.customerDeletePaymentMethod">Command `az financials financial-company-sale-order-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesOrders.customerDeletePaymentTerm">Command `az financials financial-company-sale-order-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesOrders.customerDeleteShipmentMethod">Command `az financials financial-company-sale-order-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesOrders.customerCreatePicture">Command `az financials financial-company-sale-order-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrders.customerCreatePicture">Parameters</a> 
@@ -8131,6 +8379,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesOrders.customerDeleteCurrency">Command `az financials financial-company-sale-order-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrders.customerDeletePaymentMethod">Command `az financials financial-company-sale-order-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrders.customerDeletePaymentTerm">Command `az financials financial-company-sale-order-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrders.customerDeletePicture">Command `az financials financial-company-sale-order-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrders.customerDeleteShipmentMethod">Command `az financials financial-company-sale-order-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesOrders.customerListPicture">Command `az financials financial-company-sale-order-customer list-picture`</a>
 
@@ -8283,7 +8577,7 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-order-line`
-#### <a name="financials.companies.salesOrderLinesDeleteAccount">Command `az financials financial-company-sale-order-line delete`</a>
+#### <a name="financials.companies.salesOrderLinesDeleteAccount">Command `az financials financial-company-sale-order-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrderLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -8292,11 +8586,15 @@
 |**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesOrderLinesDeleteItem">Command `az financials financial-company-sale-order-line delete`</a>
+#### <a name="financials.companies.salesOrderLinesDeleteItem">Command `az financials financial-company-sale-order-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrderLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesOrderLinesGetAccount">Command `az financials financial-company-sale-order-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrderLinesGetAccount">Parameters</a> 
@@ -8359,21 +8657,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-order-line-item`
-#### <a name="financials.companies.salesOrderLines.itemDeletePicture">Command `az financials financial-company-sale-order-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrderLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesOrderLines.itemDeleteItemCategory">Command `az financials financial-company-sale-order-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrderLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesOrderLines.itemCreatePicture">Command `az financials financial-company-sale-order-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrderLines.itemCreatePicture">Parameters</a> 
@@ -8386,6 +8669,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesOrderLines.itemDeleteItemCategory">Command `az financials financial-company-sale-order-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrderLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrderLines.itemDeletePicture">Command `az financials financial-company-sale-order-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrderLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesOrderLines.itemListPicture">Command `az financials financial-company-sale-order-line-item list-picture`</a>
 
@@ -8465,7 +8767,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-order-sale-order-line`
-#### <a name="financials.companies.salesOrders.salesOrderLinesDeleteAccount">Command `az financials financial-company-sale-order-sale-order-line delete`</a>
+#### <a name="financials.companies.salesOrders.salesOrderLinesDeleteAccount">Command `az financials financial-company-sale-order-sale-order-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -8475,11 +8777,16 @@
 |**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesOrders.salesOrderLinesDeleteItem">Command `az financials financial-company-sale-order-sale-order-line delete`</a>
+#### <a name="financials.companies.salesOrders.salesOrderLinesDeleteItem">Command `az financials financial-company-sale-order-sale-order-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesOrders.salesOrderLinesGetAccount">Command `az financials financial-company-sale-order-sale-order-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLinesGetAccount">Parameters</a> 
@@ -8546,22 +8853,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-order-sale-order-line-item`
-#### <a name="financials.companies.salesOrders.salesOrderLines.itemDeletePicture">Command `az financials financial-company-sale-order-sale-order-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
-|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory">Command `az financials financial-company-sale-order-sale-order-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesOrders.salesOrderLines.itemCreatePicture">Command `az financials financial-company-sale-order-sale-order-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLines.itemCreatePicture">Parameters</a> 
@@ -8575,6 +8866,27 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory">Command `az financials financial-company-sale-order-sale-order-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesOrders.salesOrderLines.itemDeletePicture">Command `az financials financial-company-sale-order-sale-order-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesOrders.salesOrderLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-order-id**|string|key: id of salesOrder|sales_order_id|salesOrder-id|
+|**--sales-order-line-id**|string|key: id of salesOrderLine|sales_order_line_id|salesOrderLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesOrders.salesOrderLines.itemListPicture">Command `az financials financial-company-sale-order-sale-order-line-item list-picture`</a>
 
@@ -8661,36 +8973,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-quote`
-#### <a name="financials.companies.salesQuotesDeleteSalesQuoteLines">Command `az financials financial-company-sale-quote delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotesDeleteSalesQuoteLines">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
-|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesQuotesDeleteCurrency">Command `az financials financial-company-sale-quote delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotesDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotesDeleteCustomer">Command `az financials financial-company-sale-quote delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotesDeleteCustomer">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotesDeletePaymentTerm">Command `az financials financial-company-sale-quote delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotesDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotesDeleteShipmentMethod">Command `az financials financial-company-sale-quote delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotesDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesQuotesCreateSalesQuoteLines">Command `az financials financial-company-sale-quote create-sale-quote-line`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotesCreateSalesQuoteLines">Parameters</a> 
@@ -8738,6 +9020,52 @@
 |**--number-unit-price**|number||number_unit_price|unitPrice|
 |**--item-category**|object|itemCategory|item_category|itemCategory|
 |**--picture**|array||picture|picture|
+
+#### <a name="financials.companies.salesQuotesDeleteCurrency">Command `az financials financial-company-sale-quote delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotesDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotesDeleteCustomer">Command `az financials financial-company-sale-quote delete-customer`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotesDeleteCustomer">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotesDeletePaymentTerm">Command `az financials financial-company-sale-quote delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotesDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotesDeleteSalesQuoteLines">Command `az financials financial-company-sale-quote delete-sale-quote-line`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotesDeleteSalesQuoteLines">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotesDeleteShipmentMethod">Command `az financials financial-company-sale-quote delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotesDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesQuotesListSalesQuoteLines">Command `az financials financial-company-sale-quote list-sale-quote-line`</a>
 
@@ -8942,36 +9270,6 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-quote-customer`
-#### <a name="financials.companies.salesQuotes.customerDeletePicture">Command `az financials financial-company-sale-quote-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesQuotes.customerDeleteCurrency">Command `az financials financial-company-sale-quote-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.customerDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotes.customerDeletePaymentMethod">Command `az financials financial-company-sale-quote-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotes.customerDeletePaymentTerm">Command `az financials financial-company-sale-quote-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.salesQuotes.customerDeleteShipmentMethod">Command `az financials financial-company-sale-quote-customer delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.customerDeleteShipmentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesQuotes.customerCreatePicture">Command `az financials financial-company-sale-quote-customer create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotes.customerCreatePicture">Parameters</a> 
@@ -8984,6 +9282,52 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesQuotes.customerDeleteCurrency">Command `az financials financial-company-sale-quote-customer delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.customerDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotes.customerDeletePaymentMethod">Command `az financials financial-company-sale-quote-customer delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotes.customerDeletePaymentTerm">Command `az financials financial-company-sale-quote-customer delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotes.customerDeletePicture">Command `az financials financial-company-sale-quote-customer delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.customerDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotes.customerDeleteShipmentMethod">Command `az financials financial-company-sale-quote-customer delete-shipment-method`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.customerDeleteShipmentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesQuotes.customerListPicture">Command `az financials financial-company-sale-quote-customer list-picture`</a>
 
@@ -9136,7 +9480,7 @@
 |**--last-modified-date-time**|date-time||last_modified_date_time|lastModifiedDateTime|
 
 ### group `az financials financial-company-sale-quote-line`
-#### <a name="financials.companies.salesQuoteLinesDeleteAccount">Command `az financials financial-company-sale-quote-line delete`</a>
+#### <a name="financials.companies.salesQuoteLinesDeleteAccount">Command `az financials financial-company-sale-quote-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuoteLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -9145,11 +9489,15 @@
 |**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesQuoteLinesDeleteItem">Command `az financials financial-company-sale-quote-line delete`</a>
+#### <a name="financials.companies.salesQuoteLinesDeleteItem">Command `az financials financial-company-sale-quote-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuoteLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesQuoteLinesGetAccount">Command `az financials financial-company-sale-quote-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuoteLinesGetAccount">Parameters</a> 
@@ -9212,21 +9560,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-quote-line-item`
-#### <a name="financials.companies.salesQuoteLines.itemDeletePicture">Command `az financials financial-company-sale-quote-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuoteLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesQuoteLines.itemDeleteItemCategory">Command `az financials financial-company-sale-quote-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuoteLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesQuoteLines.itemCreatePicture">Command `az financials financial-company-sale-quote-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuoteLines.itemCreatePicture">Parameters</a> 
@@ -9239,6 +9572,25 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesQuoteLines.itemDeleteItemCategory">Command `az financials financial-company-sale-quote-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuoteLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuoteLines.itemDeletePicture">Command `az financials financial-company-sale-quote-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuoteLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesQuoteLines.itemListPicture">Command `az financials financial-company-sale-quote-line-item list-picture`</a>
 
@@ -9318,7 +9670,7 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-sale-quote-sale-quote-line`
-#### <a name="financials.companies.salesQuotes.salesQuoteLinesDeleteAccount">Command `az financials financial-company-sale-quote-sale-quote-line delete`</a>
+#### <a name="financials.companies.salesQuotes.salesQuoteLinesDeleteAccount">Command `az financials financial-company-sale-quote-sale-quote-line delete-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteAccount">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -9328,11 +9680,16 @@
 |**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="financials.companies.salesQuotes.salesQuoteLinesDeleteItem">Command `az financials financial-company-sale-quote-sale-quote-line delete`</a>
+#### <a name="financials.companies.salesQuotes.salesQuoteLinesDeleteItem">Command `az financials financial-company-sale-quote-sale-quote-line delete-item`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLinesDeleteItem">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="financials.companies.salesQuotes.salesQuoteLinesGetAccount">Command `az financials financial-company-sale-quote-sale-quote-line show-account`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLinesGetAccount">Parameters</a> 
@@ -9399,22 +9756,6 @@
 |**--picture**|array||picture|picture|
 
 ### group `az financials financial-company-sale-quote-sale-quote-line-item`
-#### <a name="financials.companies.salesQuotes.salesQuoteLines.itemDeletePicture">Command `az financials financial-company-sale-quote-sale-quote-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
-|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory">Command `az financials financial-company-sale-quote-sale-quote-line-item delete`</a>
-
-##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.salesQuotes.salesQuoteLines.itemCreatePicture">Command `az financials financial-company-sale-quote-sale-quote-line-item create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemCreatePicture">Parameters</a> 
@@ -9428,6 +9769,27 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory">Command `az financials financial-company-sale-quote-sale-quote-line-item delete-item-category`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeleteItemCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.salesQuotes.salesQuoteLines.itemDeletePicture">Command `az financials financial-company-sale-quote-sale-quote-line-item delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.salesQuotes.salesQuoteLines.itemDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--sales-quote-id**|string|key: id of salesQuote|sales_quote_id|salesQuote-id|
+|**--sales-quote-line-id**|string|key: id of salesQuoteLine|sales_quote_line_id|salesQuoteLine-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.salesQuotes.salesQuoteLines.itemListPicture">Command `az financials financial-company-sale-quote-sale-quote-line-item list-picture`</a>
 
@@ -9514,31 +9876,6 @@
 |**--width**|integer||width|width|
 
 ### group `az financials financial-company-vendor`
-#### <a name="financials.companies.vendorsDeletePicture">Command `az financials financial-company-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.vendorsDeletePicture">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--company-id**|string|key: id of company|company_id|company-id|
-|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
-|**--picture-id**|string|key: id of picture|picture_id|picture-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="financials.companies.vendorsDeleteCurrency">Command `az financials financial-company-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.vendorsDeleteCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.vendorsDeletePaymentMethod">Command `az financials financial-company-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.vendorsDeletePaymentMethod">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="financials.companies.vendorsDeletePaymentTerm">Command `az financials financial-company-vendor delete`</a>
-
-##### <a name="Parametersfinancials.companies.vendorsDeletePaymentTerm">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="financials.companies.vendorsCreatePicture">Command `az financials financial-company-vendor create-picture`</a>
 
 ##### <a name="Parametersfinancials.companies.vendorsCreatePicture">Parameters</a> 
@@ -9551,6 +9888,43 @@
 |**--content-type**|string||content_type|contentType|
 |**--height**|integer||height|height|
 |**--width**|integer||width|width|
+
+#### <a name="financials.companies.vendorsDeleteCurrency">Command `az financials financial-company-vendor delete-currency`</a>
+
+##### <a name="Parametersfinancials.companies.vendorsDeleteCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.vendorsDeletePaymentMethod">Command `az financials financial-company-vendor delete-payment-method`</a>
+
+##### <a name="Parametersfinancials.companies.vendorsDeletePaymentMethod">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.vendorsDeletePaymentTerm">Command `az financials financial-company-vendor delete-payment-term`</a>
+
+##### <a name="Parametersfinancials.companies.vendorsDeletePaymentTerm">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="financials.companies.vendorsDeletePicture">Command `az financials financial-company-vendor delete-picture`</a>
+
+##### <a name="Parametersfinancials.companies.vendorsDeletePicture">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--company-id**|string|key: id of company|company_id|company-id|
+|**--vendor-id**|string|key: id of vendor|vendor_id|vendor-id|
+|**--picture-id**|string|key: id of picture|picture_id|picture-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="financials.companies.vendorsListPicture">Command `az financials financial-company-vendor list-picture`</a>
 

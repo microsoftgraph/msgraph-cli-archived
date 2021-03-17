@@ -30,13 +30,10 @@ from azext_devicescorpmgt_v1_0.action import (
     AddLargeCover,
     AddDeviceappmanagementDeviceStates,
     AddInstallSummary,
-    AddUserStateSummary,
     AddDataRecoveryCertificate,
     AddEnterpriseInternalProxyServers,
-    AddEnterpriseIpRanges,
     AddEnterpriseNetworkDomainNames,
     AddEnterpriseProtectedDomainNames,
-    AddEnterpriseProxiedDomains,
     AddEnterpriseProxyServers,
     AddExemptApps,
     AddNeutralDomainResources,
@@ -54,9 +51,7 @@ from azext_devicescorpmgt_v1_0.action import (
     AddConfigurationManagerClientEnabledFeatures,
     AddDeviceActionResults,
     AddDeviceHealthAttestationState,
-    AddDeviceCategory,
-    AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates,
-    AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates
+    AddDeviceCategory
 )
 
 
@@ -107,27 +102,6 @@ def load_arguments(self, _):
         c.argument('windows_information_protection_policies', action=AddWindowsInformationProtectionPolicies,
                    nargs='+', help='Windows information protection for apps running on devices which are not MDM '
                    'enrolled.')
-
-    with self.argument_context('devicescorpmgt device-app-management delete') as c:
-        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
-        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
-        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
-        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
-        c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
-                   'mdmWindowsInformationProtectionPolicy')
-        c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
-        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfiguration')
-        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
-        c.argument('targeted_managed_app_configuration_id', type=str,
-                   help='key: id of targetedManagedAppConfiguration')
-        c.argument('vpp_token_id', type=str, help='key: id of vppToken')
-        c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
-                   'windowsInformationProtectionPolicy')
 
     with self.argument_context('devicescorpmgt device-app-management create-android-managed-app-protection') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -468,8 +442,8 @@ def load_arguments(self, _):
                    'installation states for this eBook.')
         c.argument('install_summary', action=AddInstallSummary, nargs='+', help='Contains properties for the '
                    'installation summary of a book for a device.')
-        c.argument('user_state_summary', action=AddUserStateSummary, nargs='+', help='The list of installation states '
-                   'for this eBook.')
+        c.argument('user_state_summary', type=validate_file_or_dict, help='The list of installation states for this '
+                   'eBook. Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescorpmgt device-app-management create-mdm-window-information-protection-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -492,10 +466,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -505,12 +479,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -669,10 +643,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -682,12 +656,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -760,6 +734,66 @@ def load_arguments(self, _):
                    'pending documentation')
         c.argument('windows_hello_for_business_blocked', arg_type=get_three_state_flag(), help='Boolean value that '
                    'sets Windows Hello for Business as a method for signing into Windows.')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-android-managed-app-protection') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-default-managed-app-protection') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-io-managed-app-protection') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-managed-app-policy') as c:
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-managed-app-registration') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-managed-app-statuses') as c:
+        c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-managed-e-book') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-mdm-window-information-protection-policy') as c:
+        c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
+                   'mdmWindowsInformationProtectionPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-mobile-app') as c:
+        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-mobile-app-category') as c:
+        c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-mobile-app-configuration') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-targeted-managed-app-configuration') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-vpp-token') as c:
+        c.argument('vpp_token_id', type=str, help='key: id of vppToken')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management delete-window-information-protection-policy') as c:
+        c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
+                   'windowsInformationProtectionPolicy')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management list-android-managed-app-protection') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -1251,8 +1285,8 @@ def load_arguments(self, _):
                    'installation states for this eBook.')
         c.argument('install_summary', action=AddInstallSummary, nargs='+', help='Contains properties for the '
                    'installation summary of a book for a device.')
-        c.argument('user_state_summary', action=AddUserStateSummary, nargs='+', help='The list of installation states '
-                   'for this eBook.')
+        c.argument('user_state_summary', type=validate_file_or_dict, help='The list of installation states for this '
+                   'eBook. Expected value: json-string/@json-file.')
 
     with self.argument_context('devicescorpmgt device-app-management update-mdm-window-information-protection-policy') as c:
         c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
@@ -1277,10 +1311,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -1290,12 +1324,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -1463,10 +1497,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -1476,12 +1510,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -1555,17 +1589,21 @@ def load_arguments(self, _):
         c.argument('windows_hello_for_business_blocked', arg_type=get_three_state_flag(), help='Boolean value that '
                    'sets Windows Hello for Business as a method for signing into Windows.')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection delete') as c:
-        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection create-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
+
+    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection delete-app') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection delete-deployment-summary') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection list-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
@@ -1602,17 +1640,21 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection delete') as c:
-        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection create-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
+
+    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection delete-app') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection delete-deployment-summary') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection list-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
@@ -1649,17 +1691,21 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection delete') as c:
-        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection create-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
+
+    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection delete-app') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection delete-deployment-summary') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection list-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
@@ -1700,12 +1746,6 @@ def load_arguments(self, _):
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration delete') as c:
-        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
-        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
-
     with self.argument_context('devicescorpmgt device-app-management-managed-app-registration create-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1731,6 +1771,21 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='The last time the app operation was modified.')
         c.argument('state', type=str, help='The current state of the operation')
         c.argument('version', type=str, help='Version of the entity.')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration delete-applied-policy') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration delete-intended-policy') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration delete-operation') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-managed-app-registration list-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
@@ -1807,13 +1862,6 @@ def load_arguments(self, _):
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete') as c:
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
-        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
-
     with self.argument_context('devicescorpmgt device-app-management-managed-e-book assign') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('managed_e_book_assignments', type=validate_file_or_dict, help=' Expected value: '
@@ -1849,6 +1897,25 @@ def load_arguments(self, _):
         c.argument('user_name', type=str, help='User name.')
         c.argument('device_states', action=AddDeviceappmanagementManagedebooksDeviceStates, nargs='+', help='The '
                    'install state of the eBook.')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete-assignment') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete-device-state') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete-install-summary') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete-user-state-summary') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-managed-e-book list-assignment') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
@@ -1939,12 +2006,6 @@ def load_arguments(self, _):
         c.argument('device_states', action=AddDeviceappmanagementManagedebooksDeviceStates, nargs='+', help='The '
                    'install state of the eBook.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary delete') as c:
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
-        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
@@ -1958,6 +2019,12 @@ def load_arguments(self, _):
         c.argument('os_description', type=str, help='OS Description.')
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
+
+    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary delete-device-state') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
+        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
@@ -1987,17 +2054,6 @@ def load_arguments(self, _):
         c.argument('os_description', type=str, help='OS Description.')
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
-
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete') as c:
-        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfiguration')
-        c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationDeviceStatus')
-        c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationUserStatus')
 
     with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration assign') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
@@ -2035,6 +2091,37 @@ def load_arguments(self, _):
                                                      'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('user_display_name', type=str, help='User name of the DevicePolicyStatus.')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete-assignment') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete-device-status-summary') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete-device-statuses') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationDeviceStatus')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete-user-status-summary') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete-user-statuses') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationUserStatus')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration list-assignment') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
@@ -2155,11 +2242,6 @@ def load_arguments(self, _):
         c.argument('user_display_name', type=str, help='User name of the DevicePolicyStatus.')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app delete') as c:
-        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
-        c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescorpmgt device-app-management-mobile-app assign') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('mobile_app_assignments', type=validate_file_or_dict, help=' Expected value: '
@@ -2179,6 +2261,11 @@ def load_arguments(self, _):
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescorpmgt device-app-management-mobile-app delete-assignment') as c:
+        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
+        c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-mobile-app list-assignment') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
@@ -2213,14 +2300,6 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration delete') as c:
-        c.argument('targeted_managed_app_configuration_id', type=str,
-                   help='key: id of targetedManagedAppConfiguration')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
-                   'targetedManagedAppPolicyAssignment')
-
     with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration assign') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
@@ -2240,6 +2319,24 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration delete-app') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration delete-assignment') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
+                   'targetedManagedAppPolicyAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration delete-deployment-summary') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration list-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
@@ -2312,13 +2409,6 @@ def load_arguments(self, _):
 
     with self.argument_context('devicescorpmgt device-app-management-vpp-token sync-license') as c:
         c.argument('vpp_token_id', type=str, help='key: id of vppToken')
-
-    with self.argument_context('devicescorpmgt user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('device_management_troubleshooting_event_id', type=str, help='key: id of '
-                   'deviceManagementTroubleshootingEvent')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
     with self.argument_context('devicescorpmgt user create-device-management-troubleshooting-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2429,6 +2519,17 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescorpmgt user delete-device-management-troubleshooting-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('device_management_troubleshooting_event_id', type=str, help='key: id of '
+                   'deviceManagementTroubleshootingEvent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt user delete-managed-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt user list-device-management-troubleshooting-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2573,13 +2674,6 @@ def load_arguments(self, _):
                    'the Intune Azure console or selected by a user during device enrollment. You can filter reports '
                    'and create dynamic Azure Active Directory device groups based on device categories.')
 
-    with self.argument_context('devicescorpmgt user-managed-device delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
-        c.argument('device_compliance_policy_state_id', type=str, help='key: id of deviceCompliancePolicyState')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('device_configuration_state_id', type=str, help='key: id of deviceConfigurationState')
-
     with self.argument_context('devicescorpmgt user-managed-device create-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
@@ -2589,9 +2683,7 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')
@@ -2605,12 +2697,27 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')
+
+    with self.argument_context('devicescorpmgt user-managed-device delete-device-category') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt user-managed-device delete-device-compliance-policy-state') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('device_compliance_policy_state_id', type=str, help='key: id of deviceCompliancePolicyState')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt user-managed-device delete-device-configuration-state') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('device_configuration_state_id', type=str, help='key: id of deviceConfigurationState')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt user-managed-device list-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2663,9 +2770,7 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')
@@ -2680,9 +2785,7 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')

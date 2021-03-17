@@ -15,8 +15,8 @@
 ### <a name="CommandsInschemaExtensions.schemaExtension">Commands in `az schemaextensions schema-extension-schema-extension` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az schemaextensions schema-extension-schema-extension delete](#schemaExtensions.schemaExtensionDeleteSchemaExtension)|DeleteSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionDeleteSchemaExtension)|Not Found|
 |[az schemaextensions schema-extension-schema-extension create-schema-extension](#schemaExtensions.schemaExtensionCreateSchemaExtension)|CreateSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionCreateSchemaExtension)|Not Found|
+|[az schemaextensions schema-extension-schema-extension delete-schema-extension](#schemaExtensions.schemaExtensionDeleteSchemaExtension)|DeleteSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionDeleteSchemaExtension)|Not Found|
 |[az schemaextensions schema-extension-schema-extension list-schema-extension](#schemaExtensions.schemaExtensionListSchemaExtension)|ListSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionListSchemaExtension)|Not Found|
 |[az schemaextensions schema-extension-schema-extension show-schema-extension](#schemaExtensions.schemaExtensionGetSchemaExtension)|GetSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionGetSchemaExtension)|Not Found|
 |[az schemaextensions schema-extension-schema-extension update-schema-extension](#schemaExtensions.schemaExtensionUpdateSchemaExtension)|UpdateSchemaExtension|[Parameters](#ParametersschemaExtensions.schemaExtensionUpdateSchemaExtension)|Not Found|
@@ -25,14 +25,6 @@
 ## COMMAND DETAILS
 
 ### group `az schemaextensions schema-extension-schema-extension`
-#### <a name="schemaExtensions.schemaExtensionDeleteSchemaExtension">Command `az schemaextensions schema-extension-schema-extension delete`</a>
-
-##### <a name="ParametersschemaExtensions.schemaExtensionDeleteSchemaExtension">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--schema-extension-id**|string|key: id of schemaExtension|schema_extension_id|schemaExtension-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="schemaExtensions.schemaExtensionCreateSchemaExtension">Command `az schemaextensions schema-extension-schema-extension create-schema-extension`</a>
 
 ##### <a name="ParametersschemaExtensions.schemaExtensionCreateSchemaExtension">Parameters</a> 
@@ -44,6 +36,14 @@
 |**--properties**|array|The collection of property names and types that make up the schema extension definition.|properties|properties|
 |**--status**|string|The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors.|status|status|
 |**--target-types**|array|Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.|target_types|targetTypes|
+
+#### <a name="schemaExtensions.schemaExtensionDeleteSchemaExtension">Command `az schemaextensions schema-extension-schema-extension delete-schema-extension`</a>
+
+##### <a name="ParametersschemaExtensions.schemaExtensionDeleteSchemaExtension">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--schema-extension-id**|string|key: id of schemaExtension|schema_extension_id|schemaExtension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="schemaExtensions.schemaExtensionListSchemaExtension">Command `az schemaextensions schema-extension-schema-extension list-schema-extension`</a>
 

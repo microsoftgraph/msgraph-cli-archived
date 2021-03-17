@@ -27,9 +27,11 @@ def load_command_table(self, _):
         directoryobjects_beta_directory_object_directory_object,
         client_factory=cf_directory_object_directory_object,
     ) as g:
-        g.custom_command('delete', 'directoryobjects_directory_object_directory_object_delete', confirmation=True)
         g.custom_command(
             'create-directory-object', 'directoryobjects_directory_object_directory_object_create_directory_object'
+        )
+        g.custom_command(
+            'delete-directory-object', 'directoryobjects_directory_object_directory_object_delete_directory_object'
         )
         g.custom_command(
             'list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_object'

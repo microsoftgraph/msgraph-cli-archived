@@ -17,12 +17,6 @@ helps['people user'] = """
     short-summary: Manage user with people_beta
 """
 
-helps['people user delete'] = """
-    type: command
-    short-summary: "Delete navigation property people for users And Delete navigation property analytics for users And \
-Delete navigation property profile for users."
-"""
-
 helps['people user create-person'] = """
     type: command
     short-summary: "Create new navigation property to people for users."
@@ -56,6 +50,21 @@ helps['people user create-person'] = """
             display-name: The display name of the web site.
 
             Multiple actions can be specified by using more than one --websites argument.
+"""
+
+helps['people user delete-analytic'] = """
+    type: command
+    short-summary: "Delete navigation property analytics for users."
+"""
+
+helps['people user delete-person'] = """
+    type: command
+    short-summary: "Delete navigation property people for users."
+"""
+
+helps['people user delete-profile'] = """
+    type: command
+    short-summary: "Delete navigation property profile for users."
 """
 
 helps['people user list-person'] = """
@@ -341,14 +350,14 @@ helps['people user-analytic'] = """
     short-summary: Manage user analytic with people_beta
 """
 
-helps['people user-analytic delete'] = """
-    type: command
-    short-summary: "Delete navigation property activityStatistics for users."
-"""
-
 helps['people user-analytic create-activity-statistics'] = """
     type: command
     short-summary: "Create new navigation property to activityStatistics for users."
+"""
+
+helps['people user-analytic delete-activity-statistics'] = """
+    type: command
+    short-summary: "Delete navigation property activityStatistics for users."
 """
 
 helps['people user-analytic list-activity-statistics'] = """
@@ -369,19 +378,6 @@ helps['people user-analytic update-activity-statistics'] = """
 helps['people user-profile'] = """
     type: group
     short-summary: Manage user profile with people_beta
-"""
-
-helps['people user-profile delete'] = """
-    type: command
-    short-summary: "Delete navigation property account for users And Delete navigation property addresses for users \
-And Delete navigation property anniversaries for users And Delete navigation property awards for users And Delete \
-navigation property certifications for users And Delete navigation property educationalActivities for users And Delete \
-navigation property emails for users And Delete navigation property interests for users And Delete navigation property \
-languages for users And Delete navigation property names for users And Delete navigation property notes for users And \
-Delete navigation property patents for users And Delete navigation property phones for users And Delete navigation \
-property positions for users And Delete navigation property projects for users And Delete navigation property \
-publications for users And Delete navigation property skills for users And Delete navigation property webAccounts for \
-users And Delete navigation property websites for users."
 """
 
 helps['people user-profile create-account'] = """
@@ -1806,6 +1802,101 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['people user-profile delete-account'] = """
+    type: command
+    short-summary: "Delete navigation property account for users."
+"""
+
+helps['people user-profile delete-address'] = """
+    type: command
+    short-summary: "Delete navigation property addresses for users."
+"""
+
+helps['people user-profile delete-anniversary'] = """
+    type: command
+    short-summary: "Delete navigation property anniversaries for users."
+"""
+
+helps['people user-profile delete-award'] = """
+    type: command
+    short-summary: "Delete navigation property awards for users."
+"""
+
+helps['people user-profile delete-certification'] = """
+    type: command
+    short-summary: "Delete navigation property certifications for users."
+"""
+
+helps['people user-profile delete-educational-activity'] = """
+    type: command
+    short-summary: "Delete navigation property educationalActivities for users."
+"""
+
+helps['people user-profile delete-email'] = """
+    type: command
+    short-summary: "Delete navigation property emails for users."
+"""
+
+helps['people user-profile delete-interest'] = """
+    type: command
+    short-summary: "Delete navigation property interests for users."
+"""
+
+helps['people user-profile delete-language'] = """
+    type: command
+    short-summary: "Delete navigation property languages for users."
+"""
+
+helps['people user-profile delete-name'] = """
+    type: command
+    short-summary: "Delete navigation property names for users."
+"""
+
+helps['people user-profile delete-note'] = """
+    type: command
+    short-summary: "Delete navigation property notes for users."
+"""
+
+helps['people user-profile delete-patent'] = """
+    type: command
+    short-summary: "Delete navigation property patents for users."
+"""
+
+helps['people user-profile delete-phone'] = """
+    type: command
+    short-summary: "Delete navigation property phones for users."
+"""
+
+helps['people user-profile delete-position'] = """
+    type: command
+    short-summary: "Delete navigation property positions for users."
+"""
+
+helps['people user-profile delete-project'] = """
+    type: command
+    short-summary: "Delete navigation property projects for users."
+"""
+
+helps['people user-profile delete-publication'] = """
+    type: command
+    short-summary: "Delete navigation property publications for users."
+"""
+
+helps['people user-profile delete-skill'] = """
+    type: command
+    short-summary: "Delete navigation property skills for users."
+"""
+
+helps['people user-profile delete-web-account'] = """
+    type: command
+    short-summary: "Delete navigation property webAccounts for users."
+"""
+
+helps['people user-profile delete-website'] = """
+    type: command
+    short-summary: "Delete navigation property websites for users."
 """
 
 helps['people user-profile list-account'] = """

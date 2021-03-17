@@ -27,7 +27,7 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('list', 'applications_application_list')
         g.custom_command('create', 'applications_application_create')
-        g.custom_command('delete', 'applications_application_delete', confirmation=True)
+        g.custom_command('delete-application', 'applications_application_delete_application')
         g.custom_command('set-logo', 'applications_application_set_logo')
         g.custom_command('show-application', 'applications_application_show_application')
         g.custom_command('show-logo', 'applications_application_show_logo')
@@ -41,7 +41,6 @@ def load_command_table(self, _):
     with self.command_group(
         'applications application', applications_v1_0_application, client_factory=cf_application
     ) as g:
-        g.custom_command('delete', 'applications_application_delete', confirmation=True)
         g.custom_command('add-key', 'applications_application_add_key')
         g.custom_command('add-password', 'applications_application_add_password')
         g.custom_command('check-member-group', 'applications_application_check_member_group')
@@ -57,6 +56,8 @@ def load_command_table(self, _):
         g.custom_command(
             'create-ref-token-lifetime-policy', 'applications_application_create_ref_token_lifetime_policy'
         )
+        g.custom_command('delete-extension-property', 'applications_application_delete_extension_property')
+        g.custom_command('delete-ref-created-on-behalf-of', 'applications_application_delete_ref_created_on_behalf_of')
         g.custom_command('delta', 'applications_application_delta')
         g.custom_command(
             'get-available-extension-property', 'applications_application_get_available_extension_property'
@@ -96,8 +97,8 @@ def load_command_table(self, _):
         client_factory=cf_group,
     )
     with self.command_group('applications group', applications_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'applications_group_delete', confirmation=True)
         g.custom_command('create-app-role-assignment', 'applications_group_create_app_role_assignment')
+        g.custom_command('delete-app-role-assignment', 'applications_group_delete_app_role_assignment')
         g.custom_command('list-app-role-assignment', 'applications_group_list_app_role_assignment')
         g.custom_command('show-app-role-assignment', 'applications_group_show_app_role_assignment')
         g.custom_command('update-app-role-assignment', 'applications_group_update_app_role_assignment')
@@ -113,9 +114,11 @@ def load_command_table(self, _):
         applications_v1_0_service_principal_service_principal,
         client_factory=cf_service_principal_service_principal,
     ) as g:
-        g.custom_command('delete', 'applications_service_principal_service_principal_delete', confirmation=True)
         g.custom_command(
             'create-service-principal', 'applications_service_principal_service_principal_create_service_principal'
+        )
+        g.custom_command(
+            'delete-service-principal', 'applications_service_principal_service_principal_delete_service_principal'
         )
         g.custom_command(
             'list-service-principal', 'applications_service_principal_service_principal_list_service_principal'
@@ -136,7 +139,6 @@ def load_command_table(self, _):
     with self.command_group(
         'applications service-principal', applications_v1_0_service_principal, client_factory=cf_service_principal
     ) as g:
-        g.custom_command('delete', 'applications_service_principal_delete', confirmation=True)
         g.custom_command('add-key', 'applications_service_principal_add_key')
         g.custom_command('add-password', 'applications_service_principal_add_password')
         g.custom_command('check-member-group', 'applications_service_principal_check_member_group')
@@ -167,6 +169,9 @@ def load_command_table(self, _):
         g.custom_command(
             'create-ref-transitive-member-of', 'applications_service_principal_create_ref_transitive_member_of'
         )
+        g.custom_command('delete-app-role-assigned-to', 'applications_service_principal_delete_app_role_assigned_to')
+        g.custom_command('delete-app-role-assignment', 'applications_service_principal_delete_app_role_assignment')
+        g.custom_command('delete-endpoint', 'applications_service_principal_delete_endpoint')
         g.custom_command('delta', 'applications_service_principal_delta')
         g.custom_command(
             'get-available-extension-property', 'applications_service_principal_get_available_extension_property'
@@ -232,8 +237,8 @@ def load_command_table(self, _):
         client_factory=cf_user,
     )
     with self.command_group('applications user', applications_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'applications_user_delete', confirmation=True)
         g.custom_command('create-app-role-assignment', 'applications_user_create_app_role_assignment')
+        g.custom_command('delete-app-role-assignment', 'applications_user_delete_app_role_assignment')
         g.custom_command('list-app-role-assignment', 'applications_user_list_app_role_assignment')
         g.custom_command('show-app-role-assignment', 'applications_user_show_app_role_assignment')
         g.custom_command('update-app-role-assignment', 'applications_user_update_app_role_assignment')
