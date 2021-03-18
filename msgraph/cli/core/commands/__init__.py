@@ -41,9 +41,32 @@ class GraphCommandGroup(CommandGroup):
             self.group_kwargs['operations_tmpl'] = operations_tmpl
         self.is_stale = False
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        self.is_stale = True
+
+    def _check_stale(self):
+        if self.is_stale:
+            message = "command authoring error: command group '{}' is stale! " \
+                      "Check that the subsequent block for has a corresponding `as` statement.".format(
+                          self.group_name)
+            logger.error(message)
+            raise CLIError(message)
+
     def _merge_kwargs(self, kwargs, base_kwargs=None):
         base = base_kwargs if base_kwargs is not None else getattr(self, 'group_kwargs')
         return _merge_kwargs(kwargs, base, CLI_COMMAND_KWARGS)
+
+    def _flatten_kwargs(self, kwargs, default_source_name):
+        merged_kwargs = self._merge_kwargs(kwargs)
+        default_source = merged_kwargs.get(default_source_name, None)
+        if default_source:
+            arg_source_copy = default_source.settings.copy()
+            arg_source_copy.update(merged_kwargs)
+            return arg_source_copy
+        return merged_kwargs
 
     def command(self, name, method_name=None, **kwargs):
         """
@@ -107,28 +130,145 @@ class GraphCommandGroup(CommandGroup):
             **merged_kwargs)
         return command_name
 
-    def _flatten_kwargs(self, kwargs, default_source_name):
-        merged_kwargs = self._merge_kwargs(kwargs)
-        default_source = merged_kwargs.get(default_source_name, None)
-        if default_source:
-            arg_source_copy = default_source.settings.copy()
-            arg_source_copy.update(merged_kwargs)
-            return arg_source_copy
-        return merged_kwargs
+    # pylint: disable=no-self-use
+    def _resolve_operation(self, kwargs, name, command_type=None, custom_command=False):
+        source_kwarg = get_command_type_kwarg(custom_command)
 
-    def __enter__(self):
-        return self
+        operations_tmpl = None
+        if command_type:
+            # Top priority: specified command_type for the parameter
+            operations_tmpl = command_type.settings.get('operations_tmpl', None)
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.is_stale = True
+        if not operations_tmpl:
+            # Second source: general operations_tmpl set for the command kwargs
+            operations_tmpl = kwargs.get('operations_tmpl', None)
 
-    def _check_stale(self):
-        if self.is_stale:
-            message = "command authoring error: command group '{}' is stale! " \
-                      "Check that the subsequent block for has a corresponding `as` statement.".format(
-                          self.group_name)
-            logger.error(message)
-            raise CLIError(message)
+        if not operations_tmpl:
+            # Final source: retrieve the operations_tmpl from the relevant 'command_type' or 'custom_command_type'
+            command_type = kwargs.get(source_kwarg, None)
+            operations_tmpl = command_type.settings.get('operations_tmpl', None)
+
+        if not operations_tmpl:
+            raise ValueError("command authoring error: unable to resolve 'operations_tmpl'")
+
+        return operations_tmpl.format(name)
+
+    def generic_update_command(self,
+                               name,
+                               getter_name='get',
+                               getter_type=None,
+                               setter_name='create_or_update',
+                               setter_type=None,
+                               setter_arg_name='parameters',
+                               child_collection_prop_name=None,
+                               child_collection_key='name',
+                               child_arg_name='item_name',
+                               custom_func_name=None,
+                               custom_func_type=None,
+                               **kwargs):
+        from msgraph.cli.core.commands.arm import _cli_generic_update_command
+        self._check_stale()
+        merged_kwargs = self._flatten_kwargs(kwargs, get_command_type_kwarg())
+        merged_kwargs_custom = self._flatten_kwargs(kwargs,
+                                                    get_command_type_kwarg(custom_command=True))
+        self._apply_tags(merged_kwargs, kwargs, name)
+
+        getter_op = self._resolve_operation(merged_kwargs, getter_name, getter_type)
+        setter_op = self._resolve_operation(merged_kwargs, setter_name, setter_type)
+        custom_func_op = self._resolve_operation(
+            merged_kwargs_custom, custom_func_name, custom_func_type,
+            custom_command=True) if custom_func_name else None
+        _cli_generic_update_command(self.command_loader,
+                                    '{} {}'.format(self.group_name, name),
+                                    getter_op=getter_op,
+                                    setter_op=setter_op,
+                                    setter_arg_name=setter_arg_name,
+                                    custom_function_op=custom_func_op,
+                                    child_collection_prop_name=child_collection_prop_name,
+                                    child_collection_key=child_collection_key,
+                                    child_arg_name=child_arg_name,
+                                    **merged_kwargs)
+
+    def wait_command(self, name, getter_name='get', **kwargs):
+        self._wait_command(name, getter_name=getter_name, custom_command=False, **kwargs)
+
+    def custom_wait_command(self, name, getter_name='get', **kwargs):
+        self._wait_command(name, getter_name=getter_name, custom_command=True, **kwargs)
+
+    def generic_wait_command(self, name, getter_name='get', getter_type=None, **kwargs):
+        self._wait_command(name, getter_name=getter_name, getter_type=getter_type, **kwargs)
+
+    def _wait_command(self,
+                      name,
+                      getter_name='get',
+                      getter_type=None,
+                      custom_command=False,
+                      **kwargs):
+        from azure.cli.core.commands.arm import _cli_wait_command
+        self._check_stale()
+        merged_kwargs = self._flatten_kwargs(kwargs, get_command_type_kwarg(custom_command))
+        self._apply_tags(merged_kwargs, kwargs, name)
+
+        if getter_type:
+            merged_kwargs = _merge_kwargs(getter_type.settings, merged_kwargs, CLI_COMMAND_KWARGS)
+        getter_op = self._resolve_operation(merged_kwargs,
+                                            getter_name,
+                                            getter_type,
+                                            custom_command=custom_command)
+        _cli_wait_command(self.command_loader,
+                          '{} {}'.format(self.group_name, name),
+                          getter_op=getter_op,
+                          custom_command=custom_command,
+                          **merged_kwargs)
+
+    def show_command(self, name, getter_name='get', **kwargs):
+        self._show_command(name, getter_name=getter_name, custom_command=False, **kwargs)
+
+    def custom_show_command(self, name, getter_name='get', **kwargs):
+        self._show_command(name, getter_name=getter_name, custom_command=True, **kwargs)
+
+    def _show_command(self,
+                      name,
+                      getter_name='get',
+                      getter_type=None,
+                      custom_command=False,
+                      **kwargs):
+        from azure.cli.core.commands.arm import _cli_show_command
+        self._check_stale()
+        merged_kwargs = self._flatten_kwargs(kwargs, get_command_type_kwarg(custom_command))
+        self._apply_tags(merged_kwargs, kwargs, name)
+
+        if getter_type:
+            merged_kwargs = _merge_kwargs(getter_type.settings, merged_kwargs, CLI_COMMAND_KWARGS)
+        getter_op = self._resolve_operation(merged_kwargs,
+                                            getter_name,
+                                            getter_type,
+                                            custom_command=custom_command)
+        _cli_show_command(self.command_loader,
+                          '{} {}'.format(self.group_name, name),
+                          getter_op=getter_op,
+                          custom_command=custom_command,
+                          **merged_kwargs)
+
+    def _apply_tags(self, merged_kwargs, kwargs, command_name):
+        # don't inherit deprecation or preview info from command group
+        merged_kwargs['deprecate_info'] = kwargs.get('deprecate_info', None)
+
+        # transform is_preview and is_experimental to StatusTags
+        merged_kwargs['preview_info'] = None
+        merged_kwargs['experimental_info'] = None
+        is_preview = kwargs.get('is_preview', False)
+        is_experimental = kwargs.get('is_experimental', False)
+        if is_preview and is_experimental:
+            raise CLIError(
+                PREVIEW_EXPERIMENTAL_CONFLICT_ERROR.format("command",
+                                                           self.group_name + " " + command_name))
+        if is_preview:
+            merged_kwargs['preview_info'] = PreviewItem(self.command_loader.cli_ctx,
+                                                        object_type='command')
+        if is_experimental:
+            merged_kwargs['experimental_info'] = ExperimentalItem(self.command_loader.cli_ctx,
+                                                                  object_type='command')
 
 
 class GraphCliCommand(CLICommand):
