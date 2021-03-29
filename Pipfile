@@ -33,7 +33,5 @@ pyOpenSSL = ">=17.1.0"
 msal-extensions = "==0.2.2"
 azure-identity = "==1.4.0b7"
 portalocker = ">=1.6"
-zipp = {path = "."}
 pytest = "*"
 knack = "==0.8.0rc2"
-pywin32 = "*"
