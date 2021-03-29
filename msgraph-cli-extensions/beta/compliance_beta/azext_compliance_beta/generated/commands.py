@@ -9,44 +9,85 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_compliance_beta.generated._client_factory import (
+    cf_compliance_compliance,
+    cf_compliance,
+    cf_compliance_ediscovery,
+    cf_compliance_ediscovery_case,
+    cf_compliance_ediscovery_case_custodian,
+    cf_compliance_ediscovery_case_custodian_site_source,
+    cf_compliance_ediscovery_case_custodian_unified_group_source,
+    cf_compliance_ediscovery_case_review_set,
+)
+
+
+compliance_beta_compliance_compliance = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_compliance_operations#ComplianceComplianceOperations.{}',
+    client_factory=cf_compliance_compliance,
+)
+
+
+compliance_beta_compliance = CliCommandType(
+    operations_tmpl=(
+        'azext_compliance_beta.vendored_sdks.compliance.operations._compliance_operations#ComplianceOperations.{}'
+    ),
+    client_factory=cf_compliance,
+)
+
+
+compliance_beta_compliance_ediscovery = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_operations#ComplianceEdiscoveryOperations.{}',
+    client_factory=cf_compliance_ediscovery,
+)
+
+
+compliance_beta_compliance_ediscovery_case = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_operations#ComplianceEdiscoveryCaseOperations.{}',
+    client_factory=cf_compliance_ediscovery_case,
+)
+
+
+compliance_beta_compliance_ediscovery_case_custodian = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_operations#ComplianceEdiscoveryCaseCustodianOperations.{}',
+    client_factory=cf_compliance_ediscovery_case_custodian,
+)
+
+
+compliance_beta_compliance_ediscovery_case_custodian_site_source = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_site_source_operations#ComplianceEdiscoveryCaseCustodianSiteSourceOperations.{}',
+    client_factory=cf_compliance_ediscovery_case_custodian_site_source,
+)
+
+
+compliance_beta_compliance_ediscovery_case_custodian_unified_group_source = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_unified_group_source_operations#ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations.{}',
+    client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source,
+)
+
+
+compliance_beta_compliance_ediscovery_case_review_set = CliCommandType(
+    operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_review_set_operations#ComplianceEdiscoveryCaseReviewSetOperations.{}',
+    client_factory=cf_compliance_ediscovery_case_review_set,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_compliance
-
-    compliance_beta_compliance_compliance = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_compliance_operations#ComplianceComplianceOperations.{}',
-        client_factory=cf_compliance_compliance,
-    )
     with self.command_group(
         'compliance compliance', compliance_beta_compliance_compliance, client_factory=cf_compliance_compliance
     ) as g:
         g.custom_command('create', 'compliance_compliance_create')
         g.custom_command('show-compliance', 'compliance_compliance_show_compliance')
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance
-
-    compliance_beta_compliance = CliCommandType(
-        operations_tmpl=(
-            'azext_compliance_beta.vendored_sdks.compliance.operations._compliance_operations#ComplianceOperations.{}'
-        ),
-        client_factory=cf_compliance,
-    )
     with self.command_group('compliance compliance', compliance_beta_compliance, client_factory=cf_compliance) as g:
         g.custom_command('delete-ediscovery', 'compliance_compliance_delete_ediscovery')
         g.custom_command('show-ediscovery', 'compliance_compliance_show_ediscovery')
         g.custom_command('update-ediscovery', 'compliance_compliance_update_ediscovery')
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery
-
-    compliance_beta_compliance_ediscovery = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_operations#ComplianceEdiscoveryOperations.{}',
-        client_factory=cf_compliance_ediscovery,
-    )
     with self.command_group(
         'compliance compliance-ediscovery',
         compliance_beta_compliance_ediscovery,
@@ -58,12 +99,6 @@ def load_command_table(self, _):
         g.custom_command('show-case', 'compliance_compliance_ediscovery_show_case')
         g.custom_command('update-case', 'compliance_compliance_ediscovery_update_case')
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case
-
-    compliance_beta_compliance_ediscovery_case = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_operations#ComplianceEdiscoveryCaseOperations.{}',
-        client_factory=cf_compliance_ediscovery_case,
-    )
     with self.command_group(
         'compliance compliance-ediscovery-case',
         compliance_beta_compliance_ediscovery_case,
@@ -82,12 +117,6 @@ def load_command_table(self, _):
         g.custom_command('update-custodian', 'compliance_compliance_ediscovery_case_update_custodian')
         g.custom_command('update-review-set', 'compliance_compliance_ediscovery_case_update_review_set')
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_custodian
-
-    compliance_beta_compliance_ediscovery_case_custodian = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_operations#ComplianceEdiscoveryCaseCustodianOperations.{}',
-        client_factory=cf_compliance_ediscovery_case_custodian,
-    )
     with self.command_group(
         'compliance compliance-ediscovery-case-custodian',
         compliance_beta_compliance_ediscovery_case_custodian,
@@ -137,12 +166,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-user-source', 'compliance_compliance_ediscovery_case_custodian_update_user_source')
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_custodian_site_source
-
-    compliance_beta_compliance_ediscovery_case_custodian_site_source = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_site_source_operations#ComplianceEdiscoveryCaseCustodianSiteSourceOperations.{}',
-        client_factory=cf_compliance_ediscovery_case_custodian_site_source,
-    )
     with self.command_group(
         'compliance compliance-ediscovery-case-custodian-site-source',
         compliance_beta_compliance_ediscovery_case_custodian_site_source,
@@ -155,14 +178,6 @@ def load_command_table(self, _):
         g.custom_command('show-ref-site', 'compliance_compliance_ediscovery_case_custodian_site_source_show_ref_site')
         g.custom_command('show-site', 'compliance_compliance_ediscovery_case_custodian_site_source_show_site')
 
-    from azext_compliance_beta.generated._client_factory import (
-        cf_compliance_ediscovery_case_custodian_unified_group_source,
-    )
-
-    compliance_beta_compliance_ediscovery_case_custodian_unified_group_source = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_custodian_unified_group_source_operations#ComplianceEdiscoveryCaseCustodianUnifiedGroupSourceOperations.{}',
-        client_factory=cf_compliance_ediscovery_case_custodian_unified_group_source,
-    )
     with self.command_group(
         'compliance compliance-ediscovery-case-custodian-unified-group-source',
         compliance_beta_compliance_ediscovery_case_custodian_unified_group_source,
@@ -181,12 +196,6 @@ def load_command_table(self, _):
             'show-ref-group', 'compliance_compliance_ediscovery_case_custodian_unified_group_source_show_ref_group'
         )
 
-    from azext_compliance_beta.generated._client_factory import cf_compliance_ediscovery_case_review_set
-
-    compliance_beta_compliance_ediscovery_case_review_set = CliCommandType(
-        operations_tmpl='azext_compliance_beta.vendored_sdks.compliance.operations._compliance_ediscovery_case_review_set_operations#ComplianceEdiscoveryCaseReviewSetOperations.{}',
-        client_factory=cf_compliance_ediscovery_case_review_set,
-    )
     with self.command_group(
         'compliance compliance-ediscovery-case-review-set',
         compliance_beta_compliance_ediscovery_case_review_set,

@@ -526,17 +526,17 @@
 |**--has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|has_attachments|hasAttachments|
 |**--header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|header_contains|headerContains|
 |**--importance**|choice||importance|importance|
-|**--is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
-|**--is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
-|**--is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
-|**--is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
-|**--is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
-|**--is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
-|**--is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
-|**--is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
-|**--is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
-|**--is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
-|**--is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--exceptions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--exceptions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--exceptions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--exceptions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--exceptions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--exceptions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--exceptions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--exceptions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--exceptions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--exceptions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--exceptions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
 |**--message-action-flag**|choice||message_action_flag|messageActionFlag|
 |**--not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|not_sent_to_me|notSentToMe|
 |**--recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|recipient_contains|recipientContains|
@@ -556,6 +556,17 @@
 |**--boolean-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|boolean_has_attachments|hasAttachments|
 |**--microsoft-graph-message-rule-predicates-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_header_contains|headerContains|
 |**--microsoft-graph-importance**|choice||microsoft_graph_importance|importance|
+|**--is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
 |**--microsoft-graph-message-action-flag-message-action-flag**|choice||microsoft_graph_message_action_flag_message_action_flag|messageActionFlag|
 |**--boolean-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|boolean_not_sent_to_me|notSentToMe|
 |**--microsoft-graph-message-rule-predicates-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_recipient_contains|recipientContains|
@@ -915,17 +926,17 @@
 |**--has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|has_attachments|hasAttachments|
 |**--header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|header_contains|headerContains|
 |**--importance**|choice||importance|importance|
-|**--is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
-|**--is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
-|**--is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
-|**--is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
-|**--is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
-|**--is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
-|**--is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
-|**--is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
-|**--is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
-|**--is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
-|**--is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
+|**--exceptions-is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--exceptions-is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--exceptions-is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--exceptions-is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--exceptions-is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--exceptions-is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--exceptions-is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--exceptions-is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--exceptions-is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--exceptions-is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--exceptions-is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
 |**--message-action-flag**|choice||message_action_flag|messageActionFlag|
 |**--not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|not_sent_to_me|notSentToMe|
 |**--recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|recipient_contains|recipientContains|
@@ -945,6 +956,17 @@
 |**--boolean-has-attachments**|boolean|Indicates whether an incoming message must have attachments in order for the condition or exception to apply.|boolean_has_attachments|hasAttachments|
 |**--microsoft-graph-message-rule-predicates-header-contains**|array|Represents the strings that appear in the headers of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_header_contains|headerContains|
 |**--microsoft-graph-importance**|choice||microsoft_graph_importance|importance|
+|**--is-approval-request**|boolean|Indicates whether an incoming message must be an approval request in order for the condition or exception to apply.|is_approval_request|isApprovalRequest|
+|**--is-automatic-forward**|boolean|Indicates whether an incoming message must be automatically forwarded in order for the condition or exception to apply.|is_automatic_forward|isAutomaticForward|
+|**--is-automatic-reply**|boolean|Indicates whether an incoming message must be an auto reply in order for the condition or exception to apply.|is_automatic_reply|isAutomaticReply|
+|**--is-encrypted**|boolean|Indicates whether an incoming message must be encrypted in order for the condition or exception to apply.|is_encrypted|isEncrypted|
+|**--is-meeting-request**|boolean|Indicates whether an incoming message must be a meeting request in order for the condition or exception to apply.|is_meeting_request|isMeetingRequest|
+|**--is-meeting-response**|boolean|Indicates whether an incoming message must be a meeting response in order for the condition or exception to apply.|is_meeting_response|isMeetingResponse|
+|**--is-non-delivery-report**|boolean|Indicates whether an incoming message must be a non-delivery report in order for the condition or exception to apply.|is_non_delivery_report|isNonDeliveryReport|
+|**--is-permission-controlled**|boolean|Indicates whether an incoming message must be permission controlled (RMS-protected) in order for the condition or exception to apply.|is_permission_controlled|isPermissionControlled|
+|**--is-read-receipt**|boolean|Indicates whether an incoming message must be a read receipt in order for the condition or exception to apply.|is_read_receipt|isReadReceipt|
+|**--is-signed**|boolean|Indicates whether an incoming message must be S/MIME-signed in order for the condition or exception to apply.|is_signed|isSigned|
+|**--is-voicemail**|boolean|Indicates whether an incoming message must be a voice mail in order for the condition or exception to apply.|is_voicemail|isVoicemail|
 |**--microsoft-graph-message-action-flag-message-action-flag**|choice||microsoft_graph_message_action_flag_message_action_flag|messageActionFlag|
 |**--boolean-not-sent-to-me**|boolean|Indicates whether the owner of the mailbox must not be a recipient of an incoming message in order for the condition or exception to apply.|boolean_not_sent_to_me|notSentToMe|
 |**--microsoft-graph-message-rule-predicates-recipient-contains**|array|Represents the strings that appear in either the toRecipients or ccRecipients properties of an incoming message in order for the condition or exception to apply.|microsoft_graph_message_rule_predicates_recipient_contains|recipientContains|

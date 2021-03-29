@@ -9,21 +9,249 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_teams_beta.generated._client_factory import (
+    cf_app_catalog,
+    cf_app_catalog_team_app,
+    cf_chat_chat,
+    cf_chat,
+    cf_chat_installed_app,
+    cf_chat_member,
+    cf_chat_message,
+    cf_chat_message_reply,
+    cf_chat_tab,
+    cf_group,
+    cf_team_team,
+    cf_team,
+    cf_team_channel,
+    cf_team_channel_member,
+    cf_team_channel_message,
+    cf_team_channel_message_reply,
+    cf_team_channel_tab,
+    cf_team_installed_app,
+    cf_team_member,
+    cf_team_primary_channel,
+    cf_team_primary_channel_member,
+    cf_team_primary_channel_message,
+    cf_team_primary_channel_message_reply,
+    cf_team_primary_channel_tab,
+    cf_team_schedule,
+    cf_team_schedule_time_card,
+    cf_teamwork_teamwork,
+    cf_teamwork,
+    cf_user,
+    cf_user_teamwork,
+    cf_user_teamwork_installed_app,
+)
+
+
+teams_beta_app_catalog = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._app_catalog_operations#AppCatalogOperations.{}',
+    client_factory=cf_app_catalog,
+)
+
+
+teams_beta_app_catalog_team_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._app_catalog_team_app_operations#AppCatalogTeamAppOperations.{}',
+    client_factory=cf_app_catalog_team_app,
+)
+
+
+teams_beta_chat_chat = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_chat_operations#ChatChatOperations.{}',
+    client_factory=cf_chat_chat,
+)
+
+
+teams_beta_chat = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_operations#ChatOperations.{}',
+    client_factory=cf_chat,
+)
+
+
+teams_beta_chat_installed_app = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._chat_installed_app_operations#ChatInstalledAppOperations.{}'
+    ),
+    client_factory=cf_chat_installed_app,
+)
+
+
+teams_beta_chat_member = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_member_operations#ChatMemberOperations.{}',
+    client_factory=cf_chat_member,
+)
+
+
+teams_beta_chat_message = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_message_operations#ChatMessageOperations.{}',
+    client_factory=cf_chat_message,
+)
+
+
+teams_beta_chat_message_reply = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._chat_message_reply_operations#ChatMessageReplyOperations.{}'
+    ),
+    client_factory=cf_chat_message_reply,
+)
+
+
+teams_beta_chat_tab = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_tab_operations#ChatTabOperations.{}',
+    client_factory=cf_chat_tab,
+)
+
+
+teams_beta_group = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._group_operations#GroupOperations.{}',
+    client_factory=cf_group,
+)
+
+
+teams_beta_team_team = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_team_operations#TeamTeamOperations.{}',
+    client_factory=cf_team_team,
+)
+
+
+teams_beta_team = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_operations#TeamOperations.{}',
+    client_factory=cf_team,
+)
+
+
+teams_beta_team_channel = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_operations#TeamChannelOperations.{}',
+    client_factory=cf_team_channel,
+)
+
+
+teams_beta_team_channel_member = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._team_channel_member_operations#TeamChannelMemberOperations.{}'
+    ),
+    client_factory=cf_team_channel_member,
+)
+
+
+teams_beta_team_channel_message = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_message_operations#TeamChannelMessageOperations.{}',
+    client_factory=cf_team_channel_message,
+)
+
+
+teams_beta_team_channel_message_reply = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_message_reply_operations#TeamChannelMessageReplyOperations.{}',
+    client_factory=cf_team_channel_message_reply,
+)
+
+
+teams_beta_team_channel_tab = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._team_channel_tab_operations#TeamChannelTabOperations.{}'
+    ),
+    client_factory=cf_team_channel_tab,
+)
+
+
+teams_beta_team_installed_app = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._team_installed_app_operations#TeamInstalledAppOperations.{}'
+    ),
+    client_factory=cf_team_installed_app,
+)
+
+
+teams_beta_team_member = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_member_operations#TeamMemberOperations.{}',
+    client_factory=cf_team_member,
+)
+
+
+teams_beta_team_primary_channel = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_operations#TeamPrimaryChannelOperations.{}',
+    client_factory=cf_team_primary_channel,
+)
+
+
+teams_beta_team_primary_channel_member = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_member_operations#TeamPrimaryChannelMemberOperations.{}',
+    client_factory=cf_team_primary_channel_member,
+)
+
+
+teams_beta_team_primary_channel_message = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_message_operations#TeamPrimaryChannelMessageOperations.{}',
+    client_factory=cf_team_primary_channel_message,
+)
+
+
+teams_beta_team_primary_channel_message_reply = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_message_reply_operations#TeamPrimaryChannelMessageReplyOperations.{}',
+    client_factory=cf_team_primary_channel_message_reply,
+)
+
+
+teams_beta_team_primary_channel_tab = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_tab_operations#TeamPrimaryChannelTabOperations.{}',
+    client_factory=cf_team_primary_channel_tab,
+)
+
+
+teams_beta_team_schedule = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._team_schedule_operations#TeamScheduleOperations.{}'
+    ),
+    client_factory=cf_team_schedule,
+)
+
+
+teams_beta_team_schedule_time_card = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_schedule_time_card_operations#TeamScheduleTimeCardOperations.{}',
+    client_factory=cf_team_schedule_time_card,
+)
+
+
+teams_beta_teamwork_teamwork = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._teamwork_teamwork_operations#TeamworkTeamworkOperations.{}'
+    ),
+    client_factory=cf_teamwork_teamwork,
+)
+
+
+teams_beta_teamwork = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamwork_operations#TeamworkOperations.{}',
+    client_factory=cf_teamwork,
+)
+
+
+teams_beta_user = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+teams_beta_user_teamwork = CliCommandType(
+    operations_tmpl=(
+        'azext_teams_beta.vendored_sdks.teams.operations._user_teamwork_operations#UserTeamworkOperations.{}'
+    ),
+    client_factory=cf_user_teamwork,
+)
+
+
+teams_beta_user_teamwork_installed_app = CliCommandType(
+    operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._user_teamwork_installed_app_operations#UserTeamworkInstalledAppOperations.{}',
+    client_factory=cf_user_teamwork_installed_app,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_teams_beta.generated._client_factory import cf_app_catalog
-
-    teams_beta_app_catalog = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._app_catalog_operations#AppCatalogOperations.{}'
-        ),
-        client_factory=cf_app_catalog,
-    )
     with self.command_group('teams app-catalog', teams_beta_app_catalog, client_factory=cf_app_catalog) as g:
         g.custom_command('create-team-app', 'teams_app_catalog_create_team_app')
         g.custom_command('delete-team-app', 'teams_app_catalog_delete_team_app')
@@ -31,12 +259,6 @@ def load_command_table(self, _):
         g.custom_command('show-team-app', 'teams_app_catalog_show_team_app')
         g.custom_command('update-team-app', 'teams_app_catalog_update_team_app')
 
-    from azext_teams_beta.generated._client_factory import cf_app_catalog_team_app
-
-    teams_beta_app_catalog_team_app = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._app_catalog_team_app_operations#AppCatalogTeamAppOperations.{}',
-        client_factory=cf_app_catalog_team_app,
-    )
     with self.command_group(
         'teams app-catalog-team-app', teams_beta_app_catalog_team_app, client_factory=cf_app_catalog_team_app
     ) as g:
@@ -46,12 +268,6 @@ def load_command_table(self, _):
         g.custom_command('show-app-definition', 'teams_app_catalog_team_app_show_app_definition')
         g.custom_command('update-app-definition', 'teams_app_catalog_team_app_update_app_definition')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_chat
-
-    teams_beta_chat_chat = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_chat_operations#ChatChatOperations.{}',
-        client_factory=cf_chat_chat,
-    )
     with self.command_group('teams chat-chat', teams_beta_chat_chat, client_factory=cf_chat_chat) as g:
         g.custom_command('create-chat', 'teams_chat_chat_create_chat')
         g.custom_command('delete-chat', 'teams_chat_chat_delete_chat')
@@ -59,12 +275,6 @@ def load_command_table(self, _):
         g.custom_command('show-chat', 'teams_chat_chat_show_chat')
         g.custom_command('update-chat', 'teams_chat_chat_update_chat')
 
-    from azext_teams_beta.generated._client_factory import cf_chat
-
-    teams_beta_chat = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_operations#ChatOperations.{}',
-        client_factory=cf_chat,
-    )
     with self.command_group('teams chat', teams_beta_chat, client_factory=cf_chat) as g:
         g.custom_command('all-message', 'teams_chat_all_message')
         g.custom_command('create-installed-app', 'teams_chat_create_installed_app')
@@ -90,12 +300,6 @@ def load_command_table(self, _):
         g.custom_command('update-message', 'teams_chat_update_message')
         g.custom_command('update-tab', 'teams_chat_update_tab')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_installed_app
-
-    teams_beta_chat_installed_app = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_installed_app_operations#ChatInstalledAppOperations.{}',
-        client_factory=cf_chat_installed_app,
-    )
     with self.command_group(
         'teams chat-installed-app', teams_beta_chat_installed_app, client_factory=cf_chat_installed_app
     ) as g:
@@ -109,25 +313,9 @@ def load_command_table(self, _):
         g.custom_command('show-team-app-definition', 'teams_chat_installed_app_show_team_app_definition')
         g.custom_command('upgrade', 'teams_chat_installed_app_upgrade')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_member
-
-    teams_beta_chat_member = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._chat_member_operations#ChatMemberOperations.{}'
-        ),
-        client_factory=cf_chat_member,
-    )
     with self.command_group('teams chat-member', teams_beta_chat_member, client_factory=cf_chat_member) as g:
         g.custom_command('add', 'teams_chat_member_add')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_message
-
-    teams_beta_chat_message = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._chat_message_operations#ChatMessageOperations.{}'
-        ),
-        client_factory=cf_chat_message,
-    )
     with self.command_group('teams chat-message', teams_beta_chat_message, client_factory=cf_chat_message) as g:
         g.custom_command('create-hosted-content', 'teams_chat_message_create_hosted_content')
         g.custom_command('create-reply', 'teams_chat_message_create_reply')
@@ -143,58 +331,28 @@ def load_command_table(self, _):
         g.custom_command('update-hosted-content', 'teams_chat_message_update_hosted_content')
         g.custom_command('update-reply', 'teams_chat_message_update_reply')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_message_reply
-
-    teams_beta_chat_message_reply = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_message_reply_operations#ChatMessageReplyOperations.{}',
-        client_factory=cf_chat_message_reply,
-    )
     with self.command_group(
         'teams chat-message-reply', teams_beta_chat_message_reply, client_factory=cf_chat_message_reply
     ) as g:
         g.custom_command('delta', 'teams_chat_message_reply_delta')
 
-    from azext_teams_beta.generated._client_factory import cf_chat_tab
-
-    teams_beta_chat_tab = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._chat_tab_operations#ChatTabOperations.{}',
-        client_factory=cf_chat_tab,
-    )
     with self.command_group('teams chat-tab', teams_beta_chat_tab, client_factory=cf_chat_tab) as g:
         g.custom_command('delete-ref-team-app', 'teams_chat_tab_delete_ref_team_app')
         g.custom_command('set-ref-team-app', 'teams_chat_tab_set_ref_team_app')
         g.custom_command('show-ref-team-app', 'teams_chat_tab_show_ref_team_app')
         g.custom_command('show-team-app', 'teams_chat_tab_show_team_app')
 
-    from azext_teams_beta.generated._client_factory import cf_group
-
-    teams_beta_group = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('teams group', teams_beta_group, client_factory=cf_group) as g:
         g.custom_command('delete-team', 'teams_group_delete_team')
         g.custom_command('show-team', 'teams_group_show_team')
         g.custom_command('update-team', 'teams_group_update_team')
 
-    from azext_teams_beta.generated._client_factory import cf_team_team
-
-    teams_beta_team_team = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_team_operations#TeamTeamOperations.{}',
-        client_factory=cf_team_team,
-    )
     with self.command_group('teams team', teams_beta_team_team, client_factory=cf_team_team) as g:
         g.custom_command('list', 'teams_team_list')
         g.custom_command('create', 'teams_team_create')
         g.custom_command('delete-team', 'teams_team_delete_team')
         g.custom_command('show-team', 'teams_team_show_team')
 
-    from azext_teams_beta.generated._client_factory import cf_team
-
-    teams_beta_team = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_operations#TeamOperations.{}',
-        client_factory=cf_team,
-    )
     with self.command_group('teams team', teams_beta_team, client_factory=cf_team) as g:
         g.custom_command('all-message', 'teams_team_all_message')
         g.custom_command('archive', 'teams_team_archive')
@@ -246,14 +404,6 @@ def load_command_table(self, _):
         g.custom_command('update-primary-channel', 'teams_team_update_primary_channel')
         g.custom_command('update-schedule', 'teams_team_update_schedule')
 
-    from azext_teams_beta.generated._client_factory import cf_team_channel
-
-    teams_beta_team_channel = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._team_channel_operations#TeamChannelOperations.{}'
-        ),
-        client_factory=cf_team_channel,
-    )
     with self.command_group('teams team-channel', teams_beta_team_channel, client_factory=cf_team_channel) as g:
         g.custom_command('all-message', 'teams_team_channel_all_message')
         g.custom_command('complete-migration', 'teams_team_channel_complete_migration')
@@ -278,23 +428,11 @@ def load_command_table(self, _):
         g.custom_command('update-message', 'teams_team_channel_update_message')
         g.custom_command('update-tab', 'teams_team_channel_update_tab')
 
-    from azext_teams_beta.generated._client_factory import cf_team_channel_member
-
-    teams_beta_team_channel_member = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_member_operations#TeamChannelMemberOperations.{}',
-        client_factory=cf_team_channel_member,
-    )
     with self.command_group(
         'teams team-channel-member', teams_beta_team_channel_member, client_factory=cf_team_channel_member
     ) as g:
         g.custom_command('add', 'teams_team_channel_member_add')
 
-    from azext_teams_beta.generated._client_factory import cf_team_channel_message
-
-    teams_beta_team_channel_message = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_message_operations#TeamChannelMessageOperations.{}',
-        client_factory=cf_team_channel_message,
-    )
     with self.command_group(
         'teams team-channel-message', teams_beta_team_channel_message, client_factory=cf_team_channel_message
     ) as g:
@@ -312,12 +450,6 @@ def load_command_table(self, _):
         g.custom_command('update-hosted-content', 'teams_team_channel_message_update_hosted_content')
         g.custom_command('update-reply', 'teams_team_channel_message_update_reply')
 
-    from azext_teams_beta.generated._client_factory import cf_team_channel_message_reply
-
-    teams_beta_team_channel_message_reply = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_channel_message_reply_operations#TeamChannelMessageReplyOperations.{}',
-        client_factory=cf_team_channel_message_reply,
-    )
     with self.command_group(
         'teams team-channel-message-reply',
         teams_beta_team_channel_message_reply,
@@ -325,14 +457,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'teams_team_channel_message_reply_delta')
 
-    from azext_teams_beta.generated._client_factory import cf_team_channel_tab
-
-    teams_beta_team_channel_tab = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._team_channel_tab_operations#TeamChannelTabOperations.{}'
-        ),
-        client_factory=cf_team_channel_tab,
-    )
     with self.command_group(
         'teams team-channel-tab', teams_beta_team_channel_tab, client_factory=cf_team_channel_tab
     ) as g:
@@ -341,12 +465,6 @@ def load_command_table(self, _):
         g.custom_command('show-ref-team-app', 'teams_team_channel_tab_show_ref_team_app')
         g.custom_command('show-team-app', 'teams_team_channel_tab_show_team_app')
 
-    from azext_teams_beta.generated._client_factory import cf_team_installed_app
-
-    teams_beta_team_installed_app = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_installed_app_operations#TeamInstalledAppOperations.{}',
-        client_factory=cf_team_installed_app,
-    )
     with self.command_group(
         'teams team-installed-app', teams_beta_team_installed_app, client_factory=cf_team_installed_app
     ) as g:
@@ -360,23 +478,9 @@ def load_command_table(self, _):
         g.custom_command('show-team-app-definition', 'teams_team_installed_app_show_team_app_definition')
         g.custom_command('upgrade', 'teams_team_installed_app_upgrade')
 
-    from azext_teams_beta.generated._client_factory import cf_team_member
-
-    teams_beta_team_member = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._team_member_operations#TeamMemberOperations.{}'
-        ),
-        client_factory=cf_team_member,
-    )
     with self.command_group('teams team-member', teams_beta_team_member, client_factory=cf_team_member) as g:
         g.custom_command('add', 'teams_team_member_add')
 
-    from azext_teams_beta.generated._client_factory import cf_team_primary_channel
-
-    teams_beta_team_primary_channel = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_operations#TeamPrimaryChannelOperations.{}',
-        client_factory=cf_team_primary_channel,
-    )
     with self.command_group(
         'teams team-primary-channel', teams_beta_team_primary_channel, client_factory=cf_team_primary_channel
     ) as g:
@@ -402,12 +506,6 @@ def load_command_table(self, _):
         g.custom_command('update-message', 'teams_team_primary_channel_update_message')
         g.custom_command('update-tab', 'teams_team_primary_channel_update_tab')
 
-    from azext_teams_beta.generated._client_factory import cf_team_primary_channel_member
-
-    teams_beta_team_primary_channel_member = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_member_operations#TeamPrimaryChannelMemberOperations.{}',
-        client_factory=cf_team_primary_channel_member,
-    )
     with self.command_group(
         'teams team-primary-channel-member',
         teams_beta_team_primary_channel_member,
@@ -415,12 +513,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('add', 'teams_team_primary_channel_member_add')
 
-    from azext_teams_beta.generated._client_factory import cf_team_primary_channel_message
-
-    teams_beta_team_primary_channel_message = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_message_operations#TeamPrimaryChannelMessageOperations.{}',
-        client_factory=cf_team_primary_channel_message,
-    )
     with self.command_group(
         'teams team-primary-channel-message',
         teams_beta_team_primary_channel_message,
@@ -442,12 +534,6 @@ def load_command_table(self, _):
         g.custom_command('update-hosted-content', 'teams_team_primary_channel_message_update_hosted_content')
         g.custom_command('update-reply', 'teams_team_primary_channel_message_update_reply')
 
-    from azext_teams_beta.generated._client_factory import cf_team_primary_channel_message_reply
-
-    teams_beta_team_primary_channel_message_reply = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_message_reply_operations#TeamPrimaryChannelMessageReplyOperations.{}',
-        client_factory=cf_team_primary_channel_message_reply,
-    )
     with self.command_group(
         'teams team-primary-channel-message-reply',
         teams_beta_team_primary_channel_message_reply,
@@ -455,12 +541,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'teams_team_primary_channel_message_reply_delta')
 
-    from azext_teams_beta.generated._client_factory import cf_team_primary_channel_tab
-
-    teams_beta_team_primary_channel_tab = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_primary_channel_tab_operations#TeamPrimaryChannelTabOperations.{}',
-        client_factory=cf_team_primary_channel_tab,
-    )
     with self.command_group(
         'teams team-primary-channel-tab',
         teams_beta_team_primary_channel_tab,
@@ -471,14 +551,6 @@ def load_command_table(self, _):
         g.custom_command('show-ref-team-app', 'teams_team_primary_channel_tab_show_ref_team_app')
         g.custom_command('show-team-app', 'teams_team_primary_channel_tab_show_team_app')
 
-    from azext_teams_beta.generated._client_factory import cf_team_schedule
-
-    teams_beta_team_schedule = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._team_schedule_operations#TeamScheduleOperations.{}'
-        ),
-        client_factory=cf_team_schedule,
-    )
     with self.command_group('teams team-schedule', teams_beta_team_schedule, client_factory=cf_team_schedule) as g:
         g.custom_command('create-offer-shift-request', 'teams_team_schedule_create_offer_shift_request')
         g.custom_command('create-open-shift', 'teams_team_schedule_create_open_shift')
@@ -532,12 +604,6 @@ def load_command_table(self, _):
         g.custom_command('update-time-off-reason', 'teams_team_schedule_update_time_off_reason')
         g.custom_command('update-time-off-request', 'teams_team_schedule_update_time_off_request')
 
-    from azext_teams_beta.generated._client_factory import cf_team_schedule_time_card
-
-    teams_beta_team_schedule_time_card = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._team_schedule_time_card_operations#TeamScheduleTimeCardOperations.{}',
-        client_factory=cf_team_schedule_time_card,
-    )
     with self.command_group(
         'teams team-schedule-time-card', teams_beta_team_schedule_time_card, client_factory=cf_team_schedule_time_card
     ) as g:
@@ -547,24 +613,12 @@ def load_command_table(self, _):
         g.custom_command('end-break', 'teams_team_schedule_time_card_end_break')
         g.custom_command('start-break', 'teams_team_schedule_time_card_start_break')
 
-    from azext_teams_beta.generated._client_factory import cf_teamwork_teamwork
-
-    teams_beta_teamwork_teamwork = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamwork_teamwork_operations#TeamworkTeamworkOperations.{}',
-        client_factory=cf_teamwork_teamwork,
-    )
     with self.command_group(
         'teams teamwork-teamwork', teams_beta_teamwork_teamwork, client_factory=cf_teamwork_teamwork
     ) as g:
         g.custom_command('show-teamwork', 'teams_teamwork_teamwork_show_teamwork')
         g.custom_command('update-teamwork', 'teams_teamwork_teamwork_update_teamwork')
 
-    from azext_teams_beta.generated._client_factory import cf_teamwork
-
-    teams_beta_teamwork = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._teamwork_operations#TeamworkOperations.{}',
-        client_factory=cf_teamwork,
-    )
     with self.command_group('teams teamwork', teams_beta_teamwork, client_factory=cf_teamwork) as g:
         g.custom_command('create-workforce-integration', 'teams_teamwork_create_workforce_integration')
         g.custom_command('delete-workforce-integration', 'teams_teamwork_delete_workforce_integration')
@@ -572,12 +626,6 @@ def load_command_table(self, _):
         g.custom_command('show-workforce-integration', 'teams_teamwork_show_workforce_integration')
         g.custom_command('update-workforce-integration', 'teams_teamwork_update_workforce_integration')
 
-    from azext_teams_beta.generated._client_factory import cf_user
-
-    teams_beta_user = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('teams user', teams_beta_user, client_factory=cf_user) as g:
         g.custom_command('create-chat', 'teams_user_create_chat')
         g.custom_command('create-joined-team', 'teams_user_create_joined_team')
@@ -593,14 +641,6 @@ def load_command_table(self, _):
         g.custom_command('update-joined-team', 'teams_user_update_joined_team')
         g.custom_command('update-teamwork', 'teams_user_update_teamwork')
 
-    from azext_teams_beta.generated._client_factory import cf_user_teamwork
-
-    teams_beta_user_teamwork = CliCommandType(
-        operations_tmpl=(
-            'azext_teams_beta.vendored_sdks.teams.operations._user_teamwork_operations#UserTeamworkOperations.{}'
-        ),
-        client_factory=cf_user_teamwork,
-    )
     with self.command_group('teams user-teamwork', teams_beta_user_teamwork, client_factory=cf_user_teamwork) as g:
         g.custom_command('create-installed-app', 'teams_user_teamwork_create_installed_app')
         g.custom_command('delete-installed-app', 'teams_user_teamwork_delete_installed_app')
@@ -608,12 +648,6 @@ def load_command_table(self, _):
         g.custom_command('show-installed-app', 'teams_user_teamwork_show_installed_app')
         g.custom_command('update-installed-app', 'teams_user_teamwork_update_installed_app')
 
-    from azext_teams_beta.generated._client_factory import cf_user_teamwork_installed_app
-
-    teams_beta_user_teamwork_installed_app = CliCommandType(
-        operations_tmpl='azext_teams_beta.vendored_sdks.teams.operations._user_teamwork_installed_app_operations#UserTeamworkInstalledAppOperations.{}',
-        client_factory=cf_user_teamwork_installed_app,
-    )
     with self.command_group(
         'teams user-teamwork-installed-app',
         teams_beta_user_teamwork_installed_app,

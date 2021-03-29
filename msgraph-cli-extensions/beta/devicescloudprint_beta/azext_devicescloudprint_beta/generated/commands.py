@@ -9,31 +9,108 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_devicescloudprint_beta.generated._client_factory import (
+    cf_print_print,
+    cf_print,
+    cf_print_printer,
+    cf_print_printer_task_trigger,
+    cf_print_printer_share,
+    cf_print_printer_share_printer,
+    cf_print_report,
+    cf_print_service,
+    cf_print_share,
+    cf_print_share_printer,
+    cf_print_task_definition,
+    cf_print_task_definition_task,
+)
+
+
+devicescloudprint_beta_print_print = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_print_operations#PrintPrintOperations.{}',
+    client_factory=cf_print_print,
+)
+
+
+devicescloudprint_beta_print = CliCommandType(
+    operations_tmpl=(
+        'azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_operations#PrintOperations.{}'
+    ),
+    client_factory=cf_print,
+)
+
+
+devicescloudprint_beta_print_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_operations#PrintPrinterOperations.{}',
+    client_factory=cf_print_printer,
+)
+
+
+devicescloudprint_beta_print_printer_task_trigger = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_task_trigger_operations#PrintPrinterTaskTriggerOperations.{}',
+    client_factory=cf_print_printer_task_trigger,
+)
+
+
+devicescloudprint_beta_print_printer_share = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_operations#PrintPrinterShareOperations.{}',
+    client_factory=cf_print_printer_share,
+)
+
+
+devicescloudprint_beta_print_printer_share_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_printer_operations#PrintPrinterSharePrinterOperations.{}',
+    client_factory=cf_print_printer_share_printer,
+)
+
+
+devicescloudprint_beta_print_report = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_report_operations#PrintReportOperations.{}',
+    client_factory=cf_print_report,
+)
+
+
+devicescloudprint_beta_print_service = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_service_operations#PrintServiceOperations.{}',
+    client_factory=cf_print_service,
+)
+
+
+devicescloudprint_beta_print_share = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_operations#PrintShareOperations.{}',
+    client_factory=cf_print_share,
+)
+
+
+devicescloudprint_beta_print_share_printer = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_printer_operations#PrintSharePrinterOperations.{}',
+    client_factory=cf_print_share_printer,
+)
+
+
+devicescloudprint_beta_print_task_definition = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_operations#PrintTaskDefinitionOperations.{}',
+    client_factory=cf_print_task_definition,
+)
+
+
+devicescloudprint_beta_print_task_definition_task = CliCommandType(
+    operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_task_operations#PrintTaskDefinitionTaskOperations.{}',
+    client_factory=cf_print_task_definition_task,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_print
-
-    devicescloudprint_beta_print_print = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_print_operations#PrintPrintOperations.{}',
-        client_factory=cf_print_print,
-    )
     with self.command_group(
         'devicescloudprint print-print', devicescloudprint_beta_print_print, client_factory=cf_print_print
     ) as g:
         g.custom_command('show-print', 'devicescloudprint_print_print_show_print')
         g.custom_command('update-print', 'devicescloudprint_print_print_update_print')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print
-
-    devicescloudprint_beta_print = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_operations#PrintOperations.{}',
-        client_factory=cf_print,
-    )
     with self.command_group('devicescloudprint print', devicescloudprint_beta_print, client_factory=cf_print) as g:
         g.custom_command('create-connector', 'devicescloudprint_print_create_connector')
         g.custom_command('create-operation', 'devicescloudprint_print_create_operation')
@@ -76,12 +153,6 @@ def load_command_table(self, _):
         g.custom_command('update-share', 'devicescloudprint_print_update_share')
         g.custom_command('update-task-definition', 'devicescloudprint_print_update_task_definition')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_printer
-
-    devicescloudprint_beta_print_printer = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_operations#PrintPrinterOperations.{}',
-        client_factory=cf_print_printer,
-    )
     with self.command_group(
         'devicescloudprint print-printer', devicescloudprint_beta_print_printer, client_factory=cf_print_printer
     ) as g:
@@ -115,12 +186,6 @@ def load_command_table(self, _):
         g.custom_command('update-allowed-user', 'devicescloudprint_print_printer_update_allowed_user')
         g.custom_command('update-task-trigger', 'devicescloudprint_print_printer_update_task_trigger')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_printer_task_trigger
-
-    devicescloudprint_beta_print_printer_task_trigger = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_task_trigger_operations#PrintPrinterTaskTriggerOperations.{}',
-        client_factory=cf_print_printer_task_trigger,
-    )
     with self.command_group(
         'devicescloudprint print-printer-task-trigger',
         devicescloudprint_beta_print_printer_task_trigger,
@@ -131,12 +196,6 @@ def load_command_table(self, _):
         g.custom_command('show-definition', 'devicescloudprint_print_printer_task_trigger_show_definition')
         g.custom_command('show-ref-definition', 'devicescloudprint_print_printer_task_trigger_show_ref_definition')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_printer_share
-
-    devicescloudprint_beta_print_printer_share = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_operations#PrintPrinterShareOperations.{}',
-        client_factory=cf_print_printer_share,
-    )
     with self.command_group(
         'devicescloudprint print-printer-share',
         devicescloudprint_beta_print_printer_share,
@@ -157,12 +216,6 @@ def load_command_table(self, _):
         g.custom_command('update-allowed-group', 'devicescloudprint_print_printer_share_update_allowed_group')
         g.custom_command('update-allowed-user', 'devicescloudprint_print_printer_share_update_allowed_user')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_printer_share_printer
-
-    devicescloudprint_beta_print_printer_share_printer = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_printer_share_printer_operations#PrintPrinterSharePrinterOperations.{}',
-        client_factory=cf_print_printer_share_printer,
-    )
     with self.command_group(
         'devicescloudprint print-printer-share-printer',
         devicescloudprint_beta_print_printer_share_printer,
@@ -174,12 +227,6 @@ def load_command_table(self, _):
         )
         g.custom_command('show-capability', 'devicescloudprint_print_printer_share_printer_show_capability')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_report
-
-    devicescloudprint_beta_print_report = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_report_operations#PrintReportOperations.{}',
-        client_factory=cf_print_report,
-    )
     with self.command_group(
         'devicescloudprint print-report', devicescloudprint_beta_print_report, client_factory=cf_print_report
     ) as g:
@@ -202,12 +249,6 @@ def load_command_table(self, _):
             'show-user-print-usage-summary', 'devicescloudprint_print_report_show_user_print_usage_summary'
         )
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_service
-
-    devicescloudprint_beta_print_service = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_service_operations#PrintServiceOperations.{}',
-        client_factory=cf_print_service,
-    )
     with self.command_group(
         'devicescloudprint print-service', devicescloudprint_beta_print_service, client_factory=cf_print_service
     ) as g:
@@ -217,12 +258,6 @@ def load_command_table(self, _):
         g.custom_command('show-endpoint', 'devicescloudprint_print_service_show_endpoint')
         g.custom_command('update-endpoint', 'devicescloudprint_print_service_update_endpoint')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_share
-
-    devicescloudprint_beta_print_share = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_operations#PrintShareOperations.{}',
-        client_factory=cf_print_share,
-    )
     with self.command_group(
         'devicescloudprint print-share', devicescloudprint_beta_print_share, client_factory=cf_print_share
     ) as g:
@@ -241,12 +276,6 @@ def load_command_table(self, _):
         g.custom_command('update-allowed-group', 'devicescloudprint_print_share_update_allowed_group')
         g.custom_command('update-allowed-user', 'devicescloudprint_print_share_update_allowed_user')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_share_printer
-
-    devicescloudprint_beta_print_share_printer = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_share_printer_operations#PrintSharePrinterOperations.{}',
-        client_factory=cf_print_share_printer,
-    )
     with self.command_group(
         'devicescloudprint print-share-printer',
         devicescloudprint_beta_print_share_printer,
@@ -256,12 +285,6 @@ def load_command_table(self, _):
         g.custom_command('restore-factory-default', 'devicescloudprint_print_share_printer_restore_factory_default')
         g.custom_command('show-capability', 'devicescloudprint_print_share_printer_show_capability')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_task_definition
-
-    devicescloudprint_beta_print_task_definition = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_operations#PrintTaskDefinitionOperations.{}',
-        client_factory=cf_print_task_definition,
-    )
     with self.command_group(
         'devicescloudprint print-task-definition',
         devicescloudprint_beta_print_task_definition,
@@ -273,12 +296,6 @@ def load_command_table(self, _):
         g.custom_command('show-task', 'devicescloudprint_print_task_definition_show_task')
         g.custom_command('update-task', 'devicescloudprint_print_task_definition_update_task')
 
-    from azext_devicescloudprint_beta.generated._client_factory import cf_print_task_definition_task
-
-    devicescloudprint_beta_print_task_definition_task = CliCommandType(
-        operations_tmpl='azext_devicescloudprint_beta.vendored_sdks.devicescloudprint.operations._print_task_definition_task_operations#PrintTaskDefinitionTaskOperations.{}',
-        client_factory=cf_print_task_definition_task,
-    )
     with self.command_group(
         'devicescloudprint print-task-definition-task',
         devicescloudprint_beta_print_task_definition_task,

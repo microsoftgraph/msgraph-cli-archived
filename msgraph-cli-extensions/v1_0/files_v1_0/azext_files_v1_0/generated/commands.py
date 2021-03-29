@@ -9,21 +9,143 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_files_v1_0.generated._client_factory import (
+    cf_drive_drive,
+    cf_drive,
+    cf_drive_list,
+    cf_drive_list_content_type,
+    cf_drive_list_item,
+    cf_drive_list_item_version,
+    cf_group,
+    cf_share_shared_drive_item,
+    cf_share,
+    cf_share_list,
+    cf_share_list_content_type,
+    cf_share_list_item,
+    cf_share_list_item_version,
+    cf_share_list_item,
+    cf_share_list_item_version,
+    cf_share_permission,
+    cf_user,
+)
+
+
+files_v1_0_drive_drive = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_drive_operations#DriveDriveOperations.{}',
+    client_factory=cf_drive_drive,
+)
+
+
+files_v1_0_drive = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_operations#DriveOperations.{}',
+    client_factory=cf_drive,
+)
+
+
+files_v1_0_drive_list = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_operations#DriveListOperations.{}',
+    client_factory=cf_drive_list,
+)
+
+
+files_v1_0_drive_list_content_type = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_content_type_operations#DriveListContentTypeOperations.{}',
+    client_factory=cf_drive_list_content_type,
+)
+
+
+files_v1_0_drive_list_item = CliCommandType(
+    operations_tmpl=(
+        'azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_operations#DriveListItemOperations.{}'
+    ),
+    client_factory=cf_drive_list_item,
+)
+
+
+files_v1_0_drive_list_item_version = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_version_operations#DriveListItemVersionOperations.{}',
+    client_factory=cf_drive_list_item_version,
+)
+
+
+files_v1_0_group = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._group_operations#GroupOperations.{}',
+    client_factory=cf_group,
+)
+
+
+files_v1_0_share_shared_drive_item = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_shared_drive_item_operations#ShareSharedDriveItemOperations.{}',
+    client_factory=cf_share_shared_drive_item,
+)
+
+
+files_v1_0_share = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_operations#ShareOperations.{}',
+    client_factory=cf_share,
+)
+
+
+files_v1_0_share_list = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_operations#ShareListOperations.{}',
+    client_factory=cf_share_list,
+)
+
+
+files_v1_0_share_list_content_type = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_content_type_operations#ShareListContentTypeOperations.{}',
+    client_factory=cf_share_list_content_type,
+)
+
+
+files_v1_0_share_list_item = CliCommandType(
+    operations_tmpl=(
+        'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+    ),
+    client_factory=cf_share_list_item,
+)
+
+
+files_v1_0_share_list_item_version = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    client_factory=cf_share_list_item_version,
+)
+
+
+files_v1_0_share_list_item = CliCommandType(
+    operations_tmpl=(
+        'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
+    ),
+    client_factory=cf_share_list_item,
+)
+
+
+files_v1_0_share_list_item_version = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
+    client_factory=cf_share_list_item_version,
+)
+
+
+files_v1_0_share_permission = CliCommandType(
+    operations_tmpl=(
+        'azext_files_v1_0.vendored_sdks.files.operations._share_permission_operations#SharePermissionOperations.{}'
+    ),
+    client_factory=cf_share_permission,
+)
+
+
+files_v1_0_user = CliCommandType(
+    operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_files_v1_0.generated._client_factory import cf_drive_drive
-
-    files_v1_0_drive_drive = CliCommandType(
-        operations_tmpl=(
-            'azext_files_v1_0.vendored_sdks.files.operations._drive_drive_operations#DriveDriveOperations.{}'
-        ),
-        client_factory=cf_drive_drive,
-    )
     with self.command_group('files drive-drive', files_v1_0_drive_drive, client_factory=cf_drive_drive) as g:
         g.custom_command('create-drive', 'files_drive_drive_create_drive')
         g.custom_command('delete-drive', 'files_drive_drive_delete_drive')
@@ -31,12 +153,6 @@ def load_command_table(self, _):
         g.custom_command('show-drive', 'files_drive_drive_show_drive')
         g.custom_command('update-drive', 'files_drive_drive_update_drive')
 
-    from azext_files_v1_0.generated._client_factory import cf_drive
-
-    files_v1_0_drive = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_operations#DriveOperations.{}',
-        client_factory=cf_drive,
-    )
     with self.command_group('files drive', files_v1_0_drive, client_factory=cf_drive) as g:
         g.custom_command('create-following', 'files_drive_create_following')
         g.custom_command('create-item', 'files_drive_create_item')
@@ -63,12 +179,6 @@ def load_command_table(self, _):
         g.custom_command('update-root', 'files_drive_update_root')
         g.custom_command('update-special', 'files_drive_update_special')
 
-    from azext_files_v1_0.generated._client_factory import cf_drive_list
-
-    files_v1_0_drive_list = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_operations#DriveListOperations.{}',
-        client_factory=cf_drive_list,
-    )
     with self.command_group('files drive-list', files_v1_0_drive_list, client_factory=cf_drive_list) as g:
         g.custom_command('create-column', 'files_drive_list_create_column')
         g.custom_command('create-content-type', 'files_drive_list_create_content_type')
@@ -94,12 +204,6 @@ def load_command_table(self, _):
         g.custom_command('update-item', 'files_drive_list_update_item')
         g.custom_command('update-subscription', 'files_drive_list_update_subscription')
 
-    from azext_files_v1_0.generated._client_factory import cf_drive_list_content_type
-
-    files_v1_0_drive_list_content_type = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_content_type_operations#DriveListContentTypeOperations.{}',
-        client_factory=cf_drive_list_content_type,
-    )
     with self.command_group(
         'files drive-list-content-type', files_v1_0_drive_list_content_type, client_factory=cf_drive_list_content_type
     ) as g:
@@ -109,14 +213,6 @@ def load_command_table(self, _):
         g.custom_command('show-column-link', 'files_drive_list_content_type_show_column_link')
         g.custom_command('update-column-link', 'files_drive_list_content_type_update_column_link')
 
-    from azext_files_v1_0.generated._client_factory import cf_drive_list_item
-
-    files_v1_0_drive_list_item = CliCommandType(
-        operations_tmpl=(
-            'azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_operations#DriveListItemOperations.{}'
-        ),
-        client_factory=cf_drive_list_item,
-    )
     with self.command_group(
         'files drive-list-item', files_v1_0_drive_list_item, client_factory=cf_drive_list_item
     ) as g:
@@ -137,12 +233,6 @@ def load_command_table(self, _):
         g.custom_command('update-field', 'files_drive_list_item_update_field')
         g.custom_command('update-version', 'files_drive_list_item_update_version')
 
-    from azext_files_v1_0.generated._client_factory import cf_drive_list_item_version
-
-    files_v1_0_drive_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._drive_list_item_version_operations#DriveListItemVersionOperations.{}',
-        client_factory=cf_drive_list_item_version,
-    )
     with self.command_group(
         'files drive-list-item-version', files_v1_0_drive_list_item_version, client_factory=cf_drive_list_item_version
     ) as g:
@@ -151,12 +241,6 @@ def load_command_table(self, _):
         g.custom_command('show-field', 'files_drive_list_item_version_show_field')
         g.custom_command('update-field', 'files_drive_list_item_version_update_field')
 
-    from azext_files_v1_0.generated._client_factory import cf_group
-
-    files_v1_0_group = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('files group', files_v1_0_group, client_factory=cf_group) as g:
         g.custom_command('create-drive', 'files_group_create_drive')
         g.custom_command('delete-drive', 'files_group_delete_drive')
@@ -164,12 +248,6 @@ def load_command_table(self, _):
         g.custom_command('show-drive', 'files_group_show_drive')
         g.custom_command('update-drive', 'files_group_update_drive')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_shared_drive_item
-
-    files_v1_0_share_shared_drive_item = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_shared_drive_item_operations#ShareSharedDriveItemOperations.{}',
-        client_factory=cf_share_shared_drive_item,
-    )
     with self.command_group(
         'files share-shared-drive-item', files_v1_0_share_shared_drive_item, client_factory=cf_share_shared_drive_item
     ) as g:
@@ -179,12 +257,6 @@ def load_command_table(self, _):
         g.custom_command('show-shared-drive-item', 'files_share_shared_drive_item_show_shared_drive_item')
         g.custom_command('update-shared-drive-item', 'files_share_shared_drive_item_update_shared_drive_item')
 
-    from azext_files_v1_0.generated._client_factory import cf_share
-
-    files_v1_0_share = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_operations#ShareOperations.{}',
-        client_factory=cf_share,
-    )
     with self.command_group('files share', files_v1_0_share, client_factory=cf_share) as g:
         g.custom_command('create-item', 'files_share_create_item')
         g.custom_command('delete-drive-item', 'files_share_delete_drive_item')
@@ -210,12 +282,6 @@ def load_command_table(self, _):
         g.custom_command('update-root', 'files_share_update_root')
         g.custom_command('update-site', 'files_share_update_site')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list
-
-    files_v1_0_share_list = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_operations#ShareListOperations.{}',
-        client_factory=cf_share_list,
-    )
     with self.command_group('files share-list', files_v1_0_share_list, client_factory=cf_share_list) as g:
         g.custom_command('create-column', 'files_share_list_create_column')
         g.custom_command('create-content-type', 'files_share_list_create_content_type')
@@ -241,12 +307,6 @@ def load_command_table(self, _):
         g.custom_command('update-item', 'files_share_list_update_item')
         g.custom_command('update-subscription', 'files_share_list_update_subscription')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list_content_type
-
-    files_v1_0_share_list_content_type = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_content_type_operations#ShareListContentTypeOperations.{}',
-        client_factory=cf_share_list_content_type,
-    )
     with self.command_group(
         'files share-list-content-type', files_v1_0_share_list_content_type, client_factory=cf_share_list_content_type
     ) as g:
@@ -256,14 +316,6 @@ def load_command_table(self, _):
         g.custom_command('show-column-link', 'files_share_list_content_type_show_column_link')
         g.custom_command('update-column-link', 'files_share_list_content_type_update_column_link')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list_item
-
-    files_v1_0_share_list_item = CliCommandType(
-        operations_tmpl=(
-            'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
-        ),
-        client_factory=cf_share_list_item,
-    )
     with self.command_group(
         'files share-list-item', files_v1_0_share_list_item, client_factory=cf_share_list_item
     ) as g:
@@ -284,12 +336,6 @@ def load_command_table(self, _):
         g.custom_command('update-field', 'files_share_list_item_update_field')
         g.custom_command('update-version', 'files_share_list_item_update_version')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list_item_version
-
-    files_v1_0_share_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
-        client_factory=cf_share_list_item_version,
-    )
     with self.command_group(
         'files share-list-item-version', files_v1_0_share_list_item_version, client_factory=cf_share_list_item_version
     ) as g:
@@ -298,14 +344,6 @@ def load_command_table(self, _):
         g.custom_command('show-field', 'files_share_list_item_version_show_field')
         g.custom_command('update-field', 'files_share_list_item_version_update_field')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list_item
-
-    files_v1_0_share_list_item = CliCommandType(
-        operations_tmpl=(
-            'azext_files_v1_0.vendored_sdks.files.operations._share_list_item_operations#ShareListItemOperations.{}'
-        ),
-        client_factory=cf_share_list_item,
-    )
     with self.command_group(
         'files share-list-item', files_v1_0_share_list_item, client_factory=cf_share_list_item
     ) as g:
@@ -326,12 +364,6 @@ def load_command_table(self, _):
         g.custom_command('update-field', 'files_share_list_item_update_field')
         g.custom_command('update-version', 'files_share_list_item_update_version')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_list_item_version
-
-    files_v1_0_share_list_item_version = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._share_list_item_version_operations#ShareListItemVersionOperations.{}',
-        client_factory=cf_share_list_item_version,
-    )
     with self.command_group(
         'files share-list-item-version', files_v1_0_share_list_item_version, client_factory=cf_share_list_item_version
     ) as g:
@@ -340,25 +372,11 @@ def load_command_table(self, _):
         g.custom_command('show-field', 'files_share_list_item_version_show_field')
         g.custom_command('update-field', 'files_share_list_item_version_update_field')
 
-    from azext_files_v1_0.generated._client_factory import cf_share_permission
-
-    files_v1_0_share_permission = CliCommandType(
-        operations_tmpl=(
-            'azext_files_v1_0.vendored_sdks.files.operations._share_permission_operations#SharePermissionOperations.{}'
-        ),
-        client_factory=cf_share_permission,
-    )
     with self.command_group(
         'files share-permission', files_v1_0_share_permission, client_factory=cf_share_permission
     ) as g:
         g.custom_command('grant', 'files_share_permission_grant')
 
-    from azext_files_v1_0.generated._client_factory import cf_user
-
-    files_v1_0_user = CliCommandType(
-        operations_tmpl='azext_files_v1_0.vendored_sdks.files.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('files user', files_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-drive', 'files_user_create_drive')
         g.custom_command('delete-drive', 'files_user_delete_drive')

@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['identitydirmgt_v1_0'] = '''
+    type: group
+    short-summary: Manage Identity Directory Management
+'''
+
 helps['identitydirmgt contact-org-contact'] = """
     type: group
     short-summary: Manage contact org contact with identitydirmgt_v1_0

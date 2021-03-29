@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['directoryobjects_v1_0'] = '''
+    type: group
+    short-summary: Manage Directory Objects
+'''
+
 helps['directoryobjects directory-object-directory-object'] = """
     type: group
     short-summary: Manage directory object directory object with directoryobjects_v1_0

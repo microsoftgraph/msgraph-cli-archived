@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['mail_v1_0'] = '''
+    type: group
+    short-summary: Manage Mail
+'''
+
 helps['mail user'] = """
     type: group
     short-summary: Manage user with mail_v1_0

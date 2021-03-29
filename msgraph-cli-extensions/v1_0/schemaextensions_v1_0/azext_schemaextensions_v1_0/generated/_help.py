@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['schemaextensions_v1_0'] = '''
+    type: group
+    short-summary: Manage Schema Extensions
+'''
+
 helps['schemaextensions schema-extension-schema-extension'] = """
     type: group
     short-summary: Manage schema extension schema extension with schemaextensions_v1_0

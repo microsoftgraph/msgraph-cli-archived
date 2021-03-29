@@ -9,32 +9,785 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_notes_v1_0.generated._client_factory import (
+    cf_group,
+    cf_group_onenote,
+    cf_group_onenote_notebook,
+    cf_group_onenote_notebook_section_group,
+    cf_group_onenote_notebook_section_group_section,
+    cf_group_onenote_notebook_section_group_section_page,
+    cf_group_onenote_notebook_section,
+    cf_group_onenote_notebook_section_page,
+    cf_group_onenote_notebook_section_parent_section_group,
+    cf_group_onenote_page,
+    cf_group_onenote_page_parent_notebook,
+    cf_group_onenote_page_parent_notebook_section_group,
+    cf_group_onenote_page_parent_notebook_section_group_section,
+    cf_group_onenote_page_parent_notebook_section,
+    cf_group_onenote_page_parent_notebook_section_parent_section_group,
+    cf_group_onenote_page_parent_section,
+    cf_group_onenote_page_parent_section_parent_notebook,
+    cf_group_onenote_page_parent_section_parent_notebook_section_group,
+    cf_group_onenote_page_parent_section_parent_section_group,
+    cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_group_onenote_section_group,
+    cf_group_onenote_section_group_parent_notebook,
+    cf_group_onenote_section_group_parent_notebook_section,
+    cf_group_onenote_section_group_parent_notebook_section_page,
+    cf_group_onenote_section_group_section,
+    cf_group_onenote_section_group_section_page,
+    cf_group_onenote_section_group_section_page_parent_notebook,
+    cf_group_onenote_section_group_section_parent_notebook,
+    cf_group_onenote_section,
+    cf_group_onenote_section_page,
+    cf_group_onenote_section_page_parent_notebook,
+    cf_group_onenote_section_page_parent_notebook_section_group,
+    cf_group_onenote_section_parent_notebook,
+    cf_group_onenote_section_parent_notebook_section_group,
+    cf_group_onenote_section_parent_section_group,
+    cf_group_onenote_section_parent_section_group_parent_notebook,
+    cf_site,
+    cf_site_onenote,
+    cf_site_onenote_notebook,
+    cf_site_onenote_notebook_section_group,
+    cf_site_onenote_notebook_section_group_section,
+    cf_site_onenote_notebook_section_group_section_page,
+    cf_site_onenote_notebook_section,
+    cf_site_onenote_notebook_section_page,
+    cf_site_onenote_notebook_section_parent_section_group,
+    cf_site_onenote_page,
+    cf_site_onenote_page_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_group,
+    cf_site_onenote_page_parent_notebook_section_group_section,
+    cf_site_onenote_page_parent_notebook_section,
+    cf_site_onenote_page_parent_notebook_section_parent_section_group,
+    cf_site_onenote_page_parent_section,
+    cf_site_onenote_page_parent_section_parent_notebook,
+    cf_site_onenote_page_parent_section_parent_notebook_section_group,
+    cf_site_onenote_page_parent_section_parent_section_group,
+    cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_site_onenote_section_group,
+    cf_site_onenote_section_group_parent_notebook,
+    cf_site_onenote_section_group_parent_notebook_section,
+    cf_site_onenote_section_group_parent_notebook_section_page,
+    cf_site_onenote_section_group_section,
+    cf_site_onenote_section_group_section_page,
+    cf_site_onenote_section_group_section_page_parent_notebook,
+    cf_site_onenote_section_group_section_parent_notebook,
+    cf_site_onenote_section,
+    cf_site_onenote_section_page,
+    cf_site_onenote_section_page_parent_notebook,
+    cf_site_onenote_section_page_parent_notebook_section_group,
+    cf_site_onenote_section_parent_notebook,
+    cf_site_onenote_section_parent_notebook_section_group,
+    cf_site_onenote_section_parent_section_group,
+    cf_site_onenote_section_parent_section_group_parent_notebook,
+    cf_user,
+    cf_user_onenote,
+    cf_user_onenote_notebook,
+    cf_user_onenote_notebook_section_group,
+    cf_user_onenote_notebook_section_group_section,
+    cf_user_onenote_notebook_section_group_section_page,
+    cf_user_onenote_notebook_section,
+    cf_user_onenote_notebook_section_page,
+    cf_user_onenote_notebook_section_parent_section_group,
+    cf_user_onenote_page,
+    cf_user_onenote_page_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group,
+    cf_user_onenote_page_parent_notebook_section_group_section,
+    cf_user_onenote_page_parent_notebook_section,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group,
+    cf_user_onenote_page_parent_section,
+    cf_user_onenote_page_parent_section_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group,
+    cf_user_onenote_page_parent_section_parent_section_group,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_user_onenote_section_group,
+    cf_user_onenote_section_group_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section,
+    cf_user_onenote_section_group_parent_notebook_section_page,
+    cf_user_onenote_section_group_section,
+    cf_user_onenote_section_group_section_page,
+    cf_user_onenote_section_group_section_page_parent_notebook,
+    cf_user_onenote_section_group_section_parent_notebook,
+    cf_user_onenote_section,
+    cf_user_onenote_section_page,
+    cf_user_onenote_section_page_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group,
+    cf_user_onenote_section_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group,
+    cf_user_onenote_section_parent_section_group,
+    cf_user_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_operations#GroupOperations.{}',
+    client_factory=cf_group,
+)
+
+
+notes_v1_0_group_onenote = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_operations#GroupOnenoteOperations.{}'
+    ),
+    client_factory=cf_group_onenote,
+)
+
+
+notes_v1_0_group_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_operations#GroupOnenoteNotebookOperations.{}',
+    client_factory=cf_group_onenote_notebook,
+)
+
+
+notes_v1_0_group_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_operations#GroupOnenoteNotebookSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group,
+)
+
+
+notes_v1_0_group_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_operations#GroupOnenoteNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group_section,
+)
+
+
+notes_v1_0_group_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_page_operations#GroupOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_group_section_page,
+)
+
+
+notes_v1_0_group_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_operations#GroupOnenoteNotebookSectionOperations.{}',
+    client_factory=cf_group_onenote_notebook_section,
+)
+
+
+notes_v1_0_group_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_page_operations#GroupOnenoteNotebookSectionPageOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_page,
+)
+
+
+notes_v1_0_group_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_parent_section_group_operations#GroupOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_group_onenote_page = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_operations#GroupOnenotePageOperations.{}'
+    ),
+    client_factory=cf_group_onenote_page,
+)
+
+
+notes_v1_0_group_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_operations#GroupOnenotePageParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_operations#GroupOnenotePageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_section_operations#GroupOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_group_section,
+)
+
+
+notes_v1_0_group_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_operations#GroupOnenotePageParentNotebookSectionOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section,
+)
+
+
+notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_parent_section_group_operations#GroupOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_group_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_operations#GroupOnenotePageParentSectionOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section,
+)
+
+
+notes_v1_0_group_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_operations#GroupOnenotePageParentSectionParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_section_group_operations#GroupOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_group_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_operations#GroupOnenotePageParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_section_group,
+)
+
+
+notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_parent_notebook_operations#GroupOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_operations#GroupOnenoteSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_section_group,
+)
+
+
+notes_v1_0_group_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_operations#GroupOnenoteSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_operations#GroupOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook_section,
+)
+
+
+notes_v1_0_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_page_operations#GroupOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    client_factory=cf_group_onenote_section_group_parent_notebook_section_page,
+)
+
+
+notes_v1_0_group_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_operations#GroupOnenoteSectionGroupSectionOperations.{}',
+    client_factory=cf_group_onenote_section_group_section,
+)
+
+
+notes_v1_0_group_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_operations#GroupOnenoteSectionGroupSectionPageOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_page,
+)
+
+
+notes_v1_0_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_parent_notebook_operations#GroupOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_page_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_parent_notebook_operations#GroupOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_group_section_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_operations#GroupOnenoteSectionOperations.{}',
+    client_factory=cf_group_onenote_section,
+)
+
+
+notes_v1_0_group_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_operations#GroupOnenoteSectionPageOperations.{}',
+    client_factory=cf_group_onenote_section_page,
+)
+
+
+notes_v1_0_group_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_operations#GroupOnenoteSectionPageParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_page_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_section_group_operations#GroupOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_section_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_group_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_operations#GroupOnenoteSectionParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_parent_notebook,
+)
+
+
+notes_v1_0_group_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_section_group_operations#GroupOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_group_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_operations#GroupOnenoteSectionParentSectionGroupOperations.{}',
+    client_factory=cf_group_onenote_section_parent_section_group,
+)
+
+
+notes_v1_0_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_parent_notebook_operations#GroupOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_group_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_site = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_operations#SiteOperations.{}',
+    client_factory=cf_site,
+)
+
+
+notes_v1_0_site_onenote = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_operations#SiteOnenoteOperations.{}',
+    client_factory=cf_site_onenote,
+)
+
+
+notes_v1_0_site_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_operations#SiteOnenoteNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook,
+)
+
+
+notes_v1_0_site_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_operations#SiteOnenoteNotebookSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group,
+)
+
+
+notes_v1_0_site_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_operations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section,
+)
+
+
+notes_v1_0_site_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_page_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_page,
+)
+
+
+notes_v1_0_site_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_operations#SiteOnenoteNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section,
+)
+
+
+notes_v1_0_site_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_page_operations#SiteOnenoteNotebookSectionPageOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_page,
+)
+
+
+notes_v1_0_site_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_parent_section_group_operations#SiteOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_site_onenote_page = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_operations#SiteOnenotePageOperations.{}'
+    ),
+    client_factory=cf_site_onenote_page,
+)
+
+
+notes_v1_0_site_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_operations#SiteOnenotePageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_operations#SiteOnenotePageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
+)
+
+
+notes_v1_0_site_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_operations#SiteOnenotePageParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section,
+)
+
+
+notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_parent_section_group_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_site_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_operations#SiteOnenotePageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section,
+)
+
+
+notes_v1_0_site_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_section_group_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_site_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_operations#SiteOnenotePageParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group,
+)
+
+
+notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_operations#SiteOnenoteSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_section_group,
+)
+
+
+notes_v1_0_site_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section,
+)
+
+
+notes_v1_0_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
+)
+
+
+notes_v1_0_site_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_operations#SiteOnenoteSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_section,
+)
+
+
+notes_v1_0_site_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_operations#SiteOnenoteSectionGroupSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page,
+)
+
+
+notes_v1_0_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_parent_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_parent_notebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_operations#SiteOnenoteSectionOperations.{}',
+    client_factory=cf_site_onenote_section,
+)
+
+
+notes_v1_0_site_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_operations#SiteOnenoteSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_page,
+)
+
+
+notes_v1_0_site_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_section_group_operations#SiteOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_site_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_operations#SiteOnenoteSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook,
+)
+
+
+notes_v1_0_site_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_section_group_operations#SiteOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_site_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_operations#SiteOnenoteSectionParentSectionGroupOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group,
+)
+
+
+notes_v1_0_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_parent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_user = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+notes_v1_0_user_onenote = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_operations#UserOnenoteOperations.{}',
+    client_factory=cf_user_onenote,
+)
+
+
+notes_v1_0_user_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook,
+)
+
+
+notes_v1_0_user_onenote_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_operations#UserOnenoteNotebookSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group,
+)
+
+
+notes_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section,
+)
+
+
+notes_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page,
+)
+
+
+notes_v1_0_user_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_operations#UserOnenoteNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section,
+)
+
+
+notes_v1_0_user_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page,
+)
+
+
+notes_v1_0_user_onenote_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_parent_section_group_operations#UserOnenoteNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_user_onenote_page = CliCommandType(
+    operations_tmpl=(
+        'azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_operations#UserOnenotePageOperations.{}'
+    ),
+    client_factory=cf_user_onenote_page,
+)
+
+
+notes_v1_0_user_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_operations#UserOnenotePageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_operations#UserOnenotePageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
+)
+
+
+notes_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section,
+)
+
+
+notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_parent_section_group_operations#UserOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group,
+)
+
+
+notes_v1_0_user_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_operations#UserOnenotePageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section,
+)
+
+
+notes_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_section_group_operations#UserOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_user_onenote_page_parent_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_operations#UserOnenotePageParentSectionParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group,
+)
+
+
+notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_operations#UserOnenoteSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_section_group,
+)
+
+
+notes_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section,
+)
+
+
+notes_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
+)
+
+
+notes_v1_0_user_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_operations#UserOnenoteSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section,
+)
+
+
+notes_v1_0_user_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page,
+)
+
+
+notes_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_operations#UserOnenoteSectionOperations.{}',
+    client_factory=cf_user_onenote_section,
+)
+
+
+notes_v1_0_user_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_page,
+)
+
+
+notes_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section_page_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_section_group_operations#UserOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group,
+)
+
+
+notes_v1_0_user_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook,
+)
+
+
+notes_v1_0_user_onenote_section_parent_notebook_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_section_group_operations#UserOnenoteSectionParentNotebookSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group,
+)
+
+
+notes_v1_0_user_onenote_section_parent_section_group = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_operations#UserOnenoteSectionParentSectionGroupOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group,
+)
+
+
+notes_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_notes_v1_0.generated._client_factory import cf_group
-
-    notes_v1_0_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('notes group', notes_v1_0_group, client_factory=cf_group) as g:
         g.custom_command('delete-onenote', 'notes_group_delete_onenote')
         g.custom_command('show-onenote', 'notes_group_show_onenote')
         g.custom_command('update-onenote', 'notes_group_update_onenote')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote
-
-    notes_v1_0_group_onenote = CliCommandType(
-        operations_tmpl=(
-            'azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_operations#GroupOnenoteOperations.{}'
-        ),
-        client_factory=cf_group_onenote,
-    )
     with self.command_group('notes group-onenote', notes_v1_0_group_onenote, client_factory=cf_group_onenote) as g:
         g.custom_command('create-notebook', 'notes_group_onenote_create_notebook')
         g.custom_command('create-operation', 'notes_group_onenote_create_operation')
@@ -67,12 +820,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenote_update_section')
         g.custom_command('update-section-group', 'notes_group_onenote_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook
-
-    notes_v1_0_group_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_operations#GroupOnenoteNotebookOperations.{}',
-        client_factory=cf_group_onenote_notebook,
-    )
     with self.command_group(
         'notes group-onenotebook', notes_v1_0_group_onenote_notebook, client_factory=cf_group_onenote_notebook
     ) as g:
@@ -87,12 +834,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenotebook_update_section')
         g.custom_command('update-section-group', 'notes_group_onenotebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group
-
-    notes_v1_0_group_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_operations#GroupOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group,
-    )
     with self.command_group(
         'notes group-onenotebook-section-group',
         notes_v1_0_group_onenote_notebook_section_group,
@@ -119,12 +860,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenotebook_section_group_update_section')
         g.custom_command('update-section-group', 'notes_group_onenotebook_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group_section
-
-    notes_v1_0_group_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_operations#GroupOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group_section,
-    )
     with self.command_group(
         'notes group-onenotebook-section-group-section',
         notes_v1_0_group_onenote_notebook_section_group_section,
@@ -152,12 +887,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_group_onenotebook_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_group_section_page
-
-    notes_v1_0_group_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_group_section_page_operations#GroupOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_group_section_page,
-    )
     with self.command_group(
         'notes group-onenotebook-section-group-section-page',
         notes_v1_0_group_onenote_notebook_section_group_section_page,
@@ -182,12 +911,6 @@ def load_command_table(self, _):
             'update-parent-section', 'notes_group_onenotebook_section_group_section_page_update_parent_section'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section
-
-    notes_v1_0_group_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_operations#GroupOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_notebook_section,
-    )
     with self.command_group(
         'notes group-onenotebook-section',
         notes_v1_0_group_onenote_notebook_section,
@@ -205,12 +928,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_group_onenotebook_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_group_onenotebook_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_page
-
-    notes_v1_0_group_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_page_operations#GroupOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_page,
-    )
     with self.command_group(
         'notes group-onenotebook-section-page',
         notes_v1_0_group_onenote_notebook_section_page,
@@ -223,12 +940,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_group_onenotebook_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_group_onenotebook_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_notebook_section_parent_section_group
-
-    notes_v1_0_group_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_notebook_section_parent_section_group_operations#GroupOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes group-onenotebook-section-parent-section-group',
         notes_v1_0_group_onenote_notebook_section_parent_section_group,
@@ -276,12 +987,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenotebook_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page
-
-    notes_v1_0_group_onenote_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_operations#GroupOnenotePageOperations.{}',
-        client_factory=cf_group_onenote_page,
-    )
     with self.command_group(
         'notes group-onenote-page', notes_v1_0_group_onenote_page, client_factory=cf_group_onenote_page
     ) as g:
@@ -292,12 +997,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_group_onenote_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_group_onenote_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook
-
-    notes_v1_0_group_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_operations#GroupOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-notebook',
         notes_v1_0_group_onenote_page_parent_notebook,
@@ -314,12 +1013,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenote_page_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_group_onenote_page_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group
-
-    notes_v1_0_group_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_operations#GroupOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-notebook-section-group',
         notes_v1_0_group_onenote_page_parent_notebook_section_group,
@@ -367,12 +1060,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section_group_section
-
-    notes_v1_0_group_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_group_section_operations#GroupOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-notebook-section-group-section',
         notes_v1_0_group_onenote_page_parent_notebook_section_group_section,
@@ -408,12 +1095,6 @@ def load_command_table(self, _):
             'notes_group_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_notebook_section
-
-    notes_v1_0_group_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_operations#GroupOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-notebook-section',
         notes_v1_0_group_onenote_page_parent_notebook_section,
@@ -445,14 +1126,6 @@ def load_command_table(self, _):
             'notes_group_onenote_page_parent_notebook_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_group_onenote_page_parent_notebook_section_parent_section_group,
-    )
-
-    notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_notebook_section_parent_section_group_operations#GroupOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-notebook-section-parent-section-group',
         notes_v1_0_group_onenote_page_parent_notebook_section_parent_section_group,
@@ -518,12 +1191,6 @@ def load_command_table(self, _):
             'notes_group_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section
-
-    notes_v1_0_group_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_operations#GroupOnenotePageParentSectionOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-section',
         notes_v1_0_group_onenote_page_parent_section,
@@ -547,12 +1214,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_group_onenote_page_parent_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_notebook
-
-    notes_v1_0_group_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_operations#GroupOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-section-parent-notebook',
         notes_v1_0_group_onenote_page_parent_section_parent_notebook,
@@ -579,14 +1240,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_group_onenote_page_parent_section_parent_notebook_section_group,
-    )
-
-    notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_notebook_section_group_operations#GroupOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-section-parent-notebook-section-group',
         notes_v1_0_group_onenote_page_parent_section_parent_notebook_section_group,
@@ -652,12 +1305,6 @@ def load_command_table(self, _):
             'notes_group_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_page_parent_section_parent_section_group
-
-    notes_v1_0_group_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_operations#GroupOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_section_group,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-section-parent-section-group',
         notes_v1_0_group_onenote_page_parent_section_parent_section_group,
@@ -713,14 +1360,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
-
-    notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_page_parent_section_parent_section_group_parent_notebook_operations#GroupOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-page-parent-section-parent-section-group-parent-notebook',
         notes_v1_0_group_onenote_page_parent_section_parent_section_group_parent_notebook,
@@ -765,12 +1404,6 @@ def load_command_table(self, _):
             'notes_group_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group
-
-    notes_v1_0_group_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_operations#GroupOnenoteSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_group,
-    )
     with self.command_group(
         'notes group-onenote-section-group',
         notes_v1_0_group_onenote_section_group,
@@ -793,12 +1426,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenote_section_group_update_section')
         g.custom_command('update-section-group', 'notes_group_onenote_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook
-
-    notes_v1_0_group_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_operations#GroupOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-group-parent-notebook',
         notes_v1_0_group_onenote_section_group_parent_notebook,
@@ -821,12 +1448,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_section_group_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section
-
-    notes_v1_0_group_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_operations#GroupOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'notes group-onenote-section-group-parent-notebook-section',
         notes_v1_0_group_onenote_section_group_parent_notebook_section,
@@ -859,12 +1480,6 @@ def load_command_table(self, _):
             'notes_group_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_parent_notebook_section_page
-
-    notes_v1_0_group_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_parent_notebook_section_page_operations#GroupOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_group_parent_notebook_section_page,
-    )
     with self.command_group(
         'notes group-onenote-section-group-parent-notebook-section-page',
         notes_v1_0_group_onenote_section_group_parent_notebook_section_page,
@@ -894,12 +1509,6 @@ def load_command_table(self, _):
             'notes_group_onenote_section_group_parent_notebook_section_page_update_parent_section',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section
-
-    notes_v1_0_group_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_operations#GroupOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_group_onenote_section_group_section,
-    )
     with self.command_group(
         'notes group-onenote-section-group-section',
         notes_v1_0_group_onenote_section_group_section,
@@ -923,12 +1532,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_group_onenote_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_page
-
-    notes_v1_0_group_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_operations#GroupOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_page,
-    )
     with self.command_group(
         'notes group-onenote-section-group-section-page',
         notes_v1_0_group_onenote_section_group_section_page,
@@ -949,12 +1552,6 @@ def load_command_table(self, _):
             'update-parent-section', 'notes_group_onenote_section_group_section_page_update_parent_section'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_page_parent_notebook
-
-    notes_v1_0_group_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_page_parent_notebook_operations#GroupOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-group-section-page-parent-notebook',
         notes_v1_0_group_onenote_section_group_section_page_parent_notebook,
@@ -990,12 +1587,6 @@ def load_command_table(self, _):
             'notes_group_onenote_section_group_section_page_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_group_section_parent_notebook
-
-    notes_v1_0_group_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_group_section_parent_notebook_operations#GroupOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-group-section-parent-notebook',
         notes_v1_0_group_onenote_section_group_section_parent_notebook,
@@ -1022,12 +1613,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_section_group_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section
-
-    notes_v1_0_group_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_operations#GroupOnenoteSectionOperations.{}',
-        client_factory=cf_group_onenote_section,
-    )
     with self.command_group(
         'notes group-onenote-section', notes_v1_0_group_onenote_section, client_factory=cf_group_onenote_section
     ) as g:
@@ -1043,12 +1628,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_group_onenote_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_group_onenote_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page
-
-    notes_v1_0_group_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_operations#GroupOnenoteSectionPageOperations.{}',
-        client_factory=cf_group_onenote_section_page,
-    )
     with self.command_group(
         'notes group-onenote-section-page',
         notes_v1_0_group_onenote_section_page,
@@ -1061,12 +1640,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_group_onenote_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_group_onenote_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page_parent_notebook
-
-    notes_v1_0_group_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_operations#GroupOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-page-parent-notebook',
         notes_v1_0_group_onenote_section_page_parent_notebook,
@@ -1089,12 +1662,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_section_page_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_page_parent_notebook_section_group
-
-    notes_v1_0_group_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_page_parent_notebook_section_group_operations#GroupOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes group-onenote-section-page-parent-notebook-section-group',
         notes_v1_0_group_onenote_section_page_parent_notebook_section_group,
@@ -1154,12 +1721,6 @@ def load_command_table(self, _):
             'notes_group_onenote_section_page_parent_notebook_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_notebook
-
-    notes_v1_0_group_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_operations#GroupOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-parent-notebook',
         notes_v1_0_group_onenote_section_parent_notebook,
@@ -1176,12 +1737,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_group_onenote_section_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_group_onenote_section_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_notebook_section_group
-
-    notes_v1_0_group_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_notebook_section_group_operations#GroupOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes group-onenote-section-parent-notebook-section-group',
         notes_v1_0_group_onenote_section_parent_notebook_section_group,
@@ -1229,12 +1784,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_section_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_section_group
-
-    notes_v1_0_group_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_operations#GroupOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_group_onenote_section_parent_section_group,
-    )
     with self.command_group(
         'notes group-onenote-section-parent-section-group',
         notes_v1_0_group_onenote_section_parent_section_group,
@@ -1277,12 +1826,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_group_onenote_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_group_onenote_section_parent_section_group_parent_notebook
-
-    notes_v1_0_group_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._group_onenote_section_parent_section_group_parent_notebook_operations#GroupOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_group_onenote_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes group-onenote-section-parent-section-group-parent-notebook',
         notes_v1_0_group_onenote_section_parent_section_group_parent_notebook,
@@ -1322,25 +1865,11 @@ def load_command_table(self, _):
             'notes_group_onenote_section_parent_section_group_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site
-
-    notes_v1_0_site = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_operations#SiteOperations.{}',
-        client_factory=cf_site,
-    )
     with self.command_group('notes site', notes_v1_0_site, client_factory=cf_site) as g:
         g.custom_command('delete-onenote', 'notes_site_delete_onenote')
         g.custom_command('show-onenote', 'notes_site_show_onenote')
         g.custom_command('update-onenote', 'notes_site_update_onenote')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote
-
-    notes_v1_0_site_onenote = CliCommandType(
-        operations_tmpl=(
-            'azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_operations#SiteOnenoteOperations.{}'
-        ),
-        client_factory=cf_site_onenote,
-    )
     with self.command_group('notes site-onenote', notes_v1_0_site_onenote, client_factory=cf_site_onenote) as g:
         g.custom_command('create-notebook', 'notes_site_onenote_create_notebook')
         g.custom_command('create-operation', 'notes_site_onenote_create_operation')
@@ -1373,12 +1902,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook
-
-    notes_v1_0_site_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_operations#SiteOnenoteNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook,
-    )
     with self.command_group(
         'notes site-onenotebook', notes_v1_0_site_onenote_notebook, client_factory=cf_site_onenote_notebook
     ) as g:
@@ -1393,12 +1916,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenotebook_update_section')
         g.custom_command('update-section-group', 'notes_site_onenotebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group
-
-    notes_v1_0_site_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_operations#SiteOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group,
-    )
     with self.command_group(
         'notes site-onenotebook-section-group',
         notes_v1_0_site_onenote_notebook_section_group,
@@ -1425,12 +1942,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenotebook_section_group_update_section')
         g.custom_command('update-section-group', 'notes_site_onenotebook_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section
-
-    notes_v1_0_site_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_operations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section,
-    )
     with self.command_group(
         'notes site-onenotebook-section-group-section',
         notes_v1_0_site_onenote_notebook_section_group_section,
@@ -1458,12 +1969,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_site_onenotebook_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_group_section_page
-
-    notes_v1_0_site_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_group_section_page_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_page,
-    )
     with self.command_group(
         'notes site-onenotebook-section-group-section-page',
         notes_v1_0_site_onenote_notebook_section_group_section_page,
@@ -1486,12 +1991,6 @@ def load_command_table(self, _):
             'update-parent-section', 'notes_site_onenotebook_section_group_section_page_update_parent_section'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section
-
-    notes_v1_0_site_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_operations#SiteOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section,
-    )
     with self.command_group(
         'notes site-onenotebook-section',
         notes_v1_0_site_onenote_notebook_section,
@@ -1509,12 +2008,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_site_onenotebook_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_site_onenotebook_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_page
-
-    notes_v1_0_site_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_page_operations#SiteOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_page,
-    )
     with self.command_group(
         'notes site-onenotebook-section-page',
         notes_v1_0_site_onenote_notebook_section_page,
@@ -1527,12 +2020,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_site_onenotebook_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_site_onenotebook_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_notebook_section_parent_section_group
-
-    notes_v1_0_site_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_notebook_section_parent_section_group_operations#SiteOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes site-onenotebook-section-parent-section-group',
         notes_v1_0_site_onenote_notebook_section_parent_section_group,
@@ -1575,14 +2062,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenotebook_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page
-
-    notes_v1_0_site_onenote_page = CliCommandType(
-        operations_tmpl=(
-            'azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_operations#SiteOnenotePageOperations.{}'
-        ),
-        client_factory=cf_site_onenote_page,
-    )
     with self.command_group(
         'notes site-onenote-page', notes_v1_0_site_onenote_page, client_factory=cf_site_onenote_page
     ) as g:
@@ -1593,12 +2072,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_site_onenote_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_site_onenote_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook
-
-    notes_v1_0_site_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_operations#SiteOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-notebook',
         notes_v1_0_site_onenote_page_parent_notebook,
@@ -1615,12 +2088,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_page_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_page_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group
-
-    notes_v1_0_site_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_operations#SiteOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-notebook-section-group',
         notes_v1_0_site_onenote_page_parent_notebook_section_group,
@@ -1668,12 +2135,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section
-
-    notes_v1_0_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_group_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-notebook-section-group-section',
         notes_v1_0_site_onenote_page_parent_notebook_section_group_section,
@@ -1708,12 +2169,6 @@ def load_command_table(self, _):
             'notes_site_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_notebook_section
-
-    notes_v1_0_site_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_operations#SiteOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-notebook-section',
         notes_v1_0_site_onenote_page_parent_notebook_section,
@@ -1741,14 +2196,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_site_onenote_page_parent_notebook_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_parent_section_group,
-    )
-
-    notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_notebook_section_parent_section_group_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-notebook-section-parent-section-group',
         notes_v1_0_site_onenote_page_parent_notebook_section_parent_section_group,
@@ -1814,12 +2261,6 @@ def load_command_table(self, _):
             'notes_site_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section
-
-    notes_v1_0_site_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_operations#SiteOnenotePageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-section',
         notes_v1_0_site_onenote_page_parent_section,
@@ -1843,12 +2284,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_site_onenote_page_parent_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook
-
-    notes_v1_0_site_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-section-parent-notebook',
         notes_v1_0_site_onenote_page_parent_section_parent_notebook,
@@ -1875,14 +2310,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_notebook_section_group,
-    )
-
-    notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_notebook_section_group_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-section-parent-notebook-section-group',
         notes_v1_0_site_onenote_page_parent_section_parent_notebook_section_group,
@@ -1948,12 +2375,6 @@ def load_command_table(self, _):
             'notes_site_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_page_parent_section_parent_section_group
-
-    notes_v1_0_site_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_operations#SiteOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-section-parent-section-group',
         notes_v1_0_site_onenote_page_parent_section_parent_section_group,
@@ -2003,14 +2424,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
-
-    notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-page-parent-section-parent-section-group-parent-notebook',
         notes_v1_0_site_onenote_page_parent_section_parent_section_group_parent_notebook,
@@ -2055,12 +2468,6 @@ def load_command_table(self, _):
             'notes_site_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group
-
-    notes_v1_0_site_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_operations#SiteOnenoteSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_group,
-    )
     with self.command_group(
         'notes site-onenote-section-group',
         notes_v1_0_site_onenote_section_group,
@@ -2083,12 +2490,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_section_group_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook
-
-    notes_v1_0_site_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-group-parent-notebook',
         notes_v1_0_site_onenote_section_group_parent_notebook,
@@ -2111,12 +2512,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_section_group_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section
-
-    notes_v1_0_site_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'notes site-onenote-section-group-parent-notebook-section',
         notes_v1_0_site_onenote_section_group_parent_notebook_section,
@@ -2149,12 +2544,6 @@ def load_command_table(self, _):
             'notes_site_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page
-
-    notes_v1_0_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_parent_notebook_section_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
-    )
     with self.command_group(
         'notes site-onenote-section-group-parent-notebook-section-page',
         notes_v1_0_site_onenote_section_group_parent_notebook_section_page,
@@ -2183,12 +2572,6 @@ def load_command_table(self, _):
             'notes_site_onenote_section_group_parent_notebook_section_page_update_parent_section',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section
-
-    notes_v1_0_site_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_operations#SiteOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section,
-    )
     with self.command_group(
         'notes site-onenote-section-group-section',
         notes_v1_0_site_onenote_section_group_section,
@@ -2212,12 +2595,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_site_onenote_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page
-
-    notes_v1_0_site_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_operations#SiteOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page,
-    )
     with self.command_group(
         'notes site-onenote-section-group-section-page',
         notes_v1_0_site_onenote_section_group_section_page,
@@ -2234,12 +2611,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-parent-section', 'notes_site_onenote_section_group_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_page_parent_notebook
-
-    notes_v1_0_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_page_parent_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-group-section-page-parent-notebook',
         notes_v1_0_site_onenote_section_group_section_page_parent_notebook,
@@ -2272,12 +2643,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_section_group_section_page_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook
-
-    notes_v1_0_site_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_group_section_parent_notebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-group-section-parent-notebook',
         notes_v1_0_site_onenote_section_group_section_parent_notebook,
@@ -2304,12 +2669,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_section_group_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section
-
-    notes_v1_0_site_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_operations#SiteOnenoteSectionOperations.{}',
-        client_factory=cf_site_onenote_section,
-    )
     with self.command_group(
         'notes site-onenote-section', notes_v1_0_site_onenote_section, client_factory=cf_site_onenote_section
     ) as g:
@@ -2325,12 +2684,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_site_onenote_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_site_onenote_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page
-
-    notes_v1_0_site_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_operations#SiteOnenoteSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_page,
-    )
     with self.command_group(
         'notes site-onenote-section-page',
         notes_v1_0_site_onenote_section_page,
@@ -2343,12 +2696,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_site_onenote_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_site_onenote_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook
-
-    notes_v1_0_site_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-page-parent-notebook',
         notes_v1_0_site_onenote_section_page_parent_notebook,
@@ -2365,12 +2712,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_section_page_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_section_page_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section_group
-
-    notes_v1_0_site_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_page_parent_notebook_section_group_operations#SiteOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes site-onenote-section-page-parent-notebook-section-group',
         notes_v1_0_site_onenote_section_page_parent_notebook_section_group,
@@ -2426,12 +2767,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_section_page_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook
-
-    notes_v1_0_site_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_operations#SiteOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-parent-notebook',
         notes_v1_0_site_onenote_section_parent_notebook,
@@ -2448,12 +2783,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_section_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_section_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_notebook_section_group
-
-    notes_v1_0_site_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_notebook_section_group_operations#SiteOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes site-onenote-section-parent-notebook-section-group',
         notes_v1_0_site_onenote_section_parent_notebook_section_group,
@@ -2501,12 +2830,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_site_onenote_section_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group
-
-    notes_v1_0_site_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_operations#SiteOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group,
-    )
     with self.command_group(
         'notes site-onenote-section-parent-section-group',
         notes_v1_0_site_onenote_section_parent_section_group,
@@ -2539,12 +2862,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_site_onenote_section_parent_section_group_update_section')
         g.custom_command('update-section-group', 'notes_site_onenote_section_parent_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_site_onenote_section_parent_section_group_parent_notebook
-
-    notes_v1_0_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._site_onenote_section_parent_section_group_parent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes site-onenote-section-parent-section-group-parent-notebook',
         notes_v1_0_site_onenote_section_parent_section_group_parent_notebook,
@@ -2580,25 +2897,11 @@ def load_command_table(self, _):
             'notes_site_onenote_section_parent_section_group_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user
-
-    notes_v1_0_user = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('notes user', notes_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('delete-onenote', 'notes_user_delete_onenote')
         g.custom_command('show-onenote', 'notes_user_show_onenote')
         g.custom_command('update-onenote', 'notes_user_update_onenote')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote
-
-    notes_v1_0_user_onenote = CliCommandType(
-        operations_tmpl=(
-            'azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_operations#UserOnenoteOperations.{}'
-        ),
-        client_factory=cf_user_onenote,
-    )
     with self.command_group('notes user-onenote', notes_v1_0_user_onenote, client_factory=cf_user_onenote) as g:
         g.custom_command('create-notebook', 'notes_user_onenote_create_notebook')
         g.custom_command('create-operation', 'notes_user_onenote_create_operation')
@@ -2631,12 +2934,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook
-
-    notes_v1_0_user_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook,
-    )
     with self.command_group(
         'notes user-onenotebook', notes_v1_0_user_onenote_notebook, client_factory=cf_user_onenote_notebook
     ) as g:
@@ -2651,12 +2948,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenotebook_update_section')
         g.custom_command('update-section-group', 'notes_user_onenotebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group
-
-    notes_v1_0_user_onenote_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_operations#UserOnenoteNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group,
-    )
     with self.command_group(
         'notes user-onenotebook-section-group',
         notes_v1_0_user_onenote_notebook_section_group,
@@ -2683,12 +2974,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenotebook_section_group_update_section')
         g.custom_command('update-section-group', 'notes_user_onenotebook_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section
-
-    notes_v1_0_user_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section,
-    )
     with self.command_group(
         'notes user-onenotebook-section-group-section',
         notes_v1_0_user_onenote_notebook_section_group_section,
@@ -2716,12 +3001,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_user_onenotebook_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_group_section_page
-
-    notes_v1_0_user_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page,
-    )
     with self.command_group(
         'notes user-onenotebook-section-group-section-page',
         notes_v1_0_user_onenote_notebook_section_group_section_page,
@@ -2744,12 +3023,6 @@ def load_command_table(self, _):
             'update-parent-section', 'notes_user_onenotebook_section_group_section_page_update_parent_section'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section
-
-    notes_v1_0_user_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_operations#UserOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section,
-    )
     with self.command_group(
         'notes user-onenotebook-section',
         notes_v1_0_user_onenote_notebook_section,
@@ -2767,12 +3040,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_user_onenotebook_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_user_onenotebook_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_page
-
-    notes_v1_0_user_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page,
-    )
     with self.command_group(
         'notes user-onenotebook-section-page',
         notes_v1_0_user_onenote_notebook_section_page,
@@ -2785,12 +3052,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_user_onenotebook_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_user_onenotebook_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_notebook_section_parent_section_group
-
-    notes_v1_0_user_onenote_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_notebook_section_parent_section_group_operations#UserOnenoteNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes user-onenotebook-section-parent-section-group',
         notes_v1_0_user_onenote_notebook_section_parent_section_group,
@@ -2833,14 +3094,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenotebook_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page
-
-    notes_v1_0_user_onenote_page = CliCommandType(
-        operations_tmpl=(
-            'azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_operations#UserOnenotePageOperations.{}'
-        ),
-        client_factory=cf_user_onenote_page,
-    )
     with self.command_group(
         'notes user-onenote-page', notes_v1_0_user_onenote_page, client_factory=cf_user_onenote_page
     ) as g:
@@ -2851,12 +3104,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_user_onenote_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_user_onenote_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook
-
-    notes_v1_0_user_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_operations#UserOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-notebook',
         notes_v1_0_user_onenote_page_parent_notebook,
@@ -2873,12 +3120,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_page_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_page_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group
-
-    notes_v1_0_user_onenote_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_operations#UserOnenotePageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-notebook-section-group',
         notes_v1_0_user_onenote_page_parent_notebook_section_group,
@@ -2926,12 +3167,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_page_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section_group_section
-
-    notes_v1_0_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-notebook-section-group-section',
         notes_v1_0_user_onenote_page_parent_notebook_section_group_section,
@@ -2966,12 +3201,6 @@ def load_command_table(self, _):
             'notes_user_onenote_page_parent_notebook_section_group_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_notebook_section
-
-    notes_v1_0_user_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-notebook-section',
         notes_v1_0_user_onenote_page_parent_notebook_section,
@@ -2999,14 +3228,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_user_onenote_page_parent_notebook_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_parent_section_group,
-    )
-
-    notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_notebook_section_parent_section_group_operations#UserOnenotePageParentNotebookSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-notebook-section-parent-section-group',
         notes_v1_0_user_onenote_page_parent_notebook_section_parent_section_group,
@@ -3072,12 +3293,6 @@ def load_command_table(self, _):
             'notes_user_onenote_page_parent_notebook_section_parent_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section
-
-    notes_v1_0_user_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_operations#UserOnenotePageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-section',
         notes_v1_0_user_onenote_page_parent_section,
@@ -3101,12 +3316,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_user_onenote_page_parent_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook
-
-    notes_v1_0_user_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-section-parent-notebook',
         notes_v1_0_user_onenote_page_parent_section_parent_notebook,
@@ -3133,14 +3342,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_page_parent_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_notebook_section_group,
-    )
-
-    notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_notebook_section_group_operations#UserOnenotePageParentSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-section-parent-notebook-section-group',
         notes_v1_0_user_onenote_page_parent_section_parent_notebook_section_group,
@@ -3206,12 +3407,6 @@ def load_command_table(self, _):
             'notes_user_onenote_page_parent_section_parent_notebook_section_group_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_page_parent_section_parent_section_group
-
-    notes_v1_0_user_onenote_page_parent_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_operations#UserOnenotePageParentSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-section-parent-section-group',
         notes_v1_0_user_onenote_page_parent_section_parent_section_group,
@@ -3261,14 +3456,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_page_parent_section_parent_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
-
-    notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-page-parent-section-parent-section-group-parent-notebook',
         notes_v1_0_user_onenote_page_parent_section_parent_section_group_parent_notebook,
@@ -3313,12 +3500,6 @@ def load_command_table(self, _):
             'notes_user_onenote_page_parent_section_parent_section_group_parent_notebook_update_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group
-
-    notes_v1_0_user_onenote_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_operations#UserOnenoteSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_group,
-    )
     with self.command_group(
         'notes user-onenote-section-group',
         notes_v1_0_user_onenote_section_group,
@@ -3341,12 +3522,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_section_group_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook
-
-    notes_v1_0_user_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-group-parent-notebook',
         notes_v1_0_user_onenote_section_group_parent_notebook,
@@ -3369,12 +3544,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_section_group_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section
-
-    notes_v1_0_user_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'notes user-onenote-section-group-parent-notebook-section',
         notes_v1_0_user_onenote_section_group_parent_notebook_section,
@@ -3407,12 +3576,6 @@ def load_command_table(self, _):
             'notes_user_onenote_section_group_parent_notebook_section_update_parent_section_group',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section_page
-
-    notes_v1_0_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
-    )
     with self.command_group(
         'notes user-onenote-section-group-parent-notebook-section-page',
         notes_v1_0_user_onenote_section_group_parent_notebook_section_page,
@@ -3441,12 +3604,6 @@ def load_command_table(self, _):
             'notes_user_onenote_section_group_parent_notebook_section_page_update_parent_section',
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section
-
-    notes_v1_0_user_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_operations#UserOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section,
-    )
     with self.command_group(
         'notes user-onenote-section-group-section',
         notes_v1_0_user_onenote_section_group_section,
@@ -3470,12 +3627,6 @@ def load_command_table(self, _):
             'update-parent-section-group', 'notes_user_onenote_section_group_section_update_parent_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page
-
-    notes_v1_0_user_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page,
-    )
     with self.command_group(
         'notes user-onenote-section-group-section-page',
         notes_v1_0_user_onenote_section_group_section_page,
@@ -3492,12 +3643,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-parent-section', 'notes_user_onenote_section_group_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_page_parent_notebook
-
-    notes_v1_0_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-group-section-page-parent-notebook',
         notes_v1_0_user_onenote_section_group_section_page_parent_notebook,
@@ -3530,12 +3675,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_section_group_section_page_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_group_section_parent_notebook
-
-    notes_v1_0_user_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_group_section_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-group-section-parent-notebook',
         notes_v1_0_user_onenote_section_group_section_parent_notebook,
@@ -3562,12 +3701,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_section_group_section_parent_notebook_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section
-
-    notes_v1_0_user_onenote_section = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_operations#UserOnenoteSectionOperations.{}',
-        client_factory=cf_user_onenote_section,
-    )
     with self.command_group(
         'notes user-onenote-section', notes_v1_0_user_onenote_section, client_factory=cf_user_onenote_section
     ) as g:
@@ -3583,12 +3716,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_user_onenote_section_update_parent_notebook')
         g.custom_command('update-parent-section-group', 'notes_user_onenote_section_update_parent_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page
-
-    notes_v1_0_user_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_page,
-    )
     with self.command_group(
         'notes user-onenote-section-page',
         notes_v1_0_user_onenote_section_page,
@@ -3601,12 +3728,6 @@ def load_command_table(self, _):
         g.custom_command('update-parent-notebook', 'notes_user_onenote_section_page_update_parent_notebook')
         g.custom_command('update-parent-section', 'notes_user_onenote_section_page_update_parent_section')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook
-
-    notes_v1_0_user_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-page-parent-notebook',
         notes_v1_0_user_onenote_section_page_parent_notebook,
@@ -3623,12 +3744,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_section_page_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_section_page_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section_group
-
-    notes_v1_0_user_onenote_section_page_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_page_parent_notebook_section_group_operations#UserOnenoteSectionPageParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes user-onenote-section-page-parent-notebook-section-group',
         notes_v1_0_user_onenote_section_page_parent_notebook_section_group,
@@ -3684,12 +3799,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_section_page_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook
-
-    notes_v1_0_user_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-parent-notebook',
         notes_v1_0_user_onenote_section_parent_notebook,
@@ -3706,12 +3815,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_section_parent_notebook_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_section_parent_notebook_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_notebook_section_group
-
-    notes_v1_0_user_onenote_section_parent_notebook_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_notebook_section_group_operations#UserOnenoteSectionParentNotebookSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group,
-    )
     with self.command_group(
         'notes user-onenote-section-parent-notebook-section-group',
         notes_v1_0_user_onenote_section_parent_notebook_section_group,
@@ -3759,12 +3862,6 @@ def load_command_table(self, _):
             'update-section-group', 'notes_user_onenote_section_parent_notebook_section_group_update_section_group'
         )
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group
-
-    notes_v1_0_user_onenote_section_parent_section_group = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_operations#UserOnenoteSectionParentSectionGroupOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group,
-    )
     with self.command_group(
         'notes user-onenote-section-parent-section-group',
         notes_v1_0_user_onenote_section_parent_section_group,
@@ -3797,12 +3894,6 @@ def load_command_table(self, _):
         g.custom_command('update-section', 'notes_user_onenote_section_parent_section_group_update_section')
         g.custom_command('update-section-group', 'notes_user_onenote_section_parent_section_group_update_section_group')
 
-    from azext_notes_v1_0.generated._client_factory import cf_user_onenote_section_parent_section_group_parent_notebook
-
-    notes_v1_0_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_notes_v1_0.vendored_sdks.notes.operations._user_onenote_section_parent_section_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'notes user-onenote-section-parent-section-group-parent-notebook',
         notes_v1_0_user_onenote_section_parent_section_group_parent_notebook,

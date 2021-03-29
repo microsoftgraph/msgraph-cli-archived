@@ -364,7 +364,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -483,7 +483,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -602,7 +602,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -865,7 +865,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -985,7 +985,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -1143,7 +1143,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -1263,7 +1263,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -2191,7 +2191,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -2581,7 +2581,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -2831,7 +2831,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -2951,7 +2951,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -3179,7 +3179,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -3981,7 +3981,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -4250,7 +4250,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
 |**--drive-item**|object|driveItem|drive_item|driveItem|
@@ -4492,7 +4492,7 @@
 |**--application4**|object|identity|application4|application|
 |**--device3**|object|identity|device3|device|
 |**--user3**|object|identity|user3|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
 |**--microsoft-graph-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|
@@ -4643,7 +4643,7 @@
 |**--application4**|object|identity|application4|application|
 |**--device3**|object|identity|device3|device|
 |**--user3**|object|identity|user3|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
 |**--microsoft-graph-drive-item**|object|driveItem|microsoft_graph_drive_item|driveItem|

@@ -13,6 +13,11 @@
 from knack.help_files import helps
 
 
+helps['usersactions_v1_0'] = '''
+    type: group
+    short-summary: Manage Users Actions
+'''
+
 helps['usersactions user-calendar-calendar-view-attachment'] = """
     type: group
     short-summary: Manage user calendar calendar view attachment with usersactions_v1_0
@@ -1350,10 +1355,10 @@ helps['usersactions user-mail-folder-message create-forward'] = """
     type: command
     short-summary: "Invoke action createForward."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1419,10 +1424,10 @@ helps['usersactions user-mail-folder-message create-reply'] = """
     type: command
     short-summary: "Invoke action createReply."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1488,10 +1493,10 @@ helps['usersactions user-mail-folder-message create-reply-all'] = """
     type: command
     short-summary: "Invoke action createReplyAll."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1557,10 +1562,10 @@ helps['usersactions user-mail-folder-message forward'] = """
     type: command
     short-summary: "Invoke action forward."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1631,10 +1636,10 @@ helps['usersactions user-mail-folder-message reply'] = """
     type: command
     short-summary: "Invoke action reply."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1700,10 +1705,10 @@ helps['usersactions user-mail-folder-message reply-all'] = """
     type: command
     short-summary: "Invoke action replyAll."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1922,10 +1927,10 @@ helps['usersactions user-message create-forward'] = """
     type: command
     short-summary: "Invoke action createForward."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -1991,10 +1996,10 @@ helps['usersactions user-message create-reply'] = """
     type: command
     short-summary: "Invoke action createReply."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -2060,10 +2065,10 @@ helps['usersactions user-message create-reply-all'] = """
     type: command
     short-summary: "Invoke action createReplyAll."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -2129,10 +2134,10 @@ helps['usersactions user-message forward'] = """
     type: command
     short-summary: "Invoke action forward."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -2203,10 +2208,10 @@ helps['usersactions user-message reply'] = """
     type: command
     short-summary: "Invoke action reply."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -2272,10 +2277,10 @@ helps['usersactions user-message reply-all'] = """
     type: command
     short-summary: "Invoke action replyAll."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers
@@ -2460,10 +2465,10 @@ helps['usersactions user send-mail'] = """
     type: command
     short-summary: "Invoke action sendMail."
     parameters:
-      - name: --message-body
+      - name: --body
         short-summary: "itemBody"
         long-summary: |
-            Usage: --message-body content=XX content-type=XX
+            Usage: --body content=XX content-type=XX
 
             content: The content of the item.
       - name: --internet-message-headers

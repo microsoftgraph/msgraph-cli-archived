@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['calendar_v1_0'] = '''
+    type: group
+    short-summary: Manage Calendar
+'''
+
 helps['calendar group'] = """
     type: group
     short-summary: Manage group with calendar_v1_0

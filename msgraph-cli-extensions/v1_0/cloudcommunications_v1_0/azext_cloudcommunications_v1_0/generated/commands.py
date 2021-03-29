@@ -9,19 +9,23 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_cloudcommunications_v1_0.generated._client_factory import cf_user
+
+
+cloudcommunications_v1_0_user = CliCommandType(
+    operations_tmpl=(
+        'azext_cloudcommunications_v1_0.vendored_sdks.cloudcommunications.operations._user_operations#UserOperations.{}'
+    ),
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_cloudcommunications_v1_0.generated._client_factory import cf_user
-
-    cloudcommunications_v1_0_user = CliCommandType(
-        operations_tmpl='azext_cloudcommunications_v1_0.vendored_sdks.cloudcommunications.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('cloudcommunications user', cloudcommunications_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-online-meeting', 'cloudcommunications_user_create_online_meeting')
         g.custom_command('delete-online-meeting', 'cloudcommunications_user_delete_online_meeting')

@@ -19,7 +19,7 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_usersactions_beta.action import (
     AddAttachmentItem,
     AddEndTime,
-    AddMessageBody,
+    AddBody,
     AddInternetMessageHeaders,
     AddMentionsPreview,
     AddAttachments,
@@ -1589,7 +1589,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -1638,7 +1638,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('microsoft_graph_message_to_recipients', type=validate_file_or_dict, help='The To: recipients for '
                    'the message. Expected value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -1679,7 +1679,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -1728,7 +1728,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -1769,7 +1769,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -1818,7 +1818,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -1860,7 +1860,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -1909,7 +1909,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('microsoft_graph_message_to_recipients', type=validate_file_or_dict, help='The To: recipients for '
                    'the message. Expected value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -1956,7 +1956,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2005,7 +2005,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2046,7 +2046,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2095,7 +2095,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2327,7 +2327,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2376,7 +2376,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('microsoft_graph_message_to_recipients', type=validate_file_or_dict, help='The To: recipients for '
                    'the message. Expected value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2416,7 +2416,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2465,7 +2465,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2505,7 +2505,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2554,7 +2554,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2595,7 +2595,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2644,7 +2644,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('microsoft_graph_message_to_recipients', type=validate_file_or_dict, help='The To: recipients for '
                    'the message. Expected value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2689,7 +2689,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2738,7 +2738,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2778,7 +2778,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -2827,7 +2827,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -2958,7 +2958,7 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'', arg_group='Message')
         c.argument('bcc_recipients', type=validate_file_or_dict, help='The Bcc: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('message_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('body_preview', type=str,
                    help='The first 255 characters of the message body. It is in text format.', arg_group='Message')
         c.argument('cc_recipients', type=validate_file_or_dict, help='The Cc: recipients for the message. Expected '
@@ -3007,7 +3007,7 @@ def load_arguments(self, _):
         c.argument('subject', type=str, help='The subject of the message.', arg_group='Message')
         c.argument('to_recipients', type=validate_file_or_dict, help='The To: recipients for the message. Expected '
                    'value: json-string/@json-file.', arg_group='Message')
-        c.argument('unique_body', action=AddMessageBody, nargs='+', help='itemBody', arg_group='Message')
+        c.argument('unique_body', action=AddBody, nargs='+', help='itemBody', arg_group='Message')
         c.argument('unsubscribe_data', nargs='+', help='', arg_group='Message')
         c.argument('unsubscribe_enabled', arg_type=get_three_state_flag(), help='', arg_group='Message')
         c.argument('web_link', type=str, help='The URL to open the message in Outlook on the web.You can append an '
@@ -4113,5 +4113,5 @@ def load_arguments(self, _):
         c.argument('topic', action=AddTopic, nargs='+', help='teamworkActivityTopic')
         c.argument('activity_type', type=str, help='')
         c.argument('chain_id', type=int, help='')
-        c.argument('preview_text', action=AddMessageBody, nargs='+', help='itemBody')
+        c.argument('preview_text', action=AddBody, nargs='+', help='itemBody')
         c.argument('template_parameters', action=AddTemplateParameters, nargs='+', help='')

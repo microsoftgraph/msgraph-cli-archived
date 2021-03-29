@@ -9,19 +9,556 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_sites_beta.generated._client_factory import (
+    cf_group,
+    cf_site_site,
+    cf_site,
+    cf_site_content_type,
+    cf_site_list,
+    cf_site_list_activity,
+    cf_site_list_activity_list_item,
+    cf_site_list_activity_list_item_version,
+    cf_site_list_content_type,
+    cf_site_list_item,
+    cf_site_list_item_activity,
+    cf_site_list_item_activity_list_item,
+    cf_site_list_item_version,
+    cf_site_onenote_notebook,
+    cf_site_onenote_notebook_section_group_parent_notebook,
+    cf_site_onenote_notebook_section_group_section,
+    cf_site_onenote_notebook_section_group_section_page,
+    cf_site_onenote_notebook_section_group_section_page_parent_notebook,
+    cf_site_onenote_notebook_section_group_section_page_parent_section,
+    cf_site_onenote_notebook_section_group_section_parent_notebook,
+    cf_site_onenote_notebook_section,
+    cf_site_onenote_notebook_section_page,
+    cf_site_onenote_notebook_section_page_parent_notebook,
+    cf_site_onenote_notebook_section_page_parent_section,
+    cf_site_onenote_notebook_section_parent_notebook,
+    cf_site_onenote_notebook_section_parent_section_group_parent_notebook,
+    cf_site_onenote_notebook_section_parent_section_group_section,
+    cf_site_onenote_page,
+    cf_site_onenote_page_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_group_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_group_section,
+    cf_site_onenote_page_parent_notebook_section_group_section_page,
+    cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section,
+    cf_site_onenote_page_parent_notebook_section_page,
+    cf_site_onenote_page_parent_notebook_section_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+    cf_site_onenote_page_parent_notebook_section_parent_section_group_section,
+    cf_site_onenote_page_parent_section,
+    cf_site_onenote_page_parent_section_page,
+    cf_site_onenote_page_parent_section_parent_notebook,
+    cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+    cf_site_onenote_page_parent_section_parent_notebook_section_group_section,
+    cf_site_onenote_page_parent_section_parent_notebook_section,
+    cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+    cf_site_onenote_page_parent_section_parent_section_group_section,
+    cf_site_onenote_section_group_parent_notebook,
+    cf_site_onenote_section_group_parent_notebook_section,
+    cf_site_onenote_section_group_parent_notebook_section_page,
+    cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
+    cf_site_onenote_section_group_parent_notebook_section_page_parent_section,
+    cf_site_onenote_section_group_parent_notebook_section_parent_notebook,
+    cf_site_onenote_section_group_section,
+    cf_site_onenote_section_group_section_page,
+    cf_site_onenote_section_group_section_page_parent_notebook,
+    cf_site_onenote_section_group_section_page_parent_notebook_section,
+    cf_site_onenote_section_group_section_page_parent_section,
+    cf_site_onenote_section_group_section_parent_notebook,
+    cf_site_onenote_section_group_section_parent_notebook_section,
+    cf_site_onenote_section,
+    cf_site_onenote_section_page,
+    cf_site_onenote_section_page_parent_notebook,
+    cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
+    cf_site_onenote_section_page_parent_notebook_section_group_section,
+    cf_site_onenote_section_page_parent_notebook_section,
+    cf_site_onenote_section_page_parent_section,
+    cf_site_onenote_section_parent_notebook,
+    cf_site_onenote_section_parent_notebook_section_group_parent_notebook,
+    cf_site_onenote_section_parent_notebook_section_group_section,
+    cf_site_onenote_section_parent_notebook_section,
+    cf_site_onenote_section_parent_section_group_parent_notebook,
+    cf_site_onenote_section_parent_section_group_parent_notebook_section,
+    cf_site_onenote_section_parent_section_group_section,
+    cf_site_page,
+    cf_user,
+)
+
+
+sites_beta_group = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._group_operations#GroupOperations.{}',
+    client_factory=cf_group,
+)
+
+
+sites_beta_site_site = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_site_operations#SiteSiteOperations.{}',
+    client_factory=cf_site_site,
+)
+
+
+sites_beta_site = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_operations#SiteOperations.{}',
+    client_factory=cf_site,
+)
+
+
+sites_beta_site_content_type = CliCommandType(
+    operations_tmpl=(
+        'azext_sites_beta.vendored_sdks.sites.operations._site_content_type_operations#SiteContentTypeOperations.{}'
+    ),
+    client_factory=cf_site_content_type,
+)
+
+
+sites_beta_site_list = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_operations#SiteListOperations.{}',
+    client_factory=cf_site_list,
+)
+
+
+sites_beta_site_list_activity = CliCommandType(
+    operations_tmpl=(
+        'azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_operations#SiteListActivityOperations.{}'
+    ),
+    client_factory=cf_site_list_activity,
+)
+
+
+sites_beta_site_list_activity_list_item = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_list_item_operations#SiteListActivityListItemOperations.{}',
+    client_factory=cf_site_list_activity_list_item,
+)
+
+
+sites_beta_site_list_activity_list_item_version = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_list_item_version_operations#SiteListActivityListItemVersionOperations.{}',
+    client_factory=cf_site_list_activity_list_item_version,
+)
+
+
+sites_beta_site_list_content_type = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_content_type_operations#SiteListContentTypeOperations.{}',
+    client_factory=cf_site_list_content_type,
+)
+
+
+sites_beta_site_list_item = CliCommandType(
+    operations_tmpl=(
+        'azext_sites_beta.vendored_sdks.sites.operations._site_list_item_operations#SiteListItemOperations.{}'
+    ),
+    client_factory=cf_site_list_item,
+)
+
+
+sites_beta_site_list_item_activity = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_activity_operations#SiteListItemActivityOperations.{}',
+    client_factory=cf_site_list_item_activity,
+)
+
+
+sites_beta_site_list_item_activity_list_item = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_activity_list_item_operations#SiteListItemActivityListItemOperations.{}',
+    client_factory=cf_site_list_item_activity_list_item,
+)
+
+
+sites_beta_site_list_item_version = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_version_operations#SiteListItemVersionOperations.{}',
+    client_factory=cf_site_list_item_version,
+)
+
+
+sites_beta_site_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_operations#SiteOnenoteNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_parent_notebook_operations#SiteOnenoteNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_operations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_page,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_parent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_parent_section_operations#SiteOnenoteNotebookSectionGroupSectionPageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_page_parent_section,
+)
+
+
+sites_beta_site_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_parent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_group_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_operations#SiteOnenoteNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section,
+)
+
+
+sites_beta_site_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_operations#SiteOnenoteNotebookSectionPageOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_page,
+)
+
+
+sites_beta_site_onenote_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_notebook_operations#SiteOnenoteNotebookSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_section_operations#SiteOnenoteNotebookSectionPageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_page_parent_section,
+)
+
+
+sites_beta_site_onenote_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_notebook_operations#SiteOnenoteNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_group_parent_notebook_operations#SiteOnenoteNotebookSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_group_section_operations#SiteOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_notebook_section_parent_section_group_section,
+)
+
+
+sites_beta_site_onenote_page = CliCommandType(
+    operations_tmpl=(
+        'azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_operations#SiteOnenotePageOperations.{}'
+    ),
+    client_factory=cf_site_onenote_page,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_operations#SiteOnenotePageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_page_operations#SiteOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_section_page,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_operations#SiteOnenotePageParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_page_operations#SiteOnenotePageParentNotebookSectionPageOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_page,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_notebook_operations#SiteOnenotePageParentNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_section_group_section_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_section,
+)
+
+
+sites_beta_site_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_operations#SiteOnenotePageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section,
+)
+
+
+sites_beta_site_onenote_page_parent_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_page_operations#SiteOnenotePageParentSectionPageOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_page,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_group_section_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_section,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_operations#SiteOnenotePageParentSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_section_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_page_parent_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_section_operations#SiteOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_page_parent_section_parent_section_group_section,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_parent_section_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_section,
+)
+
+
+sites_beta_site_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_parent_notebook_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_operations#SiteOnenoteSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_section,
+)
+
+
+sites_beta_site_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_operations#SiteOnenoteSectionGroupSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page,
+)
+
+
+sites_beta_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_notebook_section_operations#SiteOnenoteSectionGroupSectionPageParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_section_operations#SiteOnenoteSectionGroupSectionPageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_page_parent_section,
+)
+
+
+sites_beta_site_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_notebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_group_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_notebook_section_operations#SiteOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_group_section_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_operations#SiteOnenoteSectionOperations.{}',
+    client_factory=cf_site_onenote_section,
+)
+
+
+sites_beta_site_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_operations#SiteOnenoteSectionPageOperations.{}',
+    client_factory=cf_site_onenote_section_page,
+)
+
+
+sites_beta_site_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_group_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_group_section_operations#SiteOnenoteSectionPageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook_section_group_section,
+)
+
+
+sites_beta_site_onenote_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_operations#SiteOnenoteSectionPageParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_section_operations#SiteOnenoteSectionPageParentSectionOperations.{}',
+    client_factory=cf_site_onenote_section_page_parent_section,
+)
+
+
+sites_beta_site_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_operations#SiteOnenoteSectionParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_group_parent_notebook_operations#SiteOnenoteSectionParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_group_section_operations#SiteOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook_section_group_section,
+)
+
+
+sites_beta_site_onenote_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_operations#SiteOnenoteSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_parent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+sites_beta_site_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_parent_notebook_section_operations#SiteOnenoteSectionParentSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group_parent_notebook_section,
+)
+
+
+sites_beta_site_onenote_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_section_operations#SiteOnenoteSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_site_onenote_section_parent_section_group_section,
+)
+
+
+sites_beta_site_page = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_page_operations#SitePageOperations.{}',
+    client_factory=cf_site_page,
+)
+
+
+sites_beta_user = CliCommandType(
+    operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_sites_beta.generated._client_factory import cf_group
-
-    sites_beta_group = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('sites group', sites_beta_group, client_factory=cf_group) as g:
         g.custom_command('create-site', 'sites_group_create_site')
         g.custom_command('delete-site', 'sites_group_delete_site')
@@ -29,24 +566,12 @@ def load_command_table(self, _):
         g.custom_command('show-site', 'sites_group_show_site')
         g.custom_command('update-site', 'sites_group_update_site')
 
-    from azext_sites_beta.generated._client_factory import cf_site_site
-
-    sites_beta_site_site = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_site_operations#SiteSiteOperations.{}',
-        client_factory=cf_site_site,
-    )
     with self.command_group('sites site', sites_beta_site_site, client_factory=cf_site_site) as g:
         g.custom_command('list', 'sites_site_list')
         g.custom_command('create', 'sites_site_create')
         g.custom_command('delete-site', 'sites_site_delete_site')
         g.custom_command('show-site', 'sites_site_show_site')
 
-    from azext_sites_beta.generated._client_factory import cf_site
-
-    sites_beta_site = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_operations#SiteOperations.{}',
-        client_factory=cf_site,
-    )
     with self.command_group('sites site', sites_beta_site, client_factory=cf_site) as g:
         g.custom_show_command('show', 'sites_site_show')
         g.custom_command('add', 'sites_site_add')
@@ -85,14 +610,6 @@ def load_command_table(self, _):
         g.custom_command('update-list', 'sites_site_update_list')
         g.custom_command('update-page', 'sites_site_update_page')
 
-    from azext_sites_beta.generated._client_factory import cf_site_content_type
-
-    sites_beta_site_content_type = CliCommandType(
-        operations_tmpl=(
-            'azext_sites_beta.vendored_sdks.sites.operations._site_content_type_operations#SiteContentTypeOperations.{}'
-        ),
-        client_factory=cf_site_content_type,
-    )
     with self.command_group(
         'sites site-content-type', sites_beta_site_content_type, client_factory=cf_site_content_type
     ) as g:
@@ -102,12 +619,6 @@ def load_command_table(self, _):
         g.custom_command('show-column-link', 'sites_site_content_type_show_column_link')
         g.custom_command('update-column-link', 'sites_site_content_type_update_column_link')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list
-
-    sites_beta_site_list = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_operations#SiteListOperations.{}',
-        client_factory=cf_site_list,
-    )
     with self.command_group('sites site-list', sites_beta_site_list, client_factory=cf_site_list) as g:
         g.custom_command('create-activity', 'sites_site_list_create_activity')
         g.custom_command('create-column', 'sites_site_list_create_column')
@@ -138,12 +649,6 @@ def load_command_table(self, _):
         g.custom_command('update-item', 'sites_site_list_update_item')
         g.custom_command('update-subscription', 'sites_site_list_update_subscription')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_activity
-
-    sites_beta_site_list_activity = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_operations#SiteListActivityOperations.{}',
-        client_factory=cf_site_list_activity,
-    )
     with self.command_group(
         'sites site-list-activity', sites_beta_site_list_activity, client_factory=cf_site_list_activity
     ) as g:
@@ -156,12 +661,6 @@ def load_command_table(self, _):
         g.custom_command('update-drive-item', 'sites_site_list_activity_update_drive_item')
         g.custom_command('update-list-item', 'sites_site_list_activity_update_list_item')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_activity_list_item
-
-    sites_beta_site_list_activity_list_item = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_list_item_operations#SiteListActivityListItemOperations.{}',
-        client_factory=cf_site_list_activity_list_item,
-    )
     with self.command_group(
         'sites site-list-activity-list-item',
         sites_beta_site_list_activity_list_item,
@@ -191,12 +690,6 @@ def load_command_table(self, _):
         g.custom_command('update-field', 'sites_site_list_activity_list_item_update_field')
         g.custom_command('update-version', 'sites_site_list_activity_list_item_update_version')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_activity_list_item_version
-
-    sites_beta_site_list_activity_list_item_version = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_activity_list_item_version_operations#SiteListActivityListItemVersionOperations.{}',
-        client_factory=cf_site_list_activity_list_item_version,
-    )
     with self.command_group(
         'sites site-list-activity-list-item-version',
         sites_beta_site_list_activity_list_item_version,
@@ -207,12 +700,6 @@ def load_command_table(self, _):
         g.custom_command('show-field', 'sites_site_list_activity_list_item_version_show_field')
         g.custom_command('update-field', 'sites_site_list_activity_list_item_version_update_field')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_content_type
-
-    sites_beta_site_list_content_type = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_content_type_operations#SiteListContentTypeOperations.{}',
-        client_factory=cf_site_list_content_type,
-    )
     with self.command_group(
         'sites site-list-content-type', sites_beta_site_list_content_type, client_factory=cf_site_list_content_type
     ) as g:
@@ -222,14 +709,6 @@ def load_command_table(self, _):
         g.custom_command('show-column-link', 'sites_site_list_content_type_show_column_link')
         g.custom_command('update-column-link', 'sites_site_list_content_type_update_column_link')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_item
-
-    sites_beta_site_list_item = CliCommandType(
-        operations_tmpl=(
-            'azext_sites_beta.vendored_sdks.sites.operations._site_list_item_operations#SiteListItemOperations.{}'
-        ),
-        client_factory=cf_site_list_item,
-    )
     with self.command_group('sites site-list-item', sites_beta_site_list_item, client_factory=cf_site_list_item) as g:
         g.custom_command('create-activity', 'sites_site_list_item_create_activity')
         g.custom_command('create-link', 'sites_site_list_item_create_link')
@@ -255,12 +734,6 @@ def load_command_table(self, _):
         g.custom_command('update-field', 'sites_site_list_item_update_field')
         g.custom_command('update-version', 'sites_site_list_item_update_version')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_item_activity
-
-    sites_beta_site_list_item_activity = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_activity_operations#SiteListItemActivityOperations.{}',
-        client_factory=cf_site_list_item_activity,
-    )
     with self.command_group(
         'sites site-list-item-activity', sites_beta_site_list_item_activity, client_factory=cf_site_list_item_activity
     ) as g:
@@ -273,12 +746,6 @@ def load_command_table(self, _):
         g.custom_command('update-drive-item', 'sites_site_list_item_activity_update_drive_item')
         g.custom_command('update-list-item', 'sites_site_list_item_activity_update_list_item')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_item_activity_list_item
-
-    sites_beta_site_list_item_activity_list_item = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_activity_list_item_operations#SiteListItemActivityListItemOperations.{}',
-        client_factory=cf_site_list_item_activity_list_item,
-    )
     with self.command_group(
         'sites site-list-item-activity-list-item',
         sites_beta_site_list_item_activity_list_item,
@@ -287,12 +754,6 @@ def load_command_table(self, _):
         g.custom_command('create-link', 'sites_site_list_item_activity_list_item_create_link')
         g.custom_command('show-activity', 'sites_site_list_item_activity_list_item_show_activity')
 
-    from azext_sites_beta.generated._client_factory import cf_site_list_item_version
-
-    sites_beta_site_list_item_version = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_list_item_version_operations#SiteListItemVersionOperations.{}',
-        client_factory=cf_site_list_item_version,
-    )
     with self.command_group(
         'sites site-list-item-version', sites_beta_site_list_item_version, client_factory=cf_site_list_item_version
     ) as g:
@@ -301,12 +762,6 @@ def load_command_table(self, _):
         g.custom_command('show-field', 'sites_site_list_item_version_show_field')
         g.custom_command('update-field', 'sites_site_list_item_version_update_field')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook
-
-    sites_beta_site_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_operations#SiteOnenoteNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook', sites_beta_site_onenote_notebook, client_factory=cf_site_onenote_notebook
     ) as g:
@@ -314,12 +769,6 @@ def load_command_table(self, _):
         g.custom_command('get-notebook-from-web-url', 'sites_site_onenote_notebook_get_notebook_from_web_url')
         g.custom_command('show-recent-notebook', 'sites_site_onenote_notebook_show_recent_notebook')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_group_parent_notebook
-
-    sites_beta_site_onenote_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_parent_notebook_operations#SiteOnenoteNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-parent-notebook',
         sites_beta_site_onenote_notebook_section_group_parent_notebook,
@@ -327,12 +776,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_group_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_group_section
-
-    sites_beta_site_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_operations#SiteOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-section',
         sites_beta_site_onenote_notebook_section_group_section,
@@ -343,12 +786,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_notebook_section_group_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_group_section_page
-
-    sites_beta_site_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_operations#SiteOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_page,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-section-page',
         sites_beta_site_onenote_notebook_section_group_section_page,
@@ -360,14 +797,6 @@ def load_command_table(self, _):
         )
         g.custom_command('preview', 'sites_site_onenote_notebook_section_group_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_notebook_section_group_section_page_parent_notebook,
-    )
-
-    sites_beta_site_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_parent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-section-page-parent-notebook',
         sites_beta_site_onenote_notebook_section_group_section_page_parent_notebook,
@@ -377,14 +806,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_notebook_section_group_section_page_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_notebook_section_group_section_page_parent_section,
-    )
-
-    sites_beta_site_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_page_parent_section_operations#SiteOnenoteNotebookSectionGroupSectionPageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-section-page-parent-section',
         sites_beta_site_onenote_notebook_section_group_section_page_parent_section,
@@ -398,14 +819,6 @@ def load_command_table(self, _):
             'sites_site_onenote_notebook_section_group_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_notebook_section_group_section_parent_notebook,
-    )
-
-    sites_beta_site_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_group_section_parent_notebook_operations#SiteOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-group-section-parent-notebook',
         sites_beta_site_onenote_notebook_section_group_section_parent_notebook,
@@ -415,12 +828,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_notebook_section_group_section_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section
-
-    sites_beta_site_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_operations#SiteOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section',
         sites_beta_site_onenote_notebook_section,
@@ -429,12 +836,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'sites_site_onenote_notebook_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'sites_site_onenote_notebook_section_copy_to_section_group')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_page
-
-    sites_beta_site_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_operations#SiteOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_page,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-page',
         sites_beta_site_onenote_notebook_section_page,
@@ -444,12 +845,6 @@ def load_command_table(self, _):
         g.custom_command('onenote-patch-content', 'sites_site_onenote_notebook_section_page_onenote_patch_content')
         g.custom_command('preview', 'sites_site_onenote_notebook_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_page_parent_notebook
-
-    sites_beta_site_onenote_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_notebook_operations#SiteOnenoteNotebookSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-page-parent-notebook',
         sites_beta_site_onenote_notebook_section_page_parent_notebook,
@@ -457,12 +852,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_page_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_page_parent_section
-
-    sites_beta_site_onenote_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_page_parent_section_operations#SiteOnenoteNotebookSectionPageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-page-parent-section',
         sites_beta_site_onenote_notebook_section_page_parent_section,
@@ -473,12 +862,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_notebook_section_page_parent_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_parent_notebook
-
-    sites_beta_site_onenote_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_notebook_operations#SiteOnenoteNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-parent-notebook',
         sites_beta_site_onenote_notebook_section_parent_notebook,
@@ -486,14 +869,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_notebook_section_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_notebook_section_parent_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_group_parent_notebook_operations#SiteOnenoteNotebookSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-parent-section-group-parent-notebook',
         sites_beta_site_onenote_notebook_section_parent_section_group_parent_notebook,
@@ -503,12 +878,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_notebook_section_parent_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_notebook_section_parent_section_group_section
-
-    sites_beta_site_onenote_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_notebook_section_parent_section_group_section_operations#SiteOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_notebook_section_parent_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-notebook-section-parent-section-group-section',
         sites_beta_site_onenote_notebook_section_parent_section_group_section,
@@ -522,14 +891,6 @@ def load_command_table(self, _):
             'sites_site_onenote_notebook_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page
-
-    sites_beta_site_onenote_page = CliCommandType(
-        operations_tmpl=(
-            'azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_operations#SiteOnenotePageOperations.{}'
-        ),
-        client_factory=cf_site_onenote_page,
-    )
     with self.command_group(
         'sites site-onenote-page', sites_beta_site_onenote_page, client_factory=cf_site_onenote_page
     ) as g:
@@ -537,12 +898,6 @@ def load_command_table(self, _):
         g.custom_command('onenote-patch-content', 'sites_site_onenote_page_onenote_patch_content')
         g.custom_command('preview', 'sites_site_onenote_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_notebook
-
-    sites_beta_site_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_operations#SiteOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook',
         sites_beta_site_onenote_page_parent_notebook,
@@ -550,14 +905,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-group-parent-notebook',
         sites_beta_site_onenote_page_parent_notebook_section_group_parent_notebook,
@@ -567,12 +914,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_page_parent_notebook_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_notebook_section_group_section
-
-    sites_beta_site_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_operations#SiteOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-group-section',
         sites_beta_site_onenote_page_parent_notebook_section_group_section,
@@ -586,14 +927,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_group_section_page,
-    )
-
-    sites_beta_site_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_page_operations#SiteOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_section_page,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-group-section-page',
         sites_beta_site_onenote_page_parent_notebook_section_group_section_page,
@@ -608,14 +941,6 @@ def load_command_table(self, _):
         )
         g.custom_command('preview', 'sites_site_onenote_page_parent_notebook_section_group_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
-    )
-
-    sites_beta_site_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_group_section_parent_notebook_operations#SiteOnenotePageParentNotebookSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-group-section-parent-notebook',
         sites_beta_site_onenote_page_parent_notebook_section_group_section_parent_notebook,
@@ -626,12 +951,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_notebook_section_group_section_parent_notebook_copy_notebook',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_notebook_section
-
-    sites_beta_site_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_operations#SiteOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section',
         sites_beta_site_onenote_page_parent_notebook_section,
@@ -642,12 +961,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_page_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_notebook_section_page
-
-    sites_beta_site_onenote_page_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_page_operations#SiteOnenotePageParentNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_page,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-page',
         sites_beta_site_onenote_page_parent_notebook_section_page,
@@ -659,12 +972,6 @@ def load_command_table(self, _):
         )
         g.custom_command('preview', 'sites_site_onenote_page_parent_notebook_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_notebook_section_parent_notebook
-
-    sites_beta_site_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_notebook_operations#SiteOnenotePageParentNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-parent-notebook',
         sites_beta_site_onenote_page_parent_notebook_section_parent_notebook,
@@ -674,14 +981,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_page_parent_notebook_section_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-parent-section-group-parent-notebook',
         sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
@@ -692,14 +991,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_notebook_section_parent_section_group_section,
-    )
-
-    sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_notebook_section_parent_section_group_section_operations#SiteOnenotePageParentNotebookSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_notebook_section_parent_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-notebook-section-parent-section-group-section',
         sites_beta_site_onenote_page_parent_notebook_section_parent_section_group_section,
@@ -714,12 +1005,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_section
-
-    sites_beta_site_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_operations#SiteOnenotePageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section',
         sites_beta_site_onenote_page_parent_section,
@@ -728,12 +1013,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'sites_site_onenote_page_parent_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'sites_site_onenote_page_parent_section_copy_to_section_group')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_section_page
-
-    sites_beta_site_onenote_page_parent_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_page_operations#SiteOnenotePageParentSectionPageOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_page,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-page',
         sites_beta_site_onenote_page_parent_section_page,
@@ -743,12 +1022,6 @@ def load_command_table(self, _):
         g.custom_command('onenote-patch-content', 'sites_site_onenote_page_parent_section_page_onenote_patch_content')
         g.custom_command('preview', 'sites_site_onenote_page_parent_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook
-
-    sites_beta_site_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-notebook',
         sites_beta_site_onenote_page_parent_section_parent_notebook,
@@ -756,14 +1029,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_page_parent_section_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-notebook-section-group-parent-notebook',
         sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
@@ -774,14 +1039,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_notebook_section_group_section,
-    )
-
-    sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_group_section_operations#SiteOnenotePageParentSectionParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-notebook-section-group-section',
         sites_beta_site_onenote_page_parent_section_parent_notebook_section_group_section,
@@ -796,12 +1053,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_page_parent_section_parent_notebook_section
-
-    sites_beta_site_onenote_page_parent_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_notebook_section_operations#SiteOnenotePageParentSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-notebook-section',
         sites_beta_site_onenote_page_parent_section_parent_notebook_section,
@@ -815,14 +1066,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_section_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-section-group-parent-notebook',
         sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook,
@@ -832,14 +1075,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-    )
-
-    sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_parent_notebook_section_operations#SiteOnenotePageParentSectionParentSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-section-group-parent-notebook-section',
         sites_beta_site_onenote_page_parent_section_parent_section_group_parent_notebook_section,
@@ -854,14 +1089,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_page_parent_section_parent_section_group_section,
-    )
-
-    sites_beta_site_onenote_page_parent_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_page_parent_section_parent_section_group_section_operations#SiteOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_page_parent_section_parent_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-page-parent-section-parent-section-group-section',
         sites_beta_site_onenote_page_parent_section_parent_section_group_section,
@@ -875,12 +1102,6 @@ def load_command_table(self, _):
             'sites_site_onenote_page_parent_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_parent_notebook
-
-    sites_beta_site_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook',
         sites_beta_site_onenote_section_group_parent_notebook,
@@ -888,12 +1109,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_section_group_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section
-
-    sites_beta_site_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_operations#SiteOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook-section',
         sites_beta_site_onenote_section_group_parent_notebook_section,
@@ -906,12 +1121,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_section_group_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_parent_notebook_section_page
-
-    sites_beta_site_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_operations#SiteOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_page,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook-section-page',
         sites_beta_site_onenote_section_group_parent_notebook_section_page,
@@ -926,14 +1135,6 @@ def load_command_table(self, _):
         )
         g.custom_command('preview', 'sites_site_onenote_section_group_parent_notebook_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
-    )
-
-    sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook-section-page-parent-notebook',
         sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_notebook,
@@ -944,14 +1145,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_group_parent_notebook_section_page_parent_notebook_copy_notebook',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_group_parent_notebook_section_page_parent_section,
-    )
-
-    sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_page_parent_section_operations#SiteOnenoteSectionGroupParentNotebookSectionPageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook-section-page-parent-section',
         sites_beta_site_onenote_section_group_parent_notebook_section_page_parent_section,
@@ -966,14 +1159,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_group_parent_notebook_section_parent_notebook,
-    )
-
-    sites_beta_site_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_parent_notebook_section_parent_notebook_operations#SiteOnenoteSectionGroupParentNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_parent_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-group-parent-notebook-section-parent-notebook',
         sites_beta_site_onenote_section_group_parent_notebook_section_parent_notebook,
@@ -983,12 +1168,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_section_group_parent_notebook_section_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section
-
-    sites_beta_site_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_operations#SiteOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section',
         sites_beta_site_onenote_section_group_section,
@@ -997,12 +1176,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'sites_site_onenote_section_group_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'sites_site_onenote_section_group_section_copy_to_section_group')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section_page
-
-    sites_beta_site_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_operations#SiteOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-page',
         sites_beta_site_onenote_section_group_section_page,
@@ -1012,12 +1185,6 @@ def load_command_table(self, _):
         g.custom_command('onenote-patch-content', 'sites_site_onenote_section_group_section_page_onenote_patch_content')
         g.custom_command('preview', 'sites_site_onenote_section_group_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section_page_parent_notebook
-
-    sites_beta_site_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_notebook_operations#SiteOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-page-parent-notebook',
         sites_beta_site_onenote_section_group_section_page_parent_notebook,
@@ -1025,14 +1192,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_section_group_section_page_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_group_section_page_parent_notebook_section,
-    )
-
-    sites_beta_site_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_notebook_section_operations#SiteOnenoteSectionGroupSectionPageParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-page-parent-notebook-section',
         sites_beta_site_onenote_section_group_section_page_parent_notebook_section,
@@ -1046,12 +1205,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_group_section_page_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section_page_parent_section
-
-    sites_beta_site_onenote_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_page_parent_section_operations#SiteOnenoteSectionGroupSectionPageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-page-parent-section',
         sites_beta_site_onenote_section_group_section_page_parent_section,
@@ -1065,12 +1218,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_group_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook
-
-    sites_beta_site_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_notebook_operations#SiteOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-parent-notebook',
         sites_beta_site_onenote_section_group_section_parent_notebook,
@@ -1078,12 +1225,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_section_group_section_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_group_section_parent_notebook_section
-
-    sites_beta_site_onenote_section_group_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_group_section_parent_notebook_section_operations#SiteOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_group_section_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-group-section-parent-notebook-section',
         sites_beta_site_onenote_section_group_section_parent_notebook_section,
@@ -1097,24 +1238,12 @@ def load_command_table(self, _):
             'sites_site_onenote_section_group_section_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section
-
-    sites_beta_site_onenote_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_operations#SiteOnenoteSectionOperations.{}',
-        client_factory=cf_site_onenote_section,
-    )
     with self.command_group(
         'sites site-onenote-section', sites_beta_site_onenote_section, client_factory=cf_site_onenote_section
     ) as g:
         g.custom_command('copy-to-notebook', 'sites_site_onenote_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'sites_site_onenote_section_copy_to_section_group')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_page
-
-    sites_beta_site_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_operations#SiteOnenoteSectionPageOperations.{}',
-        client_factory=cf_site_onenote_section_page,
-    )
     with self.command_group(
         'sites site-onenote-section-page',
         sites_beta_site_onenote_section_page,
@@ -1124,12 +1253,6 @@ def load_command_table(self, _):
         g.custom_command('onenote-patch-content', 'sites_site_onenote_section_page_onenote_patch_content')
         g.custom_command('preview', 'sites_site_onenote_section_page_preview')
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_page_parent_notebook
-
-    sites_beta_site_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-page-parent-notebook',
         sites_beta_site_onenote_section_page_parent_notebook,
@@ -1137,14 +1260,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_section_page_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_group_parent_notebook_operations#SiteOnenoteSectionPageParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-page-parent-notebook-section-group-parent-notebook',
         sites_beta_site_onenote_section_page_parent_notebook_section_group_parent_notebook,
@@ -1155,14 +1270,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_page_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_page_parent_notebook_section_group_section,
-    )
-
-    sites_beta_site_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_group_section_operations#SiteOnenoteSectionPageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-section-page-parent-notebook-section-group-section',
         sites_beta_site_onenote_section_page_parent_notebook_section_group_section,
@@ -1176,12 +1283,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_page_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_page_parent_notebook_section
-
-    sites_beta_site_onenote_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_notebook_section_operations#SiteOnenoteSectionPageParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-page-parent-notebook-section',
         sites_beta_site_onenote_section_page_parent_notebook_section,
@@ -1192,12 +1293,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_section_page_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_page_parent_section
-
-    sites_beta_site_onenote_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_page_parent_section_operations#SiteOnenoteSectionPageParentSectionOperations.{}',
-        client_factory=cf_site_onenote_section_page_parent_section,
-    )
     with self.command_group(
         'sites site-onenote-section-page-parent-section',
         sites_beta_site_onenote_section_page_parent_section,
@@ -1208,12 +1303,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_section_page_parent_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_parent_notebook
-
-    sites_beta_site_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_operations#SiteOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-notebook',
         sites_beta_site_onenote_section_parent_notebook,
@@ -1221,14 +1310,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'sites_site_onenote_section_parent_notebook_copy_notebook')
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_parent_notebook_section_group_parent_notebook,
-    )
-
-    sites_beta_site_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_group_parent_notebook_operations#SiteOnenoteSectionParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-notebook-section-group-parent-notebook',
         sites_beta_site_onenote_section_parent_notebook_section_group_parent_notebook,
@@ -1238,12 +1319,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_section_parent_notebook_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_parent_notebook_section_group_section
-
-    sites_beta_site_onenote_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_group_section_operations#SiteOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-notebook-section-group-section',
         sites_beta_site_onenote_section_parent_notebook_section_group_section,
@@ -1257,12 +1332,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_parent_notebook_section
-
-    sites_beta_site_onenote_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_notebook_section_operations#SiteOnenoteSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-notebook-section',
         sites_beta_site_onenote_section_parent_notebook_section,
@@ -1273,12 +1342,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_section_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_parent_section_group_parent_notebook
-
-    sites_beta_site_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_parent_notebook_operations#SiteOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-section-group-parent-notebook',
         sites_beta_site_onenote_section_parent_section_group_parent_notebook,
@@ -1288,14 +1351,6 @@ def load_command_table(self, _):
             'copy-notebook', 'sites_site_onenote_section_parent_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_sites_beta.generated._client_factory import (
-        cf_site_onenote_section_parent_section_group_parent_notebook_section,
-    )
-
-    sites_beta_site_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_parent_notebook_section_operations#SiteOnenoteSectionParentSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-section-group-parent-notebook-section',
         sites_beta_site_onenote_section_parent_section_group_parent_notebook_section,
@@ -1310,12 +1365,6 @@ def load_command_table(self, _):
             'sites_site_onenote_section_parent_section_group_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_onenote_section_parent_section_group_section
-
-    sites_beta_site_onenote_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_onenote_section_parent_section_group_section_operations#SiteOnenoteSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_site_onenote_section_parent_section_group_section,
-    )
     with self.command_group(
         'sites site-onenote-section-parent-section-group-section',
         sites_beta_site_onenote_section_parent_section_group_section,
@@ -1326,21 +1375,9 @@ def load_command_table(self, _):
             'copy-to-section-group', 'sites_site_onenote_section_parent_section_group_section_copy_to_section_group'
         )
 
-    from azext_sites_beta.generated._client_factory import cf_site_page
-
-    sites_beta_site_page = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._site_page_operations#SitePageOperations.{}',
-        client_factory=cf_site_page,
-    )
     with self.command_group('sites site-page', sites_beta_site_page, client_factory=cf_site_page) as g:
         g.custom_command('publish', 'sites_site_page_publish')
 
-    from azext_sites_beta.generated._client_factory import cf_user
-
-    sites_beta_user = CliCommandType(
-        operations_tmpl='azext_sites_beta.vendored_sdks.sites.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('sites user', sites_beta_user, client_factory=cf_user) as g:
         g.custom_command('create-ref-followed-site', 'sites_user_create_ref_followed_site')
         g.custom_command('list-followed-site', 'sites_user_list_followed_site')

@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['files_v1_0'] = '''
+    type: group
+    short-summary: Manage Files
+'''
+
 helps['files drive-drive'] = """
     type: group
     short-summary: Manage drive drive with files_v1_0
@@ -824,10 +829,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -1246,10 +1251,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -1668,10 +1673,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -2170,10 +2175,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -2592,10 +2597,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -3147,10 +3152,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -3569,10 +3574,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -4921,10 +4926,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -6076,10 +6081,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -6473,10 +6478,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -6961,10 +6966,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -7458,10 +7463,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -7880,10 +7885,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -8601,10 +8606,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -10064,10 +10069,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.
@@ -10661,10 +10666,10 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --list-item-content-type
+      - name: --content-type
         short-summary: "contentTypeInfo"
         long-summary: |
-            Usage: --list-item-content-type id=XX name=XX
+            Usage: --content-type id=XX name=XX
 
             id: The id of the content type.
             name: The name of the content type.

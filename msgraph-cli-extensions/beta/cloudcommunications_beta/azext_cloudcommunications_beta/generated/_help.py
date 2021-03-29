@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['cloudcommunications_beta'] = '''
+    type: group
+    short-summary: Manage Cloud Communications
+'''
+
 helps['cloudcommunications communication-cloud-communication'] = """
     type: group
     short-summary: Manage communication cloud communication with cloudcommunications_beta

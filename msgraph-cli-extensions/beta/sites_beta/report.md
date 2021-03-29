@@ -1609,7 +1609,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -1958,7 +1958,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -2284,7 +2284,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-list-item-activities**|array|The list of recent activities that took place on this item.|microsoft_graph_list_item_activities|activities|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
@@ -2409,7 +2409,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -2675,7 +2675,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -2770,7 +2770,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-list-item-activities**|array|The list of recent activities that took place on this item.|microsoft_graph_list_item_activities|activities|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
@@ -2987,7 +2987,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -3253,7 +3253,7 @@
 |**--microsoft-graph-identity-application**|object|identity|microsoft_graph_identity_application|application|
 |**--microsoft-graph-identity-device**|object|identity|microsoft_graph_identity_device|device|
 |**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--microsoft-graph-sharepoint-ids**|object|sharepointIds|microsoft_graph_sharepoint_ids|sharepointIds|
 |**--activities**|array|The list of recent activities that took place on this item.|activities|activities|
 |**--analytics**|object|itemAnalytics|analytics|analytics|
@@ -3348,7 +3348,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-list-item-activities**|array|The list of recent activities that took place on this item.|microsoft_graph_list_item_activities|activities|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|
@@ -3569,7 +3569,7 @@
 |**--application2**|object|identity|application2|application|
 |**--device2**|object|identity|device2|device|
 |**--user2**|object|identity|user2|user|
-|**--list-item-content-type**|object|contentTypeInfo|content_type|contentType|
+|**--content-type**|object|contentTypeInfo|content_type|contentType|
 |**--sharepoint-ids2**|object|sharepointIds|sharepoint_ids2|sharepointIds|
 |**--microsoft-graph-list-item-activities**|array|The list of recent activities that took place on this item.|microsoft_graph_list_item_activities|activities|
 |**--microsoft-graph-item-analytics**|object|itemAnalytics|microsoft_graph_item_analytics|analytics|

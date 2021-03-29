@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['security_beta'] = '''
+    type: group
+    short-summary: Manage Security
+'''
+
 helps['security security'] = """
     type: group
     short-summary: Manage security security with security_beta

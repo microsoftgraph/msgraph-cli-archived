@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['notes_beta'] = '''
+    type: group
+    short-summary: Manage Notes
+'''
+
 helps['notes group'] = """
     type: group
     short-summary: Manage group with notes_beta

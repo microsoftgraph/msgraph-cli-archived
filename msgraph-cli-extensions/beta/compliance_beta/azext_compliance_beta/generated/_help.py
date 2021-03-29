@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['compliance_beta'] = '''
+    type: group
+    short-summary: Manage Compliance
+'''
+
 helps['compliance compliance'] = """
     type: group
     short-summary: Manage compliance compliance with compliance_beta

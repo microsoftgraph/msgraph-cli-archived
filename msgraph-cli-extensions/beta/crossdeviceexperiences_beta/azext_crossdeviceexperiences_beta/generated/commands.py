@@ -9,19 +9,37 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_crossdeviceexperiences_beta.generated._client_factory import (
+    cf_user,
+    cf_user_activity,
+    cf_user_activity_history_item,
+)
+
+
+crossdeviceexperiences_beta_user = CliCommandType(
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+crossdeviceexperiences_beta_user_activity = CliCommandType(
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_operations#UserActivityOperations.{}',
+    client_factory=cf_user_activity,
+)
+
+
+crossdeviceexperiences_beta_user_activity_history_item = CliCommandType(
+    operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_history_item_operations#UserActivityHistoryItemOperations.{}',
+    client_factory=cf_user_activity_history_item,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user
-
-    crossdeviceexperiences_beta_user = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group(
         'crossdeviceexperiences user', crossdeviceexperiences_beta_user, client_factory=cf_user
     ) as g:
@@ -36,12 +54,6 @@ def load_command_table(self, _):
         g.custom_command('update-activity', 'crossdeviceexperiences_user_update_activity')
         g.custom_command('update-device', 'crossdeviceexperiences_user_update_device')
 
-    from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user_activity
-
-    crossdeviceexperiences_beta_user_activity = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_operations#UserActivityOperations.{}',
-        client_factory=cf_user_activity,
-    )
     with self.command_group(
         'crossdeviceexperiences user-activity',
         crossdeviceexperiences_beta_user_activity,
@@ -53,12 +65,6 @@ def load_command_table(self, _):
         g.custom_command('show-history-item', 'crossdeviceexperiences_user_activity_show_history_item')
         g.custom_command('update-history-item', 'crossdeviceexperiences_user_activity_update_history_item')
 
-    from azext_crossdeviceexperiences_beta.generated._client_factory import cf_user_activity_history_item
-
-    crossdeviceexperiences_beta_user_activity_history_item = CliCommandType(
-        operations_tmpl='azext_crossdeviceexperiences_beta.vendored_sdks.crossdeviceexperiences.operations._user_activity_history_item_operations#UserActivityHistoryItemOperations.{}',
-        client_factory=cf_user_activity_history_item,
-    )
     with self.command_group(
         'crossdeviceexperiences user-activity-history-item',
         crossdeviceexperiences_beta_user_activity_history_item,

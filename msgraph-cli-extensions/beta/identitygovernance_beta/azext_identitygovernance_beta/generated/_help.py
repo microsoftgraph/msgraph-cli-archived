@@ -13,6 +13,11 @@
 from knack.help_files import helps
 
 
+helps['identitygovernance_beta'] = '''
+    type: group
+    short-summary: Manage Identity Governance
+'''
+
 helps['identitygovernance access-review-access-review'] = """
     type: group
     short-summary: Manage access review access review with identitygovernance_beta

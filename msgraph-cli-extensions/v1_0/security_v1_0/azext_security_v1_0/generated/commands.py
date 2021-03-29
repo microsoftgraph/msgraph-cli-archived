@@ -9,33 +9,33 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_security_v1_0.generated._client_factory import cf_security_security, cf_security
+
+
+security_v1_0_security_security = CliCommandType(
+    operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_security_operations#SecuritySecurityOperations.{}',
+    client_factory=cf_security_security,
+)
+
+
+security_v1_0_security = CliCommandType(
+    operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_operations#SecurityOperations.{}',
+    client_factory=cf_security,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_security_v1_0.generated._client_factory import cf_security_security
-
-    security_v1_0_security_security = CliCommandType(
-        operations_tmpl='azext_security_v1_0.vendored_sdks.security.operations._security_security_operations#SecuritySecurityOperations.{}',
-        client_factory=cf_security_security,
-    )
     with self.command_group(
         'security security', security_v1_0_security_security, client_factory=cf_security_security
     ) as g:
         g.custom_command('create', 'security_security_create')
         g.custom_command('show-security', 'security_security_show_security')
 
-    from azext_security_v1_0.generated._client_factory import cf_security
-
-    security_v1_0_security = CliCommandType(
-        operations_tmpl=(
-            'azext_security_v1_0.vendored_sdks.security.operations._security_operations#SecurityOperations.{}'
-        ),
-        client_factory=cf_security,
-    )
     with self.command_group('security security', security_v1_0_security, client_factory=cf_security) as g:
         g.custom_command('create-alert', 'security_security_create_alert')
         g.custom_command('create-secure-score', 'security_security_create_secure_score')

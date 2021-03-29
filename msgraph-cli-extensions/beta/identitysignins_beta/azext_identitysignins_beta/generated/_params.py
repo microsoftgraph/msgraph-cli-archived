@@ -910,7 +910,8 @@ def load_arguments(self, _):
         c.argument('reminder_notifications_enabled', arg_type=get_three_state_flag(), help='', arg_group='Directory '
                    'Role Access Review Policy Settings')
         c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Admin Consent Request Policy')
-        c.argument('is_enabled', arg_type=get_three_state_flag(), help='', arg_group='Admin Consent Request Policy')
+        c.argument('admin_consent_request_policy_is_enabled', arg_type=get_three_state_flag(), help='',
+                   arg_group='Admin Consent Request Policy')
         c.argument('notify_reviewers', arg_type=get_three_state_flag(), help='', arg_group='Admin Consent Request '
                    'Policy')
         c.argument('reminders_enabled', arg_type=get_three_state_flag(), help='', arg_group='Admin Consent Request '
@@ -922,6 +923,8 @@ def load_arguments(self, _):
         c.argument('id2', type=str, help='Read-only.', arg_group='Authentication Flows Policy')
         c.argument('description', type=str, help='', arg_group='Authentication Flows Policy')
         c.argument('display_name', type=str, help='', arg_group='Authentication Flows Policy')
+        c.argument('is_enabled', arg_type=get_three_state_flag(), help='', arg_group='Authentication Flows Policy Self '
+                   'Service Sign Up')
 
     with self.argument_context('identitysignins policy create-activity-based-timeout-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')

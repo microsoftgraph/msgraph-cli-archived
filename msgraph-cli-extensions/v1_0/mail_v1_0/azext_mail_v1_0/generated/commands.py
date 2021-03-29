@@ -9,19 +9,53 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_mail_v1_0.generated._client_factory import (
+    cf_user,
+    cf_user_inference_classification,
+    cf_user_mail_folder,
+    cf_user_mail_folder_message,
+    cf_user_message,
+)
+
+
+mail_v1_0_user = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+mail_v1_0_user_inference_classification = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_inference_classification_operations#UserInferenceClassificationOperations.{}',
+    client_factory=cf_user_inference_classification,
+)
+
+
+mail_v1_0_user_mail_folder = CliCommandType(
+    operations_tmpl=(
+        'azext_mail_v1_0.vendored_sdks.mail.operations._user_mail_folder_operations#UserMailFolderOperations.{}'
+    ),
+    client_factory=cf_user_mail_folder,
+)
+
+
+mail_v1_0_user_mail_folder_message = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
+    client_factory=cf_user_mail_folder_message,
+)
+
+
+mail_v1_0_user_message = CliCommandType(
+    operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_message_operations#UserMessageOperations.{}',
+    client_factory=cf_user_message,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_mail_v1_0.generated._client_factory import cf_user
-
-    mail_v1_0_user = CliCommandType(
-        operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('mail user', mail_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-mail-folder', 'mail_user_create_mail_folder')
         g.custom_command('create-message', 'mail_user_create_message')
@@ -37,12 +71,6 @@ def load_command_table(self, _):
         g.custom_command('update-mail-folder', 'mail_user_update_mail_folder')
         g.custom_command('update-message', 'mail_user_update_message')
 
-    from azext_mail_v1_0.generated._client_factory import cf_user_inference_classification
-
-    mail_v1_0_user_inference_classification = CliCommandType(
-        operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_inference_classification_operations#UserInferenceClassificationOperations.{}',
-        client_factory=cf_user_inference_classification,
-    )
     with self.command_group(
         'mail user-inference-classification',
         mail_v1_0_user_inference_classification,
@@ -54,14 +82,6 @@ def load_command_table(self, _):
         g.custom_command('show-override', 'mail_user_inference_classification_show_override')
         g.custom_command('update-override', 'mail_user_inference_classification_update_override')
 
-    from azext_mail_v1_0.generated._client_factory import cf_user_mail_folder
-
-    mail_v1_0_user_mail_folder = CliCommandType(
-        operations_tmpl=(
-            'azext_mail_v1_0.vendored_sdks.mail.operations._user_mail_folder_operations#UserMailFolderOperations.{}'
-        ),
-        client_factory=cf_user_mail_folder,
-    )
     with self.command_group(
         'mail user-mail-folder', mail_v1_0_user_mail_folder, client_factory=cf_user_mail_folder
     ) as g:
@@ -111,12 +131,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'mail_user_mail_folder_update_single_value_extended_property'
         )
 
-    from azext_mail_v1_0.generated._client_factory import cf_user_mail_folder_message
-
-    mail_v1_0_user_mail_folder_message = CliCommandType(
-        operations_tmpl='azext_mail_v1_0.vendored_sdks.mail.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
-        client_factory=cf_user_mail_folder_message,
-    )
     with self.command_group(
         'mail user-mail-folder-message', mail_v1_0_user_mail_folder_message, client_factory=cf_user_mail_folder_message
     ) as g:
@@ -164,14 +178,6 @@ def load_command_table(self, _):
             'mail_user_mail_folder_message_update_single_value_extended_property',
         )
 
-    from azext_mail_v1_0.generated._client_factory import cf_user_message
-
-    mail_v1_0_user_message = CliCommandType(
-        operations_tmpl=(
-            'azext_mail_v1_0.vendored_sdks.mail.operations._user_message_operations#UserMessageOperations.{}'
-        ),
-        client_factory=cf_user_message,
-    )
     with self.command_group('mail user-message', mail_v1_0_user_message, client_factory=cf_user_message) as g:
         g.custom_command('create-attachment', 'mail_user_message_create_attachment')
         g.custom_command('create-extension', 'mail_user_message_create_extension')

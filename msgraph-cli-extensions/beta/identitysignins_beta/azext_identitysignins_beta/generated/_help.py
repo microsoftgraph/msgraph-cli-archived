@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['identitysignins_beta'] = '''
+    type: group
+    short-summary: Manage Identity Sign Ins
+'''
+
 helps['identitysignins data-policy-operation-data-policy-operation'] = """
     type: group
     short-summary: Manage data policy operation data policy operation with identitysignins_beta

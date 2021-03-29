@@ -1589,8 +1589,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
         c.argument('microsoft_graph_item_analytics', type=validate_file_or_dict, help='itemAnalytics Expected value: '
                    'json-string/@json-file.', arg_group='List Item')

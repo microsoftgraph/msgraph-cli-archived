@@ -74,10 +74,10 @@ class AddEndTime(argparse.Action):
         return d
 
 
-class AddMessageBody(argparse.Action):
+class AddBody(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.message_body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -96,8 +96,8 @@ class AddMessageBody(argparse.Action):
             elif kl == 'content-type':
                 d['content_type'] = v[0]
             else:
-                raise CLIError('Unsupported Key {} is provided for parameter message_body. All possible keys are: '
-                               'content, content-type'.format(k))
+                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 

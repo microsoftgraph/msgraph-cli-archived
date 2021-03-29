@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['reports_beta'] = '''
+    type: group
+    short-summary: Manage Reports
+'''
+
 helps['reports audit-log-audit-log-root'] = """
     type: group
     short-summary: Manage audit log audit log root with reports_beta

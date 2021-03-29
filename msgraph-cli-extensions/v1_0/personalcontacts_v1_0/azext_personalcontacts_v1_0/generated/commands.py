@@ -9,21 +9,46 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_personalcontacts_v1_0.generated._client_factory import (
+    cf_user,
+    cf_user_contact_folder,
+    cf_user_contact_folder_contact,
+    cf_user_contact,
+)
+
+
+personalcontacts_v1_0_user = CliCommandType(
+    operations_tmpl=(
+        'azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_operations#UserOperations.{}'
+    ),
+    client_factory=cf_user,
+)
+
+
+personalcontacts_v1_0_user_contact_folder = CliCommandType(
+    operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_folder_operations#UserContactFolderOperations.{}',
+    client_factory=cf_user_contact_folder,
+)
+
+
+personalcontacts_v1_0_user_contact_folder_contact = CliCommandType(
+    operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_folder_contact_operations#UserContactFolderContactOperations.{}',
+    client_factory=cf_user_contact_folder_contact,
+)
+
+
+personalcontacts_v1_0_user_contact = CliCommandType(
+    operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_operations#UserContactOperations.{}',
+    client_factory=cf_user_contact,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_personalcontacts_v1_0.generated._client_factory import cf_user
-
-    personalcontacts_v1_0_user = CliCommandType(
-        operations_tmpl=(
-            'azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_operations#UserOperations.{}'
-        ),
-        client_factory=cf_user,
-    )
     with self.command_group('personalcontacts user', personalcontacts_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-contact', 'personalcontacts_user_create_contact')
         g.custom_command('create-contact-folder', 'personalcontacts_user_create_contact_folder')
@@ -36,12 +61,6 @@ def load_command_table(self, _):
         g.custom_command('update-contact', 'personalcontacts_user_update_contact')
         g.custom_command('update-contact-folder', 'personalcontacts_user_update_contact_folder')
 
-    from azext_personalcontacts_v1_0.generated._client_factory import cf_user_contact_folder
-
-    personalcontacts_v1_0_user_contact_folder = CliCommandType(
-        operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_folder_operations#UserContactFolderOperations.{}',
-        client_factory=cf_user_contact_folder,
-    )
     with self.command_group(
         'personalcontacts user-contact-folder',
         personalcontacts_v1_0_user_contact_folder,
@@ -98,12 +117,6 @@ def load_command_table(self, _):
             'personalcontacts_user_contact_folder_update_single_value_extended_property',
         )
 
-    from azext_personalcontacts_v1_0.generated._client_factory import cf_user_contact_folder_contact
-
-    personalcontacts_v1_0_user_contact_folder_contact = CliCommandType(
-        operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_folder_contact_operations#UserContactFolderContactOperations.{}',
-        client_factory=cf_user_contact_folder_contact,
-    )
     with self.command_group(
         'personalcontacts user-contact-folder-contact',
         personalcontacts_v1_0_user_contact_folder_contact,
@@ -158,12 +171,6 @@ def load_command_table(self, _):
             'personalcontacts_user_contact_folder_contact_update_single_value_extended_property',
         )
 
-    from azext_personalcontacts_v1_0.generated._client_factory import cf_user_contact
-
-    personalcontacts_v1_0_user_contact = CliCommandType(
-        operations_tmpl='azext_personalcontacts_v1_0.vendored_sdks.personalcontacts.operations._user_contact_operations#UserContactOperations.{}',
-        client_factory=cf_user_contact,
-    )
     with self.command_group(
         'personalcontacts user-contact', personalcontacts_v1_0_user_contact, client_factory=cf_user_contact
     ) as g:

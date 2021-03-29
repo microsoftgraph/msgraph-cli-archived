@@ -2263,7 +2263,7 @@
 |**--recurrence**|object|patternedRecurrence|recurrence|recurrence|
 |**--reminder-notifications-enabled**|boolean||reminder_notifications_enabled|reminderNotificationsEnabled|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
-|**--is-enabled**|boolean||is_enabled|isEnabled|
+|**--admin-consent-request-policy-is-enabled**|boolean||is_enabled|isEnabled|
 |**--notify-reviewers**|boolean||notify_reviewers|notifyReviewers|
 |**--reminders-enabled**|boolean||reminders_enabled|remindersEnabled|
 |**--request-duration-in-days**|integer||request_duration_in_days|requestDurationInDays|
@@ -2273,6 +2273,7 @@
 |**--id2**|string|Read-only.|id2|id|
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
+|**--is-enabled**|boolean||is_enabled|isEnabled|
 
 ### group `az identitysignins risk-detection-risk-detection`
 #### <a name="riskDetections.riskDetectionCreateRiskDetection">Command `az identitysignins risk-detection-risk-detection create-risk-detection`</a>

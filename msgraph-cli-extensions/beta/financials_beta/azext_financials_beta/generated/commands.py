@@ -9,33 +9,353 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_financials_beta.generated._client_factory import (
+    cf_financial_financial,
+    cf_financial,
+    cf_financial_company,
+    cf_financial_company_customer_payment_journal,
+    cf_financial_company_customer_payment_journal_customer_payment,
+    cf_financial_company_customer_payment_journal_customer_payment_customer,
+    cf_financial_company_customer_payment,
+    cf_financial_company_customer_payment_customer,
+    cf_financial_company_customer,
+    cf_financial_company_dimension,
+    cf_financial_company_employee,
+    cf_financial_company_general_ledger_entry,
+    cf_financial_company_item,
+    cf_financial_company_journal_line,
+    cf_financial_company_journal,
+    cf_financial_company_journal_journal_line,
+    cf_financial_company_purchase_invoice_line,
+    cf_financial_company_purchase_invoice_line_item,
+    cf_financial_company_purchase_invoice,
+    cf_financial_company_purchase_invoice_purchase_invoice_line,
+    cf_financial_company_purchase_invoice_purchase_invoice_line_item,
+    cf_financial_company_purchase_invoice_vendor,
+    cf_financial_company_sale_credit_memo_line,
+    cf_financial_company_sale_credit_memo_line_item,
+    cf_financial_company_sale_credit_memo,
+    cf_financial_company_sale_credit_memo_customer,
+    cf_financial_company_sale_credit_memo_sale_credit_memo_line,
+    cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
+    cf_financial_company_sale_invoice_line,
+    cf_financial_company_sale_invoice_line_item,
+    cf_financial_company_sale_invoice,
+    cf_financial_company_sale_invoice_customer,
+    cf_financial_company_sale_invoice_sale_invoice_line,
+    cf_financial_company_sale_invoice_sale_invoice_line_item,
+    cf_financial_company_sale_order_line,
+    cf_financial_company_sale_order_line_item,
+    cf_financial_company_sale_order,
+    cf_financial_company_sale_order_customer,
+    cf_financial_company_sale_order_sale_order_line,
+    cf_financial_company_sale_order_sale_order_line_item,
+    cf_financial_company_sale_quote_line,
+    cf_financial_company_sale_quote_line_item,
+    cf_financial_company_sale_quote,
+    cf_financial_company_sale_quote_customer,
+    cf_financial_company_sale_quote_sale_quote_line,
+    cf_financial_company_sale_quote_sale_quote_line_item,
+    cf_financial_company_vendor,
+)
+
+
+financials_beta_financial_financial = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_financial_operations#FinancialFinancialOperations.{}',
+    client_factory=cf_financial_financial,
+)
+
+
+financials_beta_financial = CliCommandType(
+    operations_tmpl=(
+        'azext_financials_beta.vendored_sdks.financials.operations._financial_operations#FinancialOperations.{}'
+    ),
+    client_factory=cf_financial,
+)
+
+
+financials_beta_financial_company = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_operations#FinancialCompanyOperations.{}',
+    client_factory=cf_financial_company,
+)
+
+
+financials_beta_financial_company_customer_payment_journal = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_operations#FinancialCompanyCustomerPaymentJournalOperations.{}',
+    client_factory=cf_financial_company_customer_payment_journal,
+)
+
+
+financials_beta_financial_company_customer_payment_journal_customer_payment = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations.{}',
+    client_factory=cf_financial_company_customer_payment_journal_customer_payment,
+)
+
+
+financials_beta_financial_company_customer_payment_journal_customer_payment_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_customer_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations.{}',
+    client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer,
+)
+
+
+financials_beta_financial_company_customer_payment = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_operations#FinancialCompanyCustomerPaymentOperations.{}',
+    client_factory=cf_financial_company_customer_payment,
+)
+
+
+financials_beta_financial_company_customer_payment_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_customer_operations#FinancialCompanyCustomerPaymentCustomerOperations.{}',
+    client_factory=cf_financial_company_customer_payment_customer,
+)
+
+
+financials_beta_financial_company_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_operations#FinancialCompanyCustomerOperations.{}',
+    client_factory=cf_financial_company_customer,
+)
+
+
+financials_beta_financial_company_dimension = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_dimension_operations#FinancialCompanyDimensionOperations.{}',
+    client_factory=cf_financial_company_dimension,
+)
+
+
+financials_beta_financial_company_employee = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_employee_operations#FinancialCompanyEmployeeOperations.{}',
+    client_factory=cf_financial_company_employee,
+)
+
+
+financials_beta_financial_company_general_ledger_entry = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_general_ledger_entry_operations#FinancialCompanyGeneralLedgerEntryOperations.{}',
+    client_factory=cf_financial_company_general_ledger_entry,
+)
+
+
+financials_beta_financial_company_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_item_operations#FinancialCompanyItemOperations.{}',
+    client_factory=cf_financial_company_item,
+)
+
+
+financials_beta_financial_company_journal_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_line_operations#FinancialCompanyJournalLineOperations.{}',
+    client_factory=cf_financial_company_journal_line,
+)
+
+
+financials_beta_financial_company_journal = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_operations#FinancialCompanyJournalOperations.{}',
+    client_factory=cf_financial_company_journal,
+)
+
+
+financials_beta_financial_company_journal_journal_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_journal_line_operations#FinancialCompanyJournalJournalLineOperations.{}',
+    client_factory=cf_financial_company_journal_journal_line,
+)
+
+
+financials_beta_financial_company_purchase_invoice_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoiceLineOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice_line,
+)
+
+
+financials_beta_financial_company_purchase_invoice_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoiceLineItemOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice_line_item,
+)
+
+
+financials_beta_financial_company_purchase_invoice = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_operations#FinancialCompanyPurchaseInvoiceOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice,
+)
+
+
+financials_beta_financial_company_purchase_invoice_purchase_invoice_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line,
+)
+
+
+financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item,
+)
+
+
+financials_beta_financial_company_purchase_invoice_vendor = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_vendor_operations#FinancialCompanyPurchaseInvoiceVendorOperations.{}',
+    client_factory=cf_financial_company_purchase_invoice_vendor,
+)
+
+
+financials_beta_financial_company_sale_credit_memo_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoLineOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo_line,
+)
+
+
+financials_beta_financial_company_sale_credit_memo_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo_line_item,
+)
+
+
+financials_beta_financial_company_sale_credit_memo = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_operations#FinancialCompanySaleCreditMemoOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo,
+)
+
+
+financials_beta_financial_company_sale_credit_memo_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_customer_operations#FinancialCompanySaleCreditMemoCustomerOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo_customer,
+)
+
+
+financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line,
+)
+
+
+financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
+)
+
+
+financials_beta_financial_company_sale_invoice_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_operations#FinancialCompanySaleInvoiceLineOperations.{}',
+    client_factory=cf_financial_company_sale_invoice_line,
+)
+
+
+financials_beta_financial_company_sale_invoice_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_invoice_line_item,
+)
+
+
+financials_beta_financial_company_sale_invoice = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_operations#FinancialCompanySaleInvoiceOperations.{}',
+    client_factory=cf_financial_company_sale_invoice,
+)
+
+
+financials_beta_financial_company_sale_invoice_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_customer_operations#FinancialCompanySaleInvoiceCustomerOperations.{}',
+    client_factory=cf_financial_company_sale_invoice_customer,
+)
+
+
+financials_beta_financial_company_sale_invoice_sale_invoice_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_operations#FinancialCompanySaleInvoiceSaleInvoiceLineOperations.{}',
+    client_factory=cf_financial_company_sale_invoice_sale_invoice_line,
+)
+
+
+financials_beta_financial_company_sale_invoice_sale_invoice_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item,
+)
+
+
+financials_beta_financial_company_sale_order_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_operations#FinancialCompanySaleOrderLineOperations.{}',
+    client_factory=cf_financial_company_sale_order_line,
+)
+
+
+financials_beta_financial_company_sale_order_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_item_operations#FinancialCompanySaleOrderLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_order_line_item,
+)
+
+
+financials_beta_financial_company_sale_order = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_operations#FinancialCompanySaleOrderOperations.{}',
+    client_factory=cf_financial_company_sale_order,
+)
+
+
+financials_beta_financial_company_sale_order_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_customer_operations#FinancialCompanySaleOrderCustomerOperations.{}',
+    client_factory=cf_financial_company_sale_order_customer,
+)
+
+
+financials_beta_financial_company_sale_order_sale_order_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_operations#FinancialCompanySaleOrderSaleOrderLineOperations.{}',
+    client_factory=cf_financial_company_sale_order_sale_order_line,
+)
+
+
+financials_beta_financial_company_sale_order_sale_order_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_item_operations#FinancialCompanySaleOrderSaleOrderLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_order_sale_order_line_item,
+)
+
+
+financials_beta_financial_company_sale_quote_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_operations#FinancialCompanySaleQuoteLineOperations.{}',
+    client_factory=cf_financial_company_sale_quote_line,
+)
+
+
+financials_beta_financial_company_sale_quote_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_item_operations#FinancialCompanySaleQuoteLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_quote_line_item,
+)
+
+
+financials_beta_financial_company_sale_quote = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_operations#FinancialCompanySaleQuoteOperations.{}',
+    client_factory=cf_financial_company_sale_quote,
+)
+
+
+financials_beta_financial_company_sale_quote_customer = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_customer_operations#FinancialCompanySaleQuoteCustomerOperations.{}',
+    client_factory=cf_financial_company_sale_quote_customer,
+)
+
+
+financials_beta_financial_company_sale_quote_sale_quote_line = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_operations#FinancialCompanySaleQuoteSaleQuoteLineOperations.{}',
+    client_factory=cf_financial_company_sale_quote_sale_quote_line,
+)
+
+
+financials_beta_financial_company_sale_quote_sale_quote_line_item = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_item_operations#FinancialCompanySaleQuoteSaleQuoteLineItemOperations.{}',
+    client_factory=cf_financial_company_sale_quote_sale_quote_line_item,
+)
+
+
+financials_beta_financial_company_vendor = CliCommandType(
+    operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_vendor_operations#FinancialCompanyVendorOperations.{}',
+    client_factory=cf_financial_company_vendor,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_financials_beta.generated._client_factory import cf_financial_financial
-
-    financials_beta_financial_financial = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_financial_operations#FinancialFinancialOperations.{}',
-        client_factory=cf_financial_financial,
-    )
     with self.command_group(
         'financials financial', financials_beta_financial_financial, client_factory=cf_financial_financial
     ) as g:
         g.custom_command('create', 'financials_financial_create')
         g.custom_command('show-financial', 'financials_financial_show_financial')
 
-    from azext_financials_beta.generated._client_factory import cf_financial
-
-    financials_beta_financial = CliCommandType(
-        operations_tmpl=(
-            'azext_financials_beta.vendored_sdks.financials.operations._financial_operations#FinancialOperations.{}'
-        ),
-        client_factory=cf_financial,
-    )
     with self.command_group('financials financial', financials_beta_financial, client_factory=cf_financial) as g:
         g.custom_command('create-company', 'financials_financial_create_company')
         g.custom_command('delete-company', 'financials_financial_delete_company')
@@ -43,12 +363,6 @@ def load_command_table(self, _):
         g.custom_command('show-company', 'financials_financial_show_company')
         g.custom_command('update-company', 'financials_financial_update_company')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company
-
-    financials_beta_financial_company = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_operations#FinancialCompanyOperations.{}',
-        client_factory=cf_financial_company,
-    )
     with self.command_group(
         'financials financial-company', financials_beta_financial_company, client_factory=cf_financial_company
     ) as g:
@@ -248,12 +562,6 @@ def load_command_table(self, _):
         g.custom_command('update-unit-of-measure', 'financials_financial_company_update_unit_of_measure')
         g.custom_command('update-vendor', 'financials_financial_company_update_vendor')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_journal
-
-    financials_beta_financial_company_customer_payment_journal = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_operations#FinancialCompanyCustomerPaymentJournalOperations.{}',
-        client_factory=cf_financial_company_customer_payment_journal,
-    )
     with self.command_group(
         'financials financial-company-customer-payment-journal',
         financials_beta_financial_company_customer_payment_journal,
@@ -278,14 +586,6 @@ def load_command_table(self, _):
             'update-customer-payment', 'financials_financial_company_customer_payment_journal_update_customer_payment'
         )
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_customer_payment_journal_customer_payment,
-    )
-
-    financials_beta_financial_company_customer_payment_journal_customer_payment = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentOperations.{}',
-        client_factory=cf_financial_company_customer_payment_journal_customer_payment,
-    )
     with self.command_group(
         'financials financial-company-customer-payment-journal-customer-payment',
         financials_beta_financial_company_customer_payment_journal_customer_payment,
@@ -301,14 +601,6 @@ def load_command_table(self, _):
             'update-customer', 'financials_financial_company_customer_payment_journal_customer_payment_update_customer'
         )
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_customer_payment_journal_customer_payment_customer,
-    )
-
-    financials_beta_financial_company_customer_payment_journal_customer_payment_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_journal_customer_payment_customer_operations#FinancialCompanyCustomerPaymentJournalCustomerPaymentCustomerOperations.{}',
-        client_factory=cf_financial_company_customer_payment_journal_customer_payment_customer,
-    )
     with self.command_group(
         'financials financial-company-customer-payment-journal-customer-payment-customer',
         financials_beta_financial_company_customer_payment_journal_customer_payment_customer,
@@ -391,12 +683,6 @@ def load_command_table(self, _):
             'financials_financial_company_customer_payment_journal_customer_payment_customer_update_shipment_method',
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment
-
-    financials_beta_financial_company_customer_payment = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_operations#FinancialCompanyCustomerPaymentOperations.{}',
-        client_factory=cf_financial_company_customer_payment,
-    )
     with self.command_group(
         'financials financial-company-customer-payment',
         financials_beta_financial_company_customer_payment,
@@ -406,12 +692,6 @@ def load_command_table(self, _):
         g.custom_command('show-customer', 'financials_financial_company_customer_payment_show_customer')
         g.custom_command('update-customer', 'financials_financial_company_customer_payment_update_customer')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer_payment_customer
-
-    financials_beta_financial_company_customer_payment_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_payment_customer_operations#FinancialCompanyCustomerPaymentCustomerOperations.{}',
-        client_factory=cf_financial_company_customer_payment_customer,
-    )
     with self.command_group(
         'financials financial-company-customer-payment-customer',
         financials_beta_financial_company_customer_payment_customer,
@@ -459,12 +739,6 @@ def load_command_table(self, _):
             'update-shipment-method', 'financials_financial_company_customer_payment_customer_update_shipment_method'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_customer
-
-    financials_beta_financial_company_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_customer_operations#FinancialCompanyCustomerOperations.{}',
-        client_factory=cf_financial_company_customer,
-    )
     with self.command_group(
         'financials financial-company-customer',
         financials_beta_financial_company_customer,
@@ -490,12 +764,6 @@ def load_command_table(self, _):
         g.custom_command('update-picture', 'financials_financial_company_customer_update_picture')
         g.custom_command('update-shipment-method', 'financials_financial_company_customer_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_dimension
-
-    financials_beta_financial_company_dimension = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_dimension_operations#FinancialCompanyDimensionOperations.{}',
-        client_factory=cf_financial_company_dimension,
-    )
     with self.command_group(
         'financials financial-company-dimension',
         financials_beta_financial_company_dimension,
@@ -507,12 +775,6 @@ def load_command_table(self, _):
         g.custom_command('show-dimension-value', 'financials_financial_company_dimension_show_dimension_value')
         g.custom_command('update-dimension-value', 'financials_financial_company_dimension_update_dimension_value')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_employee
-
-    financials_beta_financial_company_employee = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_employee_operations#FinancialCompanyEmployeeOperations.{}',
-        client_factory=cf_financial_company_employee,
-    )
     with self.command_group(
         'financials financial-company-employee',
         financials_beta_financial_company_employee,
@@ -526,12 +788,6 @@ def load_command_table(self, _):
         g.custom_command('show-picture-content', 'financials_financial_company_employee_show_picture_content')
         g.custom_command('update-picture', 'financials_financial_company_employee_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_general_ledger_entry
-
-    financials_beta_financial_company_general_ledger_entry = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_general_ledger_entry_operations#FinancialCompanyGeneralLedgerEntryOperations.{}',
-        client_factory=cf_financial_company_general_ledger_entry,
-    )
     with self.command_group(
         'financials financial-company-general-ledger-entry',
         financials_beta_financial_company_general_ledger_entry,
@@ -541,12 +797,6 @@ def load_command_table(self, _):
         g.custom_command('show-account', 'financials_financial_company_general_ledger_entry_show_account')
         g.custom_command('update-account', 'financials_financial_company_general_ledger_entry_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_item
-
-    financials_beta_financial_company_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_item_operations#FinancialCompanyItemOperations.{}',
-        client_factory=cf_financial_company_item,
-    )
     with self.command_group(
         'financials financial-company-item',
         financials_beta_financial_company_item,
@@ -563,12 +813,6 @@ def load_command_table(self, _):
         g.custom_command('update-item-category', 'financials_financial_company_item_update_item_category')
         g.custom_command('update-picture', 'financials_financial_company_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal_line
-
-    financials_beta_financial_company_journal_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_line_operations#FinancialCompanyJournalLineOperations.{}',
-        client_factory=cf_financial_company_journal_line,
-    )
     with self.command_group(
         'financials financial-company-journal-line',
         financials_beta_financial_company_journal_line,
@@ -578,12 +822,6 @@ def load_command_table(self, _):
         g.custom_command('show-account', 'financials_financial_company_journal_line_show_account')
         g.custom_command('update-account', 'financials_financial_company_journal_line_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal
-
-    financials_beta_financial_company_journal = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_operations#FinancialCompanyJournalOperations.{}',
-        client_factory=cf_financial_company_journal,
-    )
     with self.command_group(
         'financials financial-company-journal',
         financials_beta_financial_company_journal,
@@ -599,12 +837,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_journal_update_account')
         g.custom_command('update-journal-line', 'financials_financial_company_journal_update_journal_line')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_journal_journal_line
-
-    financials_beta_financial_company_journal_journal_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_journal_journal_line_operations#FinancialCompanyJournalJournalLineOperations.{}',
-        client_factory=cf_financial_company_journal_journal_line,
-    )
     with self.command_group(
         'financials financial-company-journal-journal-line',
         financials_beta_financial_company_journal_journal_line,
@@ -614,12 +846,6 @@ def load_command_table(self, _):
         g.custom_command('show-account', 'financials_financial_company_journal_journal_line_show_account')
         g.custom_command('update-account', 'financials_financial_company_journal_journal_line_update_account')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_line
-
-    financials_beta_financial_company_purchase_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_line,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice-line',
         financials_beta_financial_company_purchase_invoice_line,
@@ -632,12 +858,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_purchase_invoice_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_purchase_invoice_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_line_item
-
-    financials_beta_financial_company_purchase_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_line_item,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice-line-item',
         financials_beta_financial_company_purchase_invoice_line_item,
@@ -664,12 +884,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_purchase_invoice_line_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice
-
-    financials_beta_financial_company_purchase_invoice = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_operations#FinancialCompanyPurchaseInvoiceOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice',
         financials_beta_financial_company_purchase_invoice,
@@ -698,14 +912,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-vendor', 'financials_financial_company_purchase_invoice_update_vendor')
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_purchase_invoice_purchase_invoice_line,
-    )
-
-    financials_beta_financial_company_purchase_invoice_purchase_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice-purchase-invoice-line',
         financials_beta_financial_company_purchase_invoice_purchase_invoice_line,
@@ -728,14 +934,6 @@ def load_command_table(self, _):
             'update-item', 'financials_financial_company_purchase_invoice_purchase_invoice_line_update_item'
         )
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_purchase_invoice_purchase_invoice_line_item,
-    )
-
-    financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_purchase_invoice_line_item_operations#FinancialCompanyPurchaseInvoicePurchaseInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_purchase_invoice_line_item,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice-purchase-invoice-line-item',
         financials_beta_financial_company_purchase_invoice_purchase_invoice_line_item,
@@ -777,12 +975,6 @@ def load_command_table(self, _):
             'update-picture', 'financials_financial_company_purchase_invoice_purchase_invoice_line_item_update_picture'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_purchase_invoice_vendor
-
-    financials_beta_financial_company_purchase_invoice_vendor = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_purchase_invoice_vendor_operations#FinancialCompanyPurchaseInvoiceVendorOperations.{}',
-        client_factory=cf_financial_company_purchase_invoice_vendor,
-    )
     with self.command_group(
         'financials financial-company-purchase-invoice-vendor',
         financials_beta_financial_company_purchase_invoice_vendor,
@@ -819,12 +1011,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_purchase_invoice_vendor_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_line
-
-    financials_beta_financial_company_sale_credit_memo_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoLineOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_line,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo-line',
         financials_beta_financial_company_sale_credit_memo_line,
@@ -837,12 +1023,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_credit_memo_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_credit_memo_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_line_item
-
-    financials_beta_financial_company_sale_credit_memo_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo-line-item',
         financials_beta_financial_company_sale_credit_memo_line_item,
@@ -869,12 +1049,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_sale_credit_memo_line_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo
-
-    financials_beta_financial_company_sale_credit_memo = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_operations#FinancialCompanySaleCreditMemoOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo',
         financials_beta_financial_company_sale_credit_memo,
@@ -905,12 +1079,6 @@ def load_command_table(self, _):
             'update-sale-credit-memo-line', 'financials_financial_company_sale_credit_memo_update_sale_credit_memo_line'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_credit_memo_customer
-
-    financials_beta_financial_company_sale_credit_memo_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_customer_operations#FinancialCompanySaleCreditMemoCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_customer,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo-customer',
         financials_beta_financial_company_sale_credit_memo_customer,
@@ -958,14 +1126,6 @@ def load_command_table(self, _):
             'update-shipment-method', 'financials_financial_company_sale_credit_memo_customer_update_shipment_method'
         )
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_sale_credit_memo_sale_credit_memo_line,
-    )
-
-    financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo-sale-credit-memo-line',
         financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line,
@@ -988,14 +1148,6 @@ def load_command_table(self, _):
             'update-item', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_update_item'
         )
 
-    from azext_financials_beta.generated._client_factory import (
-        cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
-    )
-
-    financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_credit_memo_sale_credit_memo_line_item_operations#FinancialCompanySaleCreditMemoSaleCreditMemoLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_credit_memo_sale_credit_memo_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-credit-memo-sale-credit-memo-line-item',
         financials_beta_financial_company_sale_credit_memo_sale_credit_memo_line_item,
@@ -1037,12 +1189,6 @@ def load_command_table(self, _):
             'update-picture', 'financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_update_picture'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_line
-
-    financials_beta_financial_company_sale_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_operations#FinancialCompanySaleInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_line,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice-line',
         financials_beta_financial_company_sale_invoice_line,
@@ -1055,12 +1201,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_invoice_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_invoice_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_line_item
-
-    financials_beta_financial_company_sale_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice-line-item',
         financials_beta_financial_company_sale_invoice_line_item,
@@ -1085,12 +1225,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_sale_invoice_line_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice
-
-    financials_beta_financial_company_sale_invoice = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_operations#FinancialCompanySaleInvoiceOperations.{}',
-        client_factory=cf_financial_company_sale_invoice,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice',
         financials_beta_financial_company_sale_invoice,
@@ -1125,12 +1259,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-shipment-method', 'financials_financial_company_sale_invoice_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_customer
-
-    financials_beta_financial_company_sale_invoice_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_customer_operations#FinancialCompanySaleInvoiceCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_customer,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice-customer',
         financials_beta_financial_company_sale_invoice_customer,
@@ -1176,12 +1304,6 @@ def load_command_table(self, _):
             'update-shipment-method', 'financials_financial_company_sale_invoice_customer_update_shipment_method'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_sale_invoice_line
-
-    financials_beta_financial_company_sale_invoice_sale_invoice_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_operations#FinancialCompanySaleInvoiceSaleInvoiceLineOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_sale_invoice_line,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice-sale-invoice-line',
         financials_beta_financial_company_sale_invoice_sale_invoice_line,
@@ -1194,12 +1316,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_invoice_sale_invoice_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_invoice_sale_invoice_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_invoice_sale_invoice_line_item
-
-    financials_beta_financial_company_sale_invoice_sale_invoice_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_invoice_sale_invoice_line_item_operations#FinancialCompanySaleInvoiceSaleInvoiceLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_invoice_sale_invoice_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-invoice-sale-invoice-line-item',
         financials_beta_financial_company_sale_invoice_sale_invoice_line_item,
@@ -1240,12 +1356,6 @@ def load_command_table(self, _):
             'update-picture', 'financials_financial_company_sale_invoice_sale_invoice_line_item_update_picture'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_line
-
-    financials_beta_financial_company_sale_order_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_operations#FinancialCompanySaleOrderLineOperations.{}',
-        client_factory=cf_financial_company_sale_order_line,
-    )
     with self.command_group(
         'financials financial-company-sale-order-line',
         financials_beta_financial_company_sale_order_line,
@@ -1258,12 +1368,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_order_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_order_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_line_item
-
-    financials_beta_financial_company_sale_order_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_line_item_operations#FinancialCompanySaleOrderLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_order_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-order-line-item',
         financials_beta_financial_company_sale_order_line_item,
@@ -1286,12 +1390,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_sale_order_line_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order
-
-    financials_beta_financial_company_sale_order = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_operations#FinancialCompanySaleOrderOperations.{}',
-        client_factory=cf_financial_company_sale_order,
-    )
     with self.command_group(
         'financials financial-company-sale-order',
         financials_beta_financial_company_sale_order,
@@ -1312,12 +1410,6 @@ def load_command_table(self, _):
         g.custom_command('update-payment-term', 'financials_financial_company_sale_order_update_payment_term')
         g.custom_command('update-sale-order-line', 'financials_financial_company_sale_order_update_sale_order_line')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_customer
-
-    financials_beta_financial_company_sale_order_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_customer_operations#FinancialCompanySaleOrderCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_order_customer,
-    )
     with self.command_group(
         'financials financial-company-sale-order-customer',
         financials_beta_financial_company_sale_order_customer,
@@ -1355,12 +1447,6 @@ def load_command_table(self, _):
             'update-shipment-method', 'financials_financial_company_sale_order_customer_update_shipment_method'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_sale_order_line
-
-    financials_beta_financial_company_sale_order_sale_order_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_operations#FinancialCompanySaleOrderSaleOrderLineOperations.{}',
-        client_factory=cf_financial_company_sale_order_sale_order_line,
-    )
     with self.command_group(
         'financials financial-company-sale-order-sale-order-line',
         financials_beta_financial_company_sale_order_sale_order_line,
@@ -1373,12 +1459,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_order_sale_order_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_order_sale_order_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_order_sale_order_line_item
-
-    financials_beta_financial_company_sale_order_sale_order_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_order_sale_order_line_item_operations#FinancialCompanySaleOrderSaleOrderLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_order_sale_order_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-order-sale-order-line-item',
         financials_beta_financial_company_sale_order_sale_order_line_item,
@@ -1411,12 +1491,6 @@ def load_command_table(self, _):
             'update-picture', 'financials_financial_company_sale_order_sale_order_line_item_update_picture'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_line
-
-    financials_beta_financial_company_sale_quote_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_operations#FinancialCompanySaleQuoteLineOperations.{}',
-        client_factory=cf_financial_company_sale_quote_line,
-    )
     with self.command_group(
         'financials financial-company-sale-quote-line',
         financials_beta_financial_company_sale_quote_line,
@@ -1429,12 +1503,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_quote_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_quote_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_line_item
-
-    financials_beta_financial_company_sale_quote_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_line_item_operations#FinancialCompanySaleQuoteLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_quote_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-quote-line-item',
         financials_beta_financial_company_sale_quote_line_item,
@@ -1457,12 +1525,6 @@ def load_command_table(self, _):
         )
         g.custom_command('update-picture', 'financials_financial_company_sale_quote_line_item_update_picture')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote
-
-    financials_beta_financial_company_sale_quote = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_operations#FinancialCompanySaleQuoteOperations.{}',
-        client_factory=cf_financial_company_sale_quote,
-    )
     with self.command_group(
         'financials financial-company-sale-quote',
         financials_beta_financial_company_sale_quote,
@@ -1488,12 +1550,6 @@ def load_command_table(self, _):
         g.custom_command('update-sale-quote-line', 'financials_financial_company_sale_quote_update_sale_quote_line')
         g.custom_command('update-shipment-method', 'financials_financial_company_sale_quote_update_shipment_method')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_customer
-
-    financials_beta_financial_company_sale_quote_customer = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_customer_operations#FinancialCompanySaleQuoteCustomerOperations.{}',
-        client_factory=cf_financial_company_sale_quote_customer,
-    )
     with self.command_group(
         'financials financial-company-sale-quote-customer',
         financials_beta_financial_company_sale_quote_customer,
@@ -1531,12 +1587,6 @@ def load_command_table(self, _):
             'update-shipment-method', 'financials_financial_company_sale_quote_customer_update_shipment_method'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_sale_quote_line
-
-    financials_beta_financial_company_sale_quote_sale_quote_line = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_operations#FinancialCompanySaleQuoteSaleQuoteLineOperations.{}',
-        client_factory=cf_financial_company_sale_quote_sale_quote_line,
-    )
     with self.command_group(
         'financials financial-company-sale-quote-sale-quote-line',
         financials_beta_financial_company_sale_quote_sale_quote_line,
@@ -1549,12 +1599,6 @@ def load_command_table(self, _):
         g.custom_command('update-account', 'financials_financial_company_sale_quote_sale_quote_line_update_account')
         g.custom_command('update-item', 'financials_financial_company_sale_quote_sale_quote_line_update_item')
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_sale_quote_sale_quote_line_item
-
-    financials_beta_financial_company_sale_quote_sale_quote_line_item = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_sale_quote_sale_quote_line_item_operations#FinancialCompanySaleQuoteSaleQuoteLineItemOperations.{}',
-        client_factory=cf_financial_company_sale_quote_sale_quote_line_item,
-    )
     with self.command_group(
         'financials financial-company-sale-quote-sale-quote-line-item',
         financials_beta_financial_company_sale_quote_sale_quote_line_item,
@@ -1587,12 +1631,6 @@ def load_command_table(self, _):
             'update-picture', 'financials_financial_company_sale_quote_sale_quote_line_item_update_picture'
         )
 
-    from azext_financials_beta.generated._client_factory import cf_financial_company_vendor
-
-    financials_beta_financial_company_vendor = CliCommandType(
-        operations_tmpl='azext_financials_beta.vendored_sdks.financials.operations._financial_company_vendor_operations#FinancialCompanyVendorOperations.{}',
-        client_factory=cf_financial_company_vendor,
-    )
     with self.command_group(
         'financials financial-company-vendor',
         financials_beta_financial_company_vendor,

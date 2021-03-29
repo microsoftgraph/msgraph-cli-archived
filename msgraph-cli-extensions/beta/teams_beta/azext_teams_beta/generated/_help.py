@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['teams_beta'] = '''
+    type: group
+    short-summary: Manage Teams
+'''
+
 helps['teams app-catalog'] = """
     type: group
     short-summary: Manage app catalog with teams_beta

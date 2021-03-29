@@ -1227,7 +1227,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -3806,7 +3806,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -3855,7 +3855,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -3904,7 +3904,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -3954,7 +3954,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4013,7 +4013,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4062,7 +4062,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4422,7 +4422,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4470,7 +4470,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4518,7 +4518,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4567,7 +4567,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4624,7 +4624,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|
@@ -4672,7 +4672,7 @@
 |**--created-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|created_date_time|createdDateTime|
 |**--last-modified-date-time**|date-time|The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'|last_modified_date_time|lastModifiedDateTime|
 |**--bcc-recipients**|array|The Bcc: recipients for the message.|bcc_recipients|bccRecipients|
-|**--message-body**|object|itemBody|body|body|
+|**--body**|object|itemBody|body|body|
 |**--body-preview**|string|The first 255 characters of the message body. It is in text format.|body_preview|bodyPreview|
 |**--cc-recipients**|array|The Cc: recipients for the message.|cc_recipients|ccRecipients|
 |**--conversation-id**|string|The ID of the conversation the email belongs to.|conversation_id|conversationId|

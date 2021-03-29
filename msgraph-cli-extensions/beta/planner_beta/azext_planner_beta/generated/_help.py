@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['planner_beta'] = '''
+    type: group
+    short-summary: Manage Planner
+'''
+
 helps['planner group'] = """
     type: group
     short-summary: Manage group with planner_beta

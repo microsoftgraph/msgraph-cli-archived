@@ -530,10 +530,10 @@ class AddDrivesVersions(argparse._AppendAction):
         return d
 
 
-class AddListItemContentType(argparse.Action):
+class AddContentType(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.list_item_content_type = action
+        namespace.content_type = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -552,8 +552,8 @@ class AddListItemContentType(argparse.Action):
             elif kl == 'name':
                 d['name'] = v[0]
             else:
-                raise CLIError('Unsupported Key {} is provided for parameter list_item_content_type. All possible keys '
-                               'are: id, name'.format(k))
+                raise CLIError('Unsupported Key {} is provided for parameter content_type. All possible keys are: id, '
+                               'name'.format(k))
         return d
 
 

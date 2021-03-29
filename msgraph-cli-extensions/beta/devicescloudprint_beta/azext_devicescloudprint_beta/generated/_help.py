@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['devicescloudprint_beta'] = '''
+    type: group
+    short-summary: Manage Devices Cloud Print
+'''
+
 helps['devicescloudprint print-print'] = """
     type: group
     short-summary: Manage print print with devicescloudprint_beta

@@ -9,19 +9,21 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_changenotifications_beta.generated._client_factory import cf_subscription_subscription
+
+
+changenotifications_beta_subscription_subscription = CliCommandType(
+    operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscription_subscription_operations#SubscriptionSubscriptionOperations.{}',
+    client_factory=cf_subscription_subscription,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_changenotifications_beta.generated._client_factory import cf_subscription_subscription
-
-    changenotifications_beta_subscription_subscription = CliCommandType(
-        operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscription_subscription_operations#SubscriptionSubscriptionOperations.{}',
-        client_factory=cf_subscription_subscription,
-    )
     with self.command_group(
         'changenotifications subscription-subscription',
         changenotifications_beta_subscription_subscription,

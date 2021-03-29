@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['devicescorpmgt_v1_0'] = '''
+    type: group
+    short-summary: Manage Devices Corporate Management
+'''
+
 helps['devicescorpmgt device-app-management-device-app-management'] = """
     type: group
     short-summary: Manage device app management device app management with devicescorpmgt_v1_0

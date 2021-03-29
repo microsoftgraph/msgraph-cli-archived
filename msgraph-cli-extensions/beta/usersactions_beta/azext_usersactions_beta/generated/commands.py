@@ -9,19 +9,928 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_usersactions_beta.generated._client_factory import (
+    cf_user_authentication_method,
+    cf_user_calendar_calendar_view_attachment,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_attachment,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_exception_occurrence,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_group_calendar_calendar_view_attachment,
+    cf_user_calendar_group_calendar_calendar_view_calendar,
+    cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_group_calendar_calendar_view_instance,
+    cf_user_calendar_group_calendar_calendar_view,
+    cf_user_calendar_group_calendar_event_attachment,
+    cf_user_calendar_group_calendar_event_calendar,
+    cf_user_calendar_group_calendar_event_exception_occurrence,
+    cf_user_calendar_group_calendar_event_instance,
+    cf_user_calendar_group_calendar_event,
+    cf_user_calendar_group_calendar,
+    cf_user_calendar_calendar_view_attachment,
+    cf_user_calendar_calendar_view_calendar,
+    cf_user_calendar_calendar_view_exception_occurrence,
+    cf_user_calendar_calendar_view_instance,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event_attachment,
+    cf_user_calendar_event_calendar,
+    cf_user_calendar_event_exception_occurrence,
+    cf_user_calendar_event_instance,
+    cf_user_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_view_attachment,
+    cf_user_calendar_view_calendar_calendar_view,
+    cf_user_calendar_view_calendar_event,
+    cf_user_calendar_view_calendar,
+    cf_user_calendar_view_exception_occurrence,
+    cf_user_calendar_view_instance,
+    cf_user_calendar_view,
+    cf_user_device_enrollment_configuration,
+    cf_user_event_attachment,
+    cf_user_event_calendar_calendar_view,
+    cf_user_event_calendar_event,
+    cf_user_event_calendar,
+    cf_user_event_exception_occurrence,
+    cf_user_event_instance,
+    cf_user_event,
+    cf_user_mail_folder_child_folder,
+    cf_user_mail_folder_message_attachment,
+    cf_user_mail_folder_message,
+    cf_user_mail_folder,
+    cf_user_managed_device_log_collection_request,
+    cf_user_managed_device,
+    cf_user_message_attachment,
+    cf_user_message,
+    cf_user,
+    cf_user_mobile_app_troubleshooting_event_app_log_collection_request,
+    cf_user_onenote_notebook,
+    cf_user_onenote_notebook_section_group_parent_notebook,
+    cf_user_onenote_notebook_section_group_section,
+    cf_user_onenote_notebook_section_group_section_page,
+    cf_user_onenote_notebook_section_group_section_page_parent_notebook,
+    cf_user_onenote_notebook_section_group_section_page_parent_section,
+    cf_user_onenote_notebook_section_group_section_parent_notebook,
+    cf_user_onenote_notebook_section,
+    cf_user_onenote_notebook_section_page,
+    cf_user_onenote_notebook_section_page_parent_notebook,
+    cf_user_onenote_notebook_section_page_parent_section,
+    cf_user_onenote_notebook_section_parent_notebook,
+    cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
+    cf_user_onenote_notebook_section_parent_section_group_section,
+    cf_user_onenote_page,
+    cf_user_onenote_page_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_group_section,
+    cf_user_onenote_page_parent_notebook_section_group_section_page,
+    cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section,
+    cf_user_onenote_page_parent_notebook_section_page,
+    cf_user_onenote_page_parent_notebook_section_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+    cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
+    cf_user_onenote_page_parent_section,
+    cf_user_onenote_page_parent_section_page,
+    cf_user_onenote_page_parent_section_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
+    cf_user_onenote_page_parent_section_parent_notebook_section,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+    cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+    cf_user_onenote_page_parent_section_parent_section_group_section,
+    cf_user_onenote_section_group_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section,
+    cf_user_onenote_section_group_parent_notebook_section_page,
+    cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+    cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
+    cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
+    cf_user_onenote_section_group_section,
+    cf_user_onenote_section_group_section_page,
+    cf_user_onenote_section_group_section_page_parent_notebook,
+    cf_user_onenote_section_group_section_page_parent_notebook_section,
+    cf_user_onenote_section_group_section_page_parent_section,
+    cf_user_onenote_section_group_section_parent_notebook,
+    cf_user_onenote_section_group_section_parent_notebook_section,
+    cf_user_onenote_section,
+    cf_user_onenote_section_page,
+    cf_user_onenote_section_page_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_section_page_parent_notebook_section_group_section,
+    cf_user_onenote_section_page_parent_notebook_section,
+    cf_user_onenote_section_page_parent_section,
+    cf_user_onenote_section_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
+    cf_user_onenote_section_parent_notebook_section_group_section,
+    cf_user_onenote_section_parent_notebook_section,
+    cf_user_onenote_section_parent_section_group_parent_notebook,
+    cf_user_onenote_section_parent_section_group_parent_notebook_section,
+    cf_user_onenote_section_parent_section_group_section,
+    cf_user_online_meeting,
+    cf_user_outlook_task_folder_task_attachment,
+    cf_user_outlook_task_folder_task,
+    cf_user_outlook_task_group_task_folder_task_attachment,
+    cf_user_outlook_task_group_task_folder_task,
+    cf_user_outlook_task_attachment,
+    cf_user_outlook_task,
+    cf_user_pending_access_review_instance_definition,
+    cf_user_pending_access_review_instance,
+    cf_user_teamwork,
+)
+
+
+usersactions_beta_user_authentication_method = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_authentication_method_operations#UserAuthenticationMethodOperations.{}',
+    client_factory=cf_user_authentication_method,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_attachment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_attachment,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_exception_occurrence_operations#UserCalendarCalendarViewExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
+)
+
+
+usersactions_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+usersactions_beta_user_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_attachment_operations#UserCalendarEventAttachmentOperations.{}',
+    client_factory=cf_user_calendar_event_attachment,
+)
+
+
+usersactions_beta_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
+)
+
+
+usersactions_beta_user_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_exception_occurrence_operations#UserCalendarEventExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_event_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
+)
+
+
+usersactions_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+usersactions_beta_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_operations#UserCalendarOperations.{}',
+    client_factory=cf_user_calendar,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_attachment_operations#UserCalendarGroupCalendarCalendarViewAttachmentOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_attachment,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_calendar_operations#UserCalendarGroupCalendarCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_exception_occurrence_operations#UserCalendarGroupCalendarCalendarViewExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_instance_operations#UserCalendarGroupCalendarCalendarViewInstanceOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_attachment_operations#UserCalendarGroupCalendarEventAttachmentOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_attachment,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_calendar_operations#UserCalendarGroupCalendarEventCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_calendar,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_exception_occurrence_operations#UserCalendarGroupCalendarEventExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_instance_operations#UserCalendarGroupCalendarEventInstanceOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event_instance,
+)
+
+
+usersactions_beta_user_calendar_group_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event,
+)
+
+
+usersactions_beta_user_calendar_group_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_attachment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_attachment,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_calendar,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_exception_occurrence_operations#UserCalendarCalendarViewExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
+    client_factory=cf_user_calendar_calendar_view_instance,
+)
+
+
+usersactions_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+usersactions_beta_user_calendar_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_attachment_operations#UserCalendarEventAttachmentOperations.{}',
+    client_factory=cf_user_calendar_event_attachment,
+)
+
+
+usersactions_beta_user_calendar_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
+    client_factory=cf_user_calendar_event_calendar,
+)
+
+
+usersactions_beta_user_calendar_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_exception_occurrence_operations#UserCalendarEventExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_event_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
+    client_factory=cf_user_calendar_event_instance,
+)
+
+
+usersactions_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+usersactions_beta_user_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_operations#UserCalendarOperations.{}',
+    client_factory=cf_user_calendar,
+)
+
+
+usersactions_beta_user_calendar_view_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_attachment_operations#UserCalendarViewAttachmentOperations.{}',
+    client_factory=cf_user_calendar_view_attachment,
+)
+
+
+usersactions_beta_user_calendar_view_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_calendar_view_operations#UserCalendarViewCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_calendar_view,
+)
+
+
+usersactions_beta_user_calendar_view_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_event_operations#UserCalendarViewCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_view_calendar_event,
+)
+
+
+usersactions_beta_user_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_view_calendar,
+)
+
+
+usersactions_beta_user_calendar_view_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_exception_occurrence_operations#UserCalendarViewExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_calendar_view_exception_occurrence,
+)
+
+
+usersactions_beta_user_calendar_view_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_instance_operations#UserCalendarViewInstanceOperations.{}',
+    client_factory=cf_user_calendar_view_instance,
+)
+
+
+usersactions_beta_user_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view,
+)
+
+
+usersactions_beta_user_device_enrollment_configuration = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_device_enrollment_configuration_operations#UserDeviceEnrollmentConfigurationOperations.{}',
+    client_factory=cf_user_device_enrollment_configuration,
+)
+
+
+usersactions_beta_user_event_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_attachment_operations#UserEventAttachmentOperations.{}',
+    client_factory=cf_user_event_attachment,
+)
+
+
+usersactions_beta_user_event_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_calendar_view_operations#UserEventCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_event_calendar_calendar_view,
+)
+
+
+usersactions_beta_user_event_calendar_event = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_event_operations#UserEventCalendarEventOperations.{}',
+    client_factory=cf_user_event_calendar_event,
+)
+
+
+usersactions_beta_user_event_calendar = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
+    client_factory=cf_user_event_calendar,
+)
+
+
+usersactions_beta_user_event_exception_occurrence = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_exception_occurrence_operations#UserEventExceptionOccurrenceOperations.{}',
+    client_factory=cf_user_event_exception_occurrence,
+)
+
+
+usersactions_beta_user_event_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_instance_operations#UserEventInstanceOperations.{}',
+    client_factory=cf_user_event_instance,
+)
+
+
+usersactions_beta_user_event = CliCommandType(
+    operations_tmpl=(
+        'azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_operations#UserEventOperations.{}'
+    ),
+    client_factory=cf_user_event,
+)
+
+
+usersactions_beta_user_mail_folder_child_folder = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_child_folder_operations#UserMailFolderChildFolderOperations.{}',
+    client_factory=cf_user_mail_folder_child_folder,
+)
+
+
+usersactions_beta_user_mail_folder_message_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_message_attachment_operations#UserMailFolderMessageAttachmentOperations.{}',
+    client_factory=cf_user_mail_folder_message_attachment,
+)
+
+
+usersactions_beta_user_mail_folder_message = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
+    client_factory=cf_user_mail_folder_message,
+)
+
+
+usersactions_beta_user_mail_folder = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_operations#UserMailFolderOperations.{}',
+    client_factory=cf_user_mail_folder,
+)
+
+
+usersactions_beta_user_managed_device_log_collection_request = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_managed_device_log_collection_request_operations#UserManagedDeviceLogCollectionRequestOperations.{}',
+    client_factory=cf_user_managed_device_log_collection_request,
+)
+
+
+usersactions_beta_user_managed_device = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_managed_device_operations#UserManagedDeviceOperations.{}',
+    client_factory=cf_user_managed_device,
+)
+
+
+usersactions_beta_user_message_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_message_attachment_operations#UserMessageAttachmentOperations.{}',
+    client_factory=cf_user_message_attachment,
+)
+
+
+usersactions_beta_user_message = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_message_operations#UserMessageOperations.{}',
+    client_factory=cf_user_message,
+)
+
+
+usersactions_beta_user = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+usersactions_beta_user_mobile_app_troubleshooting_event_app_log_collection_request = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mobile_app_troubleshooting_event_app_log_collection_request_operations#UserMobileAppTroubleshootingEventAppLogCollectionRequestOperations.{}',
+    client_factory=cf_user_mobile_app_troubleshooting_event_app_log_collection_request,
+)
+
+
+usersactions_beta_user_onenote_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_parent_notebook_operations#UserOnenoteNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_parent_section_operations#UserOnenoteNotebookSectionGroupSectionPageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_operations#UserOnenoteNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_parent_notebook_operations#UserOnenoteNotebookSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_parent_section_operations#UserOnenoteNotebookSectionPageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_notebook_operations#UserOnenoteNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_section_group_parent_notebook_operations#UserOnenoteNotebookSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_section_group_section_operations#UserOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_notebook_section_parent_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_operations#UserOnenotePageOperations.{}',
+    client_factory=cf_user_onenote_page,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_operations#UserOnenotePageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_page_operations#UserOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_page_operations#UserOnenotePageParentNotebookSectionPageOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_page,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_section_group_section_operations#UserOnenotePageParentNotebookSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_operations#UserOnenotePageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_page_operations#UserOnenotePageParentSectionPageOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_page,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_group_section_operations#UserOnenotePageParentSectionParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_operations#UserOnenotePageParentSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_section_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_page_parent_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_section_operations#UserOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_page_parent_section_parent_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_parent_section_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_operations#UserOnenoteSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_notebook_section_operations#UserOnenoteSectionGroupSectionPageParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_section_operations#UserOnenoteSectionGroupSectionPageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_group_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_parent_notebook_section_operations#UserOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_group_section_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_operations#UserOnenoteSectionOperations.{}',
+    client_factory=cf_user_onenote_section,
+)
+
+
+usersactions_beta_user_onenote_section_page = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
+    client_factory=cf_user_onenote_section_page,
+)
+
+
+usersactions_beta_user_onenote_section_page_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_group_parent_notebook_operations#UserOnenoteSectionPageParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_group_section_operations#UserOnenoteSectionPageParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_section_page_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_operations#UserOnenoteSectionPageParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section_page_parent_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_section_operations#UserOnenoteSectionPageParentSectionOperations.{}',
+    client_factory=cf_user_onenote_section_page_parent_section,
+)
+
+
+usersactions_beta_user_onenote_section_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_group_parent_notebook_operations#UserOnenoteSectionParentNotebookSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_parent_notebook_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_group_section_operations#UserOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section_group_section,
+)
+
+
+usersactions_beta_user_onenote_section_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_operations#UserOnenoteSectionParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
+)
+
+
+usersactions_beta_user_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_parent_notebook_section_operations#UserOnenoteSectionParentSectionGroupParentNotebookSectionOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section,
+)
+
+
+usersactions_beta_user_onenote_section_parent_section_group_section = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_section_operations#UserOnenoteSectionParentSectionGroupSectionOperations.{}',
+    client_factory=cf_user_onenote_section_parent_section_group_section,
+)
+
+
+usersactions_beta_user_online_meeting = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_online_meeting_operations#UserOnlineMeetingOperations.{}',
+    client_factory=cf_user_online_meeting,
+)
+
+
+usersactions_beta_user_outlook_task_folder_task_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_folder_task_attachment_operations#UserOutlookTaskFolderTaskAttachmentOperations.{}',
+    client_factory=cf_user_outlook_task_folder_task_attachment,
+)
+
+
+usersactions_beta_user_outlook_task_folder_task = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_folder_task_operations#UserOutlookTaskFolderTaskOperations.{}',
+    client_factory=cf_user_outlook_task_folder_task,
+)
+
+
+usersactions_beta_user_outlook_task_group_task_folder_task_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_group_task_folder_task_attachment_operations#UserOutlookTaskGroupTaskFolderTaskAttachmentOperations.{}',
+    client_factory=cf_user_outlook_task_group_task_folder_task_attachment,
+)
+
+
+usersactions_beta_user_outlook_task_group_task_folder_task = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_group_task_folder_task_operations#UserOutlookTaskGroupTaskFolderTaskOperations.{}',
+    client_factory=cf_user_outlook_task_group_task_folder_task,
+)
+
+
+usersactions_beta_user_outlook_task_attachment = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_attachment_operations#UserOutlookTaskAttachmentOperations.{}',
+    client_factory=cf_user_outlook_task_attachment,
+)
+
+
+usersactions_beta_user_outlook_task = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_operations#UserOutlookTaskOperations.{}',
+    client_factory=cf_user_outlook_task,
+)
+
+
+usersactions_beta_user_pending_access_review_instance_definition = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_pending_access_review_instance_definition_operations#UserPendingAccessReviewInstanceDefinitionOperations.{}',
+    client_factory=cf_user_pending_access_review_instance_definition,
+)
+
+
+usersactions_beta_user_pending_access_review_instance = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_pending_access_review_instance_operations#UserPendingAccessReviewInstanceOperations.{}',
+    client_factory=cf_user_pending_access_review_instance,
+)
+
+
+usersactions_beta_user_teamwork = CliCommandType(
+    operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_teamwork_operations#UserTeamworkOperations.{}',
+    client_factory=cf_user_teamwork,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_authentication_method
-
-    usersactions_beta_user_authentication_method = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_authentication_method_operations#UserAuthenticationMethodOperations.{}',
-        client_factory=cf_user_authentication_method,
-    )
     with self.command_group(
         'usersactions user-authentication-method',
         usersactions_beta_user_authentication_method,
@@ -31,12 +940,6 @@ def load_command_table(self, _):
         g.custom_command('enable-sm-sign-in', 'usersactions_user_authentication_method_enable_sm_sign_in')
         g.custom_command('reset-password', 'usersactions_user_authentication_method_reset_password')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_attachment
-
-    usersactions_beta_user_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_attachment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-attachment',
         usersactions_beta_user_calendar_calendar_view_attachment,
@@ -46,12 +949,6 @@ def load_command_table(self, _):
             'create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_session'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_calendar
-
-    usersactions_beta_user_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-calendar',
         usersactions_beta_user_calendar_calendar_view_calendar,
@@ -59,12 +956,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_exception_occurrence
-
-    usersactions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_exception_occurrence_operations#UserCalendarCalendarViewExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-exception-occurrence',
         usersactions_beta_user_calendar_calendar_view_exception_occurrence,
@@ -84,12 +975,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_calendar_view_exception_occurrence_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_instance
-
-    usersactions_beta_user_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-instance',
         usersactions_beta_user_calendar_calendar_view_instance,
@@ -103,12 +988,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view
-
-    usersactions_beta_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view',
         usersactions_beta_user_calendar_calendar_view,
@@ -122,12 +1001,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_attachment
-
-    usersactions_beta_user_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_attachment_operations#UserCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_event_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-event-attachment',
         usersactions_beta_user_calendar_event_attachment,
@@ -135,12 +1008,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_event_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_calendar
-
-    usersactions_beta_user_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_event_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-event-calendar',
         usersactions_beta_user_calendar_event_calendar,
@@ -148,12 +1015,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_exception_occurrence
-
-    usersactions_beta_user_calendar_event_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_exception_occurrence_operations#UserCalendarEventExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_event_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-event-exception-occurrence',
         usersactions_beta_user_calendar_event_exception_occurrence,
@@ -169,12 +1030,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_event_exception_occurrence_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_instance
-
-    usersactions_beta_user_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_event_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-event-instance',
         usersactions_beta_user_calendar_event_instance,
@@ -188,12 +1043,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event
-
-    usersactions_beta_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event,
-    )
     with self.command_group(
         'usersactions user-calendar-event', usersactions_beta_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
@@ -205,25 +1054,11 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar
-
-    usersactions_beta_user_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_operations#UserCalendarOperations.{}',
-        client_factory=cf_user_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar', usersactions_beta_user_calendar, client_factory=cf_user_calendar
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_calendar_group_calendar_calendar_view_attachment,
-    )
-
-    usersactions_beta_user_calendar_group_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_attachment_operations#UserCalendarGroupCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-calendar-view-attachment',
         usersactions_beta_user_calendar_group_calendar_calendar_view_attachment,
@@ -234,12 +1069,6 @@ def load_command_table(self, _):
             'usersactions_user_calendar_group_calendar_calendar_view_attachment_create_upload_session',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_calendar_view_calendar
-
-    usersactions_beta_user_calendar_group_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_calendar_operations#UserCalendarGroupCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-calendar-view-calendar',
         usersactions_beta_user_calendar_group_calendar_calendar_view_calendar,
@@ -249,14 +1078,6 @@ def load_command_table(self, _):
             'get-schedule', 'usersactions_user_calendar_group_calendar_calendar_view_calendar_get_schedule'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
-    )
-
-    usersactions_beta_user_calendar_group_calendar_calendar_view_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_exception_occurrence_operations#UserCalendarGroupCalendarCalendarViewExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-calendar-view-exception-occurrence',
         usersactions_beta_user_calendar_group_calendar_calendar_view_exception_occurrence,
@@ -287,12 +1108,6 @@ def load_command_table(self, _):
             'usersactions_user_calendar_group_calendar_calendar_view_exception_occurrence_tentatively_accept',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_calendar_view_instance
-
-    usersactions_beta_user_calendar_group_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_instance_operations#UserCalendarGroupCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-calendar-view-instance',
         usersactions_beta_user_calendar_group_calendar_calendar_view_instance,
@@ -312,12 +1127,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_instance_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_calendar_view
-
-    usersactions_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-calendar-view',
         usersactions_beta_user_calendar_group_calendar_calendar_view,
@@ -333,12 +1142,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_group_calendar_calendar_view_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_event_attachment
-
-    usersactions_beta_user_calendar_group_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_attachment_operations#UserCalendarGroupCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-event-attachment',
         usersactions_beta_user_calendar_group_calendar_event_attachment,
@@ -348,12 +1151,6 @@ def load_command_table(self, _):
             'create-upload-session', 'usersactions_user_calendar_group_calendar_event_attachment_create_upload_session'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_event_calendar
-
-    usersactions_beta_user_calendar_group_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_calendar_operations#UserCalendarGroupCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-event-calendar',
         usersactions_beta_user_calendar_group_calendar_event_calendar,
@@ -361,14 +1158,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_group_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_calendar_group_calendar_event_exception_occurrence,
-    )
-
-    usersactions_beta_user_calendar_group_calendar_event_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_exception_occurrence_operations#UserCalendarGroupCalendarEventExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-event-exception-occurrence',
         usersactions_beta_user_calendar_group_calendar_event_exception_occurrence,
@@ -389,12 +1178,6 @@ def load_command_table(self, _):
             'usersactions_user_calendar_group_calendar_event_exception_occurrence_tentatively_accept',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_event_instance
-
-    usersactions_beta_user_calendar_group_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_instance_operations#UserCalendarGroupCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-event-instance',
         usersactions_beta_user_calendar_group_calendar_event_instance,
@@ -412,12 +1195,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_group_calendar_event_instance_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar_event
-
-    usersactions_beta_user_calendar_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar-event',
         usersactions_beta_user_calendar_group_calendar_event,
@@ -431,12 +1208,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_group_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_group_calendar_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_group_calendar
-
-    usersactions_beta_user_calendar_group_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-group-calendar',
         usersactions_beta_user_calendar_group_calendar,
@@ -444,12 +1215,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_group_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_attachment
-
-    usersactions_beta_user_calendar_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_attachment_operations#UserCalendarCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-attachment',
         usersactions_beta_user_calendar_calendar_view_attachment,
@@ -459,12 +1224,6 @@ def load_command_table(self, _):
             'create-upload-session', 'usersactions_user_calendar_calendar_view_attachment_create_upload_session'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_calendar
-
-    usersactions_beta_user_calendar_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_calendar_operations#UserCalendarCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-calendar',
         usersactions_beta_user_calendar_calendar_view_calendar,
@@ -472,12 +1231,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_exception_occurrence
-
-    usersactions_beta_user_calendar_calendar_view_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_exception_occurrence_operations#UserCalendarCalendarViewExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-exception-occurrence',
         usersactions_beta_user_calendar_calendar_view_exception_occurrence,
@@ -497,12 +1250,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_calendar_view_exception_occurrence_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view_instance
-
-    usersactions_beta_user_calendar_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_instance_operations#UserCalendarCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_calendar_view_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view-instance',
         usersactions_beta_user_calendar_calendar_view_instance,
@@ -516,12 +1263,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_calendar_view
-
-    usersactions_beta_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view,
-    )
     with self.command_group(
         'usersactions user-calendar-calendar-view',
         usersactions_beta_user_calendar_calendar_view,
@@ -535,12 +1276,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_attachment
-
-    usersactions_beta_user_calendar_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_attachment_operations#UserCalendarEventAttachmentOperations.{}',
-        client_factory=cf_user_calendar_event_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-event-attachment',
         usersactions_beta_user_calendar_event_attachment,
@@ -548,12 +1283,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_event_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_calendar
-
-    usersactions_beta_user_calendar_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_calendar_operations#UserCalendarEventCalendarOperations.{}',
-        client_factory=cf_user_calendar_event_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-event-calendar',
         usersactions_beta_user_calendar_event_calendar,
@@ -561,12 +1290,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_event_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_exception_occurrence
-
-    usersactions_beta_user_calendar_event_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_exception_occurrence_operations#UserCalendarEventExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_event_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-event-exception-occurrence',
         usersactions_beta_user_calendar_event_exception_occurrence,
@@ -582,12 +1305,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_event_exception_occurrence_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event_instance
-
-    usersactions_beta_user_calendar_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_instance_operations#UserCalendarEventInstanceOperations.{}',
-        client_factory=cf_user_calendar_event_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-event-instance',
         usersactions_beta_user_calendar_event_instance,
@@ -601,12 +1318,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_event
-
-    usersactions_beta_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event,
-    )
     with self.command_group(
         'usersactions user-calendar-event', usersactions_beta_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
@@ -618,23 +1329,11 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar
-
-    usersactions_beta_user_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_operations#UserCalendarOperations.{}',
-        client_factory=cf_user_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar', usersactions_beta_user_calendar, client_factory=cf_user_calendar
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_attachment
-
-    usersactions_beta_user_calendar_view_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_attachment_operations#UserCalendarViewAttachmentOperations.{}',
-        client_factory=cf_user_calendar_view_attachment,
-    )
     with self.command_group(
         'usersactions user-calendar-view-attachment',
         usersactions_beta_user_calendar_view_attachment,
@@ -642,12 +1341,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_calendar_view_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_calendar_calendar_view
-
-    usersactions_beta_user_calendar_view_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_calendar_view_operations#UserCalendarViewCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_view_calendar_calendar_view,
-    )
     with self.command_group(
         'usersactions user-calendar-view-calendar-calendar-view',
         usersactions_beta_user_calendar_view_calendar_calendar_view,
@@ -663,12 +1356,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_view_calendar_calendar_view_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_calendar_event
-
-    usersactions_beta_user_calendar_view_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_event_operations#UserCalendarViewCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_view_calendar_event,
-    )
     with self.command_group(
         'usersactions user-calendar-view-calendar-event',
         usersactions_beta_user_calendar_view_calendar_event,
@@ -682,12 +1369,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_calendar_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_calendar
-
-    usersactions_beta_user_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_view_calendar,
-    )
     with self.command_group(
         'usersactions user-calendar-view-calendar',
         usersactions_beta_user_calendar_view_calendar,
@@ -695,12 +1376,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_calendar_view_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_exception_occurrence
-
-    usersactions_beta_user_calendar_view_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_exception_occurrence_operations#UserCalendarViewExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_calendar_view_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-calendar-view-exception-occurrence',
         usersactions_beta_user_calendar_view_exception_occurrence,
@@ -716,12 +1391,6 @@ def load_command_table(self, _):
             'tentatively-accept', 'usersactions_user_calendar_view_exception_occurrence_tentatively_accept'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view_instance
-
-    usersactions_beta_user_calendar_view_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_instance_operations#UserCalendarViewInstanceOperations.{}',
-        client_factory=cf_user_calendar_view_instance,
-    )
     with self.command_group(
         'usersactions user-calendar-view-instance',
         usersactions_beta_user_calendar_view_instance,
@@ -735,12 +1404,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_calendar_view
-
-    usersactions_beta_user_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_view,
-    )
     with self.command_group(
         'usersactions user-calendar-view', usersactions_beta_user_calendar_view, client_factory=cf_user_calendar_view
     ) as g:
@@ -752,12 +1415,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_calendar_view_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_device_enrollment_configuration
-
-    usersactions_beta_user_device_enrollment_configuration = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_device_enrollment_configuration_operations#UserDeviceEnrollmentConfigurationOperations.{}',
-        client_factory=cf_user_device_enrollment_configuration,
-    )
     with self.command_group(
         'usersactions user-device-enrollment-configuration',
         usersactions_beta_user_device_enrollment_configuration,
@@ -767,12 +1424,6 @@ def load_command_table(self, _):
         g.custom_command('has-payload-link', 'usersactions_user_device_enrollment_configuration_has_payload_link')
         g.custom_command('set-priority', 'usersactions_user_device_enrollment_configuration_set_priority')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_attachment
-
-    usersactions_beta_user_event_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_attachment_operations#UserEventAttachmentOperations.{}',
-        client_factory=cf_user_event_attachment,
-    )
     with self.command_group(
         'usersactions user-event-attachment',
         usersactions_beta_user_event_attachment,
@@ -780,12 +1431,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_event_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_calendar_calendar_view
-
-    usersactions_beta_user_event_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_calendar_view_operations#UserEventCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_event_calendar_calendar_view,
-    )
     with self.command_group(
         'usersactions user-event-calendar-calendar-view',
         usersactions_beta_user_event_calendar_calendar_view,
@@ -799,12 +1444,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_event_calendar_calendar_view_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_calendar_calendar_view_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_calendar_event
-
-    usersactions_beta_user_event_calendar_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_event_operations#UserEventCalendarEventOperations.{}',
-        client_factory=cf_user_event_calendar_event,
-    )
     with self.command_group(
         'usersactions user-event-calendar-event',
         usersactions_beta_user_event_calendar_event,
@@ -818,23 +1457,11 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_event_calendar_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_calendar_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_calendar
-
-    usersactions_beta_user_event_calendar = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
-        client_factory=cf_user_event_calendar,
-    )
     with self.command_group(
         'usersactions user-event-calendar', usersactions_beta_user_event_calendar, client_factory=cf_user_event_calendar
     ) as g:
         g.custom_command('get-schedule', 'usersactions_user_event_calendar_get_schedule')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_exception_occurrence
-
-    usersactions_beta_user_event_exception_occurrence = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_exception_occurrence_operations#UserEventExceptionOccurrenceOperations.{}',
-        client_factory=cf_user_event_exception_occurrence,
-    )
     with self.command_group(
         'usersactions user-event-exception-occurrence',
         usersactions_beta_user_event_exception_occurrence,
@@ -848,12 +1475,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_event_exception_occurrence_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_exception_occurrence_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event_instance
-
-    usersactions_beta_user_event_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_instance_operations#UserEventInstanceOperations.{}',
-        client_factory=cf_user_event_instance,
-    )
     with self.command_group(
         'usersactions user-event-instance', usersactions_beta_user_event_instance, client_factory=cf_user_event_instance
     ) as g:
@@ -865,12 +1486,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_event_instance_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_instance_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_event
-
-    usersactions_beta_user_event = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_event_operations#UserEventOperations.{}',
-        client_factory=cf_user_event,
-    )
     with self.command_group('usersactions user-event', usersactions_beta_user_event, client_factory=cf_user_event) as g:
         g.custom_command('accept', 'usersactions_user_event_accept')
         g.custom_command('cancel', 'usersactions_user_event_cancel')
@@ -880,12 +1495,6 @@ def load_command_table(self, _):
         g.custom_command('snooze-reminder', 'usersactions_user_event_snooze_reminder')
         g.custom_command('tentatively-accept', 'usersactions_user_event_tentatively_accept')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_mail_folder_child_folder
-
-    usersactions_beta_user_mail_folder_child_folder = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_child_folder_operations#UserMailFolderChildFolderOperations.{}',
-        client_factory=cf_user_mail_folder_child_folder,
-    )
     with self.command_group(
         'usersactions user-mail-folder-child-folder',
         usersactions_beta_user_mail_folder_child_folder,
@@ -894,12 +1503,6 @@ def load_command_table(self, _):
         g.custom_command('copy', 'usersactions_user_mail_folder_child_folder_copy')
         g.custom_command('move', 'usersactions_user_mail_folder_child_folder_move')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_mail_folder_message_attachment
-
-    usersactions_beta_user_mail_folder_message_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_message_attachment_operations#UserMailFolderMessageAttachmentOperations.{}',
-        client_factory=cf_user_mail_folder_message_attachment,
-    )
     with self.command_group(
         'usersactions user-mail-folder-message-attachment',
         usersactions_beta_user_mail_folder_message_attachment,
@@ -909,12 +1512,6 @@ def load_command_table(self, _):
             'create-upload-session', 'usersactions_user_mail_folder_message_attachment_create_upload_session'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_mail_folder_message
-
-    usersactions_beta_user_mail_folder_message = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_message_operations#UserMailFolderMessageOperations.{}',
-        client_factory=cf_user_mail_folder_message,
-    )
     with self.command_group(
         'usersactions user-mail-folder-message',
         usersactions_beta_user_mail_folder_message,
@@ -931,24 +1528,12 @@ def load_command_table(self, _):
         g.custom_command('send', 'usersactions_user_mail_folder_message_send')
         g.custom_command('unsubscribe', 'usersactions_user_mail_folder_message_unsubscribe')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_mail_folder
-
-    usersactions_beta_user_mail_folder = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mail_folder_operations#UserMailFolderOperations.{}',
-        client_factory=cf_user_mail_folder,
-    )
     with self.command_group(
         'usersactions user-mail-folder', usersactions_beta_user_mail_folder, client_factory=cf_user_mail_folder
     ) as g:
         g.custom_command('copy', 'usersactions_user_mail_folder_copy')
         g.custom_command('move', 'usersactions_user_mail_folder_move')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_managed_device_log_collection_request
-
-    usersactions_beta_user_managed_device_log_collection_request = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_managed_device_log_collection_request_operations#UserManagedDeviceLogCollectionRequestOperations.{}',
-        client_factory=cf_user_managed_device_log_collection_request,
-    )
     with self.command_group(
         'usersactions user-managed-device-log-collection-request',
         usersactions_beta_user_managed_device_log_collection_request,
@@ -958,12 +1543,6 @@ def load_command_table(self, _):
             'create-download-url', 'usersactions_user_managed_device_log_collection_request_create_download_url'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_managed_device
-
-    usersactions_beta_user_managed_device = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_managed_device_operations#UserManagedDeviceOperations.{}',
-        client_factory=cf_user_managed_device,
-    )
     with self.command_group(
         'usersactions user-managed-device', usersactions_beta_user_managed_device, client_factory=cf_user_managed_device
     ) as g:
@@ -1016,12 +1595,6 @@ def load_command_table(self, _):
         )
         g.custom_command('wipe', 'usersactions_user_managed_device_wipe')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_message_attachment
-
-    usersactions_beta_user_message_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_message_attachment_operations#UserMessageAttachmentOperations.{}',
-        client_factory=cf_user_message_attachment,
-    )
     with self.command_group(
         'usersactions user-message-attachment',
         usersactions_beta_user_message_attachment,
@@ -1029,12 +1602,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_message_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_message
-
-    usersactions_beta_user_message = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_message_operations#UserMessageOperations.{}',
-        client_factory=cf_user_message,
-    )
     with self.command_group(
         'usersactions user-message', usersactions_beta_user_message, client_factory=cf_user_message
     ) as g:
@@ -1049,14 +1616,6 @@ def load_command_table(self, _):
         g.custom_command('send', 'usersactions_user_message_send')
         g.custom_command('unsubscribe', 'usersactions_user_message_unsubscribe')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user
-
-    usersactions_beta_user = CliCommandType(
-        operations_tmpl=(
-            'azext_usersactions_beta.vendored_sdks.usersactions.operations._user_operations#UserOperations.{}'
-        ),
-        client_factory=cf_user,
-    )
     with self.command_group('usersactions user', usersactions_beta_user, client_factory=cf_user) as g:
         g.custom_command('assign-license', 'usersactions_user_assign_license')
         g.custom_command('change-password', 'usersactions_user_change_password')
@@ -1084,14 +1643,6 @@ def load_command_table(self, _):
             'usersactions_user_wipe_managed_app_registration_by_device_tag',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_mobile_app_troubleshooting_event_app_log_collection_request,
-    )
-
-    usersactions_beta_user_mobile_app_troubleshooting_event_app_log_collection_request = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_mobile_app_troubleshooting_event_app_log_collection_request_operations#UserMobileAppTroubleshootingEventAppLogCollectionRequestOperations.{}',
-        client_factory=cf_user_mobile_app_troubleshooting_event_app_log_collection_request,
-    )
     with self.command_group(
         'usersactions user-mobile-app-troubleshooting-event-app-log-collection-request',
         usersactions_beta_user_mobile_app_troubleshooting_event_app_log_collection_request,
@@ -1102,12 +1653,6 @@ def load_command_table(self, _):
             'usersactions_user_mobile_app_troubleshooting_event_app_log_collection_request_create_download_url',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook
-
-    usersactions_beta_user_onenote_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_operations#UserOnenoteNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook',
         usersactions_beta_user_onenote_notebook,
@@ -1116,12 +1661,6 @@ def load_command_table(self, _):
         g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_copy_notebook')
         g.custom_command('get-notebook-from-web-url', 'usersactions_user_onenote_notebook_get_notebook_from_web_url')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_group_parent_notebook
-
-    usersactions_beta_user_onenote_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_parent_notebook_operations#UserOnenoteNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_group_parent_notebook,
@@ -1131,12 +1670,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_notebook_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_group_section
-
-    usersactions_beta_user_onenote_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_operations#UserOnenoteNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-section',
         usersactions_beta_user_onenote_notebook_section_group_section,
@@ -1149,12 +1682,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'usersactions_user_onenote_notebook_section_group_section_copy_to_section_group'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_group_section_page
-
-    usersactions_beta_user_onenote_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_operations#UserOnenoteNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-section-page',
         usersactions_beta_user_onenote_notebook_section_group_section_page,
@@ -1168,14 +1695,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_group_section_page_onenote_patch_content',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_notebook_section_group_section_page_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_notebook_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-section-page-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_group_section_page_parent_notebook,
@@ -1186,14 +1705,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_group_section_page_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_notebook_section_group_section_page_parent_section,
-    )
-
-    usersactions_beta_user_onenote_notebook_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_page_parent_section_operations#UserOnenoteNotebookSectionGroupSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-section-page-parent-section',
         usersactions_beta_user_onenote_notebook_section_group_section_page_parent_section,
@@ -1208,14 +1719,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_group_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_notebook_section_group_section_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_group_section_parent_notebook_operations#UserOnenoteNotebookSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-group-section-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_group_section_parent_notebook,
@@ -1225,12 +1728,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_notebook_section_group_section_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section
-
-    usersactions_beta_user_onenote_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_operations#UserOnenoteNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section',
         usersactions_beta_user_onenote_notebook_section,
@@ -1239,12 +1736,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_notebook_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'usersactions_user_onenote_notebook_section_copy_to_section_group')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_page
-
-    usersactions_beta_user_onenote_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_operations#UserOnenoteNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-page',
         usersactions_beta_user_onenote_notebook_section_page,
@@ -1255,12 +1746,6 @@ def load_command_table(self, _):
             'onenote-patch-content', 'usersactions_user_onenote_notebook_section_page_onenote_patch_content'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_page_parent_notebook
-
-    usersactions_beta_user_onenote_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_parent_notebook_operations#UserOnenoteNotebookSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-page-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_page_parent_notebook,
@@ -1270,12 +1755,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_notebook_section_page_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_page_parent_section
-
-    usersactions_beta_user_onenote_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_page_parent_section_operations#UserOnenoteNotebookSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-page-parent-section',
         usersactions_beta_user_onenote_notebook_section_page_parent_section,
@@ -1289,12 +1768,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_notebook_section_parent_notebook
-
-    usersactions_beta_user_onenote_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_notebook_operations#UserOnenoteNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_parent_notebook,
@@ -1302,14 +1775,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_notebook_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_section_group_parent_notebook_operations#UserOnenoteNotebookSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-parent-section-group-parent-notebook',
         usersactions_beta_user_onenote_notebook_section_parent_section_group_parent_notebook,
@@ -1320,14 +1785,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_parent_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_notebook_section_parent_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_notebook_section_parent_section_group_section_operations#UserOnenoteNotebookSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_notebook_section_parent_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-notebook-section-parent-section-group-section',
         usersactions_beta_user_onenote_notebook_section_parent_section_group_section,
@@ -1342,24 +1799,12 @@ def load_command_table(self, _):
             'usersactions_user_onenote_notebook_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page
-
-    usersactions_beta_user_onenote_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_operations#UserOnenotePageOperations.{}',
-        client_factory=cf_user_onenote_page,
-    )
     with self.command_group(
         'usersactions user-onenote-page', usersactions_beta_user_onenote_page, client_factory=cf_user_onenote_page
     ) as g:
         g.custom_command('copy-to-section', 'usersactions_user_onenote_page_copy_to_section')
         g.custom_command('onenote-patch-content', 'usersactions_user_onenote_page_onenote_patch_content')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_notebook
-
-    usersactions_beta_user_onenote_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_operations#UserOnenotePageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook',
         usersactions_beta_user_onenote_page_parent_notebook,
@@ -1367,14 +1812,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-group-parent-notebook',
         usersactions_beta_user_onenote_page_parent_notebook_section_group_parent_notebook,
@@ -1385,14 +1822,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_operations#UserOnenotePageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-group-section',
         usersactions_beta_user_onenote_page_parent_notebook_section_group_section,
@@ -1406,14 +1835,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_group_section_page,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_page_operations#UserOnenotePageParentNotebookSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-group-section-page',
         usersactions_beta_user_onenote_page_parent_notebook_section_group_section_page,
@@ -1428,14 +1849,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_group_section_page_onenote_patch_content',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_group_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-group-section-parent-notebook',
         usersactions_beta_user_onenote_page_parent_notebook_section_group_section_parent_notebook,
@@ -1446,12 +1859,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_group_section_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_notebook_section
-
-    usersactions_beta_user_onenote_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_operations#UserOnenotePageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section',
         usersactions_beta_user_onenote_page_parent_notebook_section,
@@ -1462,12 +1869,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'usersactions_user_onenote_page_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_notebook_section_page
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_page_operations#UserOnenotePageParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-page',
         usersactions_beta_user_onenote_page_parent_notebook_section_page,
@@ -1480,14 +1881,6 @@ def load_command_table(self, _):
             'onenote-patch-content', 'usersactions_user_onenote_page_parent_notebook_section_page_onenote_patch_content'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-parent-notebook',
         usersactions_beta_user_onenote_page_parent_notebook_section_parent_notebook,
@@ -1497,14 +1890,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_page_parent_notebook_section_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentNotebookSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-parent-section-group-parent-notebook',
         usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook,
@@ -1515,14 +1900,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_notebook_section_parent_section_group_section_operations#UserOnenotePageParentNotebookSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_notebook_section_parent_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-notebook-section-parent-section-group-section',
         usersactions_beta_user_onenote_page_parent_notebook_section_parent_section_group_section,
@@ -1537,12 +1914,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_notebook_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_section
-
-    usersactions_beta_user_onenote_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_operations#UserOnenotePageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section',
         usersactions_beta_user_onenote_page_parent_section,
@@ -1551,12 +1922,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_page_parent_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'usersactions_user_onenote_page_parent_section_copy_to_section_group')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_section_page
-
-    usersactions_beta_user_onenote_page_parent_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_page_operations#UserOnenotePageParentSectionPageOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-page',
         usersactions_beta_user_onenote_page_parent_section_page,
@@ -1567,12 +1932,6 @@ def load_command_table(self, _):
             'onenote-patch-content', 'usersactions_user_onenote_page_parent_section_page_onenote_patch_content'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_page_parent_section_parent_notebook
-
-    usersactions_beta_user_onenote_page_parent_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-notebook',
         usersactions_beta_user_onenote_page_parent_section_parent_notebook,
@@ -1580,14 +1939,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_page_parent_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-notebook-section-group-parent-notebook',
         usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook,
@@ -1598,14 +1949,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_group_section_operations#UserOnenotePageParentSectionParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-notebook-section-group-section',
         usersactions_beta_user_onenote_page_parent_section_parent_notebook_section_group_section,
@@ -1620,14 +1963,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_notebook_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_notebook_section_operations#UserOnenotePageParentSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-notebook-section',
         usersactions_beta_user_onenote_page_parent_section_parent_notebook_section,
@@ -1641,14 +1976,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook',
         usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook,
@@ -1659,14 +1986,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_parent_notebook_section_operations#UserOnenotePageParentSectionParentSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-section-group-parent-notebook-section',
         usersactions_beta_user_onenote_page_parent_section_parent_section_group_parent_notebook_section,
@@ -1681,14 +2000,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_section_group_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_page_parent_section_parent_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_page_parent_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_page_parent_section_parent_section_group_section_operations#UserOnenotePageParentSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_page_parent_section_parent_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-page-parent-section-parent-section-group-section',
         usersactions_beta_user_onenote_page_parent_section_parent_section_group_section,
@@ -1703,12 +2014,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_page_parent_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_group_parent_notebook
-
-    usersactions_beta_user_onenote_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook',
         usersactions_beta_user_onenote_section_group_parent_notebook,
@@ -1716,12 +2021,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_group_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_group_parent_notebook_section
-
-    usersactions_beta_user_onenote_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_operations#UserOnenoteSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook-section',
         usersactions_beta_user_onenote_section_group_parent_notebook_section,
@@ -1735,14 +2034,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_parent_notebook_section_page,
-    )
-
-    usersactions_beta_user_onenote_section_group_parent_notebook_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_operations#UserOnenoteSectionGroupParentNotebookSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook-section-page',
         usersactions_beta_user_onenote_section_group_parent_notebook_section_page,
@@ -1756,14 +2047,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_parent_notebook_section_page_onenote_patch_content',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook-section-page-parent-notebook',
         usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_notebook,
@@ -1774,14 +2057,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
-    )
-
-    usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_page_parent_section_operations#UserOnenoteSectionGroupParentNotebookSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook-section-page-parent-section',
         usersactions_beta_user_onenote_section_group_parent_notebook_section_page_parent_section,
@@ -1796,14 +2071,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_parent_notebook_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_group_parent_notebook_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_parent_notebook_section_parent_notebook_operations#UserOnenoteSectionGroupParentNotebookSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_parent_notebook_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-parent-notebook-section-parent-notebook',
         usersactions_beta_user_onenote_section_group_parent_notebook_section_parent_notebook,
@@ -1814,12 +2081,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_parent_notebook_section_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_group_section
-
-    usersactions_beta_user_onenote_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_operations#UserOnenoteSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section',
         usersactions_beta_user_onenote_section_group_section,
@@ -1830,12 +2091,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'usersactions_user_onenote_section_group_section_copy_to_section_group'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_group_section_page
-
-    usersactions_beta_user_onenote_section_group_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_operations#UserOnenoteSectionGroupSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-page',
         usersactions_beta_user_onenote_section_group_section_page,
@@ -1846,14 +2101,6 @@ def load_command_table(self, _):
             'onenote-patch-content', 'usersactions_user_onenote_section_group_section_page_onenote_patch_content'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_section_page_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_group_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_notebook_operations#UserOnenoteSectionGroupSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-page-parent-notebook',
         usersactions_beta_user_onenote_section_group_section_page_parent_notebook,
@@ -1863,14 +2110,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_section_group_section_page_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_section_page_parent_notebook_section,
-    )
-
-    usersactions_beta_user_onenote_section_group_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_notebook_section_operations#UserOnenoteSectionGroupSectionPageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-page-parent-notebook-section',
         usersactions_beta_user_onenote_section_group_section_page_parent_notebook_section,
@@ -1885,14 +2124,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_section_page_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_section_page_parent_section,
-    )
-
-    usersactions_beta_user_onenote_section_group_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_page_parent_section_operations#UserOnenoteSectionGroupSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-page-parent-section',
         usersactions_beta_user_onenote_section_group_section_page_parent_section,
@@ -1906,12 +2137,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_section_page_parent_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_group_section_parent_notebook
-
-    usersactions_beta_user_onenote_section_group_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_parent_notebook_operations#UserOnenoteSectionGroupSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-parent-notebook',
         usersactions_beta_user_onenote_section_group_section_parent_notebook,
@@ -1921,14 +2146,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_section_group_section_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_group_section_parent_notebook_section,
-    )
-
-    usersactions_beta_user_onenote_section_group_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_group_section_parent_notebook_section_operations#UserOnenoteSectionGroupSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_group_section_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-group-section-parent-notebook-section',
         usersactions_beta_user_onenote_section_group_section_parent_notebook_section,
@@ -1943,12 +2160,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_group_section_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section
-
-    usersactions_beta_user_onenote_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_operations#UserOnenoteSectionOperations.{}',
-        client_factory=cf_user_onenote_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section',
         usersactions_beta_user_onenote_section,
@@ -1957,12 +2168,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-notebook', 'usersactions_user_onenote_section_copy_to_notebook')
         g.custom_command('copy-to-section-group', 'usersactions_user_onenote_section_copy_to_section_group')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_page
-
-    usersactions_beta_user_onenote_section_page = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_operations#UserOnenoteSectionPageOperations.{}',
-        client_factory=cf_user_onenote_section_page,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page',
         usersactions_beta_user_onenote_section_page,
@@ -1971,12 +2176,6 @@ def load_command_table(self, _):
         g.custom_command('copy-to-section', 'usersactions_user_onenote_section_page_copy_to_section')
         g.custom_command('onenote-patch-content', 'usersactions_user_onenote_section_page_onenote_patch_content')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_page_parent_notebook
-
-    usersactions_beta_user_onenote_section_page_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_operations#UserOnenoteSectionPageParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page-parent-notebook',
         usersactions_beta_user_onenote_section_page_parent_notebook,
@@ -1984,14 +2183,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_page_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_page_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_group_parent_notebook_operations#UserOnenoteSectionPageParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page-parent-notebook-section-group-parent-notebook',
         usersactions_beta_user_onenote_section_page_parent_notebook_section_group_parent_notebook,
@@ -2002,14 +2193,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_page_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_page_parent_notebook_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_section_page_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_group_section_operations#UserOnenoteSectionPageParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page-parent-notebook-section-group-section',
         usersactions_beta_user_onenote_section_page_parent_notebook_section_group_section,
@@ -2024,12 +2207,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_page_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_page_parent_notebook_section
-
-    usersactions_beta_user_onenote_section_page_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_notebook_section_operations#UserOnenoteSectionPageParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page-parent-notebook-section',
         usersactions_beta_user_onenote_section_page_parent_notebook_section,
@@ -2043,12 +2220,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_page_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_page_parent_section
-
-    usersactions_beta_user_onenote_section_page_parent_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_page_parent_section_operations#UserOnenoteSectionPageParentSectionOperations.{}',
-        client_factory=cf_user_onenote_section_page_parent_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-page-parent-section',
         usersactions_beta_user_onenote_section_page_parent_section,
@@ -2059,12 +2230,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'usersactions_user_onenote_section_page_parent_section_copy_to_section_group'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_parent_notebook
-
-    usersactions_beta_user_onenote_section_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_operations#UserOnenoteSectionParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-notebook',
         usersactions_beta_user_onenote_section_parent_notebook,
@@ -2072,14 +2237,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('copy-notebook', 'usersactions_user_onenote_section_parent_notebook_copy_notebook')
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_parent_notebook_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_group_parent_notebook_operations#UserOnenoteSectionParentNotebookSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-notebook-section-group-parent-notebook',
         usersactions_beta_user_onenote_section_parent_notebook_section_group_parent_notebook,
@@ -2090,14 +2247,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_parent_notebook_section_group_parent_notebook_copy_notebook',
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_parent_notebook_section_group_section,
-    )
-
-    usersactions_beta_user_onenote_section_parent_notebook_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_group_section_operations#UserOnenoteSectionParentNotebookSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-notebook-section-group-section',
         usersactions_beta_user_onenote_section_parent_notebook_section_group_section,
@@ -2112,12 +2261,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_parent_notebook_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_parent_notebook_section
-
-    usersactions_beta_user_onenote_section_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_notebook_section_operations#UserOnenoteSectionParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-notebook-section',
         usersactions_beta_user_onenote_section_parent_notebook_section,
@@ -2130,14 +2273,6 @@ def load_command_table(self, _):
             'copy-to-section-group', 'usersactions_user_onenote_section_parent_notebook_section_copy_to_section_group'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_parent_section_group_parent_notebook,
-    )
-
-    usersactions_beta_user_onenote_section_parent_section_group_parent_notebook = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_parent_notebook_operations#UserOnenoteSectionParentSectionGroupParentNotebookOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-section-group-parent-notebook',
         usersactions_beta_user_onenote_section_parent_section_group_parent_notebook,
@@ -2147,14 +2282,6 @@ def load_command_table(self, _):
             'copy-notebook', 'usersactions_user_onenote_section_parent_section_group_parent_notebook_copy_notebook'
         )
 
-    from azext_usersactions_beta.generated._client_factory import (
-        cf_user_onenote_section_parent_section_group_parent_notebook_section,
-    )
-
-    usersactions_beta_user_onenote_section_parent_section_group_parent_notebook_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_parent_notebook_section_operations#UserOnenoteSectionParentSectionGroupParentNotebookSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_parent_notebook_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-section-group-parent-notebook-section',
         usersactions_beta_user_onenote_section_parent_section_group_parent_notebook_section,
@@ -2169,12 +2296,6 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_parent_section_group_parent_notebook_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_onenote_section_parent_section_group_section
-
-    usersactions_beta_user_onenote_section_parent_section_group_section = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_onenote_section_parent_section_group_section_operations#UserOnenoteSectionParentSectionGroupSectionOperations.{}',
-        client_factory=cf_user_onenote_section_parent_section_group_section,
-    )
     with self.command_group(
         'usersactions user-onenote-section-parent-section-group-section',
         usersactions_beta_user_onenote_section_parent_section_group_section,
@@ -2188,23 +2309,11 @@ def load_command_table(self, _):
             'usersactions_user_onenote_section_parent_section_group_section_copy_to_section_group',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_online_meeting
-
-    usersactions_beta_user_online_meeting = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_online_meeting_operations#UserOnlineMeetingOperations.{}',
-        client_factory=cf_user_online_meeting,
-    )
     with self.command_group(
         'usersactions user-online-meeting', usersactions_beta_user_online_meeting, client_factory=cf_user_online_meeting
     ) as g:
         g.custom_command('create-or-get', 'usersactions_user_online_meeting_create_or_get')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task_folder_task_attachment
-
-    usersactions_beta_user_outlook_task_folder_task_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_folder_task_attachment_operations#UserOutlookTaskFolderTaskAttachmentOperations.{}',
-        client_factory=cf_user_outlook_task_folder_task_attachment,
-    )
     with self.command_group(
         'usersactions user-outlook-task-folder-task-attachment',
         usersactions_beta_user_outlook_task_folder_task_attachment,
@@ -2214,12 +2323,6 @@ def load_command_table(self, _):
             'create-upload-session', 'usersactions_user_outlook_task_folder_task_attachment_create_upload_session'
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task_folder_task
-
-    usersactions_beta_user_outlook_task_folder_task = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_folder_task_operations#UserOutlookTaskFolderTaskOperations.{}',
-        client_factory=cf_user_outlook_task_folder_task,
-    )
     with self.command_group(
         'usersactions user-outlook-task-folder-task',
         usersactions_beta_user_outlook_task_folder_task,
@@ -2227,12 +2330,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('complete', 'usersactions_user_outlook_task_folder_task_complete')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task_group_task_folder_task_attachment
-
-    usersactions_beta_user_outlook_task_group_task_folder_task_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_group_task_folder_task_attachment_operations#UserOutlookTaskGroupTaskFolderTaskAttachmentOperations.{}',
-        client_factory=cf_user_outlook_task_group_task_folder_task_attachment,
-    )
     with self.command_group(
         'usersactions user-outlook-task-group-task-folder-task-attachment',
         usersactions_beta_user_outlook_task_group_task_folder_task_attachment,
@@ -2243,12 +2340,6 @@ def load_command_table(self, _):
             'usersactions_user_outlook_task_group_task_folder_task_attachment_create_upload_session',
         )
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task_group_task_folder_task
-
-    usersactions_beta_user_outlook_task_group_task_folder_task = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_group_task_folder_task_operations#UserOutlookTaskGroupTaskFolderTaskOperations.{}',
-        client_factory=cf_user_outlook_task_group_task_folder_task,
-    )
     with self.command_group(
         'usersactions user-outlook-task-group-task-folder-task',
         usersactions_beta_user_outlook_task_group_task_folder_task,
@@ -2256,12 +2347,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('complete', 'usersactions_user_outlook_task_group_task_folder_task_complete')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task_attachment
-
-    usersactions_beta_user_outlook_task_attachment = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_attachment_operations#UserOutlookTaskAttachmentOperations.{}',
-        client_factory=cf_user_outlook_task_attachment,
-    )
     with self.command_group(
         'usersactions user-outlook-task-attachment',
         usersactions_beta_user_outlook_task_attachment,
@@ -2269,23 +2354,11 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('create-upload-session', 'usersactions_user_outlook_task_attachment_create_upload_session')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_outlook_task
-
-    usersactions_beta_user_outlook_task = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_outlook_task_operations#UserOutlookTaskOperations.{}',
-        client_factory=cf_user_outlook_task,
-    )
     with self.command_group(
         'usersactions user-outlook-task', usersactions_beta_user_outlook_task, client_factory=cf_user_outlook_task
     ) as g:
         g.custom_command('complete', 'usersactions_user_outlook_task_complete')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_pending_access_review_instance_definition
-
-    usersactions_beta_user_pending_access_review_instance_definition = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_pending_access_review_instance_definition_operations#UserPendingAccessReviewInstanceDefinitionOperations.{}',
-        client_factory=cf_user_pending_access_review_instance_definition,
-    )
     with self.command_group(
         'usersactions user-pending-access-review-instance-definition',
         usersactions_beta_user_pending_access_review_instance_definition,
@@ -2293,12 +2366,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('stop', 'usersactions_user_pending_access_review_instance_definition_stop')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_pending_access_review_instance
-
-    usersactions_beta_user_pending_access_review_instance = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_pending_access_review_instance_operations#UserPendingAccessReviewInstanceOperations.{}',
-        client_factory=cf_user_pending_access_review_instance,
-    )
     with self.command_group(
         'usersactions user-pending-access-review-instance',
         usersactions_beta_user_pending_access_review_instance,
@@ -2312,12 +2379,6 @@ def load_command_table(self, _):
         g.custom_command('send-reminder', 'usersactions_user_pending_access_review_instance_send_reminder')
         g.custom_command('stop', 'usersactions_user_pending_access_review_instance_stop')
 
-    from azext_usersactions_beta.generated._client_factory import cf_user_teamwork
-
-    usersactions_beta_user_teamwork = CliCommandType(
-        operations_tmpl='azext_usersactions_beta.vendored_sdks.usersactions.operations._user_teamwork_operations#UserTeamworkOperations.{}',
-        client_factory=cf_user_teamwork,
-    )
     with self.command_group(
         'usersactions user-teamwork', usersactions_beta_user_teamwork, client_factory=cf_user_teamwork
     ) as g:

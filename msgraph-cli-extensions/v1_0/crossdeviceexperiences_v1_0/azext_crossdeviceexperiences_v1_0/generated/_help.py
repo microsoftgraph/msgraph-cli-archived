@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['crossdeviceexperiences_v1_0'] = '''
+    type: group
+    short-summary: Manage Cross Device Experiences
+'''
+
 helps['crossdeviceexperiences user'] = """
     type: group
     short-summary: Manage user with crossdeviceexperiences_v1_0

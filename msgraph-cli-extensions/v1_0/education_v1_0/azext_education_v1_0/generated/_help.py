@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['education_v1_0'] = '''
+    type: group
+    short-summary: Manage Education
+'''
+
 helps['education education-root'] = """
     type: group
     short-summary: Manage education education root with education_v1_0

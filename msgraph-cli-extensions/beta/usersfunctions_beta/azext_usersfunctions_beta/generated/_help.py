@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['usersfunctions_beta'] = '''
+    type: group
+    short-summary: Manage Users Functions
+'''
+
 helps['usersfunctions user-activity'] = """
     type: group
     short-summary: Manage user activity with usersfunctions_beta

@@ -1030,8 +1030,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -1392,8 +1391,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -1813,8 +1811,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
         c.argument('microsoft_graph_list_item_activities', type=validate_file_or_dict, help='The list of recent '
                    'activities that took place on this item. Expected value: json-string/@json-file.', arg_group='List '
@@ -2004,8 +2001,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -2219,8 +2215,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -2362,8 +2357,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
         c.argument('microsoft_graph_list_item_activities', type=validate_file_or_dict, help='The list of recent '
                    'activities that took place on this item. Expected value: json-string/@json-file.', arg_group='List '
@@ -2588,8 +2582,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -2803,8 +2796,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity', arg_group='List '
                    'Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('microsoft_graph_sharepoint_ids', action=AddSharepointIds, nargs='+', help='sharepointIds',
                    arg_group='List Item')
         c.argument('activities', type=validate_file_or_dict, help='The list of recent activities that took place on '
@@ -2946,8 +2938,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
         c.argument('microsoft_graph_list_item_activities', type=validate_file_or_dict, help='The list of recent '
                    'activities that took place on this item. Expected value: json-string/@json-file.', arg_group='List '
@@ -3212,8 +3203,7 @@ def load_arguments(self, _):
                    arg_group='List Item Created By')
         c.argument('device2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
         c.argument('user2', action=AddApplication, nargs='+', help='identity', arg_group='List Item Created By')
-        c.argument('list_item_content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List '
-                   'Item')
+        c.argument('content_type', action=AddContentType, nargs='+', help='contentTypeInfo', arg_group='List Item')
         c.argument('sharepoint_ids2', action=AddSharepointIds, nargs='+', help='sharepointIds', arg_group='List Item')
         c.argument('microsoft_graph_list_item_activities', type=validate_file_or_dict, help='The list of recent '
                    'activities that took place on this item. Expected value: json-string/@json-file.', arg_group='List '

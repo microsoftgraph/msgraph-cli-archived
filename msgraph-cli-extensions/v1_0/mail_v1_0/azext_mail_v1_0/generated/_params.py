@@ -450,34 +450,39 @@ def load_arguments(self, _):
         c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
                    'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
-        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an approval request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be automatically forwarded in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be encrypted in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting response in order for the condition or exception to apply.',
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be a non-delivery report in order for the condition or exception to apply.',
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
-                   'apply.', arg_group='Exceptions')
-        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
-                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be a voice mail in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
         c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
                                                                   'forward', 'noResponseNecessary', 'read', 'reply',
                                                                   'replyToAll', 'review']), help='',
@@ -531,6 +536,34 @@ def load_arguments(self, _):
                    'apply.', arg_group='Conditions')
         c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
                    arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
         c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
                                                                                                       'doNotForward',
                                                                                                       'followUp',
@@ -845,34 +878,39 @@ def load_arguments(self, _):
         c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
                    'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
-        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an approval request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be automatically forwarded in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be encrypted in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting response in order for the condition or exception to apply.',
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be a non-delivery report in order for the condition or exception to apply.',
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
-                   'apply.', arg_group='Exceptions')
-        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
-                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be a voice mail in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
         c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
                                                                   'forward', 'noResponseNecessary', 'read', 'reply',
                                                                   'replyToAll', 'review']), help='',
@@ -926,6 +964,34 @@ def load_arguments(self, _):
                    'apply.', arg_group='Conditions')
         c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
                    arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
         c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
                                                                                                       'doNotForward',
                                                                                                       'followUp',

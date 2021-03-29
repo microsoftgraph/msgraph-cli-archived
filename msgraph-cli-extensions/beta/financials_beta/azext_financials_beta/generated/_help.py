@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['financials_beta'] = '''
+    type: group
+    short-summary: Manage Financials
+'''
+
 helps['financials financial'] = """
     type: group
     short-summary: Manage financial financial with financials_beta

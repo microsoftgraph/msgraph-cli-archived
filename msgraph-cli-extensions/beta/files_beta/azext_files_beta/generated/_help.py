@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['files_beta'] = '''
+    type: group
+    short-summary: Manage Files
+'''
+
 helps['files drive-drive'] = """
     type: group
     short-summary: Manage drive drive with files_beta

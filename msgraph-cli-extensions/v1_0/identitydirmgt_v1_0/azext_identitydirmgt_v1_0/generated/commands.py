@@ -9,19 +9,161 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_identitydirmgt_v1_0.generated._client_factory import (
+    cf_contact_org_contact,
+    cf_contact,
+    cf_contract_contract,
+    cf_contract,
+    cf_device_device,
+    cf_device,
+    cf_directory_directory,
+    cf_directory,
+    cf_directory_administrative_unit,
+    cf_directory_role_directory_role,
+    cf_directory_role,
+    cf_directory_role_template_directory_role_template,
+    cf_directory_role_template,
+    cf_domain_domain,
+    cf_domain,
+    cf_organization_organization,
+    cf_organization,
+    cf_subscribed_sku_subscribed_sku,
+    cf_user,
+)
+
+
+identitydirmgt_v1_0_contact_org_contact = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_org_contact_operations#ContactOrgContactOperations.{}',
+    client_factory=cf_contact_org_contact,
+)
+
+
+identitydirmgt_v1_0_contact = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_operations#ContactOperations.{}'
+    ),
+    client_factory=cf_contact,
+)
+
+
+identitydirmgt_v1_0_contract_contract = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_contract_operations#ContractContractOperations.{}',
+    client_factory=cf_contract_contract,
+)
+
+
+identitydirmgt_v1_0_contract = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_operations#ContractOperations.{}'
+    ),
+    client_factory=cf_contract,
+)
+
+
+identitydirmgt_v1_0_device_device = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_device_operations#DeviceDeviceOperations.{}',
+    client_factory=cf_device_device,
+)
+
+
+identitydirmgt_v1_0_device = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_operations#DeviceOperations.{}'
+    ),
+    client_factory=cf_device,
+)
+
+
+identitydirmgt_v1_0_directory_directory = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_directory_operations#DirectoryDirectoryOperations.{}',
+    client_factory=cf_directory_directory,
+)
+
+
+identitydirmgt_v1_0_directory = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_operations#DirectoryOperations.{}'
+    ),
+    client_factory=cf_directory,
+)
+
+
+identitydirmgt_v1_0_directory_administrative_unit = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_administrative_unit_operations#DirectoryAdministrativeUnitOperations.{}',
+    client_factory=cf_directory_administrative_unit,
+)
+
+
+identitydirmgt_v1_0_directory_role_directory_role = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_directory_role_operations#DirectoryRoleDirectoryRoleOperations.{}',
+    client_factory=cf_directory_role_directory_role,
+)
+
+
+identitydirmgt_v1_0_directory_role = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_operations#DirectoryRoleOperations.{}',
+    client_factory=cf_directory_role,
+)
+
+
+identitydirmgt_v1_0_directory_role_template_directory_role_template = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_directory_role_template_operations#DirectoryRoleTemplateDirectoryRoleTemplateOperations.{}',
+    client_factory=cf_directory_role_template_directory_role_template,
+)
+
+
+identitydirmgt_v1_0_directory_role_template = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_operations#DirectoryRoleTemplateOperations.{}',
+    client_factory=cf_directory_role_template,
+)
+
+
+identitydirmgt_v1_0_domain_domain = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_domain_operations#DomainDomainOperations.{}',
+    client_factory=cf_domain_domain,
+)
+
+
+identitydirmgt_v1_0_domain = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_operations#DomainOperations.{}'
+    ),
+    client_factory=cf_domain,
+)
+
+
+identitydirmgt_v1_0_organization_organization = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_organization_operations#OrganizationOrganizationOperations.{}',
+    client_factory=cf_organization_organization,
+)
+
+
+identitydirmgt_v1_0_organization = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_operations#OrganizationOperations.{}',
+    client_factory=cf_organization,
+)
+
+
+identitydirmgt_v1_0_subscribed_sku_subscribed_sku = CliCommandType(
+    operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._subscribed_sku_subscribed_sku_operations#SubscribedSkuSubscribedSkuOperations.{}',
+    client_factory=cf_subscribed_sku_subscribed_sku,
+)
+
+
+identitydirmgt_v1_0_user = CliCommandType(
+    operations_tmpl=(
+        'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._user_operations#UserOperations.{}'
+    ),
+    client_factory=cf_user,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_contact_org_contact
-
-    identitydirmgt_v1_0_contact_org_contact = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_org_contact_operations#ContactOrgContactOperations.{}',
-        client_factory=cf_contact_org_contact,
-    )
     with self.command_group(
         'identitydirmgt contact-org-contact',
         identitydirmgt_v1_0_contact_org_contact,
@@ -33,14 +175,6 @@ def load_command_table(self, _):
         g.custom_command('show-org-contact', 'identitydirmgt_contact_org_contact_show_org_contact')
         g.custom_command('update-org-contact', 'identitydirmgt_contact_org_contact_update_org_contact')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_contact
-
-    identitydirmgt_v1_0_contact = CliCommandType(
-        operations_tmpl=(
-            'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contact_operations#ContactOperations.{}'
-        ),
-        client_factory=cf_contact,
-    )
     with self.command_group('identitydirmgt contact', identitydirmgt_v1_0_contact, client_factory=cf_contact) as g:
         g.custom_command('check-member-group', 'identitydirmgt_contact_check_member_group')
         g.custom_command('check-member-object', 'identitydirmgt_contact_check_member_object')
@@ -65,12 +199,6 @@ def load_command_table(self, _):
         g.custom_command('show-ref-manager', 'identitydirmgt_contact_show_ref_manager')
         g.custom_command('validate-property', 'identitydirmgt_contact_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_contract_contract
-
-    identitydirmgt_v1_0_contract_contract = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_contract_operations#ContractContractOperations.{}',
-        client_factory=cf_contract_contract,
-    )
     with self.command_group(
         'identitydirmgt contract-contract', identitydirmgt_v1_0_contract_contract, client_factory=cf_contract_contract
     ) as g:
@@ -80,12 +208,6 @@ def load_command_table(self, _):
         g.custom_command('show-contract', 'identitydirmgt_contract_contract_show_contract')
         g.custom_command('update-contract', 'identitydirmgt_contract_contract_update_contract')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_contract
-
-    identitydirmgt_v1_0_contract = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._contract_operations#ContractOperations.{}',
-        client_factory=cf_contract,
-    )
     with self.command_group('identitydirmgt contract', identitydirmgt_v1_0_contract, client_factory=cf_contract) as g:
         g.custom_command('check-member-group', 'identitydirmgt_contract_check_member_group')
         g.custom_command('check-member-object', 'identitydirmgt_contract_check_member_object')
@@ -96,12 +218,6 @@ def load_command_table(self, _):
         g.custom_command('restore', 'identitydirmgt_contract_restore')
         g.custom_command('validate-property', 'identitydirmgt_contract_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_device_device
-
-    identitydirmgt_v1_0_device_device = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_device_operations#DeviceDeviceOperations.{}',
-        client_factory=cf_device_device,
-    )
     with self.command_group(
         'identitydirmgt device-device', identitydirmgt_v1_0_device_device, client_factory=cf_device_device
     ) as g:
@@ -111,14 +227,6 @@ def load_command_table(self, _):
         g.custom_command('show-device', 'identitydirmgt_device_device_show_device')
         g.custom_command('update-device', 'identitydirmgt_device_device_update_device')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_device
-
-    identitydirmgt_v1_0_device = CliCommandType(
-        operations_tmpl=(
-            'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._device_operations#DeviceOperations.{}'
-        ),
-        client_factory=cf_device,
-    )
     with self.command_group('identitydirmgt device', identitydirmgt_v1_0_device, client_factory=cf_device) as g:
         g.custom_command('check-member-group', 'identitydirmgt_device_check_member_group')
         g.custom_command('check-member-object', 'identitydirmgt_device_check_member_object')
@@ -146,12 +254,6 @@ def load_command_table(self, _):
         g.custom_command('update-extension', 'identitydirmgt_device_update_extension')
         g.custom_command('validate-property', 'identitydirmgt_device_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_directory
-
-    identitydirmgt_v1_0_directory_directory = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_directory_operations#DirectoryDirectoryOperations.{}',
-        client_factory=cf_directory_directory,
-    )
     with self.command_group(
         'identitydirmgt directory-directory',
         identitydirmgt_v1_0_directory_directory,
@@ -160,12 +262,6 @@ def load_command_table(self, _):
         g.custom_command('show-directory', 'identitydirmgt_directory_directory_show_directory')
         g.custom_command('update-directory', 'identitydirmgt_directory_directory_update_directory')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory
-
-    identitydirmgt_v1_0_directory = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_operations#DirectoryOperations.{}',
-        client_factory=cf_directory,
-    )
     with self.command_group(
         'identitydirmgt directory', identitydirmgt_v1_0_directory, client_factory=cf_directory
     ) as g:
@@ -180,12 +276,6 @@ def load_command_table(self, _):
         g.custom_command('update-administrative-unit', 'identitydirmgt_directory_update_administrative_unit')
         g.custom_command('update-deleted-item', 'identitydirmgt_directory_update_deleted_item')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_administrative_unit
-
-    identitydirmgt_v1_0_directory_administrative_unit = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_administrative_unit_operations#DirectoryAdministrativeUnitOperations.{}',
-        client_factory=cf_directory_administrative_unit,
-    )
     with self.command_group(
         'identitydirmgt directory-administrative-unit',
         identitydirmgt_v1_0_directory_administrative_unit,
@@ -216,12 +306,6 @@ def load_command_table(self, _):
             'update-scoped-role-member', 'identitydirmgt_directory_administrative_unit_update_scoped_role_member'
         )
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_directory_role
-
-    identitydirmgt_v1_0_directory_role_directory_role = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_directory_role_operations#DirectoryRoleDirectoryRoleOperations.{}',
-        client_factory=cf_directory_role_directory_role,
-    )
     with self.command_group(
         'identitydirmgt directory-role-directory-role',
         identitydirmgt_v1_0_directory_role_directory_role,
@@ -233,12 +317,6 @@ def load_command_table(self, _):
         g.custom_command('show-directory-role', 'identitydirmgt_directory_role_directory_role_show_directory_role')
         g.custom_command('update-directory-role', 'identitydirmgt_directory_role_directory_role_update_directory_role')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role
-
-    identitydirmgt_v1_0_directory_role = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_operations#DirectoryRoleOperations.{}',
-        client_factory=cf_directory_role,
-    )
     with self.command_group(
         'identitydirmgt directory-role', identitydirmgt_v1_0_directory_role, client_factory=cf_directory_role
     ) as g:
@@ -262,12 +340,6 @@ def load_command_table(self, _):
         g.custom_command('update-scoped-member', 'identitydirmgt_directory_role_update_scoped_member')
         g.custom_command('validate-property', 'identitydirmgt_directory_role_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_template_directory_role_template
-
-    identitydirmgt_v1_0_directory_role_template_directory_role_template = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_directory_role_template_operations#DirectoryRoleTemplateDirectoryRoleTemplateOperations.{}',
-        client_factory=cf_directory_role_template_directory_role_template,
-    )
     with self.command_group(
         'identitydirmgt directory-role-template-directory-role-template',
         identitydirmgt_v1_0_directory_role_template_directory_role_template,
@@ -294,12 +366,6 @@ def load_command_table(self, _):
             'identitydirmgt_directory_role_template_directory_role_template_update_directory_role_template',
         )
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_directory_role_template
-
-    identitydirmgt_v1_0_directory_role_template = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._directory_role_template_operations#DirectoryRoleTemplateOperations.{}',
-        client_factory=cf_directory_role_template,
-    )
     with self.command_group(
         'identitydirmgt directory-role-template',
         identitydirmgt_v1_0_directory_role_template,
@@ -317,12 +383,6 @@ def load_command_table(self, _):
         g.custom_command('restore', 'identitydirmgt_directory_role_template_restore')
         g.custom_command('validate-property', 'identitydirmgt_directory_role_template_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_domain_domain
-
-    identitydirmgt_v1_0_domain_domain = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_domain_operations#DomainDomainOperations.{}',
-        client_factory=cf_domain_domain,
-    )
     with self.command_group(
         'identitydirmgt domain-domain', identitydirmgt_v1_0_domain_domain, client_factory=cf_domain_domain
     ) as g:
@@ -332,14 +392,6 @@ def load_command_table(self, _):
         g.custom_command('show-domain', 'identitydirmgt_domain_domain_show_domain')
         g.custom_command('update-domain', 'identitydirmgt_domain_domain_update_domain')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_domain
-
-    identitydirmgt_v1_0_domain = CliCommandType(
-        operations_tmpl=(
-            'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._domain_operations#DomainOperations.{}'
-        ),
-        client_factory=cf_domain,
-    )
     with self.command_group('identitydirmgt domain', identitydirmgt_v1_0_domain, client_factory=cf_domain) as g:
         g.custom_command('create-ref-domain-name-reference', 'identitydirmgt_domain_create_ref_domain_name_reference')
         g.custom_command(
@@ -363,12 +415,6 @@ def load_command_table(self, _):
         g.custom_command('update-verification-dns-record', 'identitydirmgt_domain_update_verification_dns_record')
         g.custom_command('verify', 'identitydirmgt_domain_verify')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_organization_organization
-
-    identitydirmgt_v1_0_organization_organization = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_organization_operations#OrganizationOrganizationOperations.{}',
-        client_factory=cf_organization_organization,
-    )
     with self.command_group(
         'identitydirmgt organization-organization',
         identitydirmgt_v1_0_organization_organization,
@@ -380,12 +426,6 @@ def load_command_table(self, _):
         g.custom_command('show-organization', 'identitydirmgt_organization_organization_show_organization')
         g.custom_command('update-organization', 'identitydirmgt_organization_organization_update_organization')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_organization
-
-    identitydirmgt_v1_0_organization = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._organization_operations#OrganizationOperations.{}',
-        client_factory=cf_organization,
-    )
     with self.command_group(
         'identitydirmgt organization', identitydirmgt_v1_0_organization, client_factory=cf_organization
     ) as g:
@@ -409,12 +449,6 @@ def load_command_table(self, _):
         g.custom_command('update-extension', 'identitydirmgt_organization_update_extension')
         g.custom_command('validate-property', 'identitydirmgt_organization_validate_property')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_subscribed_sku_subscribed_sku
-
-    identitydirmgt_v1_0_subscribed_sku_subscribed_sku = CliCommandType(
-        operations_tmpl='azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._subscribed_sku_subscribed_sku_operations#SubscribedSkuSubscribedSkuOperations.{}',
-        client_factory=cf_subscribed_sku_subscribed_sku,
-    )
     with self.command_group(
         'identitydirmgt subscribed-sku-subscribed-sku',
         identitydirmgt_v1_0_subscribed_sku_subscribed_sku,
@@ -426,14 +460,6 @@ def load_command_table(self, _):
         g.custom_command('show-subscribed-sku', 'identitydirmgt_subscribed_sku_subscribed_sku_show_subscribed_sku')
         g.custom_command('update-subscribed-sku', 'identitydirmgt_subscribed_sku_subscribed_sku_update_subscribed_sku')
 
-    from azext_identitydirmgt_v1_0.generated._client_factory import cf_user
-
-    identitydirmgt_v1_0_user = CliCommandType(
-        operations_tmpl=(
-            'azext_identitydirmgt_v1_0.vendored_sdks.identitydirmgt.operations._user_operations#UserOperations.{}'
-        ),
-        client_factory=cf_user,
-    )
     with self.command_group('identitydirmgt user', identitydirmgt_v1_0_user, client_factory=cf_user) as g:
         g.custom_command('create-scoped-role-member-of', 'identitydirmgt_user_create_scoped_role_member_of')
         g.custom_command('delete-scoped-role-member-of', 'identitydirmgt_user_delete_scoped_role_member_of')

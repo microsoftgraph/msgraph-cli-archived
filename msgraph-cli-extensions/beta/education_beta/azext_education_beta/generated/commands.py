@@ -9,33 +9,196 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_education_beta.generated._client_factory import (
+    cf_education_education_root,
+    cf_education,
+    cf_education_class,
+    cf_education_class_assignment,
+    cf_education_class_assignment_submission,
+    cf_education_class_member,
+    cf_education_class_school,
+    cf_education_class_teacher,
+    cf_education_me,
+    cf_education_me_assignment,
+    cf_education_me_assignment_submission,
+    cf_education_me_class,
+    cf_education_me_school,
+    cf_education_me_taught_class,
+    cf_education_school,
+    cf_education_school_class,
+    cf_education_school_user,
+    cf_education_synchronization_profile,
+    cf_education_user,
+    cf_education_user_assignment,
+    cf_education_user_assignment_submission,
+    cf_education_user_class,
+    cf_education_user_school,
+    cf_education_user_taught_class,
+)
+
+
+education_beta_education_education_root = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_education_root_operations#EducationEducationRootOperations.{}',
+    client_factory=cf_education_education_root,
+)
+
+
+education_beta_education = CliCommandType(
+    operations_tmpl=(
+        'azext_education_beta.vendored_sdks.education.operations._education_operations#EducationOperations.{}'
+    ),
+    client_factory=cf_education,
+)
+
+
+education_beta_education_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_operations#EducationClassOperations.{}',
+    client_factory=cf_education_class,
+)
+
+
+education_beta_education_class_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_operations#EducationClassAssignmentOperations.{}',
+    client_factory=cf_education_class_assignment,
+)
+
+
+education_beta_education_class_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_submission_operations#EducationClassAssignmentSubmissionOperations.{}',
+    client_factory=cf_education_class_assignment_submission,
+)
+
+
+education_beta_education_class_member = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_member_operations#EducationClassMemberOperations.{}',
+    client_factory=cf_education_class_member,
+)
+
+
+education_beta_education_class_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_school_operations#EducationClassSchoolOperations.{}',
+    client_factory=cf_education_class_school,
+)
+
+
+education_beta_education_class_teacher = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_teacher_operations#EducationClassTeacherOperations.{}',
+    client_factory=cf_education_class_teacher,
+)
+
+
+education_beta_education_me = CliCommandType(
+    operations_tmpl=(
+        'azext_education_beta.vendored_sdks.education.operations._education_me_operations#EducationMeOperations.{}'
+    ),
+    client_factory=cf_education_me,
+)
+
+
+education_beta_education_me_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_operations#EducationMeAssignmentOperations.{}',
+    client_factory=cf_education_me_assignment,
+)
+
+
+education_beta_education_me_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_submission_operations#EducationMeAssignmentSubmissionOperations.{}',
+    client_factory=cf_education_me_assignment_submission,
+)
+
+
+education_beta_education_me_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_class_operations#EducationMeClassOperations.{}',
+    client_factory=cf_education_me_class,
+)
+
+
+education_beta_education_me_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_school_operations#EducationMeSchoolOperations.{}',
+    client_factory=cf_education_me_school,
+)
+
+
+education_beta_education_me_taught_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_taught_class_operations#EducationMeTaughtClassOperations.{}',
+    client_factory=cf_education_me_taught_class,
+)
+
+
+education_beta_education_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_operations#EducationSchoolOperations.{}',
+    client_factory=cf_education_school,
+)
+
+
+education_beta_education_school_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_class_operations#EducationSchoolClassOperations.{}',
+    client_factory=cf_education_school_class,
+)
+
+
+education_beta_education_school_user = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_user_operations#EducationSchoolUserOperations.{}',
+    client_factory=cf_education_school_user,
+)
+
+
+education_beta_education_synchronization_profile = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_synchronization_profile_operations#EducationSynchronizationProfileOperations.{}',
+    client_factory=cf_education_synchronization_profile,
+)
+
+
+education_beta_education_user = CliCommandType(
+    operations_tmpl=(
+        'azext_education_beta.vendored_sdks.education.operations._education_user_operations#EducationUserOperations.{}'
+    ),
+    client_factory=cf_education_user,
+)
+
+
+education_beta_education_user_assignment = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_operations#EducationUserAssignmentOperations.{}',
+    client_factory=cf_education_user_assignment,
+)
+
+
+education_beta_education_user_assignment_submission = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_submission_operations#EducationUserAssignmentSubmissionOperations.{}',
+    client_factory=cf_education_user_assignment_submission,
+)
+
+
+education_beta_education_user_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_class_operations#EducationUserClassOperations.{}',
+    client_factory=cf_education_user_class,
+)
+
+
+education_beta_education_user_school = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_school_operations#EducationUserSchoolOperations.{}',
+    client_factory=cf_education_user_school,
+)
+
+
+education_beta_education_user_taught_class = CliCommandType(
+    operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_taught_class_operations#EducationUserTaughtClassOperations.{}',
+    client_factory=cf_education_user_taught_class,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_education_beta.generated._client_factory import cf_education_education_root
-
-    education_beta_education_education_root = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_education_root_operations#EducationEducationRootOperations.{}',
-        client_factory=cf_education_education_root,
-    )
     with self.command_group(
         'education education-root', education_beta_education_education_root, client_factory=cf_education_education_root
     ) as g:
         g.custom_command('show-education-root', 'education_education_root_show_education_root')
         g.custom_command('update-education-root', 'education_education_root_update_education_root')
 
-    from azext_education_beta.generated._client_factory import cf_education
-
-    education_beta_education = CliCommandType(
-        operations_tmpl=(
-            'azext_education_beta.vendored_sdks.education.operations._education_operations#EducationOperations.{}'
-        ),
-        client_factory=cf_education,
-    )
     with self.command_group('education education', education_beta_education, client_factory=cf_education) as g:
         g.custom_command('create-class', 'education_education_create_class')
         g.custom_command('create-school', 'education_education_create_school')
@@ -61,12 +224,6 @@ def load_command_table(self, _):
         g.custom_command('update-synchronization-profile', 'education_education_update_synchronization_profile')
         g.custom_command('update-user', 'education_education_update_user')
 
-    from azext_education_beta.generated._client_factory import cf_education_class
-
-    education_beta_education_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_operations#EducationClassOperations.{}',
-        client_factory=cf_education_class,
-    )
     with self.command_group(
         'education education-class', education_beta_education_class, client_factory=cf_education_class
     ) as g:
@@ -95,12 +252,6 @@ def load_command_table(self, _):
         g.custom_command('update-assignment', 'education_education_class_update_assignment')
         g.custom_command('update-assignment-category', 'education_education_class_update_assignment_category')
 
-    from azext_education_beta.generated._client_factory import cf_education_class_assignment
-
-    education_beta_education_class_assignment = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_operations#EducationClassAssignmentOperations.{}',
-        client_factory=cf_education_class_assignment,
-    )
     with self.command_group(
         'education education-class-assignment',
         education_beta_education_class_assignment,
@@ -127,12 +278,6 @@ def load_command_table(self, _):
         g.custom_command('update-rubric', 'education_education_class_assignment_update_rubric')
         g.custom_command('update-submission', 'education_education_class_assignment_update_submission')
 
-    from azext_education_beta.generated._client_factory import cf_education_class_assignment_submission
-
-    education_beta_education_class_assignment_submission = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_assignment_submission_operations#EducationClassAssignmentSubmissionOperations.{}',
-        client_factory=cf_education_class_assignment_submission,
-    )
     with self.command_group(
         'education education-class-assignment-submission',
         education_beta_education_class_assignment_submission,
@@ -167,12 +312,6 @@ def load_command_table(self, _):
             'update-submitted-resource', 'education_education_class_assignment_submission_update_submitted_resource'
         )
 
-    from azext_education_beta.generated._client_factory import cf_education_class_member
-
-    education_beta_education_class_member = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_member_operations#EducationClassMemberOperations.{}',
-        client_factory=cf_education_class_member,
-    )
     with self.command_group(
         'education education-class-member',
         education_beta_education_class_member,
@@ -180,12 +319,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'education_education_class_member_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_class_school
-
-    education_beta_education_class_school = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_school_operations#EducationClassSchoolOperations.{}',
-        client_factory=cf_education_class_school,
-    )
     with self.command_group(
         'education education-class-school',
         education_beta_education_class_school,
@@ -193,12 +326,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'education_education_class_school_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_class_teacher
-
-    education_beta_education_class_teacher = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_class_teacher_operations#EducationClassTeacherOperations.{}',
-        client_factory=cf_education_class_teacher,
-    )
     with self.command_group(
         'education education-class-teacher',
         education_beta_education_class_teacher,
@@ -206,14 +333,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'education_education_class_teacher_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_me
-
-    education_beta_education_me = CliCommandType(
-        operations_tmpl=(
-            'azext_education_beta.vendored_sdks.education.operations._education_me_operations#EducationMeOperations.{}'
-        ),
-        client_factory=cf_education_me,
-    )
     with self.command_group('education education-me', education_beta_education_me, client_factory=cf_education_me) as g:
         g.custom_command('create-assignment', 'education_education_me_create_assignment')
         g.custom_command('create-ref-class', 'education_education_me_create_ref_class')
@@ -239,12 +358,6 @@ def load_command_table(self, _):
         g.custom_command('update-assignment', 'education_education_me_update_assignment')
         g.custom_command('update-rubric', 'education_education_me_update_rubric')
 
-    from azext_education_beta.generated._client_factory import cf_education_me_assignment
-
-    education_beta_education_me_assignment = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_operations#EducationMeAssignmentOperations.{}',
-        client_factory=cf_education_me_assignment,
-    )
     with self.command_group(
         'education education-me-assignment',
         education_beta_education_me_assignment,
@@ -271,12 +384,6 @@ def load_command_table(self, _):
         g.custom_command('update-rubric', 'education_education_me_assignment_update_rubric')
         g.custom_command('update-submission', 'education_education_me_assignment_update_submission')
 
-    from azext_education_beta.generated._client_factory import cf_education_me_assignment_submission
-
-    education_beta_education_me_assignment_submission = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_assignment_submission_operations#EducationMeAssignmentSubmissionOperations.{}',
-        client_factory=cf_education_me_assignment_submission,
-    )
     with self.command_group(
         'education education-me-assignment-submission',
         education_beta_education_me_assignment_submission,
@@ -311,34 +418,16 @@ def load_command_table(self, _):
             'update-submitted-resource', 'education_education_me_assignment_submission_update_submitted_resource'
         )
 
-    from azext_education_beta.generated._client_factory import cf_education_me_class
-
-    education_beta_education_me_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_class_operations#EducationMeClassOperations.{}',
-        client_factory=cf_education_me_class,
-    )
     with self.command_group(
         'education education-me-class', education_beta_education_me_class, client_factory=cf_education_me_class
     ) as g:
         g.custom_command('delta', 'education_education_me_class_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_me_school
-
-    education_beta_education_me_school = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_school_operations#EducationMeSchoolOperations.{}',
-        client_factory=cf_education_me_school,
-    )
     with self.command_group(
         'education education-me-school', education_beta_education_me_school, client_factory=cf_education_me_school
     ) as g:
         g.custom_command('delta', 'education_education_me_school_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_me_taught_class
-
-    education_beta_education_me_taught_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_me_taught_class_operations#EducationMeTaughtClassOperations.{}',
-        client_factory=cf_education_me_taught_class,
-    )
     with self.command_group(
         'education education-me-taught-class',
         education_beta_education_me_taught_class,
@@ -346,12 +435,6 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'education_education_me_taught_class_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_school
-
-    education_beta_education_school = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_operations#EducationSchoolOperations.{}',
-        client_factory=cf_education_school,
-    )
     with self.command_group(
         'education education-school', education_beta_education_school, client_factory=cf_education_school
     ) as g:
@@ -367,12 +450,6 @@ def load_command_table(self, _):
         g.custom_command('show-administrative-unit', 'education_education_school_show_administrative_unit')
         g.custom_command('show-ref-administrative-unit', 'education_education_school_show_ref_administrative_unit')
 
-    from azext_education_beta.generated._client_factory import cf_education_school_class
-
-    education_beta_education_school_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_class_operations#EducationSchoolClassOperations.{}',
-        client_factory=cf_education_school_class,
-    )
     with self.command_group(
         'education education-school-class',
         education_beta_education_school_class,
@@ -380,23 +457,11 @@ def load_command_table(self, _):
     ) as g:
         g.custom_command('delta', 'education_education_school_class_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_school_user
-
-    education_beta_education_school_user = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_school_user_operations#EducationSchoolUserOperations.{}',
-        client_factory=cf_education_school_user,
-    )
     with self.command_group(
         'education education-school-user', education_beta_education_school_user, client_factory=cf_education_school_user
     ) as g:
         g.custom_command('delta', 'education_education_school_user_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_synchronization_profile
-
-    education_beta_education_synchronization_profile = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_synchronization_profile_operations#EducationSynchronizationProfileOperations.{}',
-        client_factory=cf_education_synchronization_profile,
-    )
     with self.command_group(
         'education education-synchronization-profile',
         education_beta_education_synchronization_profile,
@@ -416,12 +481,6 @@ def load_command_table(self, _):
         g.custom_command('update-profile-status', 'education_education_synchronization_profile_update_profile_status')
         g.custom_command('upload-url', 'education_education_synchronization_profile_upload_url')
 
-    from azext_education_beta.generated._client_factory import cf_education_user
-
-    education_beta_education_user = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_operations#EducationUserOperations.{}',
-        client_factory=cf_education_user,
-    )
     with self.command_group(
         'education education-user', education_beta_education_user, client_factory=cf_education_user
     ) as g:
@@ -450,12 +509,6 @@ def load_command_table(self, _):
         g.custom_command('update-assignment', 'education_education_user_update_assignment')
         g.custom_command('update-rubric', 'education_education_user_update_rubric')
 
-    from azext_education_beta.generated._client_factory import cf_education_user_assignment
-
-    education_beta_education_user_assignment = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_operations#EducationUserAssignmentOperations.{}',
-        client_factory=cf_education_user_assignment,
-    )
     with self.command_group(
         'education education-user-assignment',
         education_beta_education_user_assignment,
@@ -482,12 +535,6 @@ def load_command_table(self, _):
         g.custom_command('update-rubric', 'education_education_user_assignment_update_rubric')
         g.custom_command('update-submission', 'education_education_user_assignment_update_submission')
 
-    from azext_education_beta.generated._client_factory import cf_education_user_assignment_submission
-
-    education_beta_education_user_assignment_submission = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_assignment_submission_operations#EducationUserAssignmentSubmissionOperations.{}',
-        client_factory=cf_education_user_assignment_submission,
-    )
     with self.command_group(
         'education education-user-assignment-submission',
         education_beta_education_user_assignment_submission,
@@ -522,34 +569,16 @@ def load_command_table(self, _):
             'update-submitted-resource', 'education_education_user_assignment_submission_update_submitted_resource'
         )
 
-    from azext_education_beta.generated._client_factory import cf_education_user_class
-
-    education_beta_education_user_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_class_operations#EducationUserClassOperations.{}',
-        client_factory=cf_education_user_class,
-    )
     with self.command_group(
         'education education-user-class', education_beta_education_user_class, client_factory=cf_education_user_class
     ) as g:
         g.custom_command('delta', 'education_education_user_class_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_user_school
-
-    education_beta_education_user_school = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_school_operations#EducationUserSchoolOperations.{}',
-        client_factory=cf_education_user_school,
-    )
     with self.command_group(
         'education education-user-school', education_beta_education_user_school, client_factory=cf_education_user_school
     ) as g:
         g.custom_command('delta', 'education_education_user_school_delta')
 
-    from azext_education_beta.generated._client_factory import cf_education_user_taught_class
-
-    education_beta_education_user_taught_class = CliCommandType(
-        operations_tmpl='azext_education_beta.vendored_sdks.education.operations._education_user_taught_class_operations#EducationUserTaughtClassOperations.{}',
-        client_factory=cf_education_user_taught_class,
-    )
     with self.command_group(
         'education education-user-taught-class',
         education_beta_education_user_taught_class,

@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['personalcontacts_beta'] = '''
+    type: group
+    short-summary: Manage Personal Contacts
+'''
+
 helps['personalcontacts user'] = """
     type: group
     short-summary: Manage user with personalcontacts_beta

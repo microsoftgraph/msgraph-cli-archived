@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['changenotifications_beta'] = '''
+    type: group
+    short-summary: Manage Change Notifications
+'''
+
 helps['changenotifications subscription-subscription'] = """
     type: group
     short-summary: Manage subscription subscription with changenotifications_beta

@@ -12,8 +12,11 @@ from msgraph.cli.core import AzCommandsLoader
 from azext_financials_beta.generated._help import helps  # pylint: disable=unused-import
 try:
     from azext_financials_beta.manual._help import helps  # pylint: disable=reimported
-except ImportError:
-    pass
+except ImportError as e:
+    if e.name.endswith('manual._help'):
+        pass
+    else:
+        raise e
 
 
 class FinancialsCommandsLoader(AzCommandsLoader):
@@ -33,8 +36,11 @@ class FinancialsCommandsLoader(AzCommandsLoader):
         try:
             from azext_financials_beta.manual.commands import load_command_table as load_command_table_manual
             load_command_table_manual(self, args)
-        except ImportError:
-            pass
+        except ImportError as e:
+            if e.name.endswith('manual.commands'):
+                pass
+            else:
+                raise e
         return self.command_table
 
     def load_arguments(self, command):
@@ -43,8 +49,11 @@ class FinancialsCommandsLoader(AzCommandsLoader):
         try:
             from azext_financials_beta.manual._params import load_arguments as load_arguments_manual
             load_arguments_manual(self, command)
-        except ImportError:
-            pass
+        except ImportError as e:
+            if e.name.endswith('manual._params'):
+                pass
+            else:
+                raise e
 
 
 COMMAND_LOADER_CLS = FinancialsCommandsLoader

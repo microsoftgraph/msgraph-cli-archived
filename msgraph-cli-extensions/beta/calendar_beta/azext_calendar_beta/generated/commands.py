@@ -9,19 +9,196 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_calendar_beta.generated._client_factory import (
+    cf_group,
+    cf_group_calendar,
+    cf_group_calendar_calendar_view,
+    cf_group_calendar_event,
+    cf_group_calendar_view,
+    cf_group_calendar_view_calendar,
+    cf_group_event,
+    cf_group_event_calendar,
+    cf_place_place,
+    cf_user,
+    cf_user_calendar,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event,
+    cf_user_calendar_group,
+    cf_user_calendar_group_calendar,
+    cf_user_calendar_group_calendar_calendar_view,
+    cf_user_calendar_group_calendar_event,
+    cf_user_calendar,
+    cf_user_calendar_calendar_view,
+    cf_user_calendar_event,
+    cf_user_calendar_view,
+    cf_user_calendar_view_calendar,
+    cf_user_event,
+    cf_user_event_calendar,
+)
+
+
+calendar_beta_group = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_operations#GroupOperations.{}',
+    client_factory=cf_group,
+)
+
+
+calendar_beta_group_calendar = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_operations#GroupCalendarOperations.{}'
+    ),
+    client_factory=cf_group_calendar,
+)
+
+
+calendar_beta_group_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_calendar_view_operations#GroupCalendarCalendarViewOperations.{}',
+    client_factory=cf_group_calendar_calendar_view,
+)
+
+
+calendar_beta_group_calendar_event = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_event_operations#GroupCalendarEventOperations.{}',
+    client_factory=cf_group_calendar_event,
+)
+
+
+calendar_beta_group_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_operations#GroupCalendarViewOperations.{}',
+    client_factory=cf_group_calendar_view,
+)
+
+
+calendar_beta_group_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_calendar_operations#GroupCalendarViewCalendarOperations.{}',
+    client_factory=cf_group_calendar_view_calendar,
+)
+
+
+calendar_beta_group_event = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._group_event_operations#GroupEventOperations.{}'
+    ),
+    client_factory=cf_group_event,
+)
+
+
+calendar_beta_group_event_calendar = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_event_calendar_operations#GroupEventCalendarOperations.{}',
+    client_factory=cf_group_event_calendar,
+)
+
+
+calendar_beta_place_place = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._place_place_operations#PlacePlaceOperations.{}'
+    ),
+    client_factory=cf_place_place,
+)
+
+
+calendar_beta_user = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+calendar_beta_user_calendar = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
+    ),
+    client_factory=cf_user_calendar,
+)
+
+
+calendar_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+calendar_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+calendar_beta_user_calendar_group = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_operations#UserCalendarGroupOperations.{}',
+    client_factory=cf_user_calendar_group,
+)
+
+
+calendar_beta_user_calendar_group_calendar = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
+    client_factory=cf_user_calendar_group_calendar,
+)
+
+
+calendar_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_calendar_view,
+)
+
+
+calendar_beta_user_calendar_group_calendar_event = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_group_calendar_event,
+)
+
+
+calendar_beta_user_calendar = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
+    ),
+    client_factory=cf_user_calendar,
+)
+
+
+calendar_beta_user_calendar_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_calendar_view,
+)
+
+
+calendar_beta_user_calendar_event = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
+    client_factory=cf_user_calendar_event,
+)
+
+
+calendar_beta_user_calendar_view = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
+    client_factory=cf_user_calendar_view,
+)
+
+
+calendar_beta_user_calendar_view_calendar = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
+    client_factory=cf_user_calendar_view_calendar,
+)
+
+
+calendar_beta_user_event = CliCommandType(
+    operations_tmpl=(
+        'azext_calendar_beta.vendored_sdks.calendar.operations._user_event_operations#UserEventOperations.{}'
+    ),
+    client_factory=cf_user_event,
+)
+
+
+calendar_beta_user_event_calendar = CliCommandType(
+    operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
+    client_factory=cf_user_event_calendar,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_calendar_beta.generated._client_factory import cf_group
-
-    calendar_beta_group = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('calendar group', calendar_beta_group, client_factory=cf_group) as g:
         g.custom_command('create-calendar-view', 'calendar_group_create_calendar_view')
         g.custom_command('create-event', 'calendar_group_create_event')
@@ -37,12 +214,6 @@ def load_command_table(self, _):
         g.custom_command('update-calendar-view', 'calendar_group_update_calendar_view')
         g.custom_command('update-event', 'calendar_group_update_event')
 
-    from azext_calendar_beta.generated._client_factory import cf_group_calendar
-
-    calendar_beta_group_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_operations#GroupCalendarOperations.{}',
-        client_factory=cf_group_calendar,
-    )
     with self.command_group(
         'calendar group-calendar', calendar_beta_group_calendar, client_factory=cf_group_calendar
     ) as g:
@@ -92,12 +263,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_group_calendar_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_calendar_calendar_view
-
-    calendar_beta_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_calendar_view_operations#GroupCalendarCalendarViewOperations.{}',
-        client_factory=cf_group_calendar_calendar_view,
-    )
     with self.command_group(
         'calendar group-calendar-view',
         calendar_beta_group_calendar_calendar_view,
@@ -160,12 +325,6 @@ def load_command_table(self, _):
             'calendar_group_calendar_view_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_calendar_event
-
-    calendar_beta_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_event_operations#GroupCalendarEventOperations.{}',
-        client_factory=cf_group_calendar_event,
-    )
     with self.command_group(
         'calendar group-calendar-event', calendar_beta_group_calendar_event, client_factory=cf_group_calendar_event
     ) as g:
@@ -226,12 +385,6 @@ def load_command_table(self, _):
             'calendar_group_calendar_event_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_calendar_view
-
-    calendar_beta_group_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_operations#GroupCalendarViewOperations.{}',
-        client_factory=cf_group_calendar_view,
-    )
     with self.command_group(
         'calendar group-calendar-view', calendar_beta_group_calendar_view, client_factory=cf_group_calendar_view
     ) as g:
@@ -292,12 +445,6 @@ def load_command_table(self, _):
             'calendar_group_calendar_view_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_calendar_view_calendar
-
-    calendar_beta_group_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_calendar_view_calendar_operations#GroupCalendarViewCalendarOperations.{}',
-        client_factory=cf_group_calendar_view_calendar,
-    )
     with self.command_group(
         'calendar group-calendar-view-calendar',
         calendar_beta_group_calendar_view_calendar,
@@ -365,14 +512,6 @@ def load_command_table(self, _):
             'calendar_group_calendar_view_calendar_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_event
-
-    calendar_beta_group_event = CliCommandType(
-        operations_tmpl=(
-            'azext_calendar_beta.vendored_sdks.calendar.operations._group_event_operations#GroupEventOperations.{}'
-        ),
-        client_factory=cf_group_event,
-    )
     with self.command_group('calendar group-event', calendar_beta_group_event, client_factory=cf_group_event) as g:
         g.custom_command('create-attachment', 'calendar_group_event_create_attachment')
         g.custom_command('create-exception-occurrence', 'calendar_group_event_create_exception_occurrence')
@@ -428,12 +567,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_group_event_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_group_event_calendar
-
-    calendar_beta_group_event_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._group_event_calendar_operations#GroupEventCalendarOperations.{}',
-        client_factory=cf_group_event_calendar,
-    )
     with self.command_group(
         'calendar group-event-calendar', calendar_beta_group_event_calendar, client_factory=cf_group_event_calendar
     ) as g:
@@ -486,14 +619,6 @@ def load_command_table(self, _):
             'calendar_group_event_calendar_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_place_place
-
-    calendar_beta_place_place = CliCommandType(
-        operations_tmpl=(
-            'azext_calendar_beta.vendored_sdks.calendar.operations._place_place_operations#PlacePlaceOperations.{}'
-        ),
-        client_factory=cf_place_place,
-    )
     with self.command_group('calendar place-place', calendar_beta_place_place, client_factory=cf_place_place) as g:
         g.custom_command('create-place', 'calendar_place_place_create_place')
         g.custom_command('delete-place', 'calendar_place_place_delete_place')
@@ -501,12 +626,6 @@ def load_command_table(self, _):
         g.custom_command('show-place', 'calendar_place_place_show_place')
         g.custom_command('update-place', 'calendar_place_place_update_place')
 
-    from azext_calendar_beta.generated._client_factory import cf_user
-
-    calendar_beta_user = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('calendar user', calendar_beta_user, client_factory=cf_user) as g:
         g.custom_command('create-calendar', 'calendar_user_create_calendar')
         g.custom_command('create-calendar-group', 'calendar_user_create_calendar_group')
@@ -529,14 +648,6 @@ def load_command_table(self, _):
         g.custom_command('update-calendar-view', 'calendar_user_update_calendar_view')
         g.custom_command('update-event', 'calendar_user_update_event')
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar
-
-    calendar_beta_user_calendar = CliCommandType(
-        operations_tmpl=(
-            'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
-        ),
-        client_factory=cf_user_calendar,
-    )
     with self.command_group(
         'calendar user-calendar', calendar_beta_user_calendar, client_factory=cf_user_calendar
     ) as g:
@@ -586,12 +697,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_calendar_view
-
-    calendar_beta_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view,
-    )
     with self.command_group(
         'calendar user-calendar-view',
         calendar_beta_user_calendar_calendar_view,
@@ -651,12 +756,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_event
-
-    calendar_beta_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event,
-    )
     with self.command_group(
         'calendar user-calendar-event', calendar_beta_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
@@ -717,12 +816,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_event_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_group
-
-    calendar_beta_user_calendar_group = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_operations#UserCalendarGroupOperations.{}',
-        client_factory=cf_user_calendar_group,
-    )
     with self.command_group(
         'calendar user-calendar-group', calendar_beta_user_calendar_group, client_factory=cf_user_calendar_group
     ) as g:
@@ -732,12 +825,6 @@ def load_command_table(self, _):
         g.custom_command('show-calendar', 'calendar_user_calendar_group_show_calendar')
         g.custom_command('update-calendar', 'calendar_user_calendar_group_update_calendar')
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_group_calendar
-
-    calendar_beta_user_calendar_group_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_operations#UserCalendarGroupCalendarOperations.{}',
-        client_factory=cf_user_calendar_group_calendar,
-    )
     with self.command_group(
         'calendar user-calendar-group-calendar',
         calendar_beta_user_calendar_group_calendar,
@@ -805,12 +892,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_group_calendar_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_group_calendar_calendar_view
-
-    calendar_beta_user_calendar_group_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_calendar_view_operations#UserCalendarGroupCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_calendar_view,
-    )
     with self.command_group(
         'calendar user-calendar-group-calendar-view',
         calendar_beta_user_calendar_group_calendar_calendar_view,
@@ -890,12 +971,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_group_calendar_view_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_group_calendar_event
-
-    calendar_beta_user_calendar_group_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_group_calendar_event_operations#UserCalendarGroupCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_group_calendar_event,
-    )
     with self.command_group(
         'calendar user-calendar-group-calendar-event',
         calendar_beta_user_calendar_group_calendar_event,
@@ -975,14 +1050,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_group_calendar_event_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar
-
-    calendar_beta_user_calendar = CliCommandType(
-        operations_tmpl=(
-            'azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_operations#UserCalendarOperations.{}'
-        ),
-        client_factory=cf_user_calendar,
-    )
     with self.command_group(
         'calendar user-calendar', calendar_beta_user_calendar, client_factory=cf_user_calendar
     ) as g:
@@ -1032,12 +1099,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_calendar_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_calendar_view
-
-    calendar_beta_user_calendar_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_calendar_view_operations#UserCalendarCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_calendar_view,
-    )
     with self.command_group(
         'calendar user-calendar-view',
         calendar_beta_user_calendar_calendar_view,
@@ -1097,12 +1158,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_event
-
-    calendar_beta_user_calendar_event = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_event_operations#UserCalendarEventOperations.{}',
-        client_factory=cf_user_calendar_event,
-    )
     with self.command_group(
         'calendar user-calendar-event', calendar_beta_user_calendar_event, client_factory=cf_user_calendar_event
     ) as g:
@@ -1163,12 +1218,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_event_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_view
-
-    calendar_beta_user_calendar_view = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_operations#UserCalendarViewOperations.{}',
-        client_factory=cf_user_calendar_view,
-    )
     with self.command_group(
         'calendar user-calendar-view', calendar_beta_user_calendar_view, client_factory=cf_user_calendar_view
     ) as g:
@@ -1226,12 +1275,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_calendar_view_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_calendar_view_calendar
-
-    calendar_beta_user_calendar_view_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_calendar_view_calendar_operations#UserCalendarViewCalendarOperations.{}',
-        client_factory=cf_user_calendar_view_calendar,
-    )
     with self.command_group(
         'calendar user-calendar-view-calendar',
         calendar_beta_user_calendar_view_calendar,
@@ -1299,14 +1342,6 @@ def load_command_table(self, _):
             'calendar_user_calendar_view_calendar_update_single_value_extended_property',
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_event
-
-    calendar_beta_user_event = CliCommandType(
-        operations_tmpl=(
-            'azext_calendar_beta.vendored_sdks.calendar.operations._user_event_operations#UserEventOperations.{}'
-        ),
-        client_factory=cf_user_event,
-    )
     with self.command_group('calendar user-event', calendar_beta_user_event, client_factory=cf_user_event) as g:
         g.custom_command('create-attachment', 'calendar_user_event_create_attachment')
         g.custom_command('create-exception-occurrence', 'calendar_user_event_create_exception_occurrence')
@@ -1358,12 +1393,6 @@ def load_command_table(self, _):
             'update-single-value-extended-property', 'calendar_user_event_update_single_value_extended_property'
         )
 
-    from azext_calendar_beta.generated._client_factory import cf_user_event_calendar
-
-    calendar_beta_user_event_calendar = CliCommandType(
-        operations_tmpl='azext_calendar_beta.vendored_sdks.calendar.operations._user_event_calendar_operations#UserEventCalendarOperations.{}',
-        client_factory=cf_user_event_calendar,
-    )
     with self.command_group(
         'calendar user-event-calendar', calendar_beta_user_event_calendar, client_factory=cf_user_event_calendar
     ) as g:

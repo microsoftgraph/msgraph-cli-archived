@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['applications_v1_0'] = '''
+    type: group
+    short-summary: Manage Applications
+'''
+
 helps['applications application'] = """
     type: group
     short-summary: Manage application application with applications_v1_0

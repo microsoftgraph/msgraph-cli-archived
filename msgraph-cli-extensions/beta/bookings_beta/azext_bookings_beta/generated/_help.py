@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['bookings_beta'] = '''
+    type: group
+    short-summary: Manage Bookings
+'''
+
 helps['bookings booking-business-booking-business'] = """
     type: group
     short-summary: Manage booking business booking business with bookings_beta

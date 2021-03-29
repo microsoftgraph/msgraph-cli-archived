@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['search_beta'] = '''
+    type: group
+    short-summary: Manage Search
+'''
+
 helps['search external-external'] = """
     type: group
     short-summary: Manage external external with search_beta

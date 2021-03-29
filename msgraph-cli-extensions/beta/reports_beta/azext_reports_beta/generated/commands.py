@@ -9,19 +9,44 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_reports_beta.generated._client_factory import (
+    cf_audit_log_audit_log_root,
+    cf_audit_log,
+    cf_report_report_root,
+    cf_report,
+)
+
+
+reports_beta_audit_log_audit_log_root = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
+    client_factory=cf_audit_log_audit_log_root,
+)
+
+
+reports_beta_audit_log = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}',
+    client_factory=cf_audit_log,
+)
+
+
+reports_beta_report_report_root = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
+    client_factory=cf_report_report_root,
+)
+
+
+reports_beta_report = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
+    client_factory=cf_report,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_reports_beta.generated._client_factory import cf_audit_log_audit_log_root
-
-    reports_beta_audit_log_audit_log_root = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
-        client_factory=cf_audit_log_audit_log_root,
-    )
     with self.command_group(
         'reports audit-log-audit-log-root',
         reports_beta_audit_log_audit_log_root,
@@ -30,14 +55,6 @@ def load_command_table(self, _):
         g.custom_command('show-audit-log-root', 'reports_audit_log_audit_log_root_show_audit_log_root')
         g.custom_command('update-audit-log-root', 'reports_audit_log_audit_log_root_update_audit_log_root')
 
-    from azext_reports_beta.generated._client_factory import cf_audit_log
-
-    reports_beta_audit_log = CliCommandType(
-        operations_tmpl=(
-            'azext_reports_beta.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}'
-        ),
-        client_factory=cf_audit_log,
-    )
     with self.command_group('reports audit-log', reports_beta_audit_log, client_factory=cf_audit_log) as g:
         g.custom_command('create-directory-audit', 'reports_audit_log_create_directory_audit')
         g.custom_command('create-directory-provisioning', 'reports_audit_log_create_directory_provisioning')
@@ -65,24 +82,12 @@ def load_command_table(self, _):
         g.custom_command('update-restricted-sign-in', 'reports_audit_log_update_restricted_sign_in')
         g.custom_command('update-sign-in', 'reports_audit_log_update_sign_in')
 
-    from azext_reports_beta.generated._client_factory import cf_report_report_root
-
-    reports_beta_report_report_root = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
-        client_factory=cf_report_report_root,
-    )
     with self.command_group(
         'reports report-root', reports_beta_report_report_root, client_factory=cf_report_report_root
     ) as g:
         g.custom_command('show-report-root', 'reports_report_root_show_report_root')
         g.custom_command('update-report-root', 'reports_report_root_update_report_root')
 
-    from azext_reports_beta.generated._client_factory import cf_report
-
-    reports_beta_report = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
-        client_factory=cf_report,
-    )
     with self.command_group('reports report', reports_beta_report, client_factory=cf_report) as g:
         g.custom_command(
             'create-application-sign-in-detailed-summary', 'reports_report_create_application_sign_in_detailed_summary'
