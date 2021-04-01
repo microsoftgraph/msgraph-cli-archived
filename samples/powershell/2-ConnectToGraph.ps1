@@ -78,3 +78,4 @@ Logged in successfully
 #>
 
 # TODO: What is the unattended story for when there isn't a user?
+# Question: How do we specify v1.0 and beta targets?
