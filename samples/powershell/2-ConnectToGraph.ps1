@@ -37,3 +37,44 @@ ERROR: Authentication failed: ['access_denied']
 # TODO: Consider handling with a user friendly message to indicate that either: 1) the scope is not applicable to delegate auth, 
 # 2) they may need to acquire admin consent to use the scope. This brings up another set of questions around how is the app
 # registered and what is the auth story.
+
+# 4. Login 
+
+.\mg login --scopes "mail.read User.ReadWrite.All Mail.ReadWrite Directory.Read.All Chat.ReadWrite People.Read Group.Read.All Tasks.ReadWrite Sites.Manage.All"
+
+# Results
+
+<#
+Logged in successfully
+#>
+
+# Note: the CLI is unverified - we need to have a path to making it verified. This is noted in the consent screen. 
+# I also had to consent using an admin. We need to nail the story around how regular users can use the CLI.
+
+# 5. Logout
+
+.\mg logout
+
+<#
+Logged out successfully
+#>
+
+# Note: What are we actually doing? Just deleting the access token? Is there a refresh token?
+
+.\mg logout
+
+<#
+You're already logged out
+#>
+
+# Running logout again gives us this message. Nit: You already logged out.
+
+# 6. Login with leading whitespace
+
+.\mg login --scopes " Application.ReadWrite.All"
+
+<#
+Logged in successfully
+#>
+
+# TODO: What is the unattended story for when there isn't a user?
