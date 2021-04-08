@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['search_beta'] = '''
+    type: group
+    short-summary: Manage Search
+'''
+
 helps['search external-external'] = """
     type: group
     short-summary: Manage external external with search_beta
@@ -32,11 +37,6 @@ helps['search external'] = """
     short-summary: Manage external with search_beta
 """
 
-helps['search external delete'] = """
-    type: command
-    short-summary: "Delete navigation property connections for external."
-"""
-
 helps['search external create-connection'] = """
     type: command
     short-summary: "Create new navigation property to connections for external."
@@ -46,13 +46,6 @@ helps['search external create-connection'] = """
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
-        long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
       - name: --properties
         long-summary: |
             Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
@@ -60,6 +53,11 @@ is-searchable=XX labels=XX name=XX type=XX
 
 
             Multiple actions can be specified by using more than one --properties argument.
+"""
+
+helps['search external delete-connection'] = """
+    type: command
+    short-summary: "Delete navigation property connections for external."
 """
 
 helps['search external list-connection'] = """
@@ -81,13 +79,6 @@ helps['search external update-connection'] = """
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
-        long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
       - name: --properties
         long-summary: |
             Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \

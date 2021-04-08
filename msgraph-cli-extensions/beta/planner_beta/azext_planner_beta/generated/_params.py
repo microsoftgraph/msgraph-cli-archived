@@ -26,7 +26,7 @@ from azext_planner_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('planner group delete') as c:
+    with self.argument_context('planner group delete-planner') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('if_match', type=str, help='ETag')
 
@@ -40,11 +40,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('plans', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans owned by '
                    'the group. Expected value: json-string/@json-file.')
-
-    with self.argument_context('planner group-planner delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner create-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -71,6 +66,11 @@ def load_arguments(self, _):
         c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+
+    with self.argument_context('planner group-planner delete-plan') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner list-plan') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -110,13 +110,6 @@ def load_arguments(self, _):
         c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
-
-    with self.argument_context('planner group-planner-plan delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner group-planner-plan create-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -202,6 +195,23 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner group-planner-plan delete-bucket') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan delete-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan delete-task') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner-plan list-bucket') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -335,13 +345,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner group-planner-plan-bucket delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('planner group-planner-plan-bucket create-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -416,6 +419,13 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner group-planner-plan-bucket delete-task') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner group-planner-plan-bucket list-task') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -509,7 +519,28 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner group-planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner group-planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-bucket-task delete-bucket-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-bucket-task delete-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -593,7 +624,25 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner group-planner-plan-task delete') as c:
+    with self.argument_context('planner group-planner-plan-task delete-assigned-to-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-task delete-bucket-task-board-format') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-task delete-detail') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner group-planner-plan-task delete-progress-task-board-format') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -680,12 +729,6 @@ def load_arguments(self, _):
     with self.argument_context('planner planner show-planner') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('planner planner delete') as c:
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner planner create-bucket') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -792,6 +835,18 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner planner delete-bucket') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner delete-plan') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner delete-task') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner list-bucket') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -932,11 +987,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner planner-bucket delete') as c:
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('planner planner-bucket create-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1009,6 +1059,11 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner planner-bucket delete-task') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-bucket list-task') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1096,7 +1151,22 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner planner-bucket-task delete') as c:
+    with self.argument_context('planner planner-bucket-task delete-assigned-to-task-board-format') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-bucket-task delete-bucket-task-board-format') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-bucket-task delete-detail') as c:
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-bucket-task delete-progress-task-board-format') as c:
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
@@ -1161,12 +1231,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
-
-    with self.argument_context('planner planner-plan delete') as c:
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner planner-plan create-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1250,6 +1314,20 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner planner-plan delete-bucket') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan delete-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan delete-task') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-plan list-bucket') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1375,12 +1453,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner planner-plan-bucket delete') as c:
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('planner planner-plan-bucket create-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -1454,6 +1526,12 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner planner-plan-bucket delete-task') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner planner-plan-bucket list-task') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -1544,7 +1622,25 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-bucket-task delete-bucket-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-bucket-task delete-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -1619,7 +1715,22 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner-plan-task delete') as c:
+    with self.argument_context('planner planner-plan-task delete-assigned-to-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-task delete-bucket-task-board-format') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-task delete-detail') as c:
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-plan-task delete-progress-task-board-format') as c:
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
@@ -1685,7 +1796,19 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner planner-task delete') as c:
+    with self.argument_context('planner planner-task delete-assigned-to-task-board-format') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-task delete-bucket-task-board-format') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-task delete-detail') as c:
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner planner-task delete-progress-task-board-format') as c:
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')
 
@@ -1742,7 +1865,7 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user delete') as c:
+    with self.argument_context('planner user delete-planner') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('if_match', type=str, help='ETag')
 
@@ -1765,13 +1888,6 @@ def load_arguments(self, _):
         c.argument('recent_plans', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('tasks', type=validate_file_or_dict, help='Read-only. Nullable. Returns the plannerPlans shared '
                    'with the user. Expected value: json-string/@json-file.')
-
-    with self.argument_context('planner user-planner delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
 
     with self.argument_context('planner user-planner create-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1885,6 +2001,21 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner user-planner delete-all') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_delta_id', type=str, help='key: id of plannerDelta')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner delete-plan') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner delete-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner list-all') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2048,13 +2179,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-
     with self.argument_context('planner user-planner-plan create-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -2139,6 +2263,23 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner user-planner-plan delete-bucket') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan delete-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan delete-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner-plan list-bucket') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2272,13 +2413,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan-bucket delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
-        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
-        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('planner user-planner-plan-bucket create-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
@@ -2353,6 +2487,13 @@ def load_arguments(self, _):
                    arg_group='Completed By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
+
+    with self.argument_context('planner user-planner-plan-bucket delete-task') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('planner user-planner-plan-bucket list-task') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2446,7 +2587,28 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Completed By')
 
-    with self.argument_context('planner user-planner-plan-bucket-task delete') as c:
+    with self.argument_context('planner user-planner-plan-bucket-task delete-assigned-to-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-bucket-task delete-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-bucket-task delete-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-bucket-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_bucket_id', type=str, help='key: id of plannerBucket')
@@ -2530,7 +2692,25 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user-planner-plan-task delete') as c:
+    with self.argument_context('planner user-planner-plan-task delete-assigned-to-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-task delete-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-task delete-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-plan-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_plan_id', type=str, help='key: id of plannerPlan')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
@@ -2605,7 +2785,22 @@ def load_arguments(self, _):
         c.argument('order_hint', type=str, help='Hint value used to order the task on the Progress view of the Task '
                    'Board. The format is defined as outlined here.')
 
-    with self.argument_context('planner user-planner-task delete') as c:
+    with self.argument_context('planner user-planner-task delete-assigned-to-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-task delete-bucket-task-board-format') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-task delete-detail') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('planner_task_id', type=str, help='key: id of plannerTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('planner user-planner-task delete-progress-task-board-format') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('planner_task_id', type=str, help='key: id of plannerTask')
         c.argument('if_match', type=str, help='ETag')

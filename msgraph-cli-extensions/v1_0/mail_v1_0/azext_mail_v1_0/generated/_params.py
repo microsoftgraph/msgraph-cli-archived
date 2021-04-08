@@ -33,12 +33,6 @@ from azext_mail_v1_0.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('mail user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('message_id', type=str, help='key: id of message')
-
     with self.argument_context('mail user create-mail-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -139,6 +133,20 @@ def load_arguments(self, _):
                    arg_group='Flag')
         c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
                    arg_group='Flag')
+
+    with self.argument_context('mail user delete-inference-classification') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user delete-mail-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user delete-message') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user list-mail-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -279,17 +287,17 @@ def load_arguments(self, _):
         c.argument('start_date_time', action=AddCompletedDateTime, nargs='+', help='dateTimeTimeZone',
                    arg_group='Flag')
 
-    with self.argument_context('mail user-inference-classification delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('inference_classification_override_id', type=str,
-                   help='key: id of inferenceClassificationOverride')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('mail user-inference-classification create-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
+
+    with self.argument_context('mail user-inference-classification delete-override') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('inference_classification_override_id', type=str,
+                   help='key: id of inferenceClassificationOverride')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-inference-classification list-override') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -311,18 +319,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('classify_as', arg_type=get_enum_type(['focused', 'other']), help='')
         c.argument('sender_email_address', action=AddEmailAddress, nargs='+', help='emailAddress')
-
-    with self.argument_context('mail user-mail-folder delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('message_rule_id', type=str, help='key: id of messageRule')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
 
     with self.argument_context('mail user-mail-folder create-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -454,34 +450,39 @@ def load_arguments(self, _):
         c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
                    'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
-        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an approval request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be automatically forwarded in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be encrypted in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting response in order for the condition or exception to apply.',
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be a non-delivery report in order for the condition or exception to apply.',
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
-                   'apply.', arg_group='Exceptions')
-        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
-                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be a voice mail in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
         c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
                                                                   'forward', 'noResponseNecessary', 'read', 'reply',
                                                                   'replyToAll', 'review']), help='',
@@ -535,6 +536,34 @@ def load_arguments(self, _):
                    'apply.', arg_group='Conditions')
         c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
                    arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
         c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
                                                                                                       'doNotForward',
                                                                                                       'followUp',
@@ -611,6 +640,38 @@ def load_arguments(self, _):
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('mail user-mail-folder delete-child-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('mail_folder_id1', type=str, help='key: id of mailFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-message') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-message-rule') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_rule_id', type=str, help='key: id of messageRule')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-mail-folder list-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -817,34 +878,39 @@ def load_arguments(self, _):
         c.argument('header_contains', nargs='+', help='Represents the strings that appear in the headers of an '
                    'incoming message in order for the condition or exception to apply.', arg_group='Exceptions')
         c.argument('importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='', arg_group='Exceptions')
-        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an approval request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an approval request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be automatically forwarded in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be automatically forwarded in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be encrypted in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting request in order for the condition or exception to apply.',
+        c.argument('exceptions_is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be an auto reply in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a meeting response in order for the condition or exception to apply.',
+        c.argument('exceptions_is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be encrypted in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be a non-delivery report in order for the condition or exception to apply.',
+        c.argument('exceptions_is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting request in order for the condition or exception to apply.',
                    arg_group='Exceptions')
-        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
-                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
-                   'apply.', arg_group='Exceptions')
-        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
-                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
-                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Exceptions')
-        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
-                   'be a voice mail in order for the condition or exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an '
+                   'incoming message must be permission controlled (RMS-protected) in order for the condition or '
+                   'exception to apply.', arg_group='Exceptions')
+        c.argument('exceptions_is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a read receipt in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be S/MIME-signed in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
+        c.argument('exceptions_is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a voice mail in order for the condition or exception to apply.',
+                   arg_group='Exceptions')
         c.argument('message_action_flag', arg_type=get_enum_type(['any', 'call', 'doNotForward', 'followUp', 'fyi',
                                                                   'forward', 'noResponseNecessary', 'read', 'reply',
                                                                   'replyToAll', 'review']), help='',
@@ -898,6 +964,34 @@ def load_arguments(self, _):
                    'apply.', arg_group='Conditions')
         c.argument('microsoft_graph_importance', arg_type=get_enum_type(['low', 'normal', 'high']), help='',
                    arg_group='Conditions')
+        c.argument('is_approval_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an approval request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_forward', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be automatically forwarded in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_automatic_reply', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be an auto reply in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be encrypted in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_meeting_request', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting request in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_meeting_response', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a meeting response in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_non_delivery_report', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be a non-delivery report in order for the condition or exception to apply.',
+                   arg_group='Conditions')
+        c.argument('is_permission_controlled', arg_type=get_three_state_flag(), help='Indicates whether an incoming '
+                   'message must be permission controlled (RMS-protected) in order for the condition or exception to '
+                   'apply.', arg_group='Conditions')
+        c.argument('is_read_receipt', arg_type=get_three_state_flag(), help='Indicates whether an incoming message '
+                   'must be a read receipt in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_signed', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must be '
+                   'S/MIME-signed in order for the condition or exception to apply.', arg_group='Conditions')
+        c.argument('is_voicemail', arg_type=get_three_state_flag(), help='Indicates whether an incoming message must '
+                   'be a voice mail in order for the condition or exception to apply.', arg_group='Conditions')
         c.argument('microsoft_graph_message_action_flag_message_action_flag', arg_type=get_enum_type(['any', 'call',
                                                                                                       'doNotForward',
                                                                                                       'followUp',
@@ -979,18 +1073,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail user-mail-folder-message delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('mail user-mail-folder-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
@@ -1024,6 +1106,36 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('mail user-mail-folder-message delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-mail-folder-message delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('mail_folder_id', type=str, help='key: id of mailFolder')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-mail-folder-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -1131,17 +1243,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('mail user-message delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('message_id', type=str, help='key: id of message')
-        c.argument('attachment_id', type=str, help='key: id of attachment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('mail user-message create-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('message_id', type=str, help='key: id of message')
@@ -1171,6 +1272,32 @@ def load_arguments(self, _):
         c.argument('message_id', type=str, help='key: id of message')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('mail user-message delete-attachment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('attachment_id', type=str, help='key: id of attachment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('mail user-message delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('message_id', type=str, help='key: id of message')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('mail user-message list-attachment') as c:
         c.argument('user_id', type=str, help='key: id of user')

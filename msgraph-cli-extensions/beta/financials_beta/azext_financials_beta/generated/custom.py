@@ -23,13 +23,6 @@ def financials_financial_show_financial(client,
                                 expand=expand)
 
 
-def financials_financial_delete(client,
-                                company_id,
-                                if_match=None):
-    return client.delete_company(company_id=company_id,
-                                 if_match=if_match)
-
-
 def financials_financial_create_company(client,
                                         id_=None,
                                         business_profile_id=None,
@@ -111,6 +104,13 @@ def financials_financial_create_company(client,
                                  tax_groups=tax_groups,
                                  units_of_measure=units_of_measure,
                                  vendors=vendors)
+
+
+def financials_financial_delete_company(client,
+                                        company_id,
+                                        if_match=None):
+    return client.delete_company(company_id=company_id,
+                                 if_match=if_match)
 
 
 def financials_financial_list_company(client,
@@ -214,185 +214,6 @@ def financials_financial_update_company(client,
                                  tax_groups=tax_groups,
                                  units_of_measure=units_of_measure,
                                  vendors=vendors)
-
-
-def financials_financial_company_delete(client,
-                                        company_id,
-                                        account_id=None,
-                                        if_match=None,
-                                        aged_accounts_payable_id=None,
-                                        aged_accounts_receivable_id=None,
-                                        company_information_id=None,
-                                        country_region_id=None,
-                                        currency_id=None,
-                                        customer_payment_journal_id=None,
-                                        customer_payment_id=None,
-                                        customer_id=None,
-                                        dimension_id=None,
-                                        dimension_value_id=None,
-                                        employee_id=None,
-                                        general_ledger_entry_id=None,
-                                        item_category_id=None,
-                                        item_id=None,
-                                        journal_line_id=None,
-                                        journal_id=None,
-                                        payment_method_id=None,
-                                        payment_term_id=None,
-                                        picture_id=None,
-                                        purchase_invoice_line_id=None,
-                                        purchase_invoice_id=None,
-                                        sales_credit_memo_line_id=None,
-                                        sales_credit_memo_id=None,
-                                        sales_invoice_line_id=None,
-                                        sales_invoice_id=None,
-                                        sales_order_line_id=None,
-                                        sales_order_id=None,
-                                        sales_quote_line_id=None,
-                                        sales_quote_id=None,
-                                        shipment_method_id=None,
-                                        tax_area_id=None,
-                                        tax_group_id=None,
-                                        unit_of_measure_id=None,
-                                        vendor_id=None):
-    if company_id is not None and account_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     account_id=account_id,
-                                     if_match=if_match)
-    elif company_id is not None and aged_accounts_payable_id is not None:
-        return client.delete_aged_account_payable(company_id=company_id,
-                                                  aged_accounts_payable_id=aged_accounts_payable_id,
-                                                  if_match=if_match)
-    elif company_id is not None and aged_accounts_receivable_id is not None:
-        return client.delete_aged_account_receivable(company_id=company_id,
-                                                     aged_accounts_receivable_id=aged_accounts_receivable_id,
-                                                     if_match=if_match)
-    elif company_id is not None and company_information_id is not None:
-        return client.delete_company_information(company_id=company_id,
-                                                 company_information_id=company_information_id,
-                                                 if_match=if_match)
-    elif company_id is not None and country_region_id is not None:
-        return client.delete_country_region(company_id=company_id,
-                                            country_region_id=country_region_id,
-                                            if_match=if_match)
-    elif company_id is not None and currency_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      currency_id=currency_id,
-                                      if_match=if_match)
-    elif company_id is not None and customer_payment_journal_id is not None:
-        return client.delete_customer_payment_journal(company_id=company_id,
-                                                      customer_payment_journal_id=customer_payment_journal_id,
-                                                      if_match=if_match)
-    elif company_id is not None and customer_payment_id is not None:
-        return client.delete_customer_payment(company_id=company_id,
-                                              customer_payment_id=customer_payment_id,
-                                              if_match=if_match)
-    elif company_id is not None and customer_id is not None:
-        return client.delete_customer(company_id=company_id,
-                                      customer_id=customer_id,
-                                      if_match=if_match)
-    elif company_id is not None and dimension_id is not None:
-        return client.delete_dimension(company_id=company_id,
-                                       dimension_id=dimension_id,
-                                       if_match=if_match)
-    elif company_id is not None and dimension_value_id is not None:
-        return client.delete_dimension_value(company_id=company_id,
-                                             dimension_value_id=dimension_value_id,
-                                             if_match=if_match)
-    elif company_id is not None and employee_id is not None:
-        return client.delete_employee(company_id=company_id,
-                                      employee_id=employee_id,
-                                      if_match=if_match)
-    elif company_id is not None and general_ledger_entry_id is not None:
-        return client.delete_general_ledger_entry(company_id=company_id,
-                                                  general_ledger_entry_id=general_ledger_entry_id,
-                                                  if_match=if_match)
-    elif company_id is not None and item_category_id is not None:
-        return client.delete_item_category(company_id=company_id,
-                                           item_category_id=item_category_id,
-                                           if_match=if_match)
-    elif company_id is not None and item_id is not None:
-        return client.delete_item(company_id=company_id,
-                                  item_id=item_id,
-                                  if_match=if_match)
-    elif company_id is not None and journal_line_id is not None:
-        return client.delete_journal_line(company_id=company_id,
-                                          journal_line_id=journal_line_id,
-                                          if_match=if_match)
-    elif company_id is not None and journal_id is not None:
-        return client.delete_journal(company_id=company_id,
-                                     journal_id=journal_id,
-                                     if_match=if_match)
-    elif company_id is not None and payment_method_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            payment_method_id=payment_method_id,
-                                            if_match=if_match)
-    elif company_id is not None and payment_term_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          payment_term_id=payment_term_id,
-                                          if_match=if_match)
-    elif company_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and purchase_invoice_line_id is not None:
-        return client.delete_purchase_invoice_line(company_id=company_id,
-                                                   purchase_invoice_line_id=purchase_invoice_line_id,
-                                                   if_match=if_match)
-    elif company_id is not None and purchase_invoice_id is not None:
-        return client.delete_purchase_invoice(company_id=company_id,
-                                              purchase_invoice_id=purchase_invoice_id,
-                                              if_match=if_match)
-    elif company_id is not None and sales_credit_memo_line_id is not None:
-        return client.delete_sale_credit_memo_line(company_id=company_id,
-                                                   sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                                   if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_sale_credit_memo(company_id=company_id,
-                                              sales_credit_memo_id=sales_credit_memo_id,
-                                              if_match=if_match)
-    elif company_id is not None and sales_invoice_line_id is not None:
-        return client.delete_sale_invoice_line(company_id=company_id,
-                                               sales_invoice_line_id=sales_invoice_line_id,
-                                               if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_sale_invoice(company_id=company_id,
-                                          sales_invoice_id=sales_invoice_id,
-                                          if_match=if_match)
-    elif company_id is not None and sales_order_line_id is not None:
-        return client.delete_sale_order_line(company_id=company_id,
-                                             sales_order_line_id=sales_order_line_id,
-                                             if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_sale_order(company_id=company_id,
-                                        sales_order_id=sales_order_id,
-                                        if_match=if_match)
-    elif company_id is not None and sales_quote_line_id is not None:
-        return client.delete_sale_quote_line(company_id=company_id,
-                                             sales_quote_line_id=sales_quote_line_id,
-                                             if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_sale_quote(company_id=company_id,
-                                        sales_quote_id=sales_quote_id,
-                                        if_match=if_match)
-    elif company_id is not None and shipment_method_id is not None:
-        return client.delete_shipment_method(company_id=company_id,
-                                             shipment_method_id=shipment_method_id,
-                                             if_match=if_match)
-    elif company_id is not None and tax_area_id is not None:
-        return client.delete_tax_area(company_id=company_id,
-                                      tax_area_id=tax_area_id,
-                                      if_match=if_match)
-    elif company_id is not None and tax_group_id is not None:
-        return client.delete_tax_group(company_id=company_id,
-                                       tax_group_id=tax_group_id,
-                                       if_match=if_match)
-    elif company_id is not None and unit_of_measure_id is not None:
-        return client.delete_unit_of_measure(company_id=company_id,
-                                             unit_of_measure_id=unit_of_measure_id,
-                                             if_match=if_match)
-    return client.delete_vendor(company_id=company_id,
-                                vendor_id=vendor_id,
-                                if_match=if_match)
 
 
 def financials_financial_company_create_account(client,
@@ -2088,6 +1909,321 @@ def financials_financial_company_create_vendor(client,
                                 payment_method=payment_method,
                                 payment_term=payment_term,
                                 picture=picture)
+
+
+def financials_financial_company_delete_account(client,
+                                                company_id,
+                                                account_id,
+                                                if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 account_id=account_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_delete_aged_account_payable(client,
+                                                             company_id,
+                                                             aged_accounts_payable_id,
+                                                             if_match=None):
+    return client.delete_aged_account_payable(company_id=company_id,
+                                              aged_accounts_payable_id=aged_accounts_payable_id,
+                                              if_match=if_match)
+
+
+def financials_financial_company_delete_aged_account_receivable(client,
+                                                                company_id,
+                                                                aged_accounts_receivable_id,
+                                                                if_match=None):
+    return client.delete_aged_account_receivable(company_id=company_id,
+                                                 aged_accounts_receivable_id=aged_accounts_receivable_id,
+                                                 if_match=if_match)
+
+
+def financials_financial_company_delete_company_information(client,
+                                                            company_id,
+                                                            company_information_id,
+                                                            if_match=None):
+    return client.delete_company_information(company_id=company_id,
+                                             company_information_id=company_information_id,
+                                             if_match=if_match)
+
+
+def financials_financial_company_delete_country_region(client,
+                                                       company_id,
+                                                       country_region_id,
+                                                       if_match=None):
+    return client.delete_country_region(company_id=company_id,
+                                        country_region_id=country_region_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_delete_currency(client,
+                                                 company_id,
+                                                 currency_id,
+                                                 if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  currency_id=currency_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_delete_customer(client,
+                                                 company_id,
+                                                 customer_id,
+                                                 if_match=None):
+    return client.delete_customer(company_id=company_id,
+                                  customer_id=customer_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_delete_customer_payment(client,
+                                                         company_id,
+                                                         customer_payment_id,
+                                                         if_match=None):
+    return client.delete_customer_payment(company_id=company_id,
+                                          customer_payment_id=customer_payment_id,
+                                          if_match=if_match)
+
+
+def financials_financial_company_delete_customer_payment_journal(client,
+                                                                 company_id,
+                                                                 customer_payment_journal_id,
+                                                                 if_match=None):
+    return client.delete_customer_payment_journal(company_id=company_id,
+                                                  customer_payment_journal_id=customer_payment_journal_id,
+                                                  if_match=if_match)
+
+
+def financials_financial_company_delete_dimension(client,
+                                                  company_id,
+                                                  dimension_id,
+                                                  if_match=None):
+    return client.delete_dimension(company_id=company_id,
+                                   dimension_id=dimension_id,
+                                   if_match=if_match)
+
+
+def financials_financial_company_delete_dimension_value(client,
+                                                        company_id,
+                                                        dimension_value_id,
+                                                        if_match=None):
+    return client.delete_dimension_value(company_id=company_id,
+                                         dimension_value_id=dimension_value_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_delete_employee(client,
+                                                 company_id,
+                                                 employee_id,
+                                                 if_match=None):
+    return client.delete_employee(company_id=company_id,
+                                  employee_id=employee_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_delete_general_ledger_entry(client,
+                                                             company_id,
+                                                             general_ledger_entry_id,
+                                                             if_match=None):
+    return client.delete_general_ledger_entry(company_id=company_id,
+                                              general_ledger_entry_id=general_ledger_entry_id,
+                                              if_match=if_match)
+
+
+def financials_financial_company_delete_item(client,
+                                             company_id,
+                                             item_id,
+                                             if_match=None):
+    return client.delete_item(company_id=company_id,
+                              item_id=item_id,
+                              if_match=if_match)
+
+
+def financials_financial_company_delete_item_category(client,
+                                                      company_id,
+                                                      item_category_id,
+                                                      if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       item_category_id=item_category_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_delete_journal(client,
+                                                company_id,
+                                                journal_id,
+                                                if_match=None):
+    return client.delete_journal(company_id=company_id,
+                                 journal_id=journal_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_delete_journal_line(client,
+                                                     company_id,
+                                                     journal_line_id,
+                                                     if_match=None):
+    return client.delete_journal_line(company_id=company_id,
+                                      journal_line_id=journal_line_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_delete_payment_method(client,
+                                                       company_id,
+                                                       payment_method_id,
+                                                       if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        payment_method_id=payment_method_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_delete_payment_term(client,
+                                                     company_id,
+                                                     payment_term_id,
+                                                     if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      payment_term_id=payment_term_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_delete_picture(client,
+                                                company_id,
+                                                picture_id,
+                                                if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_delete_purchase_invoice(client,
+                                                         company_id,
+                                                         purchase_invoice_id,
+                                                         if_match=None):
+    return client.delete_purchase_invoice(company_id=company_id,
+                                          purchase_invoice_id=purchase_invoice_id,
+                                          if_match=if_match)
+
+
+def financials_financial_company_delete_purchase_invoice_line(client,
+                                                              company_id,
+                                                              purchase_invoice_line_id,
+                                                              if_match=None):
+    return client.delete_purchase_invoice_line(company_id=company_id,
+                                               purchase_invoice_line_id=purchase_invoice_line_id,
+                                               if_match=if_match)
+
+
+def financials_financial_company_delete_sale_credit_memo(client,
+                                                         company_id,
+                                                         sales_credit_memo_id,
+                                                         if_match=None):
+    return client.delete_sale_credit_memo(company_id=company_id,
+                                          sales_credit_memo_id=sales_credit_memo_id,
+                                          if_match=if_match)
+
+
+def financials_financial_company_delete_sale_credit_memo_line(client,
+                                                              company_id,
+                                                              sales_credit_memo_line_id,
+                                                              if_match=None):
+    return client.delete_sale_credit_memo_line(company_id=company_id,
+                                               sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                               if_match=if_match)
+
+
+def financials_financial_company_delete_sale_invoice(client,
+                                                     company_id,
+                                                     sales_invoice_id,
+                                                     if_match=None):
+    return client.delete_sale_invoice(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_delete_sale_invoice_line(client,
+                                                          company_id,
+                                                          sales_invoice_line_id,
+                                                          if_match=None):
+    return client.delete_sale_invoice_line(company_id=company_id,
+                                           sales_invoice_line_id=sales_invoice_line_id,
+                                           if_match=if_match)
+
+
+def financials_financial_company_delete_sale_order(client,
+                                                   company_id,
+                                                   sales_order_id,
+                                                   if_match=None):
+    return client.delete_sale_order(company_id=company_id,
+                                    sales_order_id=sales_order_id,
+                                    if_match=if_match)
+
+
+def financials_financial_company_delete_sale_order_line(client,
+                                                        company_id,
+                                                        sales_order_line_id,
+                                                        if_match=None):
+    return client.delete_sale_order_line(company_id=company_id,
+                                         sales_order_line_id=sales_order_line_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_delete_sale_quote(client,
+                                                   company_id,
+                                                   sales_quote_id,
+                                                   if_match=None):
+    return client.delete_sale_quote(company_id=company_id,
+                                    sales_quote_id=sales_quote_id,
+                                    if_match=if_match)
+
+
+def financials_financial_company_delete_sale_quote_line(client,
+                                                        company_id,
+                                                        sales_quote_line_id,
+                                                        if_match=None):
+    return client.delete_sale_quote_line(company_id=company_id,
+                                         sales_quote_line_id=sales_quote_line_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_delete_shipment_method(client,
+                                                        company_id,
+                                                        shipment_method_id,
+                                                        if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         shipment_method_id=shipment_method_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_delete_tax_area(client,
+                                                 company_id,
+                                                 tax_area_id,
+                                                 if_match=None):
+    return client.delete_tax_area(company_id=company_id,
+                                  tax_area_id=tax_area_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_delete_tax_group(client,
+                                                  company_id,
+                                                  tax_group_id,
+                                                  if_match=None):
+    return client.delete_tax_group(company_id=company_id,
+                                   tax_group_id=tax_group_id,
+                                   if_match=if_match)
+
+
+def financials_financial_company_delete_unit_of_measure(client,
+                                                        company_id,
+                                                        unit_of_measure_id,
+                                                        if_match=None):
+    return client.delete_unit_of_measure(company_id=company_id,
+                                         unit_of_measure_id=unit_of_measure_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_delete_vendor(client,
+                                               company_id,
+                                               vendor_id,
+                                               if_match=None):
+    return client.delete_vendor(company_id=company_id,
+                                vendor_id=vendor_id,
+                                if_match=if_match)
 
 
 def financials_financial_company_list_account(client,
@@ -4657,21 +4793,6 @@ def financials_financial_company_update_vendor(client,
                                 picture=picture)
 
 
-def financials_financial_company_customer_payment_journal_delete(client,
-                                                                 company_id,
-                                                                 customer_payment_journal_id,
-                                                                 customer_payment_id=None,
-                                                                 if_match=None):
-    if company_id is not None and customer_payment_journal_id is not None and customer_payment_id is not None:
-        return client.delete_customer_payment(company_id=company_id,
-                                              customer_payment_journal_id=customer_payment_journal_id,
-                                              customer_payment_id=customer_payment_id,
-                                              if_match=if_match)
-    return client.delete_account(company_id=company_id,
-                                 customer_payment_journal_id=customer_payment_journal_id,
-                                 if_match=if_match)
-
-
 def financials_financial_company_customer_payment_journal_create_customer_payment(client,
                                                                                   company_id,
                                                                                   customer_payment_journal_id,
@@ -4755,6 +4876,26 @@ def financials_financial_company_customer_payment_journal_create_customer_paymen
                                           payment_term=payment_term,
                                           picture=picture,
                                           shipment_method=shipment_method)
+
+
+def financials_financial_company_customer_payment_journal_delete_account(client,
+                                                                         company_id,
+                                                                         customer_payment_journal_id,
+                                                                         if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 customer_payment_journal_id=customer_payment_journal_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_customer_payment_journal_delete_customer_payment(client,
+                                                                                  company_id,
+                                                                                  customer_payment_journal_id,
+                                                                                  customer_payment_id,
+                                                                                  if_match=None):
+    return client.delete_customer_payment(company_id=company_id,
+                                          customer_payment_journal_id=customer_payment_journal_id,
+                                          customer_payment_id=customer_payment_id,
+                                          if_match=if_match)
 
 
 def financials_financial_company_customer_payment_journal_list_customer_payment(client,
@@ -4902,11 +5043,11 @@ def financials_financial_company_customer_payment_journal_update_customer_paymen
                                           shipment_method=shipment_method)
 
 
-def financials_financial_company_customer_payment_journal_customer_payment_delete(client,
-                                                                                  company_id,
-                                                                                  customer_payment_journal_id,
-                                                                                  customer_payment_id,
-                                                                                  if_match=None):
+def financials_financial_company_customer_payment_journal_customer_payment_delete_customer(client,
+                                                                                           company_id,
+                                                                                           customer_payment_journal_id,
+                                                                                           customer_payment_id,
+                                                                                           if_match=None):
     return client.delete_customer(company_id=company_id,
                                   customer_payment_journal_id=customer_payment_journal_id,
                                   customer_payment_id=customer_payment_id,
@@ -4983,39 +5124,6 @@ def financials_financial_company_customer_payment_journal_customer_payment_updat
                                   shipment_method=shipment_method)
 
 
-def financials_financial_company_customer_payment_journal_customer_payment_customer_delete(client,
-                                                                                           company_id,
-                                                                                           customer_payment_journal_id,
-                                                                                           customer_payment_id,
-                                                                                           picture_id=None,
-                                                                                           if_match=None):
-    if company_id is not None and customer_payment_journal_id is not None and customer_payment_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     customer_payment_journal_id=customer_payment_journal_id,
-                                     customer_payment_id=customer_payment_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and customer_payment_journal_id is not None and customer_payment_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      customer_payment_journal_id=customer_payment_journal_id,
-                                      customer_payment_id=customer_payment_id,
-                                      if_match=if_match)
-    elif company_id is not None and customer_payment_journal_id is not None and customer_payment_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            customer_payment_journal_id=customer_payment_journal_id,
-                                            customer_payment_id=customer_payment_id,
-                                            if_match=if_match)
-    elif company_id is not None and customer_payment_journal_id is not None and customer_payment_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          customer_payment_journal_id=customer_payment_journal_id,
-                                          customer_payment_id=customer_payment_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         customer_payment_journal_id=customer_payment_journal_id,
-                                         customer_payment_id=customer_payment_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_customer_payment_journal_customer_payment_customer_create_picture(client,
                                                                                                    company_id,
                                                                                                    customer_payment_journal_id,
@@ -5033,6 +5141,63 @@ def financials_financial_company_customer_payment_journal_customer_payment_custo
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_delete_currency(client,
+                                                                                                    company_id,
+                                                                                                    customer_payment_journal_id,
+                                                                                                    customer_payment_id,
+                                                                                                    if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  customer_payment_journal_id=customer_payment_journal_id,
+                                  customer_payment_id=customer_payment_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_delete_payment_method(client,
+                                                                                                          company_id,
+                                                                                                          customer_payment_journal_id,
+                                                                                                          customer_payment_id,
+                                                                                                          if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        customer_payment_journal_id=customer_payment_journal_id,
+                                        customer_payment_id=customer_payment_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_delete_payment_term(client,
+                                                                                                        company_id,
+                                                                                                        customer_payment_journal_id,
+                                                                                                        customer_payment_id,
+                                                                                                        if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      customer_payment_journal_id=customer_payment_journal_id,
+                                      customer_payment_id=customer_payment_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_delete_picture(client,
+                                                                                                   company_id,
+                                                                                                   customer_payment_journal_id,
+                                                                                                   customer_payment_id,
+                                                                                                   picture_id,
+                                                                                                   if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 customer_payment_journal_id=customer_payment_journal_id,
+                                 customer_payment_id=customer_payment_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_customer_payment_journal_customer_payment_customer_delete_shipment_method(client,
+                                                                                                           company_id,
+                                                                                                           customer_payment_journal_id,
+                                                                                                           customer_payment_id,
+                                                                                                           if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         customer_payment_journal_id=customer_payment_journal_id,
+                                         customer_payment_id=customer_payment_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_customer_payment_journal_customer_payment_customer_list_picture(client,
@@ -5244,10 +5409,10 @@ def financials_financial_company_customer_payment_journal_customer_payment_custo
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_customer_payment_delete(client,
-                                                         company_id,
-                                                         customer_payment_id,
-                                                         if_match=None):
+def financials_financial_company_customer_payment_delete_customer(client,
+                                                                  company_id,
+                                                                  customer_payment_id,
+                                                                  if_match=None):
     return client.delete_customer(company_id=company_id,
                                   customer_payment_id=customer_payment_id,
                                   if_match=if_match)
@@ -5319,33 +5484,6 @@ def financials_financial_company_customer_payment_update_customer(client,
                                   shipment_method=shipment_method)
 
 
-def financials_financial_company_customer_payment_customer_delete(client,
-                                                                  company_id,
-                                                                  customer_payment_id,
-                                                                  picture_id=None,
-                                                                  if_match=None):
-    if company_id is not None and customer_payment_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     customer_payment_id=customer_payment_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and customer_payment_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      customer_payment_id=customer_payment_id,
-                                      if_match=if_match)
-    elif company_id is not None and customer_payment_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            customer_payment_id=customer_payment_id,
-                                            if_match=if_match)
-    elif company_id is not None and customer_payment_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          customer_payment_id=customer_payment_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         customer_payment_id=customer_payment_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_customer_payment_customer_create_picture(client,
                                                                           company_id,
                                                                           customer_payment_id,
@@ -5361,6 +5499,53 @@ def financials_financial_company_customer_payment_customer_create_picture(client
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_customer_payment_customer_delete_currency(client,
+                                                                           company_id,
+                                                                           customer_payment_id,
+                                                                           if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  customer_payment_id=customer_payment_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_customer_payment_customer_delete_payment_method(client,
+                                                                                 company_id,
+                                                                                 customer_payment_id,
+                                                                                 if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        customer_payment_id=customer_payment_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_customer_payment_customer_delete_payment_term(client,
+                                                                               company_id,
+                                                                               customer_payment_id,
+                                                                               if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      customer_payment_id=customer_payment_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_customer_payment_customer_delete_picture(client,
+                                                                          company_id,
+                                                                          customer_payment_id,
+                                                                          picture_id,
+                                                                          if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 customer_payment_id=customer_payment_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_customer_payment_customer_delete_shipment_method(client,
+                                                                                  company_id,
+                                                                                  customer_payment_id,
+                                                                                  if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         customer_payment_id=customer_payment_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_customer_payment_customer_list_picture(client,
@@ -5546,33 +5731,6 @@ def financials_financial_company_customer_payment_customer_update_shipment_metho
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_customer_delete(client,
-                                                 company_id,
-                                                 customer_id,
-                                                 picture_id=None,
-                                                 if_match=None):
-    if company_id is not None and customer_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     customer_id=customer_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and customer_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      customer_id=customer_id,
-                                      if_match=if_match)
-    elif company_id is not None and customer_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            customer_id=customer_id,
-                                            if_match=if_match)
-    elif company_id is not None and customer_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          customer_id=customer_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         customer_id=customer_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_customer_create_picture(client,
                                                          company_id,
                                                          customer_id,
@@ -5588,6 +5746,53 @@ def financials_financial_company_customer_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_customer_delete_currency(client,
+                                                          company_id,
+                                                          customer_id,
+                                                          if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  customer_id=customer_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_customer_delete_payment_method(client,
+                                                                company_id,
+                                                                customer_id,
+                                                                if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        customer_id=customer_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_customer_delete_payment_term(client,
+                                                              company_id,
+                                                              customer_id,
+                                                              if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      customer_id=customer_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_customer_delete_picture(client,
+                                                         company_id,
+                                                         customer_id,
+                                                         picture_id,
+                                                         if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 customer_id=customer_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_customer_delete_shipment_method(client,
+                                                                 company_id,
+                                                                 customer_id,
+                                                                 if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         customer_id=customer_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_customer_list_picture(client,
@@ -5773,17 +5978,6 @@ def financials_financial_company_customer_update_shipment_method(client,
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_dimension_delete(client,
-                                                  company_id,
-                                                  dimension_id,
-                                                  dimension_value_id,
-                                                  if_match=None):
-    return client.delete_dimension_value(company_id=company_id,
-                                         dimension_id=dimension_id,
-                                         dimension_value_id=dimension_value_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_dimension_create_dimension_value(client,
                                                                   company_id,
                                                                   dimension_id,
@@ -5797,6 +5991,17 @@ def financials_financial_company_dimension_create_dimension_value(client,
                                          code=code,
                                          display_name=display_name,
                                          last_modified_date_time=last_modified_date_time)
+
+
+def financials_financial_company_dimension_delete_dimension_value(client,
+                                                                  company_id,
+                                                                  dimension_id,
+                                                                  dimension_value_id,
+                                                                  if_match=None):
+    return client.delete_dimension_value(company_id=company_id,
+                                         dimension_id=dimension_id,
+                                         dimension_value_id=dimension_value_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_dimension_list_dimension_value(client,
@@ -5842,17 +6047,6 @@ def financials_financial_company_dimension_update_dimension_value(client,
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_employee_delete(client,
-                                                 company_id,
-                                                 employee_id,
-                                                 picture_id,
-                                                 if_match=None):
-    return client.delete_picture(company_id=company_id,
-                                 employee_id=employee_id,
-                                 picture_id=picture_id,
-                                 if_match=if_match)
-
-
 def financials_financial_company_employee_create_picture(client,
                                                          company_id,
                                                          employee_id,
@@ -5868,6 +6062,17 @@ def financials_financial_company_employee_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_employee_delete_picture(client,
+                                                         company_id,
+                                                         employee_id,
+                                                         picture_id,
+                                                         if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 employee_id=employee_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_employee_list_picture(client,
@@ -5935,10 +6140,10 @@ def financials_financial_company_employee_update_picture(client,
                                  width=width)
 
 
-def financials_financial_company_general_ledger_entry_delete(client,
-                                                             company_id,
-                                                             general_ledger_entry_id,
-                                                             if_match=None):
+def financials_financial_company_general_ledger_entry_delete_account(client,
+                                                                     company_id,
+                                                                     general_ledger_entry_id,
+                                                                     if_match=None):
     return client.delete_account(company_id=company_id,
                                  general_ledger_entry_id=general_ledger_entry_id,
                                  if_match=if_match)
@@ -5976,21 +6181,6 @@ def financials_financial_company_general_ledger_entry_update_account(client,
                                  sub_category=sub_category)
 
 
-def financials_financial_company_item_delete(client,
-                                             company_id,
-                                             item_id,
-                                             picture_id=None,
-                                             if_match=None):
-    if company_id is not None and item_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     item_id=item_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       item_id=item_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_item_create_picture(client,
                                                      company_id,
                                                      item_id,
@@ -6006,6 +6196,26 @@ def financials_financial_company_item_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_item_delete_item_category(client,
+                                                           company_id,
+                                                           item_id,
+                                                           if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       item_id=item_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_item_delete_picture(client,
+                                                     company_id,
+                                                     item_id,
+                                                     picture_id,
+                                                     if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 item_id=item_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_item_list_picture(client,
@@ -6099,10 +6309,10 @@ def financials_financial_company_item_update_picture(client,
                                  width=width)
 
 
-def financials_financial_company_journal_line_delete(client,
-                                                     company_id,
-                                                     journal_line_id,
-                                                     if_match=None):
+def financials_financial_company_journal_line_delete_account(client,
+                                                             company_id,
+                                                             journal_line_id,
+                                                             if_match=None):
     return client.delete_account(company_id=company_id,
                                  journal_line_id=journal_line_id,
                                  if_match=if_match)
@@ -6140,21 +6350,6 @@ def financials_financial_company_journal_line_update_account(client,
                                  sub_category=sub_category)
 
 
-def financials_financial_company_journal_delete(client,
-                                                company_id,
-                                                journal_id,
-                                                journal_line_id=None,
-                                                if_match=None):
-    if company_id is not None and journal_id is not None and journal_line_id is not None:
-        return client.delete_journal_line(company_id=company_id,
-                                          journal_id=journal_id,
-                                          journal_line_id=journal_line_id,
-                                          if_match=if_match)
-    return client.delete_account(company_id=company_id,
-                                 journal_id=journal_id,
-                                 if_match=if_match)
-
-
 def financials_financial_company_journal_create_journal_line(client,
                                                              company_id,
                                                              journal_id,
@@ -6186,6 +6381,26 @@ def financials_financial_company_journal_create_journal_line(client,
                                       line_number=line_number,
                                       posting_date=posting_date,
                                       account=account)
+
+
+def financials_financial_company_journal_delete_account(client,
+                                                        company_id,
+                                                        journal_id,
+                                                        if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 journal_id=journal_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_journal_delete_journal_line(client,
+                                                             company_id,
+                                                             journal_id,
+                                                             journal_line_id,
+                                                             if_match=None):
+    return client.delete_journal_line(company_id=company_id,
+                                      journal_id=journal_id,
+                                      journal_line_id=journal_line_id,
+                                      if_match=if_match)
 
 
 def financials_financial_company_journal_list_journal_line(client,
@@ -6288,11 +6503,11 @@ def financials_financial_company_journal_update_journal_line(client,
                                       account=account)
 
 
-def financials_financial_company_journal_journal_line_delete(client,
-                                                             company_id,
-                                                             journal_id,
-                                                             journal_line_id,
-                                                             if_match=None):
+def financials_financial_company_journal_journal_line_delete_account(client,
+                                                                     company_id,
+                                                                     journal_id,
+                                                                     journal_line_id,
+                                                                     if_match=None):
     return client.delete_account(company_id=company_id,
                                  journal_id=journal_id,
                                  journal_line_id=journal_line_id,
@@ -6335,14 +6550,19 @@ def financials_financial_company_journal_journal_line_update_account(client,
                                  sub_category=sub_category)
 
 
-def financials_financial_company_purchase_invoice_line_delete(client,
-                                                              company_id,
-                                                              purchase_invoice_line_id,
-                                                              if_match=None):
-    if company_id is not None and purchase_invoice_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     purchase_invoice_line_id=purchase_invoice_line_id,
-                                     if_match=if_match)
+def financials_financial_company_purchase_invoice_line_delete_account(client,
+                                                                      company_id,
+                                                                      purchase_invoice_line_id,
+                                                                      if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 purchase_invoice_line_id=purchase_invoice_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_line_delete_item(client,
+                                                                   company_id,
+                                                                   purchase_invoice_line_id,
+                                                                   if_match=None):
     return client.delete_item(company_id=company_id,
                               purchase_invoice_line_id=purchase_invoice_line_id,
                               if_match=if_match)
@@ -6434,21 +6654,6 @@ def financials_financial_company_purchase_invoice_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_purchase_invoice_line_item_delete(client,
-                                                                   company_id,
-                                                                   purchase_invoice_line_id,
-                                                                   picture_id=None,
-                                                                   if_match=None):
-    if company_id is not None and purchase_invoice_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     purchase_invoice_line_id=purchase_invoice_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       purchase_invoice_line_id=purchase_invoice_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_purchase_invoice_line_item_create_picture(client,
                                                                            company_id,
                                                                            purchase_invoice_line_id,
@@ -6464,6 +6669,26 @@ def financials_financial_company_purchase_invoice_line_item_create_picture(clien
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_purchase_invoice_line_item_delete_item_category(client,
+                                                                                 company_id,
+                                                                                 purchase_invoice_line_id,
+                                                                                 if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       purchase_invoice_line_id=purchase_invoice_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_line_item_delete_picture(client,
+                                                                           company_id,
+                                                                           purchase_invoice_line_id,
+                                                                           picture_id,
+                                                                           if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 purchase_invoice_line_id=purchase_invoice_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_purchase_invoice_line_item_list_picture(client,
@@ -6557,25 +6782,6 @@ def financials_financial_company_purchase_invoice_line_item_update_picture(clien
                                  width=width)
 
 
-def financials_financial_company_purchase_invoice_delete(client,
-                                                         company_id,
-                                                         purchase_invoice_id,
-                                                         purchase_invoice_line_id=None,
-                                                         if_match=None):
-    if company_id is not None and purchase_invoice_id is not None and purchase_invoice_line_id is not None:
-        return client.delete_purchase_invoice_line(company_id=company_id,
-                                                   purchase_invoice_id=purchase_invoice_id,
-                                                   purchase_invoice_line_id=purchase_invoice_line_id,
-                                                   if_match=if_match)
-    elif company_id is not None and purchase_invoice_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      purchase_invoice_id=purchase_invoice_id,
-                                      if_match=if_match)
-    return client.delete_vendor(company_id=company_id,
-                                purchase_invoice_id=purchase_invoice_id,
-                                if_match=if_match)
-
-
 def financials_financial_company_purchase_invoice_create_purchase_invoice_line(client,
                                                                                company_id,
                                                                                purchase_invoice_id,
@@ -6663,6 +6869,35 @@ def financials_financial_company_purchase_invoice_create_purchase_invoice_line(c
                                                unit_price=unit_price,
                                                item_category=item_category,
                                                picture=picture)
+
+
+def financials_financial_company_purchase_invoice_delete_currency(client,
+                                                                  company_id,
+                                                                  purchase_invoice_id,
+                                                                  if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  purchase_invoice_id=purchase_invoice_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_delete_purchase_invoice_line(client,
+                                                                               company_id,
+                                                                               purchase_invoice_id,
+                                                                               purchase_invoice_line_id,
+                                                                               if_match=None):
+    return client.delete_purchase_invoice_line(company_id=company_id,
+                                               purchase_invoice_id=purchase_invoice_id,
+                                               purchase_invoice_line_id=purchase_invoice_line_id,
+                                               if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_delete_vendor(client,
+                                                                company_id,
+                                                                purchase_invoice_id,
+                                                                if_match=None):
+    return client.delete_vendor(company_id=company_id,
+                                purchase_invoice_id=purchase_invoice_id,
+                                if_match=if_match)
 
 
 def financials_financial_company_purchase_invoice_list_purchase_invoice_line(client,
@@ -6879,16 +7114,22 @@ def financials_financial_company_purchase_invoice_update_vendor(client,
                                 picture=picture)
 
 
-def financials_financial_company_purchase_invoice_purchase_invoice_line_delete(client,
-                                                                               company_id,
-                                                                               purchase_invoice_id,
-                                                                               purchase_invoice_line_id,
-                                                                               if_match=None):
-    if company_id is not None and purchase_invoice_id is not None and purchase_invoice_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     purchase_invoice_id=purchase_invoice_id,
-                                     purchase_invoice_line_id=purchase_invoice_line_id,
-                                     if_match=if_match)
+def financials_financial_company_purchase_invoice_purchase_invoice_line_delete_account(client,
+                                                                                       company_id,
+                                                                                       purchase_invoice_id,
+                                                                                       purchase_invoice_line_id,
+                                                                                       if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 purchase_invoice_id=purchase_invoice_id,
+                                 purchase_invoice_line_id=purchase_invoice_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_delete_item(client,
+                                                                                    company_id,
+                                                                                    purchase_invoice_id,
+                                                                                    purchase_invoice_line_id,
+                                                                                    if_match=None):
     return client.delete_item(company_id=company_id,
                               purchase_invoice_id=purchase_invoice_id,
                               purchase_invoice_line_id=purchase_invoice_line_id,
@@ -6989,24 +7230,6 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_update_i
                               picture=picture)
 
 
-def financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete(client,
-                                                                                    company_id,
-                                                                                    purchase_invoice_id,
-                                                                                    purchase_invoice_line_id,
-                                                                                    picture_id=None,
-                                                                                    if_match=None):
-    if company_id is not None and purchase_invoice_id is not None and purchase_invoice_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     purchase_invoice_id=purchase_invoice_id,
-                                     purchase_invoice_line_id=purchase_invoice_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       purchase_invoice_id=purchase_invoice_id,
-                                       purchase_invoice_line_id=purchase_invoice_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_purchase_invoice_purchase_invoice_line_item_create_picture(client,
                                                                                             company_id,
                                                                                             purchase_invoice_id,
@@ -7024,6 +7247,30 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_item_cre
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete_item_category(client,
+                                                                                                  company_id,
+                                                                                                  purchase_invoice_id,
+                                                                                                  purchase_invoice_line_id,
+                                                                                                  if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       purchase_invoice_id=purchase_invoice_id,
+                                       purchase_invoice_line_id=purchase_invoice_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_purchase_invoice_line_item_delete_picture(client,
+                                                                                            company_id,
+                                                                                            purchase_invoice_id,
+                                                                                            purchase_invoice_line_id,
+                                                                                            picture_id,
+                                                                                            if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 purchase_invoice_id=purchase_invoice_id,
+                                 purchase_invoice_line_id=purchase_invoice_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_purchase_invoice_purchase_invoice_line_item_list_picture(client,
@@ -7131,29 +7378,6 @@ def financials_financial_company_purchase_invoice_purchase_invoice_line_item_upd
                                  width=width)
 
 
-def financials_financial_company_purchase_invoice_vendor_delete(client,
-                                                                company_id,
-                                                                purchase_invoice_id,
-                                                                picture_id=None,
-                                                                if_match=None):
-    if company_id is not None and purchase_invoice_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     purchase_invoice_id=purchase_invoice_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and purchase_invoice_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      purchase_invoice_id=purchase_invoice_id,
-                                      if_match=if_match)
-    elif company_id is not None and purchase_invoice_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            purchase_invoice_id=purchase_invoice_id,
-                                            if_match=if_match)
-    return client.delete_payment_term(company_id=company_id,
-                                      purchase_invoice_id=purchase_invoice_id,
-                                      if_match=if_match)
-
-
 def financials_financial_company_purchase_invoice_vendor_create_picture(client,
                                                                         company_id,
                                                                         purchase_invoice_id,
@@ -7169,6 +7393,44 @@ def financials_financial_company_purchase_invoice_vendor_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_purchase_invoice_vendor_delete_currency(client,
+                                                                         company_id,
+                                                                         purchase_invoice_id,
+                                                                         if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  purchase_invoice_id=purchase_invoice_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_vendor_delete_payment_method(client,
+                                                                               company_id,
+                                                                               purchase_invoice_id,
+                                                                               if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        purchase_invoice_id=purchase_invoice_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_vendor_delete_payment_term(client,
+                                                                             company_id,
+                                                                             purchase_invoice_id,
+                                                                             if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      purchase_invoice_id=purchase_invoice_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_purchase_invoice_vendor_delete_picture(client,
+                                                                        company_id,
+                                                                        purchase_invoice_id,
+                                                                        picture_id,
+                                                                        if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 purchase_invoice_id=purchase_invoice_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_purchase_invoice_vendor_list_picture(client,
@@ -7328,14 +7590,19 @@ def financials_financial_company_purchase_invoice_vendor_update_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_credit_memo_line_delete(client,
-                                                              company_id,
-                                                              sales_credit_memo_line_id,
-                                                              if_match=None):
-    if company_id is not None and sales_credit_memo_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_credit_memo_line_delete_account(client,
+                                                                      company_id,
+                                                                      sales_credit_memo_line_id,
+                                                                      if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_line_delete_item(client,
+                                                                   company_id,
+                                                                   sales_credit_memo_line_id,
+                                                                   if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_credit_memo_line_id=sales_credit_memo_line_id,
                               if_match=if_match)
@@ -7427,21 +7694,6 @@ def financials_financial_company_sale_credit_memo_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_credit_memo_line_item_delete(client,
-                                                                   company_id,
-                                                                   sales_credit_memo_line_id,
-                                                                   picture_id=None,
-                                                                   if_match=None):
-    if company_id is not None and sales_credit_memo_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_credit_memo_line_item_create_picture(client,
                                                                            company_id,
                                                                            sales_credit_memo_line_id,
@@ -7457,6 +7709,26 @@ def financials_financial_company_sale_credit_memo_line_item_create_picture(clien
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_credit_memo_line_item_delete_item_category(client,
+                                                                                 company_id,
+                                                                                 sales_credit_memo_line_id,
+                                                                                 if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_line_item_delete_picture(client,
+                                                                           company_id,
+                                                                           sales_credit_memo_line_id,
+                                                                           picture_id,
+                                                                           if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_credit_memo_line_item_list_picture(client,
@@ -7550,29 +7822,6 @@ def financials_financial_company_sale_credit_memo_line_item_update_picture(clien
                                  width=width)
 
 
-def financials_financial_company_sale_credit_memo_delete(client,
-                                                         company_id,
-                                                         sales_credit_memo_id,
-                                                         sales_credit_memo_line_id=None,
-                                                         if_match=None):
-    if company_id is not None and sales_credit_memo_id is not None and sales_credit_memo_line_id is not None:
-        return client.delete_sale_credit_memo_line(company_id=company_id,
-                                                   sales_credit_memo_id=sales_credit_memo_id,
-                                                   sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                                   if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_customer(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      if_match=if_match)
-    return client.delete_payment_term(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      if_match=if_match)
-
-
 def financials_financial_company_sale_credit_memo_create_sale_credit_memo_line(client,
                                                                                company_id,
                                                                                sales_credit_memo_id,
@@ -7662,6 +7911,44 @@ def financials_financial_company_sale_credit_memo_create_sale_credit_memo_line(c
                                                number_unit_price=number_unit_price,
                                                item_category=item_category,
                                                picture=picture)
+
+
+def financials_financial_company_sale_credit_memo_delete_currency(client,
+                                                                  company_id,
+                                                                  sales_credit_memo_id,
+                                                                  if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_credit_memo_id=sales_credit_memo_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_delete_customer(client,
+                                                                  company_id,
+                                                                  sales_credit_memo_id,
+                                                                  if_match=None):
+    return client.delete_customer(company_id=company_id,
+                                  sales_credit_memo_id=sales_credit_memo_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_delete_payment_term(client,
+                                                                      company_id,
+                                                                      sales_credit_memo_id,
+                                                                      if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_credit_memo_id=sales_credit_memo_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_delete_sale_credit_memo_line(client,
+                                                                               company_id,
+                                                                               sales_credit_memo_id,
+                                                                               sales_credit_memo_line_id,
+                                                                               if_match=None):
+    return client.delete_sale_credit_memo_line(company_id=company_id,
+                                               sales_credit_memo_id=sales_credit_memo_id,
+                                               sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                               if_match=if_match)
 
 
 def financials_financial_company_sale_credit_memo_list_sale_credit_memo_line(client,
@@ -7915,33 +8202,6 @@ def financials_financial_company_sale_credit_memo_update_sale_credit_memo_line(c
                                                picture=picture)
 
 
-def financials_financial_company_sale_credit_memo_customer_delete(client,
-                                                                  company_id,
-                                                                  sales_credit_memo_id,
-                                                                  picture_id=None,
-                                                                  if_match=None):
-    if company_id is not None and sales_credit_memo_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_credit_memo_id=sales_credit_memo_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_credit_memo_id=sales_credit_memo_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            sales_credit_memo_id=sales_credit_memo_id,
-                                            if_match=if_match)
-    elif company_id is not None and sales_credit_memo_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_credit_memo_id=sales_credit_memo_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_credit_memo_id=sales_credit_memo_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_sale_credit_memo_customer_create_picture(client,
                                                                           company_id,
                                                                           sales_credit_memo_id,
@@ -7957,6 +8217,53 @@ def financials_financial_company_sale_credit_memo_customer_create_picture(client
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_credit_memo_customer_delete_currency(client,
+                                                                           company_id,
+                                                                           sales_credit_memo_id,
+                                                                           if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_credit_memo_id=sales_credit_memo_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_customer_delete_payment_method(client,
+                                                                                 company_id,
+                                                                                 sales_credit_memo_id,
+                                                                                 if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        sales_credit_memo_id=sales_credit_memo_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_customer_delete_payment_term(client,
+                                                                               company_id,
+                                                                               sales_credit_memo_id,
+                                                                               if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_credit_memo_id=sales_credit_memo_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_customer_delete_picture(client,
+                                                                          company_id,
+                                                                          sales_credit_memo_id,
+                                                                          picture_id,
+                                                                          if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_credit_memo_id=sales_credit_memo_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_customer_delete_shipment_method(client,
+                                                                                  company_id,
+                                                                                  sales_credit_memo_id,
+                                                                                  if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_credit_memo_id=sales_credit_memo_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_credit_memo_customer_list_picture(client,
@@ -8142,16 +8449,22 @@ def financials_financial_company_sale_credit_memo_customer_update_shipment_metho
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete(client,
-                                                                               company_id,
-                                                                               sales_credit_memo_id,
-                                                                               sales_credit_memo_line_id,
-                                                                               if_match=None):
-    if company_id is not None and sales_credit_memo_id is not None and sales_credit_memo_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_credit_memo_id=sales_credit_memo_id,
-                                     sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete_account(client,
+                                                                                       company_id,
+                                                                                       sales_credit_memo_id,
+                                                                                       sales_credit_memo_line_id,
+                                                                                       if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_credit_memo_id=sales_credit_memo_id,
+                                 sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_delete_item(client,
+                                                                                    company_id,
+                                                                                    sales_credit_memo_id,
+                                                                                    sales_credit_memo_line_id,
+                                                                                    if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_credit_memo_id=sales_credit_memo_id,
                               sales_credit_memo_line_id=sales_credit_memo_line_id,
@@ -8252,24 +8565,6 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_update_i
                               picture=picture)
 
 
-def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete(client,
-                                                                                    company_id,
-                                                                                    sales_credit_memo_id,
-                                                                                    sales_credit_memo_line_id,
-                                                                                    picture_id=None,
-                                                                                    if_match=None):
-    if company_id is not None and sales_credit_memo_id is not None and sales_credit_memo_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_credit_memo_id=sales_credit_memo_id,
-                                     sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_credit_memo_id=sales_credit_memo_id,
-                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_create_picture(client,
                                                                                             company_id,
                                                                                             sales_credit_memo_id,
@@ -8287,6 +8582,30 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_cre
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete_item_category(client,
+                                                                                                  company_id,
+                                                                                                  sales_credit_memo_id,
+                                                                                                  sales_credit_memo_line_id,
+                                                                                                  if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_credit_memo_id=sales_credit_memo_id,
+                                       sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_delete_picture(client,
+                                                                                            company_id,
+                                                                                            sales_credit_memo_id,
+                                                                                            sales_credit_memo_line_id,
+                                                                                            picture_id,
+                                                                                            if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_credit_memo_id=sales_credit_memo_id,
+                                 sales_credit_memo_line_id=sales_credit_memo_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_list_picture(client,
@@ -8394,14 +8713,19 @@ def financials_financial_company_sale_credit_memo_sale_credit_memo_line_item_upd
                                  width=width)
 
 
-def financials_financial_company_sale_invoice_line_delete(client,
-                                                          company_id,
-                                                          sales_invoice_line_id,
-                                                          if_match=None):
-    if company_id is not None and sales_invoice_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_invoice_line_id=sales_invoice_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_invoice_line_delete_account(client,
+                                                                  company_id,
+                                                                  sales_invoice_line_id,
+                                                                  if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_invoice_line_id=sales_invoice_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_line_delete_item(client,
+                                                               company_id,
+                                                               sales_invoice_line_id,
+                                                               if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_invoice_line_id=sales_invoice_line_id,
                               if_match=if_match)
@@ -8493,21 +8817,6 @@ def financials_financial_company_sale_invoice_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_invoice_line_item_delete(client,
-                                                               company_id,
-                                                               sales_invoice_line_id,
-                                                               picture_id=None,
-                                                               if_match=None):
-    if company_id is not None and sales_invoice_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_invoice_line_id=sales_invoice_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_invoice_line_id=sales_invoice_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_invoice_line_item_create_picture(client,
                                                                        company_id,
                                                                        sales_invoice_line_id,
@@ -8523,6 +8832,26 @@ def financials_financial_company_sale_invoice_line_item_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_invoice_line_item_delete_item_category(client,
+                                                                             company_id,
+                                                                             sales_invoice_line_id,
+                                                                             if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_invoice_line_id=sales_invoice_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_line_item_delete_picture(client,
+                                                                       company_id,
+                                                                       sales_invoice_line_id,
+                                                                       picture_id,
+                                                                       if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_invoice_line_id=sales_invoice_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_invoice_line_item_list_picture(client,
@@ -8614,33 +8943,6 @@ def financials_financial_company_sale_invoice_line_item_update_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
-
-
-def financials_financial_company_sale_invoice_delete(client,
-                                                     company_id,
-                                                     sales_invoice_id,
-                                                     sales_invoice_line_id=None,
-                                                     if_match=None):
-    if company_id is not None and sales_invoice_id is not None and sales_invoice_line_id is not None:
-        return client.delete_sale_invoice_line(company_id=company_id,
-                                               sales_invoice_id=sales_invoice_id,
-                                               sales_invoice_line_id=sales_invoice_line_id,
-                                               if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_customer(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_invoice_id=sales_invoice_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_invoice_id=sales_invoice_id,
-                                         if_match=if_match)
 
 
 def financials_financial_company_sale_invoice_cancel(client,
@@ -8746,6 +9048,53 @@ def financials_financial_company_sale_invoice_create_sale_invoice_line(client,
                                            number_unit_price=number_unit_price,
                                            item_category=item_category,
                                            picture=picture)
+
+
+def financials_financial_company_sale_invoice_delete_currency(client,
+                                                              company_id,
+                                                              sales_invoice_id,
+                                                              if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_invoice_id=sales_invoice_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_delete_customer(client,
+                                                              company_id,
+                                                              sales_invoice_id,
+                                                              if_match=None):
+    return client.delete_customer(company_id=company_id,
+                                  sales_invoice_id=sales_invoice_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_delete_payment_term(client,
+                                                                  company_id,
+                                                                  sales_invoice_id,
+                                                                  if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_delete_sale_invoice_line(client,
+                                                                       company_id,
+                                                                       sales_invoice_id,
+                                                                       sales_invoice_line_id,
+                                                                       if_match=None):
+    return client.delete_sale_invoice_line(company_id=company_id,
+                                           sales_invoice_id=sales_invoice_id,
+                                           sales_invoice_line_id=sales_invoice_line_id,
+                                           if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_delete_shipment_method(client,
+                                                                     company_id,
+                                                                     sales_invoice_id,
+                                                                     if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_invoice_id=sales_invoice_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_invoice_list_sale_invoice_line(client,
@@ -9046,33 +9395,6 @@ def financials_financial_company_sale_invoice_update_shipment_method(client,
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_invoice_customer_delete(client,
-                                                              company_id,
-                                                              sales_invoice_id,
-                                                              picture_id=None,
-                                                              if_match=None):
-    if company_id is not None and sales_invoice_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_invoice_id=sales_invoice_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_invoice_id=sales_invoice_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            sales_invoice_id=sales_invoice_id,
-                                            if_match=if_match)
-    elif company_id is not None and sales_invoice_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_invoice_id=sales_invoice_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_invoice_id=sales_invoice_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_sale_invoice_customer_create_picture(client,
                                                                       company_id,
                                                                       sales_invoice_id,
@@ -9088,6 +9410,53 @@ def financials_financial_company_sale_invoice_customer_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_invoice_customer_delete_currency(client,
+                                                                       company_id,
+                                                                       sales_invoice_id,
+                                                                       if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_invoice_id=sales_invoice_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_customer_delete_payment_method(client,
+                                                                             company_id,
+                                                                             sales_invoice_id,
+                                                                             if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        sales_invoice_id=sales_invoice_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_customer_delete_payment_term(client,
+                                                                           company_id,
+                                                                           sales_invoice_id,
+                                                                           if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_invoice_id=sales_invoice_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_customer_delete_picture(client,
+                                                                      company_id,
+                                                                      sales_invoice_id,
+                                                                      picture_id,
+                                                                      if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_invoice_id=sales_invoice_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_customer_delete_shipment_method(client,
+                                                                              company_id,
+                                                                              sales_invoice_id,
+                                                                              if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_invoice_id=sales_invoice_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_invoice_customer_list_picture(client,
@@ -9273,16 +9642,22 @@ def financials_financial_company_sale_invoice_customer_update_shipment_method(cl
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_invoice_sale_invoice_line_delete(client,
-                                                                       company_id,
-                                                                       sales_invoice_id,
-                                                                       sales_invoice_line_id,
-                                                                       if_match=None):
-    if company_id is not None and sales_invoice_id is not None and sales_invoice_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_invoice_id=sales_invoice_id,
-                                     sales_invoice_line_id=sales_invoice_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_invoice_sale_invoice_line_delete_account(client,
+                                                                               company_id,
+                                                                               sales_invoice_id,
+                                                                               sales_invoice_line_id,
+                                                                               if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_invoice_id=sales_invoice_id,
+                                 sales_invoice_line_id=sales_invoice_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_delete_item(client,
+                                                                            company_id,
+                                                                            sales_invoice_id,
+                                                                            sales_invoice_line_id,
+                                                                            if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_invoice_id=sales_invoice_id,
                               sales_invoice_line_id=sales_invoice_line_id,
@@ -9383,24 +9758,6 @@ def financials_financial_company_sale_invoice_sale_invoice_line_update_item(clie
                               picture=picture)
 
 
-def financials_financial_company_sale_invoice_sale_invoice_line_item_delete(client,
-                                                                            company_id,
-                                                                            sales_invoice_id,
-                                                                            sales_invoice_line_id,
-                                                                            picture_id=None,
-                                                                            if_match=None):
-    if company_id is not None and sales_invoice_id is not None and sales_invoice_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_invoice_id=sales_invoice_id,
-                                     sales_invoice_line_id=sales_invoice_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_invoice_id=sales_invoice_id,
-                                       sales_invoice_line_id=sales_invoice_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_invoice_sale_invoice_line_item_create_picture(client,
                                                                                     company_id,
                                                                                     sales_invoice_id,
@@ -9418,6 +9775,30 @@ def financials_financial_company_sale_invoice_sale_invoice_line_item_create_pict
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_item_delete_item_category(client,
+                                                                                          company_id,
+                                                                                          sales_invoice_id,
+                                                                                          sales_invoice_line_id,
+                                                                                          if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_invoice_id=sales_invoice_id,
+                                       sales_invoice_line_id=sales_invoice_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_invoice_sale_invoice_line_item_delete_picture(client,
+                                                                                    company_id,
+                                                                                    sales_invoice_id,
+                                                                                    sales_invoice_line_id,
+                                                                                    picture_id,
+                                                                                    if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_invoice_id=sales_invoice_id,
+                                 sales_invoice_line_id=sales_invoice_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_invoice_sale_invoice_line_item_list_picture(client,
@@ -9525,14 +9906,19 @@ def financials_financial_company_sale_invoice_sale_invoice_line_item_update_pict
                                  width=width)
 
 
-def financials_financial_company_sale_order_line_delete(client,
-                                                        company_id,
-                                                        sales_order_line_id,
-                                                        if_match=None):
-    if company_id is not None and sales_order_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_order_line_id=sales_order_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_order_line_delete_account(client,
+                                                                company_id,
+                                                                sales_order_line_id,
+                                                                if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_order_line_id=sales_order_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_order_line_delete_item(client,
+                                                             company_id,
+                                                             sales_order_line_id,
+                                                             if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_order_line_id=sales_order_line_id,
                               if_match=if_match)
@@ -9624,21 +10010,6 @@ def financials_financial_company_sale_order_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_order_line_item_delete(client,
-                                                             company_id,
-                                                             sales_order_line_id,
-                                                             picture_id=None,
-                                                             if_match=None):
-    if company_id is not None and sales_order_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_order_line_id=sales_order_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_order_line_id=sales_order_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_order_line_item_create_picture(client,
                                                                      company_id,
                                                                      sales_order_line_id,
@@ -9654,6 +10025,26 @@ def financials_financial_company_sale_order_line_item_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_order_line_item_delete_item_category(client,
+                                                                           company_id,
+                                                                           sales_order_line_id,
+                                                                           if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_order_line_id=sales_order_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_order_line_item_delete_picture(client,
+                                                                     company_id,
+                                                                     sales_order_line_id,
+                                                                     picture_id,
+                                                                     if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_order_line_id=sales_order_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_order_line_item_list_picture(client,
@@ -9745,29 +10136,6 @@ def financials_financial_company_sale_order_line_item_update_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
-
-
-def financials_financial_company_sale_order_delete(client,
-                                                   company_id,
-                                                   sales_order_id,
-                                                   sales_order_line_id=None,
-                                                   if_match=None):
-    if company_id is not None and sales_order_id is not None and sales_order_line_id is not None:
-        return client.delete_sale_order_line(company_id=company_id,
-                                             sales_order_id=sales_order_id,
-                                             sales_order_line_id=sales_order_line_id,
-                                             if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_customer(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      if_match=if_match)
-    return client.delete_payment_term(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      if_match=if_match)
 
 
 def financials_financial_company_sale_order_create_sale_order_line(client,
@@ -9867,6 +10235,44 @@ def financials_financial_company_sale_order_create_sale_order_line(client,
                                          number_unit_price=number_unit_price,
                                          item_category=item_category,
                                          picture=picture)
+
+
+def financials_financial_company_sale_order_delete_currency(client,
+                                                            company_id,
+                                                            sales_order_id,
+                                                            if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_order_id=sales_order_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_order_delete_customer(client,
+                                                            company_id,
+                                                            sales_order_id,
+                                                            if_match=None):
+    return client.delete_customer(company_id=company_id,
+                                  sales_order_id=sales_order_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_order_delete_payment_term(client,
+                                                                company_id,
+                                                                sales_order_id,
+                                                                if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_order_delete_sale_order_line(client,
+                                                                   company_id,
+                                                                   sales_order_id,
+                                                                   sales_order_line_id,
+                                                                   if_match=None):
+    return client.delete_sale_order_line(company_id=company_id,
+                                         sales_order_id=sales_order_id,
+                                         sales_order_line_id=sales_order_line_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_order_list_sale_order_line(client,
@@ -10128,33 +10534,6 @@ def financials_financial_company_sale_order_update_sale_order_line(client,
                                          picture=picture)
 
 
-def financials_financial_company_sale_order_customer_delete(client,
-                                                            company_id,
-                                                            sales_order_id,
-                                                            picture_id=None,
-                                                            if_match=None):
-    if company_id is not None and sales_order_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_order_id=sales_order_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_order_id=sales_order_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            sales_order_id=sales_order_id,
-                                            if_match=if_match)
-    elif company_id is not None and sales_order_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_order_id=sales_order_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_order_id=sales_order_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_sale_order_customer_create_picture(client,
                                                                     company_id,
                                                                     sales_order_id,
@@ -10170,6 +10549,53 @@ def financials_financial_company_sale_order_customer_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_order_customer_delete_currency(client,
+                                                                     company_id,
+                                                                     sales_order_id,
+                                                                     if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_order_id=sales_order_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_order_customer_delete_payment_method(client,
+                                                                           company_id,
+                                                                           sales_order_id,
+                                                                           if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        sales_order_id=sales_order_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_sale_order_customer_delete_payment_term(client,
+                                                                         company_id,
+                                                                         sales_order_id,
+                                                                         if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_order_id=sales_order_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_order_customer_delete_picture(client,
+                                                                    company_id,
+                                                                    sales_order_id,
+                                                                    picture_id,
+                                                                    if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_order_id=sales_order_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_order_customer_delete_shipment_method(client,
+                                                                            company_id,
+                                                                            sales_order_id,
+                                                                            if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_order_id=sales_order_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_order_customer_list_picture(client,
@@ -10355,16 +10781,22 @@ def financials_financial_company_sale_order_customer_update_shipment_method(clie
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_order_sale_order_line_delete(client,
-                                                                   company_id,
-                                                                   sales_order_id,
-                                                                   sales_order_line_id,
-                                                                   if_match=None):
-    if company_id is not None and sales_order_id is not None and sales_order_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_order_id=sales_order_id,
-                                     sales_order_line_id=sales_order_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_order_sale_order_line_delete_account(client,
+                                                                           company_id,
+                                                                           sales_order_id,
+                                                                           sales_order_line_id,
+                                                                           if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_order_id=sales_order_id,
+                                 sales_order_line_id=sales_order_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_order_sale_order_line_delete_item(client,
+                                                                        company_id,
+                                                                        sales_order_id,
+                                                                        sales_order_line_id,
+                                                                        if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_order_id=sales_order_id,
                               sales_order_line_id=sales_order_line_id,
@@ -10465,24 +10897,6 @@ def financials_financial_company_sale_order_sale_order_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_order_sale_order_line_item_delete(client,
-                                                                        company_id,
-                                                                        sales_order_id,
-                                                                        sales_order_line_id,
-                                                                        picture_id=None,
-                                                                        if_match=None):
-    if company_id is not None and sales_order_id is not None and sales_order_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_order_id=sales_order_id,
-                                     sales_order_line_id=sales_order_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_order_id=sales_order_id,
-                                       sales_order_line_id=sales_order_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_order_sale_order_line_item_create_picture(client,
                                                                                 company_id,
                                                                                 sales_order_id,
@@ -10500,6 +10914,30 @@ def financials_financial_company_sale_order_sale_order_line_item_create_picture(
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_order_sale_order_line_item_delete_item_category(client,
+                                                                                      company_id,
+                                                                                      sales_order_id,
+                                                                                      sales_order_line_id,
+                                                                                      if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_order_id=sales_order_id,
+                                       sales_order_line_id=sales_order_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_order_sale_order_line_item_delete_picture(client,
+                                                                                company_id,
+                                                                                sales_order_id,
+                                                                                sales_order_line_id,
+                                                                                picture_id,
+                                                                                if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_order_id=sales_order_id,
+                                 sales_order_line_id=sales_order_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_order_sale_order_line_item_list_picture(client,
@@ -10607,14 +11045,19 @@ def financials_financial_company_sale_order_sale_order_line_item_update_picture(
                                  width=width)
 
 
-def financials_financial_company_sale_quote_line_delete(client,
-                                                        company_id,
-                                                        sales_quote_line_id,
-                                                        if_match=None):
-    if company_id is not None and sales_quote_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_quote_line_id=sales_quote_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_quote_line_delete_account(client,
+                                                                company_id,
+                                                                sales_quote_line_id,
+                                                                if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_quote_line_id=sales_quote_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_quote_line_delete_item(client,
+                                                             company_id,
+                                                             sales_quote_line_id,
+                                                             if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_quote_line_id=sales_quote_line_id,
                               if_match=if_match)
@@ -10706,21 +11149,6 @@ def financials_financial_company_sale_quote_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_quote_line_item_delete(client,
-                                                             company_id,
-                                                             sales_quote_line_id,
-                                                             picture_id=None,
-                                                             if_match=None):
-    if company_id is not None and sales_quote_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_quote_line_id=sales_quote_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_quote_line_id=sales_quote_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_quote_line_item_create_picture(client,
                                                                      company_id,
                                                                      sales_quote_line_id,
@@ -10736,6 +11164,26 @@ def financials_financial_company_sale_quote_line_item_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_quote_line_item_delete_item_category(client,
+                                                                           company_id,
+                                                                           sales_quote_line_id,
+                                                                           if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_quote_line_id=sales_quote_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_quote_line_item_delete_picture(client,
+                                                                     company_id,
+                                                                     sales_quote_line_id,
+                                                                     picture_id,
+                                                                     if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_quote_line_id=sales_quote_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_quote_line_item_list_picture(client,
@@ -10829,33 +11277,6 @@ def financials_financial_company_sale_quote_line_item_update_picture(client,
                                  width=width)
 
 
-def financials_financial_company_sale_quote_delete(client,
-                                                   company_id,
-                                                   sales_quote_id,
-                                                   sales_quote_line_id=None,
-                                                   if_match=None):
-    if company_id is not None and sales_quote_id is not None and sales_quote_line_id is not None:
-        return client.delete_sale_quote_line(company_id=company_id,
-                                             sales_quote_id=sales_quote_id,
-                                             sales_quote_line_id=sales_quote_line_id,
-                                             if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_customer(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_quote_id=sales_quote_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_quote_id=sales_quote_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_sale_quote_create_sale_quote_line(client,
                                                                    company_id,
                                                                    sales_quote_id,
@@ -10941,6 +11362,53 @@ def financials_financial_company_sale_quote_create_sale_quote_line(client,
                                          number_unit_price=number_unit_price,
                                          item_category=item_category,
                                          picture=picture)
+
+
+def financials_financial_company_sale_quote_delete_currency(client,
+                                                            company_id,
+                                                            sales_quote_id,
+                                                            if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_quote_id=sales_quote_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_quote_delete_customer(client,
+                                                            company_id,
+                                                            sales_quote_id,
+                                                            if_match=None):
+    return client.delete_customer(company_id=company_id,
+                                  sales_quote_id=sales_quote_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_quote_delete_payment_term(client,
+                                                                company_id,
+                                                                sales_quote_id,
+                                                                if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_quote_delete_sale_quote_line(client,
+                                                                   company_id,
+                                                                   sales_quote_id,
+                                                                   sales_quote_line_id,
+                                                                   if_match=None):
+    return client.delete_sale_quote_line(company_id=company_id,
+                                         sales_quote_id=sales_quote_id,
+                                         sales_quote_line_id=sales_quote_line_id,
+                                         if_match=if_match)
+
+
+def financials_financial_company_sale_quote_delete_shipment_method(client,
+                                                                   company_id,
+                                                                   sales_quote_id,
+                                                                   if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_quote_id=sales_quote_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_quote_list_sale_quote_line(client,
@@ -11230,33 +11698,6 @@ def financials_financial_company_sale_quote_update_shipment_method(client,
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_quote_customer_delete(client,
-                                                            company_id,
-                                                            sales_quote_id,
-                                                            picture_id=None,
-                                                            if_match=None):
-    if company_id is not None and sales_quote_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_quote_id=sales_quote_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      sales_quote_id=sales_quote_id,
-                                      if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            sales_quote_id=sales_quote_id,
-                                            if_match=if_match)
-    elif company_id is not None and sales_quote_id is not None:
-        return client.delete_payment_term(company_id=company_id,
-                                          sales_quote_id=sales_quote_id,
-                                          if_match=if_match)
-    return client.delete_shipment_method(company_id=company_id,
-                                         sales_quote_id=sales_quote_id,
-                                         if_match=if_match)
-
-
 def financials_financial_company_sale_quote_customer_create_picture(client,
                                                                     company_id,
                                                                     sales_quote_id,
@@ -11272,6 +11713,53 @@ def financials_financial_company_sale_quote_customer_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_quote_customer_delete_currency(client,
+                                                                     company_id,
+                                                                     sales_quote_id,
+                                                                     if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  sales_quote_id=sales_quote_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_sale_quote_customer_delete_payment_method(client,
+                                                                           company_id,
+                                                                           sales_quote_id,
+                                                                           if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        sales_quote_id=sales_quote_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_sale_quote_customer_delete_payment_term(client,
+                                                                         company_id,
+                                                                         sales_quote_id,
+                                                                         if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      sales_quote_id=sales_quote_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_sale_quote_customer_delete_picture(client,
+                                                                    company_id,
+                                                                    sales_quote_id,
+                                                                    picture_id,
+                                                                    if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_quote_id=sales_quote_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_quote_customer_delete_shipment_method(client,
+                                                                            company_id,
+                                                                            sales_quote_id,
+                                                                            if_match=None):
+    return client.delete_shipment_method(company_id=company_id,
+                                         sales_quote_id=sales_quote_id,
+                                         if_match=if_match)
 
 
 def financials_financial_company_sale_quote_customer_list_picture(client,
@@ -11457,16 +11945,22 @@ def financials_financial_company_sale_quote_customer_update_shipment_method(clie
                                          last_modified_date_time=last_modified_date_time)
 
 
-def financials_financial_company_sale_quote_sale_quote_line_delete(client,
-                                                                   company_id,
-                                                                   sales_quote_id,
-                                                                   sales_quote_line_id,
-                                                                   if_match=None):
-    if company_id is not None and sales_quote_id is not None and sales_quote_line_id is not None:
-        return client.delete_account(company_id=company_id,
-                                     sales_quote_id=sales_quote_id,
-                                     sales_quote_line_id=sales_quote_line_id,
-                                     if_match=if_match)
+def financials_financial_company_sale_quote_sale_quote_line_delete_account(client,
+                                                                           company_id,
+                                                                           sales_quote_id,
+                                                                           sales_quote_line_id,
+                                                                           if_match=None):
+    return client.delete_account(company_id=company_id,
+                                 sales_quote_id=sales_quote_id,
+                                 sales_quote_line_id=sales_quote_line_id,
+                                 if_match=if_match)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_delete_item(client,
+                                                                        company_id,
+                                                                        sales_quote_id,
+                                                                        sales_quote_line_id,
+                                                                        if_match=None):
     return client.delete_item(company_id=company_id,
                               sales_quote_id=sales_quote_id,
                               sales_quote_line_id=sales_quote_line_id,
@@ -11567,24 +12061,6 @@ def financials_financial_company_sale_quote_sale_quote_line_update_item(client,
                               picture=picture)
 
 
-def financials_financial_company_sale_quote_sale_quote_line_item_delete(client,
-                                                                        company_id,
-                                                                        sales_quote_id,
-                                                                        sales_quote_line_id,
-                                                                        picture_id=None,
-                                                                        if_match=None):
-    if company_id is not None and sales_quote_id is not None and sales_quote_line_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     sales_quote_id=sales_quote_id,
-                                     sales_quote_line_id=sales_quote_line_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    return client.delete_item_category(company_id=company_id,
-                                       sales_quote_id=sales_quote_id,
-                                       sales_quote_line_id=sales_quote_line_id,
-                                       if_match=if_match)
-
-
 def financials_financial_company_sale_quote_sale_quote_line_item_create_picture(client,
                                                                                 company_id,
                                                                                 sales_quote_id,
@@ -11602,6 +12078,30 @@ def financials_financial_company_sale_quote_sale_quote_line_item_create_picture(
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_item_delete_item_category(client,
+                                                                                      company_id,
+                                                                                      sales_quote_id,
+                                                                                      sales_quote_line_id,
+                                                                                      if_match=None):
+    return client.delete_item_category(company_id=company_id,
+                                       sales_quote_id=sales_quote_id,
+                                       sales_quote_line_id=sales_quote_line_id,
+                                       if_match=if_match)
+
+
+def financials_financial_company_sale_quote_sale_quote_line_item_delete_picture(client,
+                                                                                company_id,
+                                                                                sales_quote_id,
+                                                                                sales_quote_line_id,
+                                                                                picture_id,
+                                                                                if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 sales_quote_id=sales_quote_id,
+                                 sales_quote_line_id=sales_quote_line_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_sale_quote_sale_quote_line_item_list_picture(client,
@@ -11709,29 +12209,6 @@ def financials_financial_company_sale_quote_sale_quote_line_item_update_picture(
                                  width=width)
 
 
-def financials_financial_company_vendor_delete(client,
-                                               company_id,
-                                               vendor_id,
-                                               picture_id=None,
-                                               if_match=None):
-    if company_id is not None and vendor_id is not None and picture_id is not None:
-        return client.delete_picture(company_id=company_id,
-                                     vendor_id=vendor_id,
-                                     picture_id=picture_id,
-                                     if_match=if_match)
-    elif company_id is not None and vendor_id is not None:
-        return client.delete_currency(company_id=company_id,
-                                      vendor_id=vendor_id,
-                                      if_match=if_match)
-    elif company_id is not None and vendor_id is not None:
-        return client.delete_payment_method(company_id=company_id,
-                                            vendor_id=vendor_id,
-                                            if_match=if_match)
-    return client.delete_payment_term(company_id=company_id,
-                                      vendor_id=vendor_id,
-                                      if_match=if_match)
-
-
 def financials_financial_company_vendor_create_picture(client,
                                                        company_id,
                                                        vendor_id,
@@ -11747,6 +12224,44 @@ def financials_financial_company_vendor_create_picture(client,
                                  content_type_parameter=content_type,
                                  height=height,
                                  width=width)
+
+
+def financials_financial_company_vendor_delete_currency(client,
+                                                        company_id,
+                                                        vendor_id,
+                                                        if_match=None):
+    return client.delete_currency(company_id=company_id,
+                                  vendor_id=vendor_id,
+                                  if_match=if_match)
+
+
+def financials_financial_company_vendor_delete_payment_method(client,
+                                                              company_id,
+                                                              vendor_id,
+                                                              if_match=None):
+    return client.delete_payment_method(company_id=company_id,
+                                        vendor_id=vendor_id,
+                                        if_match=if_match)
+
+
+def financials_financial_company_vendor_delete_payment_term(client,
+                                                            company_id,
+                                                            vendor_id,
+                                                            if_match=None):
+    return client.delete_payment_term(company_id=company_id,
+                                      vendor_id=vendor_id,
+                                      if_match=if_match)
+
+
+def financials_financial_company_vendor_delete_picture(client,
+                                                       company_id,
+                                                       vendor_id,
+                                                       picture_id,
+                                                       if_match=None):
+    return client.delete_picture(company_id=company_id,
+                                 vendor_id=vendor_id,
+                                 picture_id=picture_id,
+                                 if_match=if_match)
 
 
 def financials_financial_company_vendor_list_picture(client,

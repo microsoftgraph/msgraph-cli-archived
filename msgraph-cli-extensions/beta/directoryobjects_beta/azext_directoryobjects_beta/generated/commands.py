@@ -9,27 +9,40 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_directoryobjects_beta.generated._client_factory import (
+    cf_directory_object_directory_object,
+    cf_directory_object,
+)
+
+
+directoryobjects_beta_directory_object_directory_object = CliCommandType(
+    operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_directory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
+    client_factory=cf_directory_object_directory_object,
+)
+
+
+directoryobjects_beta_directory_object = CliCommandType(
+    operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_operations#DirectoryObjectOperations.{}',
+    client_factory=cf_directory_object,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_directoryobjects_beta.generated._client_factory import cf_directory_object_directory_object
-
-    directoryobjects_beta_directory_object_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_directory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
-        client_factory=cf_directory_object_directory_object,
-    )
     with self.command_group(
         'directoryobjects directory-object-directory-object',
         directoryobjects_beta_directory_object_directory_object,
         client_factory=cf_directory_object_directory_object,
     ) as g:
-        g.custom_command('delete', 'directoryobjects_directory_object_directory_object_delete', confirmation=True)
         g.custom_command(
             'create-directory-object', 'directoryobjects_directory_object_directory_object_create_directory_object'
+        )
+        g.custom_command(
+            'delete-directory-object', 'directoryobjects_directory_object_directory_object_delete_directory_object'
         )
         g.custom_command(
             'list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_object'
@@ -41,12 +54,6 @@ def load_command_table(self, _):
             'update-directory-object', 'directoryobjects_directory_object_directory_object_update_directory_object'
         )
 
-    from azext_directoryobjects_beta.generated._client_factory import cf_directory_object
-
-    directoryobjects_beta_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_operations#DirectoryObjectOperations.{}',
-        client_factory=cf_directory_object,
-    )
     with self.command_group(
         'directoryobjects directory-object', directoryobjects_beta_directory_object, client_factory=cf_directory_object
     ) as g:

@@ -10,13 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def schemaextensions_schema_extension_schema_extension_delete(client,
-                                                              schema_extension_id,
-                                                              if_match=None):
-    return client.delete_schema_extension(schema_extension_id=schema_extension_id,
-                                          if_match=if_match)
-
-
 def schemaextensions_schema_extension_schema_extension_create_schema_extension(client,
                                                                                id_=None,
                                                                                description=None,
@@ -30,6 +23,13 @@ def schemaextensions_schema_extension_schema_extension_create_schema_extension(c
                                           properties=properties,
                                           status=status,
                                           target_types=target_types)
+
+
+def schemaextensions_schema_extension_schema_extension_delete_schema_extension(client,
+                                                                               schema_extension_id,
+                                                                               if_match=None):
+    return client.delete_schema_extension(schema_extension_id=schema_extension_id,
+                                          if_match=if_match)
 
 
 def schemaextensions_schema_extension_schema_extension_list_schema_extension(client,

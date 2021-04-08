@@ -18,8 +18,8 @@
 ### <a name="CommandsInexternal">Commands in `az search external` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az search external delete](#externalDeleteConnections)|DeleteConnections|[Parameters](#ParametersexternalDeleteConnections)|Not Found|
 |[az search external create-connection](#externalCreateConnections)|CreateConnections|[Parameters](#ParametersexternalCreateConnections)|Not Found|
+|[az search external delete-connection](#externalDeleteConnections)|DeleteConnections|[Parameters](#ParametersexternalDeleteConnections)|Not Found|
 |[az search external list-connection](#externalListConnections)|ListConnections|[Parameters](#ParametersexternalListConnections)|Not Found|
 |[az search external show-connection](#externalGetConnections)|GetConnections|[Parameters](#ParametersexternalGetConnections)|Not Found|
 |[az search external update-connection](#externalUpdateConnections)|UpdateConnections|[Parameters](#ParametersexternalUpdateConnections)|Not Found|
@@ -45,14 +45,6 @@
 ## COMMAND DETAILS
 
 ### group `az search external`
-#### <a name="externalDeleteConnections">Command `az search external delete`</a>
-
-##### <a name="ParametersexternalDeleteConnections">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="externalCreateConnections">Command `az search external create-connection`</a>
 
 ##### <a name="ParametersexternalCreateConnections">Parameters</a> 
@@ -69,6 +61,14 @@
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 |**--base-type**|string||base_type|baseType|
 |**--properties**|array||properties|properties|
+
+#### <a name="externalDeleteConnections">Command `az search external delete-connection`</a>
+
+##### <a name="ParametersexternalDeleteConnections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--external-connection-id**|string|key: id of externalConnection|external_connection_id|externalConnection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="externalListConnections">Command `az search external list-connection`</a>
 

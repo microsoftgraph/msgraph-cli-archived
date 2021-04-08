@@ -43,7 +43,6 @@ from azext_identitydirmgt_v1_0.action import (
     AddPrivacyProfile,
     AddProvisionedPlans,
     AddVerifiedDomains,
-    AddCertificateBasedAuthConfiguration,
     AddExtensions,
     AddPrepaidUnits,
     AddServicePlans
@@ -51,10 +50,6 @@ from azext_identitydirmgt_v1_0.action import (
 
 
 def load_arguments(self, _):
-
-    with self.argument_context('identitydirmgt contact-org-contact delete') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt contact-org-contact create-org-contact') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -78,6 +73,10 @@ def load_arguments(self, _):
                    'directoryObject type is the base type for many other directory entity types.')
         c.argument('member_of', action=AddContactsOrgcontactMemberOf, nargs='+', help='')
         c.argument('transitive_member_of', action=AddContactsOrgcontactTransitiveMemberOf, nargs='+', help='')
+
+    with self.argument_context('identitydirmgt contact-org-contact delete-org-contact') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt contact-org-contact list-org-contact') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -113,10 +112,6 @@ def load_arguments(self, _):
         c.argument('member_of', action=AddContactsOrgcontactMemberOf, nargs='+', help='')
         c.argument('transitive_member_of', action=AddContactsOrgcontactTransitiveMemberOf, nargs='+', help='')
 
-    with self.argument_context('identitydirmgt contact delete') as c:
-        c.argument('org_contact_id', type=str, help='key: id of orgContact')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt contact check-member-group') as c:
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('group_ids', nargs='+', help='')
@@ -139,6 +134,10 @@ def load_arguments(self, _):
         c.argument('org_contact_id', type=str, help='key: id of orgContact')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('identitydirmgt contact delete-ref-manager') as c:
+        c.argument('org_contact_id', type=str, help='key: id of orgContact')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt contact get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -207,10 +206,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt contract-contract delete') as c:
-        c.argument('contract_id', type=str, help='key: id of contract')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt contract-contract create-contract') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -229,6 +224,10 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='A copy of the customer tenant\'s display name. The copy is made '
                    'when the partnership with the customer is established. It is not automatically updated if the '
                    'customer tenant\'s display name changes.')
+
+    with self.argument_context('identitydirmgt contract-contract delete-contract') as c:
+        c.argument('contract_id', type=str, help='key: id of contract')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt contract-contract list-contract') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -292,10 +291,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt device-device delete') as c:
-        c.argument('device_id', type=str, help='key: id of device')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt device-device create-device') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -353,6 +348,10 @@ def load_arguments(self, _):
         c.argument('transitive_member_of', action=AddDevicesDeviceTransitiveMemberOf, nargs='+', help='')
         c.argument('extensions', action=AddDevicesDeviceExtensions, nargs='+', help='The collection of open extensions '
                    'defined for the device. Read-only. Nullable.')
+
+    with self.argument_context('identitydirmgt device-device delete-device') as c:
+        c.argument('device_id', type=str, help='key: id of device')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt device-device list-device') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -423,11 +422,6 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddDevicesDeviceExtensions, nargs='+', help='The collection of open extensions '
                    'defined for the device. Read-only. Nullable.')
 
-    with self.argument_context('identitydirmgt device delete') as c:
-        c.argument('device_id', type=str, help='key: id of device')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt device check-member-group') as c:
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('group_ids', nargs='+', help='')
@@ -459,6 +453,11 @@ def load_arguments(self, _):
         c.argument('device_id', type=str, help='key: id of device')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('identitydirmgt device delete-extension') as c:
+        c.argument('device_id', type=str, help='key: id of device')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt device get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -552,11 +551,6 @@ def load_arguments(self, _):
         c.argument('deleted_items', action=AddDeletedItems, nargs='+', help='Recently deleted items. Read-only. '
                    'Nullable.')
 
-    with self.argument_context('identitydirmgt directory delete') as c:
-        c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('directory_object_id', type=str, help='key: id of directoryObject')
-
     with self.argument_context('identitydirmgt directory create-administrative-unit') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -577,6 +571,14 @@ def load_arguments(self, _):
     with self.argument_context('identitydirmgt directory create-deleted-item') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
+
+    with self.argument_context('identitydirmgt directory delete-administrative-unit') as c:
+        c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('identitydirmgt directory delete-deleted-item') as c:
+        c.argument('directory_object_id', type=str, help='key: id of directoryObject')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt directory list-administrative-unit') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -621,12 +623,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
 
-    with self.argument_context('identitydirmgt directory-administrative-unit delete') as c:
-        c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
-
     with self.argument_context('identitydirmgt directory-administrative-unit create-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -643,6 +639,16 @@ def load_arguments(self, _):
                    help='Unique identifier for the administrative unit that the directory role is scoped to')
         c.argument('role_id', type=str, help='Unique identifier for the directory role that the member is in.')
         c.argument('role_member_info', action=AddRoleMemberInfo, nargs='+', help='identity')
+
+    with self.argument_context('identitydirmgt directory-administrative-unit delete-extension') as c:
+        c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('identitydirmgt directory-administrative-unit delete-scoped-role-member') as c:
+        c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
+        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt directory-administrative-unit list-extension') as c:
         c.argument('administrative_unit_id', type=str, help='key: id of administrativeUnit')
@@ -692,10 +698,6 @@ def load_arguments(self, _):
         c.argument('role_id', type=str, help='Unique identifier for the directory role that the member is in.')
         c.argument('role_member_info', action=AddRoleMemberInfo, nargs='+', help='identity')
 
-    with self.argument_context('identitydirmgt directory-role-directory-role delete') as c:
-        c.argument('directory_role_id', type=str, help='key: id of directoryRole')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt directory-role-directory-role create-directory-role') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -707,6 +709,10 @@ def load_arguments(self, _):
         c.argument('members', action=AddDirectoryrolesDirectoryroleMembers, nargs='+', help='Users that are members of '
                    'this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.')
         c.argument('scoped_members', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('identitydirmgt directory-role-directory-role delete-directory-role') as c:
+        c.argument('directory_role_id', type=str, help='key: id of directoryRole')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt directory-role-directory-role list-directory-role') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -731,11 +737,6 @@ def load_arguments(self, _):
                    'this directory role. HTTP Methods: GET, POST, DELETE. Read-only. Nullable.')
         c.argument('scoped_members', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('identitydirmgt directory-role delete') as c:
-        c.argument('directory_role_id', type=str, help='key: id of directoryRole')
-        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt directory-role check-member-group') as c:
         c.argument('directory_role_id', type=str, help='key: id of directoryRole')
         c.argument('group_ids', nargs='+', help='')
@@ -756,6 +757,11 @@ def load_arguments(self, _):
                    'directory role is scoped to')
         c.argument('role_id', type=str, help='Unique identifier for the directory role that the member is in.')
         c.argument('role_member_info', action=AddRoleMemberInfo, nargs='+', help='identity')
+
+    with self.argument_context('identitydirmgt directory-role delete-scoped-member') as c:
+        c.argument('directory_role_id', type=str, help='key: id of directoryRole')
+        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt directory-role get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -812,15 +818,15 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt directory-role-template-directory-role-template delete') as c:
-        c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt directory-role-template-directory-role-template create-directory-role-template') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='The description to set for the directory role. Read-only.')
         c.argument('display_name', type=str, help='The display name to set for the directory role. Read-only.')
+
+    with self.argument_context('identitydirmgt directory-role-template-directory-role-template delete-directory-role-template') as c:
+        c.argument('directory_role_template_id', type=str, help='key: id of directoryRoleTemplate')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt directory-role-template-directory-role-template list-directory-role-template') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -871,10 +877,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt domain-domain delete') as c:
-        c.argument('domain_id', type=str, help='key: id of domain')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt domain-domain create-domain') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('authentication_type', type=str, help='Indicates the configured authentication type for the domain. '
@@ -919,6 +921,10 @@ def load_arguments(self, _):
         c.argument('verification_dns_records', action=AddVerificationDnsRecords, nargs='+', help='DNS records that the '
                    'customer adds to the DNS zone file of the domain before the customer can complete domain ownership '
                    'verification with Azure AD.Read-only, Nullable')
+
+    with self.argument_context('identitydirmgt domain-domain delete-domain') as c:
+        c.argument('domain_id', type=str, help='key: id of domain')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt domain-domain list-domain') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -976,11 +982,6 @@ def load_arguments(self, _):
                    'customer adds to the DNS zone file of the domain before the customer can complete domain ownership '
                    'verification with Azure AD.Read-only, Nullable')
 
-    with self.argument_context('identitydirmgt domain delete') as c:
-        c.argument('domain_id', type=str, help='key: id of domain')
-        c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt domain create-ref-domain-name-reference') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
@@ -1015,6 +1016,16 @@ def load_arguments(self, _):
                    'SharePointPublic, OrgIdAuthentication, Yammer, Intune')
         c.argument('ttl', type=int, help='Value to use when configuring the time-to-live (ttl) property of the DNS '
                    'record at the DNS host. Not nullable')
+
+    with self.argument_context('identitydirmgt domain delete-service-configuration-record') as c:
+        c.argument('domain_id', type=str, help='key: id of domain')
+        c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('identitydirmgt domain delete-verification-dns-record') as c:
+        c.argument('domain_id', type=str, help='key: id of domain')
+        c.argument('domain_dns_record_id', type=str, help='key: id of domainDnsRecord')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt domain force-delete') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
@@ -1089,10 +1100,6 @@ def load_arguments(self, _):
     with self.argument_context('identitydirmgt domain verify') as c:
         c.argument('domain_id', type=str, help='key: id of domain')
 
-    with self.argument_context('identitydirmgt organization-organization delete') as c:
-        c.argument('organization_id', type=str, help='key: id of organization')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt organization-organization create-organization') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
@@ -1132,11 +1139,16 @@ def load_arguments(self, _):
                    'associated with this tenant. Not nullable.')
         c.argument('mobile_device_management_authority', arg_type=get_enum_type(['unknown', 'intune', 'sccm',
                                                                                  'office365']), help='')
-        c.argument('certificate_based_auth_configuration', action=AddCertificateBasedAuthConfiguration, nargs='+',
-                   help='Navigation property to manage certificate-based authentication configuration. Only a single '
-                   'instance of certificateBasedAuthConfiguration can be created in the collection.')
+        c.argument('certificate_based_auth_configuration', type=validate_file_or_dict, help='Navigation property to '
+                   'manage certificate-based authentication configuration. Only a single instance of '
+                   'certificateBasedAuthConfiguration can be created in the collection. Expected value: '
+                   'json-string/@json-file.')
         c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
                    'the organization. Read-only. Nullable.')
+
+    with self.argument_context('identitydirmgt organization-organization delete-organization') as c:
+        c.argument('organization_id', type=str, help='key: id of organization')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt organization-organization list-organization') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -1188,16 +1200,12 @@ def load_arguments(self, _):
                    'associated with this tenant. Not nullable.')
         c.argument('mobile_device_management_authority', arg_type=get_enum_type(['unknown', 'intune', 'sccm',
                                                                                  'office365']), help='')
-        c.argument('certificate_based_auth_configuration', action=AddCertificateBasedAuthConfiguration, nargs='+',
-                   help='Navigation property to manage certificate-based authentication configuration. Only a single '
-                   'instance of certificateBasedAuthConfiguration can be created in the collection.')
+        c.argument('certificate_based_auth_configuration', type=validate_file_or_dict, help='Navigation property to '
+                   'manage certificate-based authentication configuration. Only a single instance of '
+                   'certificateBasedAuthConfiguration can be created in the collection. Expected value: '
+                   'json-string/@json-file.')
         c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
                    'the organization. Read-only. Nullable.')
-
-    with self.argument_context('identitydirmgt organization delete') as c:
-        c.argument('organization_id', type=str, help='key: id of organization')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt organization check-member-group') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
@@ -1210,6 +1218,11 @@ def load_arguments(self, _):
     with self.argument_context('identitydirmgt organization create-extension') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('identitydirmgt organization delete-extension') as c:
+        c.argument('organization_id', type=str, help='key: id of organization')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt organization get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -1255,10 +1268,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku delete') as c:
-        c.argument('subscribed_sku_id', type=str, help='key: id of subscribedSku')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku create-subscribed-sku') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('applies_to', type=str, help='For example, \'User\' or \'Company\'.')
@@ -1272,6 +1281,10 @@ def load_arguments(self, _):
         c.argument('sku_part_number', type=str, help='The SKU part number; for example: \'AAD_PREMIUM\' or '
                    '\'RMSBASIC\'. To get a list of commercial subscriptions that an organization has acquired, see '
                    'List subscribedSkus.')
+
+    with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku delete-subscribed-sku') as c:
+        c.argument('subscribed_sku_id', type=str, help='key: id of subscribedSku')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt subscribed-sku-subscribed-sku list-subscribed-sku') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -1298,11 +1311,6 @@ def load_arguments(self, _):
                    '\'RMSBASIC\'. To get a list of commercial subscriptions that an organization has acquired, see '
                    'List subscribedSkus.')
 
-    with self.argument_context('identitydirmgt user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('identitydirmgt user create-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1310,6 +1318,11 @@ def load_arguments(self, _):
                    'directory role is scoped to')
         c.argument('role_id', type=str, help='Unique identifier for the directory role that the member is in.')
         c.argument('role_member_info', action=AddRoleMemberInfo, nargs='+', help='identity')
+
+    with self.argument_context('identitydirmgt user delete-scoped-role-member-of') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('scoped_role_membership_id', type=str, help='key: id of scopedRoleMembership')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('identitydirmgt user list-scoped-role-member-of') as c:
         c.argument('user_id', type=str, help='key: id of user')

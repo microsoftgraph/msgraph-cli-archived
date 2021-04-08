@@ -19,9 +19,9 @@
 ### <a name="CommandsInusers">Commands in `az people user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user delete](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
-|[az people user delete](#usersDeleteInsights)|DeleteInsights|[Parameters](#ParametersusersDeleteInsights)|Not Found|
 |[az people user create-person](#usersCreatePeople)|CreatePeople|[Parameters](#ParametersusersCreatePeople)|Not Found|
+|[az people user delete-insight](#usersDeleteInsights)|DeleteInsights|[Parameters](#ParametersusersDeleteInsights)|Not Found|
+|[az people user delete-person](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
 |[az people user list-person](#usersListPeople)|ListPeople|[Parameters](#ParametersusersListPeople)|Not Found|
 |[az people user show-insight](#usersGetInsights)|GetInsights|[Parameters](#ParametersusersGetInsights)|Not Found|
 |[az people user show-person](#usersGetPeople)|GetPeople|[Parameters](#ParametersusersGetPeople)|Not Found|
@@ -31,12 +31,12 @@
 ### <a name="CommandsInusers.insights">Commands in `az people user-insight` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-insight delete](#users.insightsDeleteShared)|DeleteShared|[Parameters](#Parametersusers.insightsDeleteShared)|Not Found|
-|[az people user-insight delete](#users.insightsDeleteTrending)|DeleteTrending|[Parameters](#Parametersusers.insightsDeleteTrending)|Not Found|
-|[az people user-insight delete](#users.insightsDeleteUsed)|DeleteUsed|[Parameters](#Parametersusers.insightsDeleteUsed)|Not Found|
 |[az people user-insight create-shared](#users.insightsCreateShared)|CreateShared|[Parameters](#Parametersusers.insightsCreateShared)|Not Found|
 |[az people user-insight create-trending](#users.insightsCreateTrending)|CreateTrending|[Parameters](#Parametersusers.insightsCreateTrending)|Not Found|
 |[az people user-insight create-used](#users.insightsCreateUsed)|CreateUsed|[Parameters](#Parametersusers.insightsCreateUsed)|Not Found|
+|[az people user-insight delete-shared](#users.insightsDeleteShared)|DeleteShared|[Parameters](#Parametersusers.insightsDeleteShared)|Not Found|
+|[az people user-insight delete-trending](#users.insightsDeleteTrending)|DeleteTrending|[Parameters](#Parametersusers.insightsDeleteTrending)|Not Found|
+|[az people user-insight delete-used](#users.insightsDeleteUsed)|DeleteUsed|[Parameters](#Parametersusers.insightsDeleteUsed)|Not Found|
 |[az people user-insight list-shared](#users.insightsListShared)|ListShared|[Parameters](#Parametersusers.insightsListShared)|Not Found|
 |[az people user-insight list-trending](#users.insightsListTrending)|ListTrending|[Parameters](#Parametersusers.insightsListTrending)|Not Found|
 |[az people user-insight list-used](#users.insightsListUsed)|ListUsed|[Parameters](#Parametersusers.insightsListUsed)|Not Found|
@@ -50,8 +50,8 @@
 ### <a name="CommandsInusers.insights.shared">Commands in `az people user-insight-shared` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-insight-shared delete](#users.insights.sharedDeleteRefLastSharedMethod)|DeleteRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedDeleteRefLastSharedMethod)|Not Found|
-|[az people user-insight-shared delete](#users.insights.sharedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.sharedDeleteRefResource)|Not Found|
+|[az people user-insight-shared delete-ref-last-shared-method](#users.insights.sharedDeleteRefLastSharedMethod)|DeleteRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedDeleteRefLastSharedMethod)|Not Found|
+|[az people user-insight-shared delete-ref-resource](#users.insights.sharedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.sharedDeleteRefResource)|Not Found|
 |[az people user-insight-shared set-ref-last-shared-method](#users.insights.sharedSetRefLastSharedMethod)|SetRefLastSharedMethod|[Parameters](#Parametersusers.insights.sharedSetRefLastSharedMethod)|Not Found|
 |[az people user-insight-shared set-ref-resource](#users.insights.sharedSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.sharedSetRefResource)|Not Found|
 |[az people user-insight-shared show-last-shared-method](#users.insights.sharedGetLastSharedMethod)|GetLastSharedMethod|[Parameters](#Parametersusers.insights.sharedGetLastSharedMethod)|Not Found|
@@ -62,7 +62,7 @@
 ### <a name="CommandsInusers.insights.trending">Commands in `az people user-insight-trending` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-insight-trending delete](#users.insights.trendingDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.trendingDeleteRefResource)|Not Found|
+|[az people user-insight-trending delete-ref-resource](#users.insights.trendingDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.trendingDeleteRefResource)|Not Found|
 |[az people user-insight-trending set-ref-resource](#users.insights.trendingSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.trendingSetRefResource)|Not Found|
 |[az people user-insight-trending show-ref-resource](#users.insights.trendingGetRefResource)|GetRefResource|[Parameters](#Parametersusers.insights.trendingGetRefResource)|Not Found|
 |[az people user-insight-trending show-resource](#users.insights.trendingGetResource)|GetResource|[Parameters](#Parametersusers.insights.trendingGetResource)|Not Found|
@@ -70,7 +70,7 @@
 ### <a name="CommandsInusers.insights.used">Commands in `az people user-insight-used` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-insight-used delete](#users.insights.usedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.usedDeleteRefResource)|Not Found|
+|[az people user-insight-used delete-ref-resource](#users.insights.usedDeleteRefResource)|DeleteRefResource|[Parameters](#Parametersusers.insights.usedDeleteRefResource)|Not Found|
 |[az people user-insight-used set-ref-resource](#users.insights.usedSetRefResource)|SetRefResource|[Parameters](#Parametersusers.insights.usedSetRefResource)|Not Found|
 |[az people user-insight-used show-ref-resource](#users.insights.usedGetRefResource)|GetRefResource|[Parameters](#Parametersusers.insights.usedGetRefResource)|Not Found|
 |[az people user-insight-used show-resource](#users.insights.usedGetResource)|GetResource|[Parameters](#Parametersusers.insights.usedGetResource)|Not Found|
@@ -79,20 +79,6 @@
 ## COMMAND DETAILS
 
 ### group `az people user`
-#### <a name="usersDeletePeople">Command `az people user delete`</a>
-
-##### <a name="ParametersusersDeletePeople">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteInsights">Command `az people user delete`</a>
-
-##### <a name="ParametersusersDeleteInsights">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreatePeople">Command `az people user create-person`</a>
 
 ##### <a name="ParametersusersCreatePeople">Parameters</a> 
@@ -119,6 +105,23 @@
 |**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
+
+#### <a name="usersDeleteInsights">Command `az people user delete-insight`</a>
+
+##### <a name="ParametersusersDeleteInsights">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeletePeople">Command `az people user delete-person`</a>
+
+##### <a name="ParametersusersDeletePeople">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListPeople">Command `az people user list-person`</a>
 
@@ -189,29 +192,6 @@
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
 
 ### group `az people user-insight`
-#### <a name="users.insightsDeleteShared">Command `az people user-insight delete`</a>
-
-##### <a name="Parametersusers.insightsDeleteShared">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.insightsDeleteTrending">Command `az people user-insight delete`</a>
-
-##### <a name="Parametersusers.insightsDeleteTrending">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--trending-id**|string|key: id of trending|trending_id|trending-id|
-
-#### <a name="users.insightsDeleteUsed">Command `az people user-insight delete`</a>
-
-##### <a name="Parametersusers.insightsDeleteUsed">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
-
 #### <a name="users.insightsCreateShared">Command `az people user-insight create-shared`</a>
 
 ##### <a name="Parametersusers.insightsCreateShared">Parameters</a> 
@@ -254,6 +234,33 @@
 |**--resource-reference**|object|resourceReference|resource_reference|resourceReference|
 |**--resource-visualization**|object|resourceVisualization|resource_visualization|resourceVisualization|
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
+
+#### <a name="users.insightsDeleteShared">Command `az people user-insight delete-shared`</a>
+
+##### <a name="Parametersusers.insightsDeleteShared">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.insightsDeleteTrending">Command `az people user-insight delete-trending`</a>
+
+##### <a name="Parametersusers.insightsDeleteTrending">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--trending-id**|string|key: id of trending|trending_id|trending-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.insightsDeleteUsed">Command `az people user-insight delete-used`</a>
+
+##### <a name="Parametersusers.insightsDeleteUsed">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--used-insight-id**|string|key: id of usedInsight|used_insight_id|usedInsight-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.insightsListShared">Command `az people user-insight list-shared`</a>
 
@@ -362,7 +369,7 @@
 |**--microsoft-graph-entity-id**|string|Read-only.|microsoft_graph_entity_id|id|
 
 ### group `az people user-insight-shared`
-#### <a name="users.insights.sharedDeleteRefLastSharedMethod">Command `az people user-insight-shared delete`</a>
+#### <a name="users.insights.sharedDeleteRefLastSharedMethod">Command `az people user-insight-shared delete-ref-last-shared-method`</a>
 
 ##### <a name="Parametersusers.insights.sharedDeleteRefLastSharedMethod">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -371,11 +378,15 @@
 |**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-#### <a name="users.insights.sharedDeleteRefResource">Command `az people user-insight-shared delete`</a>
+#### <a name="users.insights.sharedDeleteRefResource">Command `az people user-insight-shared delete-ref-resource`</a>
 
 ##### <a name="Parametersusers.insights.sharedDeleteRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--shared-insight-id**|string|key: id of sharedInsight|shared_insight_id|sharedInsight-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="users.insights.sharedSetRefLastSharedMethod">Command `az people user-insight-shared set-ref-last-shared-method`</a>
 
 ##### <a name="Parametersusers.insights.sharedSetRefLastSharedMethod">Parameters</a> 
@@ -431,7 +442,7 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az people user-insight-trending`
-#### <a name="users.insights.trendingDeleteRefResource">Command `az people user-insight-trending delete`</a>
+#### <a name="users.insights.trendingDeleteRefResource">Command `az people user-insight-trending delete-ref-resource`</a>
 
 ##### <a name="Parametersusers.insights.trendingDeleteRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -468,7 +479,7 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az people user-insight-used`
-#### <a name="users.insights.usedDeleteRefResource">Command `az people user-insight-used delete`</a>
+#### <a name="users.insights.usedDeleteRefResource">Command `az people user-insight-used delete-ref-resource`</a>
 
 ##### <a name="Parametersusers.insights.usedDeleteRefResource">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

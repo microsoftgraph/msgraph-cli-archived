@@ -12,14 +12,14 @@
 from knack.help_files import helps
 
 
+helps['schemaextensions_v1_0'] = '''
+    type: group
+    short-summary: Manage Schema Extensions
+'''
+
 helps['schemaextensions schema-extension-schema-extension'] = """
     type: group
     short-summary: Manage schema extension schema extension with schemaextensions_v1_0
-"""
-
-helps['schemaextensions schema-extension-schema-extension delete'] = """
-    type: command
-    short-summary: "Delete entity from schemaExtensions."
 """
 
 helps['schemaextensions schema-extension-schema-extension create-schema-extension'] = """
@@ -36,6 +36,11 @@ helps['schemaextensions schema-extension-schema-extension create-schema-extensio
 Boolean, DateTime, Integer or String.  See the table below for more details.
 
             Multiple actions can be specified by using more than one --properties argument.
+"""
+
+helps['schemaextensions schema-extension-schema-extension delete-schema-extension'] = """
+    type: command
+    short-summary: "Delete entity from schemaExtensions."
 """
 
 helps['schemaextensions schema-extension-schema-extension list-schema-extension'] = """

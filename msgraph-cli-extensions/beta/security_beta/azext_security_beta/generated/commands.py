@@ -9,37 +9,62 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_security_beta.generated._client_factory import (
+    cf_security_security,
+    cf_security,
+    cf_security_alert,
+    cf_security_security_action,
+    cf_security_tiindicator,
+)
+
+
+security_beta_security_security = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_operations#SecuritySecurityOperations.{}',
+    client_factory=cf_security_security,
+)
+
+
+security_beta_security = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_operations#SecurityOperations.{}',
+    client_factory=cf_security,
+)
+
+
+security_beta_security_alert = CliCommandType(
+    operations_tmpl=(
+        'azext_security_beta.vendored_sdks.security.operations._security_alert_operations#SecurityAlertOperations.{}'
+    ),
+    client_factory=cf_security_alert,
+)
+
+
+security_beta_security_security_action = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_action_operations#SecuritySecurityActionOperations.{}',
+    client_factory=cf_security_security_action,
+)
+
+
+security_beta_security_tiindicator = CliCommandType(
+    operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_ti_indicator_operations#SecurityTIIndicatorOperations.{}',
+    client_factory=cf_security_tiindicator,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_security_beta.generated._client_factory import cf_security_security
-
-    security_beta_security_security = CliCommandType(
-        operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_operations#SecuritySecurityOperations.{}',
-        client_factory=cf_security_security,
-    )
     with self.command_group(
         'security security', security_beta_security_security, client_factory=cf_security_security
     ) as g:
         g.custom_command('create', 'security_security_create')
-        g.custom_command('create-action', 'security_security_create_action')
-        g.custom_command('list-action', 'security_security_list_action')
+        g.custom_command('create-action', 'security_security_create_action', client_factory=cf_security)
+        g.custom_command('list-action', 'security_security_list_action', client_factory=cf_security)
         g.custom_command('show-security', 'security_security_show_security')
 
-    from azext_security_beta.generated._client_factory import cf_security
-
-    security_beta_security = CliCommandType(
-        operations_tmpl=(
-            'azext_security_beta.vendored_sdks.security.operations._security_operations#SecurityOperations.{}'
-        ),
-        client_factory=cf_security,
-    )
     with self.command_group('security security', security_beta_security, client_factory=cf_security) as g:
-        g.custom_command('delete', 'security_security_delete', confirmation=True)
         g.custom_command('create-alert', 'security_security_create_alert')
         g.custom_command('create-cloud-app-security-profile', 'security_security_create_cloud_app_security_profile')
         g.custom_command('create-domain-security-profile', 'security_security_create_domain_security_profile')
@@ -51,6 +76,18 @@ def load_command_table(self, _):
         g.custom_command('create-secure-score-control-profile', 'security_security_create_secure_score_control_profile')
         g.custom_command('create-ti-indicator', 'security_security_create_ti_indicator')
         g.custom_command('create-user-security-profile', 'security_security_create_user_security_profile')
+        g.custom_command('delete-alert', 'security_security_delete_alert')
+        g.custom_command('delete-cloud-app-security-profile', 'security_security_delete_cloud_app_security_profile')
+        g.custom_command('delete-domain-security-profile', 'security_security_delete_domain_security_profile')
+        g.custom_command('delete-file-security-profile', 'security_security_delete_file_security_profile')
+        g.custom_command('delete-host-security-profile', 'security_security_delete_host_security_profile')
+        g.custom_command('delete-ip-security-profile', 'security_security_delete_ip_security_profile')
+        g.custom_command('delete-provider-tenant-setting', 'security_security_delete_provider_tenant_setting')
+        g.custom_command('delete-secure-score', 'security_security_delete_secure_score')
+        g.custom_command('delete-secure-score-control-profile', 'security_security_delete_secure_score_control_profile')
+        g.custom_command('delete-security-action', 'security_security_delete_security_action')
+        g.custom_command('delete-ti-indicator', 'security_security_delete_ti_indicator')
+        g.custom_command('delete-user-security-profile', 'security_security_delete_user_security_profile')
         g.custom_command('list-alert', 'security_security_list_alert')
         g.custom_command('list-cloud-app-security-profile', 'security_security_list_cloud_app_security_profile')
         g.custom_command('list-domain-security-profile', 'security_security_list_domain_security_profile')
@@ -86,34 +123,16 @@ def load_command_table(self, _):
         g.custom_command('update-ti-indicator', 'security_security_update_ti_indicator')
         g.custom_command('update-user-security-profile', 'security_security_update_user_security_profile')
 
-    from azext_security_beta.generated._client_factory import cf_security_alert
-
-    security_beta_security_alert = CliCommandType(
-        operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_alert_operations#SecurityAlertOperations.{}',
-        client_factory=cf_security_alert,
-    )
     with self.command_group(
         'security security-alert', security_beta_security_alert, client_factory=cf_security_alert
     ) as g:
         g.custom_command('update-alert', 'security_security_alert_update_alert')
 
-    from azext_security_beta.generated._client_factory import cf_security_security_action
-
-    security_beta_security_security_action = CliCommandType(
-        operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_security_action_operations#SecuritySecurityActionOperations.{}',
-        client_factory=cf_security_security_action,
-    )
     with self.command_group(
         'security security-action', security_beta_security_security_action, client_factory=cf_security_security_action
     ) as g:
         g.custom_command('cancel-security-action', 'security_security_action_cancel_security_action')
 
-    from azext_security_beta.generated._client_factory import cf_security_tiindicator
-
-    security_beta_security_tiindicator = CliCommandType(
-        operations_tmpl='azext_security_beta.vendored_sdks.security.operations._security_ti_indicator_operations#SecurityTIIndicatorOperations.{}',
-        client_factory=cf_security_tiindicator,
-    )
     with self.command_group(
         'security security-ti-indicator', security_beta_security_tiindicator, client_factory=cf_security_tiindicator
     ) as g:

@@ -17,7 +17,6 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_devicescloudprint_beta.action import (
-    AddServices,
     AddDevicescloudprintPrintCreateOperationStatus,
     AddDefaults,
     AddDevicescloudprintPrintCreatePrinterStatus,
@@ -51,20 +50,10 @@ def load_arguments(self, _):
         c.argument('printers', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('printer_shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('reports', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('services', action=AddServices, nargs='+', help='')
+        c.argument('services', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('shares', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('task_definitions', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('document_conversion_enabled', arg_type=get_three_state_flag(), help='', arg_group='Settings')
-
-    with self.argument_context('devicescloudprint print delete') as c:
-        c.argument('print_connector_id', type=str, help='key: id of printConnector')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_operation_id', type=str, help='key: id of printOperation')
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('report_root_id', type=str, help='key: id of reportRoot')
-        c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
 
     with self.argument_context('devicescloudprint print create-connector') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -290,6 +279,38 @@ def load_arguments(self, _):
         c.argument('created_by', action=AddCreatedBy, nargs='+', help='appIdentity')
         c.argument('display_name', type=str, help='')
         c.argument('tasks', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print delete-connector') as c:
+        c.argument('print_connector_id', type=str, help='key: id of printConnector')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-operation') as c:
+        c.argument('print_operation_id', type=str, help='key: id of printOperation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-printer') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-printer-share') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-report') as c:
+        c.argument('report_root_id', type=str, help='key: id of reportRoot')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-service') as c:
+        c.argument('print_service_id', type=str, help='key: id of printService')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-share') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print delete-task-definition') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print list-connector') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -614,13 +635,6 @@ def load_arguments(self, _):
                    help='printCertificateSigningRequest')
         c.argument('connector_id', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-printer delete') as c:
-        c.argument('printer_id', type=str, help='key: id of printer')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
-
     with self.argument_context('devicescloudprint print-printer create-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -649,6 +663,25 @@ def load_arguments(self, _):
         c.argument('event', arg_type=get_enum_type(['jobStarted', 'unknownFutureValue']), help='')
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescloudprint print-printer delete-allowed-group') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-printer delete-allowed-user') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-printer delete-ref-share') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-printer delete-task-trigger') as c:
+        c.argument('printer_id', type=str, help='key: id of printer')
+        c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-printer list-allowed-group') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
@@ -750,7 +783,7 @@ def load_arguments(self, _):
         c.argument('definition', type=validate_file_or_dict, help='printTaskDefinition Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescloudprint print-printer-task-trigger delete') as c:
+    with self.argument_context('devicescloudprint print-printer-task-trigger delete-ref-definition') as c:
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
         c.argument('if_match', type=str, help='ETag')
@@ -771,12 +804,6 @@ def load_arguments(self, _):
         c.argument('printer_id', type=str, help='key: id of printer')
         c.argument('print_task_trigger_id', type=str, help='key: id of printTaskTrigger')
 
-    with self.argument_context('devicescloudprint print-printer-share delete') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-
     with self.argument_context('devicescloudprint print-printer-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -788,6 +815,20 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
+
+    with self.argument_context('devicescloudprint print-printer-share delete-allowed-group') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-printer-share delete-allowed-user') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-printer-share delete-ref-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-printer-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -889,16 +930,16 @@ def load_arguments(self, _):
         c.argument('period_start', help='')
         c.argument('period_end', help='')
 
-    with self.argument_context('devicescloudprint print-service delete') as c:
-        c.argument('print_service_id', type=str, help='key: id of printService')
-        c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescloudprint print-service create-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
+
+    with self.argument_context('devicescloudprint print-service delete-endpoint') as c:
+        c.argument('print_service_id', type=str, help='key: id of printService')
+        c.argument('print_service_endpoint_id', type=str, help='key: id of printServiceEndpoint')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-service list-endpoint') as c:
         c.argument('print_service_id', type=str, help='key: id of printService')
@@ -919,12 +960,6 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('uri', type=str, help='')
 
-    with self.argument_context('devicescloudprint print-share delete') as c:
-        c.argument('printer_share_id', type=str, help='key: id of printerShare')
-        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
-
     with self.argument_context('devicescloudprint print-share create-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -936,6 +971,20 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='')
         c.argument('ip_address', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
+
+    with self.argument_context('devicescloudprint print-share delete-allowed-group') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_identity_id', type=str, help='key: id of printIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-share delete-allowed-user') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('print_user_identity_id', type=str, help='key: id of printUserIdentity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-share delete-ref-printer') as c:
+        c.argument('printer_share_id', type=str, help='key: id of printerShare')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-share list-allowed-group') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
@@ -997,11 +1046,6 @@ def load_arguments(self, _):
     with self.argument_context('devicescloudprint print-share-printer show-capability') as c:
         c.argument('printer_share_id', type=str, help='key: id of printerShare')
 
-    with self.argument_context('devicescloudprint print-task-definition delete') as c:
-        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
-        c.argument('print_task_id', type=str, help='key: id of printTask')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('devicescloudprint print-task-definition create-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1014,6 +1058,11 @@ def load_arguments(self, _):
                    arg_group='Trigger')
         c.argument('microsoft_graph_print_task_definition', type=validate_file_or_dict, help='printTaskDefinition '
                    'Expected value: json-string/@json-file.', arg_group='Trigger')
+
+    with self.argument_context('devicescloudprint print-task-definition delete-task') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescloudprint print-task-definition list-task') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
@@ -1041,7 +1090,12 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_print_task_definition', type=validate_file_or_dict, help='printTaskDefinition '
                    'Expected value: json-string/@json-file.', arg_group='Trigger')
 
-    with self.argument_context('devicescloudprint print-task-definition-task delete') as c:
+    with self.argument_context('devicescloudprint print-task-definition-task delete-ref-definition') as c:
+        c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
+        c.argument('print_task_id', type=str, help='key: id of printTask')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescloudprint print-task-definition-task delete-ref-trigger') as c:
         c.argument('print_task_definition_id', type=str, help='key: id of printTaskDefinition')
         c.argument('print_task_id', type=str, help='key: id of printTask')
         c.argument('if_match', type=str, help='ETag')

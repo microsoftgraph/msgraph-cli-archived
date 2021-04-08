@@ -9,22 +9,42 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_people_beta.generated._client_factory import cf_user, cf_user_analytic, cf_user_profile
+
+
+people_beta_user = CliCommandType(
+    operations_tmpl='azext_people_beta.vendored_sdks.people.operations._user_operations#UserOperations.{}',
+    client_factory=cf_user,
+)
+
+
+people_beta_user_analytic = CliCommandType(
+    operations_tmpl=(
+        'azext_people_beta.vendored_sdks.people.operations._user_analytic_operations#UserAnalyticOperations.{}'
+    ),
+    client_factory=cf_user_analytic,
+)
+
+
+people_beta_user_profile = CliCommandType(
+    operations_tmpl=(
+        'azext_people_beta.vendored_sdks.people.operations._user_profile_operations#UserProfileOperations.{}'
+    ),
+    client_factory=cf_user_profile,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_people_beta.generated._client_factory import cf_user
-
-    people_beta_user = CliCommandType(
-        operations_tmpl='azext_people_beta.vendored_sdks.people.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('people user', people_beta_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'people_user_delete', confirmation=True)
         g.custom_command('create-person', 'people_user_create_person')
+        g.custom_command('delete-analytic', 'people_user_delete_analytic')
+        g.custom_command('delete-person', 'people_user_delete_person')
+        g.custom_command('delete-profile', 'people_user_delete_profile')
         g.custom_command('list-person', 'people_user_list_person')
         g.custom_command('show-analytic', 'people_user_show_analytic')
         g.custom_command('show-person', 'people_user_show_person')
@@ -33,31 +53,14 @@ def load_command_table(self, _):
         g.custom_command('update-person', 'people_user_update_person')
         g.custom_command('update-profile', 'people_user_update_profile')
 
-    from azext_people_beta.generated._client_factory import cf_user_analytic
-
-    people_beta_user_analytic = CliCommandType(
-        operations_tmpl=(
-            'azext_people_beta.vendored_sdks.people.operations._user_analytic_operations#UserAnalyticOperations.{}'
-        ),
-        client_factory=cf_user_analytic,
-    )
     with self.command_group('people user-analytic', people_beta_user_analytic, client_factory=cf_user_analytic) as g:
-        g.custom_command('delete', 'people_user_analytic_delete', confirmation=True)
         g.custom_command('create-activity-statistics', 'people_user_analytic_create_activity_statistics')
+        g.custom_command('delete-activity-statistics', 'people_user_analytic_delete_activity_statistics')
         g.custom_command('list-activity-statistics', 'people_user_analytic_list_activity_statistics')
         g.custom_command('show-activity-statistics', 'people_user_analytic_show_activity_statistics')
         g.custom_command('update-activity-statistics', 'people_user_analytic_update_activity_statistics')
 
-    from azext_people_beta.generated._client_factory import cf_user_profile
-
-    people_beta_user_profile = CliCommandType(
-        operations_tmpl=(
-            'azext_people_beta.vendored_sdks.people.operations._user_profile_operations#UserProfileOperations.{}'
-        ),
-        client_factory=cf_user_profile,
-    )
     with self.command_group('people user-profile', people_beta_user_profile, client_factory=cf_user_profile) as g:
-        g.custom_command('delete', 'people_user_profile_delete', confirmation=True)
         g.custom_command('create-account', 'people_user_profile_create_account')
         g.custom_command('create-address', 'people_user_profile_create_address')
         g.custom_command('create-anniversary', 'people_user_profile_create_anniversary')
@@ -77,6 +80,25 @@ def load_command_table(self, _):
         g.custom_command('create-skill', 'people_user_profile_create_skill')
         g.custom_command('create-web-account', 'people_user_profile_create_web_account')
         g.custom_command('create-website', 'people_user_profile_create_website')
+        g.custom_command('delete-account', 'people_user_profile_delete_account')
+        g.custom_command('delete-address', 'people_user_profile_delete_address')
+        g.custom_command('delete-anniversary', 'people_user_profile_delete_anniversary')
+        g.custom_command('delete-award', 'people_user_profile_delete_award')
+        g.custom_command('delete-certification', 'people_user_profile_delete_certification')
+        g.custom_command('delete-educational-activity', 'people_user_profile_delete_educational_activity')
+        g.custom_command('delete-email', 'people_user_profile_delete_email')
+        g.custom_command('delete-interest', 'people_user_profile_delete_interest')
+        g.custom_command('delete-language', 'people_user_profile_delete_language')
+        g.custom_command('delete-name', 'people_user_profile_delete_name')
+        g.custom_command('delete-note', 'people_user_profile_delete_note')
+        g.custom_command('delete-patent', 'people_user_profile_delete_patent')
+        g.custom_command('delete-phone', 'people_user_profile_delete_phone')
+        g.custom_command('delete-position', 'people_user_profile_delete_position')
+        g.custom_command('delete-project', 'people_user_profile_delete_project')
+        g.custom_command('delete-publication', 'people_user_profile_delete_publication')
+        g.custom_command('delete-skill', 'people_user_profile_delete_skill')
+        g.custom_command('delete-web-account', 'people_user_profile_delete_web_account')
+        g.custom_command('delete-website', 'people_user_profile_delete_website')
         g.custom_command('list-account', 'people_user_profile_list_account')
         g.custom_command('list-address', 'people_user_profile_list_address')
         g.custom_command('list-anniversary', 'people_user_profile_list_anniversary')

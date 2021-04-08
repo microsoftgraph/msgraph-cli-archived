@@ -15,8 +15,8 @@
 ### <a name="CommandsInsubscriptions.subscription">Commands in `az changenotifications subscription-subscription` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az changenotifications subscription-subscription delete](#subscriptions.subscriptionDeleteSubscription)|DeleteSubscription|[Parameters](#Parameterssubscriptions.subscriptionDeleteSubscription)|Not Found|
 |[az changenotifications subscription-subscription create-subscription](#subscriptions.subscriptionCreateSubscription)|CreateSubscription|[Parameters](#Parameterssubscriptions.subscriptionCreateSubscription)|Not Found|
+|[az changenotifications subscription-subscription delete-subscription](#subscriptions.subscriptionDeleteSubscription)|DeleteSubscription|[Parameters](#Parameterssubscriptions.subscriptionDeleteSubscription)|Not Found|
 |[az changenotifications subscription-subscription list-subscription](#subscriptions.subscriptionListSubscription)|ListSubscription|[Parameters](#Parameterssubscriptions.subscriptionListSubscription)|Not Found|
 |[az changenotifications subscription-subscription show-subscription](#subscriptions.subscriptionGetSubscription)|GetSubscription|[Parameters](#Parameterssubscriptions.subscriptionGetSubscription)|Not Found|
 |[az changenotifications subscription-subscription update-subscription](#subscriptions.subscriptionUpdateSubscription)|UpdateSubscription|[Parameters](#Parameterssubscriptions.subscriptionUpdateSubscription)|Not Found|
@@ -25,14 +25,6 @@
 ## COMMAND DETAILS
 
 ### group `az changenotifications subscription-subscription`
-#### <a name="subscriptions.subscriptionDeleteSubscription">Command `az changenotifications subscription-subscription delete`</a>
-
-##### <a name="Parameterssubscriptions.subscriptionDeleteSubscription">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="subscriptions.subscriptionCreateSubscription">Command `az changenotifications subscription-subscription create-subscription`</a>
 
 ##### <a name="Parameterssubscriptions.subscriptionCreateSubscription">Parameters</a> 
@@ -52,6 +44,14 @@
 |**--lifecycle-notification-url**|string|The URL of the endpoint that receives lifecycle notifications, including subscriptionRemoved and missed notifications. This URL must make use of the HTTPS protocol. Optional. Read more about how Outlook resources use lifecycle notifications.|lifecycle_notification_url|lifecycleNotificationUrl|
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
+
+#### <a name="subscriptions.subscriptionDeleteSubscription">Command `az changenotifications subscription-subscription delete-subscription`</a>
+
+##### <a name="Parameterssubscriptions.subscriptionDeleteSubscription">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="subscriptions.subscriptionListSubscription">Command `az changenotifications subscription-subscription list-subscription`</a>
 

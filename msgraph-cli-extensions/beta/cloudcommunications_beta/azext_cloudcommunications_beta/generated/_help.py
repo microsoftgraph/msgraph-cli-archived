@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['cloudcommunications_beta'] = '''
+    type: group
+    short-summary: Manage Cloud Communications
+'''
+
 helps['cloudcommunications communication-cloud-communication'] = """
     type: group
     short-summary: Manage communication cloud communication with cloudcommunications_beta
@@ -38,13 +43,6 @@ helps['cloudcommunications communication-cloud-communication update-cloud-commun
 helps['cloudcommunications communication'] = """
     type: group
     short-summary: Manage communication with cloudcommunications_beta
-"""
-
-helps['cloudcommunications communication delete'] = """
-    type: command
-    short-summary: "Delete navigation property callRecords for communications And Delete navigation property calls for \
-communications And Delete navigation property onlineMeetings for communications And Delete navigation property \
-presences for communications."
 """
 
 helps['cloudcommunications communication create-call'] = """
@@ -160,6 +158,26 @@ helps['cloudcommunications communication create-online-meeting'] = """
 helps['cloudcommunications communication create-presence'] = """
     type: command
     short-summary: "Create new navigation property to presences for communications."
+"""
+
+helps['cloudcommunications communication delete-call'] = """
+    type: command
+    short-summary: "Delete navigation property calls for communications."
+"""
+
+helps['cloudcommunications communication delete-call-record'] = """
+    type: command
+    short-summary: "Delete navigation property callRecords for communications."
+"""
+
+helps['cloudcommunications communication delete-online-meeting'] = """
+    type: command
+    short-summary: "Delete navigation property onlineMeetings for communications."
+"""
+
+helps['cloudcommunications communication delete-presence'] = """
+    type: command
+    short-summary: "Delete navigation property presences for communications."
 """
 
 helps['cloudcommunications communication get-presence-by-user-id'] = """
@@ -327,11 +345,6 @@ helps['cloudcommunications communication-call-record'] = """
     short-summary: Manage communication call record with cloudcommunications_beta
 """
 
-helps['cloudcommunications communication-call-record delete'] = """
-    type: command
-    short-summary: "Delete navigation property sessions for communications."
-"""
-
 helps['cloudcommunications communication-call-record create-session'] = """
     type: command
     short-summary: "Create new navigation property to sessions for communications."
@@ -356,6 +369,11 @@ helps['cloudcommunications communication-call-record create-session'] = """
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
+"""
+
+helps['cloudcommunications communication-call-record delete-session'] = """
+    type: command
+    short-summary: "Delete navigation property sessions for communications."
 """
 
 helps['cloudcommunications communication-call-record list-session'] = """
@@ -399,11 +417,6 @@ helps['cloudcommunications communication-call-record-session'] = """
     short-summary: Manage communication call record session with cloudcommunications_beta
 """
 
-helps['cloudcommunications communication-call-record-session delete'] = """
-    type: command
-    short-summary: "Delete navigation property segments for communications."
-"""
-
 helps['cloudcommunications communication-call-record-session create-segment'] = """
     type: command
     short-summary: "Create new navigation property to segments for communications."
@@ -428,6 +441,11 @@ helps['cloudcommunications communication-call-record-session create-segment'] = 
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
+"""
+
+helps['cloudcommunications communication-call-record-session delete-segment'] = """
+    type: command
+    short-summary: "Delete navigation property segments for communications."
 """
 
 helps['cloudcommunications communication-call-record-session list-segment'] = """
@@ -469,12 +487,6 @@ helps['cloudcommunications communication-call-record-session update-segment'] = 
 helps['cloudcommunications communication-call'] = """
     type: group
     short-summary: Manage communication call with cloudcommunications_beta
-"""
-
-helps['cloudcommunications communication-call delete'] = """
-    type: command
-    short-summary: "Delete navigation property audioRoutingGroups for communications And Delete navigation property \
-operations for communications And Delete navigation property participants for communications."
 """
 
 helps['cloudcommunications communication-call answer'] = """
@@ -522,6 +534,21 @@ helps['cloudcommunications communication-call create-participant'] = """
             source-id: The source ID.
 
             Multiple actions can be specified by using more than one --media-streams argument.
+"""
+
+helps['cloudcommunications communication-call delete-audio-routing-group'] = """
+    type: command
+    short-summary: "Delete navigation property audioRoutingGroups for communications."
+"""
+
+helps['cloudcommunications communication-call delete-operation'] = """
+    type: command
+    short-summary: "Delete navigation property operations for communications."
+"""
+
+helps['cloudcommunications communication-call delete-participant'] = """
+    type: command
+    short-summary: "Delete navigation property participants for communications."
 """
 
 helps['cloudcommunications communication-call keep-alive'] = """
@@ -759,12 +786,6 @@ helps['cloudcommunications user'] = """
     short-summary: Manage user with cloudcommunications_beta
 """
 
-helps['cloudcommunications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property onlineMeetings for users And Delete navigation property presence for \
-users."
-"""
-
 helps['cloudcommunications user create-online-meeting'] = """
     type: command
     short-summary: "Create new navigation property to onlineMeetings for users."
@@ -796,6 +817,16 @@ helps['cloudcommunications user create-online-meeting'] = """
         long-summary: |
             Usage: --lobby-bypass-settings is-dial-in-bypass-enabled=XX scope=XX
 
+"""
+
+helps['cloudcommunications user delete-online-meeting'] = """
+    type: command
+    short-summary: "Delete navigation property onlineMeetings for users."
+"""
+
+helps['cloudcommunications user delete-presence'] = """
+    type: command
+    short-summary: "Delete navigation property presence for users."
 """
 
 helps['cloudcommunications user list-online-meeting'] = """

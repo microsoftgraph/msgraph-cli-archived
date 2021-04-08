@@ -18,12 +18,12 @@
 ### <a name="CommandsInauditLogs">Commands in `az reports audit-log` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
 |[az reports audit-log create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
 |[az reports audit-log create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
 |[az reports audit-log create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
+|[az reports audit-log delete-directory-audit](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
+|[az reports audit-log delete-restricted-sign-in](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
+|[az reports audit-log delete-sign-in](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
 |[az reports audit-log list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
 |[az reports audit-log list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
 |[az reports audit-log list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
@@ -143,28 +143,6 @@
 ## COMMAND DETAILS
 
 ### group `az reports audit-log`
-#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
-
-#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
-
 #### <a name="auditLogsCreateDirectoryAudits">Command `az reports audit-log create-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsCreateDirectoryAudits">Parameters</a> 
@@ -250,6 +228,30 @@
 |**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+
+#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete-directory-audit`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="auditLogsListDirectoryAudits">Command `az reports audit-log list-directory-audit`</a>
 

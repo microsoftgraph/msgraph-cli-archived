@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['reports_beta'] = '''
+    type: group
+    short-summary: Manage Reports
+'''
+
 helps['reports audit-log-audit-log-root'] = """
     type: group
     short-summary: Manage audit log audit log root with reports_beta
@@ -79,13 +84,6 @@ helps['reports audit-log'] = """
     short-summary: Manage audit log with reports_beta
 """
 
-helps['reports audit-log delete'] = """
-    type: command
-    short-summary: "Delete navigation property directoryAudits for auditLogs And Delete navigation property \
-directoryProvisioning for auditLogs And Delete navigation property provisioning for auditLogs And Delete navigation \
-property restrictedSignIns for auditLogs And Delete navigation property signIns for auditLogs."
-"""
-
 helps['reports audit-log create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs."
@@ -99,23 +97,6 @@ helps['reports audit-log create-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -363,6 +344,31 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
+helps['reports audit-log delete-directory-audit'] = """
+    type: command
+    short-summary: "Delete navigation property directoryAudits for auditLogs."
+"""
+
+helps['reports audit-log delete-directory-provisioning'] = """
+    type: command
+    short-summary: "Delete navigation property directoryProvisioning for auditLogs."
+"""
+
+helps['reports audit-log delete-provisioning'] = """
+    type: command
+    short-summary: "Delete navigation property provisioning for auditLogs."
+"""
+
+helps['reports audit-log delete-restricted-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property restrictedSignIns for auditLogs."
+"""
+
+helps['reports audit-log delete-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property signIns for auditLogs."
+"""
+
 helps['reports audit-log list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
@@ -426,23 +432,6 @@ helps['reports audit-log update-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -761,15 +750,6 @@ helps['reports report'] = """
     short-summary: Manage report with reports_beta
 """
 
-helps['reports report delete'] = """
-    type: command
-    short-summary: "Delete navigation property applicationSignInDetailedSummary for reports And Delete navigation \
-property credentialUserRegistrationDetails for reports And Delete navigation property dailyPrintUsageSummariesByPrinter\
- for reports And Delete navigation property dailyPrintUsageSummariesByUser for reports And Delete navigation property \
-monthlyPrintUsageSummariesByPrinter for reports And Delete navigation property monthlyPrintUsageSummariesByUser for \
-reports And Delete navigation property userCredentialUsageDetails for reports."
-"""
-
 helps['reports report create-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Create new navigation property to applicationSignInDetailedSummary for reports."
@@ -814,6 +794,33 @@ helps['reports report create-monthly-print-usage-summary-by-user'] = """
 helps['reports report create-user-credential-usage-detail'] = """
     type: command
     short-summary: "Create new navigation property to userCredentialUsageDetails for reports."
+"""
+
+helps['reports report delete-application-sign-in-detailed-summary'] = """
+    type: command
+    short-summary: "Delete navigation property applicationSignInDetailedSummary for reports."
+"""
+
+helps['reports report delete-credential-user-registration-detail'] = """
+    type: command
+    short-summary: "Delete navigation property credentialUserRegistrationDetails for reports."
+"""
+
+helps['reports report delete-daily-print-usage-summary'] = """
+    type: command
+    short-summary: "Delete navigation property dailyPrintUsageSummariesByPrinter for reports And Delete navigation \
+property dailyPrintUsageSummariesByUser for reports."
+"""
+
+helps['reports report delete-monthly-print-usage-summary'] = """
+    type: command
+    short-summary: "Delete navigation property monthlyPrintUsageSummariesByPrinter for reports And Delete navigation \
+property monthlyPrintUsageSummariesByUser for reports."
+"""
+
+helps['reports report delete-user-credential-usage-detail'] = """
+    type: command
+    short-summary: "Delete navigation property userCredentialUsageDetails for reports."
 """
 
 helps['reports report device-configuration-device-activity'] = """

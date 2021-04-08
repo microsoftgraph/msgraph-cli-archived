@@ -12,14 +12,14 @@
 from knack.help_files import helps
 
 
+helps['crossdeviceexperiences_v1_0'] = '''
+    type: group
+    short-summary: Manage Cross Device Experiences
+'''
+
 helps['crossdeviceexperiences user'] = """
     type: group
     short-summary: Manage user with crossdeviceexperiences_v1_0
-"""
-
-helps['crossdeviceexperiences user delete'] = """
-    type: command
-    short-summary: "Delete navigation property activities for users."
 """
 
 helps['crossdeviceexperiences user create-activity'] = """
@@ -36,6 +36,11 @@ response to parameterization. For example – a high contrast image
             alternate-text: Optional; alt-text accessible content for the image
             icon-url: Optional; URI that points to an icon which represents the application used to generate the \
 activity
+"""
+
+helps['crossdeviceexperiences user delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for users."
 """
 
 helps['crossdeviceexperiences user list-activity'] = """
@@ -69,14 +74,14 @@ helps['crossdeviceexperiences user-activity'] = """
     short-summary: Manage user activity with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences user-activity delete'] = """
-    type: command
-    short-summary: "Delete navigation property historyItems for users."
-"""
-
 helps['crossdeviceexperiences user-activity create-history-item'] = """
     type: command
     short-summary: "Create new navigation property to historyItems for users."
+"""
+
+helps['crossdeviceexperiences user-activity delete-history-item'] = """
+    type: command
+    short-summary: "Delete navigation property historyItems for users."
 """
 
 helps['crossdeviceexperiences user-activity list-history-item'] = """
@@ -99,7 +104,7 @@ helps['crossdeviceexperiences user-activity-history-item'] = """
     short-summary: Manage user activity history item with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences user-activity-history-item delete'] = """
+helps['crossdeviceexperiences user-activity-history-item delete-ref-activity'] = """
     type: command
     short-summary: "Delete ref of navigation property activity for users."
 """

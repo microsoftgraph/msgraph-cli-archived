@@ -31,25 +31,6 @@ def cloudcommunications_communication_cloud_communication_update_cloud_communica
                                              presences=presences)
 
 
-def cloudcommunications_communication_delete(client,
-                                             call_record_id=None,
-                                             if_match=None,
-                                             call_id=None,
-                                             online_meeting_id=None,
-                                             presence_id=None):
-    if call_record_id is not None:
-        return client.delete_call_record(call_record_id=call_record_id,
-                                         if_match=if_match)
-    elif call_id is not None:
-        return client.delete_call(call_id=call_id,
-                                  if_match=if_match)
-    elif online_meeting_id is not None:
-        return client.delete_online_meeting(online_meeting_id=online_meeting_id,
-                                            if_match=if_match)
-    return client.delete_presence(presence_id=presence_id,
-                                  if_match=if_match)
-
-
 def cloudcommunications_communication_create_call(client,
                                                   id_=None,
                                                   active_modalities=None,
@@ -224,6 +205,34 @@ def cloudcommunications_communication_create_presence(client,
     return client.create_presence(id=id_,
                                   activity=activity,
                                   availability=availability)
+
+
+def cloudcommunications_communication_delete_call(client,
+                                                  call_id,
+                                                  if_match=None):
+    return client.delete_call(call_id=call_id,
+                              if_match=if_match)
+
+
+def cloudcommunications_communication_delete_call_record(client,
+                                                         call_record_id,
+                                                         if_match=None):
+    return client.delete_call_record(call_record_id=call_record_id,
+                                     if_match=if_match)
+
+
+def cloudcommunications_communication_delete_online_meeting(client,
+                                                            online_meeting_id,
+                                                            if_match=None):
+    return client.delete_online_meeting(online_meeting_id=online_meeting_id,
+                                        if_match=if_match)
+
+
+def cloudcommunications_communication_delete_presence(client,
+                                                      presence_id,
+                                                      if_match=None):
+    return client.delete_presence(presence_id=presence_id,
+                                  if_match=if_match)
 
 
 def cloudcommunications_communication_get_presence_by_user_id(client,
@@ -487,15 +496,6 @@ def cloudcommunications_communication_update_presence(client,
                                   availability=availability)
 
 
-def cloudcommunications_communication_call_record_delete(client,
-                                                         call_record_id,
-                                                         session_id,
-                                                         if_match=None):
-    return client.delete_session(call_record_id=call_record_id,
-                                 session_id=session_id,
-                                 if_match=if_match)
-
-
 def cloudcommunications_communication_call_record_create_session(client,
                                                                  call_record_id,
                                                                  id_=None,
@@ -515,6 +515,15 @@ def cloudcommunications_communication_call_record_create_session(client,
                                  segments=segments,
                                  user_agent_parameter=user_agent,
                                  microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
+
+
+def cloudcommunications_communication_call_record_delete_session(client,
+                                                                 call_record_id,
+                                                                 session_id,
+                                                                 if_match=None):
+    return client.delete_session(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 if_match=if_match)
 
 
 def cloudcommunications_communication_call_record_list_session(client,
@@ -562,17 +571,6 @@ def cloudcommunications_communication_call_record_update_session(client,
                                  microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
 
 
-def cloudcommunications_communication_call_record_session_delete(client,
-                                                                 call_record_id,
-                                                                 session_id,
-                                                                 segment_id,
-                                                                 if_match=None):
-    return client.delete_segment(call_record_id=call_record_id,
-                                 session_id=session_id,
-                                 segment_id=segment_id,
-                                 if_match=if_match)
-
-
 def cloudcommunications_communication_call_record_session_create_segment(client,
                                                                          call_record_id,
                                                                          session_id,
@@ -592,6 +590,17 @@ def cloudcommunications_communication_call_record_session_create_segment(client,
                                  start_date_time=start_date_time,
                                  user_agent_parameter=user_agent,
                                  microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
+
+
+def cloudcommunications_communication_call_record_session_delete_segment(client,
+                                                                         call_record_id,
+                                                                         session_id,
+                                                                         segment_id,
+                                                                         if_match=None):
+    return client.delete_segment(call_record_id=call_record_id,
+                                 session_id=session_id,
+                                 segment_id=segment_id,
+                                 if_match=if_match)
 
 
 def cloudcommunications_communication_call_record_session_list_segment(client,
@@ -641,25 +650,6 @@ def cloudcommunications_communication_call_record_session_update_segment(client,
                                  start_date_time=start_date_time,
                                  user_agent_parameter=user_agent,
                                  microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
-
-
-def cloudcommunications_communication_call_delete(client,
-                                                  call_id,
-                                                  audio_routing_group_id=None,
-                                                  if_match=None,
-                                                  comms_operation_id=None,
-                                                  participant_id=None):
-    if call_id is not None and audio_routing_group_id is not None:
-        return client.delete_audio_routing_group(call_id=call_id,
-                                                 audio_routing_group_id=audio_routing_group_id,
-                                                 if_match=if_match)
-    elif call_id is not None and comms_operation_id is not None:
-        return client.delete_operation(call_id=call_id,
-                                       comms_operation_id=comms_operation_id,
-                                       if_match=if_match)
-    return client.delete_participant(call_id=call_id,
-                                     participant_id=participant_id,
-                                     if_match=if_match)
 
 
 def cloudcommunications_communication_call_answer(client,
@@ -742,6 +732,33 @@ def cloudcommunications_communication_call_create_participant(client,
                                      identity=identity,
                                      language_id=language_id,
                                      region=region)
+
+
+def cloudcommunications_communication_call_delete_audio_routing_group(client,
+                                                                      call_id,
+                                                                      audio_routing_group_id,
+                                                                      if_match=None):
+    return client.delete_audio_routing_group(call_id=call_id,
+                                             audio_routing_group_id=audio_routing_group_id,
+                                             if_match=if_match)
+
+
+def cloudcommunications_communication_call_delete_operation(client,
+                                                            call_id,
+                                                            comms_operation_id,
+                                                            if_match=None):
+    return client.delete_operation(call_id=call_id,
+                                   comms_operation_id=comms_operation_id,
+                                   if_match=if_match)
+
+
+def cloudcommunications_communication_call_delete_participant(client,
+                                                              call_id,
+                                                              participant_id,
+                                                              if_match=None):
+    return client.delete_participant(call_id=call_id,
+                                     participant_id=participant_id,
+                                     if_match=if_match)
 
 
 def cloudcommunications_communication_call_keep_alive(client,
@@ -1095,18 +1112,6 @@ def cloudcommunications_communication_online_meeting_create_or_get(client,
                                 producers=producers)
 
 
-def cloudcommunications_user_delete(client,
-                                    user_id,
-                                    online_meeting_id=None,
-                                    if_match=None):
-    if user_id is not None and online_meeting_id is not None:
-        return client.delete_online_meeting(user_id=user_id,
-                                            online_meeting_id=online_meeting_id,
-                                            if_match=if_match)
-    return client.delete_presence(user_id=user_id,
-                                  if_match=if_match)
-
-
 def cloudcommunications_user_create_online_meeting(client,
                                                    user_id,
                                                    id_=None,
@@ -1160,6 +1165,22 @@ def cloudcommunications_user_create_online_meeting(client,
                                         contributors=contributors,
                                         organizer=organizer,
                                         producers=producers)
+
+
+def cloudcommunications_user_delete_online_meeting(client,
+                                                   user_id,
+                                                   online_meeting_id,
+                                                   if_match=None):
+    return client.delete_online_meeting(user_id=user_id,
+                                        online_meeting_id=online_meeting_id,
+                                        if_match=if_match)
+
+
+def cloudcommunications_user_delete_presence(client,
+                                             user_id,
+                                             if_match=None):
+    return client.delete_presence(user_id=user_id,
+                                  if_match=if_match)
 
 
 def cloudcommunications_user_list_online_meeting(client,

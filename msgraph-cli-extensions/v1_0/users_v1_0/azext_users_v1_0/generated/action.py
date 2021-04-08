@@ -377,37 +377,6 @@ class AddDirectReports(argparse._AppendAction):
         return d
 
 
-class AddLicenseDetails(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddLicenseDetails, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'service-plans':
-                d['service_plans'] = v
-            elif kl == 'sku-id':
-                d['sku_id'] = v[0]
-            elif kl == 'sku-part-number':
-                d['sku_part_number'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter license_details. All possible keys are: '
-                               'service-plans, sku-id, sku-part-number, id'.format(k))
-        return d
-
-
 class AddManager(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

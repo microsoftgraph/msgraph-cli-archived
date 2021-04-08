@@ -12,6 +12,11 @@
 from knack.help_files import helps
 
 
+helps['education_v1_0'] = '''
+    type: group
+    short-summary: Manage Education
+'''
+
 helps['education education-root'] = """
     type: group
     short-summary: Manage education education root with education_v1_0
@@ -30,12 +35,6 @@ helps['education education-root update-education-root'] = """
 helps['education education'] = """
     type: group
     short-summary: Manage education with education_v1_0
-"""
-
-helps['education education delete'] = """
-    type: command
-    short-summary: "Delete navigation property classes for education And Delete navigation property schools for \
-education And Delete navigation property users for education And Delete navigation property me for education."
 """
 
 helps['education education create-class'] = """
@@ -239,6 +238,26 @@ associated with the user won't show up as having changed when using delta.
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
+"""
+
+helps['education education delete-class'] = """
+    type: command
+    short-summary: "Delete navigation property classes for education."
+"""
+
+helps['education education delete-me'] = """
+    type: command
+    short-summary: "Delete navigation property me for education."
+"""
+
+helps['education education delete-school'] = """
+    type: command
+    short-summary: "Delete navigation property schools for education."
+"""
+
+helps['education education delete-user'] = """
+    type: command
+    short-summary: "Delete navigation property users for education."
 """
 
 helps['education education list-class'] = """
@@ -602,11 +621,6 @@ helps['education education-class'] = """
     short-summary: Manage education class with education_v1_0
 """
 
-helps['education education-class delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property group for education."
-"""
-
 helps['education education-class create-ref-member'] = """
     type: command
     short-summary: "Create new navigation property ref to members for education."
@@ -620,6 +634,11 @@ helps['education education-class create-ref-school'] = """
 helps['education education-class create-ref-teacher'] = """
     type: command
     short-summary: "Create new navigation property ref to teachers for education."
+"""
+
+helps['education education-class delete-ref-group'] = """
+    type: command
+    short-summary: "Delete ref of navigation property group for education."
 """
 
 helps['education education-class list-member'] = """
@@ -672,11 +691,6 @@ helps['education education-me'] = """
     short-summary: Manage education me with education_v1_0
 """
 
-helps['education education-me delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education."
-"""
-
 helps['education education-me create-ref-class'] = """
     type: command
     short-summary: "Create new navigation property ref to classes for education."
@@ -685,6 +699,11 @@ helps['education education-me create-ref-class'] = """
 helps['education education-me create-ref-school'] = """
     type: command
     short-summary: "Create new navigation property ref to schools for education."
+"""
+
+helps['education education-me delete-ref-user'] = """
+    type: command
+    short-summary: "Delete ref of navigation property user for education."
 """
 
 helps['education education-me list-class'] = """
@@ -762,11 +781,6 @@ helps['education education-user'] = """
     short-summary: Manage education user with education_v1_0
 """
 
-helps['education education-user delete'] = """
-    type: command
-    short-summary: "Delete ref of navigation property user for education."
-"""
-
 helps['education education-user create-ref-class'] = """
     type: command
     short-summary: "Create new navigation property ref to classes for education."
@@ -775,6 +789,11 @@ helps['education education-user create-ref-class'] = """
 helps['education education-user create-ref-school'] = """
     type: command
     short-summary: "Create new navigation property ref to schools for education."
+"""
+
+helps['education education-user delete-ref-user'] = """
+    type: command
+    short-summary: "Delete ref of navigation property user for education."
 """
 
 helps['education education-user list-class'] = """

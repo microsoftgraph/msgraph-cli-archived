@@ -16,14 +16,12 @@ from msgraph.cli.core.commands.parameters import (
 )
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_applications_v1_0.action import (
-    AddApplicationsApplicationAddIns,
     AddApplicationsApplicationAppRoles,
     AddInfo,
     AddApplicationsApplicationKeyCredentials,
     AddParentalControlSettings,
     AddApplicationsApplicationPasswordCredentials,
     AddPublicClient,
-    AddRequiredResourceAccess,
     AddCreatedOnBehalfOf,
     AddExtensionProperties,
     AddApplicationsApplicationHomeRealmDiscoveryPolicies,
@@ -38,7 +36,6 @@ from azext_applications_v1_0.action import (
     AddPreAuthorizedApplications,
     AddKeyCredential,
     AddPasswordCredential,
-    AddServiceprincipalsServiceprincipalAddIns,
     AddServiceprincipalsServiceprincipalAppRoles,
     AddServiceprincipalsServiceprincipalKeyCredentials,
     AddServiceprincipalsServiceprincipalOauth2PermissionScopes,
@@ -70,11 +67,11 @@ def load_arguments(self, _):
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
-        c.argument('add_ins', action=AddApplicationsApplicationAddIns, nargs='+', help='Defines custom behavior that a '
-                   'consuming service can use to call an app in specific contexts. For example, applications that can '
-                   'render file streams may set the addIns property for its \'FileHandler\' functionality. This will '
-                   'let services like Microsoft 365 call the application in the context of a document the user is '
-                   'working on.')
+        c.argument('add_ins', type=validate_file_or_dict, help='Defines custom behavior that a consuming service can '
+                   'use to call an app in specific contexts. For example, applications that can render file streams '
+                   'may set the addIns property for its \'FileHandler\' functionality. This will let services like '
+                   'Microsoft 365 call the application in the context of a document the user is working on. Expected '
+                   'value: json-string/@json-file.')
         c.argument('app_id', type=str, help='The unique identifier for the application that is assigned to an '
                    'application by Azure AD. Not nullable. Read-only.')
         c.argument('application_template_id', type=str, help='')
@@ -112,10 +109,10 @@ def load_arguments(self, _):
                    'collection of password credentials associated with the application. Not nullable.')
         c.argument('public_client', action=AddPublicClient, nargs='+', help='publicClientApplication')
         c.argument('publisher_domain', type=str, help='The verified publisher domain for the application. Read-only.')
-        c.argument('required_resource_access', action=AddRequiredResourceAccess, nargs='+', help='Specifies resources '
-                   'that this application requires access to and the set of OAuth permission scopes and application '
-                   'roles that it needs under each of those resources. This pre-configuration of required resource '
-                   'access drives the consent experience. Not nullable.')
+        c.argument('required_resource_access', type=validate_file_or_dict, help='Specifies resources that this '
+                   'application requires access to and the set of OAuth permission scopes and application roles that '
+                   'it needs under each of those resources. This pre-configuration of required resource access drives '
+                   'the consent experience. Not nullable. Expected value: json-string/@json-file.')
         c.argument('sign_in_audience', type=str, help='Specifies the Microsoft accounts that are supported for the '
                    'current application. Supported values are:AzureADMyOrg: Users with a Microsoft work or school '
                    'account in my organization’s Azure AD tenant (single tenant)AzureADMultipleOrgs: Users with a '
@@ -181,7 +178,7 @@ def load_arguments(self, _):
                    'corresponds to the v1.0 endpoint.  If signInAudience on the application is configured as '
                    'AzureADandPersonalMicrosoftAccount, the value for this property must be 2', arg_group='Api')
 
-    with self.argument_context('applications application delete') as c:
+    with self.argument_context('applications application delete-application') as c:
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('if_match', type=str, help='ETag')
 
@@ -196,11 +193,6 @@ def load_arguments(self, _):
 
     with self.argument_context('applications application show-logo') as c:
         c.argument('application_id', type=str, help='key: id of application')
-
-    with self.argument_context('applications application delete') as c:
-        c.argument('application_id', type=str, help='key: id of application')
-        c.argument('extension_property_id', type=str, help='key: id of extensionProperty')
-        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications application add-key') as c:
         c.argument('application_id', type=str, help='key: id of application')
@@ -255,6 +247,15 @@ def load_arguments(self, _):
         c.argument('application_id', type=str, help='key: id of application')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('applications application delete-extension-property') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('extension_property_id', type=str, help='key: id of extensionProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('applications application delete-ref-created-on-behalf-of') as c:
+        c.argument('application_id', type=str, help='key: id of application')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications application get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -371,11 +372,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('applications group delete') as c:
-        c.argument('group_id', type=str, help='key: id of group')
-        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('applications group create-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -396,6 +392,11 @@ def load_arguments(self, _):
                    'to which the assignment is made. Does not support $filter.')
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
+
+    with self.argument_context('applications group delete-app-role-assignment') as c:
+        c.argument('group_id', type=str, help='key: id of group')
+        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications group list-app-role-assignment') as c:
         c.argument('group_id', type=str, help='key: id of group')
@@ -431,20 +432,16 @@ def load_arguments(self, _):
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
 
-    with self.argument_context('applications service-principal-service-principal delete') as c:
-        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('applications service-principal-service-principal create-service-principal') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the service principal account is '
                    'enabled; otherwise, false.')
-        c.argument('add_ins', action=AddServiceprincipalsServiceprincipalAddIns, nargs='+', help='Defines custom '
-                   'behavior that a consuming service can use to call an app in specific contexts. For example, '
-                   'applications that can render file streams may set the addIns property for its \'FileHandler\' '
-                   'functionality. This will let services like Microsoft 365 call the application in the context of a '
-                   'document the user is working on.')
+        c.argument('add_ins', type=validate_file_or_dict, help='Defines custom behavior that a consuming service can '
+                   'use to call an app in specific contexts. For example, applications that can render file streams '
+                   'may set the addIns property for its \'FileHandler\' functionality. This will let services like '
+                   'Microsoft 365 call the application in the context of a document the user is working on. Expected '
+                   'value: json-string/@json-file.')
         c.argument('alternative_names', nargs='+', help='Used to retrieve service principals by subscription, identify '
                    'resource group and full resource ids for managed identities.')
         c.argument('app_description', type=str, help='')
@@ -538,6 +535,10 @@ def load_arguments(self, _):
         c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
         c.argument('relay_state', type=str, help='The relative URI the service provider would redirect to after '
                    'completion of the single sign-on flow.', arg_group='Saml Single Sign On Settings')
+
+    with self.argument_context('applications service-principal-service-principal delete-service-principal') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications service-principal-service-principal list-service-principal') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -555,11 +556,11 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('account_enabled', arg_type=get_three_state_flag(), help='true if the service principal account is '
                    'enabled; otherwise, false.')
-        c.argument('add_ins', action=AddServiceprincipalsServiceprincipalAddIns, nargs='+', help='Defines custom '
-                   'behavior that a consuming service can use to call an app in specific contexts. For example, '
-                   'applications that can render file streams may set the addIns property for its \'FileHandler\' '
-                   'functionality. This will let services like Microsoft 365 call the application in the context of a '
-                   'document the user is working on.')
+        c.argument('add_ins', type=validate_file_or_dict, help='Defines custom behavior that a consuming service can '
+                   'use to call an app in specific contexts. For example, applications that can render file streams '
+                   'may set the addIns property for its \'FileHandler\' functionality. This will let services like '
+                   'Microsoft 365 call the application in the context of a document the user is working on. Expected '
+                   'value: json-string/@json-file.')
         c.argument('alternative_names', nargs='+', help='Used to retrieve service principals by subscription, identify '
                    'resource group and full resource ids for managed identities.')
         c.argument('app_description', type=str, help='')
@@ -653,12 +654,6 @@ def load_arguments(self, _):
         c.argument('transitive_member_of', action=AddTransitiveMemberOf, nargs='+', help='')
         c.argument('relay_state', type=str, help='The relative URI the service provider would redirect to after '
                    'completion of the single sign-on flow.', arg_group='Saml Single Sign On Settings')
-
-    with self.argument_context('applications service-principal delete') as c:
-        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
-        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('endpoint_id', type=str, help='key: id of endpoint')
 
     with self.argument_context('applications service-principal add-key') as c:
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
@@ -782,6 +777,21 @@ def load_arguments(self, _):
         c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('applications service-principal delete-app-role-assigned-to') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('applications service-principal delete-app-role-assignment') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('applications service-principal delete-endpoint') as c:
+        c.argument('service_principal_id', type=str, help='key: id of servicePrincipal')
+        c.argument('endpoint_id', type=str, help='key: id of endpoint')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications service-principal get-available-extension-property') as c:
         c.argument('is_synced_from_on_premises', arg_type=get_three_state_flag(), help='')
@@ -1010,11 +1020,6 @@ def load_arguments(self, _):
         c.argument('mail_nickname', type=str, help='')
         c.argument('on_behalf_of_user_id', help='')
 
-    with self.argument_context('applications user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('applications user create-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1035,6 +1040,11 @@ def load_arguments(self, _):
                    'to which the assignment is made. Does not support $filter.')
         c.argument('resource_id', help='The unique identifier (id) for the resource service principal for which the '
                    'assignment is made. Required on create. Supports $filter (eq only).')
+
+    with self.argument_context('applications user delete-app-role-assignment') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('app_role_assignment_id', type=str, help='key: id of appRoleAssignment')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('applications user list-app-role-assignment') as c:
         c.argument('user_id', type=str, help='key: id of user')

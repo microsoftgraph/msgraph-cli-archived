@@ -11,13 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def identitydirmgt_contact_org_contact_delete(client,
-                                              org_contact_id,
-                                              if_match=None):
-    return client.delete_org_contact(org_contact_id=org_contact_id,
-                                     if_match=if_match)
-
-
 def identitydirmgt_contact_org_contact_create_org_contact(client,
                                                           id_=None,
                                                           deleted_date_time=None,
@@ -59,6 +52,13 @@ def identitydirmgt_contact_org_contact_create_org_contact(client,
                                      manager=manager,
                                      member_of=member_of,
                                      transitive_member_of=transitive_member_of)
+
+
+def identitydirmgt_contact_org_contact_delete_org_contact(client,
+                                                          org_contact_id,
+                                                          if_match=None):
+    return client.delete_org_contact(org_contact_id=org_contact_id,
+                                     if_match=if_match)
 
 
 def identitydirmgt_contact_org_contact_list_org_contact(client,
@@ -124,13 +124,6 @@ def identitydirmgt_contact_org_contact_update_org_contact(client,
                                      transitive_member_of=transitive_member_of)
 
 
-def identitydirmgt_contact_delete(client,
-                                  org_contact_id,
-                                  if_match=None):
-    return client.delete_ref_manager(org_contact_id=org_contact_id,
-                                     if_match=if_match)
-
-
 def identitydirmgt_contact_check_member_group(client,
                                               org_contact_id,
                                               group_ids=None):
@@ -164,6 +157,13 @@ def identitydirmgt_contact_create_ref_transitive_member_of(client,
                                                            body):
     return client.create_ref_transitive_member_of(org_contact_id=org_contact_id,
                                                   body=body)
+
+
+def identitydirmgt_contact_delete_ref_manager(client,
+                                              org_contact_id,
+                                              if_match=None):
+    return client.delete_ref_manager(org_contact_id=org_contact_id,
+                                     if_match=if_match)
 
 
 def identitydirmgt_contact_delta(client):
@@ -293,13 +293,6 @@ def identitydirmgt_contact_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_contract_contract_delete(client,
-                                            contract_id,
-                                            if_match=None):
-    return client.delete_contract(contract_id=contract_id,
-                                  if_match=if_match)
-
-
 def identitydirmgt_contract_contract_create_contract(client,
                                                      id_=None,
                                                      deleted_date_time=None,
@@ -313,6 +306,13 @@ def identitydirmgt_contract_contract_create_contract(client,
                                   customer_id=customer_id,
                                   default_domain_name=default_domain_name,
                                   display_name=display_name)
+
+
+def identitydirmgt_contract_contract_delete_contract(client,
+                                                     contract_id,
+                                                     if_match=None):
+    return client.delete_contract(contract_id=contract_id,
+                                  if_match=if_match)
 
 
 def identitydirmgt_contract_contract_list_contract(client,
@@ -412,13 +412,6 @@ def identitydirmgt_contract_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_device_device_delete(client,
-                                        device_id,
-                                        if_match=None):
-    return client.delete_device(device_id=device_id,
-                                if_match=if_match)
-
-
 def identitydirmgt_device_device_create_device(client,
                                                id_=None,
                                                deleted_date_time=None,
@@ -472,6 +465,13 @@ def identitydirmgt_device_device_create_device(client,
                                 registered_users=registered_users,
                                 transitive_member_of=transitive_member_of,
                                 extensions=extensions)
+
+
+def identitydirmgt_device_device_delete_device(client,
+                                               device_id,
+                                               if_match=None):
+    return client.delete_device(device_id=device_id,
+                                if_match=if_match)
 
 
 def identitydirmgt_device_device_list_device(client,
@@ -549,15 +549,6 @@ def identitydirmgt_device_device_update_device(client,
                                 extensions=extensions)
 
 
-def identitydirmgt_device_delete(client,
-                                 device_id,
-                                 extension_id,
-                                 if_match=None):
-    return client.delete_extension(device_id=device_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
-
-
 def identitydirmgt_device_check_member_group(client,
                                              device_id,
                                              group_ids=None):
@@ -605,6 +596,15 @@ def identitydirmgt_device_create_ref_transitive_member_of(client,
                                                           body):
     return client.create_ref_transitive_member_of(device_id=device_id,
                                                   body=body)
+
+
+def identitydirmgt_device_delete_extension(client,
+                                           device_id,
+                                           extension_id,
+                                           if_match=None):
+    return client.delete_extension(device_id=device_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
 
 
 def identitydirmgt_device_get_available_extension_property(client,
@@ -774,17 +774,6 @@ def identitydirmgt_directory_directory_update_directory(client,
                                    deleted_items=deleted_items)
 
 
-def identitydirmgt_directory_delete(client,
-                                    administrative_unit_id=None,
-                                    if_match=None,
-                                    directory_object_id=None):
-    if administrative_unit_id is not None:
-        return client.delete_administrative_unit(administrative_unit_id=administrative_unit_id,
-                                                 if_match=if_match)
-    return client.delete_deleted_item(directory_object_id=directory_object_id,
-                                      if_match=if_match)
-
-
 def identitydirmgt_directory_create_administrative_unit(client,
                                                         id_=None,
                                                         deleted_date_time=None,
@@ -809,6 +798,20 @@ def identitydirmgt_directory_create_deleted_item(client,
                                                  deleted_date_time=None):
     return client.create_deleted_item(id=id_,
                                       deleted_date_time=deleted_date_time)
+
+
+def identitydirmgt_directory_delete_administrative_unit(client,
+                                                        administrative_unit_id,
+                                                        if_match=None):
+    return client.delete_administrative_unit(administrative_unit_id=administrative_unit_id,
+                                             if_match=if_match)
+
+
+def identitydirmgt_directory_delete_deleted_item(client,
+                                                 directory_object_id,
+                                                 if_match=None):
+    return client.delete_deleted_item(directory_object_id=directory_object_id,
+                                      if_match=if_match)
 
 
 def identitydirmgt_directory_list_administrative_unit(client,
@@ -877,20 +880,6 @@ def identitydirmgt_directory_update_deleted_item(client,
                                       deleted_date_time=deleted_date_time)
 
 
-def identitydirmgt_directory_administrative_unit_delete(client,
-                                                        administrative_unit_id,
-                                                        extension_id=None,
-                                                        if_match=None,
-                                                        scoped_role_membership_id=None):
-    if administrative_unit_id is not None and extension_id is not None:
-        return client.delete_extension(administrative_unit_id=administrative_unit_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    return client.delete_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                            scoped_role_membership_id=scoped_role_membership_id,
-                                            if_match=if_match)
-
-
 def identitydirmgt_directory_administrative_unit_create_extension(client,
                                                                   administrative_unit_id,
                                                                   id_=None):
@@ -916,6 +905,24 @@ def identitydirmgt_directory_administrative_unit_create_scoped_role_member(clien
                                             microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id,
                                             role_id=role_id,
                                             role_member_info=role_member_info)
+
+
+def identitydirmgt_directory_administrative_unit_delete_extension(client,
+                                                                  administrative_unit_id,
+                                                                  extension_id,
+                                                                  if_match=None):
+    return client.delete_extension(administrative_unit_id=administrative_unit_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def identitydirmgt_directory_administrative_unit_delete_scoped_role_member(client,
+                                                                           administrative_unit_id,
+                                                                           scoped_role_membership_id,
+                                                                           if_match=None):
+    return client.delete_scoped_role_member(administrative_unit_id=administrative_unit_id,
+                                            scoped_role_membership_id=scoped_role_membership_id,
+                                            if_match=if_match)
 
 
 def identitydirmgt_directory_administrative_unit_delta(client):
@@ -1008,13 +1015,6 @@ def identitydirmgt_directory_administrative_unit_update_scoped_role_member(clien
                                             role_member_info=role_member_info)
 
 
-def identitydirmgt_directory_role_directory_role_delete(client,
-                                                        directory_role_id,
-                                                        if_match=None):
-    return client.delete_directory_role(directory_role_id=directory_role_id,
-                                        if_match=if_match)
-
-
 def identitydirmgt_directory_role_directory_role_create_directory_role(client,
                                                                        id_=None,
                                                                        deleted_date_time=None,
@@ -1030,6 +1030,13 @@ def identitydirmgt_directory_role_directory_role_create_directory_role(client,
                                         role_template_id=role_template_id,
                                         members=members,
                                         scoped_members=scoped_members)
+
+
+def identitydirmgt_directory_role_directory_role_delete_directory_role(client,
+                                                                       directory_role_id,
+                                                                       if_match=None):
+    return client.delete_directory_role(directory_role_id=directory_role_id,
+                                        if_match=if_match)
 
 
 def identitydirmgt_directory_role_directory_role_list_directory_role(client,
@@ -1069,15 +1076,6 @@ def identitydirmgt_directory_role_directory_role_update_directory_role(client,
                                         scoped_members=scoped_members)
 
 
-def identitydirmgt_directory_role_delete(client,
-                                         directory_role_id,
-                                         scoped_role_membership_id,
-                                         if_match=None):
-    return client.delete_scoped_member(directory_role_id=directory_role_id,
-                                       scoped_role_membership_id=scoped_role_membership_id,
-                                       if_match=if_match)
-
-
 def identitydirmgt_directory_role_check_member_group(client,
                                                      directory_role_id,
                                                      group_ids=None):
@@ -1110,6 +1108,15 @@ def identitydirmgt_directory_role_create_scoped_member(client,
                                        administrative_unit_id=administrative_unit_id,
                                        role_id=role_id,
                                        role_member_info=role_member_info)
+
+
+def identitydirmgt_directory_role_delete_scoped_member(client,
+                                                       directory_role_id,
+                                                       scoped_role_membership_id,
+                                                       if_match=None):
+    return client.delete_scoped_member(directory_role_id=directory_role_id,
+                                       scoped_role_membership_id=scoped_role_membership_id,
+                                       if_match=if_match)
 
 
 def identitydirmgt_directory_role_delta(client):
@@ -1219,13 +1226,6 @@ def identitydirmgt_directory_role_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_directory_role_template_directory_role_template_delete(client,
-                                                                          directory_role_template_id,
-                                                                          if_match=None):
-    return client.delete_directory_role_template(directory_role_template_id=directory_role_template_id,
-                                                 if_match=if_match)
-
-
 def identitydirmgt_directory_role_template_directory_role_template_create_directory_role_template(client,
                                                                                                   id_=None,
                                                                                                   deleted_date_time=None,
@@ -1235,6 +1235,13 @@ def identitydirmgt_directory_role_template_directory_role_template_create_direct
                                                  deleted_date_time=deleted_date_time,
                                                  description=description,
                                                  display_name=display_name)
+
+
+def identitydirmgt_directory_role_template_directory_role_template_delete_directory_role_template(client,
+                                                                                                  directory_role_template_id,
+                                                                                                  if_match=None):
+    return client.delete_directory_role_template(directory_role_template_id=directory_role_template_id,
+                                                 if_match=if_match)
 
 
 def identitydirmgt_directory_role_template_directory_role_template_list_directory_role_template(client,
@@ -1330,13 +1337,6 @@ def identitydirmgt_directory_role_template_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_domain_domain_delete(client,
-                                        domain_id,
-                                        if_match=None):
-    return client.delete_domain(domain_id=domain_id,
-                                if_match=if_match)
-
-
 def identitydirmgt_domain_domain_create_domain(client,
                                                id_=None,
                                                authentication_type=None,
@@ -1372,6 +1372,13 @@ def identitydirmgt_domain_domain_create_domain(client,
                                 domain_name_references=domain_name_references,
                                 service_configuration_records=service_configuration_records,
                                 verification_dns_records=verification_dns_records)
+
+
+def identitydirmgt_domain_domain_delete_domain(client,
+                                               domain_id,
+                                               if_match=None):
+    return client.delete_domain(domain_id=domain_id,
+                                if_match=if_match)
 
 
 def identitydirmgt_domain_domain_list_domain(client,
@@ -1431,19 +1438,6 @@ def identitydirmgt_domain_domain_update_domain(client,
                                 verification_dns_records=verification_dns_records)
 
 
-def identitydirmgt_domain_delete(client,
-                                 domain_id,
-                                 domain_dns_record_id,
-                                 if_match=None):
-    if domain_id is not None and domain_dns_record_id is not None:
-        return client.delete_service_configuration_record(domain_id=domain_id,
-                                                          domain_dns_record_id=domain_dns_record_id,
-                                                          if_match=if_match)
-    return client.delete_verification_dns_record(domain_id=domain_id,
-                                                 domain_dns_record_id=domain_dns_record_id,
-                                                 if_match=if_match)
-
-
 def identitydirmgt_domain_create_ref_domain_name_reference(client,
                                                            domain_id,
                                                            body):
@@ -1483,6 +1477,24 @@ def identitydirmgt_domain_create_verification_dns_record(client,
                                                  record_type=record_type,
                                                  supported_service=supported_service,
                                                  ttl=ttl)
+
+
+def identitydirmgt_domain_delete_service_configuration_record(client,
+                                                              domain_id,
+                                                              domain_dns_record_id,
+                                                              if_match=None):
+    return client.delete_service_configuration_record(domain_id=domain_id,
+                                                      domain_dns_record_id=domain_dns_record_id,
+                                                      if_match=if_match)
+
+
+def identitydirmgt_domain_delete_verification_dns_record(client,
+                                                         domain_id,
+                                                         domain_dns_record_id,
+                                                         if_match=None):
+    return client.delete_verification_dns_record(domain_id=domain_id,
+                                                 domain_dns_record_id=domain_dns_record_id,
+                                                 if_match=if_match)
 
 
 def identitydirmgt_domain_force_delete(client,
@@ -1599,13 +1611,6 @@ def identitydirmgt_domain_verify(client,
     return client.verify(domain_id=domain_id)
 
 
-def identitydirmgt_organization_organization_delete(client,
-                                                    organization_id,
-                                                    if_match=None):
-    return client.delete_organization(organization_id=organization_id,
-                                      if_match=if_match)
-
-
 def identitydirmgt_organization_organization_create_organization(client,
                                                                  id_=None,
                                                                  deleted_date_time=None,
@@ -1659,6 +1664,13 @@ def identitydirmgt_organization_organization_create_organization(client,
                                       mobile_device_management_authority=mobile_device_management_authority,
                                       certificate_based_auth_configuration=certificate_based_auth_configuration,
                                       extensions=extensions)
+
+
+def identitydirmgt_organization_organization_delete_organization(client,
+                                                                 organization_id,
+                                                                 if_match=None):
+    return client.delete_organization(organization_id=organization_id,
+                                      if_match=if_match)
 
 
 def identitydirmgt_organization_organization_list_organization(client,
@@ -1736,15 +1748,6 @@ def identitydirmgt_organization_organization_update_organization(client,
                                       extensions=extensions)
 
 
-def identitydirmgt_organization_delete(client,
-                                       organization_id,
-                                       extension_id,
-                                       if_match=None):
-    return client.delete_extension(organization_id=organization_id,
-                                   extension_id=extension_id,
-                                   if_match=if_match)
-
-
 def identitydirmgt_organization_check_member_group(client,
                                                    organization_id,
                                                    group_ids=None):
@@ -1764,6 +1767,15 @@ def identitydirmgt_organization_create_extension(client,
                                                  id_=None):
     return client.create_extension(organization_id=organization_id,
                                    id=id_)
+
+
+def identitydirmgt_organization_delete_extension(client,
+                                                 organization_id,
+                                                 extension_id,
+                                                 if_match=None):
+    return client.delete_extension(organization_id=organization_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
 
 
 def identitydirmgt_organization_get_available_extension_property(client,
@@ -1850,13 +1862,6 @@ def identitydirmgt_organization_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_subscribed_sku_subscribed_sku_delete(client,
-                                                        subscribed_sku_id,
-                                                        if_match=None):
-    return client.delete_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
-                                        if_match=if_match)
-
-
 def identitydirmgt_subscribed_sku_subscribed_sku_create_subscribed_sku(client,
                                                                        id_=None,
                                                                        applies_to=None,
@@ -1874,6 +1879,13 @@ def identitydirmgt_subscribed_sku_subscribed_sku_create_subscribed_sku(client,
                                         service_plans=service_plans,
                                         sku_id=sku_id,
                                         sku_part_number=sku_part_number)
+
+
+def identitydirmgt_subscribed_sku_subscribed_sku_delete_subscribed_sku(client,
+                                                                       subscribed_sku_id,
+                                                                       if_match=None):
+    return client.delete_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
+                                        if_match=if_match)
 
 
 def identitydirmgt_subscribed_sku_subscribed_sku_list_subscribed_sku(client,
@@ -1915,15 +1927,6 @@ def identitydirmgt_subscribed_sku_subscribed_sku_update_subscribed_sku(client,
                                         sku_part_number=sku_part_number)
 
 
-def identitydirmgt_user_delete(client,
-                               user_id,
-                               scoped_role_membership_id,
-                               if_match=None):
-    return client.delete_scoped_role_member_of(user_id=user_id,
-                                               scoped_role_membership_id=scoped_role_membership_id,
-                                               if_match=if_match)
-
-
 def identitydirmgt_user_create_scoped_role_member_of(client,
                                                      user_id,
                                                      id_=None,
@@ -1935,6 +1938,15 @@ def identitydirmgt_user_create_scoped_role_member_of(client,
                                                administrative_unit_id=administrative_unit_id,
                                                role_id=role_id,
                                                role_member_info=role_member_info)
+
+
+def identitydirmgt_user_delete_scoped_role_member_of(client,
+                                                     user_id,
+                                                     scoped_role_membership_id,
+                                                     if_match=None):
+    return client.delete_scoped_role_member_of(user_id=user_id,
+                                               scoped_role_membership_id=scoped_role_membership_id,
+                                               if_match=if_match)
 
 
 def identitydirmgt_user_list_scoped_role_member_of(client,

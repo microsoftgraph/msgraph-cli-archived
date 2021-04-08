@@ -22,12 +22,12 @@
 ### <a name="CommandsInSecurity">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security delete](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
 |[az security security create-alert](#SecurityCreateAlerts)|CreateAlerts|[Parameters](#ParametersSecurityCreateAlerts)|Not Found|
 |[az security security create-secure-score](#SecurityCreateSecureScores)|CreateSecureScores|[Parameters](#ParametersSecurityCreateSecureScores)|Not Found|
 |[az security security create-secure-score-control-profile](#SecurityCreateSecureScoreControlProfiles)|CreateSecureScoreControlProfiles|[Parameters](#ParametersSecurityCreateSecureScoreControlProfiles)|Not Found|
+|[az security security delete-alert](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
+|[az security security delete-secure-score](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
+|[az security security delete-secure-score-control-profile](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
 |[az security security list-alert](#SecurityListAlerts)|ListAlerts|[Parameters](#ParametersSecurityListAlerts)|Not Found|
 |[az security security list-secure-score](#SecurityListSecureScores)|ListSecureScores|[Parameters](#ParametersSecurityListSecureScores)|Not Found|
 |[az security security list-secure-score-control-profile](#SecurityListSecureScoreControlProfiles)|ListSecureScoreControlProfiles|[Parameters](#ParametersSecurityListSecureScoreControlProfiles)|Not Found|
@@ -61,28 +61,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az security security`
-#### <a name="SecurityDeleteAlerts">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--alert-id**|string|key: id of alert|alert_id|alert-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
-
-#### <a name="SecurityDeleteSecureScores">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
-
 #### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>
 
 ##### <a name="ParametersSecurityCreateAlerts">Parameters</a> 
@@ -166,6 +144,30 @@
 |**--title**|string|Title of the control.|title|title|
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
+#### <a name="SecurityDeleteAlerts">Command `az security security delete-alert`</a>
+
+##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScores">Command `az security security delete-secure-score`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete-secure-score-control-profile`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="SecurityListAlerts">Command `az security security list-alert`</a>
 

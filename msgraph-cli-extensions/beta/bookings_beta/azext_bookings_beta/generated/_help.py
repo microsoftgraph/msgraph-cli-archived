@@ -12,14 +12,14 @@
 from knack.help_files import helps
 
 
+helps['bookings_beta'] = '''
+    type: group
+    short-summary: Manage Bookings
+'''
+
 helps['bookings booking-business-booking-business'] = """
     type: group
     short-summary: Manage booking business booking business with bookings_beta
-"""
-
-helps['bookings booking-business-booking-business delete'] = """
-    type: command
-    short-summary: "Delete entity from bookingBusinesses."
 """
 
 helps['bookings booking-business-booking-business create-booking-business'] = """
@@ -36,13 +36,6 @@ helps['bookings booking-business-booking-business create-booking-business'] = ""
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --business-hours
-        long-summary: |
-            Usage: --business-hours day=XX time-slots=XX
-
-            time-slots: A list of start/end times during a day.
-
-            Multiple actions can be specified by using more than one --business-hours argument.
       - name: --scheduling-policy
         short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
 Calendar."
@@ -65,6 +58,11 @@ send-confirmations-to-owner=XX time-slot-interval=XX
             id: Read-only.
 
             Multiple actions can be specified by using more than one --customers argument.
+"""
+
+helps['bookings booking-business-booking-business delete-booking-business'] = """
+    type: command
+    short-summary: "Delete entity from bookingBusinesses."
 """
 
 helps['bookings booking-business-booking-business list-booking-business'] = """
@@ -91,13 +89,6 @@ helps['bookings booking-business-booking-business update-booking-business'] = ""
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --business-hours
-        long-summary: |
-            Usage: --business-hours day=XX time-slots=XX
-
-            time-slots: A list of start/end times during a day.
-
-            Multiple actions can be specified by using more than one --business-hours argument.
       - name: --scheduling-policy
         short-summary: "This type represents the set of policies that dictate how bookings can be created in a Booking \
 Calendar."
@@ -125,13 +116,6 @@ send-confirmations-to-owner=XX time-slot-interval=XX
 helps['bookings booking-business'] = """
     type: group
     short-summary: Manage booking business with bookings_beta
-"""
-
-helps['bookings booking-business delete'] = """
-    type: command
-    short-summary: "Delete navigation property appointments for bookingBusinesses And Delete navigation property \
-calendarView for bookingBusinesses And Delete navigation property customers for bookingBusinesses And Delete \
-navigation property services for bookingBusinesses And Delete navigation property staffMembers for bookingBusinesses."
 """
 
 helps['bookings booking-business create-appointment'] = """
@@ -360,14 +344,31 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 helps['bookings booking-business create-staff-member'] = """
     type: command
     short-summary: "Create new navigation property to staffMembers for bookingBusinesses."
-    parameters:
-      - name: --working-hours
-        long-summary: |
-            Usage: --working-hours day=XX time-slots=XX
+"""
 
-            time-slots: A list of start/end times during a day.
+helps['bookings booking-business delete-appointment'] = """
+    type: command
+    short-summary: "Delete navigation property appointments for bookingBusinesses."
+"""
 
-            Multiple actions can be specified by using more than one --working-hours argument.
+helps['bookings booking-business delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for bookingBusinesses."
+"""
+
+helps['bookings booking-business delete-customer'] = """
+    type: command
+    short-summary: "Delete navigation property customers for bookingBusinesses."
+"""
+
+helps['bookings booking-business delete-service'] = """
+    type: command
+    short-summary: "Delete navigation property services for bookingBusinesses."
+"""
+
+helps['bookings booking-business delete-staff-member'] = """
+    type: command
+    short-summary: "Delete navigation property staffMembers for bookingBusinesses."
 """
 
 helps['bookings booking-business list-appointment'] = """
@@ -656,14 +657,6 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 helps['bookings booking-business update-staff-member'] = """
     type: command
     short-summary: "Update the navigation property staffMembers in bookingBusinesses."
-    parameters:
-      - name: --working-hours
-        long-summary: |
-            Usage: --working-hours day=XX time-slots=XX
-
-            time-slots: A list of start/end times during a day.
-
-            Multiple actions can be specified by using more than one --working-hours argument.
 """
 
 helps['bookings booking-business-appointment'] = """
@@ -691,14 +684,14 @@ helps['bookings booking-currency-booking-currency'] = """
     short-summary: Manage booking currency booking currency with bookings_beta
 """
 
-helps['bookings booking-currency-booking-currency delete'] = """
-    type: command
-    short-summary: "Delete entity from bookingCurrencies."
-"""
-
 helps['bookings booking-currency-booking-currency create-booking-currency'] = """
     type: command
     short-summary: "Add new entity to bookingCurrencies."
+"""
+
+helps['bookings booking-currency-booking-currency delete-booking-currency'] = """
+    type: command
+    short-summary: "Delete entity from bookingCurrencies."
 """
 
 helps['bookings booking-currency-booking-currency list-booking-currency'] = """

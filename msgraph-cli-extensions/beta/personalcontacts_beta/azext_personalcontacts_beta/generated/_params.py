@@ -33,12 +33,6 @@ from azext_personalcontacts_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('personalcontacts user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('contact_id', type=str, help='key: id of contact')
-
     with self.argument_context('personalcontacts user create-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -123,6 +117,16 @@ def load_arguments(self, _):
                    action=AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties, nargs='+',
                    help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
                    'Nullable.')
+
+    with self.argument_context('personalcontacts user delete-contact') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user delete-contact-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('personalcontacts user list-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -235,17 +239,6 @@ def load_arguments(self, _):
                    help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
                    'Nullable.')
 
-    with self.argument_context('personalcontacts user-contact-folder delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('personalcontacts user-contact-folder create-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
@@ -344,6 +337,32 @@ def load_arguments(self, _):
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('personalcontacts user-contact-folder delete-child-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder delete-contact') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('personalcontacts user-contact-folder list-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -508,17 +527,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('personalcontacts user-contact-folder-contact create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
@@ -538,6 +546,35 @@ def load_arguments(self, _):
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('personalcontacts user-contact-folder-contact delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder-contact delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder-contact delete-photo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact-folder-contact delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('personalcontacts user-contact-folder-contact list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -640,16 +677,6 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
     with self.argument_context('personalcontacts user-contact create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -666,6 +693,31 @@ def load_arguments(self, _):
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('personalcontacts user-contact delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact delete-photo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user-contact delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('personalcontacts user-contact list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')

@@ -12,15 +12,14 @@
 from knack.help_files import helps
 
 
+helps['mail_beta'] = '''
+    type: group
+    short-summary: Manage Mail
+'''
+
 helps['mail user'] = """
     type: group
     short-summary: Manage user with mail_beta
-"""
-
-helps['mail user delete'] = """
-    type: command
-    short-summary: "Delete navigation property mailFolders for users And Delete navigation property messages for users \
-And Delete navigation property inferenceClassification for users."
 """
 
 helps['mail user create-mail-folder'] = """
@@ -164,6 +163,21 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
+"""
+
+helps['mail user delete-inference-classification'] = """
+    type: command
+    short-summary: "Delete navigation property inferenceClassification for users."
+"""
+
+helps['mail user delete-mail-folder'] = """
+    type: command
+    short-summary: "Delete navigation property mailFolders for users."
+"""
+
+helps['mail user delete-message'] = """
+    type: command
+    short-summary: "Delete navigation property messages for users."
 """
 
 helps['mail user list-mail-folder'] = """
@@ -354,11 +368,6 @@ helps['mail user-inference-classification'] = """
     short-summary: Manage user inference classification with mail_beta
 """
 
-helps['mail user-inference-classification delete'] = """
-    type: command
-    short-summary: "Delete navigation property overrides for users."
-"""
-
 helps['mail user-inference-classification create-override'] = """
     type: command
     short-summary: "Create new navigation property to overrides for users."
@@ -370,6 +379,11 @@ helps['mail user-inference-classification create-override'] = """
 
             address: The email address of the person or entity.
             name: The display name of the person or entity.
+"""
+
+helps['mail user-inference-classification delete-override'] = """
+    type: command
+    short-summary: "Delete navigation property overrides for users."
 """
 
 helps['mail user-inference-classification list-override'] = """
@@ -398,14 +412,6 @@ helps['mail user-inference-classification update-override'] = """
 helps['mail user-mail-folder'] = """
     type: group
     short-summary: Manage user mail folder with mail_beta
-"""
-
-helps['mail user-mail-folder delete'] = """
-    type: command
-    short-summary: "Delete navigation property childFolders for users And Delete navigation property messageRules for \
-users And Delete navigation property messages for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-userConfigurations for users."
 """
 
 helps['mail user-mail-folder create-child-folder'] = """
@@ -588,6 +594,36 @@ helps['mail user-mail-folder create-single-value-extended-property'] = """
 helps['mail user-mail-folder create-user-configuration'] = """
     type: command
     short-summary: "Create new navigation property to userConfigurations for users."
+"""
+
+helps['mail user-mail-folder delete-child-folder'] = """
+    type: command
+    short-summary: "Delete navigation property childFolders for users."
+"""
+
+helps['mail user-mail-folder delete-message'] = """
+    type: command
+    short-summary: "Delete navigation property messages for users."
+"""
+
+helps['mail user-mail-folder delete-message-rule'] = """
+    type: command
+    short-summary: "Delete navigation property messageRules for users."
+"""
+
+helps['mail user-mail-folder delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['mail user-mail-folder delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['mail user-mail-folder delete-user-configuration'] = """
+    type: command
+    short-summary: "Delete navigation property userConfigurations for users."
 """
 
 helps['mail user-mail-folder list-child-folder'] = """
@@ -847,13 +883,6 @@ helps['mail user-mail-folder-message'] = """
     short-summary: Manage user mail folder message with mail_beta
 """
 
-helps['mail user-mail-folder-message delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property mentions for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
 helps['mail user-mail-folder-message create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -892,6 +921,31 @@ helps['mail user-mail-folder-message create-multi-value-extended-property'] = ""
 helps['mail user-mail-folder-message create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['mail user-mail-folder-message delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['mail user-mail-folder-message delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['mail user-mail-folder-message delete-mention'] = """
+    type: command
+    short-summary: "Delete navigation property mentions for users."
+"""
+
+helps['mail user-mail-folder-message delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['mail user-mail-folder-message delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder-message list-attachment'] = """
@@ -989,13 +1043,6 @@ helps['mail user-message'] = """
     short-summary: Manage user message with mail_beta
 """
 
-helps['mail user-message delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property mentions for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
 helps['mail user-message create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -1034,6 +1081,31 @@ helps['mail user-message create-multi-value-extended-property'] = """
 helps['mail user-message create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['mail user-message delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['mail user-message delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['mail user-message delete-mention'] = """
+    type: command
+    short-summary: "Delete navigation property mentions for users."
+"""
+
+helps['mail user-message delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['mail user-message delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['mail user-message list-attachment'] = """

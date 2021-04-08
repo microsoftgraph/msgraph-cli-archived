@@ -12,15 +12,14 @@
 from knack.help_files import helps
 
 
+helps['calendar_v1_0'] = '''
+    type: group
+    short-summary: Manage Calendar
+'''
+
 helps['calendar group'] = """
     type: group
     short-summary: Manage group with calendar_v1_0
-"""
-
-helps['calendar group delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarView for groups And Delete navigation property events for \
-groups And Delete navigation property calendar for groups."
 """
 
 helps['calendar group create-calendar-view'] = """
@@ -309,6 +308,21 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
+"""
+
+helps['calendar group delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar group delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar group delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
 """
 
 helps['calendar group list-calendar-view'] = """
@@ -662,13 +676,6 @@ helps['calendar group-calendar'] = """
     short-summary: Manage group calendar with calendar_v1_0
 """
 
-helps['calendar group-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
-"""
-
 helps['calendar group-calendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for groups."
@@ -978,6 +985,31 @@ helps['calendar group-calendar create-multi-value-extended-property'] = """
 helps['calendar group-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar group-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar group-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar group-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar list-calendar-permission'] = """
@@ -1346,14 +1378,6 @@ helps['calendar group-calendar-view'] = """
     short-summary: Manage group calendar calendar view with calendar_v1_0
 """
 
-helps['calendar group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
 helps['calendar group-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
@@ -1516,6 +1540,36 @@ helps['calendar group-calendar-view create-multi-value-extended-property'] = """
 helps['calendar group-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar group-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar group-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar group-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar group-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar-view list-attachment'] = """
@@ -1775,14 +1829,6 @@ helps['calendar group-calendar-event'] = """
     short-summary: Manage group calendar event with calendar_v1_0
 """
 
-helps['calendar group-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
 helps['calendar group-calendar-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
@@ -1945,6 +1991,36 @@ helps['calendar group-calendar-event create-multi-value-extended-property'] = ""
 helps['calendar group-calendar-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar group-calendar-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar group-calendar-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar group-calendar-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar group-calendar-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar-event list-attachment'] = """
@@ -2204,14 +2280,6 @@ helps['calendar group-calendar-view'] = """
     short-summary: Manage group calendar view with calendar_v1_0
 """
 
-helps['calendar group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
 helps['calendar group-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
@@ -2374,6 +2442,36 @@ helps['calendar group-calendar-view create-multi-value-extended-property'] = """
 helps['calendar group-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar group-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar group-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar group-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar group-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar-view list-attachment'] = """
@@ -2631,13 +2729,6 @@ helps['calendar group-calendar-view update-single-value-extended-property'] = ""
 helps['calendar group-calendar-view-calendar'] = """
     type: group
     short-summary: Manage group calendar view calendar with calendar_v1_0
-"""
-
-helps['calendar group-calendar-view-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar-view-calendar create-calendar-permission'] = """
@@ -2949,6 +3040,31 @@ helps['calendar group-calendar-view-calendar create-multi-value-extended-propert
 helps['calendar group-calendar-view-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar group-calendar-view-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar group-calendar-view-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar group-calendar-view-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-calendar-view-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-calendar-view-calendar list-calendar-permission'] = """
@@ -3317,14 +3433,6 @@ helps['calendar group-event'] = """
     short-summary: Manage group event with calendar_v1_0
 """
 
-helps['calendar group-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
 helps['calendar group-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
@@ -3487,6 +3595,36 @@ helps['calendar group-event create-multi-value-extended-property'] = """
 helps['calendar group-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar group-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar group-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar group-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar group-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-event list-attachment'] = """
@@ -3744,13 +3882,6 @@ helps['calendar group-event update-single-value-extended-property'] = """
 helps['calendar group-event-calendar'] = """
     type: group
     short-summary: Manage group event calendar with calendar_v1_0
-"""
-
-helps['calendar group-event-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-event-calendar create-calendar-permission'] = """
@@ -4062,6 +4193,31 @@ helps['calendar group-event-calendar create-multi-value-extended-property'] = ""
 helps['calendar group-event-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
+"""
+
+helps['calendar group-event-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar group-event-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar group-event-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar group-event-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar group-event-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
 """
 
 helps['calendar group-event-calendar list-calendar-permission'] = """
@@ -4430,11 +4586,6 @@ helps['calendar place-place'] = """
     short-summary: Manage place place with calendar_v1_0
 """
 
-helps['calendar place-place delete'] = """
-    type: command
-    short-summary: "Delete entity from places."
-"""
-
 helps['calendar place-place create-place'] = """
     type: command
     short-summary: "Add new entity to places."
@@ -4460,6 +4611,11 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
+"""
+
+helps['calendar place-place delete-place'] = """
+    type: command
+    short-summary: "Delete entity from places."
 """
 
 helps['calendar place-place list-place'] = """
@@ -4502,13 +4658,6 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 helps['calendar user'] = """
     type: group
     short-summary: Manage user with calendar_v1_0
-"""
-
-helps['calendar user delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarGroups for users And Delete navigation property calendars for \
-users And Delete navigation property calendarView for users And Delete navigation property events for users And Delete \
-navigation property calendar for users."
 """
 
 helps['calendar user create-calendar'] = """
@@ -4835,6 +4984,26 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
+"""
+
+helps['calendar user delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendars for users And Delete navigation property calendar for users."
+"""
+
+helps['calendar user delete-calendar-group'] = """
+    type: command
+    short-summary: "Delete navigation property calendarGroups for users."
+"""
+
+helps['calendar user delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
 """
 
 helps['calendar user list-calendar'] = """
@@ -5236,13 +5405,6 @@ helps['calendar user-calendar'] = """
     short-summary: Manage user calendar with calendar_v1_0
 """
 
-helps['calendar user-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
 helps['calendar user-calendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
@@ -5552,6 +5714,31 @@ helps['calendar user-calendar create-multi-value-extended-property'] = """
 helps['calendar user-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar user-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar user-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar list-calendar-permission'] = """
@@ -5920,14 +6107,6 @@ helps['calendar user-calendar-view'] = """
     short-summary: Manage user calendar calendar view with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -6090,6 +6269,36 @@ helps['calendar user-calendar-view create-multi-value-extended-property'] = """
 helps['calendar user-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-view list-attachment'] = """
@@ -6349,14 +6558,6 @@ helps['calendar user-calendar-event'] = """
     short-summary: Manage user calendar event with calendar_v1_0
 """
 
-helps['calendar user-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -6519,6 +6720,36 @@ helps['calendar user-calendar-event create-multi-value-extended-property'] = """
 helps['calendar user-calendar-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-event list-attachment'] = """
@@ -6778,11 +7009,6 @@ helps['calendar user-calendar-group'] = """
     short-summary: Manage user calendar group with calendar_v1_0
 """
 
-helps['calendar user-calendar-group delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendars for users."
-"""
-
 helps['calendar user-calendar-group create-calendar'] = """
     type: command
     short-summary: "Create new navigation property to calendars for users."
@@ -6814,6 +7040,11 @@ Nullable."
             id: Read-only.
 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
+"""
+
+helps['calendar user-calendar-group delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendars for users."
 """
 
 helps['calendar user-calendar-group list-calendar'] = """
@@ -6862,13 +7093,6 @@ Nullable."
 helps['calendar user-calendar-group-calendar'] = """
     type: group
     short-summary: Manage user calendar group calendar with calendar_v1_0
-"""
-
-helps['calendar user-calendar-group-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-group-calendar create-calendar-permission'] = """
@@ -7180,6 +7404,31 @@ helps['calendar user-calendar-group-calendar create-multi-value-extended-propert
 helps['calendar user-calendar-group-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar user-calendar-group-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user-calendar-group-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar user-calendar-group-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-group-calendar list-calendar-permission'] = """
@@ -7548,14 +7797,6 @@ helps['calendar user-calendar-group-calendar-view'] = """
     short-summary: Manage user calendar group calendar calendar view with calendar_v1_0
 """
 
-helps['calendar user-calendar-group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-group-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -7718,6 +7959,36 @@ helps['calendar user-calendar-group-calendar-view create-multi-value-extended-pr
 helps['calendar user-calendar-group-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-group-calendar-view list-attachment'] = """
@@ -7977,14 +8248,6 @@ helps['calendar user-calendar-group-calendar-event'] = """
     short-summary: Manage user calendar group calendar event with calendar_v1_0
 """
 
-helps['calendar user-calendar-group-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-group-calendar-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -8147,6 +8410,36 @@ helps['calendar user-calendar-group-calendar-event create-multi-value-extended-p
 helps['calendar user-calendar-group-calendar-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-group-calendar-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-group-calendar-event list-attachment'] = """
@@ -8404,13 +8697,6 @@ helps['calendar user-calendar-group-calendar-event update-single-value-extended-
 helps['calendar user-calendar'] = """
     type: group
     short-summary: Manage user calendar with calendar_v1_0
-"""
-
-helps['calendar user-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar create-calendar-permission'] = """
@@ -8722,6 +9008,31 @@ helps['calendar user-calendar create-multi-value-extended-property'] = """
 helps['calendar user-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar user-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar user-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar list-calendar-permission'] = """
@@ -9090,14 +9401,6 @@ helps['calendar user-calendar-view'] = """
     short-summary: Manage user calendar calendar view with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -9260,6 +9563,36 @@ helps['calendar user-calendar-view create-multi-value-extended-property'] = """
 helps['calendar user-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-view list-attachment'] = """
@@ -9519,14 +9852,6 @@ helps['calendar user-calendar-event'] = """
     short-summary: Manage user calendar event with calendar_v1_0
 """
 
-helps['calendar user-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -9689,6 +10014,36 @@ helps['calendar user-calendar-event create-multi-value-extended-property'] = """
 helps['calendar user-calendar-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-event list-attachment'] = """
@@ -9948,14 +10303,6 @@ helps['calendar user-calendar-view'] = """
     short-summary: Manage user calendar view with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-calendar-view create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -10118,6 +10465,36 @@ helps['calendar user-calendar-view create-multi-value-extended-property'] = """
 helps['calendar user-calendar-view create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-calendar-view delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-calendar-view delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-calendar-view delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-calendar-view delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-view list-attachment'] = """
@@ -10375,13 +10752,6 @@ helps['calendar user-calendar-view update-single-value-extended-property'] = """
 helps['calendar user-calendar-view-calendar'] = """
     type: group
     short-summary: Manage user calendar view calendar with calendar_v1_0
-"""
-
-helps['calendar user-calendar-view-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-view-calendar create-calendar-permission'] = """
@@ -10693,6 +11063,31 @@ helps['calendar user-calendar-view-calendar create-multi-value-extended-property
 helps['calendar user-calendar-view-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar user-calendar-view-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user-calendar-view-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar user-calendar-view-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-calendar-view-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-calendar-view-calendar list-calendar-permission'] = """
@@ -11061,14 +11456,6 @@ helps['calendar user-event'] = """
     short-summary: Manage user event with calendar_v1_0
 """
 
-helps['calendar user-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
 helps['calendar user-event create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
@@ -11231,6 +11618,36 @@ helps['calendar user-event create-multi-value-extended-property'] = """
 helps['calendar user-event create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-event delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar user-event delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar user-event delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar user-event delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar user-event delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-event delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-event list-attachment'] = """
@@ -11488,13 +11905,6 @@ helps['calendar user-event update-single-value-extended-property'] = """
 helps['calendar user-event-calendar'] = """
     type: group
     short-summary: Manage user event calendar with calendar_v1_0
-"""
-
-helps['calendar user-event-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-event-calendar create-calendar-permission'] = """
@@ -11806,6 +12216,31 @@ helps['calendar user-event-calendar create-multi-value-extended-property'] = """
 helps['calendar user-event-calendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
+"""
+
+helps['calendar user-event-calendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar user-event-calendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar user-event-calendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar user-event-calendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar user-event-calendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['calendar user-event-calendar list-calendar-permission'] = """

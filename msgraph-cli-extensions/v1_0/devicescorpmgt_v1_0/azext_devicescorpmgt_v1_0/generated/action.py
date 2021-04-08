@@ -616,42 +616,6 @@ class AddInstallSummary(argparse.Action):
         return d
 
 
-class AddUserStateSummary(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddUserStateSummary, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'failed-device-count':
-                d['failed_device_count'] = v[0]
-            elif kl == 'installed-device-count':
-                d['installed_device_count'] = v[0]
-            elif kl == 'not-installed-device-count':
-                d['not_installed_device_count'] = v[0]
-            elif kl == 'user-name':
-                d['user_name'] = v[0]
-            elif kl == 'device-states':
-                d['device_states'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter user_state_summary. All possible keys '
-                               'are: failed-device-count, installed-device-count, not-installed-device-count, '
-                               'user-name, device-states, id'.format(k))
-        return d
-
-
 class AddDataRecoveryCertificate(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -710,33 +674,6 @@ class AddEnterpriseInternalProxyServers(argparse._AppendAction):
         return d
 
 
-class AddEnterpriseIpRanges(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddEnterpriseIpRanges, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'ranges':
-                d['ranges'] = v
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter enterprise_ip_ranges. All possible keys '
-                               'are: display-name, ranges'.format(k))
-        return d
-
-
 class AddEnterpriseNetworkDomainNames(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -788,33 +725,6 @@ class AddEnterpriseProtectedDomainNames(argparse._AppendAction):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter enterprise_protected_domain_names. All '
                                'possible keys are: display-name, resources'.format(k))
-        return d
-
-
-class AddEnterpriseProxiedDomains(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddEnterpriseProxiedDomains, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'proxied-domains':
-                d['proxied_domains'] = v
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter enterprise_proxied_domains. All possible '
-                               'keys are: display-name, proxied-domains'.format(k))
         return d
 
 
@@ -1475,102 +1385,4 @@ class AddDeviceCategory(argparse.Action):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter device_category. All possible keys are: '
                                'description, display-name, id'.format(k))
-        return d
-
-
-class AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'current-value':
-                d['current_value'] = v[0]
-            elif kl == 'error-code':
-                d['error_code'] = v[0]
-            elif kl == 'error-description':
-                d['error_description'] = v[0]
-            elif kl == 'instance-display-name':
-                d['instance_display_name'] = v[0]
-            elif kl == 'setting':
-                d['setting'] = v[0]
-            elif kl == 'setting-name':
-                d['setting_name'] = v[0]
-            elif kl == 'sources':
-                d['sources'] = v
-            elif kl == 'state':
-                d['state'] = v[0]
-            elif kl == 'user-email':
-                d['user_email'] = v[0]
-            elif kl == 'user-id':
-                d['user_id'] = v[0]
-            elif kl == 'user-name':
-                d['user_name'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter setting_states. All possible keys are: '
-                               'current-value, error-code, error-description, instance-display-name, setting, '
-                               'setting-name, sources, state, user-email, user-id, user-name, user-principal-name'.
-                               format(k))
-        return d
-
-
-class AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'current-value':
-                d['current_value'] = v[0]
-            elif kl == 'error-code':
-                d['error_code'] = v[0]
-            elif kl == 'error-description':
-                d['error_description'] = v[0]
-            elif kl == 'instance-display-name':
-                d['instance_display_name'] = v[0]
-            elif kl == 'setting':
-                d['setting'] = v[0]
-            elif kl == 'setting-name':
-                d['setting_name'] = v[0]
-            elif kl == 'sources':
-                d['sources'] = v
-            elif kl == 'state':
-                d['state'] = v[0]
-            elif kl == 'user-email':
-                d['user_email'] = v[0]
-            elif kl == 'user-id':
-                d['user_id'] = v[0]
-            elif kl == 'user-name':
-                d['user_name'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter setting_states. All possible keys are: '
-                               'current-value, error-code, error-description, instance-display-name, setting, '
-                               'setting-name, sources, state, user-email, user-id, user-name, user-principal-name'.
-                               format(k))
         return d

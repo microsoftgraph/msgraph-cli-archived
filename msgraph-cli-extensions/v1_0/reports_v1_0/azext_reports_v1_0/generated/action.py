@@ -125,41 +125,6 @@ class AddAdditionalDetails(argparse._AppendAction):
         return d
 
 
-class AddTargetResources(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddTargetResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'group-type':
-                d['group_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'modified-properties':
-                d['modified_properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter target_resources. All possible keys are: '
-                               'display-name, group-type, id, modified-properties, type, user-principal-name'.format(k))
-        return d
-
-
 class AddApp(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

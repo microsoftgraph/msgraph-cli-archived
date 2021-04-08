@@ -11,13 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def identitysignins_data_policy_operation_data_policy_operation_delete(client,
-                                                                       data_policy_operation_id,
-                                                                       if_match=None):
-    return client.delete_data_policy_operation(data_policy_operation_id=data_policy_operation_id,
-                                               if_match=if_match)
-
-
 def identitysignins_data_policy_operation_data_policy_operation_create_data_policy_operation(client,
                                                                                              id_=None,
                                                                                              completed_date_time=None,
@@ -33,6 +26,13 @@ def identitysignins_data_policy_operation_data_policy_operation_create_data_poli
                                                storage_location=storage_location,
                                                submitted_date_time=submitted_date_time,
                                                user_id=user_id)
+
+
+def identitysignins_data_policy_operation_data_policy_operation_delete_data_policy_operation(client,
+                                                                                             data_policy_operation_id,
+                                                                                             if_match=None):
+    return client.delete_data_policy_operation(data_policy_operation_id=data_policy_operation_id,
+                                               if_match=if_match)
 
 
 def identitysignins_data_policy_operation_data_policy_operation_list_data_policy_operation(client,
@@ -72,8 +72,8 @@ def identitysignins_data_policy_operation_data_policy_operation_update_data_poli
                                                user_id=user_id)
 
 
-def identitysignins_identity_delete(client,
-                                    if_match=None):
+def identitysignins_identity_delete_conditional_access(client,
+                                                       if_match=None):
     return client.delete_conditional_access(if_match=if_match)
 
 
@@ -91,17 +91,6 @@ def identitysignins_identity_update_conditional_access(client,
     return client.update_conditional_access(id=id_,
                                             named_locations=named_locations,
                                             policies=policies)
-
-
-def identitysignins_identity_conditional_access_delete(client,
-                                                       named_location_id=None,
-                                                       if_match=None,
-                                                       conditional_access_policy_id=None):
-    if named_location_id is not None:
-        return client.delete_named_location(named_location_id=named_location_id,
-                                            if_match=if_match)
-    return client.delete_policy(conditional_access_policy_id=conditional_access_policy_id,
-                                if_match=if_match)
 
 
 def identitysignins_identity_conditional_access_create_named_location(client,
@@ -150,6 +139,20 @@ def identitysignins_identity_conditional_access_create_policy(client,
                                 platforms=platforms,
                                 sign_in_risk_levels=sign_in_risk_levels,
                                 users=users)
+
+
+def identitysignins_identity_conditional_access_delete_named_location(client,
+                                                                      named_location_id,
+                                                                      if_match=None):
+    return client.delete_named_location(named_location_id=named_location_id,
+                                        if_match=if_match)
+
+
+def identitysignins_identity_conditional_access_delete_policy(client,
+                                                              conditional_access_policy_id,
+                                                              if_match=None):
+    return client.delete_policy(conditional_access_policy_id=conditional_access_policy_id,
+                                if_match=if_match)
 
 
 def identitysignins_identity_conditional_access_list_named_location(client,
@@ -240,13 +243,6 @@ def identitysignins_identity_conditional_access_update_policy(client,
                                 users=users)
 
 
-def identitysignins_identity_provider_identity_provider_delete(client,
-                                                               identity_provider_id,
-                                                               if_match=None):
-    return client.delete_identity_provider(identity_provider_id=identity_provider_id,
-                                           if_match=if_match)
-
-
 def identitysignins_identity_provider_identity_provider_create_identity_provider(client,
                                                                                  id_=None,
                                                                                  client_id=None,
@@ -258,6 +254,13 @@ def identitysignins_identity_provider_identity_provider_create_identity_provider
                                            client_secret=client_secret,
                                            name=name,
                                            type=type_)
+
+
+def identitysignins_identity_provider_identity_provider_delete_identity_provider(client,
+                                                                                 identity_provider_id,
+                                                                                 if_match=None):
+    return client.delete_identity_provider(identity_provider_id=identity_provider_id,
+                                           if_match=if_match)
 
 
 def identitysignins_identity_provider_identity_provider_list_identity_provider(client,
@@ -307,13 +310,6 @@ def identitysignins_information_protection_information_protection_update_informa
                                                 threat_assessment_requests=threat_assessment_requests)
 
 
-def identitysignins_information_protection_delete(client,
-                                                  threat_assessment_request_id,
-                                                  if_match=None):
-    return client.delete_threat_assessment_request(threat_assessment_request_id=threat_assessment_request_id,
-                                                   if_match=if_match)
-
-
 def identitysignins_information_protection_create_threat_assessment_request(client,
                                                                             content_type,
                                                                             id_=None,
@@ -337,6 +333,13 @@ def identitysignins_information_protection_create_threat_assessment_request(clie
                                                    application=application,
                                                    device=device,
                                                    user=user)
+
+
+def identitysignins_information_protection_delete_threat_assessment_request(client,
+                                                                            threat_assessment_request_id,
+                                                                            if_match=None):
+    return client.delete_threat_assessment_request(threat_assessment_request_id=threat_assessment_request_id,
+                                                   if_match=if_match)
 
 
 def identitysignins_information_protection_list_threat_assessment_request(client,
@@ -384,15 +387,6 @@ def identitysignins_information_protection_update_threat_assessment_request(clie
                                                    user=user)
 
 
-def identitysignins_information_protection_threat_assessment_request_delete(client,
-                                                                            threat_assessment_request_id,
-                                                                            threat_assessment_result_id,
-                                                                            if_match=None):
-    return client.delete_result(threat_assessment_request_id=threat_assessment_request_id,
-                                threat_assessment_result_id=threat_assessment_result_id,
-                                if_match=if_match)
-
-
 def identitysignins_information_protection_threat_assessment_request_create_result(client,
                                                                                    threat_assessment_request_id,
                                                                                    id_=None,
@@ -404,6 +398,15 @@ def identitysignins_information_protection_threat_assessment_request_create_resu
                                 created_date_time=created_date_time,
                                 message=message,
                                 result_type=result_type)
+
+
+def identitysignins_information_protection_threat_assessment_request_delete_result(client,
+                                                                                   threat_assessment_request_id,
+                                                                                   threat_assessment_result_id,
+                                                                                   if_match=None):
+    return client.delete_result(threat_assessment_request_id=threat_assessment_request_id,
+                                threat_assessment_result_id=threat_assessment_result_id,
+                                if_match=if_match)
 
 
 def identitysignins_information_protection_threat_assessment_request_list_result(client,
@@ -443,13 +446,6 @@ def identitysignins_information_protection_threat_assessment_request_update_resu
                                 result_type=result_type)
 
 
-def identitysignins_invitation_invitation_delete(client,
-                                                 invitation_id,
-                                                 if_match=None):
-    return client.delete_invitation(invitation_id=invitation_id,
-                                    if_match=if_match)
-
-
 def identitysignins_invitation_invitation_create_invitation(client,
                                                             id_=None,
                                                             invited_user_display_name=None,
@@ -475,6 +471,13 @@ def identitysignins_invitation_invitation_create_invitation(client,
                                     cc_recipients=cc_recipients,
                                     customized_message_body=customized_message_body,
                                     message_language=message_language)
+
+
+def identitysignins_invitation_invitation_delete_invitation(client,
+                                                            invitation_id,
+                                                            if_match=None):
+    return client.delete_invitation(invitation_id=invitation_id,
+                                    if_match=if_match)
 
 
 def identitysignins_invitation_invitation_list_invitation(client,
@@ -524,9 +527,9 @@ def identitysignins_invitation_invitation_update_invitation(client,
                                     message_language=message_language)
 
 
-def identitysignins_invitation_delete(client,
-                                      invitation_id,
-                                      if_match=None):
+def identitysignins_invitation_delete_ref_invited_user(client,
+                                                       invitation_id,
+                                                       if_match=None):
     return client.delete_ref_invited_user(invitation_id=invitation_id,
                                           if_match=if_match)
 
@@ -552,13 +555,6 @@ def identitysignins_invitation_show_ref_invited_user(client,
     return client.get_ref_invited_user(invitation_id=invitation_id)
 
 
-def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_delete(client,
-                                                                            o_auth2_permission_grant_id,
-                                                                            if_match=None):
-    return client.delete_o_auth2_permission_grant(o_auth2_permission_grant_id=o_auth2_permission_grant_id,
-                                                  if_match=if_match)
-
-
 def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_create_o_auth2_permission_grant(client,
                                                                                                      id_=None,
                                                                                                      client_id=None,
@@ -572,6 +568,13 @@ def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_create_o_au
                                                   principal_id=principal_id,
                                                   resource_id=resource_id,
                                                   scope=scope)
+
+
+def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_delete_o_auth2_permission_grant(client,
+                                                                                                     o_auth2_permission_grant_id,
+                                                                                                     if_match=None):
+    return client.delete_o_auth2_permission_grant(o_auth2_permission_grant_id=o_auth2_permission_grant_id,
+                                                  if_match=if_match)
 
 
 def identitysignins_oauth2_permission_grant_o_auth2_permission_grant_list_o_auth2_permission_grant(client,
@@ -664,39 +667,6 @@ def identitysignins_policy_policy_root_update_policy_root(client,
                                      token_lifetime_policies=token_lifetime_policies,
                                      conditional_access_policies=conditional_access_policies,
                                      identity_security_defaults_enforcement_policy=identity_security_defaults_enforcement_policy)
-
-
-def identitysignins_policy_delete(client,
-                                  activity_based_timeout_policy_id=None,
-                                  if_match=None,
-                                  claims_mapping_policy_id=None,
-                                  conditional_access_policy_id=None,
-                                  home_realm_discovery_policy_id=None,
-                                  permission_grant_policy_id=None,
-                                  token_issuance_policy_id=None,
-                                  token_lifetime_policy_id=None):
-    if activity_based_timeout_policy_id is not None:
-        return client.delete_activity_based_timeout_policy(activity_based_timeout_policy_id=activity_based_timeout_policy_id,
-                                                           if_match=if_match)
-    elif claims_mapping_policy_id is not None:
-        return client.delete_claim_mapping_policy(claims_mapping_policy_id=claims_mapping_policy_id,
-                                                  if_match=if_match)
-    elif conditional_access_policy_id is not None:
-        return client.delete_conditional_access_policy(conditional_access_policy_id=conditional_access_policy_id,
-                                                       if_match=if_match)
-    elif home_realm_discovery_policy_id is not None:
-        return client.delete_home_realm_discovery_policy(home_realm_discovery_policy_id=home_realm_discovery_policy_id,
-                                                         if_match=if_match)
-    elif permission_grant_policy_id is not None:
-        return client.delete_permission_grant_policy(permission_grant_policy_id=permission_grant_policy_id,
-                                                     if_match=if_match)
-    elif token_issuance_policy_id is not None:
-        return client.delete_token_issuance_policy(token_issuance_policy_id=token_issuance_policy_id,
-                                                   if_match=if_match)
-    elif token_lifetime_policy_id is not None:
-        return client.delete_token_lifetime_policy(token_lifetime_policy_id=token_lifetime_policy_id,
-                                                   if_match=if_match)
-    return client.delete_identity_security_default_enforcement_policy(if_match=if_match)
 
 
 def identitysignins_policy_create_activity_based_timeout_policy(client,
@@ -834,6 +804,60 @@ def identitysignins_policy_create_token_lifetime_policy(client,
                                                definition=definition,
                                                is_organization_default=is_organization_default,
                                                applies_to=applies_to)
+
+
+def identitysignins_policy_delete_activity_based_timeout_policy(client,
+                                                                activity_based_timeout_policy_id,
+                                                                if_match=None):
+    return client.delete_activity_based_timeout_policy(activity_based_timeout_policy_id=activity_based_timeout_policy_id,
+                                                       if_match=if_match)
+
+
+def identitysignins_policy_delete_claim_mapping_policy(client,
+                                                       claims_mapping_policy_id,
+                                                       if_match=None):
+    return client.delete_claim_mapping_policy(claims_mapping_policy_id=claims_mapping_policy_id,
+                                              if_match=if_match)
+
+
+def identitysignins_policy_delete_conditional_access_policy(client,
+                                                            conditional_access_policy_id,
+                                                            if_match=None):
+    return client.delete_conditional_access_policy(conditional_access_policy_id=conditional_access_policy_id,
+                                                   if_match=if_match)
+
+
+def identitysignins_policy_delete_home_realm_discovery_policy(client,
+                                                              home_realm_discovery_policy_id,
+                                                              if_match=None):
+    return client.delete_home_realm_discovery_policy(home_realm_discovery_policy_id=home_realm_discovery_policy_id,
+                                                     if_match=if_match)
+
+
+def identitysignins_policy_delete_identity_security_default_enforcement_policy(client,
+                                                                               if_match=None):
+    return client.delete_identity_security_default_enforcement_policy(if_match=if_match)
+
+
+def identitysignins_policy_delete_permission_grant_policy(client,
+                                                          permission_grant_policy_id,
+                                                          if_match=None):
+    return client.delete_permission_grant_policy(permission_grant_policy_id=permission_grant_policy_id,
+                                                 if_match=if_match)
+
+
+def identitysignins_policy_delete_token_issuance_policy(client,
+                                                        token_issuance_policy_id,
+                                                        if_match=None):
+    return client.delete_token_issuance_policy(token_issuance_policy_id=token_issuance_policy_id,
+                                               if_match=if_match)
+
+
+def identitysignins_policy_delete_token_lifetime_policy(client,
+                                                        token_lifetime_policy_id,
+                                                        if_match=None):
+    return client.delete_token_lifetime_policy(token_lifetime_policy_id=token_lifetime_policy_id,
+                                               if_match=if_match)
 
 
 def identitysignins_policy_list_activity_based_timeout_policy(client,
@@ -1133,19 +1157,6 @@ def identitysignins_policy_update_token_lifetime_policy(client,
                                                applies_to=applies_to)
 
 
-def identitysignins_policy_permission_grant_policy_delete(client,
-                                                          permission_grant_policy_id,
-                                                          permission_grant_condition_set_id,
-                                                          if_match=None):
-    if permission_grant_policy_id is not None and permission_grant_condition_set_id is not None:
-        return client.delete_exclude(permission_grant_policy_id=permission_grant_policy_id,
-                                     permission_grant_condition_set_id=permission_grant_condition_set_id,
-                                     if_match=if_match)
-    return client.delete_include(permission_grant_policy_id=permission_grant_policy_id,
-                                 permission_grant_condition_set_id=permission_grant_condition_set_id,
-                                 if_match=if_match)
-
-
 def identitysignins_policy_permission_grant_policy_create_exclude(client,
                                                                   permission_grant_policy_id,
                                                                   id_=None,
@@ -1190,6 +1201,24 @@ def identitysignins_policy_permission_grant_policy_create_include(client,
                                  permissions=permissions,
                                  permission_type=permission_type,
                                  resource_application=resource_application)
+
+
+def identitysignins_policy_permission_grant_policy_delete_exclude(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  if_match=None):
+    return client.delete_exclude(permission_grant_policy_id=permission_grant_policy_id,
+                                 permission_grant_condition_set_id=permission_grant_condition_set_id,
+                                 if_match=if_match)
+
+
+def identitysignins_policy_permission_grant_policy_delete_include(client,
+                                                                  permission_grant_policy_id,
+                                                                  permission_grant_condition_set_id,
+                                                                  if_match=None):
+    return client.delete_include(permission_grant_policy_id=permission_grant_policy_id,
+                                 permission_grant_condition_set_id=permission_grant_condition_set_id,
+                                 if_match=if_match)
 
 
 def identitysignins_policy_permission_grant_policy_list_exclude(client,

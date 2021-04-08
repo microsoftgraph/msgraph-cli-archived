@@ -9,19 +9,44 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_reports_beta.generated._client_factory import (
+    cf_audit_log_audit_log_root,
+    cf_audit_log,
+    cf_report_report_root,
+    cf_report,
+)
+
+
+reports_beta_audit_log_audit_log_root = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
+    client_factory=cf_audit_log_audit_log_root,
+)
+
+
+reports_beta_audit_log = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}',
+    client_factory=cf_audit_log,
+)
+
+
+reports_beta_report_report_root = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
+    client_factory=cf_report_report_root,
+)
+
+
+reports_beta_report = CliCommandType(
+    operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
+    client_factory=cf_report,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_reports_beta.generated._client_factory import cf_audit_log_audit_log_root
-
-    reports_beta_audit_log_audit_log_root = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
-        client_factory=cf_audit_log_audit_log_root,
-    )
     with self.command_group(
         'reports audit-log-audit-log-root',
         reports_beta_audit_log_audit_log_root,
@@ -30,21 +55,17 @@ def load_command_table(self, _):
         g.custom_command('show-audit-log-root', 'reports_audit_log_audit_log_root_show_audit_log_root')
         g.custom_command('update-audit-log-root', 'reports_audit_log_audit_log_root_update_audit_log_root')
 
-    from azext_reports_beta.generated._client_factory import cf_audit_log
-
-    reports_beta_audit_log = CliCommandType(
-        operations_tmpl=(
-            'azext_reports_beta.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}'
-        ),
-        client_factory=cf_audit_log,
-    )
     with self.command_group('reports audit-log', reports_beta_audit_log, client_factory=cf_audit_log) as g:
-        g.custom_command('delete', 'reports_audit_log_delete', confirmation=True)
         g.custom_command('create-directory-audit', 'reports_audit_log_create_directory_audit')
         g.custom_command('create-directory-provisioning', 'reports_audit_log_create_directory_provisioning')
         g.custom_command('create-provisioning', 'reports_audit_log_create_provisioning')
         g.custom_command('create-restricted-sign-in', 'reports_audit_log_create_restricted_sign_in')
         g.custom_command('create-sign-in', 'reports_audit_log_create_sign_in')
+        g.custom_command('delete-directory-audit', 'reports_audit_log_delete_directory_audit')
+        g.custom_command('delete-directory-provisioning', 'reports_audit_log_delete_directory_provisioning')
+        g.custom_command('delete-provisioning', 'reports_audit_log_delete_provisioning')
+        g.custom_command('delete-restricted-sign-in', 'reports_audit_log_delete_restricted_sign_in')
+        g.custom_command('delete-sign-in', 'reports_audit_log_delete_sign_in')
         g.custom_command('list-directory-audit', 'reports_audit_log_list_directory_audit')
         g.custom_command('list-directory-provisioning', 'reports_audit_log_list_directory_provisioning')
         g.custom_command('list-provisioning', 'reports_audit_log_list_provisioning')
@@ -61,26 +82,13 @@ def load_command_table(self, _):
         g.custom_command('update-restricted-sign-in', 'reports_audit_log_update_restricted_sign_in')
         g.custom_command('update-sign-in', 'reports_audit_log_update_sign_in')
 
-    from azext_reports_beta.generated._client_factory import cf_report_report_root
-
-    reports_beta_report_report_root = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
-        client_factory=cf_report_report_root,
-    )
     with self.command_group(
         'reports report-root', reports_beta_report_report_root, client_factory=cf_report_report_root
     ) as g:
         g.custom_command('show-report-root', 'reports_report_root_show_report_root')
         g.custom_command('update-report-root', 'reports_report_root_update_report_root')
 
-    from azext_reports_beta.generated._client_factory import cf_report
-
-    reports_beta_report = CliCommandType(
-        operations_tmpl='azext_reports_beta.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
-        client_factory=cf_report,
-    )
     with self.command_group('reports report', reports_beta_report, client_factory=cf_report) as g:
-        g.custom_command('delete', 'reports_report_delete', confirmation=True)
         g.custom_command(
             'create-application-sign-in-detailed-summary', 'reports_report_create_application_sign_in_detailed_summary'
         )
@@ -101,6 +109,15 @@ def load_command_table(self, _):
             'create-monthly-print-usage-summary-by-user', 'reports_report_create_monthly_print_usage_summary_by_user'
         )
         g.custom_command('create-user-credential-usage-detail', 'reports_report_create_user_credential_usage_detail')
+        g.custom_command(
+            'delete-application-sign-in-detailed-summary', 'reports_report_delete_application_sign_in_detailed_summary'
+        )
+        g.custom_command(
+            'delete-credential-user-registration-detail', 'reports_report_delete_credential_user_registration_detail'
+        )
+        g.custom_command('delete-daily-print-usage-summary', 'reports_report_delete_daily_print_usage_summary')
+        g.custom_command('delete-monthly-print-usage-summary', 'reports_report_delete_monthly_print_usage_summary')
+        g.custom_command('delete-user-credential-usage-detail', 'reports_report_delete_user_credential_usage_detail')
         g.custom_command('device-configuration-device-activity', 'reports_report_device_configuration_device_activity')
         g.custom_command('device-configuration-user-activity', 'reports_report_device_configuration_user_activity')
         g.custom_command(

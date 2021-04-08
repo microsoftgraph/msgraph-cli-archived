@@ -11,20 +11,6 @@
 # pylint: disable=too-many-lines
 
 
-def personalcontacts_user_delete(client,
-                                 user_id,
-                                 contact_folder_id=None,
-                                 if_match=None,
-                                 contact_id=None):
-    if user_id is not None and contact_folder_id is not None:
-        return client.delete_contact_folder(user_id=user_id,
-                                            contact_folder_id=contact_folder_id,
-                                            if_match=if_match)
-    return client.delete_contact(user_id=user_id,
-                                 contact_id=contact_id,
-                                 if_match=if_match)
-
-
 def personalcontacts_user_create_contact(client,
                                          user_id,
                                          id_=None,
@@ -131,6 +117,24 @@ def personalcontacts_user_create_contact_folder(client,
                                         contacts=contacts,
                                         multi_value_extended_properties=multi_value_extended_properties,
                                         single_value_extended_properties=single_value_extended_properties)
+
+
+def personalcontacts_user_delete_contact(client,
+                                         user_id,
+                                         contact_id,
+                                         if_match=None):
+    return client.delete_contact(user_id=user_id,
+                                 contact_id=contact_id,
+                                 if_match=if_match)
+
+
+def personalcontacts_user_delete_contact_folder(client,
+                                                user_id,
+                                                contact_folder_id,
+                                                if_match=None):
+    return client.delete_contact_folder(user_id=user_id,
+                                        contact_folder_id=contact_folder_id,
+                                        if_match=if_match)
 
 
 def personalcontacts_user_list_contact(client,
@@ -289,35 +293,6 @@ def personalcontacts_user_update_contact_folder(client,
                                         single_value_extended_properties=single_value_extended_properties)
 
 
-def personalcontacts_user_contact_folder_delete(client,
-                                                user_id,
-                                                contact_folder_id,
-                                                contact_folder_id1=None,
-                                                if_match=None,
-                                                contact_id=None,
-                                                multi_value_legacy_extended_property_id=None,
-                                                single_value_legacy_extended_property_id=None):
-    if user_id is not None and contact_folder_id is not None and contact_folder_id1 is not None:
-        return client.delete_child_folder(user_id=user_id,
-                                          contact_folder_id=contact_folder_id,
-                                          contact_folder_id1=contact_folder_id1,
-                                          if_match=if_match)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None:
-        return client.delete_contact(user_id=user_id,
-                                     contact_folder_id=contact_folder_id,
-                                     contact_id=contact_id,
-                                     if_match=if_match)
-    elif user_id is not None and contact_folder_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           contact_folder_id=contact_folder_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    return client.delete_single_value_extended_property(user_id=user_id,
-                                                        contact_folder_id=contact_folder_id,
-                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                        if_match=if_match)
-
-
 def personalcontacts_user_contact_folder_create_child_folder(client,
                                                              user_id,
                                                              contact_folder_id,
@@ -450,6 +425,50 @@ def personalcontacts_user_contact_folder_create_single_value_extended_property(c
                                                         contact_folder_id=contact_folder_id,
                                                         id=id_,
                                                         value=value)
+
+
+def personalcontacts_user_contact_folder_delete_child_folder(client,
+                                                             user_id,
+                                                             contact_folder_id,
+                                                             contact_folder_id1,
+                                                             if_match=None):
+    return client.delete_child_folder(user_id=user_id,
+                                      contact_folder_id=contact_folder_id,
+                                      contact_folder_id1=contact_folder_id1,
+                                      if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_delete_contact(client,
+                                                        user_id,
+                                                        contact_folder_id,
+                                                        contact_id,
+                                                        if_match=None):
+    return client.delete_contact(user_id=user_id,
+                                 contact_folder_id=contact_folder_id,
+                                 contact_id=contact_id,
+                                 if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_delete_multi_value_extended_property(client,
+                                                                              user_id,
+                                                                              contact_folder_id,
+                                                                              multi_value_legacy_extended_property_id,
+                                                                              if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       contact_folder_id=contact_folder_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_delete_single_value_extended_property(client,
+                                                                               user_id,
+                                                                               contact_folder_id,
+                                                                               single_value_legacy_extended_property_id,
+                                                                               if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        contact_folder_id=contact_folder_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def personalcontacts_user_contact_folder_list_child_folder(client,
@@ -698,38 +717,6 @@ def personalcontacts_user_contact_folder_update_single_value_extended_property(c
                                                         value=value)
 
 
-def personalcontacts_user_contact_folder_contact_delete(client,
-                                                        user_id,
-                                                        contact_folder_id,
-                                                        contact_id,
-                                                        extension_id=None,
-                                                        if_match=None,
-                                                        multi_value_legacy_extended_property_id=None,
-                                                        single_value_legacy_extended_property_id=None):
-    if user_id is not None and contact_folder_id is not None and contact_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       contact_folder_id=contact_folder_id,
-                                       contact_id=contact_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           contact_folder_id=contact_folder_id,
-                                                           contact_id=contact_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and contact_folder_id is not None and contact_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            contact_folder_id=contact_folder_id,
-                                                            contact_id=contact_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_photo(user_id=user_id,
-                               contact_folder_id=contact_folder_id,
-                               contact_id=contact_id,
-                               if_match=if_match)
-
-
 def personalcontacts_user_contact_folder_contact_create_extension(client,
                                                                   user_id,
                                                                   contact_folder_id,
@@ -765,6 +752,56 @@ def personalcontacts_user_contact_folder_contact_create_single_value_extended_pr
                                                         contact_id=contact_id,
                                                         id=id_,
                                                         value=value)
+
+
+def personalcontacts_user_contact_folder_contact_delete_extension(client,
+                                                                  user_id,
+                                                                  contact_folder_id,
+                                                                  contact_id,
+                                                                  extension_id,
+                                                                  if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   contact_folder_id=contact_folder_id,
+                                   contact_id=contact_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_contact_delete_multi_value_extended_property(client,
+                                                                                      user_id,
+                                                                                      contact_folder_id,
+                                                                                      contact_id,
+                                                                                      multi_value_legacy_extended_property_id,
+                                                                                      if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       contact_folder_id=contact_folder_id,
+                                                       contact_id=contact_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_contact_delete_photo(client,
+                                                              user_id,
+                                                              contact_folder_id,
+                                                              contact_id,
+                                                              if_match=None):
+    return client.delete_photo(user_id=user_id,
+                               contact_folder_id=contact_folder_id,
+                               contact_id=contact_id,
+                               if_match=if_match)
+
+
+def personalcontacts_user_contact_folder_contact_delete_single_value_extended_property(client,
+                                                                                       user_id,
+                                                                                       contact_folder_id,
+                                                                                       contact_id,
+                                                                                       single_value_legacy_extended_property_id,
+                                                                                       if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        contact_folder_id=contact_folder_id,
+                                                        contact_id=contact_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def personalcontacts_user_contact_folder_contact_list_extension(client,
@@ -928,33 +965,6 @@ def personalcontacts_user_contact_folder_contact_update_single_value_extended_pr
                                                         value=value)
 
 
-def personalcontacts_user_contact_delete(client,
-                                         user_id,
-                                         contact_id,
-                                         extension_id=None,
-                                         if_match=None,
-                                         multi_value_legacy_extended_property_id=None,
-                                         single_value_legacy_extended_property_id=None):
-    if user_id is not None and contact_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       contact_id=contact_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and contact_id is not None and multi_value_legacy_extended_property_id is not None:
-        return client.delete_multi_value_extended_property(user_id=user_id,
-                                                           contact_id=contact_id,
-                                                           multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
-                                                           if_match=if_match)
-    elif user_id is not None and contact_id is not None and single_value_legacy_extended_property_id is not None:
-        return client.delete_single_value_extended_property(user_id=user_id,
-                                                            contact_id=contact_id,
-                                                            single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
-                                                            if_match=if_match)
-    return client.delete_photo(user_id=user_id,
-                               contact_id=contact_id,
-                               if_match=if_match)
-
-
 def personalcontacts_user_contact_create_extension(client,
                                                    user_id,
                                                    contact_id,
@@ -984,6 +994,48 @@ def personalcontacts_user_contact_create_single_value_extended_property(client,
                                                         contact_id=contact_id,
                                                         id=id_,
                                                         value=value)
+
+
+def personalcontacts_user_contact_delete_extension(client,
+                                                   user_id,
+                                                   contact_id,
+                                                   extension_id,
+                                                   if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   contact_id=contact_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def personalcontacts_user_contact_delete_multi_value_extended_property(client,
+                                                                       user_id,
+                                                                       contact_id,
+                                                                       multi_value_legacy_extended_property_id,
+                                                                       if_match=None):
+    return client.delete_multi_value_extended_property(user_id=user_id,
+                                                       contact_id=contact_id,
+                                                       multi_value_legacy_extended_property_id=multi_value_legacy_extended_property_id,
+                                                       if_match=if_match)
+
+
+def personalcontacts_user_contact_delete_photo(client,
+                                               user_id,
+                                               contact_id,
+                                               if_match=None):
+    return client.delete_photo(user_id=user_id,
+                               contact_id=contact_id,
+                               if_match=if_match)
+
+
+def personalcontacts_user_contact_delete_single_value_extended_property(client,
+                                                                        user_id,
+                                                                        contact_id,
+                                                                        single_value_legacy_extended_property_id,
+                                                                        if_match=None):
+    return client.delete_single_value_extended_property(user_id=user_id,
+                                                        contact_id=contact_id,
+                                                        single_value_legacy_extended_property_id=single_value_legacy_extended_property_id,
+                                                        if_match=if_match)
 
 
 def personalcontacts_user_contact_list_extension(client,

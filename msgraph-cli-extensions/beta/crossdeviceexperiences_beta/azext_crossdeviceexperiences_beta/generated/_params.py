@@ -29,12 +29,6 @@ from azext_crossdeviceexperiences_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('crossdeviceexperiences user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('device_id', type=str, help='key: id of device')
-
     with self.argument_context('crossdeviceexperiences user create-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -155,6 +149,16 @@ def load_arguments(self, _):
         c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
                    'the device. Read-only. Nullable.')
         c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+
+    with self.argument_context('crossdeviceexperiences user delete-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('crossdeviceexperiences user delete-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('device_id', type=str, help='key: id of device')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('crossdeviceexperiences user list-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -303,12 +307,6 @@ def load_arguments(self, _):
                    'the device. Read-only. Nullable.')
         c.argument('commands', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences user-activity delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_activity_id', type=str, help='key: id of userActivity')
-        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('crossdeviceexperiences user-activity create-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
@@ -332,6 +330,12 @@ def load_arguments(self, _):
                    'to support cross-platform representation.')
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
+
+    with self.argument_context('crossdeviceexperiences user-activity delete-history-item') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_activity_id', type=str, help='key: id of userActivity')
+        c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('crossdeviceexperiences user-activity list-history-item') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -372,7 +376,7 @@ def load_arguments(self, _):
         c.argument('activity', type=validate_file_or_dict,
                    help='userActivity Expected value: json-string/@json-file.')
 
-    with self.argument_context('crossdeviceexperiences user-activity-history-item delete') as c:
+    with self.argument_context('crossdeviceexperiences user-activity-history-item delete-ref-activity') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('user_activity_id', type=str, help='key: id of userActivity')
         c.argument('activity_history_item_id', type=str, help='key: id of activityHistoryItem')

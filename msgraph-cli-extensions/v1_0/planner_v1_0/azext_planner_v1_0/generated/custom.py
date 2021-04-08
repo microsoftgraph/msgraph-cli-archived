@@ -7,13 +7,12 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 
 
-def planner_group_delete(client,
-                         group_id,
-                         if_match=None):
+def planner_group_delete_planner(client,
+                                 group_id,
+                                 if_match=None):
     return client.delete_planner(group_id=group_id,
                                  if_match=if_match)
 
@@ -34,15 +33,6 @@ def planner_group_update_planner(client,
     return client.update_planner(group_id=group_id,
                                  id=id_,
                                  plans=plans)
-
-
-def planner_group_planner_delete(client,
-                                 group_id,
-                                 planner_plan_id,
-                                 if_match=None):
-    return client.delete_plan(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              if_match=if_match)
 
 
 def planner_group_planner_create_plan(client,
@@ -72,6 +62,15 @@ def planner_group_planner_create_plan(client,
                               application=application,
                               device=device,
                               user=user)
+
+
+def planner_group_planner_delete_plan(client,
+                                      group_id,
+                                      planner_plan_id,
+                                      if_match=None):
+    return client.delete_plan(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              if_match=if_match)
 
 
 def planner_group_planner_list_plan(client,
@@ -125,27 +124,6 @@ def planner_group_planner_update_plan(client,
                               application=application,
                               device=device,
                               user=user)
-
-
-def planner_group_planner_plan_delete(client,
-                                      group_id,
-                                      planner_plan_id,
-                                      planner_bucket_id=None,
-                                      if_match=None,
-                                      planner_task_id=None):
-    if group_id is not None and planner_plan_id is not None and planner_bucket_id is not None:
-        return client.delete_bucket(group_id=group_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    if_match=if_match)
-    elif group_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_task(group_id=group_id,
-                                  planner_plan_id=planner_plan_id,
-                                  planner_task_id=planner_task_id,
-                                  if_match=if_match)
-    return client.delete_detail(group_id=group_id,
-                                planner_plan_id=planner_plan_id,
-                                if_match=if_match)
 
 
 def planner_group_planner_plan_create_bucket(client,
@@ -240,6 +218,37 @@ def planner_group_planner_plan_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_group_planner_plan_delete_bucket(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             planner_bucket_id,
+                                             if_match=None):
+    return client.delete_bucket(group_id=group_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                if_match=if_match)
+
+
+def planner_group_planner_plan_delete_detail(client,
+                                             group_id,
+                                             planner_plan_id,
+                                             if_match=None):
+    return client.delete_detail(group_id=group_id,
+                                planner_plan_id=planner_plan_id,
+                                if_match=if_match)
+
+
+def planner_group_planner_plan_delete_task(client,
+                                           group_id,
+                                           planner_plan_id,
+                                           planner_task_id,
+                                           if_match=None):
+    return client.delete_task(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_group_planner_plan_list_bucket(client,
@@ -416,19 +425,6 @@ def planner_group_planner_plan_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_group_planner_plan_bucket_delete(client,
-                                             group_id,
-                                             planner_plan_id,
-                                             planner_bucket_id,
-                                             planner_task_id,
-                                             if_match=None):
-    return client.delete_task(group_id=group_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
-
-
 def planner_group_planner_plan_bucket_create_task(client,
                                                   group_id,
                                                   planner_plan_id,
@@ -506,6 +502,19 @@ def planner_group_planner_plan_bucket_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_group_planner_plan_bucket_delete_task(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_bucket_id,
+                                                  planner_task_id,
+                                                  if_match=None):
+    return client.delete_task(group_id=group_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_group_planner_plan_bucket_list_task(client,
@@ -619,30 +628,51 @@ def planner_group_planner_plan_bucket_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_group_planner_plan_bucket_task_delete(client,
-                                                  group_id,
-                                                  planner_plan_id,
-                                                  planner_bucket_id,
-                                                  planner_task_id,
-                                                  if_match=None):
-    if group_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(group_id=group_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_bucket_id=planner_bucket_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif group_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(group_id=group_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_bucket_id=planner_bucket_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif group_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_detail(group_id=group_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_group_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
+                                                                                group_id,
+                                                                                planner_plan_id,
+                                                                                planner_bucket_id,
+                                                                                planner_task_id,
+                                                                                if_match=None):
+    return client.delete_assigned_to_task_board_format(group_id=group_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_bucket_id=planner_bucket_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_group_planner_plan_bucket_task_delete_bucket_task_board_format(client,
+                                                                           group_id,
+                                                                           planner_plan_id,
+                                                                           planner_bucket_id,
+                                                                           planner_task_id,
+                                                                           if_match=None):
+    return client.delete_bucket_task_board_format(group_id=group_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_bucket_id=planner_bucket_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_group_planner_plan_bucket_task_delete_detail(client,
+                                                         group_id,
+                                                         planner_plan_id,
+                                                         planner_bucket_id,
+                                                         planner_task_id,
+                                                         if_match=None):
+    return client.delete_detail(group_id=group_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_group_planner_plan_bucket_task_delete_progress_task_board_format(client,
+                                                                             group_id,
+                                                                             planner_plan_id,
+                                                                             planner_bucket_id,
+                                                                             planner_task_id,
+                                                                             if_match=None):
     return client.delete_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -778,26 +808,44 @@ def planner_group_planner_plan_bucket_task_update_progress_task_board_format(cli
                                                     order_hint=order_hint)
 
 
-def planner_group_planner_plan_task_delete(client,
-                                           group_id,
-                                           planner_plan_id,
-                                           planner_task_id,
-                                           if_match=None):
-    if group_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(group_id=group_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif group_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(group_id=group_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif group_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_detail(group_id=group_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_group_planner_plan_task_delete_assigned_to_task_board_format(client,
+                                                                         group_id,
+                                                                         planner_plan_id,
+                                                                         planner_task_id,
+                                                                         if_match=None):
+    return client.delete_assigned_to_task_board_format(group_id=group_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_group_planner_plan_task_delete_bucket_task_board_format(client,
+                                                                    group_id,
+                                                                    planner_plan_id,
+                                                                    planner_task_id,
+                                                                    if_match=None):
+    return client.delete_bucket_task_board_format(group_id=group_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_group_planner_plan_task_delete_detail(client,
+                                                  group_id,
+                                                  planner_plan_id,
+                                                  planner_task_id,
+                                                  if_match=None):
+    return client.delete_detail(group_id=group_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_group_planner_plan_task_delete_progress_task_board_format(client,
+                                                                      group_id,
+                                                                      planner_plan_id,
+                                                                      planner_task_id,
+                                                                      if_match=None):
     return client.delete_progress_task_board_format(group_id=group_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -934,21 +982,6 @@ def planner_planner_show_planner(client,
                               expand=expand)
 
 
-def planner_planner_delete(client,
-                           planner_bucket_id=None,
-                           if_match=None,
-                           planner_plan_id=None,
-                           planner_task_id=None):
-    if planner_bucket_id is not None:
-        return client.delete_bucket(planner_bucket_id=planner_bucket_id,
-                                    if_match=if_match)
-    elif planner_plan_id is not None:
-        return client.delete_plan(planner_plan_id=planner_plan_id,
-                                  if_match=if_match)
-    return client.delete_task(planner_task_id=planner_task_id,
-                              if_match=if_match)
-
-
 def planner_planner_create_bucket(client,
                                   id_=None,
                                   name=None,
@@ -1060,6 +1093,27 @@ def planner_planner_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_planner_delete_bucket(client,
+                                  planner_bucket_id,
+                                  if_match=None):
+    return client.delete_bucket(planner_bucket_id=planner_bucket_id,
+                                if_match=if_match)
+
+
+def planner_planner_delete_plan(client,
+                                planner_plan_id,
+                                if_match=None):
+    return client.delete_plan(planner_plan_id=planner_plan_id,
+                              if_match=if_match)
+
+
+def planner_planner_delete_task(client,
+                                planner_task_id,
+                                if_match=None):
+    return client.delete_task(planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_planner_list_bucket(client,
@@ -1235,15 +1289,6 @@ def planner_planner_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_planner_bucket_delete(client,
-                                  planner_bucket_id,
-                                  planner_task_id,
-                                  if_match=None):
-    return client.delete_task(planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
-
-
 def planner_planner_bucket_create_task(client,
                                        planner_bucket_id,
                                        id_=None,
@@ -1317,6 +1362,15 @@ def planner_planner_bucket_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_planner_bucket_delete_task(client,
+                                       planner_bucket_id,
+                                       planner_task_id,
+                                       if_match=None):
+    return client.delete_task(planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_planner_bucket_list_task(client,
@@ -1418,22 +1472,37 @@ def planner_planner_bucket_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_planner_bucket_task_delete(client,
-                                       planner_bucket_id,
-                                       planner_task_id,
-                                       if_match=None):
-    if planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(planner_bucket_id=planner_bucket_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_detail(planner_bucket_id=planner_bucket_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_planner_bucket_task_delete_assigned_to_task_board_format(client,
+                                                                     planner_bucket_id,
+                                                                     planner_task_id,
+                                                                     if_match=None):
+    return client.delete_assigned_to_task_board_format(planner_bucket_id=planner_bucket_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_planner_bucket_task_delete_bucket_task_board_format(client,
+                                                                planner_bucket_id,
+                                                                planner_task_id,
+                                                                if_match=None):
+    return client.delete_bucket_task_board_format(planner_bucket_id=planner_bucket_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_planner_bucket_task_delete_detail(client,
+                                              planner_bucket_id,
+                                              planner_task_id,
+                                              if_match=None):
+    return client.delete_detail(planner_bucket_id=planner_bucket_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_planner_bucket_task_delete_progress_task_board_format(client,
+                                                                  planner_bucket_id,
+                                                                  planner_task_id,
+                                                                  if_match=None):
     return client.delete_progress_task_board_format(planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
                                                     if_match=if_match)
@@ -1535,23 +1604,6 @@ def planner_planner_bucket_task_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_planner_plan_delete(client,
-                                planner_plan_id,
-                                planner_bucket_id=None,
-                                if_match=None,
-                                planner_task_id=None):
-    if planner_plan_id is not None and planner_bucket_id is not None:
-        return client.delete_bucket(planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    if_match=if_match)
-    elif planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_task(planner_plan_id=planner_plan_id,
-                                  planner_task_id=planner_task_id,
-                                  if_match=if_match)
-    return client.delete_detail(planner_plan_id=planner_plan_id,
-                                if_match=if_match)
-
-
 def planner_planner_plan_create_bucket(client,
                                        planner_plan_id,
                                        id_=None,
@@ -1640,6 +1692,31 @@ def planner_planner_plan_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_planner_plan_delete_bucket(client,
+                                       planner_plan_id,
+                                       planner_bucket_id,
+                                       if_match=None):
+    return client.delete_bucket(planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                if_match=if_match)
+
+
+def planner_planner_plan_delete_detail(client,
+                                       planner_plan_id,
+                                       if_match=None):
+    return client.delete_detail(planner_plan_id=planner_plan_id,
+                                if_match=if_match)
+
+
+def planner_planner_plan_delete_task(client,
+                                     planner_plan_id,
+                                     planner_task_id,
+                                     if_match=None):
+    return client.delete_task(planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_planner_plan_list_bucket(client,
@@ -1800,17 +1877,6 @@ def planner_planner_plan_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_planner_plan_bucket_delete(client,
-                                       planner_plan_id,
-                                       planner_bucket_id,
-                                       planner_task_id,
-                                       if_match=None):
-    return client.delete_task(planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
-
-
 def planner_planner_plan_bucket_create_task(client,
                                             planner_plan_id,
                                             planner_bucket_id,
@@ -1886,6 +1952,17 @@ def planner_planner_plan_bucket_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_planner_plan_bucket_delete_task(client,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            planner_task_id,
+                                            if_match=None):
+    return client.delete_task(planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_planner_plan_bucket_list_task(client,
@@ -1993,26 +2070,44 @@ def planner_planner_plan_bucket_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_planner_plan_bucket_task_delete(client,
-                                            planner_plan_id,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            if_match=None):
-    if planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
-                                                           planner_bucket_id=planner_bucket_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(planner_plan_id=planner_plan_id,
-                                                      planner_bucket_id=planner_bucket_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_detail(planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
+                                                                          planner_plan_id,
+                                                                          planner_bucket_id,
+                                                                          planner_task_id,
+                                                                          if_match=None):
+    return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
+                                                       planner_bucket_id=planner_bucket_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_planner_plan_bucket_task_delete_bucket_task_board_format(client,
+                                                                     planner_plan_id,
+                                                                     planner_bucket_id,
+                                                                     planner_task_id,
+                                                                     if_match=None):
+    return client.delete_bucket_task_board_format(planner_plan_id=planner_plan_id,
+                                                  planner_bucket_id=planner_bucket_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_planner_plan_bucket_task_delete_detail(client,
+                                                   planner_plan_id,
+                                                   planner_bucket_id,
+                                                   planner_task_id,
+                                                   if_match=None):
+    return client.delete_detail(planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_planner_plan_bucket_task_delete_progress_task_board_format(client,
+                                                                       planner_plan_id,
+                                                                       planner_bucket_id,
+                                                                       planner_task_id,
+                                                                       if_match=None):
     return client.delete_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
                                                     planner_task_id=planner_task_id,
@@ -2131,22 +2226,37 @@ def planner_planner_plan_bucket_task_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_planner_plan_task_delete(client,
-                                     planner_plan_id,
-                                     planner_task_id,
-                                     if_match=None):
-    if planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(planner_plan_id=planner_plan_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_detail(planner_plan_id=planner_plan_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_planner_plan_task_delete_assigned_to_task_board_format(client,
+                                                                   planner_plan_id,
+                                                                   planner_task_id,
+                                                                   if_match=None):
+    return client.delete_assigned_to_task_board_format(planner_plan_id=planner_plan_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_planner_plan_task_delete_bucket_task_board_format(client,
+                                                              planner_plan_id,
+                                                              planner_task_id,
+                                                              if_match=None):
+    return client.delete_bucket_task_board_format(planner_plan_id=planner_plan_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_planner_plan_task_delete_detail(client,
+                                            planner_plan_id,
+                                            planner_task_id,
+                                            if_match=None):
+    return client.delete_detail(planner_plan_id=planner_plan_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_planner_plan_task_delete_progress_task_board_format(client,
+                                                                planner_plan_id,
+                                                                planner_task_id,
+                                                                if_match=None):
     return client.delete_progress_task_board_format(planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
                                                     if_match=if_match)
@@ -2248,18 +2358,30 @@ def planner_planner_plan_task_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_planner_task_delete(client,
-                                planner_task_id,
-                                if_match=None):
-    if planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif planner_task_id is not None:
-        return client.delete_bucket_task_board_format(planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif planner_task_id is not None:
-        return client.delete_detail(planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_planner_task_delete_assigned_to_task_board_format(client,
+                                                              planner_task_id,
+                                                              if_match=None):
+    return client.delete_assigned_to_task_board_format(planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_planner_task_delete_bucket_task_board_format(client,
+                                                         planner_task_id,
+                                                         if_match=None):
+    return client.delete_bucket_task_board_format(planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_planner_task_delete_detail(client,
+                                       planner_task_id,
+                                       if_match=None):
+    return client.delete_detail(planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_planner_task_delete_progress_task_board_format(client,
+                                                           planner_task_id,
+                                                           if_match=None):
     return client.delete_progress_task_board_format(planner_task_id=planner_task_id,
                                                     if_match=if_match)
 
@@ -2344,9 +2466,9 @@ def planner_planner_task_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_user_delete(client,
-                        user_id,
-                        if_match=None):
+def planner_user_delete_planner(client,
+                                user_id,
+                                if_match=None):
     return client.delete_planner(user_id=user_id,
                                  if_match=if_match)
 
@@ -2369,20 +2491,6 @@ def planner_user_update_planner(client,
                                  id=id_,
                                  plans=plans,
                                  tasks=tasks)
-
-
-def planner_user_planner_delete(client,
-                                user_id,
-                                planner_plan_id=None,
-                                if_match=None,
-                                planner_task_id=None):
-    if user_id is not None and planner_plan_id is not None:
-        return client.delete_plan(user_id=user_id,
-                                  planner_plan_id=planner_plan_id,
-                                  if_match=if_match)
-    return client.delete_task(user_id=user_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
 
 
 def planner_user_planner_create_plan(client,
@@ -2487,6 +2595,24 @@ def planner_user_planner_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_user_planner_delete_plan(client,
+                                     user_id,
+                                     planner_plan_id,
+                                     if_match=None):
+    return client.delete_plan(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              if_match=if_match)
+
+
+def planner_user_planner_delete_task(client,
+                                     user_id,
+                                     planner_task_id,
+                                     if_match=None):
+    return client.delete_task(user_id=user_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_user_planner_list_plan(client,
@@ -2641,27 +2767,6 @@ def planner_user_planner_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_user_planner_plan_delete(client,
-                                     user_id,
-                                     planner_plan_id,
-                                     planner_bucket_id=None,
-                                     if_match=None,
-                                     planner_task_id=None):
-    if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None:
-        return client.delete_bucket(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    if_match=if_match)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_task(user_id=user_id,
-                                  planner_plan_id=planner_plan_id,
-                                  planner_task_id=planner_task_id,
-                                  if_match=if_match)
-    return client.delete_detail(user_id=user_id,
-                                planner_plan_id=planner_plan_id,
-                                if_match=if_match)
-
-
 def planner_user_planner_plan_create_bucket(client,
                                             user_id,
                                             planner_plan_id,
@@ -2754,6 +2859,37 @@ def planner_user_planner_plan_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_user_planner_plan_delete_bucket(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            planner_bucket_id,
+                                            if_match=None):
+    return client.delete_bucket(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                if_match=if_match)
+
+
+def planner_user_planner_plan_delete_detail(client,
+                                            user_id,
+                                            planner_plan_id,
+                                            if_match=None):
+    return client.delete_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                if_match=if_match)
+
+
+def planner_user_planner_plan_delete_task(client,
+                                          user_id,
+                                          planner_plan_id,
+                                          planner_task_id,
+                                          if_match=None):
+    return client.delete_task(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_user_planner_plan_list_bucket(client,
@@ -2930,19 +3066,6 @@ def planner_user_planner_plan_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_user_planner_plan_bucket_delete(client,
-                                            user_id,
-                                            planner_plan_id,
-                                            planner_bucket_id,
-                                            planner_task_id,
-                                            if_match=None):
-    return client.delete_task(user_id=user_id,
-                              planner_plan_id=planner_plan_id,
-                              planner_bucket_id=planner_bucket_id,
-                              planner_task_id=planner_task_id,
-                              if_match=if_match)
-
-
 def planner_user_planner_plan_bucket_create_task(client,
                                                  user_id,
                                                  planner_plan_id,
@@ -3020,6 +3143,19 @@ def planner_user_planner_plan_bucket_create_task(client,
                               microsoft_graph_identity_application=microsoft_graph_identity_application,
                               microsoft_graph_identity_device=microsoft_graph_identity_device,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
+
+
+def planner_user_planner_plan_bucket_delete_task(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_bucket_id,
+                                                 planner_task_id,
+                                                 if_match=None):
+    return client.delete_task(user_id=user_id,
+                              planner_plan_id=planner_plan_id,
+                              planner_bucket_id=planner_bucket_id,
+                              planner_task_id=planner_task_id,
+                              if_match=if_match)
 
 
 def planner_user_planner_plan_bucket_list_task(client,
@@ -3133,30 +3269,51 @@ def planner_user_planner_plan_bucket_update_task(client,
                               microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
-def planner_user_planner_plan_bucket_task_delete(client,
-                                                 user_id,
-                                                 planner_plan_id,
-                                                 planner_bucket_id,
-                                                 planner_task_id,
-                                                 if_match=None):
-    if user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_bucket_id=planner_bucket_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(user_id=user_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_bucket_id=planner_bucket_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif user_id is not None and planner_plan_id is not None and planner_bucket_id is not None and planner_task_id is not None:
-        return client.delete_detail(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_bucket_id=planner_bucket_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_user_planner_plan_bucket_task_delete_assigned_to_task_board_format(client,
+                                                                               user_id,
+                                                                               planner_plan_id,
+                                                                               planner_bucket_id,
+                                                                               planner_task_id,
+                                                                               if_match=None):
+    return client.delete_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_bucket_id=planner_bucket_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_user_planner_plan_bucket_task_delete_bucket_task_board_format(client,
+                                                                          user_id,
+                                                                          planner_plan_id,
+                                                                          planner_bucket_id,
+                                                                          planner_task_id,
+                                                                          if_match=None):
+    return client.delete_bucket_task_board_format(user_id=user_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_bucket_id=planner_bucket_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_user_planner_plan_bucket_task_delete_detail(client,
+                                                        user_id,
+                                                        planner_plan_id,
+                                                        planner_bucket_id,
+                                                        planner_task_id,
+                                                        if_match=None):
+    return client.delete_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_bucket_id=planner_bucket_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_user_planner_plan_bucket_task_delete_progress_task_board_format(client,
+                                                                            user_id,
+                                                                            planner_plan_id,
+                                                                            planner_bucket_id,
+                                                                            planner_task_id,
+                                                                            if_match=None):
     return client.delete_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_bucket_id=planner_bucket_id,
@@ -3292,26 +3449,44 @@ def planner_user_planner_plan_bucket_task_update_progress_task_board_format(clie
                                                     order_hint=order_hint)
 
 
-def planner_user_planner_plan_task_delete(client,
-                                          user_id,
-                                          planner_plan_id,
-                                          planner_task_id,
-                                          if_match=None):
-    if user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_plan_id=planner_plan_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(user_id=user_id,
-                                                      planner_plan_id=planner_plan_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif user_id is not None and planner_plan_id is not None and planner_task_id is not None:
-        return client.delete_detail(user_id=user_id,
-                                    planner_plan_id=planner_plan_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_user_planner_plan_task_delete_assigned_to_task_board_format(client,
+                                                                        user_id,
+                                                                        planner_plan_id,
+                                                                        planner_task_id,
+                                                                        if_match=None):
+    return client.delete_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_plan_id=planner_plan_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_user_planner_plan_task_delete_bucket_task_board_format(client,
+                                                                   user_id,
+                                                                   planner_plan_id,
+                                                                   planner_task_id,
+                                                                   if_match=None):
+    return client.delete_bucket_task_board_format(user_id=user_id,
+                                                  planner_plan_id=planner_plan_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_user_planner_plan_task_delete_detail(client,
+                                                 user_id,
+                                                 planner_plan_id,
+                                                 planner_task_id,
+                                                 if_match=None):
+    return client.delete_detail(user_id=user_id,
+                                planner_plan_id=planner_plan_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_user_planner_plan_task_delete_progress_task_board_format(client,
+                                                                     user_id,
+                                                                     planner_plan_id,
+                                                                     planner_task_id,
+                                                                     if_match=None):
     return client.delete_progress_task_board_format(user_id=user_id,
                                                     planner_plan_id=planner_plan_id,
                                                     planner_task_id=planner_task_id,
@@ -3430,22 +3605,37 @@ def planner_user_planner_plan_task_update_progress_task_board_format(client,
                                                     order_hint=order_hint)
 
 
-def planner_user_planner_task_delete(client,
-                                     user_id,
-                                     planner_task_id,
-                                     if_match=None):
-    if user_id is not None and planner_task_id is not None:
-        return client.delete_assigned_to_task_board_format(user_id=user_id,
-                                                           planner_task_id=planner_task_id,
-                                                           if_match=if_match)
-    elif user_id is not None and planner_task_id is not None:
-        return client.delete_bucket_task_board_format(user_id=user_id,
-                                                      planner_task_id=planner_task_id,
-                                                      if_match=if_match)
-    elif user_id is not None and planner_task_id is not None:
-        return client.delete_detail(user_id=user_id,
-                                    planner_task_id=planner_task_id,
-                                    if_match=if_match)
+def planner_user_planner_task_delete_assigned_to_task_board_format(client,
+                                                                   user_id,
+                                                                   planner_task_id,
+                                                                   if_match=None):
+    return client.delete_assigned_to_task_board_format(user_id=user_id,
+                                                       planner_task_id=planner_task_id,
+                                                       if_match=if_match)
+
+
+def planner_user_planner_task_delete_bucket_task_board_format(client,
+                                                              user_id,
+                                                              planner_task_id,
+                                                              if_match=None):
+    return client.delete_bucket_task_board_format(user_id=user_id,
+                                                  planner_task_id=planner_task_id,
+                                                  if_match=if_match)
+
+
+def planner_user_planner_task_delete_detail(client,
+                                            user_id,
+                                            planner_task_id,
+                                            if_match=None):
+    return client.delete_detail(user_id=user_id,
+                                planner_task_id=planner_task_id,
+                                if_match=if_match)
+
+
+def planner_user_planner_task_delete_progress_task_board_format(client,
+                                                                user_id,
+                                                                planner_task_id,
+                                                                if_match=None):
     return client.delete_progress_task_board_format(user_id=user_id,
                                                     planner_task_id=planner_task_id,
                                                     if_match=if_match)

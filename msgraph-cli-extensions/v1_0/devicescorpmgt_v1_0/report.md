@@ -31,20 +31,6 @@
 ### <a name="CommandsIndeviceAppManagement">Commands in `az devicescorpmgt device-app-management` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteAndroidManagedAppProtections)|DeleteAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteAndroidManagedAppProtections)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteDefaultManagedAppProtections)|DeleteDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteDefaultManagedAppProtections)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteIosManagedAppProtections)|DeleteIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteIosManagedAppProtections)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppPolicies)|DeleteManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppPolicies)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppRegistrations)|DeleteManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppRegistrations)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedAppStatuses)|DeleteManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppStatuses)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteManagedEBooks)|DeleteManagedEBooks|[Parameters](#ParametersdeviceAppManagementDeleteManagedEBooks)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|DeleteMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileAppCategories)|DeleteMobileAppCategories|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppCategories)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileAppConfigurations)|DeleteMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppConfigurations)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteMobileApps)|DeleteMobileApps|[Parameters](#ParametersdeviceAppManagementDeleteMobileApps)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteTargetedManagedAppConfigurations)|DeleteTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteVppTokens)|DeleteVppTokens|[Parameters](#ParametersdeviceAppManagementDeleteVppTokens)|Not Found|
-|[az devicescorpmgt device-app-management delete](#deviceAppManagementDeleteWindowsInformationProtectionPolicies)|DeleteWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies)|Not Found|
 |[az devicescorpmgt device-app-management create-android-managed-app-protection](#deviceAppManagementCreateAndroidManagedAppProtections)|CreateAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateAndroidManagedAppProtections)|Not Found|
 |[az devicescorpmgt device-app-management create-default-managed-app-protection](#deviceAppManagementCreateDefaultManagedAppProtections)|CreateDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateDefaultManagedAppProtections)|Not Found|
 |[az devicescorpmgt device-app-management create-io-managed-app-protection](#deviceAppManagementCreateIosManagedAppProtections)|CreateIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementCreateIosManagedAppProtections)|Not Found|
@@ -59,6 +45,20 @@
 |[az devicescorpmgt device-app-management create-targeted-managed-app-configuration](#deviceAppManagementCreateTargetedManagedAppConfigurations)|CreateTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementCreateTargetedManagedAppConfigurations)|Not Found|
 |[az devicescorpmgt device-app-management create-vpp-token](#deviceAppManagementCreateVppTokens)|CreateVppTokens|[Parameters](#ParametersdeviceAppManagementCreateVppTokens)|Not Found|
 |[az devicescorpmgt device-app-management create-window-information-protection-policy](#deviceAppManagementCreateWindowsInformationProtectionPolicies)|CreateWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementCreateWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management delete-android-managed-app-protection](#deviceAppManagementDeleteAndroidManagedAppProtections)|DeleteAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteAndroidManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete-default-managed-app-protection](#deviceAppManagementDeleteDefaultManagedAppProtections)|DeleteDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteDefaultManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete-io-managed-app-protection](#deviceAppManagementDeleteIosManagedAppProtections)|DeleteIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementDeleteIosManagedAppProtections)|Not Found|
+|[az devicescorpmgt device-app-management delete-managed-app-policy](#deviceAppManagementDeleteManagedAppPolicies)|DeleteManagedAppPolicies|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppPolicies)|Not Found|
+|[az devicescorpmgt device-app-management delete-managed-app-registration](#deviceAppManagementDeleteManagedAppRegistrations)|DeleteManagedAppRegistrations|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt device-app-management delete-managed-app-statuses](#deviceAppManagementDeleteManagedAppStatuses)|DeleteManagedAppStatuses|[Parameters](#ParametersdeviceAppManagementDeleteManagedAppStatuses)|Not Found|
+|[az devicescorpmgt device-app-management delete-managed-e-book](#deviceAppManagementDeleteManagedEBooks)|DeleteManagedEBooks|[Parameters](#ParametersdeviceAppManagementDeleteManagedEBooks)|Not Found|
+|[az devicescorpmgt device-app-management delete-mdm-window-information-protection-policy](#deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|DeleteMdmWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies)|Not Found|
+|[az devicescorpmgt device-app-management delete-mobile-app](#deviceAppManagementDeleteMobileApps)|DeleteMobileApps|[Parameters](#ParametersdeviceAppManagementDeleteMobileApps)|Not Found|
+|[az devicescorpmgt device-app-management delete-mobile-app-category](#deviceAppManagementDeleteMobileAppCategories)|DeleteMobileAppCategories|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppCategories)|Not Found|
+|[az devicescorpmgt device-app-management delete-mobile-app-configuration](#deviceAppManagementDeleteMobileAppConfigurations)|DeleteMobileAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteMobileAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management delete-targeted-managed-app-configuration](#deviceAppManagementDeleteTargetedManagedAppConfigurations)|DeleteTargetedManagedAppConfigurations|[Parameters](#ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations)|Not Found|
+|[az devicescorpmgt device-app-management delete-vpp-token](#deviceAppManagementDeleteVppTokens)|DeleteVppTokens|[Parameters](#ParametersdeviceAppManagementDeleteVppTokens)|Not Found|
+|[az devicescorpmgt device-app-management delete-window-information-protection-policy](#deviceAppManagementDeleteWindowsInformationProtectionPolicies)|DeleteWindowsInformationProtectionPolicies|[Parameters](#ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies)|Not Found|
 |[az devicescorpmgt device-app-management list-android-managed-app-protection](#deviceAppManagementListAndroidManagedAppProtections)|ListAndroidManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListAndroidManagedAppProtections)|Not Found|
 |[az devicescorpmgt device-app-management list-default-managed-app-protection](#deviceAppManagementListDefaultManagedAppProtections)|ListDefaultManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListDefaultManagedAppProtections)|Not Found|
 |[az devicescorpmgt device-app-management list-io-managed-app-protection](#deviceAppManagementListIosManagedAppProtections)|ListIosManagedAppProtections|[Parameters](#ParametersdeviceAppManagementListIosManagedAppProtections)|Not Found|
@@ -106,9 +106,9 @@
 ### <a name="CommandsIndeviceAppManagement.androidManagedAppProtections">Commands in `az devicescorpmgt device-app-management-android-managed-app-protection` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-android-managed-app-protection delete](#deviceAppManagement.androidManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps)|Not Found|
-|[az devicescorpmgt device-app-management-android-managed-app-protection delete](#deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-android-managed-app-protection create-app](#deviceAppManagement.androidManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection delete-app](#deviceAppManagement.androidManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-android-managed-app-protection delete-deployment-summary](#deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-android-managed-app-protection list-app](#deviceAppManagement.androidManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsListApps)|Not Found|
 |[az devicescorpmgt device-app-management-android-managed-app-protection show-app](#deviceAppManagement.androidManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsGetApps)|Not Found|
 |[az devicescorpmgt device-app-management-android-managed-app-protection show-deployment-summary](#deviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.androidManagedAppProtectionsGetDeploymentSummary)|Not Found|
@@ -118,9 +118,9 @@
 ### <a name="CommandsIndeviceAppManagement.defaultManagedAppProtections">Commands in `az devicescorpmgt device-app-management-default-managed-app-protection` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-default-managed-app-protection delete](#deviceAppManagement.defaultManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps)|Not Found|
-|[az devicescorpmgt device-app-management-default-managed-app-protection delete](#deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-default-managed-app-protection create-app](#deviceAppManagement.defaultManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection delete-app](#deviceAppManagement.defaultManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-default-managed-app-protection delete-deployment-summary](#deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-default-managed-app-protection list-app](#deviceAppManagement.defaultManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsListApps)|Not Found|
 |[az devicescorpmgt device-app-management-default-managed-app-protection show-app](#deviceAppManagement.defaultManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsGetApps)|Not Found|
 |[az devicescorpmgt device-app-management-default-managed-app-protection show-deployment-summary](#deviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.defaultManagedAppProtectionsGetDeploymentSummary)|Not Found|
@@ -136,9 +136,9 @@
 ### <a name="CommandsIndeviceAppManagement.iosManagedAppProtections">Commands in `az devicescorpmgt device-app-management-io-managed-app-protection` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-io-managed-app-protection delete](#deviceAppManagement.iosManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps)|Not Found|
-|[az devicescorpmgt device-app-management-io-managed-app-protection delete](#deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-io-managed-app-protection create-app](#deviceAppManagement.iosManagedAppProtectionsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsCreateApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection delete-app](#deviceAppManagement.iosManagedAppProtectionsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-io-managed-app-protection delete-deployment-summary](#deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-io-managed-app-protection list-app](#deviceAppManagement.iosManagedAppProtectionsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsListApps)|Not Found|
 |[az devicescorpmgt device-app-management-io-managed-app-protection show-app](#deviceAppManagement.iosManagedAppProtectionsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsGetApps)|Not Found|
 |[az devicescorpmgt device-app-management-io-managed-app-protection show-deployment-summary](#deviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary)|GetDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.iosManagedAppProtectionsGetDeploymentSummary)|Not Found|
@@ -153,12 +153,12 @@
 ### <a name="CommandsIndeviceAppManagement.managedAppRegistrations">Commands in `az devicescorpmgt device-app-management-managed-app-registration` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|DeleteAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|Not Found|
-|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|DeleteIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|Not Found|
-|[az devicescorpmgt device-app-management-managed-app-registration delete](#deviceAppManagement.managedAppRegistrationsDeleteOperations)|DeleteOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration create-applied-policy](#deviceAppManagement.managedAppRegistrationsCreateAppliedPolicies)|CreateAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateAppliedPolicies)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration create-intended-policy](#deviceAppManagement.managedAppRegistrationsCreateIntendedPolicies)|CreateIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateIntendedPolicies)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration create-operation](#deviceAppManagement.managedAppRegistrationsCreateOperations)|CreateOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsCreateOperations)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration delete-applied-policy](#deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|DeleteAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration delete-intended-policy](#deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|DeleteIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies)|Not Found|
+|[az devicescorpmgt device-app-management-managed-app-registration delete-operation](#deviceAppManagement.managedAppRegistrationsDeleteOperations)|DeleteOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration list-applied-policy](#deviceAppManagement.managedAppRegistrationsListAppliedPolicies)|ListAppliedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListAppliedPolicies)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration list-intended-policy](#deviceAppManagement.managedAppRegistrationsListIntendedPolicies)|ListIntendedPolicies|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListIntendedPolicies)|Not Found|
 |[az devicescorpmgt device-app-management-managed-app-registration list-operation](#deviceAppManagement.managedAppRegistrationsListOperations)|ListOperations|[Parameters](#ParametersdeviceAppManagement.managedAppRegistrationsListOperations)|Not Found|
@@ -183,14 +183,14 @@
 ### <a name="CommandsIndeviceAppManagement.managedEBooks">Commands in `az devicescorpmgt device-app-management-managed-e-book` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteAssignments)|Not Found|
-|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates)|Not Found|
-|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteUserStateSummary)|DeleteUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary)|Not Found|
-|[az devicescorpmgt device-app-management-managed-e-book delete](#deviceAppManagement.managedEBooksDeleteInstallSummary)|DeleteInstallSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book assign](#deviceAppManagement.managedEBooksassign)|assign|[Parameters](#ParametersdeviceAppManagement.managedEBooksassign)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book create-assignment](#deviceAppManagement.managedEBooksCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book create-device-state](#deviceAppManagement.managedEBooksCreateDeviceStates)|CreateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book create-user-state-summary](#deviceAppManagement.managedEBooksCreateUserStateSummary)|CreateUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksCreateUserStateSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete-assignment](#deviceAppManagement.managedEBooksDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete-device-state](#deviceAppManagement.managedEBooksDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete-install-summary](#deviceAppManagement.managedEBooksDeleteInstallSummary)|DeleteInstallSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book delete-user-state-summary](#deviceAppManagement.managedEBooksDeleteUserStateSummary)|DeleteUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book list-assignment](#deviceAppManagement.managedEBooksListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.managedEBooksListAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book list-device-state](#deviceAppManagement.managedEBooksListDeviceStates)|ListDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooksListDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book list-user-state-summary](#deviceAppManagement.managedEBooksListUserStateSummary)|ListUserStateSummary|[Parameters](#ParametersdeviceAppManagement.managedEBooksListUserStateSummary)|Not Found|
@@ -206,8 +206,8 @@
 ### <a name="CommandsIndeviceAppManagement.managedEBooks.userStateSummary">Commands in `az devicescorpmgt device-app-management-managed-e-book-user-state-summary` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete](#deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state](#deviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates)|CreateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates)|Not Found|
+|[az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete-device-state](#deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|DeleteDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state](#deviceAppManagement.managedEBooks.userStateSummaryListDeviceStates)|ListDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryListDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book-user-state-summary show-device-state](#deviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates)|GetDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryGetDeviceStates)|Not Found|
 |[az devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state](#deviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates)|UpdateDeviceStates|[Parameters](#ParametersdeviceAppManagement.managedEBooks.userStateSummaryUpdateDeviceStates)|Not Found|
@@ -215,10 +215,10 @@
 ### <a name="CommandsIndeviceAppManagement.mobileApps">Commands in `az devicescorpmgt device-app-management-mobile-app` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-mobile-app delete](#deviceAppManagement.mobileAppsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsDeleteAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app assign](#deviceAppManagement.mobileAppsassign)|assign|[Parameters](#ParametersdeviceAppManagement.mobileAppsassign)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app create-assignment](#deviceAppManagement.mobileAppsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsCreateAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app create-ref-category](#deviceAppManagement.mobileAppsCreateRefCategories)|CreateRefCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsCreateRefCategories)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app delete-assignment](#deviceAppManagement.mobileAppsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsDeleteAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app list-assignment](#deviceAppManagement.mobileAppsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppsListAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app list-category](#deviceAppManagement.mobileAppsListCategories)|ListCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsListCategories)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app list-ref-category](#deviceAppManagement.mobileAppsListRefCategories)|ListRefCategories|[Parameters](#ParametersdeviceAppManagement.mobileAppsListRefCategories)|Not Found|
@@ -228,15 +228,15 @@
 ### <a name="CommandsIndeviceAppManagement.mobileAppConfigurations">Commands in `az devicescorpmgt device-app-management-mobile-app-configuration` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments)|Not Found|
-|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|DeleteDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|Not Found|
-|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|DeleteUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|Not Found|
-|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|DeleteDeviceStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|Not Found|
-|[az devicescorpmgt device-app-management-mobile-app-configuration delete](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|DeleteUserStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration assign](#deviceAppManagement.mobileAppConfigurationsassign)|assign|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsassign)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration create-assignment](#deviceAppManagement.mobileAppConfigurationsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses](#deviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses)|CreateDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateDeviceStatuses)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses](#deviceAppManagement.mobileAppConfigurationsCreateUserStatuses)|CreateUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsCreateUserStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete-assignment](#deviceAppManagement.mobileAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete-device-status-summary](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|DeleteDeviceStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete-device-statuses](#deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|DeleteDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete-user-status-summary](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|DeleteUserStatusSummary|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary)|Not Found|
+|[az devicescorpmgt device-app-management-mobile-app-configuration delete-user-statuses](#deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|DeleteUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration list-assignment](#deviceAppManagement.mobileAppConfigurationsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses](#deviceAppManagement.mobileAppConfigurationsListDeviceStatuses)|ListDeviceStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListDeviceStatuses)|Not Found|
 |[az devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses](#deviceAppManagement.mobileAppConfigurationsListUserStatuses)|ListUserStatuses|[Parameters](#ParametersdeviceAppManagement.mobileAppConfigurationsListUserStatuses)|Not Found|
@@ -254,12 +254,12 @@
 ### <a name="CommandsIndeviceAppManagement.targetedManagedAppConfigurations">Commands in `az devicescorpmgt device-app-management-targeted-managed-app-configuration` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|Not Found|
-|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|Not Found|
-|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete](#deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration assign](#deviceAppManagement.targetedManagedAppConfigurationsassign)|assign|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsassign)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration create-app](#deviceAppManagement.targetedManagedAppConfigurationsCreateApps)|CreateApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateApps)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment](#deviceAppManagement.targetedManagedAppConfigurationsCreateAssignments)|CreateAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsCreateAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-app](#deviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|DeleteApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-assignment](#deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|DeleteAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments)|Not Found|
+|[az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-deployment-summary](#deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|DeleteDeploymentSummary|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration list-app](#deviceAppManagement.targetedManagedAppConfigurationsListApps)|ListApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsListApps)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment](#deviceAppManagement.targetedManagedAppConfigurationsListAssignments)|ListAssignments|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsListAssignments)|Not Found|
 |[az devicescorpmgt device-app-management-targeted-managed-app-configuration show-app](#deviceAppManagement.targetedManagedAppConfigurationsGetApps)|GetApps|[Parameters](#ParametersdeviceAppManagement.targetedManagedAppConfigurationsGetApps)|Not Found|
@@ -278,11 +278,11 @@
 ### <a name="CommandsInusers">Commands in `az devicescorpmgt user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt user delete](#usersDeleteDeviceManagementTroubleshootingEvents)|DeleteDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersDeleteDeviceManagementTroubleshootingEvents)|Not Found|
-|[az devicescorpmgt user delete](#usersDeleteManagedDevices)|DeleteManagedDevices|[Parameters](#ParametersusersDeleteManagedDevices)|Not Found|
 |[az devicescorpmgt user create-device-management-troubleshooting-event](#usersCreateDeviceManagementTroubleshootingEvents)|CreateDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersCreateDeviceManagementTroubleshootingEvents)|Not Found|
 |[az devicescorpmgt user create-managed-device](#usersCreateManagedDevices)|CreateManagedDevices|[Parameters](#ParametersusersCreateManagedDevices)|Not Found|
 |[az devicescorpmgt user create-ref-managed-app-registration](#usersCreateRefManagedAppRegistrations)|CreateRefManagedAppRegistrations|[Parameters](#ParametersusersCreateRefManagedAppRegistrations)|Not Found|
+|[az devicescorpmgt user delete-device-management-troubleshooting-event](#usersDeleteDeviceManagementTroubleshootingEvents)|DeleteDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersDeleteDeviceManagementTroubleshootingEvents)|Not Found|
+|[az devicescorpmgt user delete-managed-device](#usersDeleteManagedDevices)|DeleteManagedDevices|[Parameters](#ParametersusersDeleteManagedDevices)|Not Found|
 |[az devicescorpmgt user list-device-management-troubleshooting-event](#usersListDeviceManagementTroubleshootingEvents)|ListDeviceManagementTroubleshootingEvents|[Parameters](#ParametersusersListDeviceManagementTroubleshootingEvents)|Not Found|
 |[az devicescorpmgt user list-managed-app-registration](#usersListManagedAppRegistrations)|ListManagedAppRegistrations|[Parameters](#ParametersusersListManagedAppRegistrations)|Not Found|
 |[az devicescorpmgt user list-managed-device](#usersListManagedDevices)|ListManagedDevices|[Parameters](#ParametersusersListManagedDevices)|Not Found|
@@ -295,11 +295,11 @@
 ### <a name="CommandsInusers.managedDevices">Commands in `az devicescorpmgt user-managed-device` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceCompliancePolicyStates)|DeleteDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates)|Not Found|
-|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceConfigurationStates)|DeleteDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceConfigurationStates)|Not Found|
-|[az devicescorpmgt user-managed-device delete](#users.managedDevicesDeleteDeviceCategory)|DeleteDeviceCategory|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCategory)|Not Found|
 |[az devicescorpmgt user-managed-device create-device-compliance-policy-state](#users.managedDevicesCreateDeviceCompliancePolicyStates)|CreateDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesCreateDeviceCompliancePolicyStates)|Not Found|
 |[az devicescorpmgt user-managed-device create-device-configuration-state](#users.managedDevicesCreateDeviceConfigurationStates)|CreateDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesCreateDeviceConfigurationStates)|Not Found|
+|[az devicescorpmgt user-managed-device delete-device-category](#users.managedDevicesDeleteDeviceCategory)|DeleteDeviceCategory|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCategory)|Not Found|
+|[az devicescorpmgt user-managed-device delete-device-compliance-policy-state](#users.managedDevicesDeleteDeviceCompliancePolicyStates)|DeleteDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates)|Not Found|
+|[az devicescorpmgt user-managed-device delete-device-configuration-state](#users.managedDevicesDeleteDeviceConfigurationStates)|DeleteDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesDeleteDeviceConfigurationStates)|Not Found|
 |[az devicescorpmgt user-managed-device list-device-compliance-policy-state](#users.managedDevicesListDeviceCompliancePolicyStates)|ListDeviceCompliancePolicyStates|[Parameters](#Parametersusers.managedDevicesListDeviceCompliancePolicyStates)|Not Found|
 |[az devicescorpmgt user-managed-device list-device-configuration-state](#users.managedDevicesListDeviceConfigurationStates)|ListDeviceConfigurationStates|[Parameters](#Parametersusers.managedDevicesListDeviceConfigurationStates)|Not Found|
 |[az devicescorpmgt user-managed-device show-device-category](#users.managedDevicesGetDeviceCategory)|GetDeviceCategory|[Parameters](#Parametersusers.managedDevicesGetDeviceCategory)|Not Found|
@@ -313,105 +313,6 @@
 ## COMMAND DETAILS
 
 ### group `az devicescorpmgt device-app-management`
-#### <a name="deviceAppManagementDeleteAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteAndroidManagedAppProtections">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagementDeleteDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteDefaultManagedAppProtections">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-
-#### <a name="deviceAppManagementDeleteIosManagedAppProtections">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteIosManagedAppProtections">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-
-#### <a name="deviceAppManagementDeleteManagedAppPolicies">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteManagedAppPolicies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
-
-#### <a name="deviceAppManagementDeleteManagedAppRegistrations">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteManagedAppRegistrations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-
-#### <a name="deviceAppManagementDeleteManagedAppStatuses">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteManagedAppStatuses">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
-
-#### <a name="deviceAppManagementDeleteManagedEBooks">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteManagedEBooks">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-
-#### <a name="deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
-
-#### <a name="deviceAppManagementDeleteMobileAppCategories">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteMobileAppCategories">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
-
-#### <a name="deviceAppManagementDeleteMobileAppConfigurations">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteMobileAppConfigurations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-
-#### <a name="deviceAppManagementDeleteMobileApps">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteMobileApps">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-
-#### <a name="deviceAppManagementDeleteTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-
-#### <a name="deviceAppManagementDeleteVppTokens">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteVppTokens">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
-
-#### <a name="deviceAppManagementDeleteWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete`</a>
-
-##### <a name="ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
-
 #### <a name="deviceAppManagementCreateAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management create-android-managed-app-protection`</a>
 
 ##### <a name="ParametersdeviceAppManagementCreateAndroidManagedAppProtections">Parameters</a> 
@@ -815,6 +716,118 @@
 |**--pin-uppercase-letters**|choice||pin_uppercase_letters|pinUppercaseLetters|
 |**--revoke-on-mdm-handoff-disabled**|boolean|New property in RS2, pending documentation|revoke_on_mdm_handoff_disabled|revokeOnMdmHandoffDisabled|
 |**--windows-hello-for-business-blocked**|boolean|Boolean value that sets Windows Hello for Business as a method for signing into Windows.|windows_hello_for_business_blocked|windowsHelloForBusinessBlocked|
+
+#### <a name="deviceAppManagementDeleteAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management delete-android-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteAndroidManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteDefaultManagedAppProtections">Command `az devicescorpmgt device-app-management delete-default-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteDefaultManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteIosManagedAppProtections">Command `az devicescorpmgt device-app-management delete-io-managed-app-protection`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteIosManagedAppProtections">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteManagedAppPolicies">Command `az devicescorpmgt device-app-management delete-managed-app-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteManagedAppRegistrations">Command `az devicescorpmgt device-app-management delete-managed-app-registration`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppRegistrations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteManagedAppStatuses">Command `az devicescorpmgt device-app-management delete-managed-app-statuses`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedAppStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-status-id**|string|key: id of managedAppStatus|managed_app_status_id|managedAppStatus-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteManagedEBooks">Command `az devicescorpmgt device-app-management delete-managed-e-book`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteManagedEBooks">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete-mdm-window-information-protection-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMdmWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mdm-windows-information-protection-policy-id**|string|key: id of mdmWindowsInformationProtectionPolicy|mdm_windows_information_protection_policy_id|mdmWindowsInformationProtectionPolicy-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteMobileApps">Command `az devicescorpmgt device-app-management delete-mobile-app`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteMobileAppCategories">Command `az devicescorpmgt device-app-management delete-mobile-app-category`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileAppCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-category-id**|string|key: id of mobileAppCategory|mobile_app_category_id|mobileAppCategory-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteMobileAppConfigurations">Command `az devicescorpmgt device-app-management delete-mobile-app-configuration`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteMobileAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteTargetedManagedAppConfigurations">Command `az devicescorpmgt device-app-management delete-targeted-managed-app-configuration`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteTargetedManagedAppConfigurations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteVppTokens">Command `az devicescorpmgt device-app-management delete-vpp-token`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteVppTokens">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagementDeleteWindowsInformationProtectionPolicies">Command `az devicescorpmgt device-app-management delete-window-information-protection-policy`</a>
+
+##### <a name="ParametersdeviceAppManagementDeleteWindowsInformationProtectionPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--windows-information-protection-policy-id**|string|key: id of windowsInformationProtectionPolicy|windows_information_protection_policy_id|windowsInformationProtectionPolicy-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagementListAndroidManagedAppProtections">Command `az devicescorpmgt device-app-management list-android-managed-app-protection`</a>
 
@@ -1492,20 +1505,6 @@
 |**--windows-hello-for-business-blocked**|boolean|Boolean value that sets Windows Hello for Business as a method for signing into Windows.|windows_hello_for_business_blocked|windowsHelloForBusinessBlocked|
 
 ### group `az devicescorpmgt device-app-management-android-managed-app-protection`
-#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.androidManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection create-app`</a>
 
 ##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsCreateApps">Parameters</a> 
@@ -1515,6 +1514,23 @@
 |**--id**|string|Read-only.|id|id|
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-android-managed-app-protection delete-deployment-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.androidManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--android-managed-app-protection-id**|string|key: id of androidManagedAppProtection|android_managed_app_protection_id|androidManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.androidManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-android-managed-app-protection list-app`</a>
 
@@ -1570,20 +1586,6 @@
 |**--version**|string|Version of the entity.|version|version|
 
 ### group `az devicescorpmgt device-app-management-default-managed-app-protection`
-#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.defaultManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection create-app`</a>
 
 ##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsCreateApps">Parameters</a> 
@@ -1593,6 +1595,23 @@
 |**--id**|string|Read-only.|id|id|
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-default-managed-app-protection delete-deployment-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.defaultManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--default-managed-app-protection-id**|string|key: id of defaultManagedAppProtection|default_managed_app_protection_id|defaultManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.defaultManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-default-managed-app-protection list-app`</a>
 
@@ -1682,20 +1701,6 @@
 |**--windows-information-protection-policies**|array|Windows information protection for apps running on devices which are not MDM enrolled.|windows_information_protection_policies|windowsInformationProtectionPolicies|
 
 ### group `az devicescorpmgt device-app-management-io-managed-app-protection`
-#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.iosManagedAppProtectionsCreateApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection create-app`</a>
 
 ##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsCreateApps">Parameters</a> 
@@ -1705,6 +1710,23 @@
 |**--id**|string|Read-only.|id|id|
 |**--mobile-app-identifier**|dictionary|The identifier for a mobile app.|mobile_app_identifier|mobileAppIdentifier|
 |**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-io-managed-app-protection delete-deployment-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.iosManagedAppProtectionsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ios-managed-app-protection-id**|string|key: id of iosManagedAppProtection|ios_managed_app_protection_id|iosManagedAppProtection-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.iosManagedAppProtectionsListApps">Command `az devicescorpmgt device-app-management-io-managed-app-protection list-app`</a>
 
@@ -1769,27 +1791,6 @@
 |**--apps**|array||apps|apps|
 
 ### group `az devicescorpmgt device-app-management-managed-app-registration`
-#### <a name="deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
-|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="deviceAppManagement.managedAppRegistrationsDeleteOperations">Command `az devicescorpmgt device-app-management-managed-app-registration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-app-operation-id**|string|key: id of managedAppOperation|managed_app_operation_id|managedAppOperation-id|
-
 #### <a name="deviceAppManagement.managedAppRegistrationsCreateAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration create-applied-policy`</a>
 
 ##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsCreateAppliedPolicies">Parameters</a> 
@@ -1827,6 +1828,33 @@
 |**--last-modified-date-time**|date-time|The last time the app operation was modified.|last_modified_date_time|lastModifiedDateTime|
 |**--state**|string|The current state of the operation|state|state|
 |**--version**|string|Version of the entity.|version|version|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete-applied-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteAppliedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration delete-intended-policy`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteIntendedPolicies">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--managed-app-policy-id**|string|key: id of managedAppPolicy|managed_app_policy_id|managedAppPolicy-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.managedAppRegistrationsDeleteOperations">Command `az devicescorpmgt device-app-management-managed-app-registration delete-operation`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedAppRegistrationsDeleteOperations">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-app-registration-id**|string|key: id of managedAppRegistration|managed_app_registration_id|managedAppRegistration-id|
+|**--managed-app-operation-id**|string|key: id of managedAppOperation|managed_app_operation_id|managedAppOperation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.managedAppRegistrationsListAppliedPolicies">Command `az devicescorpmgt device-app-management-managed-app-registration list-applied-policy`</a>
 
@@ -1955,34 +1983,6 @@
 |**--apps**|array||apps|apps|
 
 ### group `az devicescorpmgt device-app-management-managed-e-book`
-#### <a name="deviceAppManagement.managedEBooksDeleteAssignments">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--managed-e-book-assignment-id**|string|key: id of managedEBookAssignment|managed_e_book_assignment_id|managedEBookAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.managedEBooksDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
-
-#### <a name="deviceAppManagement.managedEBooksDeleteUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
-
-#### <a name="deviceAppManagement.managedEBooksDeleteInstallSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.managedEBooksassign">Command `az devicescorpmgt device-app-management-managed-e-book assign`</a>
 
 ##### <a name="ParametersdeviceAppManagement.managedEBooksassign">Parameters</a> 
@@ -2029,6 +2029,41 @@
 |**--not-installed-device-count**|integer|Not installed device count.|not_installed_device_count|notInstalledDeviceCount|
 |**--user-name**|string|User name.|user_name|userName|
 |**--device-states**|array|The install state of the eBook.|device_states|deviceStates|
+
+#### <a name="deviceAppManagement.managedEBooksDeleteAssignments">Command `az devicescorpmgt device-app-management-managed-e-book delete-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--managed-e-book-assignment-id**|string|key: id of managedEBookAssignment|managed_e_book_assignment_id|managedEBookAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.managedEBooksDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book delete-device-state`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.managedEBooksDeleteInstallSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete-install-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteInstallSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.managedEBooksDeleteUserStateSummary">Command `az devicescorpmgt device-app-management-managed-e-book delete-user-state-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooksDeleteUserStateSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.managedEBooksListAssignments">Command `az devicescorpmgt device-app-management-managed-e-book list-assignment`</a>
 
@@ -2156,16 +2191,6 @@
 |**--device-states**|array|The install state of the eBook.|device_states|deviceStates|
 
 ### group `az devicescorpmgt device-app-management-managed-e-book-user-state-summary`
-#### <a name="deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
-|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
-|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="deviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state`</a>
 
 ##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryCreateDeviceStates">Parameters</a> 
@@ -2182,6 +2207,16 @@
 |**--os-description**|string|OS Description.|os_description|osDescription|
 |**--os-version**|string|OS Version.|os_version|osVersion|
 |**--user-name**|string|Device User Name.|user_name|userName|
+
+#### <a name="deviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary delete-device-state`</a>
+
+##### <a name="ParametersdeviceAppManagement.managedEBooks.userStateSummaryDeleteDeviceStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-e-book-id**|string|key: id of managedEBook|managed_e_book_id|managedEBook-id|
+|**--user-install-state-summary-id**|string|key: id of userInstallStateSummary|user_install_state_summary_id|userInstallStateSummary-id|
+|**--device-install-state-id**|string|key: id of deviceInstallState|device_install_state_id|deviceInstallState-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.managedEBooks.userStateSummaryListDeviceStates">Command `az devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state`</a>
 
@@ -2224,15 +2259,6 @@
 |**--user-name**|string|Device User Name.|user_name|userName|
 
 ### group `az devicescorpmgt device-app-management-mobile-app`
-#### <a name="deviceAppManagement.mobileAppsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppsDeleteAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
-|**--mobile-app-assignment-id**|string|key: id of mobileAppAssignment|mobile_app_assignment_id|mobileAppAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="deviceAppManagement.mobileAppsassign">Command `az devicescorpmgt device-app-management-mobile-app assign`</a>
 
 ##### <a name="ParametersdeviceAppManagement.mobileAppsassign">Parameters</a> 
@@ -2259,6 +2285,15 @@
 |------|----|-----------|----------|------------|
 |**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="deviceAppManagement.mobileAppsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app delete-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--mobile-app-id**|string|key: id of mobileApp|mobile_app_id|mobileApp-id|
+|**--mobile-app-assignment-id**|string|key: id of mobileAppAssignment|mobile_app_assignment_id|mobileAppAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.mobileAppsListAssignments">Command `az devicescorpmgt device-app-management-mobile-app list-assignment`</a>
 
@@ -2311,39 +2346,6 @@
 |**--target**|dictionary|Base type for assignment targets.|target|target|
 
 ### group `az devicescorpmgt device-app-management-mobile-app-configuration`
-#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
-|**--managed-device-mobile-app-configuration-assignment-id**|string|key: id of managedDeviceMobileAppConfigurationAssignment|managed_device_mobile_app_configuration_assignment_id|managedDeviceMobileAppConfigurationAssignment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-device-status-id**|string|key: id of managedDeviceMobileAppConfigurationDeviceStatus|managed_device_mobile_app_configuration_device_status_id|managedDeviceMobileAppConfigurationDeviceStatus-id|
-
-#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-mobile-app-configuration-user-status-id**|string|key: id of managedDeviceMobileAppConfigurationUserStatus|managed_device_mobile_app_configuration_user_status_id|managedDeviceMobileAppConfigurationUserStatus-id|
-
-#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.mobileAppConfigurationsassign">Command `az devicescorpmgt device-app-management-mobile-app-configuration assign`</a>
 
 ##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsassign">Parameters</a> 
@@ -2388,6 +2390,49 @@
 |**--status**|choice||status|status|
 |**--user-display-name**|string|User name of the DevicePolicyStatus.|user_display_name|userDisplayName|
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--managed-device-mobile-app-configuration-assignment-id**|string|key: id of managedDeviceMobileAppConfigurationAssignment|managed_device_mobile_app_configuration_assignment_id|managedDeviceMobileAppConfigurationAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete-device-status-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatusSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete-device-statuses`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteDeviceStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--managed-device-mobile-app-configuration-device-status-id**|string|key: id of managedDeviceMobileAppConfigurationDeviceStatus|managed_device_mobile_app_configuration_device_status_id|managedDeviceMobileAppConfigurationDeviceStatus-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete-user-status-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatusSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Command `az devicescorpmgt device-app-management-mobile-app-configuration delete-user-statuses`</a>
+
+##### <a name="ParametersdeviceAppManagement.mobileAppConfigurationsDeleteUserStatuses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--managed-device-mobile-app-configuration-id**|string|key: id of managedDeviceMobileAppConfiguration|managed_device_mobile_app_configuration_id|managedDeviceMobileAppConfiguration-id|
+|**--managed-device-mobile-app-configuration-user-status-id**|string|key: id of managedDeviceMobileAppConfigurationUserStatus|managed_device_mobile_app_configuration_user_status_id|managedDeviceMobileAppConfigurationUserStatus-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.mobileAppConfigurationsListAssignments">Command `az devicescorpmgt device-app-management-mobile-app-configuration list-assignment`</a>
 
@@ -2538,27 +2583,6 @@
 |**--user-principal-name**|string|UserPrincipalName.|user_principal_name|userPrincipalName|
 
 ### group `az devicescorpmgt device-app-management-targeted-managed-app-configuration`
-#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
-|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
-
-#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete`</a>
-
-##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="deviceAppManagement.targetedManagedAppConfigurationsassign">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration assign`</a>
 
 ##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsassign">Parameters</a> 
@@ -2585,6 +2609,32 @@
 |**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
 |**--id**|string|Read-only.|id|id|
 |**--target**|dictionary|Base type for assignment targets.|target|target|
+
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-app`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteApps">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--managed-mobile-app-id**|string|key: id of managedMobileApp|managed_mobile_app_id|managedMobileApp-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-assignment`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteAssignments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--targeted-managed-app-policy-assignment-id**|string|key: id of targetedManagedAppPolicyAssignment|targeted_managed_app_policy_assignment_id|targetedManagedAppPolicyAssignment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="deviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration delete-deployment-summary`</a>
+
+##### <a name="ParametersdeviceAppManagement.targetedManagedAppConfigurationsDeleteDeploymentSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--targeted-managed-app-configuration-id**|string|key: id of targetedManagedAppConfiguration|targeted_managed_app_configuration_id|targetedManagedAppConfiguration-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="deviceAppManagement.targetedManagedAppConfigurationsListApps">Command `az devicescorpmgt device-app-management-targeted-managed-app-configuration list-app`</a>
 
@@ -2686,22 +2736,6 @@
 |**--vpp-token-id**|string|key: id of vppToken|vpp_token_id|vppToken-id|
 
 ### group `az devicescorpmgt user`
-#### <a name="usersDeleteDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user delete`</a>
-
-##### <a name="ParametersusersDeleteDeviceManagementTroubleshootingEvents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--device-management-troubleshooting-event-id**|string|key: id of deviceManagementTroubleshootingEvent|device_management_troubleshooting_event_id|deviceManagementTroubleshootingEvent-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteManagedDevices">Command `az devicescorpmgt user delete`</a>
-
-##### <a name="ParametersusersDeleteManagedDevices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-
 #### <a name="usersCreateDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user create-device-management-troubleshooting-event`</a>
 
 ##### <a name="ParametersusersCreateDeviceManagementTroubleshootingEvents">Parameters</a> 
@@ -2776,6 +2810,24 @@
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="usersDeleteDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user delete-device-management-troubleshooting-event`</a>
+
+##### <a name="ParametersusersDeleteDeviceManagementTroubleshootingEvents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--device-management-troubleshooting-event-id**|string|key: id of deviceManagementTroubleshootingEvent|device_management_troubleshooting_event_id|deviceManagementTroubleshootingEvent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteManagedDevices">Command `az devicescorpmgt user delete-managed-device`</a>
+
+##### <a name="ParametersusersDeleteManagedDevices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListDeviceManagementTroubleshootingEvents">Command `az devicescorpmgt user list-device-management-troubleshooting-event`</a>
 
@@ -2905,28 +2957,6 @@
 |**--device-category**|object|Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories.|device_category|deviceCategory|
 
 ### group `az devicescorpmgt user-managed-device`
-#### <a name="users.managedDevicesDeleteDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device delete`</a>
-
-##### <a name="Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
-|**--device-compliance-policy-state-id**|string|key: id of deviceCompliancePolicyState|device_compliance_policy_state_id|deviceCompliancePolicyState-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.managedDevicesDeleteDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device delete`</a>
-
-##### <a name="Parametersusers.managedDevicesDeleteDeviceConfigurationStates">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--device-configuration-state-id**|string|key: id of deviceConfigurationState|device_configuration_state_id|deviceConfigurationState-id|
-
-#### <a name="users.managedDevicesDeleteDeviceCategory">Command `az devicescorpmgt user-managed-device delete`</a>
-
-##### <a name="Parametersusers.managedDevicesDeleteDeviceCategory">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="users.managedDevicesCreateDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device create-device-compliance-policy-state`</a>
 
 ##### <a name="Parametersusers.managedDevicesCreateDeviceCompliancePolicyStates">Parameters</a> 
@@ -2956,6 +2986,35 @@
 |**--setting-states**|array||setting_states|settingStates|
 |**--state**|choice||state|state|
 |**--version**|integer|The version of the policy|version|version|
+
+#### <a name="users.managedDevicesDeleteDeviceCategory">Command `az devicescorpmgt user-managed-device delete-device-category`</a>
+
+##### <a name="Parametersusers.managedDevicesDeleteDeviceCategory">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.managedDevicesDeleteDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device delete-device-compliance-policy-state`</a>
+
+##### <a name="Parametersusers.managedDevicesDeleteDeviceCompliancePolicyStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--device-compliance-policy-state-id**|string|key: id of deviceCompliancePolicyState|device_compliance_policy_state_id|deviceCompliancePolicyState-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.managedDevicesDeleteDeviceConfigurationStates">Command `az devicescorpmgt user-managed-device delete-device-configuration-state`</a>
+
+##### <a name="Parametersusers.managedDevicesDeleteDeviceConfigurationStates">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--managed-device-id**|string|key: id of managedDevice|managed_device_id|managedDevice-id|
+|**--device-configuration-state-id**|string|key: id of deviceConfigurationState|device_configuration_state_id|deviceConfigurationState-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.managedDevicesListDeviceCompliancePolicyStates">Command `az devicescorpmgt user-managed-device list-device-compliance-policy-state`</a>
 

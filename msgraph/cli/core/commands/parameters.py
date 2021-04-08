@@ -10,7 +10,10 @@ import platform
 from knack.util import CLIError
 from knack import ArgumentsContext
 from knack.arguments import (CLIArgumentType, CaseInsensitiveList)
+
 from msgraph.cli.core.commands.validators import validate_tags
+from msgraph.cli.core.local_context import LocalContextAction, LocalContextAttribute, ALL
+from msgraph.cli.core.decorators import Completer
 
 quotes = '""' if platform.system() == 'Windows' else "''"
 quote_text = 'Use {} to clear existing tags.'.format(quotes)
@@ -97,3 +100,45 @@ tags_type = CLIArgumentType(
     validator=validate_tags,
     help="space-separated tags: key[=value] [key[=value] ...]. {}".format(quote_text),
     nargs='*')
+
+
+def get_subscription_locations(cli_ctx):
+    '''Not implemented because msgraph-cli doesn't support subscriptions'''
+    # from msgraph.cli.core.commands.client_factory import get_subscription_service_client
+    # subscription_client, subscription_id = get_subscription_service_client(cli_ctx)
+    # return list(subscription_client.subscriptions.list_locations(subscription_id))
+    pass
+
+
+@Completer
+def get_location_completion_list(cmd, prefix, namespace, **kwargs):  # pylint: disable=unused-argument
+    '''Not implemented because it depends on get_subscription_list'''
+    # result = get_subscription_locations(cmd.cli_ctx)
+    # return [item.name for item in result]
+    pass
+
+
+def get_location_name_type(cli_ctx):
+    def location_name_type(name):
+        if ' ' in name:
+            # if display name is provided, attempt to convert to short form name
+            name = next((location.name for location in get_subscription_locations(cli_ctx)
+                         if location.display_name.lower() == name.lower()), name)
+        return name
+
+    return location_name_type
+
+
+def get_location_type(cli_ctx):
+    location_type = CLIArgumentType(
+        options_list=['--location', '-l'],
+        completer=get_location_completion_list,
+        type=get_location_name_type(cli_ctx),
+        help="Location. Values from: `az account list-locations`. "
+        "You can configure the default location using `az configure --defaults location=<location>`.",
+        metavar='LOCATION',
+        configured_default='location',
+        local_context_attribute=LocalContextAttribute(
+            name='location', actions=[LocalContextAction.SET,
+                                      LocalContextAction.GET], scopes=[ALL]))
+    return location_type

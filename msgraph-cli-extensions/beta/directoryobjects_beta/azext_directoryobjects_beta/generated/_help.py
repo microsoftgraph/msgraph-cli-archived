@@ -12,19 +12,24 @@
 from knack.help_files import helps
 
 
+helps['directoryobjects_beta'] = '''
+    type: group
+    short-summary: Manage Directory Objects
+'''
+
 helps['directoryobjects directory-object-directory-object'] = """
     type: group
     short-summary: Manage directory object directory object with directoryobjects_beta
 """
 
-helps['directoryobjects directory-object-directory-object delete'] = """
-    type: command
-    short-summary: "Delete entity from directoryObjects."
-"""
-
 helps['directoryobjects directory-object-directory-object create-directory-object'] = """
     type: command
     short-summary: "Add new entity to directoryObjects."
+"""
+
+helps['directoryobjects directory-object-directory-object delete-directory-object'] = """
+    type: command
+    short-summary: "Delete entity from directoryObjects."
 """
 
 helps['directoryobjects directory-object-directory-object list-directory-object'] = """

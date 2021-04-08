@@ -53,11 +53,6 @@ from azext_people_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('people user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('person_id', type=str, help='key: id of person')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('people user create-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -85,6 +80,19 @@ def load_arguments(self, _):
                    'this should map to the person\'s email name. The general format is alias@domain.')
         c.argument('websites', action=AddPeopleUserCreatePersonWebsites, nargs='+', help='The person\'s websites.')
         c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
+
+    with self.argument_context('people user delete-analytic') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user delete-person') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_id', type=str, help='key: id of person')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user delete-profile') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('people user list-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -167,11 +175,6 @@ def load_arguments(self, _):
         c.argument('web_accounts', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('websites', action=AddPeopleUserUpdateProfileWebsites, nargs='+', help='')
 
-    with self.argument_context('people user-analytic delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('people user-analytic create-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -180,6 +183,11 @@ def load_arguments(self, _):
         c.argument('end_date', help='')
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
+
+    with self.argument_context('people user-analytic delete-activity-statistics') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('activity_statistics_id', type=str, help='key: id of activityStatistics')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('people user-analytic list-activity-statistics') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -202,29 +210,6 @@ def load_arguments(self, _):
         c.argument('end_date', help='')
         c.argument('start_date', help='')
         c.argument('time_zone_used', type=str, help='')
-
-    with self.argument_context('people user-profile delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('item_address_id', type=str, help='key: id of itemAddress')
-        c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
-        c.argument('person_award_id', type=str, help='key: id of personAward')
-        c.argument('person_certification_id', type=str, help='key: id of personCertification')
-        c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
-        c.argument('item_email_id', type=str, help='key: id of itemEmail')
-        c.argument('person_interest_id', type=str, help='key: id of personInterest')
-        c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
-        c.argument('person_name_id', type=str, help='key: id of personName')
-        c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
-        c.argument('item_patent_id', type=str, help='key: id of itemPatent')
-        c.argument('item_phone_id', type=str, help='key: id of itemPhone')
-        c.argument('work_position_id', type=str, help='key: id of workPosition')
-        c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
-        c.argument('item_publication_id', type=str, help='key: id of itemPublication')
-        c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
-        c.argument('web_account_id', type=str, help='key: id of webAccount')
-        c.argument('person_website_id', type=str, help='key: id of personWebsite')
 
     with self.argument_context('people user-profile create-account') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -741,6 +726,101 @@ def load_arguments(self, _):
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='')
         c.argument('web_url', type=str, help='')
+
+    with self.argument_context('people user-profile delete-account') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('user_account_information_id', type=str, help='key: id of userAccountInformation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-address') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_address_id', type=str, help='key: id of itemAddress')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-anniversary') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_anniversary_id', type=str, help='key: id of personAnniversary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-award') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_award_id', type=str, help='key: id of personAward')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-certification') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_certification_id', type=str, help='key: id of personCertification')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-educational-activity') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('educational_activity_id', type=str, help='key: id of educationalActivity')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-email') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_email_id', type=str, help='key: id of itemEmail')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-interest') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_interest_id', type=str, help='key: id of personInterest')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-language') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('language_proficiency_id', type=str, help='key: id of languageProficiency')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-name') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_name_id', type=str, help='key: id of personName')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-note') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_annotation_id', type=str, help='key: id of personAnnotation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-patent') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_patent_id', type=str, help='key: id of itemPatent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-phone') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_phone_id', type=str, help='key: id of itemPhone')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-position') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('work_position_id', type=str, help='key: id of workPosition')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-project') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('project_participation_id', type=str, help='key: id of projectParticipation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-publication') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('item_publication_id', type=str, help='key: id of itemPublication')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-skill') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('skill_proficiency_id', type=str, help='key: id of skillProficiency')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-web-account') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('web_account_id', type=str, help='key: id of webAccount')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('people user-profile delete-website') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_website_id', type=str, help='key: id of personWebsite')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('people user-profile list-account') as c:
         c.argument('user_id', type=str, help='key: id of user')

@@ -38,40 +38,6 @@ def devicescloudprint_print_print_update_print(client,
                                document_conversion_enabled=document_conversion_enabled)
 
 
-def devicescloudprint_print_delete(client,
-                                   print_connector_id=None,
-                                   if_match=None,
-                                   print_operation_id=None,
-                                   printer_id=None,
-                                   printer_share_id=None,
-                                   report_root_id=None,
-                                   print_service_id=None,
-                                   print_task_definition_id=None):
-    if print_connector_id is not None:
-        return client.delete_connector(print_connector_id=print_connector_id,
-                                       if_match=if_match)
-    elif print_operation_id is not None:
-        return client.delete_operation(print_operation_id=print_operation_id,
-                                       if_match=if_match)
-    elif printer_id is not None:
-        return client.delete_printer(printer_id=printer_id,
-                                     if_match=if_match)
-    elif printer_share_id is not None:
-        return client.delete_printer_share(printer_share_id=printer_share_id,
-                                           if_match=if_match)
-    elif report_root_id is not None:
-        return client.delete_report(report_root_id=report_root_id,
-                                    if_match=if_match)
-    elif print_service_id is not None:
-        return client.delete_service(print_service_id=print_service_id,
-                                     if_match=if_match)
-    elif printer_share_id is not None:
-        return client.delete_share(printer_share_id=printer_share_id,
-                                   if_match=if_match)
-    return client.delete_task_definition(print_task_definition_id=print_task_definition_id,
-                                         if_match=if_match)
-
-
 def devicescloudprint_print_create_connector(client,
                                              id_=None,
                                              app_version=None,
@@ -478,6 +444,62 @@ def devicescloudprint_print_create_task_definition(client,
                                          created_by=created_by,
                                          display_name=display_name,
                                          tasks=tasks)
+
+
+def devicescloudprint_print_delete_connector(client,
+                                             print_connector_id,
+                                             if_match=None):
+    return client.delete_connector(print_connector_id=print_connector_id,
+                                   if_match=if_match)
+
+
+def devicescloudprint_print_delete_operation(client,
+                                             print_operation_id,
+                                             if_match=None):
+    return client.delete_operation(print_operation_id=print_operation_id,
+                                   if_match=if_match)
+
+
+def devicescloudprint_print_delete_printer(client,
+                                           printer_id,
+                                           if_match=None):
+    return client.delete_printer(printer_id=printer_id,
+                                 if_match=if_match)
+
+
+def devicescloudprint_print_delete_printer_share(client,
+                                                 printer_share_id,
+                                                 if_match=None):
+    return client.delete_printer_share(printer_share_id=printer_share_id,
+                                       if_match=if_match)
+
+
+def devicescloudprint_print_delete_report(client,
+                                          report_root_id,
+                                          if_match=None):
+    return client.delete_report(report_root_id=report_root_id,
+                                if_match=if_match)
+
+
+def devicescloudprint_print_delete_service(client,
+                                           print_service_id,
+                                           if_match=None):
+    return client.delete_service(print_service_id=print_service_id,
+                                 if_match=if_match)
+
+
+def devicescloudprint_print_delete_share(client,
+                                         printer_share_id,
+                                         if_match=None):
+    return client.delete_share(printer_share_id=printer_share_id,
+                               if_match=if_match)
+
+
+def devicescloudprint_print_delete_task_definition(client,
+                                                   print_task_definition_id,
+                                                   if_match=None):
+    return client.delete_task_definition(print_task_definition_id=print_task_definition_id,
+                                         if_match=if_match)
 
 
 def devicescloudprint_print_list_connector(client,
@@ -1067,28 +1089,6 @@ def devicescloudprint_print_printer_create(client,
                          connector_id=connector_id)
 
 
-def devicescloudprint_print_printer_delete(client,
-                                           printer_id,
-                                           print_identity_id=None,
-                                           if_match=None,
-                                           print_user_identity_id=None,
-                                           print_task_trigger_id=None):
-    if printer_id is not None and print_identity_id is not None:
-        return client.delete_allowed_group(printer_id=printer_id,
-                                           print_identity_id=print_identity_id,
-                                           if_match=if_match)
-    elif printer_id is not None and print_user_identity_id is not None:
-        return client.delete_allowed_user(printer_id=printer_id,
-                                          print_user_identity_id=print_user_identity_id,
-                                          if_match=if_match)
-    elif printer_id is not None and print_task_trigger_id is not None:
-        return client.delete_task_trigger(printer_id=printer_id,
-                                          print_task_trigger_id=print_task_trigger_id,
-                                          if_match=if_match)
-    return client.delete_ref_share(printer_id=printer_id,
-                                   if_match=if_match)
-
-
 def devicescloudprint_print_printer_create_allowed_group(client,
                                                          printer_id,
                                                          id_=None,
@@ -1134,6 +1134,40 @@ def devicescloudprint_print_printer_create_task_trigger(client,
                                       id=id_,
                                       event=event,
                                       definition=definition)
+
+
+def devicescloudprint_print_printer_delete_allowed_group(client,
+                                                         printer_id,
+                                                         print_identity_id,
+                                                         if_match=None):
+    return client.delete_allowed_group(printer_id=printer_id,
+                                       print_identity_id=print_identity_id,
+                                       if_match=if_match)
+
+
+def devicescloudprint_print_printer_delete_allowed_user(client,
+                                                        printer_id,
+                                                        print_user_identity_id,
+                                                        if_match=None):
+    return client.delete_allowed_user(printer_id=printer_id,
+                                      print_user_identity_id=print_user_identity_id,
+                                      if_match=if_match)
+
+
+def devicescloudprint_print_printer_delete_ref_share(client,
+                                                     printer_id,
+                                                     if_match=None):
+    return client.delete_ref_share(printer_id=printer_id,
+                                   if_match=if_match)
+
+
+def devicescloudprint_print_printer_delete_task_trigger(client,
+                                                        printer_id,
+                                                        print_task_trigger_id,
+                                                        if_match=None):
+    return client.delete_task_trigger(printer_id=printer_id,
+                                      print_task_trigger_id=print_task_trigger_id,
+                                      if_match=if_match)
 
 
 def devicescloudprint_print_printer_list_allowed_group(client,
@@ -1313,10 +1347,10 @@ def devicescloudprint_print_printer_update_task_trigger(client,
                                       definition=definition)
 
 
-def devicescloudprint_print_printer_task_trigger_delete(client,
-                                                        printer_id,
-                                                        print_task_trigger_id,
-                                                        if_match=None):
+def devicescloudprint_print_printer_task_trigger_delete_ref_definition(client,
+                                                                       printer_id,
+                                                                       print_task_trigger_id,
+                                                                       if_match=None):
     return client.delete_ref_definition(printer_id=printer_id,
                                         print_task_trigger_id=print_task_trigger_id,
                                         if_match=if_match)
@@ -1349,23 +1383,6 @@ def devicescloudprint_print_printer_task_trigger_show_ref_definition(client,
                                      print_task_trigger_id=print_task_trigger_id)
 
 
-def devicescloudprint_print_printer_share_delete(client,
-                                                 printer_share_id,
-                                                 print_identity_id=None,
-                                                 if_match=None,
-                                                 print_user_identity_id=None):
-    if printer_share_id is not None and print_identity_id is not None:
-        return client.delete_allowed_group(printer_share_id=printer_share_id,
-                                           print_identity_id=print_identity_id,
-                                           if_match=if_match)
-    elif printer_share_id is not None and print_user_identity_id is not None:
-        return client.delete_allowed_user(printer_share_id=printer_share_id,
-                                          print_user_identity_id=print_user_identity_id,
-                                          if_match=if_match)
-    return client.delete_ref_printer(printer_share_id=printer_share_id,
-                                     if_match=if_match)
-
-
 def devicescloudprint_print_printer_share_create_allowed_group(client,
                                                                printer_share_id,
                                                                id_=None,
@@ -1386,6 +1403,31 @@ def devicescloudprint_print_printer_share_create_allowed_user(client,
                                       display_name=display_name,
                                       ip_address=ip_address,
                                       user_principal_name=user_principal_name)
+
+
+def devicescloudprint_print_printer_share_delete_allowed_group(client,
+                                                               printer_share_id,
+                                                               print_identity_id,
+                                                               if_match=None):
+    return client.delete_allowed_group(printer_share_id=printer_share_id,
+                                       print_identity_id=print_identity_id,
+                                       if_match=if_match)
+
+
+def devicescloudprint_print_printer_share_delete_allowed_user(client,
+                                                              printer_share_id,
+                                                              print_user_identity_id,
+                                                              if_match=None):
+    return client.delete_allowed_user(printer_share_id=printer_share_id,
+                                      print_user_identity_id=print_user_identity_id,
+                                      if_match=if_match)
+
+
+def devicescloudprint_print_printer_share_delete_ref_printer(client,
+                                                             printer_share_id,
+                                                             if_match=None):
+    return client.delete_ref_printer(printer_share_id=printer_share_id,
+                                     if_match=if_match)
 
 
 def devicescloudprint_print_printer_share_list_allowed_group(client,
@@ -1575,15 +1617,6 @@ def devicescloudprint_print_report_show_user_print_usage_summary(client,
                                                period_end=period_end)
 
 
-def devicescloudprint_print_service_delete(client,
-                                           print_service_id,
-                                           print_service_endpoint_id,
-                                           if_match=None):
-    return client.delete_endpoint(print_service_id=print_service_id,
-                                  print_service_endpoint_id=print_service_endpoint_id,
-                                  if_match=if_match)
-
-
 def devicescloudprint_print_service_create_endpoint(client,
                                                     print_service_id,
                                                     id_=None,
@@ -1593,6 +1626,15 @@ def devicescloudprint_print_service_create_endpoint(client,
                                   id=id_,
                                   display_name=display_name,
                                   uri=uri)
+
+
+def devicescloudprint_print_service_delete_endpoint(client,
+                                                    print_service_id,
+                                                    print_service_endpoint_id,
+                                                    if_match=None):
+    return client.delete_endpoint(print_service_id=print_service_id,
+                                  print_service_endpoint_id=print_service_endpoint_id,
+                                  if_match=if_match)
 
 
 def devicescloudprint_print_service_list_endpoint(client,
@@ -1630,23 +1672,6 @@ def devicescloudprint_print_service_update_endpoint(client,
                                   uri=uri)
 
 
-def devicescloudprint_print_share_delete(client,
-                                         printer_share_id,
-                                         print_identity_id=None,
-                                         if_match=None,
-                                         print_user_identity_id=None):
-    if printer_share_id is not None and print_identity_id is not None:
-        return client.delete_allowed_group(printer_share_id=printer_share_id,
-                                           print_identity_id=print_identity_id,
-                                           if_match=if_match)
-    elif printer_share_id is not None and print_user_identity_id is not None:
-        return client.delete_allowed_user(printer_share_id=printer_share_id,
-                                          print_user_identity_id=print_user_identity_id,
-                                          if_match=if_match)
-    return client.delete_ref_printer(printer_share_id=printer_share_id,
-                                     if_match=if_match)
-
-
 def devicescloudprint_print_share_create_allowed_group(client,
                                                        printer_share_id,
                                                        id_=None,
@@ -1667,6 +1692,31 @@ def devicescloudprint_print_share_create_allowed_user(client,
                                       display_name=display_name,
                                       ip_address=ip_address,
                                       user_principal_name=user_principal_name)
+
+
+def devicescloudprint_print_share_delete_allowed_group(client,
+                                                       printer_share_id,
+                                                       print_identity_id,
+                                                       if_match=None):
+    return client.delete_allowed_group(printer_share_id=printer_share_id,
+                                       print_identity_id=print_identity_id,
+                                       if_match=if_match)
+
+
+def devicescloudprint_print_share_delete_allowed_user(client,
+                                                      printer_share_id,
+                                                      print_user_identity_id,
+                                                      if_match=None):
+    return client.delete_allowed_user(printer_share_id=printer_share_id,
+                                      print_user_identity_id=print_user_identity_id,
+                                      if_match=if_match)
+
+
+def devicescloudprint_print_share_delete_ref_printer(client,
+                                                     printer_share_id,
+                                                     if_match=None):
+    return client.delete_ref_printer(printer_share_id=printer_share_id,
+                                     if_match=if_match)
 
 
 def devicescloudprint_print_share_list_allowed_group(client,
@@ -1775,15 +1825,6 @@ def devicescloudprint_print_share_printer_show_capability(client,
     return client.get_capability(printer_share_id=printer_share_id)
 
 
-def devicescloudprint_print_task_definition_delete(client,
-                                                   print_task_definition_id,
-                                                   print_task_id,
-                                                   if_match=None):
-    return client.delete_task(print_task_definition_id=print_task_definition_id,
-                              print_task_id=print_task_id,
-                              if_match=if_match)
-
-
 def devicescloudprint_print_task_definition_create_task(client,
                                                         print_task_definition_id,
                                                         id_=None,
@@ -1801,6 +1842,15 @@ def devicescloudprint_print_task_definition_create_task(client,
                               microsoft_graph_entity_id=microsoft_graph_entity_id,
                               event=event,
                               microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
+
+
+def devicescloudprint_print_task_definition_delete_task(client,
+                                                        print_task_definition_id,
+                                                        print_task_id,
+                                                        if_match=None):
+    return client.delete_task(print_task_definition_id=print_task_definition_id,
+                              print_task_id=print_task_id,
+                              if_match=if_match)
 
 
 def devicescloudprint_print_task_definition_list_task(client,
@@ -1846,14 +1896,19 @@ def devicescloudprint_print_task_definition_update_task(client,
                               microsoft_graph_print_task_definition=microsoft_graph_print_task_definition)
 
 
-def devicescloudprint_print_task_definition_task_delete(client,
-                                                        print_task_definition_id,
-                                                        print_task_id,
-                                                        if_match=None):
-    if print_task_definition_id is not None and print_task_id is not None:
-        return client.delete_ref_definition(print_task_definition_id=print_task_definition_id,
-                                            print_task_id=print_task_id,
-                                            if_match=if_match)
+def devicescloudprint_print_task_definition_task_delete_ref_definition(client,
+                                                                       print_task_definition_id,
+                                                                       print_task_id,
+                                                                       if_match=None):
+    return client.delete_ref_definition(print_task_definition_id=print_task_definition_id,
+                                        print_task_id=print_task_id,
+                                        if_match=if_match)
+
+
+def devicescloudprint_print_task_definition_task_delete_ref_trigger(client,
+                                                                    print_task_definition_id,
+                                                                    print_task_id,
+                                                                    if_match=None):
     return client.delete_ref_trigger(print_task_definition_id=print_task_definition_id,
                                      print_task_id=print_task_id,
                                      if_match=if_match)

@@ -21,19 +21,12 @@
 |[az users user list](#users.userListUser)|ListUser|[Parameters](#Parametersusers.userListUser)|Not Found|
 |[az users user create](#users.userUpdateUser)|UpdateUser|[Parameters](#Parametersusers.userUpdateUser)|Not Found|
 |[az users user create](#users.userCreateUser)|CreateUser|[Parameters](#Parametersusers.userCreateUser)|Not Found|
-|[az users user delete](#users.userDeleteUser)|DeleteUser|[Parameters](#Parametersusers.userDeleteUser)|Not Found|
+|[az users user delete-user](#users.userDeleteUser)|DeleteUser|[Parameters](#Parametersusers.userDeleteUser)|Not Found|
 |[az users user show-user](#users.userGetUser)|GetUser|[Parameters](#Parametersusers.userGetUser)|Not Found|
 
 ### <a name="CommandsInusers">Commands in `az users user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az users user delete](#usersDeleteExtensions)|DeleteExtensions|[Parameters](#ParametersusersDeleteExtensions)|Not Found|
-|[az users user delete](#usersDeleteLicenseDetails)|DeleteLicenseDetails|[Parameters](#ParametersusersDeleteLicenseDetails)|Not Found|
-|[az users user delete](#usersDeletePhotos)|DeletePhotos|[Parameters](#ParametersusersDeletePhotos)|Not Found|
-|[az users user delete](#usersDeleteRefManager)|DeleteRefManager|[Parameters](#ParametersusersDeleteRefManager)|Not Found|
-|[az users user delete](#usersDeleteOutlook)|DeleteOutlook|[Parameters](#ParametersusersDeleteOutlook)|Not Found|
-|[az users user delete](#usersDeletePhoto)|DeletePhoto|[Parameters](#ParametersusersDeletePhoto)|Not Found|
-|[az users user delete](#usersDeleteSettings)|DeleteSettings|[Parameters](#ParametersusersDeleteSettings)|Not Found|
 |[az users user create-extension](#usersCreateExtensions)|CreateExtensions|[Parameters](#ParametersusersCreateExtensions)|Not Found|
 |[az users user create-license-detail](#usersCreateLicenseDetails)|CreateLicenseDetails|[Parameters](#ParametersusersCreateLicenseDetails)|Not Found|
 |[az users user create-photo](#usersCreatePhotos)|CreatePhotos|[Parameters](#ParametersusersCreatePhotos)|Not Found|
@@ -45,6 +38,13 @@
 |[az users user create-ref-owned-object](#usersCreateRefOwnedObjects)|CreateRefOwnedObjects|[Parameters](#ParametersusersCreateRefOwnedObjects)|Not Found|
 |[az users user create-ref-registered-device](#usersCreateRefRegisteredDevices)|CreateRefRegisteredDevices|[Parameters](#ParametersusersCreateRefRegisteredDevices)|Not Found|
 |[az users user create-ref-transitive-member-of](#usersCreateRefTransitiveMemberOf)|CreateRefTransitiveMemberOf|[Parameters](#ParametersusersCreateRefTransitiveMemberOf)|Not Found|
+|[az users user delete-extension](#usersDeleteExtensions)|DeleteExtensions|[Parameters](#ParametersusersDeleteExtensions)|Not Found|
+|[az users user delete-license-detail](#usersDeleteLicenseDetails)|DeleteLicenseDetails|[Parameters](#ParametersusersDeleteLicenseDetails)|Not Found|
+|[az users user delete-outlook](#usersDeleteOutlook)|DeleteOutlook|[Parameters](#ParametersusersDeleteOutlook)|Not Found|
+|[az users user delete-photo](#usersDeletePhotos)|DeletePhotos|[Parameters](#ParametersusersDeletePhotos)|Not Found|
+|[az users user delete-photo](#usersDeletePhoto)|DeletePhoto|[Parameters](#ParametersusersDeletePhoto)|Not Found|
+|[az users user delete-ref-manager](#usersDeleteRefManager)|DeleteRefManager|[Parameters](#ParametersusersDeleteRefManager)|Not Found|
+|[az users user delete-setting](#usersDeleteSettings)|DeleteSettings|[Parameters](#ParametersusersDeleteSettings)|Not Found|
 |[az users user list-created-object](#usersListCreatedObjects)|ListCreatedObjects|[Parameters](#ParametersusersListCreatedObjects)|Not Found|
 |[az users user list-direct-report](#usersListDirectReports)|ListDirectReports|[Parameters](#ParametersusersListDirectReports)|Not Found|
 |[az users user list-extension](#usersListExtensions)|ListExtensions|[Parameters](#ParametersusersListExtensions)|Not Found|
@@ -83,8 +83,8 @@
 ### <a name="CommandsInusers.outlook">Commands in `az users user-outlook` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az users user-outlook delete](#users.outlookDeleteMasterCategories)|DeleteMasterCategories|[Parameters](#Parametersusers.outlookDeleteMasterCategories)|Not Found|
 |[az users user-outlook create-master-category](#users.outlookCreateMasterCategories)|CreateMasterCategories|[Parameters](#Parametersusers.outlookCreateMasterCategories)|Not Found|
+|[az users user-outlook delete-master-category](#users.outlookDeleteMasterCategories)|DeleteMasterCategories|[Parameters](#Parametersusers.outlookDeleteMasterCategories)|Not Found|
 |[az users user-outlook list-master-category](#users.outlookListMasterCategories)|ListMasterCategories|[Parameters](#Parametersusers.outlookListMasterCategories)|Not Found|
 |[az users user-outlook show-master-category](#users.outlookGetMasterCategories)|GetMasterCategories|[Parameters](#Parametersusers.outlookGetMasterCategories)|Not Found|
 |[az users user-outlook update-master-category](#users.outlookUpdateMasterCategories)|UpdateMasterCategories|[Parameters](#Parametersusers.outlookUpdateMasterCategories)|Not Found|
@@ -92,7 +92,7 @@
 ### <a name="CommandsInusers.settings">Commands in `az users user-setting` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az users user-setting delete](#users.settingsDeleteShiftPreferences)|DeleteShiftPreferences|[Parameters](#Parametersusers.settingsDeleteShiftPreferences)|Not Found|
+|[az users user-setting delete-shift-preference](#users.settingsDeleteShiftPreferences)|DeleteShiftPreferences|[Parameters](#Parametersusers.settingsDeleteShiftPreferences)|Not Found|
 |[az users user-setting show-shift-preference](#users.settingsGetShiftPreferences)|GetShiftPreferences|[Parameters](#Parametersusers.settingsGetShiftPreferences)|Not Found|
 |[az users user-setting update-shift-preference](#users.settingsUpdateShiftPreferences)|UpdateShiftPreferences|[Parameters](#Parametersusers.settingsUpdateShiftPreferences)|Not Found|
 
@@ -258,7 +258,7 @@
 ##### <a name="Parametersusers.userCreateUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-#### <a name="users.userDeleteUser">Command `az users user delete`</a>
+#### <a name="users.userDeleteUser">Command `az users user delete-user`</a>
 
 ##### <a name="Parametersusers.userDeleteUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -276,49 +276,6 @@
 |**--expand**|array|Expand related entities|expand|$expand|
 
 ### group `az users user`
-#### <a name="usersDeleteExtensions">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeleteExtensions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--extension-id**|string|key: id of extension|extension_id|extension-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteLicenseDetails">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeleteLicenseDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--license-details-id**|string|key: id of licenseDetails|license_details_id|licenseDetails-id|
-
-#### <a name="usersDeletePhotos">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeletePhotos">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--profile-photo-id**|string|key: id of profilePhoto|profile_photo_id|profilePhoto-id|
-
-#### <a name="usersDeleteRefManager">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeleteRefManager">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="usersDeleteOutlook">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeleteOutlook">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="usersDeletePhoto">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeletePhoto">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="usersDeleteSettings">Command `az users user delete`</a>
-
-##### <a name="ParametersusersDeleteSettings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreateExtensions">Command `az users user create-extension`</a>
 
 ##### <a name="ParametersusersCreateExtensions">Parameters</a> 
@@ -411,6 +368,62 @@
 |------|----|-----------|----------|------------|
 |**--user-id**|string|key: id of user|user_id|user-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
+
+#### <a name="usersDeleteExtensions">Command `az users user delete-extension`</a>
+
+##### <a name="ParametersusersDeleteExtensions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--extension-id**|string|key: id of extension|extension_id|extension-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteLicenseDetails">Command `az users user delete-license-detail`</a>
+
+##### <a name="ParametersusersDeleteLicenseDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--license-details-id**|string|key: id of licenseDetails|license_details_id|licenseDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteOutlook">Command `az users user delete-outlook`</a>
+
+##### <a name="ParametersusersDeleteOutlook">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeletePhotos">Command `az users user delete-photo`</a>
+
+##### <a name="ParametersusersDeletePhotos">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--profile-photo-id**|string|key: id of profilePhoto|profile_photo_id|profilePhoto-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeletePhoto">Command `az users user delete-photo`</a>
+
+##### <a name="ParametersusersDeletePhoto">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="usersDeleteRefManager">Command `az users user delete-ref-manager`</a>
+
+##### <a name="ParametersusersDeleteRefManager">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteSettings">Command `az users user delete-setting`</a>
+
+##### <a name="ParametersusersDeleteSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListCreatedObjects">Command `az users user list-created-object`</a>
 
@@ -727,15 +740,6 @@
 |**--availability**|array|Availability of the user to be scheduled for work and its recurrence pattern.|availability|availability|
 
 ### group `az users user-outlook`
-#### <a name="users.outlookDeleteMasterCategories">Command `az users user-outlook delete`</a>
-
-##### <a name="Parametersusers.outlookDeleteMasterCategories">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.outlookCreateMasterCategories">Command `az users user-outlook create-master-category`</a>
 
 ##### <a name="Parametersusers.outlookCreateMasterCategories">Parameters</a> 
@@ -745,6 +749,15 @@
 |**--id**|string|Read-only.|id|id|
 |**--color**|choice||color|color|
 |**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
+
+#### <a name="users.outlookDeleteMasterCategories">Command `az users user-outlook delete-master-category`</a>
+
+##### <a name="Parametersusers.outlookDeleteMasterCategories">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--outlook-category-id**|string|key: id of outlookCategory|outlook_category_id|outlookCategory-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.outlookListMasterCategories">Command `az users user-outlook list-master-category`</a>
 
@@ -778,7 +791,7 @@
 |**--display-name**|string|A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.|display_name|displayName|
 
 ### group `az users user-setting`
-#### <a name="users.settingsDeleteShiftPreferences">Command `az users user-setting delete`</a>
+#### <a name="users.settingsDeleteShiftPreferences">Command `az users user-setting delete-shift-preference`</a>
 
 ##### <a name="Parametersusers.settingsDeleteShiftPreferences">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

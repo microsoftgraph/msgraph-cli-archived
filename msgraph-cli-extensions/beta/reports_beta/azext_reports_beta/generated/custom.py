@@ -33,28 +33,6 @@ def reports_audit_log_audit_log_root_update_audit_log_root(client,
                                         sign_ins=sign_ins)
 
 
-def reports_audit_log_delete(client,
-                             directory_audit_id=None,
-                             if_match=None,
-                             provisioning_object_summary_id=None,
-                             restricted_sign_in_id=None,
-                             sign_in_id=None):
-    if directory_audit_id is not None:
-        return client.delete_directory_audit(directory_audit_id=directory_audit_id,
-                                             if_match=if_match)
-    elif provisioning_object_summary_id is not None:
-        return client.delete_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                                    if_match=if_match)
-    elif provisioning_object_summary_id is not None:
-        return client.delete_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
-                                          if_match=if_match)
-    elif restricted_sign_in_id is not None:
-        return client.delete_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
-                                                if_match=if_match)
-    return client.delete_sign_in(sign_in_id=sign_in_id,
-                                 if_match=if_match)
-
-
 def reports_audit_log_create_directory_audit(client,
                                              id_=None,
                                              activity_date_time=None,
@@ -380,6 +358,41 @@ def reports_audit_log_create_sign_in(client,
                                  country_or_region=country_or_region,
                                  geo_coordinates=geo_coordinates,
                                  state=state)
+
+
+def reports_audit_log_delete_directory_audit(client,
+                                             directory_audit_id,
+                                             if_match=None):
+    return client.delete_directory_audit(directory_audit_id=directory_audit_id,
+                                         if_match=if_match)
+
+
+def reports_audit_log_delete_directory_provisioning(client,
+                                                    provisioning_object_summary_id,
+                                                    if_match=None):
+    return client.delete_directory_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                                if_match=if_match)
+
+
+def reports_audit_log_delete_provisioning(client,
+                                          provisioning_object_summary_id,
+                                          if_match=None):
+    return client.delete_provisioning(provisioning_object_summary_id=provisioning_object_summary_id,
+                                      if_match=if_match)
+
+
+def reports_audit_log_delete_restricted_sign_in(client,
+                                                restricted_sign_in_id,
+                                                if_match=None):
+    return client.delete_restricted_sign_in(restricted_sign_in_id=restricted_sign_in_id,
+                                            if_match=if_match)
+
+
+def reports_audit_log_delete_sign_in(client,
+                                     sign_in_id,
+                                     if_match=None):
+    return client.delete_sign_in(sign_in_id=sign_in_id,
+                                 if_match=if_match)
 
 
 def reports_audit_log_list_directory_audit(client,
@@ -835,35 +848,6 @@ def reports_report_root_update_report_root(client,
                                      monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
 
 
-def reports_report_delete(client,
-                          application_sign_in_detailed_summary_id=None,
-                          if_match=None,
-                          credential_user_registration_details_id=None,
-                          print_usage_summary_by_printer_id=None,
-                          print_usage_summary_by_user_id=None,
-                          user_credential_usage_details_id=None):
-    if application_sign_in_detailed_summary_id is not None:
-        return client.delete_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
-                                                                  if_match=if_match)
-    elif credential_user_registration_details_id is not None:
-        return client.delete_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
-                                                                 if_match=if_match)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.delete_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                  if_match=if_match)
-    elif print_usage_summary_by_user_id is not None:
-        return client.delete_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                               if_match=if_match)
-    elif print_usage_summary_by_printer_id is not None:
-        return client.delete_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
-                                                                    if_match=if_match)
-    elif print_usage_summary_by_user_id is not None:
-        return client.delete_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
-                                                                 if_match=if_match)
-    return client.delete_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
-                                                      if_match=if_match)
-
-
 def reports_report_create_application_sign_in_detailed_summary(client,
                                                                id_=None,
                                                                aggregated_event_date_time=None,
@@ -975,6 +959,49 @@ def reports_report_create_user_credential_usage_detail(client,
                                                       is_success=is_success,
                                                       user_display_name=user_display_name,
                                                       user_principal_name=user_principal_name)
+
+
+def reports_report_delete_application_sign_in_detailed_summary(client,
+                                                               application_sign_in_detailed_summary_id,
+                                                               if_match=None):
+    return client.delete_application_sign_in_detailed_summary(application_sign_in_detailed_summary_id=application_sign_in_detailed_summary_id,
+                                                              if_match=if_match)
+
+
+def reports_report_delete_credential_user_registration_detail(client,
+                                                              credential_user_registration_details_id,
+                                                              if_match=None):
+    return client.delete_credential_user_registration_detail(credential_user_registration_details_id=credential_user_registration_details_id,
+                                                             if_match=if_match)
+
+
+def reports_report_delete_daily_print_usage_summary(client,
+                                                    print_usage_summary_by_printer_id=None,
+                                                    if_match=None,
+                                                    print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.delete_daily_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                  if_match=if_match)
+    return client.delete_daily_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                           if_match=if_match)
+
+
+def reports_report_delete_monthly_print_usage_summary(client,
+                                                      print_usage_summary_by_printer_id=None,
+                                                      if_match=None,
+                                                      print_usage_summary_by_user_id=None):
+    if print_usage_summary_by_printer_id is not None:
+        return client.delete_monthly_print_usage_summary_by_printer(print_usage_summary_by_printer_id=print_usage_summary_by_printer_id,
+                                                                    if_match=if_match)
+    return client.delete_monthly_print_usage_summary_by_user(print_usage_summary_by_user_id=print_usage_summary_by_user_id,
+                                                             if_match=if_match)
+
+
+def reports_report_delete_user_credential_usage_detail(client,
+                                                       user_credential_usage_details_id,
+                                                       if_match=None):
+    return client.delete_user_credential_usage_detail(user_credential_usage_details_id=user_credential_usage_details_id,
+                                                      if_match=if_match)
 
 
 def reports_report_device_configuration_device_activity(client):

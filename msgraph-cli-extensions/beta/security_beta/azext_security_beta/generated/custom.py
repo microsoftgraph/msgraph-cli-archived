@@ -7,7 +7,6 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
 
 
@@ -107,57 +106,6 @@ def security_security_show_security(client,
                                     expand=None):
     return client.get_security(select=select,
                                expand=expand)
-
-
-def security_security_delete(client,
-                             alert_id=None,
-                             if_match=None,
-                             cloud_app_security_profile_id=None,
-                             domain_security_profile_id=None,
-                             file_security_profile_id=None,
-                             host_security_profile_id=None,
-                             ip_security_profile_id=None,
-                             provider_tenant_setting_id=None,
-                             secure_score_control_profile_id=None,
-                             secure_score_id=None,
-                             security_action_id=None,
-                             ti_indicator_id=None,
-                             user_security_profile_id=None):
-    if alert_id is not None:
-        return client.delete_alert(alert_id=alert_id,
-                                   if_match=if_match)
-    elif cloud_app_security_profile_id is not None:
-        return client.delete_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
-                                                        if_match=if_match)
-    elif domain_security_profile_id is not None:
-        return client.delete_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
-                                                     if_match=if_match)
-    elif file_security_profile_id is not None:
-        return client.delete_file_security_profile(file_security_profile_id=file_security_profile_id,
-                                                   if_match=if_match)
-    elif host_security_profile_id is not None:
-        return client.delete_host_security_profile(host_security_profile_id=host_security_profile_id,
-                                                   if_match=if_match)
-    elif ip_security_profile_id is not None:
-        return client.delete_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
-                                                 if_match=if_match)
-    elif provider_tenant_setting_id is not None:
-        return client.delete_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
-                                                     if_match=if_match)
-    elif secure_score_control_profile_id is not None:
-        return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                          if_match=if_match)
-    elif secure_score_id is not None:
-        return client.delete_secure_score(secure_score_id=secure_score_id,
-                                          if_match=if_match)
-    elif security_action_id is not None:
-        return client.delete_security_action(security_action_id=security_action_id,
-                                             if_match=if_match)
-    elif ti_indicator_id is not None:
-        return client.delete_ti_indicator(ti_indicator_id=ti_indicator_id,
-                                          if_match=if_match)
-    return client.delete_user_security_profile(user_security_profile_id=user_security_profile_id,
-                                               if_match=if_match)
 
 
 def security_security_create_alert(client,
@@ -641,6 +589,90 @@ def security_security_create_user_security_profile(client,
                                                tags=tags,
                                                user_principal_name=user_principal_name,
                                                vendor_information=vendor_information)
+
+
+def security_security_delete_alert(client,
+                                   alert_id,
+                                   if_match=None):
+    return client.delete_alert(alert_id=alert_id,
+                               if_match=if_match)
+
+
+def security_security_delete_cloud_app_security_profile(client,
+                                                        cloud_app_security_profile_id,
+                                                        if_match=None):
+    return client.delete_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
+                                                    if_match=if_match)
+
+
+def security_security_delete_domain_security_profile(client,
+                                                     domain_security_profile_id,
+                                                     if_match=None):
+    return client.delete_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
+                                                 if_match=if_match)
+
+
+def security_security_delete_file_security_profile(client,
+                                                   file_security_profile_id,
+                                                   if_match=None):
+    return client.delete_file_security_profile(file_security_profile_id=file_security_profile_id,
+                                               if_match=if_match)
+
+
+def security_security_delete_host_security_profile(client,
+                                                   host_security_profile_id,
+                                                   if_match=None):
+    return client.delete_host_security_profile(host_security_profile_id=host_security_profile_id,
+                                               if_match=if_match)
+
+
+def security_security_delete_ip_security_profile(client,
+                                                 ip_security_profile_id,
+                                                 if_match=None):
+    return client.delete_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
+                                             if_match=if_match)
+
+
+def security_security_delete_provider_tenant_setting(client,
+                                                     provider_tenant_setting_id,
+                                                     if_match=None):
+    return client.delete_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
+                                                 if_match=if_match)
+
+
+def security_security_delete_secure_score(client,
+                                          secure_score_id,
+                                          if_match=None):
+    return client.delete_secure_score(secure_score_id=secure_score_id,
+                                      if_match=if_match)
+
+
+def security_security_delete_secure_score_control_profile(client,
+                                                          secure_score_control_profile_id,
+                                                          if_match=None):
+    return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                      if_match=if_match)
+
+
+def security_security_delete_security_action(client,
+                                             security_action_id,
+                                             if_match=None):
+    return client.delete_security_action(security_action_id=security_action_id,
+                                         if_match=if_match)
+
+
+def security_security_delete_ti_indicator(client,
+                                          ti_indicator_id,
+                                          if_match=None):
+    return client.delete_ti_indicator(ti_indicator_id=ti_indicator_id,
+                                      if_match=if_match)
+
+
+def security_security_delete_user_security_profile(client,
+                                                   user_security_profile_id,
+                                                   if_match=None):
+    return client.delete_user_security_profile(user_security_profile_id=user_security_profile_id,
+                                               if_match=if_match)
 
 
 def security_security_list_alert(client,

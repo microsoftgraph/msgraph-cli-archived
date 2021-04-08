@@ -45,7 +45,6 @@ from azext_security_beta.action import (
     AddIpReferenceData,
     AddAverageComparativeScores,
     AddControlScores,
-    AddComplianceInformation,
     AddControlStateUpdates,
     AddAccounts,
     AddSecuritySecurityTiIndicatorSubmitTiIndicatorValue,
@@ -105,21 +104,6 @@ def load_arguments(self, _):
     with self.argument_context('security security show-security') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('security security delete') as c:
-        c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
-        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
-        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
-        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
-        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
-        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
-        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('secure_score_id', type=str, help='key: id of secureScore')
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
-        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
 
     with self.argument_context('security security create-alert') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -319,7 +303,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
@@ -418,6 +403,54 @@ def load_arguments(self, _):
         c.argument('tags', tags_type)
         c.argument('user_principal_name', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+
+    with self.argument_context('security security delete-alert') as c:
+        c.argument('alert_id', type=str, help='key: id of alert')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-cloud-app-security-profile') as c:
+        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-domain-security-profile') as c:
+        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-file-security-profile') as c:
+        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-host-security-profile') as c:
+        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-ip-security-profile') as c:
+        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-provider-tenant-setting') as c:
+        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score') as c:
+        c.argument('secure_score_id', type=str, help='key: id of secureScore')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score-control-profile') as c:
+        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-security-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-ti-indicator') as c:
+        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-user-security-profile') as c:
+        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('security security list-alert') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -741,7 +774,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')

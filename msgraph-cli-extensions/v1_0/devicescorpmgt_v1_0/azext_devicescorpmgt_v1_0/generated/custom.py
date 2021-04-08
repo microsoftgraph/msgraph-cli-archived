@@ -59,65 +59,6 @@ def devicescorpmgt_device_app_management_device_app_management_update_device_app
                                                windows_information_protection_policies=windows_information_protection_policies)
 
 
-def devicescorpmgt_device_app_management_delete(client,
-                                                android_managed_app_protection_id=None,
-                                                if_match=None,
-                                                default_managed_app_protection_id=None,
-                                                ios_managed_app_protection_id=None,
-                                                managed_app_policy_id=None,
-                                                managed_app_registration_id=None,
-                                                managed_app_status_id=None,
-                                                managed_e_book_id=None,
-                                                mdm_windows_information_protection_policy_id=None,
-                                                mobile_app_category_id=None,
-                                                managed_device_mobile_app_configuration_id=None,
-                                                mobile_app_id=None,
-                                                targeted_managed_app_configuration_id=None,
-                                                vpp_token_id=None,
-                                                windows_information_protection_policy_id=None):
-    if android_managed_app_protection_id is not None:
-        return client.delete_android_managed_app_protection(android_managed_app_protection_id=android_managed_app_protection_id,
-                                                            if_match=if_match)
-    elif default_managed_app_protection_id is not None:
-        return client.delete_default_managed_app_protection(default_managed_app_protection_id=default_managed_app_protection_id,
-                                                            if_match=if_match)
-    elif ios_managed_app_protection_id is not None:
-        return client.delete_io_managed_app_protection(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                                                       if_match=if_match)
-    elif managed_app_policy_id is not None:
-        return client.delete_managed_app_policy(managed_app_policy_id=managed_app_policy_id,
-                                                if_match=if_match)
-    elif managed_app_registration_id is not None:
-        return client.delete_managed_app_registration(managed_app_registration_id=managed_app_registration_id,
-                                                      if_match=if_match)
-    elif managed_app_status_id is not None:
-        return client.delete_managed_app_statuses(managed_app_status_id=managed_app_status_id,
-                                                  if_match=if_match)
-    elif managed_e_book_id is not None:
-        return client.delete_managed_e_book(managed_e_book_id=managed_e_book_id,
-                                            if_match=if_match)
-    elif mdm_windows_information_protection_policy_id is not None:
-        return client.delete_mdm_window_information_protection_policy(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
-                                                                      if_match=if_match)
-    elif mobile_app_category_id is not None:
-        return client.delete_mobile_app_category(mobile_app_category_id=mobile_app_category_id,
-                                                 if_match=if_match)
-    elif managed_device_mobile_app_configuration_id is not None:
-        return client.delete_mobile_app_configuration(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                                      if_match=if_match)
-    elif mobile_app_id is not None:
-        return client.delete_mobile_app(mobile_app_id=mobile_app_id,
-                                        if_match=if_match)
-    elif targeted_managed_app_configuration_id is not None:
-        return client.delete_targeted_managed_app_configuration(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                                                if_match=if_match)
-    elif vpp_token_id is not None:
-        return client.delete_vpp_token(vpp_token_id=vpp_token_id,
-                                       if_match=if_match)
-    return client.delete_window_information_protection_policy(windows_information_protection_policy_id=windows_information_protection_policy_id,
-                                                              if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_create_android_managed_app_protection(client,
                                                                                id_=None,
                                                                                created_date_time=None,
@@ -798,6 +739,104 @@ def devicescorpmgt_device_app_management_create_window_information_protection_po
                                                               pin_uppercase_letters=pin_uppercase_letters,
                                                               revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled,
                                                               windows_hello_for_business_blocked=windows_hello_for_business_blocked)
+
+
+def devicescorpmgt_device_app_management_delete_android_managed_app_protection(client,
+                                                                               android_managed_app_protection_id,
+                                                                               if_match=None):
+    return client.delete_android_managed_app_protection(android_managed_app_protection_id=android_managed_app_protection_id,
+                                                        if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_default_managed_app_protection(client,
+                                                                               default_managed_app_protection_id,
+                                                                               if_match=None):
+    return client.delete_default_managed_app_protection(default_managed_app_protection_id=default_managed_app_protection_id,
+                                                        if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_io_managed_app_protection(client,
+                                                                          ios_managed_app_protection_id,
+                                                                          if_match=None):
+    return client.delete_io_managed_app_protection(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                                                   if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_managed_app_policy(client,
+                                                                   managed_app_policy_id,
+                                                                   if_match=None):
+    return client.delete_managed_app_policy(managed_app_policy_id=managed_app_policy_id,
+                                            if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_managed_app_registration(client,
+                                                                         managed_app_registration_id,
+                                                                         if_match=None):
+    return client.delete_managed_app_registration(managed_app_registration_id=managed_app_registration_id,
+                                                  if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_managed_app_statuses(client,
+                                                                     managed_app_status_id,
+                                                                     if_match=None):
+    return client.delete_managed_app_statuses(managed_app_status_id=managed_app_status_id,
+                                              if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_managed_e_book(client,
+                                                               managed_e_book_id,
+                                                               if_match=None):
+    return client.delete_managed_e_book(managed_e_book_id=managed_e_book_id,
+                                        if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_mdm_window_information_protection_policy(client,
+                                                                                         mdm_windows_information_protection_policy_id,
+                                                                                         if_match=None):
+    return client.delete_mdm_window_information_protection_policy(mdm_windows_information_protection_policy_id=mdm_windows_information_protection_policy_id,
+                                                                  if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_mobile_app(client,
+                                                           mobile_app_id,
+                                                           if_match=None):
+    return client.delete_mobile_app(mobile_app_id=mobile_app_id,
+                                    if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_mobile_app_category(client,
+                                                                    mobile_app_category_id,
+                                                                    if_match=None):
+    return client.delete_mobile_app_category(mobile_app_category_id=mobile_app_category_id,
+                                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_mobile_app_configuration(client,
+                                                                         managed_device_mobile_app_configuration_id,
+                                                                         if_match=None):
+    return client.delete_mobile_app_configuration(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                                  if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_targeted_managed_app_configuration(client,
+                                                                                   targeted_managed_app_configuration_id,
+                                                                                   if_match=None):
+    return client.delete_targeted_managed_app_configuration(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                                            if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_vpp_token(client,
+                                                          vpp_token_id,
+                                                          if_match=None):
+    return client.delete_vpp_token(vpp_token_id=vpp_token_id,
+                                   if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_delete_window_information_protection_policy(client,
+                                                                                     windows_information_protection_policy_id,
+                                                                                     if_match=None):
+    return client.delete_window_information_protection_policy(windows_information_protection_policy_id=windows_information_protection_policy_id,
+                                                              if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_list_android_managed_app_protection(client,
@@ -1766,18 +1805,6 @@ def devicescorpmgt_device_app_management_update_window_information_protection_po
                                                               windows_hello_for_business_blocked=windows_hello_for_business_blocked)
 
 
-def devicescorpmgt_device_app_management_android_managed_app_protection_delete(client,
-                                                                               android_managed_app_protection_id,
-                                                                               managed_mobile_app_id=None,
-                                                                               if_match=None):
-    if android_managed_app_protection_id is not None and managed_mobile_app_id is not None:
-        return client.delete_app(android_managed_app_protection_id=android_managed_app_protection_id,
-                                 managed_mobile_app_id=managed_mobile_app_id,
-                                 if_match=if_match)
-    return client.delete_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
-                                            if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_android_managed_app_protection_create_app(client,
                                                                                    android_managed_app_protection_id,
                                                                                    id_=None,
@@ -1787,6 +1814,22 @@ def devicescorpmgt_device_app_management_android_managed_app_protection_create_a
                              id=id_,
                              mobile_app_identifier=mobile_app_identifier,
                              version=version)
+
+
+def devicescorpmgt_device_app_management_android_managed_app_protection_delete_app(client,
+                                                                                   android_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   if_match=None):
+    return client.delete_app(android_managed_app_protection_id=android_managed_app_protection_id,
+                             managed_mobile_app_id=managed_mobile_app_id,
+                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_android_managed_app_protection_delete_deployment_summary(client,
+                                                                                                  android_managed_app_protection_id,
+                                                                                                  if_match=None):
+    return client.delete_deployment_summary(android_managed_app_protection_id=android_managed_app_protection_id,
+                                            if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_android_managed_app_protection_list_app(client,
@@ -1850,18 +1893,6 @@ def devicescorpmgt_device_app_management_android_managed_app_protection_update_d
                                             version=version)
 
 
-def devicescorpmgt_device_app_management_default_managed_app_protection_delete(client,
-                                                                               default_managed_app_protection_id,
-                                                                               managed_mobile_app_id=None,
-                                                                               if_match=None):
-    if default_managed_app_protection_id is not None and managed_mobile_app_id is not None:
-        return client.delete_app(default_managed_app_protection_id=default_managed_app_protection_id,
-                                 managed_mobile_app_id=managed_mobile_app_id,
-                                 if_match=if_match)
-    return client.delete_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
-                                            if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_default_managed_app_protection_create_app(client,
                                                                                    default_managed_app_protection_id,
                                                                                    id_=None,
@@ -1871,6 +1902,22 @@ def devicescorpmgt_device_app_management_default_managed_app_protection_create_a
                              id=id_,
                              mobile_app_identifier=mobile_app_identifier,
                              version=version)
+
+
+def devicescorpmgt_device_app_management_default_managed_app_protection_delete_app(client,
+                                                                                   default_managed_app_protection_id,
+                                                                                   managed_mobile_app_id,
+                                                                                   if_match=None):
+    return client.delete_app(default_managed_app_protection_id=default_managed_app_protection_id,
+                             managed_mobile_app_id=managed_mobile_app_id,
+                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_default_managed_app_protection_delete_deployment_summary(client,
+                                                                                                  default_managed_app_protection_id,
+                                                                                                  if_match=None):
+    return client.delete_deployment_summary(default_managed_app_protection_id=default_managed_app_protection_id,
+                                            if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_default_managed_app_protection_list_app(client,
@@ -1934,18 +1981,6 @@ def devicescorpmgt_device_app_management_default_managed_app_protection_update_d
                                             version=version)
 
 
-def devicescorpmgt_device_app_management_io_managed_app_protection_delete(client,
-                                                                          ios_managed_app_protection_id,
-                                                                          managed_mobile_app_id=None,
-                                                                          if_match=None):
-    if ios_managed_app_protection_id is not None and managed_mobile_app_id is not None:
-        return client.delete_app(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                                 managed_mobile_app_id=managed_mobile_app_id,
-                                 if_match=if_match)
-    return client.delete_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
-                                            if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_io_managed_app_protection_create_app(client,
                                                                               ios_managed_app_protection_id,
                                                                               id_=None,
@@ -1955,6 +1990,22 @@ def devicescorpmgt_device_app_management_io_managed_app_protection_create_app(cl
                              id=id_,
                              mobile_app_identifier=mobile_app_identifier,
                              version=version)
+
+
+def devicescorpmgt_device_app_management_io_managed_app_protection_delete_app(client,
+                                                                              ios_managed_app_protection_id,
+                                                                              managed_mobile_app_id,
+                                                                              if_match=None):
+    return client.delete_app(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                             managed_mobile_app_id=managed_mobile_app_id,
+                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_io_managed_app_protection_delete_deployment_summary(client,
+                                                                                             ios_managed_app_protection_id,
+                                                                                             if_match=None):
+    return client.delete_deployment_summary(ios_managed_app_protection_id=ios_managed_app_protection_id,
+                                            if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_io_managed_app_protection_list_app(client,
@@ -2025,24 +2076,6 @@ def devicescorpmgt_device_app_management_managed_app_policy_target_app(client,
                              apps=apps)
 
 
-def devicescorpmgt_device_app_management_managed_app_registration_delete(client,
-                                                                         managed_app_registration_id,
-                                                                         managed_app_policy_id=None,
-                                                                         if_match=None,
-                                                                         managed_app_operation_id=None):
-    if managed_app_registration_id is not None and managed_app_policy_id is not None:
-        return client.delete_applied_policy(managed_app_registration_id=managed_app_registration_id,
-                                            managed_app_policy_id=managed_app_policy_id,
-                                            if_match=if_match)
-    elif managed_app_registration_id is not None and managed_app_policy_id is not None:
-        return client.delete_intended_policy(managed_app_registration_id=managed_app_registration_id,
-                                             managed_app_policy_id=managed_app_policy_id,
-                                             if_match=if_match)
-    return client.delete_operation(managed_app_registration_id=managed_app_registration_id,
-                                   managed_app_operation_id=managed_app_operation_id,
-                                   if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_managed_app_registration_create_applied_policy(client,
                                                                                         managed_app_registration_id,
                                                                                         id_=None,
@@ -2090,6 +2123,33 @@ def devicescorpmgt_device_app_management_managed_app_registration_create_operati
                                    last_modified_date_time=last_modified_date_time,
                                    state=state,
                                    version=version)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_delete_applied_policy(client,
+                                                                                        managed_app_registration_id,
+                                                                                        managed_app_policy_id,
+                                                                                        if_match=None):
+    return client.delete_applied_policy(managed_app_registration_id=managed_app_registration_id,
+                                        managed_app_policy_id=managed_app_policy_id,
+                                        if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_delete_intended_policy(client,
+                                                                                         managed_app_registration_id,
+                                                                                         managed_app_policy_id,
+                                                                                         if_match=None):
+    return client.delete_intended_policy(managed_app_registration_id=managed_app_registration_id,
+                                         managed_app_policy_id=managed_app_policy_id,
+                                         if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_managed_app_registration_delete_operation(client,
+                                                                                   managed_app_registration_id,
+                                                                                   managed_app_operation_id,
+                                                                                   if_match=None):
+    return client.delete_operation(managed_app_registration_id=managed_app_registration_id,
+                                   managed_app_operation_id=managed_app_operation_id,
+                                   if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_managed_app_registration_list_applied_policy(client,
@@ -2235,28 +2295,6 @@ def devicescorpmgt_device_app_management_managed_app_registration_intended_polic
                              apps=apps)
 
 
-def devicescorpmgt_device_app_management_managed_e_book_delete(client,
-                                                               managed_e_book_id,
-                                                               managed_e_book_assignment_id=None,
-                                                               if_match=None,
-                                                               device_install_state_id=None,
-                                                               user_install_state_summary_id=None):
-    if managed_e_book_id is not None and managed_e_book_assignment_id is not None:
-        return client.delete_assignment(managed_e_book_id=managed_e_book_id,
-                                        managed_e_book_assignment_id=managed_e_book_assignment_id,
-                                        if_match=if_match)
-    elif managed_e_book_id is not None and device_install_state_id is not None:
-        return client.delete_device_state(managed_e_book_id=managed_e_book_id,
-                                          device_install_state_id=device_install_state_id,
-                                          if_match=if_match)
-    elif managed_e_book_id is not None and user_install_state_summary_id is not None:
-        return client.delete_user_state_summary(managed_e_book_id=managed_e_book_id,
-                                                user_install_state_summary_id=user_install_state_summary_id,
-                                                if_match=if_match)
-    return client.delete_install_summary(managed_e_book_id=managed_e_book_id,
-                                         if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_managed_e_book_assign(client,
                                                                managed_e_book_id,
                                                                managed_e_book_assignments=None):
@@ -2313,6 +2351,40 @@ def devicescorpmgt_device_app_management_managed_e_book_create_user_state_summar
                                             not_installed_device_count=not_installed_device_count,
                                             user_name=user_name,
                                             device_states=device_states)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_delete_assignment(client,
+                                                                          managed_e_book_id,
+                                                                          managed_e_book_assignment_id,
+                                                                          if_match=None):
+    return client.delete_assignment(managed_e_book_id=managed_e_book_id,
+                                    managed_e_book_assignment_id=managed_e_book_assignment_id,
+                                    if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_delete_device_state(client,
+                                                                            managed_e_book_id,
+                                                                            device_install_state_id,
+                                                                            if_match=None):
+    return client.delete_device_state(managed_e_book_id=managed_e_book_id,
+                                      device_install_state_id=device_install_state_id,
+                                      if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_delete_install_summary(client,
+                                                                               managed_e_book_id,
+                                                                               if_match=None):
+    return client.delete_install_summary(managed_e_book_id=managed_e_book_id,
+                                         if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_delete_user_state_summary(client,
+                                                                                  managed_e_book_id,
+                                                                                  user_install_state_summary_id,
+                                                                                  if_match=None):
+    return client.delete_user_state_summary(managed_e_book_id=managed_e_book_id,
+                                            user_install_state_summary_id=user_install_state_summary_id,
+                                            if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_managed_e_book_list_assignment(client,
@@ -2466,17 +2538,6 @@ def devicescorpmgt_device_app_management_managed_e_book_update_user_state_summar
                                             device_states=device_states)
 
 
-def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_delete(client,
-                                                                                  managed_e_book_id,
-                                                                                  user_install_state_summary_id,
-                                                                                  device_install_state_id,
-                                                                                  if_match=None):
-    return client.delete_device_state(managed_e_book_id=managed_e_book_id,
-                                      user_install_state_summary_id=user_install_state_summary_id,
-                                      device_install_state_id=device_install_state_id,
-                                      if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_create_device_state(client,
                                                                                                managed_e_book_id,
                                                                                                user_install_state_summary_id,
@@ -2500,6 +2561,17 @@ def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_creat
                                       os_description=os_description,
                                       os_version=os_version,
                                       user_name=user_name)
+
+
+def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_delete_device_state(client,
+                                                                                               managed_e_book_id,
+                                                                                               user_install_state_summary_id,
+                                                                                               device_install_state_id,
+                                                                                               if_match=None):
+    return client.delete_device_state(managed_e_book_id=managed_e_book_id,
+                                      user_install_state_summary_id=user_install_state_summary_id,
+                                      device_install_state_id=device_install_state_id,
+                                      if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_list_device_state(client,
@@ -2555,31 +2627,6 @@ def devicescorpmgt_device_app_management_managed_e_book_user_state_summary_updat
                                       user_name=user_name)
 
 
-def devicescorpmgt_device_app_management_mobile_app_configuration_delete(client,
-                                                                         managed_device_mobile_app_configuration_id,
-                                                                         managed_device_mobile_app_configuration_assignment_id=None,
-                                                                         if_match=None,
-                                                                         managed_device_mobile_app_configuration_device_status_id=None,
-                                                                         managed_device_mobile_app_configuration_user_status_id=None):
-    if managed_device_mobile_app_configuration_id is not None and managed_device_mobile_app_configuration_assignment_id is not None:
-        return client.delete_assignment(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                        managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
-                                        if_match=if_match)
-    elif managed_device_mobile_app_configuration_id is not None and managed_device_mobile_app_configuration_device_status_id is not None:
-        return client.delete_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                             managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
-                                             if_match=if_match)
-    elif managed_device_mobile_app_configuration_id is not None and managed_device_mobile_app_configuration_user_status_id is not None:
-        return client.delete_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                           managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
-                                           if_match=if_match)
-    elif managed_device_mobile_app_configuration_id is not None:
-        return client.delete_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                                   if_match=if_match)
-    return client.delete_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
-                                             if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_mobile_app_configuration_assign(client,
                                                                          managed_device_mobile_app_configuration_id,
                                                                          assignments=None):
@@ -2632,6 +2679,47 @@ def devicescorpmgt_device_app_management_mobile_app_configuration_create_user_st
                                        status=status,
                                        user_display_name=user_display_name,
                                        user_principal_name=user_principal_name)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_assignment(client,
+                                                                                    managed_device_mobile_app_configuration_id,
+                                                                                    managed_device_mobile_app_configuration_assignment_id,
+                                                                                    if_match=None):
+    return client.delete_assignment(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                    managed_device_mobile_app_configuration_assignment_id=managed_device_mobile_app_configuration_assignment_id,
+                                    if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_status_summary(client,
+                                                                                               managed_device_mobile_app_configuration_id,
+                                                                                               if_match=None):
+    return client.delete_device_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                               if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_device_statuses(client,
+                                                                                         managed_device_mobile_app_configuration_id,
+                                                                                         managed_device_mobile_app_configuration_device_status_id,
+                                                                                         if_match=None):
+    return client.delete_device_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                         managed_device_mobile_app_configuration_device_status_id=managed_device_mobile_app_configuration_device_status_id,
+                                         if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_status_summary(client,
+                                                                                             managed_device_mobile_app_configuration_id,
+                                                                                             if_match=None):
+    return client.delete_user_status_summary(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_mobile_app_configuration_delete_user_statuses(client,
+                                                                                       managed_device_mobile_app_configuration_id,
+                                                                                       managed_device_mobile_app_configuration_user_status_id,
+                                                                                       if_match=None):
+    return client.delete_user_statuses(managed_device_mobile_app_configuration_id=managed_device_mobile_app_configuration_id,
+                                       managed_device_mobile_app_configuration_user_status_id=managed_device_mobile_app_configuration_user_status_id,
+                                       if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_mobile_app_configuration_list_assignment(client,
@@ -2813,15 +2901,6 @@ def devicescorpmgt_device_app_management_mobile_app_configuration_update_user_st
                                        user_principal_name=user_principal_name)
 
 
-def devicescorpmgt_device_app_management_mobile_app_delete(client,
-                                                           mobile_app_id,
-                                                           mobile_app_assignment_id,
-                                                           if_match=None):
-    return client.delete_assignment(mobile_app_id=mobile_app_id,
-                                    mobile_app_assignment_id=mobile_app_assignment_id,
-                                    if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_mobile_app_assign(client,
                                                            mobile_app_id,
                                                            mobile_app_assignments=None):
@@ -2847,6 +2926,15 @@ def devicescorpmgt_device_app_management_mobile_app_create_ref_category(client,
                                                                         body):
     return client.create_ref_category(mobile_app_id=mobile_app_id,
                                       body=body)
+
+
+def devicescorpmgt_device_app_management_mobile_app_delete_assignment(client,
+                                                                      mobile_app_id,
+                                                                      mobile_app_assignment_id,
+                                                                      if_match=None):
+    return client.delete_assignment(mobile_app_id=mobile_app_id,
+                                    mobile_app_assignment_id=mobile_app_assignment_id,
+                                    if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_mobile_app_list_assignment(client,
@@ -2904,23 +2992,6 @@ def devicescorpmgt_device_app_management_mobile_app_update_assignment(client,
                                     target=target)
 
 
-def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete(client,
-                                                                                   targeted_managed_app_configuration_id,
-                                                                                   managed_mobile_app_id=None,
-                                                                                   if_match=None,
-                                                                                   targeted_managed_app_policy_assignment_id=None):
-    if targeted_managed_app_configuration_id is not None and managed_mobile_app_id is not None:
-        return client.delete_app(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                 managed_mobile_app_id=managed_mobile_app_id,
-                                 if_match=if_match)
-    elif targeted_managed_app_configuration_id is not None and targeted_managed_app_policy_assignment_id is not None:
-        return client.delete_assignment(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                        targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
-                                        if_match=if_match)
-    return client.delete_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
-                                            if_match=if_match)
-
-
 def devicescorpmgt_device_app_management_targeted_managed_app_configuration_assign(client,
                                                                                    targeted_managed_app_configuration_id,
                                                                                    assignments=None):
@@ -2946,6 +3017,31 @@ def devicescorpmgt_device_app_management_targeted_managed_app_configuration_crea
     return client.create_assignment(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
                                     id=id_,
                                     target=target)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_app(client,
+                                                                                       targeted_managed_app_configuration_id,
+                                                                                       managed_mobile_app_id,
+                                                                                       if_match=None):
+    return client.delete_app(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                             managed_mobile_app_id=managed_mobile_app_id,
+                             if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_assignment(client,
+                                                                                              targeted_managed_app_configuration_id,
+                                                                                              targeted_managed_app_policy_assignment_id,
+                                                                                              if_match=None):
+    return client.delete_assignment(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                    targeted_managed_app_policy_assignment_id=targeted_managed_app_policy_assignment_id,
+                                    if_match=if_match)
+
+
+def devicescorpmgt_device_app_management_targeted_managed_app_configuration_delete_deployment_summary(client,
+                                                                                                      targeted_managed_app_configuration_id,
+                                                                                                      if_match=None):
+    return client.delete_deployment_summary(targeted_managed_app_configuration_id=targeted_managed_app_configuration_id,
+                                            if_match=if_match)
 
 
 def devicescorpmgt_device_app_management_targeted_managed_app_configuration_list_app(client,
@@ -3052,20 +3148,6 @@ def devicescorpmgt_device_app_management_targeted_managed_app_configuration_upda
 def devicescorpmgt_device_app_management_vpp_token_sync_license(client,
                                                                 vpp_token_id):
     return client.sync_license(vpp_token_id=vpp_token_id)
-
-
-def devicescorpmgt_user_delete(client,
-                               user_id,
-                               device_management_troubleshooting_event_id=None,
-                               if_match=None,
-                               managed_device_id=None):
-    if user_id is not None and device_management_troubleshooting_event_id is not None:
-        return client.delete_device_management_troubleshooting_event(user_id=user_id,
-                                                                     device_management_troubleshooting_event_id=device_management_troubleshooting_event_id,
-                                                                     if_match=if_match)
-    return client.delete_managed_device(user_id=user_id,
-                                        managed_device_id=managed_device_id,
-                                        if_match=if_match)
 
 
 def devicescorpmgt_user_create_device_management_troubleshooting_event(client,
@@ -3189,6 +3271,24 @@ def devicescorpmgt_user_create_ref_managed_app_registration(client,
                                                             body):
     return client.create_ref_managed_app_registration(user_id=user_id,
                                                       body=body)
+
+
+def devicescorpmgt_user_delete_device_management_troubleshooting_event(client,
+                                                                       user_id,
+                                                                       device_management_troubleshooting_event_id,
+                                                                       if_match=None):
+    return client.delete_device_management_troubleshooting_event(user_id=user_id,
+                                                                 device_management_troubleshooting_event_id=device_management_troubleshooting_event_id,
+                                                                 if_match=if_match)
+
+
+def devicescorpmgt_user_delete_managed_device(client,
+                                              user_id,
+                                              managed_device_id,
+                                              if_match=None):
+    return client.delete_managed_device(user_id=user_id,
+                                        managed_device_id=managed_device_id,
+                                        if_match=if_match)
 
 
 def devicescorpmgt_user_list_device_management_troubleshooting_event(client,
@@ -3373,27 +3473,6 @@ def devicescorpmgt_user_update_managed_device(client,
                                         device_category=device_category)
 
 
-def devicescorpmgt_user_managed_device_delete(client,
-                                              user_id,
-                                              managed_device_id,
-                                              device_compliance_policy_state_id=None,
-                                              if_match=None,
-                                              device_configuration_state_id=None):
-    if user_id is not None and managed_device_id is not None and device_compliance_policy_state_id is not None:
-        return client.delete_device_compliance_policy_state(user_id=user_id,
-                                                            managed_device_id=managed_device_id,
-                                                            device_compliance_policy_state_id=device_compliance_policy_state_id,
-                                                            if_match=if_match)
-    elif user_id is not None and managed_device_id is not None and device_configuration_state_id is not None:
-        return client.delete_device_configuration_state(user_id=user_id,
-                                                        managed_device_id=managed_device_id,
-                                                        device_configuration_state_id=device_configuration_state_id,
-                                                        if_match=if_match)
-    return client.delete_device_category(user_id=user_id,
-                                         managed_device_id=managed_device_id,
-                                         if_match=if_match)
-
-
 def devicescorpmgt_user_managed_device_create_device_compliance_policy_state(client,
                                                                              user_id,
                                                                              managed_device_id,
@@ -3434,6 +3513,37 @@ def devicescorpmgt_user_managed_device_create_device_configuration_state(client,
                                                     setting_states=setting_states,
                                                     state=state,
                                                     version=version)
+
+
+def devicescorpmgt_user_managed_device_delete_device_category(client,
+                                                              user_id,
+                                                              managed_device_id,
+                                                              if_match=None):
+    return client.delete_device_category(user_id=user_id,
+                                         managed_device_id=managed_device_id,
+                                         if_match=if_match)
+
+
+def devicescorpmgt_user_managed_device_delete_device_compliance_policy_state(client,
+                                                                             user_id,
+                                                                             managed_device_id,
+                                                                             device_compliance_policy_state_id,
+                                                                             if_match=None):
+    return client.delete_device_compliance_policy_state(user_id=user_id,
+                                                        managed_device_id=managed_device_id,
+                                                        device_compliance_policy_state_id=device_compliance_policy_state_id,
+                                                        if_match=if_match)
+
+
+def devicescorpmgt_user_managed_device_delete_device_configuration_state(client,
+                                                                         user_id,
+                                                                         managed_device_id,
+                                                                         device_configuration_state_id,
+                                                                         if_match=None):
+    return client.delete_device_configuration_state(user_id=user_id,
+                                                    managed_device_id=managed_device_id,
+                                                    device_configuration_state_id=device_configuration_state_id,
+                                                    if_match=if_match)
 
 
 def devicescorpmgt_user_managed_device_list_device_compliance_policy_state(client,

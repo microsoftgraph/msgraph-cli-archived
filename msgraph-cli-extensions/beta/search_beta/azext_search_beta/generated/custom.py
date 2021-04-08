@@ -22,13 +22,6 @@ def search_external_external_update_external(client,
     return client.update_external(connections=connections)
 
 
-def search_external_delete(client,
-                           external_connection_id,
-                           if_match=None):
-    return client.delete_connection(external_connection_id=external_connection_id,
-                                    if_match=if_match)
-
-
 def search_external_create_connection(client,
                                       id_=None,
                                       configuration=None,
@@ -52,6 +45,13 @@ def search_external_create_connection(client,
                                     microsoft_graph_entity_id=microsoft_graph_entity_id,
                                     base_type=base_type,
                                     properties=properties)
+
+
+def search_external_delete_connection(client,
+                                      external_connection_id,
+                                      if_match=None):
+    return client.delete_connection(external_connection_id=external_connection_id,
+                                    if_match=if_match)
 
 
 def search_external_list_connection(client,

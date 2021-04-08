@@ -17,10 +17,10 @@
 ### <a name="CommandsInusers">Commands in `az people user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user delete](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
-|[az people user delete](#usersDeleteAnalytics)|DeleteAnalytics|[Parameters](#ParametersusersDeleteAnalytics)|Not Found|
-|[az people user delete](#usersDeleteProfile)|DeleteProfile|[Parameters](#ParametersusersDeleteProfile)|Not Found|
 |[az people user create-person](#usersCreatePeople)|CreatePeople|[Parameters](#ParametersusersCreatePeople)|Not Found|
+|[az people user delete-analytic](#usersDeleteAnalytics)|DeleteAnalytics|[Parameters](#ParametersusersDeleteAnalytics)|Not Found|
+|[az people user delete-person](#usersDeletePeople)|DeletePeople|[Parameters](#ParametersusersDeletePeople)|Not Found|
+|[az people user delete-profile](#usersDeleteProfile)|DeleteProfile|[Parameters](#ParametersusersDeleteProfile)|Not Found|
 |[az people user list-person](#usersListPeople)|ListPeople|[Parameters](#ParametersusersListPeople)|Not Found|
 |[az people user show-analytic](#usersGetAnalytics)|GetAnalytics|[Parameters](#ParametersusersGetAnalytics)|Not Found|
 |[az people user show-person](#usersGetPeople)|GetPeople|[Parameters](#ParametersusersGetPeople)|Not Found|
@@ -32,8 +32,8 @@
 ### <a name="CommandsInusers.analytics">Commands in `az people user-analytic` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-analytic delete](#users.analyticsDeleteActivityStatistics)|DeleteActivityStatistics|[Parameters](#Parametersusers.analyticsDeleteActivityStatistics)|Not Found|
 |[az people user-analytic create-activity-statistics](#users.analyticsCreateActivityStatistics)|CreateActivityStatistics|[Parameters](#Parametersusers.analyticsCreateActivityStatistics)|Not Found|
+|[az people user-analytic delete-activity-statistics](#users.analyticsDeleteActivityStatistics)|DeleteActivityStatistics|[Parameters](#Parametersusers.analyticsDeleteActivityStatistics)|Not Found|
 |[az people user-analytic list-activity-statistics](#users.analyticsListActivityStatistics)|ListActivityStatistics|[Parameters](#Parametersusers.analyticsListActivityStatistics)|Not Found|
 |[az people user-analytic show-activity-statistics](#users.analyticsGetActivityStatistics)|GetActivityStatistics|[Parameters](#Parametersusers.analyticsGetActivityStatistics)|Not Found|
 |[az people user-analytic update-activity-statistics](#users.analyticsUpdateActivityStatistics)|UpdateActivityStatistics|[Parameters](#Parametersusers.analyticsUpdateActivityStatistics)|Not Found|
@@ -41,25 +41,6 @@
 ### <a name="CommandsInusers.profile">Commands in `az people user-profile` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az people user-profile delete](#users.profileDeleteAccount)|DeleteAccount|[Parameters](#Parametersusers.profileDeleteAccount)|Not Found|
-|[az people user-profile delete](#users.profileDeleteAddresses)|DeleteAddresses|[Parameters](#Parametersusers.profileDeleteAddresses)|Not Found|
-|[az people user-profile delete](#users.profileDeleteAnniversaries)|DeleteAnniversaries|[Parameters](#Parametersusers.profileDeleteAnniversaries)|Not Found|
-|[az people user-profile delete](#users.profileDeleteAwards)|DeleteAwards|[Parameters](#Parametersusers.profileDeleteAwards)|Not Found|
-|[az people user-profile delete](#users.profileDeleteCertifications)|DeleteCertifications|[Parameters](#Parametersusers.profileDeleteCertifications)|Not Found|
-|[az people user-profile delete](#users.profileDeleteEducationalActivities)|DeleteEducationalActivities|[Parameters](#Parametersusers.profileDeleteEducationalActivities)|Not Found|
-|[az people user-profile delete](#users.profileDeleteEmails)|DeleteEmails|[Parameters](#Parametersusers.profileDeleteEmails)|Not Found|
-|[az people user-profile delete](#users.profileDeleteInterests)|DeleteInterests|[Parameters](#Parametersusers.profileDeleteInterests)|Not Found|
-|[az people user-profile delete](#users.profileDeleteLanguages)|DeleteLanguages|[Parameters](#Parametersusers.profileDeleteLanguages)|Not Found|
-|[az people user-profile delete](#users.profileDeleteNames)|DeleteNames|[Parameters](#Parametersusers.profileDeleteNames)|Not Found|
-|[az people user-profile delete](#users.profileDeleteNotes)|DeleteNotes|[Parameters](#Parametersusers.profileDeleteNotes)|Not Found|
-|[az people user-profile delete](#users.profileDeletePatents)|DeletePatents|[Parameters](#Parametersusers.profileDeletePatents)|Not Found|
-|[az people user-profile delete](#users.profileDeletePhones)|DeletePhones|[Parameters](#Parametersusers.profileDeletePhones)|Not Found|
-|[az people user-profile delete](#users.profileDeletePositions)|DeletePositions|[Parameters](#Parametersusers.profileDeletePositions)|Not Found|
-|[az people user-profile delete](#users.profileDeleteProjects)|DeleteProjects|[Parameters](#Parametersusers.profileDeleteProjects)|Not Found|
-|[az people user-profile delete](#users.profileDeletePublications)|DeletePublications|[Parameters](#Parametersusers.profileDeletePublications)|Not Found|
-|[az people user-profile delete](#users.profileDeleteSkills)|DeleteSkills|[Parameters](#Parametersusers.profileDeleteSkills)|Not Found|
-|[az people user-profile delete](#users.profileDeleteWebAccounts)|DeleteWebAccounts|[Parameters](#Parametersusers.profileDeleteWebAccounts)|Not Found|
-|[az people user-profile delete](#users.profileDeleteWebsites)|DeleteWebsites|[Parameters](#Parametersusers.profileDeleteWebsites)|Not Found|
 |[az people user-profile create-account](#users.profileCreateAccount)|CreateAccount|[Parameters](#Parametersusers.profileCreateAccount)|Not Found|
 |[az people user-profile create-address](#users.profileCreateAddresses)|CreateAddresses|[Parameters](#Parametersusers.profileCreateAddresses)|Not Found|
 |[az people user-profile create-anniversary](#users.profileCreateAnniversaries)|CreateAnniversaries|[Parameters](#Parametersusers.profileCreateAnniversaries)|Not Found|
@@ -79,6 +60,25 @@
 |[az people user-profile create-skill](#users.profileCreateSkills)|CreateSkills|[Parameters](#Parametersusers.profileCreateSkills)|Not Found|
 |[az people user-profile create-web-account](#users.profileCreateWebAccounts)|CreateWebAccounts|[Parameters](#Parametersusers.profileCreateWebAccounts)|Not Found|
 |[az people user-profile create-website](#users.profileCreateWebsites)|CreateWebsites|[Parameters](#Parametersusers.profileCreateWebsites)|Not Found|
+|[az people user-profile delete-account](#users.profileDeleteAccount)|DeleteAccount|[Parameters](#Parametersusers.profileDeleteAccount)|Not Found|
+|[az people user-profile delete-address](#users.profileDeleteAddresses)|DeleteAddresses|[Parameters](#Parametersusers.profileDeleteAddresses)|Not Found|
+|[az people user-profile delete-anniversary](#users.profileDeleteAnniversaries)|DeleteAnniversaries|[Parameters](#Parametersusers.profileDeleteAnniversaries)|Not Found|
+|[az people user-profile delete-award](#users.profileDeleteAwards)|DeleteAwards|[Parameters](#Parametersusers.profileDeleteAwards)|Not Found|
+|[az people user-profile delete-certification](#users.profileDeleteCertifications)|DeleteCertifications|[Parameters](#Parametersusers.profileDeleteCertifications)|Not Found|
+|[az people user-profile delete-educational-activity](#users.profileDeleteEducationalActivities)|DeleteEducationalActivities|[Parameters](#Parametersusers.profileDeleteEducationalActivities)|Not Found|
+|[az people user-profile delete-email](#users.profileDeleteEmails)|DeleteEmails|[Parameters](#Parametersusers.profileDeleteEmails)|Not Found|
+|[az people user-profile delete-interest](#users.profileDeleteInterests)|DeleteInterests|[Parameters](#Parametersusers.profileDeleteInterests)|Not Found|
+|[az people user-profile delete-language](#users.profileDeleteLanguages)|DeleteLanguages|[Parameters](#Parametersusers.profileDeleteLanguages)|Not Found|
+|[az people user-profile delete-name](#users.profileDeleteNames)|DeleteNames|[Parameters](#Parametersusers.profileDeleteNames)|Not Found|
+|[az people user-profile delete-note](#users.profileDeleteNotes)|DeleteNotes|[Parameters](#Parametersusers.profileDeleteNotes)|Not Found|
+|[az people user-profile delete-patent](#users.profileDeletePatents)|DeletePatents|[Parameters](#Parametersusers.profileDeletePatents)|Not Found|
+|[az people user-profile delete-phone](#users.profileDeletePhones)|DeletePhones|[Parameters](#Parametersusers.profileDeletePhones)|Not Found|
+|[az people user-profile delete-position](#users.profileDeletePositions)|DeletePositions|[Parameters](#Parametersusers.profileDeletePositions)|Not Found|
+|[az people user-profile delete-project](#users.profileDeleteProjects)|DeleteProjects|[Parameters](#Parametersusers.profileDeleteProjects)|Not Found|
+|[az people user-profile delete-publication](#users.profileDeletePublications)|DeletePublications|[Parameters](#Parametersusers.profileDeletePublications)|Not Found|
+|[az people user-profile delete-skill](#users.profileDeleteSkills)|DeleteSkills|[Parameters](#Parametersusers.profileDeleteSkills)|Not Found|
+|[az people user-profile delete-web-account](#users.profileDeleteWebAccounts)|DeleteWebAccounts|[Parameters](#Parametersusers.profileDeleteWebAccounts)|Not Found|
+|[az people user-profile delete-website](#users.profileDeleteWebsites)|DeleteWebsites|[Parameters](#Parametersusers.profileDeleteWebsites)|Not Found|
 |[az people user-profile list-account](#users.profileListAccount)|ListAccount|[Parameters](#Parametersusers.profileListAccount)|Not Found|
 |[az people user-profile list-address](#users.profileListAddresses)|ListAddresses|[Parameters](#Parametersusers.profileListAddresses)|Not Found|
 |[az people user-profile list-anniversary](#users.profileListAnniversaries)|ListAnniversaries|[Parameters](#Parametersusers.profileListAnniversaries)|Not Found|
@@ -141,25 +141,6 @@
 ## COMMAND DETAILS
 
 ### group `az people user`
-#### <a name="usersDeletePeople">Command `az people user delete`</a>
-
-##### <a name="ParametersusersDeletePeople">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--person-id**|string|key: id of person|person_id|person-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="usersDeleteAnalytics">Command `az people user delete`</a>
-
-##### <a name="ParametersusersDeleteAnalytics">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="usersDeleteProfile">Command `az people user delete`</a>
-
-##### <a name="ParametersusersDeleteProfile">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
 #### <a name="usersCreatePeople">Command `az people user create-person`</a>
 
 ##### <a name="ParametersusersCreatePeople">Parameters</a> 
@@ -187,6 +168,31 @@
 |**--user-principal-name**|string|The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.|user_principal_name|userPrincipalName|
 |**--websites**|array|The person's websites.|websites|websites|
 |**--yomi-company**|string|The phonetic Japanese name of the person's company.|yomi_company|yomiCompany|
+
+#### <a name="usersDeleteAnalytics">Command `az people user delete-analytic`</a>
+
+##### <a name="ParametersusersDeleteAnalytics">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeletePeople">Command `az people user delete-person`</a>
+
+##### <a name="ParametersusersDeletePeople">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-id**|string|key: id of person|person_id|person-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="usersDeleteProfile">Command `az people user delete-profile`</a>
+
+##### <a name="ParametersusersDeleteProfile">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListPeople">Command `az people user list-person`</a>
 
@@ -293,15 +299,6 @@
 |**--websites**|array||websites|websites|
 
 ### group `az people user-analytic`
-#### <a name="users.analyticsDeleteActivityStatistics">Command `az people user-analytic delete`</a>
-
-##### <a name="Parametersusers.analyticsDeleteActivityStatistics">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="users.analyticsCreateActivityStatistics">Command `az people user-analytic create-activity-statistics`</a>
 
 ##### <a name="Parametersusers.analyticsCreateActivityStatistics">Parameters</a> 
@@ -314,6 +311,15 @@
 |**--end-date**|date||end_date|endDate|
 |**--start-date**|date||start_date|startDate|
 |**--time-zone-used**|string||time_zone_used|timeZoneUsed|
+
+#### <a name="users.analyticsDeleteActivityStatistics">Command `az people user-analytic delete-activity-statistics`</a>
+
+##### <a name="Parametersusers.analyticsDeleteActivityStatistics">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--activity-statistics-id**|string|key: id of activityStatistics|activity_statistics_id|activityStatistics-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.analyticsListActivityStatistics">Command `az people user-analytic list-activity-statistics`</a>
 
@@ -350,141 +356,6 @@
 |**--time-zone-used**|string||time_zone_used|timeZoneUsed|
 
 ### group `az people user-profile`
-#### <a name="users.profileDeleteAccount">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteAccount">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--user-account-information-id**|string|key: id of userAccountInformation|user_account_information_id|userAccountInformation-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="users.profileDeleteAddresses">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteAddresses">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-address-id**|string|key: id of itemAddress|item_address_id|itemAddress-id|
-
-#### <a name="users.profileDeleteAnniversaries">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteAnniversaries">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-anniversary-id**|string|key: id of personAnniversary|person_anniversary_id|personAnniversary-id|
-
-#### <a name="users.profileDeleteAwards">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteAwards">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-award-id**|string|key: id of personAward|person_award_id|personAward-id|
-
-#### <a name="users.profileDeleteCertifications">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteCertifications">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-certification-id**|string|key: id of personCertification|person_certification_id|personCertification-id|
-
-#### <a name="users.profileDeleteEducationalActivities">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteEducationalActivities">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--educational-activity-id**|string|key: id of educationalActivity|educational_activity_id|educationalActivity-id|
-
-#### <a name="users.profileDeleteEmails">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteEmails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-email-id**|string|key: id of itemEmail|item_email_id|itemEmail-id|
-
-#### <a name="users.profileDeleteInterests">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteInterests">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-interest-id**|string|key: id of personInterest|person_interest_id|personInterest-id|
-
-#### <a name="users.profileDeleteLanguages">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteLanguages">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--language-proficiency-id**|string|key: id of languageProficiency|language_proficiency_id|languageProficiency-id|
-
-#### <a name="users.profileDeleteNames">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteNames">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-name-id**|string|key: id of personName|person_name_id|personName-id|
-
-#### <a name="users.profileDeleteNotes">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteNotes">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-annotation-id**|string|key: id of personAnnotation|person_annotation_id|personAnnotation-id|
-
-#### <a name="users.profileDeletePatents">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeletePatents">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-patent-id**|string|key: id of itemPatent|item_patent_id|itemPatent-id|
-
-#### <a name="users.profileDeletePhones">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeletePhones">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-phone-id**|string|key: id of itemPhone|item_phone_id|itemPhone-id|
-
-#### <a name="users.profileDeletePositions">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeletePositions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--work-position-id**|string|key: id of workPosition|work_position_id|workPosition-id|
-
-#### <a name="users.profileDeleteProjects">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteProjects">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--project-participation-id**|string|key: id of projectParticipation|project_participation_id|projectParticipation-id|
-
-#### <a name="users.profileDeletePublications">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeletePublications">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--item-publication-id**|string|key: id of itemPublication|item_publication_id|itemPublication-id|
-
-#### <a name="users.profileDeleteSkills">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteSkills">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--skill-proficiency-id**|string|key: id of skillProficiency|skill_proficiency_id|skillProficiency-id|
-
-#### <a name="users.profileDeleteWebAccounts">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteWebAccounts">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--web-account-id**|string|key: id of webAccount|web_account_id|webAccount-id|
-
-#### <a name="users.profileDeleteWebsites">Command `az people user-profile delete`</a>
-
-##### <a name="Parametersusers.profileDeleteWebsites">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--person-website-id**|string|key: id of personWebsite|person_website_id|personWebsite-id|
-
 #### <a name="users.profileCreateAccount">Command `az people user-profile create-account`</a>
 
 ##### <a name="Parametersusers.profileCreateAccount">Parameters</a> 
@@ -964,6 +835,177 @@
 |**--description**|string||description|description|
 |**--display-name**|string||display_name|displayName|
 |**--web-url**|string||web_url|webUrl|
+
+#### <a name="users.profileDeleteAccount">Command `az people user-profile delete-account`</a>
+
+##### <a name="Parametersusers.profileDeleteAccount">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--user-account-information-id**|string|key: id of userAccountInformation|user_account_information_id|userAccountInformation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAddresses">Command `az people user-profile delete-address`</a>
+
+##### <a name="Parametersusers.profileDeleteAddresses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--item-address-id**|string|key: id of itemAddress|item_address_id|itemAddress-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAnniversaries">Command `az people user-profile delete-anniversary`</a>
+
+##### <a name="Parametersusers.profileDeleteAnniversaries">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-anniversary-id**|string|key: id of personAnniversary|person_anniversary_id|personAnniversary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteAwards">Command `az people user-profile delete-award`</a>
+
+##### <a name="Parametersusers.profileDeleteAwards">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-award-id**|string|key: id of personAward|person_award_id|personAward-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteCertifications">Command `az people user-profile delete-certification`</a>
+
+##### <a name="Parametersusers.profileDeleteCertifications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-certification-id**|string|key: id of personCertification|person_certification_id|personCertification-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteEducationalActivities">Command `az people user-profile delete-educational-activity`</a>
+
+##### <a name="Parametersusers.profileDeleteEducationalActivities">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--educational-activity-id**|string|key: id of educationalActivity|educational_activity_id|educationalActivity-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteEmails">Command `az people user-profile delete-email`</a>
+
+##### <a name="Parametersusers.profileDeleteEmails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--item-email-id**|string|key: id of itemEmail|item_email_id|itemEmail-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteInterests">Command `az people user-profile delete-interest`</a>
+
+##### <a name="Parametersusers.profileDeleteInterests">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-interest-id**|string|key: id of personInterest|person_interest_id|personInterest-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteLanguages">Command `az people user-profile delete-language`</a>
+
+##### <a name="Parametersusers.profileDeleteLanguages">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--language-proficiency-id**|string|key: id of languageProficiency|language_proficiency_id|languageProficiency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteNames">Command `az people user-profile delete-name`</a>
+
+##### <a name="Parametersusers.profileDeleteNames">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-name-id**|string|key: id of personName|person_name_id|personName-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteNotes">Command `az people user-profile delete-note`</a>
+
+##### <a name="Parametersusers.profileDeleteNotes">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-annotation-id**|string|key: id of personAnnotation|person_annotation_id|personAnnotation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePatents">Command `az people user-profile delete-patent`</a>
+
+##### <a name="Parametersusers.profileDeletePatents">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--item-patent-id**|string|key: id of itemPatent|item_patent_id|itemPatent-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePhones">Command `az people user-profile delete-phone`</a>
+
+##### <a name="Parametersusers.profileDeletePhones">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--item-phone-id**|string|key: id of itemPhone|item_phone_id|itemPhone-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePositions">Command `az people user-profile delete-position`</a>
+
+##### <a name="Parametersusers.profileDeletePositions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--work-position-id**|string|key: id of workPosition|work_position_id|workPosition-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteProjects">Command `az people user-profile delete-project`</a>
+
+##### <a name="Parametersusers.profileDeleteProjects">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--project-participation-id**|string|key: id of projectParticipation|project_participation_id|projectParticipation-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeletePublications">Command `az people user-profile delete-publication`</a>
+
+##### <a name="Parametersusers.profileDeletePublications">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--item-publication-id**|string|key: id of itemPublication|item_publication_id|itemPublication-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteSkills">Command `az people user-profile delete-skill`</a>
+
+##### <a name="Parametersusers.profileDeleteSkills">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--skill-proficiency-id**|string|key: id of skillProficiency|skill_proficiency_id|skillProficiency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteWebAccounts">Command `az people user-profile delete-web-account`</a>
+
+##### <a name="Parametersusers.profileDeleteWebAccounts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--web-account-id**|string|key: id of webAccount|web_account_id|webAccount-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="users.profileDeleteWebsites">Command `az people user-profile delete-website`</a>
+
+##### <a name="Parametersusers.profileDeleteWebsites">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--person-website-id**|string|key: id of personWebsite|person_website_id|personWebsite-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="users.profileListAccount">Command `az people user-profile list-account`</a>
 

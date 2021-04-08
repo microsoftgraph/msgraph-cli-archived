@@ -19,16 +19,16 @@
 ### <a name="CommandsInbookingBusinesses">Commands in `az bookings booking-business` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az bookings booking-business delete](#bookingBusinessesDeleteAppointments)|DeleteAppointments|[Parameters](#ParametersbookingBusinessesDeleteAppointments)|Not Found|
-|[az bookings booking-business delete](#bookingBusinessesDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersbookingBusinessesDeleteCalendarView)|Not Found|
-|[az bookings booking-business delete](#bookingBusinessesDeleteCustomers)|DeleteCustomers|[Parameters](#ParametersbookingBusinessesDeleteCustomers)|Not Found|
-|[az bookings booking-business delete](#bookingBusinessesDeleteServices)|DeleteServices|[Parameters](#ParametersbookingBusinessesDeleteServices)|Not Found|
-|[az bookings booking-business delete](#bookingBusinessesDeleteStaffMembers)|DeleteStaffMembers|[Parameters](#ParametersbookingBusinessesDeleteStaffMembers)|Not Found|
 |[az bookings booking-business create-appointment](#bookingBusinessesCreateAppointments)|CreateAppointments|[Parameters](#ParametersbookingBusinessesCreateAppointments)|Not Found|
 |[az bookings booking-business create-calendar-view](#bookingBusinessesCreateCalendarView)|CreateCalendarView|[Parameters](#ParametersbookingBusinessesCreateCalendarView)|Not Found|
 |[az bookings booking-business create-customer](#bookingBusinessesCreateCustomers)|CreateCustomers|[Parameters](#ParametersbookingBusinessesCreateCustomers)|Not Found|
 |[az bookings booking-business create-service](#bookingBusinessesCreateServices)|CreateServices|[Parameters](#ParametersbookingBusinessesCreateServices)|Not Found|
 |[az bookings booking-business create-staff-member](#bookingBusinessesCreateStaffMembers)|CreateStaffMembers|[Parameters](#ParametersbookingBusinessesCreateStaffMembers)|Not Found|
+|[az bookings booking-business delete-appointment](#bookingBusinessesDeleteAppointments)|DeleteAppointments|[Parameters](#ParametersbookingBusinessesDeleteAppointments)|Not Found|
+|[az bookings booking-business delete-calendar-view](#bookingBusinessesDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersbookingBusinessesDeleteCalendarView)|Not Found|
+|[az bookings booking-business delete-customer](#bookingBusinessesDeleteCustomers)|DeleteCustomers|[Parameters](#ParametersbookingBusinessesDeleteCustomers)|Not Found|
+|[az bookings booking-business delete-service](#bookingBusinessesDeleteServices)|DeleteServices|[Parameters](#ParametersbookingBusinessesDeleteServices)|Not Found|
+|[az bookings booking-business delete-staff-member](#bookingBusinessesDeleteStaffMembers)|DeleteStaffMembers|[Parameters](#ParametersbookingBusinessesDeleteStaffMembers)|Not Found|
 |[az bookings booking-business list-appointment](#bookingBusinessesListAppointments)|ListAppointments|[Parameters](#ParametersbookingBusinessesListAppointments)|Not Found|
 |[az bookings booking-business list-calendar-view](#bookingBusinessesListCalendarView)|ListCalendarView|[Parameters](#ParametersbookingBusinessesListCalendarView)|Not Found|
 |[az bookings booking-business list-customer](#bookingBusinessesListCustomers)|ListCustomers|[Parameters](#ParametersbookingBusinessesListCustomers)|Not Found|
@@ -55,8 +55,8 @@
 ### <a name="CommandsInbookingBusinesses.bookingBusiness">Commands in `az bookings booking-business-booking-business` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az bookings booking-business-booking-business delete](#bookingBusinesses.bookingBusinessDeleteBookingBusiness)|DeleteBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness)|Not Found|
 |[az bookings booking-business-booking-business create-booking-business](#bookingBusinesses.bookingBusinessCreateBookingBusiness)|CreateBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessCreateBookingBusiness)|Not Found|
+|[az bookings booking-business-booking-business delete-booking-business](#bookingBusinesses.bookingBusinessDeleteBookingBusiness)|DeleteBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness)|Not Found|
 |[az bookings booking-business-booking-business list-booking-business](#bookingBusinesses.bookingBusinessListBookingBusiness)|ListBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessListBookingBusiness)|Not Found|
 |[az bookings booking-business-booking-business show-booking-business](#bookingBusinesses.bookingBusinessGetBookingBusiness)|GetBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessGetBookingBusiness)|Not Found|
 |[az bookings booking-business-booking-business update-booking-business](#bookingBusinesses.bookingBusinessUpdateBookingBusiness)|UpdateBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessUpdateBookingBusiness)|Not Found|
@@ -69,8 +69,8 @@
 ### <a name="CommandsInbookingCurrencies.bookingCurrency">Commands in `az bookings booking-currency-booking-currency` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az bookings booking-currency-booking-currency delete](#bookingCurrencies.bookingCurrencyDeleteBookingCurrency)|DeleteBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency)|Not Found|
 |[az bookings booking-currency-booking-currency create-booking-currency](#bookingCurrencies.bookingCurrencyCreateBookingCurrency)|CreateBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyCreateBookingCurrency)|Not Found|
+|[az bookings booking-currency-booking-currency delete-booking-currency](#bookingCurrencies.bookingCurrencyDeleteBookingCurrency)|DeleteBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency)|Not Found|
 |[az bookings booking-currency-booking-currency list-booking-currency](#bookingCurrencies.bookingCurrencyListBookingCurrency)|ListBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyListBookingCurrency)|Not Found|
 |[az bookings booking-currency-booking-currency show-booking-currency](#bookingCurrencies.bookingCurrencyGetBookingCurrency)|GetBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyGetBookingCurrency)|Not Found|
 |[az bookings booking-currency-booking-currency update-booking-currency](#bookingCurrencies.bookingCurrencyUpdateBookingCurrency)|UpdateBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyUpdateBookingCurrency)|Not Found|
@@ -79,41 +79,6 @@
 ## COMMAND DETAILS
 
 ### group `az bookings booking-business`
-#### <a name="bookingBusinessesDeleteAppointments">Command `az bookings booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinessesDeleteAppointments">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="bookingBusinessesDeleteCalendarView">Command `az bookings booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinessesDeleteCalendarView">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="bookingBusinessesDeleteCustomers">Command `az bookings booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinessesDeleteCustomers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
-
-#### <a name="bookingBusinessesDeleteServices">Command `az bookings booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinessesDeleteServices">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
-
-#### <a name="bookingBusinessesDeleteStaffMembers">Command `az bookings booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinessesDeleteStaffMembers">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
-
 #### <a name="bookingBusinessesCreateAppointments">Command `az bookings booking-business create-appointment`</a>
 
 ##### <a name="ParametersbookingBusinessesCreateAppointments">Parameters</a> 
@@ -270,6 +235,51 @@
 |**--role**|choice||role|role|
 |**--use-business-hours**|boolean||use_business_hours|useBusinessHours|
 |**--working-hours**|array||working_hours|workingHours|
+
+#### <a name="bookingBusinessesDeleteAppointments">Command `az bookings booking-business delete-appointment`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteAppointments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="bookingBusinessesDeleteCalendarView">Command `az bookings booking-business delete-calendar-view`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="bookingBusinessesDeleteCustomers">Command `az bookings booking-business delete-customer`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteCustomers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="bookingBusinessesDeleteServices">Command `az bookings booking-business delete-service`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteServices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="bookingBusinessesDeleteStaffMembers">Command `az bookings booking-business delete-staff-member`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteStaffMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="bookingBusinessesListAppointments">Command `az bookings booking-business list-appointment`</a>
 
@@ -562,14 +572,6 @@
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
 ### group `az bookings booking-business-booking-business`
-#### <a name="bookingBusinesses.bookingBusinessDeleteBookingBusiness">Command `az bookings booking-business-booking-business delete`</a>
-
-##### <a name="ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="bookingBusinesses.bookingBusinessCreateBookingBusiness">Command `az bookings booking-business-booking-business create-booking-business`</a>
 
 ##### <a name="ParametersbookingBusinesses.bookingBusinessCreateBookingBusiness">Parameters</a> 
@@ -592,6 +594,14 @@
 |**--customers**|array|All customers of this business.|customers|customers|
 |**--services**|array|All services offered by this business.|services|services|
 |**--staff-members**|array|All staff members that provides services in this business.|staff_members|staffMembers|
+
+#### <a name="bookingBusinesses.bookingBusinessDeleteBookingBusiness">Command `az bookings booking-business-booking-business delete-booking-business`</a>
+
+##### <a name="ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="bookingBusinesses.bookingBusinessListBookingBusiness">Command `az bookings booking-business-booking-business list-booking-business`</a>
 
@@ -646,14 +656,6 @@
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
 ### group `az bookings booking-currency-booking-currency`
-#### <a name="bookingCurrencies.bookingCurrencyDeleteBookingCurrency">Command `az bookings booking-currency-booking-currency delete`</a>
-
-##### <a name="ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="bookingCurrencies.bookingCurrencyCreateBookingCurrency">Command `az bookings booking-currency-booking-currency create-booking-currency`</a>
 
 ##### <a name="ParametersbookingCurrencies.bookingCurrencyCreateBookingCurrency">Parameters</a> 
@@ -661,6 +663,14 @@
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--symbol**|string||symbol|symbol|
+
+#### <a name="bookingCurrencies.bookingCurrencyDeleteBookingCurrency">Command `az bookings booking-currency-booking-currency delete-booking-currency`</a>
+
+##### <a name="ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="bookingCurrencies.bookingCurrencyListBookingCurrency">Command `az bookings booking-currency-booking-currency list-booking-currency`</a>
 

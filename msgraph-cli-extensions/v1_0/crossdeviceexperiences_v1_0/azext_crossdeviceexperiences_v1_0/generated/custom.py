@@ -10,15 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def crossdeviceexperiences_user_delete(client,
-                                       user_id,
-                                       user_activity_id,
-                                       if_match=None):
-    return client.delete_activity(user_id=user_id,
-                                  user_activity_id=user_activity_id,
-                                  if_match=if_match)
-
-
 def crossdeviceexperiences_user_create_activity(client,
                                                 user_id,
                                                 id_=None,
@@ -60,6 +51,15 @@ def crossdeviceexperiences_user_create_activity(client,
                                   content=content,
                                   description=description,
                                   display_text=display_text)
+
+
+def crossdeviceexperiences_user_delete_activity(client,
+                                                user_id,
+                                                user_activity_id,
+                                                if_match=None):
+    return client.delete_activity(user_id=user_id,
+                                  user_activity_id=user_activity_id,
+                                  if_match=if_match)
 
 
 def crossdeviceexperiences_user_list_activity(client,
@@ -129,17 +129,6 @@ def crossdeviceexperiences_user_update_activity(client,
                                   display_text=display_text)
 
 
-def crossdeviceexperiences_user_activity_delete(client,
-                                                user_id,
-                                                user_activity_id,
-                                                activity_history_item_id,
-                                                if_match=None):
-    return client.delete_history_item(user_id=user_id,
-                                      user_activity_id=user_activity_id,
-                                      activity_history_item_id=activity_history_item_id,
-                                      if_match=if_match)
-
-
 def crossdeviceexperiences_user_activity_create_history_item(client,
                                                              user_id,
                                                              user_activity_id,
@@ -165,6 +154,17 @@ def crossdeviceexperiences_user_activity_create_history_item(client,
                                       status=status,
                                       user_timezone=user_timezone,
                                       activity=activity)
+
+
+def crossdeviceexperiences_user_activity_delete_history_item(client,
+                                                             user_id,
+                                                             user_activity_id,
+                                                             activity_history_item_id,
+                                                             if_match=None):
+    return client.delete_history_item(user_id=user_id,
+                                      user_activity_id=user_activity_id,
+                                      activity_history_item_id=activity_history_item_id,
+                                      if_match=if_match)
 
 
 def crossdeviceexperiences_user_activity_list_history_item(client,
@@ -222,11 +222,11 @@ def crossdeviceexperiences_user_activity_update_history_item(client,
                                       activity=activity)
 
 
-def crossdeviceexperiences_user_activity_history_item_delete(client,
-                                                             user_id,
-                                                             user_activity_id,
-                                                             activity_history_item_id,
-                                                             if_match=None):
+def crossdeviceexperiences_user_activity_history_item_delete_ref_activity(client,
+                                                                          user_id,
+                                                                          user_activity_id,
+                                                                          activity_history_item_id,
+                                                                          if_match=None):
     return client.delete_ref_activity(user_id=user_id,
                                       user_activity_id=user_activity_id,
                                       activity_history_item_id=activity_history_item_id,

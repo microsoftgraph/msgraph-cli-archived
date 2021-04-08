@@ -437,9 +437,9 @@ def users_user_create(client,
                               working_hours=working_hours)
 
 
-def users_user_delete(client,
-                      user_id,
-                      if_match=None):
+def users_user_delete_user(client,
+                           user_id,
+                           if_match=None):
     return client.delete_user(user_id=user_id,
                               if_match=if_match)
 
@@ -451,37 +451,6 @@ def users_user_show_user(client,
     return client.get_user(user_id=user_id,
                            select=select,
                            expand=expand)
-
-
-def users_user_delete(client,
-                      user_id,
-                      extension_id=None,
-                      if_match=None,
-                      license_details_id=None,
-                      profile_photo_id=None):
-    if user_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and license_details_id is not None:
-        return client.delete_license_detail(user_id=user_id,
-                                            license_details_id=license_details_id,
-                                            if_match=if_match)
-    elif user_id is not None and profile_photo_id is not None:
-        return client.delete_photo(user_id=user_id,
-                                   profile_photo_id=profile_photo_id,
-                                   if_match=if_match)
-    elif user_id is not None:
-        return client.delete_ref_manager(user_id=user_id,
-                                         if_match=if_match)
-    elif user_id is not None:
-        return client.delete_outlook(user_id=user_id,
-                                     if_match=if_match)
-    elif user_id is not None:
-        return client.delete_photo(user_id=user_id,
-                                   if_match=if_match)
-    return client.delete_setting(user_id=user_id,
-                                 if_match=if_match)
 
 
 def users_user_create_extension(client,
@@ -569,6 +538,57 @@ def users_user_create_ref_transitive_member_of(client,
                                                body):
     return client.create_ref_transitive_member_of(user_id=user_id,
                                                   body=body)
+
+
+def users_user_delete_extension(client,
+                                user_id,
+                                extension_id,
+                                if_match=None):
+    return client.delete_extension(user_id=user_id,
+                                   extension_id=extension_id,
+                                   if_match=if_match)
+
+
+def users_user_delete_license_detail(client,
+                                     user_id,
+                                     license_details_id,
+                                     if_match=None):
+    return client.delete_license_detail(user_id=user_id,
+                                        license_details_id=license_details_id,
+                                        if_match=if_match)
+
+
+def users_user_delete_outlook(client,
+                              user_id,
+                              if_match=None):
+    return client.delete_outlook(user_id=user_id,
+                                 if_match=if_match)
+
+
+def users_user_delete_photo(client,
+                            user_id,
+                            profile_photo_id=None,
+                            if_match=None):
+    if user_id is not None and profile_photo_id is not None:
+        return client.delete_photo(user_id=user_id,
+                                   profile_photo_id=profile_photo_id,
+                                   if_match=if_match)
+    return client.delete_photo(user_id=user_id,
+                               if_match=if_match)
+
+
+def users_user_delete_ref_manager(client,
+                                  user_id,
+                                  if_match=None):
+    return client.delete_ref_manager(user_id=user_id,
+                                     if_match=if_match)
+
+
+def users_user_delete_setting(client,
+                              user_id,
+                              if_match=None):
+    return client.delete_setting(user_id=user_id,
+                                 if_match=if_match)
 
 
 def users_user_list_created_object(client,
@@ -900,15 +920,6 @@ def users_user_update_setting(client,
                                  availability=availability)
 
 
-def users_user_outlook_delete(client,
-                              user_id,
-                              outlook_category_id,
-                              if_match=None):
-    return client.delete_master_category(user_id=user_id,
-                                         outlook_category_id=outlook_category_id,
-                                         if_match=if_match)
-
-
 def users_user_outlook_create_master_category(client,
                                               user_id,
                                               id_=None,
@@ -918,6 +929,15 @@ def users_user_outlook_create_master_category(client,
                                          id=id_,
                                          color=color,
                                          display_name=display_name)
+
+
+def users_user_outlook_delete_master_category(client,
+                                              user_id,
+                                              outlook_category_id,
+                                              if_match=None):
+    return client.delete_master_category(user_id=user_id,
+                                         outlook_category_id=outlook_category_id,
+                                         if_match=if_match)
 
 
 def users_user_outlook_list_master_category(client,
@@ -955,9 +975,9 @@ def users_user_outlook_update_master_category(client,
                                          display_name=display_name)
 
 
-def users_user_setting_delete(client,
-                              user_id,
-                              if_match=None):
+def users_user_setting_delete_shift_preference(client,
+                                               user_id,
+                                               if_match=None):
     return client.delete_shift_preference(user_id=user_id,
                                           if_match=if_match)
 

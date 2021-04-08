@@ -10,13 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def changenotifications_subscription_subscription_delete(client,
-                                                         subscription_id,
-                                                         if_match=None):
-    return client.delete_subscription(subscription_id=subscription_id,
-                                      if_match=if_match)
-
-
 def changenotifications_subscription_subscription_create_subscription(client,
                                                                       id_=None,
                                                                       application_id=None,
@@ -44,6 +37,13 @@ def changenotifications_subscription_subscription_create_subscription(client,
                                       lifecycle_notification_url=lifecycle_notification_url,
                                       notification_url=notification_url,
                                       resource=resource)
+
+
+def changenotifications_subscription_subscription_delete_subscription(client,
+                                                                      subscription_id,
+                                                                      if_match=None):
+    return client.delete_subscription(subscription_id=subscription_id,
+                                      if_match=if_match)
 
 
 def changenotifications_subscription_subscription_list_subscription(client,

@@ -44,12 +44,6 @@ def load_arguments(self, _):
         c.argument('users', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('education education delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('education_school_id', type=str, help='key: id of educationSchool')
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-
     with self.argument_context('education education create-class') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('class_code', type=str, help='Class code used by the school to identify the class.')
@@ -161,6 +155,21 @@ def load_arguments(self, _):
         c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
+
+    with self.argument_context('education education delete-class') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('education education delete-me') as c:
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('education education delete-school') as c:
+        c.argument('education_school_id', type=str, help='key: id of educationSchool')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('education education delete-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education list-class') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -377,10 +386,6 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_identity_user', action=AddApplication, nargs='+', help='identity',
                    arg_group='Created By')
 
-    with self.argument_context('education education-class delete') as c:
-        c.argument('education_class_id', type=str, help='key: id of educationClass')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('education education-class create-ref-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
@@ -395,6 +400,10 @@ def load_arguments(self, _):
         c.argument('education_class_id', type=str, help='key: id of educationClass')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education education-class delete-ref-group') as c:
+        c.argument('education_class_id', type=str, help='key: id of educationClass')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-class list-member') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
@@ -439,9 +448,6 @@ def load_arguments(self, _):
     with self.argument_context('education education-class show-ref-group') as c:
         c.argument('education_class_id', type=str, help='key: id of educationClass')
 
-    with self.argument_context('education education-me delete') as c:
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('education education-me create-ref-class') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
@@ -449,6 +455,9 @@ def load_arguments(self, _):
     with self.argument_context('education education-me create-ref-school') as c:
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education education-me delete-ref-user') as c:
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-me list-class') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -504,10 +513,6 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('education education-user delete') as c:
-        c.argument('education_user_id', type=str, help='key: id of educationUser')
-        c.argument('if_match', type=str, help='ETag')
-
     with self.argument_context('education education-user create-ref-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
@@ -517,6 +522,10 @@ def load_arguments(self, _):
         c.argument('education_user_id', type=str, help='key: id of educationUser')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('education education-user delete-ref-user') as c:
+        c.argument('education_user_id', type=str, help='key: id of educationUser')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('education education-user list-class') as c:
         c.argument('education_user_id', type=str, help='key: id of educationUser')

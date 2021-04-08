@@ -30,7 +30,6 @@ from azext_security_v1_0.action import (
     AddVulnerabilityStates,
     AddAverageComparativeScores,
     AddControlScores,
-    AddComplianceInformation,
     AddControlStateUpdates
 )
 
@@ -48,12 +47,6 @@ def load_arguments(self, _):
     with self.argument_context('security security show-security') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('security security delete') as c:
-        c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('secure_score_id', type=str, help='key: id of secureScore')
 
     with self.argument_context('security security create-alert') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -148,7 +141,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
@@ -169,6 +163,18 @@ def load_arguments(self, _):
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+
+    with self.argument_context('security security delete-alert') as c:
+        c.argument('alert_id', type=str, help='key: id of alert')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score') as c:
+        c.argument('secure_score_id', type=str, help='key: id of secureScore')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score-control-profile') as c:
+        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('security security list-alert') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
@@ -296,7 +302,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
