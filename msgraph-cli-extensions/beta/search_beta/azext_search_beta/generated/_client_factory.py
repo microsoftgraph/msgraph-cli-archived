@@ -11,7 +11,7 @@
 
 def cf_search_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.search import Search
+    from azext_search_beta.vendored_sdks.search import Search
     return get_mgmt_service_client(cli_ctx,
                                    Search,
                                    subscription_bound=False,

@@ -18,13 +18,12 @@ def generate_extension_from_open_api_description(version='v1_0'):
 
         subprocess.run([
             'autorest',
+            '--version=3.0.6370',
+            '--sdk-flatten',
             '--az',
-            '--v3',
-            f'''--input-file:{file_path}''',
+            f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=@autorest/python@5.1.0-preview.4''',
-            r'''--use=@autorest/modelerfour@4.15.421''',
-            r'''--use=@autorest/az@1.5.1''',
+            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210302.1/autorest-az-1.7.3.tgz''',
         ],
                        shell=True)
 
@@ -98,7 +97,7 @@ az:
 
 az-output-folder: $(azure-cli-extension-folder)/{file_name}_{version}
 python-sdk-output-folder: "$(az-output-folder)/azext_{file_name}_{version}/vendored_sdks/{file_name}"
-cli-core-lib: msgraph.cli.core 
+cli-core-lib: msgraph.cli.core
 
 directive:
     - where:
@@ -110,21 +109,21 @@ directive:
       set:
           group: {parsed_file_name}
     - where:
-          command: create-{parsed_file_name}
+          command: {file_name} {parsed_file_name} create-{parsed_file_name}
       set:
-          command: create
+          command: {file_name} {parsed_file_name} create
     - where:
-          command: get-{parsed_file_name}
+          command: {file_name} {parsed_file_name} get-{parsed_file_name}
       set:
-          command: get
+          command: {file_name} {parsed_file_name} get
     - where:
-          command: list-{parsed_file_name}
+          command: {file_name} {parsed_file_name} list-{parsed_file_name}
       set:
-          command: list
+          command: {file_name} {parsed_file_name} list
     - where:
-          command: update-{parsed_file_name}
+          command: {file_name} {parsed_file_name} update-{parsed_file_name}
       set:
-          command: update
+          command: {file_name} {parsed_file_name} create
 
 modelerfour:
     lenient-model-deduplication: true

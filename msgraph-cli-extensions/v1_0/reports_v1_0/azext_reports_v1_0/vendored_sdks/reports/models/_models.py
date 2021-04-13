@@ -684,9 +684,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param app_display_name: App name displayed in the Azure Portal.
@@ -770,7 +767,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
@@ -807,7 +803,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         **kwargs
     ):
         super(MicrosoftGraphRestrictedSignIn, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.target_tenant_id = kwargs.get('target_tenant_id', None)
 

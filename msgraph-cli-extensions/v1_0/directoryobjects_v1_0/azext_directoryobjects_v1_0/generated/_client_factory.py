@@ -11,7 +11,7 @@
 
 def cf_directoryobjects_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.directoryobjects import DirectoryObjects
+    from azext_directoryobjects_v1_0.vendored_sdks.directoryobjects import DirectoryObjects
     return get_mgmt_service_client(cli_ctx,
                                    DirectoryObjects,
                                    subscription_bound=False,

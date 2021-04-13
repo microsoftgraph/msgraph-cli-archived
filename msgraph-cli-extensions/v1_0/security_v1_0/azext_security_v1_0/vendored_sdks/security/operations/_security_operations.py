@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAlert"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class SecurityOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -284,10 +285,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAlert"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAlert(id=id, activity_group_name=activity_group_name, assigned_to=assigned_to, azure_subscription_id=azure_subscription_id, azure_tenant_id=azure_tenant_id, category=category, closed_date_time=closed_date_time, cloud_app_states=cloud_app_states, comments=comments, confidence=confidence, created_date_time=created_date_time, description=description, detection_ids=detection_ids, event_date_time=event_date_time, feedback=feedback, file_states=file_states, history_states=history_states, host_states=host_states, incident_ids=incident_ids, last_modified_date_time=last_modified_date_time, malware_states=malware_states, network_connections=network_connections, processes=processes, recommended_actions=recommended_actions, registry_key_states=registry_key_states, security_resources=security_resources, severity=severity, source_materials=source_materials, status=status, tags=tags, title=title, triggers=triggers, user_states=user_states, vendor_information=vendor_information, vulnerability_states=vulnerability_states)
+        body = models.MicrosoftGraphAlert(id=id, activity_group_name=activity_group_name, assigned_to=assigned_to, azure_subscription_id=azure_subscription_id, azure_tenant_id=azure_tenant_id, category=category, closed_date_time=closed_date_time, cloud_app_states=cloud_app_states, comments=comments, confidence=confidence, created_date_time=created_date_time, description=description, detection_ids=detection_ids, event_date_time=event_date_time, feedback=feedback, file_states=file_states, history_states=history_states, host_states=host_states, incident_ids=incident_ids, last_modified_date_time=last_modified_date_time, malware_states=malware_states, network_connections=network_connections, processes=processes, recommended_actions=recommended_actions, registry_key_states=registry_key_states, security_resources=security_resources, severity=severity, source_materials=source_materials, status=status, tags=tags, title=title, triggers=triggers, user_states=user_states, vendor_information=vendor_information, vulnerability_states=vulnerability_states)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -301,13 +304,11 @@ class SecurityOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAlert')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAlert')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -348,7 +349,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAlert"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -369,7 +372,6 @@ class SecurityOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -541,10 +543,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAlert(id=id, activity_group_name=activity_group_name, assigned_to=assigned_to, azure_subscription_id=azure_subscription_id, azure_tenant_id=azure_tenant_id, category=category, closed_date_time=closed_date_time, cloud_app_states=cloud_app_states, comments=comments, confidence=confidence, created_date_time=created_date_time, description=description, detection_ids=detection_ids, event_date_time=event_date_time, feedback=feedback, file_states=file_states, history_states=history_states, host_states=host_states, incident_ids=incident_ids, last_modified_date_time=last_modified_date_time, malware_states=malware_states, network_connections=network_connections, processes=processes, recommended_actions=recommended_actions, registry_key_states=registry_key_states, security_resources=security_resources, severity=severity, source_materials=source_materials, status=status, tags=tags, title=title, triggers=triggers, user_states=user_states, vendor_information=vendor_information, vulnerability_states=vulnerability_states)
+        body = models.MicrosoftGraphAlert(id=id, activity_group_name=activity_group_name, assigned_to=assigned_to, azure_subscription_id=azure_subscription_id, azure_tenant_id=azure_tenant_id, category=category, closed_date_time=closed_date_time, cloud_app_states=cloud_app_states, comments=comments, confidence=confidence, created_date_time=created_date_time, description=description, detection_ids=detection_ids, event_date_time=event_date_time, feedback=feedback, file_states=file_states, history_states=history_states, host_states=host_states, incident_ids=incident_ids, last_modified_date_time=last_modified_date_time, malware_states=malware_states, network_connections=network_connections, processes=processes, recommended_actions=recommended_actions, registry_key_states=registry_key_states, security_resources=security_resources, severity=severity, source_materials=source_materials, status=status, tags=tags, title=title, triggers=triggers, user_states=user_states, vendor_information=vendor_information, vulnerability_states=vulnerability_states)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -564,10 +568,9 @@ class SecurityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAlert')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAlert')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -602,7 +605,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -660,7 +665,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSecureScoreControlProfile"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -668,7 +675,6 @@ class SecurityOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -802,10 +808,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScoreControlProfile"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSecureScoreControlProfile(id=id, action_type=action_type, action_url=action_url, azure_tenant_id=azure_tenant_id, compliance_information=compliance_information, control_category=control_category, control_state_updates=control_state_updates, deprecated=deprecated, implementation_cost=implementation_cost, last_modified_date_time=last_modified_date_time, max_score=max_score, rank=rank, remediation=remediation, remediation_impact=remediation_impact, service=service, threats=threats, tier=tier, title=title, user_impact=user_impact, vendor_information=vendor_information)
+        body = models.MicrosoftGraphSecureScoreControlProfile(id=id, action_type=action_type, action_url=action_url, azure_tenant_id=azure_tenant_id, compliance_information=compliance_information, control_category=control_category, control_state_updates=control_state_updates, deprecated=deprecated, implementation_cost=implementation_cost, last_modified_date_time=last_modified_date_time, max_score=max_score, rank=rank, remediation=remediation, remediation_impact=remediation_impact, service=service, threats=threats, tier=tier, title=title, user_impact=user_impact, vendor_information=vendor_information)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -819,13 +827,11 @@ class SecurityOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecureScoreControlProfile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScoreControlProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -866,7 +872,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScoreControlProfile"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -887,7 +895,6 @@ class SecurityOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -987,10 +994,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSecureScoreControlProfile(id=id, action_type=action_type, action_url=action_url, azure_tenant_id=azure_tenant_id, compliance_information=compliance_information, control_category=control_category, control_state_updates=control_state_updates, deprecated=deprecated, implementation_cost=implementation_cost, last_modified_date_time=last_modified_date_time, max_score=max_score, rank=rank, remediation=remediation, remediation_impact=remediation_impact, service=service, threats=threats, tier=tier, title=title, user_impact=user_impact, vendor_information=vendor_information)
+        body = models.MicrosoftGraphSecureScoreControlProfile(id=id, action_type=action_type, action_url=action_url, azure_tenant_id=azure_tenant_id, compliance_information=compliance_information, control_category=control_category, control_state_updates=control_state_updates, deprecated=deprecated, implementation_cost=implementation_cost, last_modified_date_time=last_modified_date_time, max_score=max_score, rank=rank, remediation=remediation, remediation_impact=remediation_impact, service=service, threats=threats, tier=tier, title=title, user_impact=user_impact, vendor_information=vendor_information)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1010,10 +1019,9 @@ class SecurityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecureScoreControlProfile')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScoreControlProfile')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1048,7 +1056,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1106,7 +1116,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSecureScore"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1114,7 +1126,6 @@ class SecurityOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1221,10 +1232,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScore"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSecureScore(id=id, active_user_count=active_user_count, average_comparative_scores=average_comparative_scores, azure_tenant_id=azure_tenant_id, control_scores=control_scores, created_date_time=created_date_time, current_score=current_score, enabled_services=enabled_services, licensed_user_count=licensed_user_count, max_score=max_score, vendor_information=vendor_information)
+        body = models.MicrosoftGraphSecureScore(id=id, active_user_count=active_user_count, average_comparative_scores=average_comparative_scores, azure_tenant_id=azure_tenant_id, control_scores=control_scores, created_date_time=created_date_time, current_score=current_score, enabled_services=enabled_services, licensed_user_count=licensed_user_count, max_score=max_score, vendor_information=vendor_information)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1238,13 +1251,11 @@ class SecurityOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecureScore')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScore')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1285,7 +1296,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecureScore"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1306,7 +1319,6 @@ class SecurityOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1379,10 +1391,12 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSecureScore(id=id, active_user_count=active_user_count, average_comparative_scores=average_comparative_scores, azure_tenant_id=azure_tenant_id, control_scores=control_scores, created_date_time=created_date_time, current_score=current_score, enabled_services=enabled_services, licensed_user_count=licensed_user_count, max_score=max_score, vendor_information=vendor_information)
+        body = models.MicrosoftGraphSecureScore(id=id, active_user_count=active_user_count, average_comparative_scores=average_comparative_scores, azure_tenant_id=azure_tenant_id, control_scores=control_scores, created_date_time=created_date_time, current_score=current_score, enabled_services=enabled_services, licensed_user_count=licensed_user_count, max_score=max_score, vendor_information=vendor_information)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1402,10 +1416,9 @@ class SecurityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecureScore')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecureScore')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1440,7 +1453,9 @@ class SecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

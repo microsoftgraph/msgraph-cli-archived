@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._users_functions_async import UsersFunctions
+from ._users_functions import UsersFunctions
 __all__ = ['UsersFunctions']

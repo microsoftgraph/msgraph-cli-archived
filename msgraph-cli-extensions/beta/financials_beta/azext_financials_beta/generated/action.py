@@ -45,6 +45,9 @@ class AddAccounts(argparse._AppendAction):
                 d['sub_category'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter accounts. All possible keys are: blocked, '
+                               'category, display-name, last-modified-date-time, number, sub-category, id'.format(k))
         return d
 
 
@@ -87,6 +90,11 @@ class AddAgedAccountsPayable(argparse._AppendAction):
                 d['vendor_number'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter aged_accounts_payable. All possible keys '
+                               'are: aged-as-of-date, balance-due, currency-code, current-amount, name, '
+                               'period1-amount, period2-amount, period3-amount, period-length-filter, vendor-number, '
+                               'id'.format(k))
         return d
 
 
@@ -129,6 +137,11 @@ class AddAgedAccountsReceivable(argparse._AppendAction):
                 d['period_length_filter'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter aged_accounts_receivable. All possible '
+                               'keys are: aged-as-of-date, balance-due, currency-code, current-amount, '
+                               'customer-number, name, period1-amount, period2-amount, period3-amount, '
+                               'period-length-filter, id'.format(k))
         return d
 
 
@@ -159,6 +172,9 @@ class AddCountriesRegions(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter countries_regions. All possible keys are: '
+                               'address-format, code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -193,6 +209,10 @@ class AddCurrencies(argparse._AppendAction):
                 d['symbol'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter currencies. All possible keys are: '
+                               'amount-decimal-places, amount-rounding-precision, code, display-name, '
+                               'last-modified-date-time, symbol, id'.format(k))
         return d
 
 
@@ -223,6 +243,9 @@ class AddDimensions(argparse._AppendAction):
                 d['dimension_values'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter dimensions. All possible keys are: code, '
+                               'display-name, last-modified-date-time, dimension-values, id'.format(k))
         return d
 
 
@@ -251,6 +274,9 @@ class AddFinancialsDimensionValues(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter dimension_values. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -279,6 +305,9 @@ class AddItemCategories(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter item_categories. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -307,6 +336,9 @@ class AddPaymentMethods(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_methods. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -343,6 +375,10 @@ class AddPaymentTerms(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_terms. All possible keys are: '
+                               'calculate-discount-on-credit-memos, code, discount-date-calculation, discount-percent, '
+                               'display-name, due-date-calculation, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -373,6 +409,9 @@ class AddFinancialsPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
@@ -401,6 +440,9 @@ class AddShipmentMethods(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter shipment_methods. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -431,6 +473,9 @@ class AddTaxAreas(argparse._AppendAction):
                 d['tax_type'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter tax_areas. All possible keys are: code, '
+                               'display-name, last-modified-date-time, tax-type, id'.format(k))
         return d
 
 
@@ -461,6 +506,9 @@ class AddTaxGroups(argparse._AppendAction):
                 d['tax_type'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter tax_groups. All possible keys are: code, '
+                               'display-name, last-modified-date-time, tax-type, id'.format(k))
         return d
 
 
@@ -491,13 +539,16 @@ class AddUnitsOfMeasure(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter units_of_measure. All possible keys are: '
+                               'code, display-name, international-standard-code, last-modified-date-time, id'.format(k))
         return d
 
 
 class AddAccount(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace._body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -541,13 +592,16 @@ class AddAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-letter-code, postal-code, state, street'.format(k))
         return d
 
 
-class AddCustomerCurrency(argparse.Action):
+class AddCurrency(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace._body = action
+        namespace.body = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -564,7 +618,7 @@ class AddCustomerCurrency(argparse.Action):
         return d
 
 
-class AddCustomerPaymentMethod(argparse.Action):
+class AddPaymentMethod(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.payment_method = action
@@ -589,10 +643,13 @@ class AddCustomerPaymentMethod(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_method. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddCustomerPaymentTerm(argparse.Action):
+class AddPaymentTerm(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.payment_term = action
@@ -625,6 +682,10 @@ class AddCustomerPaymentTerm(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter payment_term. All possible keys are: '
+                               'calculate-discount-on-credit-memos, code, discount-date-calculation, discount-percent, '
+                               'display-name, due-date-calculation, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -655,10 +716,13 @@ class AddFinancialsCompaniesPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
-class AddCustomerShipmentMethod(argparse.Action):
+class AddShipmentMethod(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
         namespace.shipment_method = action
@@ -683,6 +747,9 @@ class AddCustomerShipmentMethod(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter shipment_method. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -711,6 +778,9 @@ class AddFinancialsCompaniesDimensionValues(argparse._AppendAction):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter dimension_values. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
@@ -741,6 +811,9 @@ class AddFinancialsFinancialCompanyCreateEmployeePicture(argparse._AppendAction)
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
@@ -769,13 +842,16 @@ class AddItemCategory(argparse.Action):
                 d['last_modified_date_time'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter item_category. All possible keys are: '
+                               'code, display-name, last-modified-date-time, id'.format(k))
         return d
 
 
-class AddFinancialsFinancialCompanyCreateItemPicture(argparse._AppendAction):
+class AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsFinancialCompanyCreateItemPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -799,13 +875,16 @@ class AddFinancialsFinancialCompanyCreateItemPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d
 
 
-class AddVendorPicture(argparse._AppendAction):
+class AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddVendorPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -829,4 +908,7 @@ class AddVendorPicture(argparse._AppendAction):
                 d['width'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
+                               'content-type, height, width, id'.format(k))
         return d

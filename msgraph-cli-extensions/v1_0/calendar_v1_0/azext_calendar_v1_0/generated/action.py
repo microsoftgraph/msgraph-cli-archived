@@ -14,78 +14,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddOwner(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.owner = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address':
-                d['address'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-        return d
-
-
-class AddCalendarGroupUpdateMultiValueExtendedProperties(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCalendarGroupUpdateMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'value':
-                d['value'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
-class AddCalendarGroupUpdateSingleValueExtendedProperties(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCalendarGroupUpdateSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'value':
-                d['value'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-        return d
-
-
 class AddBody(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -107,6 +35,9 @@ class AddBody(argparse.Action):
                 d['content'] = v[0]
             elif kl == 'content-type':
                 d['content_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter body. All possible keys are: content, '
+                               'content-type'.format(k))
         return d
 
 
@@ -131,6 +62,9 @@ class AddEnd(argparse.Action):
                 d['date_time'] = v[0]
             elif kl == 'time-zone':
                 d['time_zone'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter end. All possible keys are: date-time, '
+                               'time-zone'.format(k))
         return d
 
 
@@ -155,6 +89,9 @@ class AddResponseStatus(argparse.Action):
                 d['response'] = v[0]
             elif kl == 'time':
                 d['time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter response_status. All possible keys are: '
+                               'response, time'.format(k))
         return d
 
 
@@ -187,6 +124,9 @@ class AddAttachments(argparse._AppendAction):
                 d['size'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter attachments. All possible keys are: '
+                               'content-type, is-inline, last-modified-date-time, name, size, id'.format(k))
         return d
 
 
@@ -209,13 +149,16 @@ class AddExtensions(argparse._AppendAction):
             v = properties[k]
             if kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter extensions. All possible keys are: id'.
+                format(k))
         return d
 
 
-class AddCalendarGroupCreateViewMultiValueExtendedProperties(argparse._AppendAction):
+class AddCalendarGroupCreateCalendarViewMultiValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCalendarGroupCreateViewMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddCalendarGroupCreateCalendarViewMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -233,13 +176,16 @@ class AddCalendarGroupCreateViewMultiValueExtendedProperties(argparse._AppendAct
                 d['value'] = v
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
-class AddCalendarGroupCreateViewSingleValueExtendedProperties(argparse._AppendAction):
+class AddCalendarGroupCreateCalendarViewSingleValueExtendedProperties(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCalendarGroupCreateViewSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+        super(AddCalendarGroupCreateCalendarViewSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -257,13 +203,16 @@ class AddCalendarGroupCreateViewSingleValueExtendedProperties(argparse._AppendAc
                 d['value'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d
 
 
-class AddRecurrencePattern(argparse.Action):
+class AddPattern(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.recurrence_pattern = action
+        namespace.pattern = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -291,13 +240,16 @@ class AddRecurrencePattern(argparse.Action):
                 d['month'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter pattern. All possible keys are: '
+                               'day-of-month, days-of-week, first-day-of-week, index, interval, month, type'.format(k))
         return d
 
 
-class AddRecurrenceRange(argparse.Action):
+class AddRange(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.recurrence_range = action
+        namespace.range = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -321,13 +273,43 @@ class AddRecurrenceRange(argparse.Action):
                 d['start_date'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter range. All possible keys are: end-date, '
+                               'number-of-occurrences, recurrence-time-zone, start-date, type'.format(k))
         return d
 
 
-class AddOnlineMeetingPhones(argparse._AppendAction):
+class AddOwner(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddOnlineMeetingPhones, self).__call__(parser, namespace, action, option_string)
+        namespace.email_address = action
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'address':
+                d['address'] = v[0]
+            elif kl == 'name':
+                d['name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter email_address. All possible keys are: '
+                               'address, name'.format(k))
+        return d
+
+
+class AddPhones(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddPhones, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -349,13 +331,16 @@ class AddOnlineMeetingPhones(argparse._AppendAction):
                 d['region'] = v[0]
             elif kl == 'type':
                 d['type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter phones. All possible keys are: language, '
+                               'number, region, type'.format(k))
         return d
 
 
-class AddLocationAddress(argparse.Action):
+class AddAddress(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.location_address = action
+        namespace.address = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -379,13 +364,16 @@ class AddLocationAddress(argparse.Action):
                 d['state'] = v[0]
             elif kl == 'street':
                 d['street'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter address. All possible keys are: city, '
+                               'country-or-region, postal-code, state, street'.format(k))
         return d
 
 
-class AddLocationCoordinates(argparse.Action):
+class AddCoordinates(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        namespace.location_coordinates = action
+        namespace.coordinates = action
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -409,4 +397,61 @@ class AddLocationCoordinates(argparse.Action):
                 d['latitude'] = v[0]
             elif kl == 'longitude':
                 d['longitude'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter coordinates. All possible keys are: '
+                               'accuracy, altitude, altitude-accuracy, latitude, longitude'.format(k))
+        return d
+
+
+class AddCalendarGroupUpdateCalendarMultiValueExtendedProperties(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCalendarGroupUpdateCalendarMultiValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'value':
+                d['value'] = v
+            elif kl == 'id':
+                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter multi_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
+        return d
+
+
+class AddCalendarGroupUpdateCalendarSingleValueExtendedProperties(argparse._AppendAction):
+    def __call__(self, parser, namespace, values, option_string=None):
+        action = self.get_action(values, option_string)
+        super(AddCalendarGroupUpdateCalendarSingleValueExtendedProperties, self).__call__(parser, namespace, action, option_string)
+
+    def get_action(self, values, option_string):  # pylint: disable=no-self-use
+        try:
+            properties = defaultdict(list)
+            for (k, v) in (x.split('=', 1) for x in values):
+                properties[k].append(v)
+            properties = dict(properties)
+        except ValueError:
+            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
+        d = {}
+        for k in properties:
+            kl = k.lower()
+            v = properties[k]
+            if kl == 'value':
+                d['value'] = v[0]
+            elif kl == 'id':
+                d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter single_value_extended_properties. All '
+                               'possible keys are: value, id'.format(k))
         return d

@@ -1,20 +1,139 @@
 # Azure CLI Module Creation Report
 
-### education education create-class
-
-create-class a education education.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|education education|education|
+|az education_v1_0|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-class|CreateClasses|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az education_v1_0` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az education education-root|education.educationRoot|[commands](#CommandsIneducation.educationRoot)|
+|az education education|education|[commands](#CommandsIneducation)|
+|az education education-class|education.classes|[commands](#CommandsIneducation.classes)|
+|az education education-me|education.me|[commands](#CommandsIneducation.me)|
+|az education education-school|education.schools|[commands](#CommandsIneducation.schools)|
+|az education education-user|education.users|[commands](#CommandsIneducation.users)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsIneducation">Commands in `az education education` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education delete](#educationDeleteClasses)|DeleteClasses|[Parameters](#ParameterseducationDeleteClasses)|Not Found|
+|[az education education delete](#educationDeleteSchools)|DeleteSchools|[Parameters](#ParameterseducationDeleteSchools)|Not Found|
+|[az education education delete](#educationDeleteUsers)|DeleteUsers|[Parameters](#ParameterseducationDeleteUsers)|Not Found|
+|[az education education delete](#educationDeleteMe)|DeleteMe|[Parameters](#ParameterseducationDeleteMe)|Not Found|
+|[az education education create-class](#educationCreateClasses)|CreateClasses|[Parameters](#ParameterseducationCreateClasses)|Not Found|
+|[az education education create-school](#educationCreateSchools)|CreateSchools|[Parameters](#ParameterseducationCreateSchools)|Not Found|
+|[az education education create-user](#educationCreateUsers)|CreateUsers|[Parameters](#ParameterseducationCreateUsers)|Not Found|
+|[az education education list-class](#educationListClasses)|ListClasses|[Parameters](#ParameterseducationListClasses)|Not Found|
+|[az education education list-school](#educationListSchools)|ListSchools|[Parameters](#ParameterseducationListSchools)|Not Found|
+|[az education education list-user](#educationListUsers)|ListUsers|[Parameters](#ParameterseducationListUsers)|Not Found|
+|[az education education show-class](#educationGetClasses)|GetClasses|[Parameters](#ParameterseducationGetClasses)|Not Found|
+|[az education education show-me](#educationGetMe)|GetMe|[Parameters](#ParameterseducationGetMe)|Not Found|
+|[az education education show-school](#educationGetSchools)|GetSchools|[Parameters](#ParameterseducationGetSchools)|Not Found|
+|[az education education show-user](#educationGetUsers)|GetUsers|[Parameters](#ParameterseducationGetUsers)|Not Found|
+|[az education education update-class](#educationUpdateClasses)|UpdateClasses|[Parameters](#ParameterseducationUpdateClasses)|Not Found|
+|[az education education update-me](#educationUpdateMe)|UpdateMe|[Parameters](#ParameterseducationUpdateMe)|Not Found|
+|[az education education update-school](#educationUpdateSchools)|UpdateSchools|[Parameters](#ParameterseducationUpdateSchools)|Not Found|
+|[az education education update-user](#educationUpdateUsers)|UpdateUsers|[Parameters](#ParameterseducationUpdateUsers)|Not Found|
+
+### <a name="CommandsIneducation.classes">Commands in `az education education-class` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education-class delete](#education.classesDeleteRefGroup)|DeleteRefGroup|[Parameters](#Parameterseducation.classesDeleteRefGroup)|Not Found|
+|[az education education-class create-ref-member](#education.classesCreateRefMembers)|CreateRefMembers|[Parameters](#Parameterseducation.classesCreateRefMembers)|Not Found|
+|[az education education-class create-ref-school](#education.classesCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.classesCreateRefSchools)|Not Found|
+|[az education education-class create-ref-teacher](#education.classesCreateRefTeachers)|CreateRefTeachers|[Parameters](#Parameterseducation.classesCreateRefTeachers)|Not Found|
+|[az education education-class list-member](#education.classesListMembers)|ListMembers|[Parameters](#Parameterseducation.classesListMembers)|Not Found|
+|[az education education-class list-ref-member](#education.classesListRefMembers)|ListRefMembers|[Parameters](#Parameterseducation.classesListRefMembers)|Not Found|
+|[az education education-class list-ref-school](#education.classesListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.classesListRefSchools)|Not Found|
+|[az education education-class list-ref-teacher](#education.classesListRefTeachers)|ListRefTeachers|[Parameters](#Parameterseducation.classesListRefTeachers)|Not Found|
+|[az education education-class list-school](#education.classesListSchools)|ListSchools|[Parameters](#Parameterseducation.classesListSchools)|Not Found|
+|[az education education-class list-teacher](#education.classesListTeachers)|ListTeachers|[Parameters](#Parameterseducation.classesListTeachers)|Not Found|
+|[az education education-class set-ref-group](#education.classesSetRefGroup)|SetRefGroup|[Parameters](#Parameterseducation.classesSetRefGroup)|Not Found|
+|[az education education-class show-group](#education.classesGetGroup)|GetGroup|[Parameters](#Parameterseducation.classesGetGroup)|Not Found|
+|[az education education-class show-ref-group](#education.classesGetRefGroup)|GetRefGroup|[Parameters](#Parameterseducation.classesGetRefGroup)|Not Found|
+
+### <a name="CommandsIneducation.me">Commands in `az education education-me` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education-me delete](#education.meDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.meDeleteRefUser)|Not Found|
+|[az education education-me create-ref-class](#education.meCreateRefClasses)|CreateRefClasses|[Parameters](#Parameterseducation.meCreateRefClasses)|Not Found|
+|[az education education-me create-ref-school](#education.meCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.meCreateRefSchools)|Not Found|
+|[az education education-me list-class](#education.meListClasses)|ListClasses|[Parameters](#Parameterseducation.meListClasses)|Not Found|
+|[az education education-me list-ref-class](#education.meListRefClasses)|ListRefClasses|[Parameters](#Parameterseducation.meListRefClasses)|Not Found|
+|[az education education-me list-ref-school](#education.meListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.meListRefSchools)|Not Found|
+|[az education education-me list-school](#education.meListSchools)|ListSchools|[Parameters](#Parameterseducation.meListSchools)|Not Found|
+|[az education education-me set-ref-user](#education.meSetRefUser)|SetRefUser|[Parameters](#Parameterseducation.meSetRefUser)|Not Found|
+|[az education education-me show-ref-user](#education.meGetRefUser)|GetRefUser|[Parameters](#Parameterseducation.meGetRefUser)|Not Found|
+|[az education education-me show-user](#education.meGetUser)|GetUser|[Parameters](#Parameterseducation.meGetUser)|Not Found|
+
+### <a name="CommandsIneducation.educationRoot">Commands in `az education education-root` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education-root show-education-root](#education.educationRootGetEducationRoot)|GetEducationRoot|[Parameters](#Parameterseducation.educationRootGetEducationRoot)|Not Found|
+|[az education education-root update-education-root](#education.educationRootUpdateEducationRoot)|UpdateEducationRoot|[Parameters](#Parameterseducation.educationRootUpdateEducationRoot)|Not Found|
+
+### <a name="CommandsIneducation.schools">Commands in `az education education-school` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education-school create-ref-class](#education.schoolsCreateRefClasses)|CreateRefClasses|[Parameters](#Parameterseducation.schoolsCreateRefClasses)|Not Found|
+|[az education education-school create-ref-user](#education.schoolsCreateRefUsers)|CreateRefUsers|[Parameters](#Parameterseducation.schoolsCreateRefUsers)|Not Found|
+|[az education education-school list-class](#education.schoolsListClasses)|ListClasses|[Parameters](#Parameterseducation.schoolsListClasses)|Not Found|
+|[az education education-school list-ref-class](#education.schoolsListRefClasses)|ListRefClasses|[Parameters](#Parameterseducation.schoolsListRefClasses)|Not Found|
+|[az education education-school list-ref-user](#education.schoolsListRefUsers)|ListRefUsers|[Parameters](#Parameterseducation.schoolsListRefUsers)|Not Found|
+|[az education education-school list-user](#education.schoolsListUsers)|ListUsers|[Parameters](#Parameterseducation.schoolsListUsers)|Not Found|
+
+### <a name="CommandsIneducation.users">Commands in `az education education-user` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az education education-user delete](#education.usersDeleteRefUser)|DeleteRefUser|[Parameters](#Parameterseducation.usersDeleteRefUser)|Not Found|
+|[az education education-user create-ref-class](#education.usersCreateRefClasses)|CreateRefClasses|[Parameters](#Parameterseducation.usersCreateRefClasses)|Not Found|
+|[az education education-user create-ref-school](#education.usersCreateRefSchools)|CreateRefSchools|[Parameters](#Parameterseducation.usersCreateRefSchools)|Not Found|
+|[az education education-user list-class](#education.usersListClasses)|ListClasses|[Parameters](#Parameterseducation.usersListClasses)|Not Found|
+|[az education education-user list-ref-class](#education.usersListRefClasses)|ListRefClasses|[Parameters](#Parameterseducation.usersListRefClasses)|Not Found|
+|[az education education-user list-ref-school](#education.usersListRefSchools)|ListRefSchools|[Parameters](#Parameterseducation.usersListRefSchools)|Not Found|
+|[az education education-user list-school](#education.usersListSchools)|ListSchools|[Parameters](#Parameterseducation.usersListSchools)|Not Found|
+|[az education education-user set-ref-user](#education.usersSetRefUser)|SetRefUser|[Parameters](#Parameterseducation.usersSetRefUser)|Not Found|
+|[az education education-user show-ref-user](#education.usersGetRefUser)|GetRefUser|[Parameters](#Parameterseducation.usersGetRefUser)|Not Found|
+|[az education education-user show-user](#education.usersGetUser)|GetUser|[Parameters](#Parameterseducation.usersGetUser)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az education education`
+#### <a name="educationDeleteClasses">Command `az education education delete`</a>
+
+##### <a name="ParameterseducationDeleteClasses">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="educationDeleteSchools">Command `az education education delete`</a>
+
+##### <a name="ParameterseducationDeleteSchools">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
+
+#### <a name="educationDeleteUsers">Command `az education education delete`</a>
+
+##### <a name="ParameterseducationDeleteUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+
+#### <a name="educationDeleteMe">Command `az education education delete`</a>
+
+##### <a name="ParameterseducationDeleteMe">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="educationCreateClasses">Command `az education education create-class`</a>
+
+##### <a name="ParameterseducationCreateClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -30,25 +149,13 @@ create-class a education education.
 |**--members**|array|All users in the class. Nullable.|members|members|
 |**--schools**|array|All schools that this class is associated with. Nullable.|schools|schools|
 |**--teachers**|array|All teachers in the class. Nullable.|teachers|teachers|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### education education create-school
+#### <a name="educationCreateSchools">Command `az education education create-school`</a>
 
-create-school a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-school|CreateSchools|
-
-#### Parameters
+##### <a name="ParameterseducationCreateSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -67,25 +174,13 @@ create-school a education education.
 |**--school-number**|string|School Number.|school_number|schoolNumber|
 |**--classes**|array|Classes taught at the school. Nullable.|classes|classes|
 |**--users**|array|Users in the school. Nullable.|users|users|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### education education create-user
+#### <a name="educationCreateUsers">Command `az education education create-user`</a>
 
-create-user a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-user|CreateUsers|
-
-#### Parameters
+##### <a name="ParameterseducationCreateUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -120,196 +215,75 @@ create-user a education education.
 |**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
 |**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
 |**--user**|object|Represents an Azure Active Directory user object.|user|user|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### education education delete
+#### <a name="educationListClasses">Command `az education education list-class`</a>
 
-delete a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteClasses|
-|delete|DeleteSchools|
-|delete|DeleteUsers|
-|delete|DeleteMe|
-
-#### Parameters
+##### <a name="ParameterseducationListClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
-|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--if-match**|string|ETag|if_match|If-Match|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### education education get-class
+#### <a name="educationListSchools">Command `az education education list-school`</a>
 
-get-class a education education.
+##### <a name="ParameterseducationListSchools">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
+#### <a name="educationListUsers">Command `az education education list-user`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-class|GetClasses|
+##### <a name="ParameterseducationListUsers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Parameters
+#### <a name="educationGetClasses">Command `az education education show-class`</a>
+
+##### <a name="ParameterseducationGetClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education get-me
+#### <a name="educationGetMe">Command `az education education show-me`</a>
 
-get-me a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-me|GetMe|
-
-#### Parameters
+##### <a name="ParameterseducationGetMe">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education get-school
+#### <a name="educationGetSchools">Command `az education education show-school`</a>
 
-get-school a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-school|GetSchools|
-
-#### Parameters
+##### <a name="ParameterseducationGetSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education get-user
+#### <a name="educationGetUsers">Command `az education education show-user`</a>
 
-get-user a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user|GetUsers|
-
-#### Parameters
+##### <a name="ParameterseducationGetUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education list-class
+#### <a name="educationUpdateClasses">Command `az education education update-class`</a>
 
-list-class a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-class|ListClasses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### education education list-school
-
-list-school a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-school|ListSchools|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### education education list-user
-
-list-user a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user|ListUsers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### education education update-class
-
-update-class a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-class|UpdateClasses|
-
-#### Parameters
+##### <a name="ParameterseducationUpdateClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
@@ -326,25 +300,13 @@ update-class a education education.
 |**--members**|array|All users in the class. Nullable.|members|members|
 |**--schools**|array|All schools that this class is associated with. Nullable.|schools|schools|
 |**--teachers**|array|All teachers in the class. Nullable.|teachers|teachers|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### education education update-me
+#### <a name="educationUpdateMe">Command `az education education update-me`</a>
 
-update-me a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-me|UpdateMe|
-
-#### Parameters
+##### <a name="ParameterseducationUpdateMe">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -379,25 +341,13 @@ update-me a education education.
 |**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
 |**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
 |**--user**|object|Represents an Azure Active Directory user object.|user|user|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### education education update-school
+#### <a name="educationUpdateSchools">Command `az education education update-school`</a>
 
-update-school a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-school|UpdateSchools|
-
-#### Parameters
+##### <a name="ParameterseducationUpdateSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
@@ -417,25 +367,13 @@ update-school a education education.
 |**--school-number**|string|School Number.|school_number|schoolNumber|
 |**--classes**|array|Classes taught at the school. Nullable.|classes|classes|
 |**--users**|array|Users in the school. Nullable.|users|users|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--user**|object|identity|user|user|
 
-### education education update-user
+#### <a name="educationUpdateUsers">Command `az education education update-user`</a>
 
-update-user a education education.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education|education|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-user|UpdateUsers|
-
-#### Parameters
+##### <a name="ParameterseducationUpdateUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
@@ -471,145 +409,46 @@ update-user a education education.
 |**--classes**|array|Classes to which the user belongs. Nullable.|classes|classes|
 |**--schools**|array|Schools to which the user belongs. Nullable.|schools|schools|
 |**--user**|object|Represents an Azure Active Directory user object.|user|user|
-|**--created-by-application**|object|identity|application|application|
-|**--created-by-device**|object|identity|device|device|
-|**--created-by-user**|object|identity|microsoft_graph_identity_user|user|
+|**--application**|object|identity|application|application|
+|**--device**|object|identity|device|device|
+|**--microsoft-graph-identity-user**|object|identity|microsoft_graph_identity_user|user|
 
-### education education-class create-ref-member
+### group `az education education-class`
+#### <a name="education.classesDeleteRefGroup">Command `az education education-class delete`</a>
 
-create-ref-member a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-member|CreateRefMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### education education-class create-ref-school
-
-create-ref-school a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-school|CreateRefSchools|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### education education-class create-ref-teacher
-
-create-ref-teacher a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-teacher|CreateRefTeachers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### education education-class delete
-
-delete a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefGroup|
-
-#### Parameters
+##### <a name="Parameterseducation.classesDeleteRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### education education-class get-group
+#### <a name="education.classesCreateRefMembers">Command `az education education-class create-ref-member`</a>
 
-get-group a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-group|GetGroup|
-
-#### Parameters
+##### <a name="Parameterseducation.classesCreateRefMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-class get-ref-group
+#### <a name="education.classesCreateRefSchools">Command `az education education-class create-ref-school`</a>
 
-get-ref-group a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-group|GetRefGroup|
-
-#### Parameters
+##### <a name="Parameterseducation.classesCreateRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-class list-member
+#### <a name="education.classesCreateRefTeachers">Command `az education education-class create-ref-teacher`</a>
 
-list-member a education education-class.
+##### <a name="Parameterseducation.classesCreateRefTeachers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
+#### <a name="education.classesListMembers">Command `az education education-class list-member`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-member|ListMembers|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
@@ -617,81 +456,33 @@ list-member a education education-class.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-class list-ref-member
+#### <a name="education.classesListRefMembers">Command `az education education-class list-ref-member`</a>
 
-list-ref-member a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-member|ListRefMembers|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListRefMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-class list-ref-school
+#### <a name="education.classesListRefSchools">Command `az education education-class list-ref-school`</a>
 
-list-ref-school a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-school|ListRefSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-class list-ref-teacher
+#### <a name="education.classesListRefTeachers">Command `az education education-class list-ref-teacher`</a>
 
-list-ref-teacher a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-teacher|ListRefTeachers|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListRefTeachers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-class list-school
+#### <a name="education.classesListSchools">Command `az education education-class list-school`</a>
 
-list-school a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-school|ListSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
@@ -699,21 +490,9 @@ list-school a education education-class.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-class list-teacher
+#### <a name="education.classesListTeachers">Command `az education education-class list-teacher`</a>
 
-list-teacher a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-teacher|ListTeachers|
-
-#### Parameters
+##### <a name="Parameterseducation.classesListTeachers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
@@ -721,255 +500,116 @@ list-teacher a education education-class.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-class set-ref-group
+#### <a name="education.classesSetRefGroup">Command `az education education-class set-ref-group`</a>
 
-set-ref-group a education education-class.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-class|education.classes|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-group|SetRefGroup|
-
-#### Parameters
+##### <a name="Parameterseducation.classesSetRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### education education-me create-ref-class
+#### <a name="education.classesGetGroup">Command `az education education-class show-group`</a>
 
-create-ref-class a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-class|CreateRefClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.classesGetGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|dictionary|New navigation property ref value|body|body|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-me create-ref-school
+#### <a name="education.classesGetRefGroup">Command `az education education-class show-ref-group`</a>
 
-create-ref-school a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-school|CreateRefSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.classesGetRefGroup">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--body**|dictionary|New navigation property ref value|body|body|
+|**--education-class-id**|string|key: id of educationClass|education_class_id|educationClass-id|
 
-### education education-me delete
+### group `az education education-me`
+#### <a name="education.meDeleteRefUser">Command `az education education-me delete`</a>
 
-delete a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.meDeleteRefUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### education education-me get-ref-user
+#### <a name="education.meCreateRefClasses">Command `az education education-me create-ref-class`</a>
 
-get-ref-user a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-user|GetRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.meCreateRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-me get-user
+#### <a name="education.meCreateRefSchools">Command `az education education-me create-ref-school`</a>
 
-get-user a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user|GetUser|
-
-#### Parameters
+##### <a name="Parameterseducation.meCreateRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-me list-class
+#### <a name="education.meListClasses">Command `az education education-me list-class`</a>
 
-list-class a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-class|ListClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.meListClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-me list-ref-class
+#### <a name="education.meListRefClasses">Command `az education education-me list-ref-class`</a>
 
-list-ref-class a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-class|ListRefClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.meListRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-me list-ref-school
+#### <a name="education.meListRefSchools">Command `az education education-me list-ref-school`</a>
 
-list-ref-school a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-school|ListRefSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.meListRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-me list-school
+#### <a name="education.meListSchools">Command `az education education-me list-school`</a>
 
-list-school a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-school|ListSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.meListSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-me set-ref-user
+#### <a name="education.meSetRefUser">Command `az education education-me set-ref-user`</a>
 
-set-ref-user a education education-me.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-me|education.me|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-user|SetRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.meSetRefUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--body**|dictionary|New navigation property ref values|body|body|
 
-### education education-root get-root
+#### <a name="education.meGetRefUser">Command `az education education-me show-ref-user`</a>
 
-get-root a education education-root.
+##### <a name="Parameterseducation.meGetRefUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="education.meGetUser">Command `az education education-me show-user`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-root|education.educationRoot|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-root|GetEducationRoot|
-
-#### Parameters
+##### <a name="Parameterseducation.meGetUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-root update-root
+### group `az education education-root`
+#### <a name="education.educationRootGetEducationRoot">Command `az education education-root show-education-root`</a>
 
-update-root a education education-root.
+##### <a name="Parameterseducation.educationRootGetEducationRoot">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-root|education.educationRoot|
+#### <a name="education.educationRootUpdateEducationRoot">Command `az education education-root update-education-root`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-root|UpdateEducationRoot|
-
-#### Parameters
+##### <a name="Parameterseducation.educationRootUpdateEducationRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -978,61 +618,26 @@ update-root a education education-root.
 |**--schools**|array|Read-only. Nullable.|schools|schools|
 |**--users**|array|Read-only. Nullable.|users|users|
 
-### education education-school create-ref-class
+### group `az education education-school`
+#### <a name="education.schoolsCreateRefClasses">Command `az education education-school create-ref-class`</a>
 
-create-ref-class a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-class|CreateRefClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsCreateRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-school create-ref-user
+#### <a name="education.schoolsCreateRefUsers">Command `az education education-school create-ref-user`</a>
 
-create-ref-user a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-user|CreateRefUsers|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsCreateRefUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
 |**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-school list-class
+#### <a name="education.schoolsListClasses">Command `az education education-school list-class`</a>
 
-list-class a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-class|ListClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsListClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
@@ -1040,61 +645,25 @@ list-class a education education-school.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-school list-ref-class
+#### <a name="education.schoolsListRefClasses">Command `az education education-school list-ref-class`</a>
 
-list-ref-class a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-class|ListRefClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsListRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-school list-ref-user
+#### <a name="education.schoolsListRefUsers">Command `az education education-school list-ref-user`</a>
 
-list-ref-user a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-user|ListRefUsers|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsListRefUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-school list-user
+#### <a name="education.schoolsListUsers">Command `az education education-school list-user`</a>
 
-list-user a education education-school.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-school|education.schools|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-user|ListUsers|
-
-#### Parameters
+##### <a name="Parameterseducation.schoolsListUsers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-school-id**|string|key: id of educationSchool|education_school_id|educationSchool-id|
@@ -1102,121 +671,34 @@ list-user a education education-school.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-user create-ref-class
+### group `az education education-user`
+#### <a name="education.usersDeleteRefUser">Command `az education education-user delete`</a>
 
-create-ref-class a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-class|CreateRefClasses|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### education education-user create-ref-school
-
-create-ref-school a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-ref-school|CreateRefSchools|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--body**|dictionary|New navigation property ref value|body|body|
-
-### education education-user delete
-
-delete a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.usersDeleteRefUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### education education-user get-ref-user
+#### <a name="education.usersCreateRefClasses">Command `az education education-user create-ref-class`</a>
 
-get-ref-user a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-ref-user|GetRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.usersCreateRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-user get-user
+#### <a name="education.usersCreateRefSchools">Command `az education education-user create-ref-school`</a>
 
-get-user a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-user|GetUser|
-
-#### Parameters
+##### <a name="Parameterseducation.usersCreateRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
+|**--body**|dictionary|New navigation property ref value|body|body|
 
-### education education-user list-class
+#### <a name="education.usersListClasses">Command `az education education-user list-class`</a>
 
-list-class a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-class|ListClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.usersListClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
@@ -1224,61 +706,25 @@ list-class a education education-user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-user list-ref-class
+#### <a name="education.usersListRefClasses">Command `az education education-user list-ref-class`</a>
 
-list-ref-class a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-class|ListRefClasses|
-
-#### Parameters
+##### <a name="Parameterseducation.usersListRefClasses">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-user list-ref-school
+#### <a name="education.usersListRefSchools">Command `az education education-user list-ref-school`</a>
 
-list-ref-school a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-ref-school|ListRefSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.usersListRefSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 
-### education education-user list-school
+#### <a name="education.usersListSchools">Command `az education education-user list-school`</a>
 
-list-school a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-school|ListSchools|
-
-#### Parameters
+##### <a name="Parameterseducation.usersListSchools">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
@@ -1286,22 +732,26 @@ list-school a education education-user.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### education education-user set-ref-user
+#### <a name="education.usersSetRefUser">Command `az education education-user set-ref-user`</a>
 
-set-ref-user a education education-user.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|education education-user|education.users|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|set-ref-user|SetRefUser|
-
-#### Parameters
+##### <a name="Parameterseducation.usersSetRefUser">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
 |**--body**|dictionary|New navigation property ref values|body|body|
+
+#### <a name="education.usersGetRefUser">Command `az education education-user show-ref-user`</a>
+
+##### <a name="Parameterseducation.usersGetRefUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+
+#### <a name="education.usersGetUser">Command `az education education-user show-user`</a>
+
+##### <a name="Parameterseducation.usersGetUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--education-user-id**|string|key: id of educationUser|education_user_id|educationUser-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|

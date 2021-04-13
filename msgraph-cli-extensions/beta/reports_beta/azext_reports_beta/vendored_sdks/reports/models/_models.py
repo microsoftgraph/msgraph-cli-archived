@@ -425,19 +425,9 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
     :type app_id: str
     :param sign_in_count:
     :type sign_in_count: long
-    :param additional_details: Provides additional details on the sign-in activity.
-    :type additional_details: str
-    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-     Check out the list of error codes and messages.
-    :type error_code: int
-    :param failure_reason: Provides the error message or the reason for failure for the
-     corresponding sign-in activity. Check out the list of error codes and messages.
-    :type failure_reason: str
+    :param status: signInStatus.
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
     """
-
-    _validation = {
-        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
@@ -446,9 +436,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'additional_details': {'key': 'status.additionalDetails', 'type': 'str'},
-        'error_code': {'key': 'status.errorCode', 'type': 'int'},
-        'failure_reason': {'key': 'status.failureReason', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
     }
 
     def __init__(
@@ -461,9 +449,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         self.app_display_name = kwargs.get('app_display_name', None)
         self.app_id = kwargs.get('app_id', None)
         self.sign_in_count = kwargs.get('sign_in_count', None)
-        self.additional_details = kwargs.get('additional_details', None)
-        self.error_code = kwargs.get('error_code', None)
-        self.failure_reason = kwargs.get('failure_reason', None)
+        self.status = kwargs.get('status', None)
 
 
 class MicrosoftGraphApplicationSignInSummary(MicrosoftGraphEntity):
@@ -3668,9 +3654,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param alternate_sign_in_name:
@@ -3794,7 +3777,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'alternate_sign_in_name': {'key': 'alternateSignInName', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
@@ -3848,7 +3830,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         **kwargs
     ):
         super(MicrosoftGraphRestrictedSignIn, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.target_tenant_id = kwargs.get('target_tenant_id', None)
 

@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfAndroidManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -326,10 +327,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAndroidManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -343,13 +346,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAndroidManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAndroidManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -390,7 +391,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphAndroidManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -411,7 +414,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -625,10 +627,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphAndroidManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, custom_browser_display_name=custom_browser_display_name, custom_browser_package_id=custom_browser_package_id, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, minimum_required_patch_version=minimum_required_patch_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -648,10 +652,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphAndroidManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphAndroidManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -686,7 +689,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -744,7 +749,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDefaultManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -752,7 +759,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -997,10 +1003,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDefaultManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1014,13 +1022,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDefaultManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDefaultManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1061,7 +1067,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDefaultManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1082,7 +1090,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1293,10 +1300,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphDefaultManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, app_data_encryption_type=app_data_encryption_type, custom_settings=custom_settings, deployed_app_count=deployed_app_count, disable_app_encryption_if_device_encryption_is_enabled=disable_app_encryption_if_device_encryption_is_enabled, encrypt_app_data=encrypt_app_data, face_id_blocked=face_id_blocked, minimum_required_patch_version=minimum_required_patch_version, minimum_required_sdk_version=minimum_required_sdk_version, minimum_warning_patch_version=minimum_warning_patch_version, screen_capture_blocked=screen_capture_blocked, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1316,10 +1325,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphDefaultManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphDefaultManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1354,7 +1362,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1412,7 +1422,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfIosManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1420,7 +1432,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1653,10 +1664,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIosManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1670,13 +1683,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphIosManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIosManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1717,7 +1728,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphIosManagedAppProtection"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1738,7 +1751,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1937,10 +1949,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphIosManagedAppProtection(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, allowed_data_storage_locations=allowed_data_storage_locations, allowed_inbound_data_transfer_sources=allowed_inbound_data_transfer_sources, allowed_outbound_clipboard_sharing_level=allowed_outbound_clipboard_sharing_level, allowed_outbound_data_transfer_destinations=allowed_outbound_data_transfer_destinations, contact_sync_blocked=contact_sync_blocked, data_backup_blocked=data_backup_blocked, device_compliance_required=device_compliance_required, disable_app_pin_if_device_pin_is_set=disable_app_pin_if_device_pin_is_set, fingerprint_blocked=fingerprint_blocked, managed_browser=managed_browser, managed_browser_to_open_links_required=managed_browser_to_open_links_required, maximum_pin_retries=maximum_pin_retries, minimum_pin_length=minimum_pin_length, minimum_required_app_version=minimum_required_app_version, minimum_required_os_version=minimum_required_os_version, minimum_warning_app_version=minimum_warning_app_version, minimum_warning_os_version=minimum_warning_os_version, organizational_credentials_required=organizational_credentials_required, period_before_pin_reset=period_before_pin_reset, period_offline_before_access_check=period_offline_before_access_check, period_offline_before_wipe_is_enforced=period_offline_before_wipe_is_enforced, period_online_before_access_check=period_online_before_access_check, pin_character_set=pin_character_set, pin_required=pin_required, print_blocked=print_blocked, save_as_blocked=save_as_blocked, simple_pin_blocked=simple_pin_blocked, is_assigned=is_assigned, assignments=assignments, app_data_encryption_type=app_data_encryption_type, custom_browser_protocol=custom_browser_protocol, deployed_app_count=deployed_app_count, face_id_blocked=face_id_blocked, minimum_required_sdk_version=minimum_required_sdk_version, apps=apps, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1960,10 +1974,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphIosManagedAppProtection')
+        body_content = self._serialize.body(body, 'MicrosoftGraphIosManagedAppProtection')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1998,7 +2011,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2056,7 +2071,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedAppPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2064,7 +2081,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2153,10 +2169,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version)
+        body = models.MicrosoftGraphManagedAppPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2170,13 +2188,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2217,7 +2233,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2238,7 +2256,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2293,10 +2310,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version)
+        body = models.MicrosoftGraphManagedAppPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2316,10 +2335,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2354,7 +2372,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2412,7 +2432,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedAppRegistration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2420,7 +2442,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2542,10 +2563,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppRegistration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppRegistration(id=id, app_identifier=app_identifier, application_version=application_version, created_date_time=created_date_time, device_name=device_name, device_tag=device_tag, device_type=device_type, flagged_reasons=flagged_reasons, last_sync_date_time=last_sync_date_time, management_sdk_version=management_sdk_version, platform_version=platform_version, user_id=user_id, version=version, applied_policies=applied_policies, intended_policies=intended_policies, operations=operations)
+        body = models.MicrosoftGraphManagedAppRegistration(id=id, app_identifier=app_identifier, application_version=application_version, created_date_time=created_date_time, device_name=device_name, device_tag=device_tag, device_type=device_type, flagged_reasons=flagged_reasons, last_sync_date_time=last_sync_date_time, management_sdk_version=management_sdk_version, platform_version=platform_version, user_id=user_id, version=version, applied_policies=applied_policies, intended_policies=intended_policies, operations=operations)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2559,13 +2582,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppRegistration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppRegistration')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2606,7 +2627,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppRegistration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2627,7 +2650,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2715,10 +2737,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppRegistration(id=id, app_identifier=app_identifier, application_version=application_version, created_date_time=created_date_time, device_name=device_name, device_tag=device_tag, device_type=device_type, flagged_reasons=flagged_reasons, last_sync_date_time=last_sync_date_time, management_sdk_version=management_sdk_version, platform_version=platform_version, user_id=user_id, version=version, applied_policies=applied_policies, intended_policies=intended_policies, operations=operations)
+        body = models.MicrosoftGraphManagedAppRegistration(id=id, app_identifier=app_identifier, application_version=application_version, created_date_time=created_date_time, device_name=device_name, device_tag=device_tag, device_type=device_type, flagged_reasons=flagged_reasons, last_sync_date_time=last_sync_date_time, management_sdk_version=management_sdk_version, platform_version=platform_version, user_id=user_id, version=version, applied_policies=applied_policies, intended_policies=intended_policies, operations=operations)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2738,10 +2762,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppRegistration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppRegistration')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2776,7 +2799,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2834,7 +2859,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedAppStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2842,7 +2869,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2922,10 +2948,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppStatus(id=id, display_name=display_name, version=version)
+        body = models.MicrosoftGraphManagedAppStatus(id=id, display_name=display_name, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2939,13 +2967,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2986,7 +3012,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedAppStatus"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3007,7 +3035,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3053,10 +3080,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedAppStatus(id=id, display_name=display_name, version=version)
+        body = models.MicrosoftGraphManagedAppStatus(id=id, display_name=display_name, version=version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3076,10 +3105,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedAppStatus')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedAppStatus')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3114,7 +3142,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3172,7 +3202,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedEBook"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3180,7 +3212,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3294,10 +3325,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedEBook"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedEBook(id=id, created_date_time=created_date_time, description=description, display_name=display_name, information_url=information_url, large_cover=large_cover, last_modified_date_time=last_modified_date_time, privacy_information_url=privacy_information_url, published_date_time=published_date_time, publisher=publisher, assignments=assignments, device_states=device_states, install_summary=install_summary, user_state_summary=user_state_summary)
+        body = models.MicrosoftGraphManagedEBook(id=id, created_date_time=created_date_time, description=description, display_name=display_name, information_url=information_url, large_cover=large_cover, last_modified_date_time=last_modified_date_time, privacy_information_url=privacy_information_url, published_date_time=published_date_time, publisher=publisher, assignments=assignments, device_states=device_states, install_summary=install_summary, user_state_summary=user_state_summary)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3311,13 +3344,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedEBook')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedEBook')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3358,7 +3389,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedEBook"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3379,7 +3412,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3459,10 +3491,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedEBook(id=id, created_date_time=created_date_time, description=description, display_name=display_name, information_url=information_url, large_cover=large_cover, last_modified_date_time=last_modified_date_time, privacy_information_url=privacy_information_url, published_date_time=published_date_time, publisher=publisher, assignments=assignments, device_states=device_states, install_summary=install_summary, user_state_summary=user_state_summary)
+        body = models.MicrosoftGraphManagedEBook(id=id, created_date_time=created_date_time, description=description, display_name=display_name, information_url=information_url, large_cover=large_cover, last_modified_date_time=last_modified_date_time, privacy_information_url=privacy_information_url, published_date_time=published_date_time, publisher=publisher, assignments=assignments, device_states=device_states, install_summary=install_summary, user_state_summary=user_state_summary)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3482,10 +3516,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedEBook')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedEBook')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3520,7 +3553,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3578,7 +3613,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMdmWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3586,7 +3623,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3788,10 +3824,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMdmWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMdmWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files)
+        body = models.MicrosoftGraphMdmWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3805,13 +3843,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMdmWindowsInformationProtectionPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMdmWindowsInformationProtectionPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3853,7 +3889,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMdmWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3874,7 +3912,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -4042,10 +4079,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMdmWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files)
+        body = models.MicrosoftGraphMdmWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4065,10 +4104,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMdmWindowsInformationProtectionPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMdmWindowsInformationProtectionPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4104,7 +4142,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4153,7 +4193,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4205,7 +4247,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMobileAppCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4213,7 +4257,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -4293,10 +4336,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMobileAppCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMobileAppCategory(id=id, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphMobileAppCategory(id=id, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4310,13 +4355,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMobileAppCategory')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMobileAppCategory')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4357,7 +4400,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMobileAppCategory"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4378,7 +4423,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -4424,10 +4468,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMobileAppCategory(id=id, display_name=display_name, last_modified_date_time=last_modified_date_time)
+        body = models.MicrosoftGraphMobileAppCategory(id=id, display_name=display_name, last_modified_date_time=last_modified_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4447,10 +4493,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMobileAppCategory')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMobileAppCategory')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4485,7 +4530,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4543,7 +4590,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfManagedDeviceMobileAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4551,7 +4600,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -4660,10 +4708,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, targeted_mobile_apps=targeted_mobile_apps, version=version, assignments=assignments, device_statuses=device_statuses, device_status_summary=device_status_summary, user_statuses=user_statuses, user_status_summary=user_status_summary)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, targeted_mobile_apps=targeted_mobile_apps, version=version, assignments=assignments, device_statuses=device_statuses, device_status_summary=device_status_summary, user_statuses=user_statuses, user_status_summary=user_status_summary)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4677,13 +4727,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4725,7 +4773,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphManagedDeviceMobileAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4746,7 +4796,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -4822,10 +4871,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphManagedDeviceMobileAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, targeted_mobile_apps=targeted_mobile_apps, version=version, assignments=assignments, device_statuses=device_statuses, device_status_summary=device_status_summary, user_statuses=user_statuses, user_status_summary=user_status_summary)
+        body = models.MicrosoftGraphManagedDeviceMobileAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, targeted_mobile_apps=targeted_mobile_apps, version=version, assignments=assignments, device_statuses=device_statuses, device_status_summary=device_status_summary, user_statuses=user_statuses, user_status_summary=user_status_summary)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -4845,10 +4896,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphManagedDeviceMobileAppConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphManagedDeviceMobileAppConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -4884,7 +4934,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4942,7 +4994,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMobileApp"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -4950,7 +5004,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -5069,10 +5122,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMobileApp"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMobileApp(id=id, created_date_time=created_date_time, description=description, developer=developer, display_name=display_name, information_url=information_url, is_featured=is_featured, large_icon=large_icon, last_modified_date_time=last_modified_date_time, notes=notes, owner=owner, privacy_information_url=privacy_information_url, publisher=publisher, publishing_state=publishing_state, assignments=assignments, categories=categories)
+        body = models.MicrosoftGraphMobileApp(id=id, created_date_time=created_date_time, description=description, developer=developer, display_name=display_name, information_url=information_url, is_featured=is_featured, large_icon=large_icon, last_modified_date_time=last_modified_date_time, notes=notes, owner=owner, privacy_information_url=privacy_information_url, publisher=publisher, publishing_state=publishing_state, assignments=assignments, categories=categories)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5086,13 +5141,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMobileApp')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMobileApp')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5133,7 +5186,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMobileApp"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5154,7 +5209,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -5239,10 +5293,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMobileApp(id=id, created_date_time=created_date_time, description=description, developer=developer, display_name=display_name, information_url=information_url, is_featured=is_featured, large_icon=large_icon, last_modified_date_time=last_modified_date_time, notes=notes, owner=owner, privacy_information_url=privacy_information_url, publisher=publisher, publishing_state=publishing_state, assignments=assignments, categories=categories)
+        body = models.MicrosoftGraphMobileApp(id=id, created_date_time=created_date_time, description=description, developer=developer, display_name=display_name, information_url=information_url, is_featured=is_featured, large_icon=large_icon, last_modified_date_time=last_modified_date_time, notes=notes, owner=owner, privacy_information_url=privacy_information_url, publisher=publisher, publishing_state=publishing_state, assignments=assignments, categories=categories)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5262,10 +5318,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMobileApp')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMobileApp')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5300,7 +5355,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5358,7 +5415,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfTargetedManagedAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5366,7 +5425,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -5490,10 +5548,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTargetedManagedAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTargetedManagedAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, deployed_app_count=deployed_app_count, is_assigned=is_assigned, apps=apps, assignments=assignments, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphTargetedManagedAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, deployed_app_count=deployed_app_count, is_assigned=is_assigned, apps=apps, assignments=assignments, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5507,13 +5567,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTargetedManagedAppConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTargetedManagedAppConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5554,7 +5612,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphTargetedManagedAppConfiguration"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5575,7 +5635,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -5665,10 +5724,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphTargetedManagedAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, deployed_app_count=deployed_app_count, is_assigned=is_assigned, apps=apps, assignments=assignments, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
+        body = models.MicrosoftGraphTargetedManagedAppConfiguration(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, custom_settings=custom_settings, deployed_app_count=deployed_app_count, is_assigned=is_assigned, apps=apps, assignments=assignments, id_deployment_summary_id=microsoft_graph_entity_id, configuration_deployed_user_count=configuration_deployed_user_count, configuration_deployment_summary_per_app=configuration_deployment_summary_per_app, display_name_deployment_summary_display_name=microsoft_graph_managed_app_policy_deployment_summary_display_name, last_refresh_time=last_refresh_time, version_deployment_summary_version=microsoft_graph_managed_app_policy_deployment_summary_version)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5688,10 +5749,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphTargetedManagedAppConfiguration')
+        body_content = self._serialize.body(body, 'MicrosoftGraphTargetedManagedAppConfiguration')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5726,7 +5786,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5784,7 +5846,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfVppToken"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5792,7 +5856,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -5905,10 +5968,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphVppToken"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphVppToken(id=id, apple_id=apple_id, automatically_update_apps=automatically_update_apps, country_or_region=country_or_region, expiration_date_time=expiration_date_time, last_modified_date_time=last_modified_date_time, last_sync_date_time=last_sync_date_time, last_sync_status=last_sync_status, organization_name=organization_name, state=state, token=token, vpp_token_account_type=vpp_token_account_type)
+        body = models.MicrosoftGraphVppToken(id=id, apple_id=apple_id, automatically_update_apps=automatically_update_apps, country_or_region=country_or_region, expiration_date_time=expiration_date_time, last_modified_date_time=last_modified_date_time, last_sync_date_time=last_sync_date_time, last_sync_status=last_sync_status, organization_name=organization_name, state=state, token=token, vpp_token_account_type=vpp_token_account_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -5922,13 +5987,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphVppToken')
+        body_content = self._serialize.body(body, 'MicrosoftGraphVppToken')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -5969,7 +6032,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphVppToken"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -5990,7 +6055,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -6069,10 +6133,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphVppToken(id=id, apple_id=apple_id, automatically_update_apps=automatically_update_apps, country_or_region=country_or_region, expiration_date_time=expiration_date_time, last_modified_date_time=last_modified_date_time, last_sync_date_time=last_sync_date_time, last_sync_status=last_sync_status, organization_name=organization_name, state=state, token=token, vpp_token_account_type=vpp_token_account_type)
+        body = models.MicrosoftGraphVppToken(id=id, apple_id=apple_id, automatically_update_apps=automatically_update_apps, country_or_region=country_or_region, expiration_date_time=expiration_date_time, last_modified_date_time=last_modified_date_time, last_sync_date_time=last_sync_date_time, last_sync_status=last_sync_status, organization_name=organization_name, state=state, token=token, vpp_token_account_type=vpp_token_account_type)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6092,10 +6158,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphVppToken')
+        body_content = self._serialize.body(body, 'MicrosoftGraphVppToken')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6130,7 +6195,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6188,7 +6255,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6196,7 +6265,6 @@ class DeviceAppManagementOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -6449,10 +6517,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, days_without_contact_before_unenroll=days_without_contact_before_unenroll, mdm_enrollment_url=mdm_enrollment_url, minutes_of_inactivity_before_device_lock=minutes_of_inactivity_before_device_lock, number_of_past_pins_remembered=number_of_past_pins_remembered, password_maximum_attempt_count=password_maximum_attempt_count, pin_expiration_days=pin_expiration_days, pin_lowercase_letters=pin_lowercase_letters, pin_minimum_length=pin_minimum_length, pin_special_characters=pin_special_characters, pin_uppercase_letters=pin_uppercase_letters, revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled, windows_hello_for_business_blocked=windows_hello_for_business_blocked)
+        body = models.MicrosoftGraphWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, days_without_contact_before_unenroll=days_without_contact_before_unenroll, mdm_enrollment_url=mdm_enrollment_url, minutes_of_inactivity_before_device_lock=minutes_of_inactivity_before_device_lock, number_of_past_pins_remembered=number_of_past_pins_remembered, password_maximum_attempt_count=password_maximum_attempt_count, pin_expiration_days=pin_expiration_days, pin_lowercase_letters=pin_lowercase_letters, pin_minimum_length=pin_minimum_length, pin_special_characters=pin_special_characters, pin_uppercase_letters=pin_uppercase_letters, revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled, windows_hello_for_business_blocked=windows_hello_for_business_blocked)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6466,13 +6536,11 @@ class DeviceAppManagementOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphWindowsInformationProtectionPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphWindowsInformationProtectionPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6513,7 +6581,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphWindowsInformationProtectionPolicy"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -6534,7 +6604,6 @@ class DeviceAppManagementOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -6753,10 +6822,12 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, days_without_contact_before_unenroll=days_without_contact_before_unenroll, mdm_enrollment_url=mdm_enrollment_url, minutes_of_inactivity_before_device_lock=minutes_of_inactivity_before_device_lock, number_of_past_pins_remembered=number_of_past_pins_remembered, password_maximum_attempt_count=password_maximum_attempt_count, pin_expiration_days=pin_expiration_days, pin_lowercase_letters=pin_lowercase_letters, pin_minimum_length=pin_minimum_length, pin_special_characters=pin_special_characters, pin_uppercase_letters=pin_uppercase_letters, revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled, windows_hello_for_business_blocked=windows_hello_for_business_blocked)
+        body = models.MicrosoftGraphWindowsInformationProtectionPolicy(id=id, created_date_time=created_date_time, description=description, display_name=display_name, last_modified_date_time=last_modified_date_time, version=version, azure_rights_management_services_allowed=azure_rights_management_services_allowed, data_recovery_certificate=data_recovery_certificate, enforcement_level=enforcement_level, enterprise_domain=enterprise_domain, enterprise_internal_proxy_servers=enterprise_internal_proxy_servers, enterprise_ip_ranges=enterprise_ip_ranges, enterprise_ip_ranges_are_authoritative=enterprise_ip_ranges_are_authoritative, enterprise_network_domain_names=enterprise_network_domain_names, enterprise_protected_domain_names=enterprise_protected_domain_names, enterprise_proxied_domains=enterprise_proxied_domains, enterprise_proxy_servers=enterprise_proxy_servers, enterprise_proxy_servers_are_authoritative=enterprise_proxy_servers_are_authoritative, exempt_apps=exempt_apps, icons_visible=icons_visible, indexing_encrypted_stores_or_items_blocked=indexing_encrypted_stores_or_items_blocked, is_assigned=is_assigned, neutral_domain_resources=neutral_domain_resources, protected_apps=protected_apps, protection_under_lock_config_required=protection_under_lock_config_required, revoke_on_unenroll_disabled=revoke_on_unenroll_disabled, rights_management_services_template_id=rights_management_services_template_id, smb_auto_encrypted_file_extensions=smb_auto_encrypted_file_extensions, assignments=assignments, exempt_app_locker_files=exempt_app_locker_files, protected_app_locker_files=protected_app_locker_files, days_without_contact_before_unenroll=days_without_contact_before_unenroll, mdm_enrollment_url=mdm_enrollment_url, minutes_of_inactivity_before_device_lock=minutes_of_inactivity_before_device_lock, number_of_past_pins_remembered=number_of_past_pins_remembered, password_maximum_attempt_count=password_maximum_attempt_count, pin_expiration_days=pin_expiration_days, pin_lowercase_letters=pin_lowercase_letters, pin_minimum_length=pin_minimum_length, pin_special_characters=pin_special_characters, pin_uppercase_letters=pin_uppercase_letters, revoke_on_mdm_handoff_disabled=revoke_on_mdm_handoff_disabled, windows_hello_for_business_blocked=windows_hello_for_business_blocked)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -6776,10 +6847,9 @@ class DeviceAppManagementOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphWindowsInformationProtectionPolicy')
+        body_content = self._serialize.body(body, 'MicrosoftGraphWindowsInformationProtectionPolicy')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -6814,7 +6884,9 @@ class DeviceAppManagementOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

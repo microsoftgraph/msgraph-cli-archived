@@ -385,21 +385,21 @@ def usersfunctions_user_mail_folder_delta(client,
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_managed_app_registration_get_user_id_with_flagged_app_registration(client,
-                                                                                           user_id):
+def usersfunctions_user_managed_app_registration_show_user_id_with_flagged_app_registration(client,
+                                                                                            user_id):
     return client.get_user_id_with_flagged_app_registration(user_id=user_id)
 
 
-def usersfunctions_user_managed_device_get_file_vault_key(client,
-                                                          user_id,
-                                                          managed_device_id):
+def usersfunctions_user_managed_device_show_file_vault_key(client,
+                                                           user_id,
+                                                           managed_device_id):
     return client.get_file_vault_key(user_id=user_id,
                                      managed_device_id=managed_device_id)
 
 
-def usersfunctions_user_managed_device_get_non_compliant_setting(client,
-                                                                 user_id,
-                                                                 managed_device_id):
+def usersfunctions_user_managed_device_show_non_compliant_setting(client,
+                                                                  user_id,
+                                                                  managed_device_id):
     return client.get_non_compliant_setting(user_id=user_id,
                                             managed_device_id=managed_device_id)
 
@@ -444,40 +444,6 @@ def usersfunctions_user_find_room_list(client,
     return client.find_room_list(user_id=user_id)
 
 
-def usersfunctions_user_get_effective_device_enrollment_configuration(client,
-                                                                      user_id):
-    return client.get_effective_device_enrollment_configuration(user_id=user_id)
-
-
-def usersfunctions_user_get_logged_on_managed_device(client,
-                                                     user_id):
-    return client.get_logged_on_managed_device(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_app_blocked_user(client):
-    return client.get_managed_app_blocked_user()
-
-
-def usersfunctions_user_get_managed_app_diagnostic_statuses(client,
-                                                            user_id):
-    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_app_policy(client,
-                                               user_id):
-    return client.get_managed_app_policy(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_device_with_app_failure(client,
-                                                            user_id):
-    return client.get_managed_device_with_app_failure(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_device_with_failed_or_pending_app(client,
-                                                                      user_id):
-    return client.get_managed_device_with_failed_or_pending_app(user_id=user_id)
-
-
 def usersfunctions_user_is_managed_app_user_blocked(client,
                                                     user_id):
     return client.is_managed_app_user_blocked(user_id=user_id)
@@ -490,6 +456,40 @@ def usersfunctions_user_reminder_view(client,
     return client.reminder_view(user_id=user_id,
                                 start_date_time=start_date_time,
                                 end_date_time=end_date_time)
+
+
+def usersfunctions_user_show_effective_device_enrollment_configuration(client,
+                                                                       user_id):
+    return client.get_effective_device_enrollment_configuration(user_id=user_id)
+
+
+def usersfunctions_user_show_logged_on_managed_device(client,
+                                                      user_id):
+    return client.get_logged_on_managed_device(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_app_blocked_user(client):
+    return client.get_managed_app_blocked_user()
+
+
+def usersfunctions_user_show_managed_app_diagnostic_statuses(client,
+                                                             user_id):
+    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_app_policy(client,
+                                                user_id):
+    return client.get_managed_app_policy(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_device_with_app_failure(client,
+                                                             user_id):
+    return client.get_managed_device_with_app_failure(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_device_with_failed_or_pending_app(client,
+                                                                       user_id):
+    return client.get_managed_device_with_failed_or_pending_app(user_id=user_id)
 
 
 def usersfunctions_user_onenote_notebook_section_group_section_page_preview(client,
@@ -516,9 +516,9 @@ def usersfunctions_user_onenote_notebook_section_page_preview(client,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_notebook_get_recent_notebook(client,
-                                                             user_id,
-                                                             include_personal_notebooks):
+def usersfunctions_user_onenote_notebook_show_recent_notebook(client,
+                                                              user_id,
+                                                              include_personal_notebooks):
     if include_personal_notebooks is None:
         include_personal_notebooks = False
     return client.get_recent_notebook(user_id=user_id,

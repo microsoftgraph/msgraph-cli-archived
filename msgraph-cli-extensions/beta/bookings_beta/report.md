@@ -1,265 +1,338 @@
 # Azure CLI Module Creation Report
 
-### bookings booking-business create-appointment
-
-create-appointment a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|bookings booking-business|bookingBusinesses|
+|az bookings_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-appointment|CreateAppointments|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az bookings_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|[commands](#CommandsInbookingBusinesses.bookingBusiness)|
+|az bookings booking-business|bookingBusinesses|[commands](#CommandsInbookingBusinesses)|
+|az bookings booking-business-appointment|bookingBusinesses.appointments|[commands](#CommandsInbookingBusinesses.appointments)|
+|az bookings booking-business-calendar-view|bookingBusinesses.calendarView|[commands](#CommandsInbookingBusinesses.calendarView)|
+|az bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|[commands](#CommandsInbookingCurrencies.bookingCurrency)|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--id**|string|Read-only.|id|id|
-|**--additional-information**|string||additional_information|additionalInformation|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
-|**--customer-name**|string||customer_name|customerName|
-|**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--customer-phone**|string||customer_phone|customerPhone|
-|**--duration**|duration||duration|duration|
-|**--end**|object|dateTimeTimeZone|end|end|
-|**--invoice-amount**|number||invoice_amount|invoiceAmount|
-|**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
-|**--invoice-id**|string||invoice_id|invoiceId|
-|**--invoice-status**|choice||invoice_status|invoiceStatus|
-|**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--is-location-online**|boolean||is_location_online|isLocationOnline|
-|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--price**|number||price|price|
-|**--price-type**|choice||price_type|priceType|
-|**--reminders**|array||reminders|reminders|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--service-location-address**|object|physicalAddress|address|address|
-|**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--service-location-location-type**|choice||location_type|locationType|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
-|**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
-|**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
-|**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
-|**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
+## COMMANDS
+### <a name="CommandsInbookingBusinesses">Commands in `az bookings booking-business` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az bookings booking-business delete](#bookingBusinessesDeleteAppointments)|DeleteAppointments|[Parameters](#ParametersbookingBusinessesDeleteAppointments)|Not Found|
+|[az bookings booking-business delete](#bookingBusinessesDeleteCalendarView)|DeleteCalendarView|[Parameters](#ParametersbookingBusinessesDeleteCalendarView)|Not Found|
+|[az bookings booking-business delete](#bookingBusinessesDeleteCustomers)|DeleteCustomers|[Parameters](#ParametersbookingBusinessesDeleteCustomers)|Not Found|
+|[az bookings booking-business delete](#bookingBusinessesDeleteServices)|DeleteServices|[Parameters](#ParametersbookingBusinessesDeleteServices)|Not Found|
+|[az bookings booking-business delete](#bookingBusinessesDeleteStaffMembers)|DeleteStaffMembers|[Parameters](#ParametersbookingBusinessesDeleteStaffMembers)|Not Found|
+|[az bookings booking-business create-appointment](#bookingBusinessesCreateAppointments)|CreateAppointments|[Parameters](#ParametersbookingBusinessesCreateAppointments)|Not Found|
+|[az bookings booking-business create-calendar-view](#bookingBusinessesCreateCalendarView)|CreateCalendarView|[Parameters](#ParametersbookingBusinessesCreateCalendarView)|Not Found|
+|[az bookings booking-business create-customer](#bookingBusinessesCreateCustomers)|CreateCustomers|[Parameters](#ParametersbookingBusinessesCreateCustomers)|Not Found|
+|[az bookings booking-business create-service](#bookingBusinessesCreateServices)|CreateServices|[Parameters](#ParametersbookingBusinessesCreateServices)|Not Found|
+|[az bookings booking-business create-staff-member](#bookingBusinessesCreateStaffMembers)|CreateStaffMembers|[Parameters](#ParametersbookingBusinessesCreateStaffMembers)|Not Found|
+|[az bookings booking-business list-appointment](#bookingBusinessesListAppointments)|ListAppointments|[Parameters](#ParametersbookingBusinessesListAppointments)|Not Found|
+|[az bookings booking-business list-calendar-view](#bookingBusinessesListCalendarView)|ListCalendarView|[Parameters](#ParametersbookingBusinessesListCalendarView)|Not Found|
+|[az bookings booking-business list-customer](#bookingBusinessesListCustomers)|ListCustomers|[Parameters](#ParametersbookingBusinessesListCustomers)|Not Found|
+|[az bookings booking-business list-service](#bookingBusinessesListServices)|ListServices|[Parameters](#ParametersbookingBusinessesListServices)|Not Found|
+|[az bookings booking-business list-staff-member](#bookingBusinessesListStaffMembers)|ListStaffMembers|[Parameters](#ParametersbookingBusinessesListStaffMembers)|Not Found|
+|[az bookings booking-business publish](#bookingBusinessespublish)|publish|[Parameters](#ParametersbookingBusinessespublish)|Not Found|
+|[az bookings booking-business show-appointment](#bookingBusinessesGetAppointments)|GetAppointments|[Parameters](#ParametersbookingBusinessesGetAppointments)|Not Found|
+|[az bookings booking-business show-calendar-view](#bookingBusinessesGetCalendarView)|GetCalendarView|[Parameters](#ParametersbookingBusinessesGetCalendarView)|Not Found|
+|[az bookings booking-business show-customer](#bookingBusinessesGetCustomers)|GetCustomers|[Parameters](#ParametersbookingBusinessesGetCustomers)|Not Found|
+|[az bookings booking-business show-service](#bookingBusinessesGetServices)|GetServices|[Parameters](#ParametersbookingBusinessesGetServices)|Not Found|
+|[az bookings booking-business show-staff-member](#bookingBusinessesGetStaffMembers)|GetStaffMembers|[Parameters](#ParametersbookingBusinessesGetStaffMembers)|Not Found|
+|[az bookings booking-business unpublish](#bookingBusinessesunpublish)|unpublish|[Parameters](#ParametersbookingBusinessesunpublish)|Not Found|
+|[az bookings booking-business update-appointment](#bookingBusinessesUpdateAppointments)|UpdateAppointments|[Parameters](#ParametersbookingBusinessesUpdateAppointments)|Not Found|
+|[az bookings booking-business update-calendar-view](#bookingBusinessesUpdateCalendarView)|UpdateCalendarView|[Parameters](#ParametersbookingBusinessesUpdateCalendarView)|Not Found|
+|[az bookings booking-business update-customer](#bookingBusinessesUpdateCustomers)|UpdateCustomers|[Parameters](#ParametersbookingBusinessesUpdateCustomers)|Not Found|
+|[az bookings booking-business update-service](#bookingBusinessesUpdateServices)|UpdateServices|[Parameters](#ParametersbookingBusinessesUpdateServices)|Not Found|
+|[az bookings booking-business update-staff-member](#bookingBusinessesUpdateStaffMembers)|UpdateStaffMembers|[Parameters](#ParametersbookingBusinessesUpdateStaffMembers)|Not Found|
 
-### bookings booking-business create-calendar-view
+### <a name="CommandsInbookingBusinesses.appointments">Commands in `az bookings booking-business-appointment` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az bookings booking-business-appointment cancel](#bookingBusinesses.appointmentscancel)|cancel|[Parameters](#ParametersbookingBusinesses.appointmentscancel)|Not Found|
 
-create-calendar-view a bookings booking-business.
+### <a name="CommandsInbookingBusinesses.bookingBusiness">Commands in `az bookings booking-business-booking-business` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az bookings booking-business-booking-business delete](#bookingBusinesses.bookingBusinessDeleteBookingBusiness)|DeleteBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness)|Not Found|
+|[az bookings booking-business-booking-business create-booking-business](#bookingBusinesses.bookingBusinessCreateBookingBusiness)|CreateBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessCreateBookingBusiness)|Not Found|
+|[az bookings booking-business-booking-business list-booking-business](#bookingBusinesses.bookingBusinessListBookingBusiness)|ListBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessListBookingBusiness)|Not Found|
+|[az bookings booking-business-booking-business show-booking-business](#bookingBusinesses.bookingBusinessGetBookingBusiness)|GetBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessGetBookingBusiness)|Not Found|
+|[az bookings booking-business-booking-business update-booking-business](#bookingBusinesses.bookingBusinessUpdateBookingBusiness)|UpdateBookingBusiness|[Parameters](#ParametersbookingBusinesses.bookingBusinessUpdateBookingBusiness)|Not Found|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
+### <a name="CommandsInbookingBusinesses.calendarView">Commands in `az bookings booking-business-calendar-view` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az bookings booking-business-calendar-view cancel](#bookingBusinesses.calendarViewcancel)|cancel|[Parameters](#ParametersbookingBusinesses.calendarViewcancel)|Not Found|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-calendar-view|CreateCalendarView|
+### <a name="CommandsInbookingCurrencies.bookingCurrency">Commands in `az bookings booking-currency-booking-currency` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az bookings booking-currency-booking-currency delete](#bookingCurrencies.bookingCurrencyDeleteBookingCurrency)|DeleteBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency)|Not Found|
+|[az bookings booking-currency-booking-currency create-booking-currency](#bookingCurrencies.bookingCurrencyCreateBookingCurrency)|CreateBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyCreateBookingCurrency)|Not Found|
+|[az bookings booking-currency-booking-currency list-booking-currency](#bookingCurrencies.bookingCurrencyListBookingCurrency)|ListBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyListBookingCurrency)|Not Found|
+|[az bookings booking-currency-booking-currency show-booking-currency](#bookingCurrencies.bookingCurrencyGetBookingCurrency)|GetBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyGetBookingCurrency)|Not Found|
+|[az bookings booking-currency-booking-currency update-booking-currency](#bookingCurrencies.bookingCurrencyUpdateBookingCurrency)|UpdateBookingCurrency|[Parameters](#ParametersbookingCurrencies.bookingCurrencyUpdateBookingCurrency)|Not Found|
 
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--id**|string|Read-only.|id|id|
-|**--additional-information**|string||additional_information|additionalInformation|
-|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
-|**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
-|**--customer-name**|string||customer_name|customerName|
-|**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
-|**--customer-phone**|string||customer_phone|customerPhone|
-|**--duration**|duration||duration|duration|
-|**--end**|object|dateTimeTimeZone|end|end|
-|**--invoice-amount**|number||invoice_amount|invoiceAmount|
-|**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
-|**--invoice-id**|string||invoice_id|invoiceId|
-|**--invoice-status**|choice||invoice_status|invoiceStatus|
-|**--invoice-url**|string||invoice_url|invoiceUrl|
-|**--is-location-online**|boolean||is_location_online|isLocationOnline|
-|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
-|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--price**|number||price|price|
-|**--price-type**|choice||price_type|priceType|
-|**--reminders**|array||reminders|reminders|
-|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
-|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
-|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
-|**--service-notes**|string||service_notes|serviceNotes|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--start**|object|dateTimeTimeZone|start|start|
-|**--service-location-address**|object|physicalAddress|address|address|
-|**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--service-location-location-type**|choice||location_type|locationType|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
-|**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
-|**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
-|**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
-|**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
-### bookings booking-business create-customer
+## COMMAND DETAILS
 
-create-customer a bookings booking-business.
+### group `az bookings booking-business`
+#### <a name="bookingBusinessesDeleteAppointments">Command `az bookings booking-business delete`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-customer|CreateCustomers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|Display name of this entity.|display_name|displayName|
-|**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
-
-### bookings booking-business create-service
-
-create-service a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-service|CreateServices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|Display name of this entity.|display_name|displayName|
-|**--additional-information**|string||additional_information|additionalInformation|
-|**--default-duration**|duration||default_duration|defaultDuration|
-|**--default-price**|number||default_price|defaultPrice|
-|**--default-price-type**|choice||default_price_type|defaultPriceType|
-|**--default-reminders**|array|The default reminders set in an appointment of this service.|default_reminders|defaultReminders|
-|**--description**|string||description|description|
-|**--is-hidden-from-customers**|boolean||is_hidden_from_customers|isHiddenFromCustomers|
-|**--is-location-online**|boolean||is_location_online|isLocationOnline|
-|**--notes**|string||notes|notes|
-|**--post-buffer**|duration||post_buffer|postBuffer|
-|**--pre-buffer**|duration||pre_buffer|preBuffer|
-|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
-|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--default-location-address**|object|physicalAddress|address|address|
-|**--default-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--default-location-location-type**|choice||location_type|locationType|
-|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--default-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--default-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-
-### bookings booking-business create-staff-member
-
-create-staff-member a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-staff-member|CreateStaffMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--id**|string|Read-only.|id|id|
-|**--display-name**|string|Display name of this entity.|display_name|displayName|
-|**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
-|**--availability-is-affected-by-personal-calendar**|boolean||availability_is_affected_by_personal_calendar|availabilityIsAffectedByPersonalCalendar|
-|**--color-index**|integer||color_index|colorIndex|
-|**--role**|choice||role|role|
-|**--use-business-hours**|boolean||use_business_hours|useBusinessHours|
-|**--working-hours**|array||working_hours|workingHours|
-
-### bookings booking-business delete
-
-delete a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteAppointments|
-|delete|DeleteCalendarView|
-|delete|DeleteCustomers|
-|delete|DeleteServices|
-|delete|DeleteStaffMembers|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesDeleteAppointments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
-|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
-|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
-|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
 |**--if-match**|string|ETag|if_match|If-Match|
 
-### bookings booking-business get-appointment
+#### <a name="bookingBusinessesDeleteCalendarView">Command `az bookings booking-business delete`</a>
 
-get-appointment a bookings booking-business.
+##### <a name="ParametersbookingBusinessesDeleteCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+#### <a name="bookingBusinessesDeleteCustomers">Command `az bookings booking-business delete`</a>
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
+##### <a name="ParametersbookingBusinessesDeleteCustomers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-customer-id**|string|key: id of bookingCustomer|booking_customer_id|bookingCustomer-id|
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-appointment|GetAppointments|
+#### <a name="bookingBusinessesDeleteServices">Command `az bookings booking-business delete`</a>
 
-#### Parameters
+##### <a name="ParametersbookingBusinessesDeleteServices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-service-id**|string|key: id of bookingService|booking_service_id|bookingService-id|
+
+#### <a name="bookingBusinessesDeleteStaffMembers">Command `az bookings booking-business delete`</a>
+
+##### <a name="ParametersbookingBusinessesDeleteStaffMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-staff-member-id**|string|key: id of bookingStaffMember|booking_staff_member_id|bookingStaffMember-id|
+
+#### <a name="bookingBusinessesCreateAppointments">Command `az bookings booking-business create-appointment`</a>
+
+##### <a name="ParametersbookingBusinessesCreateAppointments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--id**|string|Read-only.|id|id|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
+|**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
+|**--customer-name**|string||customer_name|customerName|
+|**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
+|**--customer-phone**|string||customer_phone|customerPhone|
+|**--duration**|duration||duration|duration|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--invoice-amount**|number||invoice_amount|invoiceAmount|
+|**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
+|**--invoice-id**|string||invoice_id|invoiceId|
+|**--invoice-status**|choice||invoice_status|invoiceStatus|
+|**--invoice-url**|string||invoice_url|invoiceUrl|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+|**--microsoft-graph-physical-address**|object|physicalAddress|microsoft_graph_physical_address|address|
+|**--microsoft-graph-outlook-geo-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--microsoft-graph-location-email-address-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
+|**--microsoft-graph-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--microsoft-graph-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--microsoft-graph-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
+|**--microsoft-graph-location-unique-id-type-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
+
+#### <a name="bookingBusinessesCreateCalendarView">Command `az bookings booking-business create-calendar-view`</a>
+
+##### <a name="ParametersbookingBusinessesCreateCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--id**|string|Read-only.|id|id|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--customer-email-address**|string||customer_email_address|customerEmailAddress|
+|**--customer-id**|string|The id of the booking customer associated with this appointment.|customer_id|customerId|
+|**--customer-name**|string||customer_name|customerName|
+|**--customer-notes**|string|Notes from the customer associated with this appointment.|customer_notes|customerNotes|
+|**--customer-phone**|string||customer_phone|customerPhone|
+|**--duration**|duration||duration|duration|
+|**--end**|object|dateTimeTimeZone|end|end|
+|**--invoice-amount**|number||invoice_amount|invoiceAmount|
+|**--invoice-date**|object|dateTimeTimeZone|invoice_date|invoiceDate|
+|**--invoice-id**|string||invoice_id|invoiceId|
+|**--invoice-status**|choice||invoice_status|invoiceStatus|
+|**--invoice-url**|string||invoice_url|invoiceUrl|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--online-meeting-url**|string||online_meeting_url|onlineMeetingUrl|
+|**--opt-out-of-customer-email**|boolean||opt_out_of_customer_email|optOutOfCustomerEmail|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--price**|number||price|price|
+|**--price-type**|choice||price_type|priceType|
+|**--reminders**|array||reminders|reminders|
+|**--self-service-appointment-id**|string||self_service_appointment_id|selfServiceAppointmentId|
+|**--service-id**|string|The id of the booking service associated with this appointment.|service_id|serviceId|
+|**--service-name**|string|The name of the booking service associated with this appointment.|service_name|serviceName|
+|**--service-notes**|string||service_notes|serviceNotes|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--start**|object|dateTimeTimeZone|start|start|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+|**--microsoft-graph-physical-address**|object|physicalAddress|microsoft_graph_physical_address|address|
+|**--microsoft-graph-outlook-geo-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--microsoft-graph-location-email-address-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
+|**--microsoft-graph-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--microsoft-graph-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--microsoft-graph-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
+|**--microsoft-graph-location-unique-id-type-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
+
+#### <a name="bookingBusinessesCreateCustomers">Command `az bookings booking-business create-customer`</a>
+
+##### <a name="ParametersbookingBusinessesCreateCustomers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|Display name of this entity.|display_name|displayName|
+|**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
+
+#### <a name="bookingBusinessesCreateServices">Command `az bookings booking-business create-service`</a>
+
+##### <a name="ParametersbookingBusinessesCreateServices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|Display name of this entity.|display_name|displayName|
+|**--additional-information**|string||additional_information|additionalInformation|
+|**--default-duration**|duration||default_duration|defaultDuration|
+|**--default-price**|number||default_price|defaultPrice|
+|**--default-price-type**|choice||default_price_type|defaultPriceType|
+|**--default-reminders**|array|The default reminders set in an appointment of this service.|default_reminders|defaultReminders|
+|**--description**|string||description|description|
+|**--is-hidden-from-customers**|boolean||is_hidden_from_customers|isHiddenFromCustomers|
+|**--is-location-online**|boolean||is_location_online|isLocationOnline|
+|**--notes**|string||notes|notes|
+|**--post-buffer**|duration||post_buffer|postBuffer|
+|**--pre-buffer**|duration||pre_buffer|preBuffer|
+|**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
+|**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+
+#### <a name="bookingBusinessesCreateStaffMembers">Command `az bookings booking-business create-staff-member`</a>
+
+##### <a name="ParametersbookingBusinessesCreateStaffMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--id**|string|Read-only.|id|id|
+|**--display-name**|string|Display name of this entity.|display_name|displayName|
+|**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
+|**--availability-is-affected-by-personal-calendar**|boolean||availability_is_affected_by_personal_calendar|availabilityIsAffectedByPersonalCalendar|
+|**--color-index**|integer||color_index|colorIndex|
+|**--role**|choice||role|role|
+|**--use-business-hours**|boolean||use_business_hours|useBusinessHours|
+|**--working-hours**|array||working_hours|workingHours|
+
+#### <a name="bookingBusinessesListAppointments">Command `az bookings booking-business list-appointment`</a>
+
+##### <a name="ParametersbookingBusinessesListAppointments">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="bookingBusinessesListCalendarView">Command `az bookings booking-business list-calendar-view`</a>
+
+##### <a name="ParametersbookingBusinessesListCalendarView">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--start**|string|The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00|start|start|
+|**--end**|string|The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00|end|end|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="bookingBusinessesListCustomers">Command `az bookings booking-business list-customer`</a>
+
+##### <a name="ParametersbookingBusinessesListCustomers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="bookingBusinessesListServices">Command `az bookings booking-business list-service`</a>
+
+##### <a name="ParametersbookingBusinessesListServices">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="bookingBusinessesListStaffMembers">Command `az bookings booking-business list-staff-member`</a>
+
+##### <a name="ParametersbookingBusinessesListStaffMembers">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="bookingBusinessespublish">Command `az bookings booking-business publish`</a>
+
+##### <a name="ParametersbookingBusinessespublish">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+
+#### <a name="bookingBusinessesGetAppointments">Command `az bookings booking-business show-appointment`</a>
+
+##### <a name="ParametersbookingBusinessesGetAppointments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -267,21 +340,9 @@ get-appointment a bookings booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business get-calendar-view
+#### <a name="bookingBusinessesGetCalendarView">Command `az bookings booking-business show-calendar-view`</a>
 
-get-calendar-view a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-calendar-view|GetCalendarView|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesGetCalendarView">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -291,21 +352,9 @@ get-calendar-view a bookings booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business get-customer
+#### <a name="bookingBusinessesGetCustomers">Command `az bookings booking-business show-customer`</a>
 
-get-customer a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-customer|GetCustomers|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesGetCustomers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -313,21 +362,9 @@ get-customer a bookings booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business get-service
+#### <a name="bookingBusinessesGetServices">Command `az bookings booking-business show-service`</a>
 
-get-service a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-service|GetServices|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesGetServices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -335,21 +372,9 @@ get-service a bookings booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business get-staff-member
+#### <a name="bookingBusinessesGetStaffMembers">Command `az bookings booking-business show-staff-member`</a>
 
-get-staff-member a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-staff-member|GetStaffMembers|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesGetStaffMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -357,171 +382,16 @@ get-staff-member a bookings booking-business.
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business list-appointment
+#### <a name="bookingBusinessesunpublish">Command `az bookings booking-business unpublish`</a>
 
-list-appointment a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-appointment|ListAppointments|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business list-calendar-view
-
-list-calendar-view a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-calendar-view|ListCalendarView|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--start**|string|The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00|start|start|
-|**--end**|string|The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00|end|end|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business list-customer
-
-list-customer a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-customer|ListCustomers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business list-service
-
-list-service a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-service|ListServices|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business list-staff-member
-
-list-staff-member a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-staff-member|ListStaffMembers|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business publish
-
-publish a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|publish|publish|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesunpublish">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 
-### bookings booking-business unpublish
+#### <a name="bookingBusinessesUpdateAppointments">Command `az bookings booking-business update-appointment`</a>
 
-unpublish a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|unpublish|unpublish|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-
-### bookings booking-business update-appointment
-
-update-appointment a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-appointment|UpdateAppointments|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesUpdateAppointments">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -554,38 +424,26 @@ update-appointment a bookings booking-business.
 |**--service-notes**|string||service_notes|serviceNotes|
 |**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
 |**--start**|object|dateTimeTimeZone|start|start|
-|**--service-location-address**|object|physicalAddress|address|address|
-|**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--service-location-location-type**|choice||location_type|locationType|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
-|**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
-|**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
-|**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
-|**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+|**--microsoft-graph-physical-address**|object|physicalAddress|microsoft_graph_physical_address|address|
+|**--microsoft-graph-outlook-geo-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--microsoft-graph-location-email-address-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
+|**--microsoft-graph-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--microsoft-graph-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--microsoft-graph-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
+|**--microsoft-graph-location-unique-id-type-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
-### bookings booking-business update-calendar-view
+#### <a name="bookingBusinessesUpdateCalendarView">Command `az bookings booking-business update-calendar-view`</a>
 
-update-calendar-view a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-calendar-view|UpdateCalendarView|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesUpdateCalendarView">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -618,38 +476,26 @@ update-calendar-view a bookings booking-business.
 |**--service-notes**|string||service_notes|serviceNotes|
 |**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
 |**--start**|object|dateTimeTimeZone|start|start|
-|**--service-location-address**|object|physicalAddress|address|address|
-|**--service-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--service-location-display-name**|string|The name associated with the location.|display_name|displayName|
-|**--service-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--service-location-location-type**|choice||location_type|locationType|
-|**--service-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--service-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--service-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
-|**--customer-location-address**|object|physicalAddress|microsoft_graph_physical_address|address|
-|**--customer-location-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
-|**--customer-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--customer-location-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
-|**--customer-location-location-type**|choice||microsoft_graph_location_type|locationType|
-|**--customer-location-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
-|**--customer-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
-|**--customer-location-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--display-name**|string|The name associated with the location.|display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
+|**--microsoft-graph-physical-address**|object|physicalAddress|microsoft_graph_physical_address|address|
+|**--microsoft-graph-outlook-geo-coordinates**|object|outlookGeoCoordinates|microsoft_graph_outlook_geo_coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--microsoft-graph-location-email-address-location-email-address**|string|Optional email address of the location.|microsoft_graph_location_email_address_location_email_address|locationEmailAddress|
+|**--microsoft-graph-location-type**|choice||microsoft_graph_location_type|locationType|
+|**--microsoft-graph-location-uri**|string|Optional URI representing the location.|microsoft_graph_location_uri|locationUri|
+|**--microsoft-graph-location-unique-id**|string|For internal use only.|microsoft_graph_location_unique_id|uniqueId|
+|**--microsoft-graph-location-unique-id-type-unique-id-type**|choice||microsoft_graph_location_unique_id_type_unique_id_type|uniqueIdType|
 
-### bookings booking-business update-customer
+#### <a name="bookingBusinessesUpdateCustomers">Command `az bookings booking-business update-customer`</a>
 
-update-customer a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-customer|UpdateCustomers|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesUpdateCustomers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -658,21 +504,9 @@ update-customer a bookings booking-business.
 |**--display-name**|string|Display name of this entity.|display_name|displayName|
 |**--email-address**|string|The e-mail address of this person.|email_address|emailAddress|
 
-### bookings booking-business update-service
+#### <a name="bookingBusinessesUpdateServices">Command `az bookings booking-business update-service`</a>
 
-update-service a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-service|UpdateServices|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesUpdateServices">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -692,30 +526,18 @@ update-service a bookings booking-business.
 |**--pre-buffer**|duration||pre_buffer|preBuffer|
 |**--scheduling-policy**|object|This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.|scheduling_policy|schedulingPolicy|
 |**--staff-member-ids**|array||staff_member_ids|staffMemberIds|
-|**--default-location-address**|object|physicalAddress|address|address|
-|**--default-location-coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
-|**--default-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
-|**--default-location-location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
-|**--default-location-location-type**|choice||location_type|locationType|
-|**--default-location-location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
-|**--default-location-unique-id**|string|For internal use only.|unique_id|uniqueId|
-|**--default-location-unique-id-type**|choice||unique_id_type|uniqueIdType|
+|**--address**|object|physicalAddress|address|address|
+|**--coordinates**|object|outlookGeoCoordinates|coordinates|coordinates|
+|**--microsoft-graph-location-display-name**|string|The name associated with the location.|microsoft_graph_location_display_name|displayName|
+|**--location-email-address**|string|Optional email address of the location.|location_email_address|locationEmailAddress|
+|**--location-type**|choice||location_type|locationType|
+|**--location-uri**|string|Optional URI representing the location.|location_uri|locationUri|
+|**--unique-id**|string|For internal use only.|unique_id|uniqueId|
+|**--unique-id-type**|choice||unique_id_type|uniqueIdType|
 
-### bookings booking-business update-staff-member
+#### <a name="bookingBusinessesUpdateStaffMembers">Command `az bookings booking-business update-staff-member`</a>
 
-update-staff-member a bookings booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business|bookingBusinesses|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-staff-member|UpdateStaffMembers|
-
-#### Parameters
+##### <a name="ParametersbookingBusinessesUpdateStaffMembers">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -729,42 +551,28 @@ update-staff-member a bookings booking-business.
 |**--use-business-hours**|boolean||use_business_hours|useBusinessHours|
 |**--working-hours**|array||working_hours|workingHours|
 
-### bookings booking-business-appointment cancel
+### group `az bookings booking-business-appointment`
+#### <a name="bookingBusinesses.appointmentscancel">Command `az bookings booking-business-appointment cancel`</a>
 
-cancel a bookings booking-business-appointment.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-appointment|bookingBusinesses.appointments|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|cancel|cancel|
-
-#### Parameters
+##### <a name="ParametersbookingBusinesses.appointmentscancel">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
-### bookings booking-business-booking-business create-business
+### group `az bookings booking-business-booking-business`
+#### <a name="bookingBusinesses.bookingBusinessDeleteBookingBusiness">Command `az bookings booking-business-booking-business delete`</a>
 
-create-business a bookings booking-business-booking-business.
+##### <a name="ParametersbookingBusinesses.bookingBusinessDeleteBookingBusiness">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|
+#### <a name="bookingBusinesses.bookingBusinessCreateBookingBusiness">Command `az bookings booking-business-booking-business create-booking-business`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-business|CreateBookingBusiness|
-
-#### Parameters
+##### <a name="ParametersbookingBusinesses.bookingBusinessCreateBookingBusiness">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -785,83 +593,27 @@ create-business a bookings booking-business-booking-business.
 |**--services**|array|All services offered by this business.|services|services|
 |**--staff-members**|array|All staff members that provides services in this business.|staff_members|staffMembers|
 
-### bookings booking-business-booking-business delete
+#### <a name="bookingBusinesses.bookingBusinessListBookingBusiness">Command `az bookings booking-business-booking-business list-booking-business`</a>
 
-delete a bookings booking-business-booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteBookingBusiness|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### bookings booking-business-booking-business get-business
-
-get-business a bookings booking-business-booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-business|GetBookingBusiness|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-business-booking-business list-business
-
-list-business a bookings booking-business-booking-business.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-business|ListBookingBusiness|
-
-#### Parameters
+##### <a name="ParametersbookingBusinesses.bookingBusinessListBookingBusiness">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-business-booking-business update-business
+#### <a name="bookingBusinesses.bookingBusinessGetBookingBusiness">Command `az bookings booking-business-booking-business show-booking-business`</a>
 
-update-business a bookings booking-business-booking-business.
+##### <a name="ParametersbookingBusinesses.bookingBusinessGetBookingBusiness">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-booking-business|bookingBusinesses.bookingBusiness|
+#### <a name="bookingBusinesses.bookingBusinessUpdateBookingBusiness">Command `az bookings booking-business-booking-business update-booking-business`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-business|UpdateBookingBusiness|
-
-#### Parameters
+##### <a name="ParametersbookingBusinesses.bookingBusinessUpdateBookingBusiness">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
@@ -883,124 +635,54 @@ update-business a bookings booking-business-booking-business.
 |**--services**|array|All services offered by this business.|services|services|
 |**--staff-members**|array|All staff members that provides services in this business.|staff_members|staffMembers|
 
-### bookings booking-business-calendar-view cancel
+### group `az bookings booking-business-calendar-view`
+#### <a name="bookingBusinesses.calendarViewcancel">Command `az bookings booking-business-calendar-view cancel`</a>
 
-cancel a bookings booking-business-calendar-view.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-business-calendar-view|bookingBusinesses.calendarView|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|cancel|cancel|
-
-#### Parameters
+##### <a name="ParametersbookingBusinesses.calendarViewcancel">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-business-id**|string|key: id of bookingBusiness|booking_business_id|bookingBusiness-id|
 |**--booking-appointment-id**|string|key: id of bookingAppointment|booking_appointment_id|bookingAppointment-id|
 |**--cancellation-message**|string||cancellation_message|cancellationMessage|
 
-### bookings booking-currency-booking-currency create-currency
+### group `az bookings booking-currency-booking-currency`
+#### <a name="bookingCurrencies.bookingCurrencyDeleteBookingCurrency">Command `az bookings booking-currency-booking-currency delete`</a>
 
-create-currency a bookings booking-currency-booking-currency.
+##### <a name="ParametersbookingCurrencies.bookingCurrencyDeleteBookingCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|
+#### <a name="bookingCurrencies.bookingCurrencyCreateBookingCurrency">Command `az bookings booking-currency-booking-currency create-booking-currency`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-currency|CreateBookingCurrency|
-
-#### Parameters
+##### <a name="ParametersbookingCurrencies.bookingCurrencyCreateBookingCurrency">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
 |**--symbol**|string||symbol|symbol|
 
-### bookings booking-currency-booking-currency delete
+#### <a name="bookingCurrencies.bookingCurrencyListBookingCurrency">Command `az bookings booking-currency-booking-currency list-booking-currency`</a>
 
-delete a bookings booking-currency-booking-currency.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteBookingCurrency|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### bookings booking-currency-booking-currency get-currency
-
-get-currency a bookings booking-currency-booking-currency.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-currency|GetBookingCurrency|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### bookings booking-currency-booking-currency list-currency
-
-list-currency a bookings booking-currency-booking-currency.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-currency|ListBookingCurrency|
-
-#### Parameters
+##### <a name="ParametersbookingCurrencies.bookingCurrencyListBookingCurrency">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### bookings booking-currency-booking-currency update-currency
+#### <a name="bookingCurrencies.bookingCurrencyGetBookingCurrency">Command `az bookings booking-currency-booking-currency show-booking-currency`</a>
 
-update-currency a bookings booking-currency-booking-currency.
+##### <a name="ParametersbookingCurrencies.bookingCurrencyGetBookingCurrency">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|bookings booking-currency-booking-currency|bookingCurrencies.bookingCurrency|
+#### <a name="bookingCurrencies.bookingCurrencyUpdateBookingCurrency">Command `az bookings booking-currency-booking-currency update-booking-currency`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-currency|UpdateBookingCurrency|
-
-#### Parameters
+##### <a name="ParametersbookingCurrencies.bookingCurrencyUpdateBookingCurrency">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--booking-currency-id**|string|key: id of bookingCurrency|booking_currency_id|bookingCurrency-id|

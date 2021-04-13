@@ -14,17 +14,17 @@ from knack.help_files import helps
 
 helps['bookings booking-business-booking-business'] = """
     type: group
-    short-summary: bookings booking-business-booking-business
+    short-summary: Manage booking business booking business with bookings_beta
 """
 
 helps['bookings booking-business-booking-business delete'] = """
     type: command
-    short-summary: "Delete entity from bookingBusinesses"
+    short-summary: "Delete entity from bookingBusinesses."
 """
 
-helps['bookings booking-business-booking-business create-business'] = """
+helps['bookings booking-business-booking-business create-booking-business'] = """
     type: command
-    short-summary: "Add new entity to bookingBusinesses"
+    short-summary: "Add new entity to bookingBusinesses."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -67,19 +67,19 @@ send-confirmations-to-owner=XX time-slot-interval=XX
             Multiple actions can be specified by using more than one --customers argument.
 """
 
-helps['bookings booking-business-booking-business get-business'] = """
+helps['bookings booking-business-booking-business list-booking-business'] = """
     type: command
-    short-summary: "Get entity from bookingBusinesses by key"
+    short-summary: "Get entities from bookingBusinesses."
 """
 
-helps['bookings booking-business-booking-business list-business'] = """
+helps['bookings booking-business-booking-business show-booking-business'] = """
     type: command
-    short-summary: "Get entities from bookingBusinesses"
+    short-summary: "Get entity from bookingBusinesses by key."
 """
 
-helps['bookings booking-business-booking-business update-business'] = """
+helps['bookings booking-business-booking-business update-booking-business'] = """
     type: command
-    short-summary: "Update entity in bookingBusinesses"
+    short-summary: "Update entity in bookingBusinesses."
     parameters:
       - name: --address
         short-summary: "physicalAddress"
@@ -124,17 +124,19 @@ send-confirmations-to-owner=XX time-slot-interval=XX
 
 helps['bookings booking-business'] = """
     type: group
-    short-summary: bookings booking-business
+    short-summary: Manage booking business with bookings_beta
 """
 
 helps['bookings booking-business delete'] = """
     type: command
-    short-summary: "Delete navigation property staffMembers for bookingBusinesses"
+    short-summary: "Delete navigation property appointments for bookingBusinesses And Delete navigation property \
+calendarView for bookingBusinesses And Delete navigation property customers for bookingBusinesses And Delete \
+navigation property services for bookingBusinesses And Delete navigation property staffMembers for bookingBusinesses."
 """
 
 helps['bookings booking-business create-appointment'] = """
     type: command
-    short-summary: "Create new navigation property to appointments for bookingBusinesses"
+    short-summary: "Create new navigation property to appointments for bookingBusinesses."
     parameters:
       - name: --end
         short-summary: "dateTimeTimeZone"
@@ -171,22 +173,20 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --service-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --service-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -194,21 +194,21 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
-      - name: --customer-location-address
+      - name: --microsoft-graph-physical-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --microsoft-graph-physical-address city=XX country-or-region=XX postal-code=XX post-office-box=XX \
+state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --customer-location-coordinates
+      - name: --microsoft-graph-outlook-geo-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+            Usage: --microsoft-graph-outlook-geo-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
 longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
@@ -221,7 +221,7 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business create-calendar-view'] = """
     type: command
-    short-summary: "Create new navigation property to calendarView for bookingBusinesses"
+    short-summary: "Create new navigation property to calendarView for bookingBusinesses."
     parameters:
       - name: --end
         short-summary: "dateTimeTimeZone"
@@ -258,22 +258,20 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --service-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --service-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -281,21 +279,21 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
-      - name: --customer-location-address
+      - name: --microsoft-graph-physical-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --microsoft-graph-physical-address city=XX country-or-region=XX postal-code=XX post-office-box=XX \
+state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --customer-location-coordinates
+      - name: --microsoft-graph-outlook-geo-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+            Usage: --microsoft-graph-outlook-geo-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
 longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
@@ -308,12 +306,12 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business create-customer'] = """
     type: command
-    short-summary: "Create new navigation property to customers for bookingBusinesses"
+    short-summary: "Create new navigation property to customers for bookingBusinesses."
 """
 
 helps['bookings booking-business create-service'] = """
     type: command
-    short-summary: "Create new navigation property to services for bookingBusinesses"
+    short-summary: "Create new navigation property to services for bookingBusinesses."
     parameters:
       - name: --default-reminders
         short-summary: "The default reminders set in an appointment of this service."
@@ -336,22 +334,20 @@ send-confirmations-to-owner=XX time-slot-interval=XX
             minimum-lead-time: Minimum lead time for bookings and cancellations.
             send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             time-slot-interval: Duration of each time slot.
-      - name: --default-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --default-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --default-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --default-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -363,7 +359,7 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business create-staff-member'] = """
     type: command
-    short-summary: "Create new navigation property to staffMembers for bookingBusinesses"
+    short-summary: "Create new navigation property to staffMembers for bookingBusinesses."
     parameters:
       - name: --working-hours
         long-summary: |
@@ -374,69 +370,69 @@ helps['bookings booking-business create-staff-member'] = """
             Multiple actions can be specified by using more than one --working-hours argument.
 """
 
-helps['bookings booking-business get-appointment'] = """
-    type: command
-    short-summary: "Get appointments from bookingBusinesses"
-"""
-
-helps['bookings booking-business get-calendar-view'] = """
-    type: command
-    short-summary: "Get calendarView from bookingBusinesses"
-"""
-
-helps['bookings booking-business get-customer'] = """
-    type: command
-    short-summary: "Get customers from bookingBusinesses"
-"""
-
-helps['bookings booking-business get-service'] = """
-    type: command
-    short-summary: "Get services from bookingBusinesses"
-"""
-
-helps['bookings booking-business get-staff-member'] = """
-    type: command
-    short-summary: "Get staffMembers from bookingBusinesses"
-"""
-
 helps['bookings booking-business list-appointment'] = """
     type: command
-    short-summary: "Get appointments from bookingBusinesses"
+    short-summary: "Get appointments from bookingBusinesses."
 """
 
 helps['bookings booking-business list-calendar-view'] = """
     type: command
-    short-summary: "Get calendarView from bookingBusinesses"
+    short-summary: "Get calendarView from bookingBusinesses."
 """
 
 helps['bookings booking-business list-customer'] = """
     type: command
-    short-summary: "Get customers from bookingBusinesses"
+    short-summary: "Get customers from bookingBusinesses."
 """
 
 helps['bookings booking-business list-service'] = """
     type: command
-    short-summary: "Get services from bookingBusinesses"
+    short-summary: "Get services from bookingBusinesses."
 """
 
 helps['bookings booking-business list-staff-member'] = """
     type: command
-    short-summary: "Get staffMembers from bookingBusinesses"
+    short-summary: "Get staffMembers from bookingBusinesses."
 """
 
 helps['bookings booking-business publish'] = """
     type: command
-    short-summary: "Invoke action publish"
+    short-summary: "Invoke action publish."
+"""
+
+helps['bookings booking-business show-appointment'] = """
+    type: command
+    short-summary: "Get appointments from bookingBusinesses."
+"""
+
+helps['bookings booking-business show-calendar-view'] = """
+    type: command
+    short-summary: "Get calendarView from bookingBusinesses."
+"""
+
+helps['bookings booking-business show-customer'] = """
+    type: command
+    short-summary: "Get customers from bookingBusinesses."
+"""
+
+helps['bookings booking-business show-service'] = """
+    type: command
+    short-summary: "Get services from bookingBusinesses."
+"""
+
+helps['bookings booking-business show-staff-member'] = """
+    type: command
+    short-summary: "Get staffMembers from bookingBusinesses."
 """
 
 helps['bookings booking-business unpublish'] = """
     type: command
-    short-summary: "Invoke action unpublish"
+    short-summary: "Invoke action unpublish."
 """
 
 helps['bookings booking-business update-appointment'] = """
     type: command
-    short-summary: "Update the navigation property appointments in bookingBusinesses"
+    short-summary: "Update the navigation property appointments in bookingBusinesses."
     parameters:
       - name: --end
         short-summary: "dateTimeTimeZone"
@@ -473,22 +469,20 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --service-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --service-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -496,21 +490,21 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
-      - name: --customer-location-address
+      - name: --microsoft-graph-physical-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --microsoft-graph-physical-address city=XX country-or-region=XX postal-code=XX post-office-box=XX \
+state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --customer-location-coordinates
+      - name: --microsoft-graph-outlook-geo-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+            Usage: --microsoft-graph-outlook-geo-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
 longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
@@ -523,7 +517,7 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business update-calendar-view'] = """
     type: command
-    short-summary: "Update the navigation property calendarView in bookingBusinesses"
+    short-summary: "Update the navigation property calendarView in bookingBusinesses."
     parameters:
       - name: --end
         short-summary: "dateTimeTimeZone"
@@ -560,22 +554,20 @@ values.
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --service-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --service-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --service-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --service-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -583,21 +575,21 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             altitude-accuracy: The accuracy of the altitude.
             latitude: The latitude of the location.
             longitude: The longitude of the location.
-      - name: --customer-location-address
+      - name: --microsoft-graph-physical-address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --customer-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --microsoft-graph-physical-address city=XX country-or-region=XX postal-code=XX post-office-box=XX \
+state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --customer-location-coordinates
+      - name: --microsoft-graph-outlook-geo-coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --customer-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
+            Usage: --microsoft-graph-outlook-geo-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
 longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
@@ -610,12 +602,12 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business update-customer'] = """
     type: command
-    short-summary: "Update the navigation property customers in bookingBusinesses"
+    short-summary: "Update the navigation property customers in bookingBusinesses."
 """
 
 helps['bookings booking-business update-service'] = """
     type: command
-    short-summary: "Update the navigation property services in bookingBusinesses"
+    short-summary: "Update the navigation property services in bookingBusinesses."
     parameters:
       - name: --default-reminders
         short-summary: "The default reminders set in an appointment of this service."
@@ -638,22 +630,20 @@ send-confirmations-to-owner=XX time-slot-interval=XX
             minimum-lead-time: Minimum lead time for bookings and cancellations.
             send-confirmations-to-owner: Notify the business via email when a booking is created or changed.
             time-slot-interval: Duration of each time slot.
-      - name: --default-location-address
+      - name: --address
         short-summary: "physicalAddress"
         long-summary: |
-            Usage: --default-location-address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX \
-street=XX type=XX
+            Usage: --address city=XX country-or-region=XX postal-code=XX post-office-box=XX state=XX street=XX type=XX
 
             city: The city.
             country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
             postal-code: The postal code.
             state: The state.
             street: The street.
-      - name: --default-location-coordinates
+      - name: --coordinates
         short-summary: "outlookGeoCoordinates"
         long-summary: |
-            Usage: --default-location-coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX \
-longitude=XX
+            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
 
             accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
 meters, such as the latitude and longitude are accurate to within 50 meters.
@@ -665,7 +655,7 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 
 helps['bookings booking-business update-staff-member'] = """
     type: command
-    short-summary: "Update the navigation property staffMembers in bookingBusinesses"
+    short-summary: "Update the navigation property staffMembers in bookingBusinesses."
     parameters:
       - name: --working-hours
         long-summary: |
@@ -678,50 +668,50 @@ helps['bookings booking-business update-staff-member'] = """
 
 helps['bookings booking-business-appointment'] = """
     type: group
-    short-summary: bookings booking-business-appointment
+    short-summary: Manage booking business appointment with bookings_beta
 """
 
 helps['bookings booking-business-appointment cancel'] = """
     type: command
-    short-summary: "Invoke action cancel"
+    short-summary: "Invoke action cancel."
 """
 
 helps['bookings booking-business-calendar-view'] = """
     type: group
-    short-summary: bookings booking-business-calendar-view
+    short-summary: Manage booking business calendar view with bookings_beta
 """
 
 helps['bookings booking-business-calendar-view cancel'] = """
     type: command
-    short-summary: "Invoke action cancel"
+    short-summary: "Invoke action cancel."
 """
 
 helps['bookings booking-currency-booking-currency'] = """
     type: group
-    short-summary: bookings booking-currency-booking-currency
+    short-summary: Manage booking currency booking currency with bookings_beta
 """
 
 helps['bookings booking-currency-booking-currency delete'] = """
     type: command
-    short-summary: "Delete entity from bookingCurrencies"
+    short-summary: "Delete entity from bookingCurrencies."
 """
 
-helps['bookings booking-currency-booking-currency create-currency'] = """
+helps['bookings booking-currency-booking-currency create-booking-currency'] = """
     type: command
-    short-summary: "Add new entity to bookingCurrencies"
+    short-summary: "Add new entity to bookingCurrencies."
 """
 
-helps['bookings booking-currency-booking-currency get-currency'] = """
+helps['bookings booking-currency-booking-currency list-booking-currency'] = """
     type: command
-    short-summary: "Get entity from bookingCurrencies by key"
+    short-summary: "Get entities from bookingCurrencies."
 """
 
-helps['bookings booking-currency-booking-currency list-currency'] = """
+helps['bookings booking-currency-booking-currency show-booking-currency'] = """
     type: command
-    short-summary: "Get entities from bookingCurrencies"
+    short-summary: "Get entity from bookingCurrencies by key."
 """
 
-helps['bookings booking-currency-booking-currency update-currency'] = """
+helps['bookings booking-currency-booking-currency update-booking-currency'] = """
     type: command
-    short-summary: "Update entity in bookingCurrencies"
+    short-summary: "Update entity in bookingCurrencies."
 """

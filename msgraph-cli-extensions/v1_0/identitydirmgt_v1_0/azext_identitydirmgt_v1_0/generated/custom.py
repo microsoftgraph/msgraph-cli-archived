@@ -61,15 +61,6 @@ def identitydirmgt_contact_org_contact_create_org_contact(client,
                                      transitive_member_of=transitive_member_of)
 
 
-def identitydirmgt_contact_org_contact_get_org_contact(client,
-                                                       org_contact_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_org_contact(org_contact_id=org_contact_id,
-                                  select=select,
-                                  expand=expand)
-
-
 def identitydirmgt_contact_org_contact_list_org_contact(client,
                                                         orderby=None,
                                                         select=None,
@@ -77,6 +68,15 @@ def identitydirmgt_contact_org_contact_list_org_contact(client,
     return client.list_org_contact(orderby=orderby,
                                    select=select,
                                    expand=expand)
+
+
+def identitydirmgt_contact_org_contact_show_org_contact(client,
+                                                        org_contact_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_org_contact(org_contact_id=org_contact_id,
+                                  select=select,
+                                  expand=expand)
 
 
 def identitydirmgt_contact_org_contact_update_org_contact(client,
@@ -184,15 +184,6 @@ def identitydirmgt_contact_get_by_id(client,
                             types=types)
 
 
-def identitydirmgt_contact_get_manager(client,
-                                       org_contact_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_manager(org_contact_id=org_contact_id,
-                              select=select,
-                              expand=expand)
-
-
 def identitydirmgt_contact_get_member_group(client,
                                             org_contact_id,
                                             security_enabled_only=None):
@@ -209,11 +200,6 @@ def identitydirmgt_contact_get_member_object(client,
         security_enabled_only = False
     return client.get_member_object(org_contact_id=org_contact_id,
                                     security_enabled_only=security_enabled_only)
-
-
-def identitydirmgt_contact_get_ref_manager(client,
-                                           org_contact_id):
-    return client.get_ref_manager(org_contact_id=org_contact_id)
 
 
 def identitydirmgt_contact_list_direct_report(client,
@@ -282,6 +268,20 @@ def identitydirmgt_contact_set_ref_manager(client,
                                   body=body)
 
 
+def identitydirmgt_contact_show_manager(client,
+                                        org_contact_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_manager(org_contact_id=org_contact_id,
+                              select=select,
+                              expand=expand)
+
+
+def identitydirmgt_contact_show_ref_manager(client,
+                                            org_contact_id):
+    return client.get_ref_manager(org_contact_id=org_contact_id)
+
+
 def identitydirmgt_contact_validate_property(client,
                                              entity_type=None,
                                              display_name=None,
@@ -315,15 +315,6 @@ def identitydirmgt_contract_contract_create_contract(client,
                                   display_name=display_name)
 
 
-def identitydirmgt_contract_contract_get_contract(client,
-                                                  contract_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_contract(contract_id=contract_id,
-                               select=select,
-                               expand=expand)
-
-
 def identitydirmgt_contract_contract_list_contract(client,
                                                    orderby=None,
                                                    select=None,
@@ -331,6 +322,15 @@ def identitydirmgt_contract_contract_list_contract(client,
     return client.list_contract(orderby=orderby,
                                 select=select,
                                 expand=expand)
+
+
+def identitydirmgt_contract_contract_show_contract(client,
+                                                   contract_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_contract(contract_id=contract_id,
+                               select=select,
+                               expand=expand)
 
 
 def identitydirmgt_contract_contract_update_contract(client,
@@ -474,15 +474,6 @@ def identitydirmgt_device_device_create_device(client,
                                 extensions=extensions)
 
 
-def identitydirmgt_device_device_get_device(client,
-                                            device_id,
-                                            select=None,
-                                            expand=None):
-    return client.get_device(device_id=device_id,
-                             select=select,
-                             expand=expand)
-
-
 def identitydirmgt_device_device_list_device(client,
                                              orderby=None,
                                              select=None,
@@ -490,6 +481,15 @@ def identitydirmgt_device_device_list_device(client,
     return client.list_device(orderby=orderby,
                               select=select,
                               expand=expand)
+
+
+def identitydirmgt_device_device_show_device(client,
+                                             device_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_device(device_id=device_id,
+                             select=select,
+                             expand=expand)
 
 
 def identitydirmgt_device_device_update_device(client,
@@ -621,17 +621,6 @@ def identitydirmgt_device_get_by_id(client,
                             types=types)
 
 
-def identitydirmgt_device_get_extension(client,
-                                        device_id,
-                                        extension_id,
-                                        select=None,
-                                        expand=None):
-    return client.get_extension(device_id=device_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
 def identitydirmgt_device_get_member_group(client,
                                            device_id,
                                            security_enabled_only=None):
@@ -738,6 +727,17 @@ def identitydirmgt_device_restore(client,
     return client.restore(device_id=device_id)
 
 
+def identitydirmgt_device_show_extension(client,
+                                         device_id,
+                                         extension_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_extension(device_id=device_id,
+                                extension_id=extension_id,
+                                select=select,
+                                expand=expand)
+
+
 def identitydirmgt_device_update_extension(client,
                                            device_id,
                                            extension_id,
@@ -758,9 +758,9 @@ def identitydirmgt_device_validate_property(client,
                                     on_behalf_of_user_id=on_behalf_of_user_id)
 
 
-def identitydirmgt_directory_directory_get_directory(client,
-                                                     select=None,
-                                                     expand=None):
+def identitydirmgt_directory_directory_show_directory(client,
+                                                      select=None,
+                                                      expand=None):
     return client.get_directory(select=select,
                                 expand=expand)
 
@@ -811,24 +811,6 @@ def identitydirmgt_directory_create_deleted_item(client,
                                       deleted_date_time=deleted_date_time)
 
 
-def identitydirmgt_directory_get_administrative_unit(client,
-                                                     administrative_unit_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_administrative_unit(administrative_unit_id=administrative_unit_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def identitydirmgt_directory_get_deleted_item(client,
-                                              directory_object_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_deleted_item(directory_object_id=directory_object_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def identitydirmgt_directory_list_administrative_unit(client,
                                                       orderby=None,
                                                       select=None,
@@ -845,6 +827,24 @@ def identitydirmgt_directory_list_deleted_item(client,
     return client.list_deleted_item(orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def identitydirmgt_directory_show_administrative_unit(client,
+                                                      administrative_unit_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_administrative_unit(administrative_unit_id=administrative_unit_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def identitydirmgt_directory_show_deleted_item(client,
+                                               directory_object_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_deleted_item(directory_object_id=directory_object_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def identitydirmgt_directory_update_administrative_unit(client,
@@ -910,40 +910,16 @@ def identitydirmgt_directory_administrative_unit_create_scoped_role_member(clien
                                                                            id_=None,
                                                                            microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
                                                                            role_id=None,
-                                                                           role_member_info_display_name=None,
-                                                                           role_member_info_id=None):
+                                                                           role_member_info=None):
     return client.create_scoped_role_member(administrative_unit_id=administrative_unit_id,
                                             id=id_,
                                             microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id,
                                             role_id=role_id,
-                                            display_name=role_member_info_display_name,
-                                            microsoft_graph_identity_id=role_member_info_id)
+                                            role_member_info=role_member_info)
 
 
 def identitydirmgt_directory_administrative_unit_delta(client):
     return client.delta()
-
-
-def identitydirmgt_directory_administrative_unit_get_extension(client,
-                                                               administrative_unit_id,
-                                                               extension_id,
-                                                               select=None,
-                                                               expand=None):
-    return client.get_extension(administrative_unit_id=administrative_unit_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
-def identitydirmgt_directory_administrative_unit_get_scoped_role_member(client,
-                                                                        administrative_unit_id,
-                                                                        scoped_role_membership_id,
-                                                                        select=None,
-                                                                        expand=None):
-    return client.get_scoped_role_member(administrative_unit_id=administrative_unit_id,
-                                         scoped_role_membership_id=scoped_role_membership_id,
-                                         select=select,
-                                         expand=expand)
 
 
 def identitydirmgt_directory_administrative_unit_list_extension(client,
@@ -986,6 +962,28 @@ def identitydirmgt_directory_administrative_unit_list_scoped_role_member(client,
                                           expand=expand)
 
 
+def identitydirmgt_directory_administrative_unit_show_extension(client,
+                                                                administrative_unit_id,
+                                                                extension_id,
+                                                                select=None,
+                                                                expand=None):
+    return client.get_extension(administrative_unit_id=administrative_unit_id,
+                                extension_id=extension_id,
+                                select=select,
+                                expand=expand)
+
+
+def identitydirmgt_directory_administrative_unit_show_scoped_role_member(client,
+                                                                         administrative_unit_id,
+                                                                         scoped_role_membership_id,
+                                                                         select=None,
+                                                                         expand=None):
+    return client.get_scoped_role_member(administrative_unit_id=administrative_unit_id,
+                                         scoped_role_membership_id=scoped_role_membership_id,
+                                         select=select,
+                                         expand=expand)
+
+
 def identitydirmgt_directory_administrative_unit_update_extension(client,
                                                                   administrative_unit_id,
                                                                   extension_id,
@@ -1001,15 +999,13 @@ def identitydirmgt_directory_administrative_unit_update_scoped_role_member(clien
                                                                            id_=None,
                                                                            microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,
                                                                            role_id=None,
-                                                                           role_member_info_display_name=None,
-                                                                           role_member_info_id=None):
+                                                                           role_member_info=None):
     return client.update_scoped_role_member(administrative_unit_id=administrative_unit_id,
                                             scoped_role_membership_id=scoped_role_membership_id,
                                             id=id_,
                                             microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id,
                                             role_id=role_id,
-                                            display_name=role_member_info_display_name,
-                                            microsoft_graph_identity_id=role_member_info_id)
+                                            role_member_info=role_member_info)
 
 
 def identitydirmgt_directory_role_directory_role_delete(client,
@@ -1036,15 +1032,6 @@ def identitydirmgt_directory_role_directory_role_create_directory_role(client,
                                         scoped_members=scoped_members)
 
 
-def identitydirmgt_directory_role_directory_role_get_directory_role(client,
-                                                                    directory_role_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_directory_role(directory_role_id=directory_role_id,
-                                     select=select,
-                                     expand=expand)
-
-
 def identitydirmgt_directory_role_directory_role_list_directory_role(client,
                                                                      orderby=None,
                                                                      select=None,
@@ -1052,6 +1039,15 @@ def identitydirmgt_directory_role_directory_role_list_directory_role(client,
     return client.list_directory_role(orderby=orderby,
                                       select=select,
                                       expand=expand)
+
+
+def identitydirmgt_directory_role_directory_role_show_directory_role(client,
+                                                                     directory_role_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_directory_role(directory_role_id=directory_role_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def identitydirmgt_directory_role_directory_role_update_directory_role(client,
@@ -1108,14 +1104,12 @@ def identitydirmgt_directory_role_create_scoped_member(client,
                                                        id_=None,
                                                        administrative_unit_id=None,
                                                        role_id=None,
-                                                       role_member_info_display_name=None,
-                                                       role_member_info_id=None):
+                                                       role_member_info=None):
     return client.create_scoped_member(directory_role_id=directory_role_id,
                                        id=id_,
                                        administrative_unit_id=administrative_unit_id,
                                        role_id=role_id,
-                                       display_name=role_member_info_display_name,
-                                       microsoft_graph_identity_id=role_member_info_id)
+                                       role_member_info=role_member_info)
 
 
 def identitydirmgt_directory_role_delta(client):
@@ -1154,17 +1148,6 @@ def identitydirmgt_directory_role_get_member_object(client,
                                     security_enabled_only=security_enabled_only)
 
 
-def identitydirmgt_directory_role_get_scoped_member(client,
-                                                    directory_role_id,
-                                                    scoped_role_membership_id,
-                                                    select=None,
-                                                    expand=None):
-    return client.get_scoped_member(directory_role_id=directory_role_id,
-                                    scoped_role_membership_id=scoped_role_membership_id,
-                                    select=select,
-                                    expand=expand)
-
-
 def identitydirmgt_directory_role_list_member(client,
                                               directory_role_id,
                                               orderby=None,
@@ -1199,21 +1182,30 @@ def identitydirmgt_directory_role_restore(client,
     return client.restore(directory_role_id=directory_role_id)
 
 
+def identitydirmgt_directory_role_show_scoped_member(client,
+                                                     directory_role_id,
+                                                     scoped_role_membership_id,
+                                                     select=None,
+                                                     expand=None):
+    return client.get_scoped_member(directory_role_id=directory_role_id,
+                                    scoped_role_membership_id=scoped_role_membership_id,
+                                    select=select,
+                                    expand=expand)
+
+
 def identitydirmgt_directory_role_update_scoped_member(client,
                                                        directory_role_id,
                                                        scoped_role_membership_id,
                                                        id_=None,
                                                        administrative_unit_id=None,
                                                        role_id=None,
-                                                       role_member_info_display_name=None,
-                                                       role_member_info_id=None):
+                                                       role_member_info=None):
     return client.update_scoped_member(directory_role_id=directory_role_id,
                                        scoped_role_membership_id=scoped_role_membership_id,
                                        id=id_,
                                        administrative_unit_id=administrative_unit_id,
                                        role_id=role_id,
-                                       display_name=role_member_info_display_name,
-                                       microsoft_graph_identity_id=role_member_info_id)
+                                       role_member_info=role_member_info)
 
 
 def identitydirmgt_directory_role_validate_property(client,
@@ -1245,15 +1237,6 @@ def identitydirmgt_directory_role_template_directory_role_template_create_direct
                                                  display_name=display_name)
 
 
-def identitydirmgt_directory_role_template_directory_role_template_get_directory_role_template(client,
-                                                                                               directory_role_template_id,
-                                                                                               select=None,
-                                                                                               expand=None):
-    return client.get_directory_role_template(directory_role_template_id=directory_role_template_id,
-                                              select=select,
-                                              expand=expand)
-
-
 def identitydirmgt_directory_role_template_directory_role_template_list_directory_role_template(client,
                                                                                                 orderby=None,
                                                                                                 select=None,
@@ -1261,6 +1244,15 @@ def identitydirmgt_directory_role_template_directory_role_template_list_director
     return client.list_directory_role_template(orderby=orderby,
                                                select=select,
                                                expand=expand)
+
+
+def identitydirmgt_directory_role_template_directory_role_template_show_directory_role_template(client,
+                                                                                                directory_role_template_id,
+                                                                                                select=None,
+                                                                                                expand=None):
+    return client.get_directory_role_template(directory_role_template_id=directory_role_template_id,
+                                              select=select,
+                                              expand=expand)
 
 
 def identitydirmgt_directory_role_template_directory_role_template_update_directory_role_template(client,
@@ -1382,15 +1374,6 @@ def identitydirmgt_domain_domain_create_domain(client,
                                 verification_dns_records=verification_dns_records)
 
 
-def identitydirmgt_domain_domain_get_domain(client,
-                                            domain_id,
-                                            select=None,
-                                            expand=None):
-    return client.get_domain(domain_id=domain_id,
-                             select=select,
-                             expand=expand)
-
-
 def identitydirmgt_domain_domain_list_domain(client,
                                              orderby=None,
                                              select=None,
@@ -1398,6 +1381,15 @@ def identitydirmgt_domain_domain_list_domain(client,
     return client.list_domain(orderby=orderby,
                               select=select,
                               expand=expand)
+
+
+def identitydirmgt_domain_domain_show_domain(client,
+                                             domain_id,
+                                             select=None,
+                                             expand=None):
+    return client.get_domain(domain_id=domain_id,
+                             select=select,
+                             expand=expand)
 
 
 def identitydirmgt_domain_domain_update_domain(client,
@@ -1502,28 +1494,6 @@ def identitydirmgt_domain_force_delete(client,
                                disable_user_accounts=disable_user_accounts)
 
 
-def identitydirmgt_domain_get_service_configuration_record(client,
-                                                           domain_id,
-                                                           domain_dns_record_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_service_configuration_record(domain_id=domain_id,
-                                                   domain_dns_record_id=domain_dns_record_id,
-                                                   select=select,
-                                                   expand=expand)
-
-
-def identitydirmgt_domain_get_verification_dns_record(client,
-                                                      domain_id,
-                                                      domain_dns_record_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_verification_dns_record(domain_id=domain_id,
-                                              domain_dns_record_id=domain_dns_record_id,
-                                              select=select,
-                                              expand=expand)
-
-
 def identitydirmgt_domain_list_domain_name_reference(client,
                                                      domain_id,
                                                      orderby=None,
@@ -1562,6 +1532,28 @@ def identitydirmgt_domain_list_verification_dns_record(client,
                                                orderby=orderby,
                                                select=select,
                                                expand=expand)
+
+
+def identitydirmgt_domain_show_service_configuration_record(client,
+                                                            domain_id,
+                                                            domain_dns_record_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_service_configuration_record(domain_id=domain_id,
+                                                   domain_dns_record_id=domain_dns_record_id,
+                                                   select=select,
+                                                   expand=expand)
+
+
+def identitydirmgt_domain_show_verification_dns_record(client,
+                                                       domain_id,
+                                                       domain_dns_record_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_verification_dns_record(domain_id=domain_id,
+                                              domain_dns_record_id=domain_dns_record_id,
+                                              select=select,
+                                              expand=expand)
 
 
 def identitydirmgt_domain_update_service_configuration_record(client,
@@ -1669,15 +1661,6 @@ def identitydirmgt_organization_organization_create_organization(client,
                                       extensions=extensions)
 
 
-def identitydirmgt_organization_organization_get_organization(client,
-                                                              organization_id,
-                                                              select=None,
-                                                              expand=None):
-    return client.get_organization(organization_id=organization_id,
-                                   select=select,
-                                   expand=expand)
-
-
 def identitydirmgt_organization_organization_list_organization(client,
                                                                orderby=None,
                                                                select=None,
@@ -1685,6 +1668,15 @@ def identitydirmgt_organization_organization_list_organization(client,
     return client.list_organization(orderby=orderby,
                                     select=select,
                                     expand=expand)
+
+
+def identitydirmgt_organization_organization_show_organization(client,
+                                                               organization_id,
+                                                               select=None,
+                                                               expand=None):
+    return client.get_organization(organization_id=organization_id,
+                                   select=select,
+                                   expand=expand)
 
 
 def identitydirmgt_organization_organization_update_organization(client,
@@ -1788,17 +1780,6 @@ def identitydirmgt_organization_get_by_id(client,
                             types=types)
 
 
-def identitydirmgt_organization_get_extension(client,
-                                              organization_id,
-                                              extension_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_extension(organization_id=organization_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
-
-
 def identitydirmgt_organization_get_member_group(client,
                                                  organization_id,
                                                  security_enabled_only=None):
@@ -1836,6 +1817,17 @@ def identitydirmgt_organization_restore(client,
 def identitydirmgt_organization_set_mobile_device_management_authority(client,
                                                                        organization_id):
     return client.set_mobile_device_management_authority(organization_id=organization_id)
+
+
+def identitydirmgt_organization_show_extension(client,
+                                               organization_id,
+                                               extension_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_extension(organization_id=organization_id,
+                                extension_id=extension_id,
+                                select=select,
+                                expand=expand)
 
 
 def identitydirmgt_organization_update_extension(client,
@@ -1884,15 +1876,6 @@ def identitydirmgt_subscribed_sku_subscribed_sku_create_subscribed_sku(client,
                                         sku_part_number=sku_part_number)
 
 
-def identitydirmgt_subscribed_sku_subscribed_sku_get_subscribed_sku(client,
-                                                                    subscribed_sku_id,
-                                                                    select=None,
-                                                                    expand=None):
-    return client.get_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
-                                     select=select,
-                                     expand=expand)
-
-
 def identitydirmgt_subscribed_sku_subscribed_sku_list_subscribed_sku(client,
                                                                      orderby=None,
                                                                      select=None,
@@ -1900,6 +1883,15 @@ def identitydirmgt_subscribed_sku_subscribed_sku_list_subscribed_sku(client,
     return client.list_subscribed_sku(orderby=orderby,
                                       select=select,
                                       expand=expand)
+
+
+def identitydirmgt_subscribed_sku_subscribed_sku_show_subscribed_sku(client,
+                                                                     subscribed_sku_id,
+                                                                     select=None,
+                                                                     expand=None):
+    return client.get_subscribed_sku(subscribed_sku_id=subscribed_sku_id,
+                                     select=select,
+                                     expand=expand)
 
 
 def identitydirmgt_subscribed_sku_subscribed_sku_update_subscribed_sku(client,
@@ -1937,25 +1929,12 @@ def identitydirmgt_user_create_scoped_role_member_of(client,
                                                      id_=None,
                                                      administrative_unit_id=None,
                                                      role_id=None,
-                                                     role_member_info_display_name=None,
-                                                     role_member_info_id=None):
+                                                     role_member_info=None):
     return client.create_scoped_role_member_of(user_id=user_id,
                                                id=id_,
                                                administrative_unit_id=administrative_unit_id,
                                                role_id=role_id,
-                                               display_name=role_member_info_display_name,
-                                               microsoft_graph_identity_id=role_member_info_id)
-
-
-def identitydirmgt_user_get_scoped_role_member_of(client,
-                                                  user_id,
-                                                  scoped_role_membership_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_scoped_role_member_of(user_id=user_id,
-                                            scoped_role_membership_id=scoped_role_membership_id,
-                                            select=select,
-                                            expand=expand)
+                                               role_member_info=role_member_info)
 
 
 def identitydirmgt_user_list_scoped_role_member_of(client,
@@ -1969,18 +1948,27 @@ def identitydirmgt_user_list_scoped_role_member_of(client,
                                              expand=expand)
 
 
+def identitydirmgt_user_show_scoped_role_member_of(client,
+                                                   user_id,
+                                                   scoped_role_membership_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_scoped_role_member_of(user_id=user_id,
+                                            scoped_role_membership_id=scoped_role_membership_id,
+                                            select=select,
+                                            expand=expand)
+
+
 def identitydirmgt_user_update_scoped_role_member_of(client,
                                                      user_id,
                                                      scoped_role_membership_id,
                                                      id_=None,
                                                      administrative_unit_id=None,
                                                      role_id=None,
-                                                     role_member_info_display_name=None,
-                                                     role_member_info_id=None):
+                                                     role_member_info=None):
     return client.update_scoped_role_member_of(user_id=user_id,
                                                scoped_role_membership_id=scoped_role_membership_id,
                                                id=id_,
                                                administrative_unit_id=administrative_unit_id,
                                                role_id=role_id,
-                                               display_name=role_member_info_display_name,
-                                               microsoft_graph_identity_id=role_member_info_id)
+                                               role_member_info=role_member_info)

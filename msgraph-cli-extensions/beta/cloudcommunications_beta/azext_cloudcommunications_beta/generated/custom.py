@@ -11,9 +11,9 @@
 # pylint: disable=too-many-lines
 
 
-def cloudcommunications_communication_cloud_communication_get_cloud_communication(client,
-                                                                                  select=None,
-                                                                                  expand=None):
+def cloudcommunications_communication_cloud_communication_show_cloud_communication(client,
+                                                                                   select=None,
+                                                                                   expand=None):
     return client.get_cloud_communication(select=select,
                                           expand=expand)
 
@@ -75,23 +75,23 @@ def cloudcommunications_communication_create_call(client,
                                                   audio_routing_groups=None,
                                                   operations=None,
                                                   participants=None,
-                                                  source_country_code=None,
-                                                  source_endpoint_type=None,
-                                                  source_identity=None,
-                                                  source_language_id=None,
-                                                  source_region=None,
-                                                  meeting_info_allow_conversation_without_host=None,
-                                                  media_state_audio=None,
-                                                  media_config_remove_from_default_audio_group=None,
-                                                  incoming_context_observed_participant_id=None,
-                                                  incoming_context_on_behalf_of=None,
-                                                  incoming_context_source_participant_id=None,
-                                                  incoming_context_transferor=None,
-                                                  answered_by_country_code=None,
-                                                  answered_by_endpoint_type=None,
-                                                  answered_by_identity=None,
-                                                  answered_by_language_id=None,
-                                                  answered_by_region=None):
+                                                  country_code=None,
+                                                  endpoint_type=None,
+                                                  identity=None,
+                                                  language_id=None,
+                                                  region=None,
+                                                  allow_conversation_without_host=None,
+                                                  audio=None,
+                                                  remove_from_default_audio_group=None,
+                                                  observed_participant_id=None,
+                                                  on_behalf_of=None,
+                                                  source_participant_id=None,
+                                                  transferor=None,
+                                                  microsoft_graph_participant_info_country_code=None,
+                                                  microsoft_graph_endpoint_type=None,
+                                                  microsoft_graph_identity_set_identity=None,
+                                                  microsoft_graph_participant_info_language_id=None,
+                                                  microsoft_graph_participant_info_region=None):
     return client.create_call(id=id_,
                               active_modalities=active_modalities,
                               callback_uri=callback_uri,
@@ -116,23 +116,23 @@ def cloudcommunications_communication_create_call(client,
                               audio_routing_groups=audio_routing_groups,
                               operations=operations,
                               participants=participants,
-                              country_code=source_country_code,
-                              endpoint_type=source_endpoint_type,
-                              identity=source_identity,
-                              language_id=source_language_id,
-                              region=source_region,
-                              allow_conversation_without_host=meeting_info_allow_conversation_without_host,
-                              audio=media_state_audio,
-                              remove_from_default_audio_group=media_config_remove_from_default_audio_group,
-                              observed_participant_id=incoming_context_observed_participant_id,
-                              on_behalf_of=incoming_context_on_behalf_of,
-                              source_participant_id=incoming_context_source_participant_id,
-                              transferor=incoming_context_transferor,
-                              microsoft_graph_participant_info_country_code=answered_by_country_code,
-                              microsoft_graph_endpoint_type=answered_by_endpoint_type,
-                              microsoft_graph_identity_set_identity=answered_by_identity,
-                              microsoft_graph_participant_info_language_id=answered_by_language_id,
-                              microsoft_graph_participant_info_region=answered_by_region)
+                              country_code=country_code,
+                              endpoint_type=endpoint_type,
+                              identity=identity,
+                              language_id=language_id,
+                              region=region,
+                              allow_conversation_without_host=allow_conversation_without_host,
+                              audio=audio,
+                              remove_from_default_audio_group=remove_from_default_audio_group,
+                              observed_participant_id=observed_participant_id,
+                              on_behalf_of=on_behalf_of,
+                              source_participant_id=source_participant_id,
+                              transferor=transferor,
+                              microsoft_graph_participant_info_country_code=microsoft_graph_participant_info_country_code,
+                              microsoft_graph_endpoint_type=microsoft_graph_endpoint_type,
+                              microsoft_graph_identity_set_identity=microsoft_graph_identity_set_identity,
+                              microsoft_graph_participant_info_language_id=microsoft_graph_participant_info_language_id,
+                              microsoft_graph_participant_info_region=microsoft_graph_participant_info_region)
 
 
 def cloudcommunications_communication_create_call_record(client,
@@ -146,12 +146,9 @@ def cloudcommunications_communication_create_call_record(client,
                                                          type_=None,
                                                          version=None,
                                                          sessions=None,
-                                                         organizer_user_display_name=None,
-                                                         organizer_user_id=None,
-                                                         organizer_device_display_name=None,
-                                                         organizer_device_id=None,
-                                                         organizer_application_display_name=None,
-                                                         organizer_application_id=None):
+                                                         application=None,
+                                                         device=None,
+                                                         user=None):
     return client.create_call_record(id=id_,
                                      end_date_time=end_date_time,
                                      join_web_url=join_web_url,
@@ -162,12 +159,9 @@ def cloudcommunications_communication_create_call_record(client,
                                      type=type_,
                                      version=version,
                                      sessions=sessions,
-                                     display_name=organizer_user_display_name,
-                                     microsoft_graph_identity_id=organizer_user_id,
-                                     microsoft_graph_identity_display_name=organizer_device_display_name,
-                                     id1=organizer_device_id,
-                                     display_name1=organizer_application_display_name,
-                                     id2=organizer_application_id)
+                                     application=application,
+                                     device=device,
+                                     user=user)
 
 
 def cloudcommunications_communication_create_online_meeting(client,
@@ -192,10 +186,10 @@ def cloudcommunications_communication_create_online_meeting(client,
                                                             start_date_time=None,
                                                             subject=None,
                                                             video_teleconference_id=None,
-                                                            participants_attendees=None,
-                                                            participants_contributors=None,
-                                                            participants_organizer=None,
-                                                            participants_producers=None):
+                                                            attendees=None,
+                                                            contributors=None,
+                                                            organizer=None,
+                                                            producers=None):
     return client.create_online_meeting(id=id_,
                                         access_level=access_level,
                                         allowed_presenters=allowed_presenters,
@@ -217,10 +211,10 @@ def cloudcommunications_communication_create_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        contributors=participants_contributors,
-                                        organizer=participants_organizer,
-                                        producers=participants_producers)
+                                        attendees=attendees,
+                                        contributors=contributors,
+                                        organizer=organizer,
+                                        producers=producers)
 
 
 def cloudcommunications_communication_create_presence(client,
@@ -230,42 +224,6 @@ def cloudcommunications_communication_create_presence(client,
     return client.create_presence(id=id_,
                                   activity=activity,
                                   availability=availability)
-
-
-def cloudcommunications_communication_get_call(client,
-                                               call_id,
-                                               select=None,
-                                               expand=None):
-    return client.get_call(call_id=call_id,
-                           select=select,
-                           expand=expand)
-
-
-def cloudcommunications_communication_get_call_record(client,
-                                                      call_record_id,
-                                                      select=None,
-                                                      expand=None):
-    return client.get_call_record(call_record_id=call_record_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def cloudcommunications_communication_get_online_meeting(client,
-                                                         online_meeting_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_online_meeting(online_meeting_id=online_meeting_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def cloudcommunications_communication_get_presence(client,
-                                                   presence_id,
-                                                   select=None,
-                                                   expand=None):
-    return client.get_presence(presence_id=presence_id,
-                               select=select,
-                               expand=expand)
 
 
 def cloudcommunications_communication_get_presence_by_user_id(client,
@@ -309,6 +267,42 @@ def cloudcommunications_communication_list_presence(client,
                                 expand=expand)
 
 
+def cloudcommunications_communication_show_call(client,
+                                                call_id,
+                                                select=None,
+                                                expand=None):
+    return client.get_call(call_id=call_id,
+                           select=select,
+                           expand=expand)
+
+
+def cloudcommunications_communication_show_call_record(client,
+                                                       call_record_id,
+                                                       select=None,
+                                                       expand=None):
+    return client.get_call_record(call_record_id=call_record_id,
+                                  select=select,
+                                  expand=expand)
+
+
+def cloudcommunications_communication_show_online_meeting(client,
+                                                          online_meeting_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_online_meeting(online_meeting_id=online_meeting_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def cloudcommunications_communication_show_presence(client,
+                                                    presence_id,
+                                                    select=None,
+                                                    expand=None):
+    return client.get_presence(presence_id=presence_id,
+                               select=select,
+                               expand=expand)
+
+
 def cloudcommunications_communication_update_call(client,
                                                   call_id,
                                                   id_=None,
@@ -335,23 +329,23 @@ def cloudcommunications_communication_update_call(client,
                                                   audio_routing_groups=None,
                                                   operations=None,
                                                   participants=None,
-                                                  source_country_code=None,
-                                                  source_endpoint_type=None,
-                                                  source_identity=None,
-                                                  source_language_id=None,
-                                                  source_region=None,
-                                                  meeting_info_allow_conversation_without_host=None,
-                                                  media_state_audio=None,
-                                                  media_config_remove_from_default_audio_group=None,
-                                                  incoming_context_observed_participant_id=None,
-                                                  incoming_context_on_behalf_of=None,
-                                                  incoming_context_source_participant_id=None,
-                                                  incoming_context_transferor=None,
-                                                  answered_by_country_code=None,
-                                                  answered_by_endpoint_type=None,
-                                                  answered_by_identity=None,
-                                                  answered_by_language_id=None,
-                                                  answered_by_region=None):
+                                                  country_code=None,
+                                                  endpoint_type=None,
+                                                  identity=None,
+                                                  language_id=None,
+                                                  region=None,
+                                                  allow_conversation_without_host=None,
+                                                  audio=None,
+                                                  remove_from_default_audio_group=None,
+                                                  observed_participant_id=None,
+                                                  on_behalf_of=None,
+                                                  source_participant_id=None,
+                                                  transferor=None,
+                                                  microsoft_graph_participant_info_country_code=None,
+                                                  microsoft_graph_endpoint_type=None,
+                                                  microsoft_graph_identity_set_identity=None,
+                                                  microsoft_graph_participant_info_language_id=None,
+                                                  microsoft_graph_participant_info_region=None):
     return client.update_call(call_id=call_id,
                               id=id_,
                               active_modalities=active_modalities,
@@ -377,23 +371,23 @@ def cloudcommunications_communication_update_call(client,
                               audio_routing_groups=audio_routing_groups,
                               operations=operations,
                               participants=participants,
-                              country_code=source_country_code,
-                              endpoint_type=source_endpoint_type,
-                              identity=source_identity,
-                              language_id=source_language_id,
-                              region=source_region,
-                              allow_conversation_without_host=meeting_info_allow_conversation_without_host,
-                              audio=media_state_audio,
-                              remove_from_default_audio_group=media_config_remove_from_default_audio_group,
-                              observed_participant_id=incoming_context_observed_participant_id,
-                              on_behalf_of=incoming_context_on_behalf_of,
-                              source_participant_id=incoming_context_source_participant_id,
-                              transferor=incoming_context_transferor,
-                              microsoft_graph_participant_info_country_code=answered_by_country_code,
-                              microsoft_graph_endpoint_type=answered_by_endpoint_type,
-                              microsoft_graph_identity_set_identity=answered_by_identity,
-                              microsoft_graph_participant_info_language_id=answered_by_language_id,
-                              microsoft_graph_participant_info_region=answered_by_region)
+                              country_code=country_code,
+                              endpoint_type=endpoint_type,
+                              identity=identity,
+                              language_id=language_id,
+                              region=region,
+                              allow_conversation_without_host=allow_conversation_without_host,
+                              audio=audio,
+                              remove_from_default_audio_group=remove_from_default_audio_group,
+                              observed_participant_id=observed_participant_id,
+                              on_behalf_of=on_behalf_of,
+                              source_participant_id=source_participant_id,
+                              transferor=transferor,
+                              microsoft_graph_participant_info_country_code=microsoft_graph_participant_info_country_code,
+                              microsoft_graph_endpoint_type=microsoft_graph_endpoint_type,
+                              microsoft_graph_identity_set_identity=microsoft_graph_identity_set_identity,
+                              microsoft_graph_participant_info_language_id=microsoft_graph_participant_info_language_id,
+                              microsoft_graph_participant_info_region=microsoft_graph_participant_info_region)
 
 
 def cloudcommunications_communication_update_call_record(client,
@@ -408,12 +402,9 @@ def cloudcommunications_communication_update_call_record(client,
                                                          type_=None,
                                                          version=None,
                                                          sessions=None,
-                                                         organizer_user_display_name=None,
-                                                         organizer_user_id=None,
-                                                         organizer_device_display_name=None,
-                                                         organizer_device_id=None,
-                                                         organizer_application_display_name=None,
-                                                         organizer_application_id=None):
+                                                         application=None,
+                                                         device=None,
+                                                         user=None):
     return client.update_call_record(call_record_id=call_record_id,
                                      id=id_,
                                      end_date_time=end_date_time,
@@ -425,12 +416,9 @@ def cloudcommunications_communication_update_call_record(client,
                                      type=type_,
                                      version=version,
                                      sessions=sessions,
-                                     display_name=organizer_user_display_name,
-                                     microsoft_graph_identity_id=organizer_user_id,
-                                     microsoft_graph_identity_display_name=organizer_device_display_name,
-                                     id1=organizer_device_id,
-                                     display_name1=organizer_application_display_name,
-                                     id2=organizer_application_id)
+                                     application=application,
+                                     device=device,
+                                     user=user)
 
 
 def cloudcommunications_communication_update_online_meeting(client,
@@ -456,10 +444,10 @@ def cloudcommunications_communication_update_online_meeting(client,
                                                             start_date_time=None,
                                                             subject=None,
                                                             video_teleconference_id=None,
-                                                            participants_attendees=None,
-                                                            participants_contributors=None,
-                                                            participants_organizer=None,
-                                                            participants_producers=None):
+                                                            attendees=None,
+                                                            contributors=None,
+                                                            organizer=None,
+                                                            producers=None):
     return client.update_online_meeting(online_meeting_id=online_meeting_id,
                                         id=id_,
                                         access_level=access_level,
@@ -482,10 +470,10 @@ def cloudcommunications_communication_update_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        contributors=participants_contributors,
-                                        organizer=participants_organizer,
-                                        producers=participants_producers)
+                                        attendees=attendees,
+                                        contributors=contributors,
+                                        organizer=organizer,
+                                        producers=producers)
 
 
 def cloudcommunications_communication_update_presence(client,
@@ -516,8 +504,8 @@ def cloudcommunications_communication_call_record_create_session(client,
                                                                  modalities=None,
                                                                  start_date_time=None,
                                                                  segments=None,
-                                                                 caller_user_agent=None,
-                                                                 callee_user_agent=None):
+                                                                 user_agent=None,
+                                                                 microsoft_graph_call_records_user_agent=None):
     return client.create_session(call_record_id=call_record_id,
                                  id=id_,
                                  end_date_time=end_date_time,
@@ -525,19 +513,8 @@ def cloudcommunications_communication_call_record_create_session(client,
                                  modalities=modalities,
                                  start_date_time=start_date_time,
                                  segments=segments,
-                                 user_agent_parameter=caller_user_agent,
-                                 microsoft_graph_call_records_user_agent=callee_user_agent)
-
-
-def cloudcommunications_communication_call_record_get_session(client,
-                                                              call_record_id,
-                                                              session_id,
-                                                              select=None,
-                                                              expand=None):
-    return client.get_session(call_record_id=call_record_id,
-                              session_id=session_id,
-                              select=select,
-                              expand=expand)
+                                 user_agent_parameter=user_agent,
+                                 microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
 
 
 def cloudcommunications_communication_call_record_list_session(client,
@@ -551,6 +528,17 @@ def cloudcommunications_communication_call_record_list_session(client,
                                expand=expand)
 
 
+def cloudcommunications_communication_call_record_show_session(client,
+                                                               call_record_id,
+                                                               session_id,
+                                                               select=None,
+                                                               expand=None):
+    return client.get_session(call_record_id=call_record_id,
+                              session_id=session_id,
+                              select=select,
+                              expand=expand)
+
+
 def cloudcommunications_communication_call_record_update_session(client,
                                                                  call_record_id,
                                                                  session_id,
@@ -560,8 +548,8 @@ def cloudcommunications_communication_call_record_update_session(client,
                                                                  modalities=None,
                                                                  start_date_time=None,
                                                                  segments=None,
-                                                                 caller_user_agent=None,
-                                                                 callee_user_agent=None):
+                                                                 user_agent=None,
+                                                                 microsoft_graph_call_records_user_agent=None):
     return client.update_session(call_record_id=call_record_id,
                                  session_id=session_id,
                                  id=id_,
@@ -570,8 +558,8 @@ def cloudcommunications_communication_call_record_update_session(client,
                                  modalities=modalities,
                                  start_date_time=start_date_time,
                                  segments=segments,
-                                 user_agent_parameter=caller_user_agent,
-                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+                                 user_agent_parameter=user_agent,
+                                 microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
 
 
 def cloudcommunications_communication_call_record_session_delete(client,
@@ -593,8 +581,8 @@ def cloudcommunications_communication_call_record_session_create_segment(client,
                                                                          failure_info=None,
                                                                          media=None,
                                                                          start_date_time=None,
-                                                                         caller_user_agent=None,
-                                                                         callee_user_agent=None):
+                                                                         user_agent=None,
+                                                                         microsoft_graph_call_records_user_agent=None):
     return client.create_segment(call_record_id=call_record_id,
                                  session_id=session_id,
                                  id=id_,
@@ -602,21 +590,8 @@ def cloudcommunications_communication_call_record_session_create_segment(client,
                                  failure_info=failure_info,
                                  media=media,
                                  start_date_time=start_date_time,
-                                 user_agent_parameter=caller_user_agent,
-                                 microsoft_graph_call_records_user_agent=callee_user_agent)
-
-
-def cloudcommunications_communication_call_record_session_get_segment(client,
-                                                                      call_record_id,
-                                                                      session_id,
-                                                                      segment_id,
-                                                                      select=None,
-                                                                      expand=None):
-    return client.get_segment(call_record_id=call_record_id,
-                              session_id=session_id,
-                              segment_id=segment_id,
-                              select=select,
-                              expand=expand)
+                                 user_agent_parameter=user_agent,
+                                 microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
 
 
 def cloudcommunications_communication_call_record_session_list_segment(client,
@@ -632,6 +607,19 @@ def cloudcommunications_communication_call_record_session_list_segment(client,
                                expand=expand)
 
 
+def cloudcommunications_communication_call_record_session_show_segment(client,
+                                                                       call_record_id,
+                                                                       session_id,
+                                                                       segment_id,
+                                                                       select=None,
+                                                                       expand=None):
+    return client.get_segment(call_record_id=call_record_id,
+                              session_id=session_id,
+                              segment_id=segment_id,
+                              select=select,
+                              expand=expand)
+
+
 def cloudcommunications_communication_call_record_session_update_segment(client,
                                                                          call_record_id,
                                                                          session_id,
@@ -641,8 +629,8 @@ def cloudcommunications_communication_call_record_session_update_segment(client,
                                                                          failure_info=None,
                                                                          media=None,
                                                                          start_date_time=None,
-                                                                         caller_user_agent=None,
-                                                                         callee_user_agent=None):
+                                                                         user_agent=None,
+                                                                         microsoft_graph_call_records_user_agent=None):
     return client.update_segment(call_record_id=call_record_id,
                                  session_id=session_id,
                                  segment_id=segment_id,
@@ -651,8 +639,8 @@ def cloudcommunications_communication_call_record_session_update_segment(client,
                                  failure_info=failure_info,
                                  media=media,
                                  start_date_time=start_date_time,
-                                 user_agent_parameter=caller_user_agent,
-                                 microsoft_graph_call_records_user_agent=callee_user_agent)
+                                 user_agent_parameter=user_agent,
+                                 microsoft_graph_call_records_user_agent=microsoft_graph_call_records_user_agent)
 
 
 def cloudcommunications_communication_call_delete(client,
@@ -678,11 +666,11 @@ def cloudcommunications_communication_call_answer(client,
                                                   call_id,
                                                   callback_uri=None,
                                                   accepted_modalities=None,
-                                                  media_config_remove_from_default_audio_group=None):
+                                                  remove_from_default_audio_group=None):
     return client.answer(call_id=call_id,
                          callback_uri=callback_uri,
                          accepted_modalities=accepted_modalities,
-                         remove_from_default_audio_group=media_config_remove_from_default_audio_group)
+                         remove_from_default_audio_group=remove_from_default_audio_group)
 
 
 def cloudcommunications_communication_call_cancel_media_processing(client,
@@ -716,17 +704,13 @@ def cloudcommunications_communication_call_create_operation(client,
                                                             call_id,
                                                             id_=None,
                                                             client_context=None,
-                                                            status=None,
-                                                            result_info_code=None,
-                                                            result_info_message=None,
-                                                            result_info_subcode=None):
+                                                            result_info=None,
+                                                            status=None):
     return client.create_operation(call_id=call_id,
                                    id=id_,
                                    client_context=client_context,
-                                   status=status,
-                                   code=result_info_code,
-                                   message=result_info_message,
-                                   subcode=result_info_subcode)
+                                   result_info=result_info,
+                                   status=status)
 
 
 def cloudcommunications_communication_call_create_participant(client,
@@ -736,61 +720,28 @@ def cloudcommunications_communication_call_create_participant(client,
                                                               is_muted=None,
                                                               media_streams=None,
                                                               metadata=None,
-                                                              recording_info_initiated_by=None,
-                                                              recording_info_initiator=None,
-                                                              recording_info_recording_status=None,
-                                                              info_country_code=None,
-                                                              info_endpoint_type=None,
-                                                              info_identity=None,
-                                                              info_language_id=None,
-                                                              info_region=None):
+                                                              initiated_by=None,
+                                                              initiator=None,
+                                                              recording_status=None,
+                                                              country_code=None,
+                                                              endpoint_type=None,
+                                                              identity=None,
+                                                              language_id=None,
+                                                              region=None):
     return client.create_participant(call_id=call_id,
                                      id=id_,
                                      is_in_lobby=is_in_lobby,
                                      is_muted=is_muted,
                                      media_streams=media_streams,
                                      metadata=metadata,
-                                     initiated_by=recording_info_initiated_by,
-                                     initiator=recording_info_initiator,
-                                     recording_status=recording_info_recording_status,
-                                     country_code=info_country_code,
-                                     endpoint_type=info_endpoint_type,
-                                     identity=info_identity,
-                                     language_id=info_language_id,
-                                     region=info_region)
-
-
-def cloudcommunications_communication_call_get_audio_routing_group(client,
-                                                                   call_id,
-                                                                   audio_routing_group_id,
-                                                                   select=None,
-                                                                   expand=None):
-    return client.get_audio_routing_group(call_id=call_id,
-                                          audio_routing_group_id=audio_routing_group_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def cloudcommunications_communication_call_get_operation(client,
-                                                         call_id,
-                                                         comms_operation_id,
-                                                         select=None,
-                                                         expand=None):
-    return client.get_operation(call_id=call_id,
-                                comms_operation_id=comms_operation_id,
-                                select=select,
-                                expand=expand)
-
-
-def cloudcommunications_communication_call_get_participant(client,
-                                                           call_id,
-                                                           participant_id,
-                                                           select=None,
-                                                           expand=None):
-    return client.get_participant(call_id=call_id,
-                                  participant_id=participant_id,
-                                  select=select,
-                                  expand=expand)
+                                     initiated_by=initiated_by,
+                                     initiator=initiator,
+                                     recording_status=recording_status,
+                                     country_code=country_code,
+                                     endpoint_type=endpoint_type,
+                                     identity=identity,
+                                     language_id=language_id,
+                                     region=region)
 
 
 def cloudcommunications_communication_call_keep_alive(client,
@@ -832,26 +783,26 @@ def cloudcommunications_communication_call_list_participant(client,
 
 
 def cloudcommunications_communication_call_log_teleconference_device_quality(client,
-                                                                             quality_call_chain_id=None,
-                                                                             quality_cloud_service_deployment_environment=None,
-                                                                             quality_cloud_service_deployment_id=None,
-                                                                             quality_cloud_service_instance_name=None,
-                                                                             quality_cloud_service_name=None,
-                                                                             quality_device_description=None,
-                                                                             quality_device_name=None,
-                                                                             quality_media_leg_id=None,
-                                                                             quality_media_quality_list=None,
-                                                                             quality_participant_id=None):
-    return client.log_teleconference_device_quality(call_chain_id=quality_call_chain_id,
-                                                    cloud_service_deployment_environment=quality_cloud_service_deployment_environment,
-                                                    cloud_service_deployment_id=quality_cloud_service_deployment_id,
-                                                    cloud_service_instance_name=quality_cloud_service_instance_name,
-                                                    cloud_service_name=quality_cloud_service_name,
-                                                    device_description=quality_device_description,
-                                                    device_name=quality_device_name,
-                                                    media_leg_id=quality_media_leg_id,
-                                                    media_quality_list=quality_media_quality_list,
-                                                    participant_id=quality_participant_id)
+                                                                             call_chain_id=None,
+                                                                             cloud_service_deployment_environment=None,
+                                                                             cloud_service_deployment_id=None,
+                                                                             cloud_service_instance_name=None,
+                                                                             cloud_service_name=None,
+                                                                             device_description=None,
+                                                                             device_name=None,
+                                                                             media_leg_id=None,
+                                                                             media_quality_list=None,
+                                                                             participant_id=None):
+    return client.log_teleconference_device_quality(call_chain_id=call_chain_id,
+                                                    cloud_service_deployment_environment=cloud_service_deployment_environment,
+                                                    cloud_service_deployment_id=cloud_service_deployment_id,
+                                                    cloud_service_instance_name=cloud_service_instance_name,
+                                                    cloud_service_name=cloud_service_name,
+                                                    device_description=device_description,
+                                                    device_name=device_name,
+                                                    media_leg_id=media_leg_id,
+                                                    media_quality_list=media_quality_list,
+                                                    participant_id=participant_id)
 
 
 def cloudcommunications_communication_call_mute(client,
@@ -962,6 +913,39 @@ def cloudcommunications_communication_call_reject(client,
                          callback_uri=callback_uri)
 
 
+def cloudcommunications_communication_call_show_audio_routing_group(client,
+                                                                    call_id,
+                                                                    audio_routing_group_id,
+                                                                    select=None,
+                                                                    expand=None):
+    return client.get_audio_routing_group(call_id=call_id,
+                                          audio_routing_group_id=audio_routing_group_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def cloudcommunications_communication_call_show_operation(client,
+                                                          call_id,
+                                                          comms_operation_id,
+                                                          select=None,
+                                                          expand=None):
+    return client.get_operation(call_id=call_id,
+                                comms_operation_id=comms_operation_id,
+                                select=select,
+                                expand=expand)
+
+
+def cloudcommunications_communication_call_show_participant(client,
+                                                            call_id,
+                                                            participant_id,
+                                                            select=None,
+                                                            expand=None):
+    return client.get_participant(call_id=call_id,
+                                  participant_id=participant_id,
+                                  select=select,
+                                  expand=expand)
+
+
 def cloudcommunications_communication_call_subscribe_to_tone(client,
                                                              call_id,
                                                              client_context=None):
@@ -971,23 +955,17 @@ def cloudcommunications_communication_call_subscribe_to_tone(client,
 
 def cloudcommunications_communication_call_transfer(client,
                                                     call_id,
-                                                    transfer_target_endpoint_type=None,
-                                                    transfer_target_replaces_call_id=None,
-                                                    transfer_target_identity_user_display_name=None,
-                                                    transfer_target_identity_user_id=None,
-                                                    transfer_target_identity_device_display_name=None,
-                                                    transfer_target_identity_device_id=None,
-                                                    transfer_target_identity_application_display_name=None,
-                                                    transfer_target_identity_application_id=None):
+                                                    endpoint_type=None,
+                                                    replaces_call_id=None,
+                                                    application=None,
+                                                    device=None,
+                                                    user=None):
     return client.transfer(call_id=call_id,
-                           endpoint_type=transfer_target_endpoint_type,
-                           replaces_call_id=transfer_target_replaces_call_id,
-                           display_name=transfer_target_identity_user_display_name,
-                           id=transfer_target_identity_user_id,
-                           microsoft_graph_identity_display_name=transfer_target_identity_device_display_name,
-                           microsoft_graph_identity_id=transfer_target_identity_device_id,
-                           display_name1=transfer_target_identity_application_display_name,
-                           id1=transfer_target_identity_application_id)
+                           endpoint_type=endpoint_type,
+                           replaces_call_id=replaces_call_id,
+                           application=application,
+                           device=device,
+                           user=user)
 
 
 def cloudcommunications_communication_call_unmute(client,
@@ -1017,18 +995,14 @@ def cloudcommunications_communication_call_update_operation(client,
                                                             comms_operation_id,
                                                             id_=None,
                                                             client_context=None,
-                                                            status=None,
-                                                            result_info_code=None,
-                                                            result_info_message=None,
-                                                            result_info_subcode=None):
+                                                            result_info=None,
+                                                            status=None):
     return client.update_operation(call_id=call_id,
                                    comms_operation_id=comms_operation_id,
                                    id=id_,
                                    client_context=client_context,
-                                   status=status,
-                                   code=result_info_code,
-                                   message=result_info_message,
-                                   subcode=result_info_subcode)
+                                   result_info=result_info,
+                                   status=status)
 
 
 def cloudcommunications_communication_call_update_participant(client,
@@ -1039,14 +1013,14 @@ def cloudcommunications_communication_call_update_participant(client,
                                                               is_muted=None,
                                                               media_streams=None,
                                                               metadata=None,
-                                                              recording_info_initiated_by=None,
-                                                              recording_info_initiator=None,
-                                                              recording_info_recording_status=None,
-                                                              info_country_code=None,
-                                                              info_endpoint_type=None,
-                                                              info_identity=None,
-                                                              info_language_id=None,
-                                                              info_region=None):
+                                                              initiated_by=None,
+                                                              initiator=None,
+                                                              recording_status=None,
+                                                              country_code=None,
+                                                              endpoint_type=None,
+                                                              identity=None,
+                                                              language_id=None,
+                                                              region=None):
     return client.update_participant(call_id=call_id,
                                      participant_id=participant_id,
                                      id=id_,
@@ -1054,14 +1028,14 @@ def cloudcommunications_communication_call_update_participant(client,
                                      is_muted=is_muted,
                                      media_streams=media_streams,
                                      metadata=metadata,
-                                     initiated_by=recording_info_initiated_by,
-                                     initiator=recording_info_initiator,
-                                     recording_status=recording_info_recording_status,
-                                     country_code=info_country_code,
-                                     endpoint_type=info_endpoint_type,
-                                     identity=info_identity,
-                                     language_id=info_language_id,
-                                     region=info_region)
+                                     initiated_by=initiated_by,
+                                     initiator=initiator,
+                                     recording_status=recording_status,
+                                     country_code=country_code,
+                                     endpoint_type=endpoint_type,
+                                     identity=identity,
+                                     language_id=language_id,
+                                     region=region)
 
 
 def cloudcommunications_communication_call_update_recording_status(client,
@@ -1106,19 +1080,19 @@ def cloudcommunications_communication_online_meeting_create_or_get(client,
                                                                    external_id=None,
                                                                    start_date_time=None,
                                                                    subject=None,
-                                                                   participants_attendees=None,
-                                                                   participants_contributors=None,
-                                                                   participants_organizer=None,
-                                                                   participants_producers=None):
+                                                                   attendees=None,
+                                                                   contributors=None,
+                                                                   organizer=None,
+                                                                   producers=None):
     return client.create_or_get(chat_info=chat_info,
                                 end_date_time=end_date_time,
                                 external_id=external_id,
                                 start_date_time=start_date_time,
                                 subject=subject,
-                                attendees=participants_attendees,
-                                contributors=participants_contributors,
-                                organizer=participants_organizer,
-                                producers=participants_producers)
+                                attendees=attendees,
+                                contributors=contributors,
+                                organizer=organizer,
+                                producers=producers)
 
 
 def cloudcommunications_user_delete(client,
@@ -1156,10 +1130,10 @@ def cloudcommunications_user_create_online_meeting(client,
                                                    start_date_time=None,
                                                    subject=None,
                                                    video_teleconference_id=None,
-                                                   participants_attendees=None,
-                                                   participants_contributors=None,
-                                                   participants_organizer=None,
-                                                   participants_producers=None):
+                                                   attendees=None,
+                                                   contributors=None,
+                                                   organizer=None,
+                                                   producers=None):
     return client.create_online_meeting(user_id=user_id,
                                         id=id_,
                                         access_level=access_level,
@@ -1182,30 +1156,10 @@ def cloudcommunications_user_create_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        contributors=participants_contributors,
-                                        organizer=participants_organizer,
-                                        producers=participants_producers)
-
-
-def cloudcommunications_user_get_online_meeting(client,
-                                                user_id,
-                                                online_meeting_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_online_meeting(user_id=user_id,
-                                     online_meeting_id=online_meeting_id,
-                                     select=select,
-                                     expand=expand)
-
-
-def cloudcommunications_user_get_presence(client,
-                                          user_id,
-                                          select=None,
-                                          expand=None):
-    return client.get_presence(user_id=user_id,
-                               select=select,
-                               expand=expand)
+                                        attendees=attendees,
+                                        contributors=contributors,
+                                        organizer=organizer,
+                                        producers=producers)
 
 
 def cloudcommunications_user_list_online_meeting(client,
@@ -1217,6 +1171,26 @@ def cloudcommunications_user_list_online_meeting(client,
                                       orderby=orderby,
                                       select=select,
                                       expand=expand)
+
+
+def cloudcommunications_user_show_online_meeting(client,
+                                                 user_id,
+                                                 online_meeting_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_online_meeting(user_id=user_id,
+                                     online_meeting_id=online_meeting_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def cloudcommunications_user_show_presence(client,
+                                           user_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_presence(user_id=user_id,
+                               select=select,
+                               expand=expand)
 
 
 def cloudcommunications_user_update_online_meeting(client,
@@ -1243,10 +1217,10 @@ def cloudcommunications_user_update_online_meeting(client,
                                                    start_date_time=None,
                                                    subject=None,
                                                    video_teleconference_id=None,
-                                                   participants_attendees=None,
-                                                   participants_contributors=None,
-                                                   participants_organizer=None,
-                                                   participants_producers=None):
+                                                   attendees=None,
+                                                   contributors=None,
+                                                   organizer=None,
+                                                   producers=None):
     return client.update_online_meeting(user_id=user_id,
                                         online_meeting_id=online_meeting_id,
                                         id=id_,
@@ -1270,10 +1244,10 @@ def cloudcommunications_user_update_online_meeting(client,
                                         start_date_time=start_date_time,
                                         subject=subject,
                                         video_teleconference_id=video_teleconference_id,
-                                        attendees=participants_attendees,
-                                        contributors=participants_contributors,
-                                        organizer=participants_organizer,
-                                        producers=participants_producers)
+                                        attendees=attendees,
+                                        contributors=contributors,
+                                        organizer=organizer,
+                                        producers=producers)
 
 
 def cloudcommunications_user_update_presence(client,

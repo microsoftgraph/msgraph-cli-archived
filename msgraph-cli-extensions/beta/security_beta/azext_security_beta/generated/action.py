@@ -41,6 +41,9 @@ class AddProviderStatus(argparse._AppendAction):
                 d['region'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter provider_status. All possible keys are: '
+                               'enabled, endpoint, provider, region, vendor'.format(k))
         return d
 
 
@@ -73,6 +76,10 @@ class AddProviderTenantSettings(argparse._AppendAction):
                 d['vendor'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter provider_tenant_settings. All possible '
+                               'keys are: azure-tenant-id, enabled, last-modified-date-time, provider, vendor, id'.
+                               format(k))
         return d
 
 
@@ -211,6 +218,21 @@ class AddTiIndicators(argparse._AppendAction):
                 d['user_agent'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter ti_indicators. All possible keys are: '
+                               'action, activity-group-names, additional-information, azure-tenant-id, confidence, '
+                               'description, diamond-model, domain-name, email-encoding, email-language, '
+                               'email-recipient, email-sender-address, email-sender-name, email-source-domain, '
+                               'email-source-ip-address, email-subject, email-x-mailer, expiration-date-time, '
+                               'external-id, file-compile-date-time, file-created-date-time, file-hash-type, '
+                               'file-hash-value, file-mutex-name, file-name, file-packer, file-path, file-size, '
+                               'file-type, ingested-date-time, is-active, kill-chain, known-false-positives, '
+                               'last-reported-date-time, malware-family-names, network-cidr-block, '
+                               'network-destination-asn, network-destination-cidr-block, network-destination-i-pv4, '
+                               'network-destination-i-pv6, network-destination-port, network-i-pv4, network-i-pv6, '
+                               'network-port, network-protocol, network-source-asn, network-source-cidr-block, '
+                               'network-source-i-pv4, network-source-i-pv6, network-source-port, passive-only, '
+                               'severity, tags, target-product, threat-type, tlp-level, url, user-agent, id'.format(k))
         return d
 
 
@@ -237,6 +259,9 @@ class AddErrorInfo(argparse.Action):
                 d['message'] = v[0]
             elif kl == 'subcode':
                 d['subcode'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter error_info. All possible keys are: code, '
+                               'message, subcode'.format(k))
         return d
 
 
@@ -261,6 +286,9 @@ class AddParameters(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter parameters. All possible keys are: name, '
+                               'value'.format(k))
         return d
 
 
@@ -289,6 +317,9 @@ class AddStates(argparse._AppendAction):
                 d['updated_date_time'] = v[0]
             elif kl == 'user':
                 d['user'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter states. All possible keys are: app-id, '
+                               'status, updated-date-time, user'.format(k))
         return d
 
 
@@ -317,6 +348,9 @@ class AddVendorInformation(argparse.Action):
                 d['sub_provider'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vendor_information. All possible keys '
+                               'are: provider, provider-version, sub-provider, vendor'.format(k))
         return d
 
 
@@ -343,36 +377,9 @@ class AddCloudAppStates(argparse._AppendAction):
                 d['destination_service_name'] = v[0]
             elif kl == 'risk-score':
                 d['risk_score'] = v[0]
-        return d
-
-
-class AddFileStates(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddFileStates, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'name':
-                d['name'] = v[0]
-            elif kl == 'path':
-                d['path'] = v[0]
-            elif kl == 'risk-score':
-                d['risk_score'] = v[0]
-            elif kl == 'hash-type':
-                d['hash_type'] = v[0]
-            elif kl == 'hash-value':
-                d['hash_value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter cloud_app_states. All possible keys are: '
+                               'destination-service-ip, destination-service-name, risk-score'.format(k))
         return d
 
 
@@ -407,6 +414,9 @@ class AddHistoryStates(argparse._AppendAction):
                 d['updated_date_time'] = v[0]
             elif kl == 'user':
                 d['user'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter history_states. All possible keys are: '
+                               'app-id, assigned-to, comments, feedback, status, updated-date-time, user'.format(k))
         return d
 
 
@@ -445,6 +455,10 @@ class AddHostStates(argparse._AppendAction):
                 d['public_ip_address'] = v[0]
             elif kl == 'risk-score':
                 d['risk_score'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter host_states. All possible keys are: fqdn, '
+                               'is-azure-ad-joined, is-azure-ad-registered, is-hybrid-azure-domain-joined, '
+                               'net-bios-name, os, private-ip-address, public-ip-address, risk-score'.format(k))
         return d
 
 
@@ -475,6 +489,9 @@ class AddSecuritySecurityCreateAlertMalwareStates(argparse._AppendAction):
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter malware_states. All possible keys are: '
+                               'category, family, name, severity, was-running'.format(k))
         return d
 
 
@@ -535,6 +552,13 @@ class AddNetworkConnections(argparse._AppendAction):
                 d['status'] = v[0]
             elif kl == 'url-parameters':
                 d['url_parameters'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter network_connections. All possible keys '
+                               'are: application-name, destination-address, destination-domain, destination-location, '
+                               'destination-port, destination-url, direction, domain-registered-date-time, '
+                               'local-dns-name, nat-destination-address, nat-destination-port, nat-source-address, '
+                               'nat-source-port, protocol, risk-score, source-address, source-location, source-port, '
+                               'status, url-parameters'.format(k))
         return d
 
 
@@ -575,6 +599,10 @@ class AddRegistryKeyStates(argparse._AppendAction):
                 d['value_name'] = v[0]
             elif kl == 'value-type':
                 d['value_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter registry_key_states. All possible keys '
+                               'are: hive, key, old-key, old-value-data, old-value-name, operation, process-id, '
+                               'value-data, value-name, value-type'.format(k))
         return d
 
 
@@ -599,6 +627,9 @@ class AddSecurityResources(argparse._AppendAction):
                 d['resource'] = v[0]
             elif kl == 'resource-type':
                 d['resource_type'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter security_resources. All possible keys '
+                               'are: resource, resource-type'.format(k))
         return d
 
 
@@ -625,6 +656,9 @@ class AddTriggers(argparse._AppendAction):
                 d['type'] = v[0]
             elif kl == 'value':
                 d['value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter triggers. All possible keys are: name, '
+                               'type, value'.format(k))
         return d
 
 
@@ -673,6 +707,11 @@ class AddUserStates(argparse._AppendAction):
                 d['user_account_type'] = v[0]
             elif kl == 'user-principal-name':
                 d['user_principal_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter user_states. All possible keys are: '
+                               'aad-user-id, account-name, domain-name, email-role, is-vpn, logon-date-time, logon-id, '
+                               'logon-ip, logon-location, logon-type, on-premises-security-identifier, risk-score, '
+                               'user-account-type, user-principal-name'.format(k))
         return d
 
 
@@ -699,6 +738,9 @@ class AddSecuritySecurityCreateAlertVulnerabilityStates(argparse._AppendAction):
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vulnerability_states. All possible keys '
+                               'are: cve, severity, was-running'.format(k))
         return d
 
 
@@ -725,6 +767,9 @@ class AddDomainCategories(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter domain_categories. All possible keys are: '
+                               'description, name, vendor'.format(k))
         return d
 
 
@@ -753,6 +798,9 @@ class AddRegistrant(argparse.Action):
                 d['url'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter registrant. All possible keys are: '
+                               'country-or-region-code, organization, url, vendor'.format(k))
         return d
 
 
@@ -777,6 +825,9 @@ class AddHashes(argparse._AppendAction):
                 d['hash_type'] = v[0]
             elif kl == 'hash-value':
                 d['hash_value'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter hashes. All possible keys are: hash-type, '
+                               'hash-value'.format(k))
         return d
 
 
@@ -807,6 +858,9 @@ class AddSecuritySecurityCreateFileSecurityProfileMalwareStates(argparse._Append
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter malware_states. All possible keys are: '
+                               'category, family, name, severity, was-running'.format(k))
         return d
 
 
@@ -833,6 +887,9 @@ class AddSecuritySecurityCreateFileSecurityProfileVulnerabilityStates(argparse._
                 d['severity'] = v[0]
             elif kl == 'was-running':
                 d['was_running'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter vulnerability_states. All possible keys '
+                               'are: cve, severity, was-running'.format(k))
         return d
 
 
@@ -867,6 +924,10 @@ class AddLogonUsers(argparse._AppendAction):
                 d['logon_id'] = v[0]
             elif kl == 'logon-types':
                 d['logon_types'] = v
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter logon_users. All possible keys are: '
+                               'account-domain, account-name, account-type, first-seen-date-time, last-seen-date-time, '
+                               'logon-id, logon-types'.format(k))
         return d
 
 
@@ -897,6 +958,10 @@ class AddNetworkInterfaces(argparse._AppendAction):
                 d['local_ip_v6_address'] = v[0]
             elif kl == 'mac-address':
                 d['mac_address'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter network_interfaces. All possible keys '
+                               'are: description, ip-v4-address, ip-v6-address, local-ip-v6-address, mac-address'.
+                               format(k))
         return d
 
 
@@ -923,6 +988,9 @@ class AddIpCategories(argparse._AppendAction):
                 d['name'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter ip_categories. All possible keys are: '
+                               'description, name, vendor'.format(k))
         return d
 
 
@@ -955,6 +1023,9 @@ class AddIpReferenceData(argparse._AppendAction):
                 d['state'] = v[0]
             elif kl == 'vendor':
                 d['vendor'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter ip_reference_data. All possible keys are: '
+                               'asn, city, country-or-region-code, organization, state, vendor'.format(k))
         return d
 
 
@@ -979,6 +1050,9 @@ class AddAverageComparativeScores(argparse._AppendAction):
                 d['average_score'] = v[0]
             elif kl == 'basis':
                 d['basis'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter average_comparative_scores. All possible '
+                               'keys are: average-score, basis'.format(k))
         return d
 
 
@@ -1007,6 +1081,9 @@ class AddControlScores(argparse._AppendAction):
                 d['description'] = v[0]
             elif kl == 'score':
                 d['score'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_scores. All possible keys are: '
+                               'control-category, control-name, description, score'.format(k))
         return d
 
 
@@ -1031,6 +1108,9 @@ class AddComplianceInformation(argparse._AppendAction):
                 d['certification_controls'] = v
             elif kl == 'certification-name':
                 d['certification_name'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter compliance_information. All possible keys '
+                               'are: certification-controls, certification-name'.format(k))
         return d
 
 
@@ -1061,6 +1141,9 @@ class AddControlStateUpdates(argparse._AppendAction):
                 d['updated_by'] = v[0]
             elif kl == 'updated-date-time':
                 d['updated_date_time'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter control_state_updates. All possible keys '
+                               'are: assigned-to, comment, state, updated-by, updated-date-time'.format(k))
         return d
 
 
@@ -1093,6 +1176,9 @@ class AddAccounts(argparse._AppendAction):
                 d['signin_name'] = v[0]
             elif kl == 'status':
                 d['status'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter accounts. All possible keys are: '
+                               'display-name, last-seen-date-time, risk-score, service, signin-name, status'.format(k))
         return d
 
 
@@ -1231,6 +1317,21 @@ class AddSecuritySecurityTiIndicatorSubmitTiIndicatorValue(argparse._AppendActio
                 d['user_agent'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter value. All possible keys are: action, '
+                               'activity-group-names, additional-information, azure-tenant-id, confidence, '
+                               'description, diamond-model, domain-name, email-encoding, email-language, '
+                               'email-recipient, email-sender-address, email-sender-name, email-source-domain, '
+                               'email-source-ip-address, email-subject, email-x-mailer, expiration-date-time, '
+                               'external-id, file-compile-date-time, file-created-date-time, file-hash-type, '
+                               'file-hash-value, file-mutex-name, file-name, file-packer, file-path, file-size, '
+                               'file-type, ingested-date-time, is-active, kill-chain, known-false-positives, '
+                               'last-reported-date-time, malware-family-names, network-cidr-block, '
+                               'network-destination-asn, network-destination-cidr-block, network-destination-i-pv4, '
+                               'network-destination-i-pv6, network-destination-port, network-i-pv4, network-i-pv6, '
+                               'network-port, network-protocol, network-source-asn, network-source-cidr-block, '
+                               'network-source-i-pv4, network-source-i-pv6, network-source-port, passive-only, '
+                               'severity, tags, target-product, threat-type, tlp-level, url, user-agent, id'.format(k))
         return d
 
 
@@ -1369,4 +1470,19 @@ class AddSecuritySecurityTiIndicatorUpdateTiIndicatorValue(argparse._AppendActio
                 d['user_agent'] = v[0]
             elif kl == 'id':
                 d['id'] = v[0]
+            else:
+                raise CLIError('Unsupported Key {} is provided for parameter value. All possible keys are: action, '
+                               'activity-group-names, additional-information, azure-tenant-id, confidence, '
+                               'description, diamond-model, domain-name, email-encoding, email-language, '
+                               'email-recipient, email-sender-address, email-sender-name, email-source-domain, '
+                               'email-source-ip-address, email-subject, email-x-mailer, expiration-date-time, '
+                               'external-id, file-compile-date-time, file-created-date-time, file-hash-type, '
+                               'file-hash-value, file-mutex-name, file-name, file-packer, file-path, file-size, '
+                               'file-type, ingested-date-time, is-active, kill-chain, known-false-positives, '
+                               'last-reported-date-time, malware-family-names, network-cidr-block, '
+                               'network-destination-asn, network-destination-cidr-block, network-destination-i-pv4, '
+                               'network-destination-i-pv6, network-destination-port, network-i-pv4, network-i-pv6, '
+                               'network-port, network-protocol, network-source-asn, network-source-cidr-block, '
+                               'network-source-i-pv4, network-source-i-pv6, network-source-port, passive-only, '
+                               'severity, tags, target-product, threat-type, tlp-level, url, user-agent, id'.format(k))
         return d

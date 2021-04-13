@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._identity_sign_ins_async import IdentitySignIns
+from ._identity_sign_ins import IdentitySignIns
 __all__ = ['IdentitySignIns']

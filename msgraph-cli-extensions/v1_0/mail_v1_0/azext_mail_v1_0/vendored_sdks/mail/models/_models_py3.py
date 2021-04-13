@@ -787,18 +787,15 @@ class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param classify_as:  Possible values include: "focused", "other".
     :type classify_as: str or ~mail.models.MicrosoftGraphInferenceClassificationType
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param sender_email_address: emailAddress.
+    :type sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'classify_as': {'key': 'classifyAs', 'type': 'str'},
-        'address': {'key': 'senderEmailAddress.address', 'type': 'str'},
-        'name': {'key': 'senderEmailAddress.name', 'type': 'str'},
+        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
@@ -807,15 +804,13 @@ class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         classify_as: Optional[Union[str, "MicrosoftGraphInferenceClassificationType"]] = None,
-        address: Optional[str] = None,
-        name: Optional[str] = None,
+        sender_email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         **kwargs
     ):
         super(MicrosoftGraphInferenceClassificationOverride, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.classify_as = classify_as
-        self.address = address
-        self.name = name
+        self.sender_email_address = sender_email_address
 
 
 class MicrosoftGraphInternetMessageHeader(msrest.serialization.Model):
@@ -1023,9 +1018,6 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
 class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """message.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param categories: The categories associated with the item.
@@ -1118,14 +1110,10 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
      defined for the message. Nullable.
     :type single_value_extended_properties:
      list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param address_sender_email_address: The email address of the person or entity.
-    :type address_sender_email_address: str
-    :param name_sender_email_address_name: The display name of the person or entity.
-    :type name_sender_email_address_name: str
-    :param address_from_email_address: The email address of the person or entity.
-    :type address_from_email_address: str
-    :param name_from_email_address_name: The display name of the person or entity.
-    :type name_from_email_address_name: str
+    :param email_address_sender_email_address: emailAddress.
+    :type email_address_sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
+    :param email_address_from_email_address: emailAddress.
+    :type email_address_from_email_address: ~mail.models.MicrosoftGraphEmailAddress
     :param completed_date_time: dateTimeTimeZone.
     :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
     :param due_date_time: dateTimeTimeZone.
@@ -1137,7 +1125,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'categories': {'key': 'categories', 'type': '[str]'},
         'change_key': {'key': 'changeKey', 'type': 'str'},
@@ -1171,10 +1158,8 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
         'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
         'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'address_sender_email_address': {'key': 'sender.emailAddress.address', 'type': 'str'},
-        'name_sender_email_address_name': {'key': 'sender.emailAddress.name', 'type': 'str'},
-        'address_from_email_address': {'key': 'from.emailAddress.address', 'type': 'str'},
-        'name_from_email_address_name': {'key': 'from.emailAddress.name', 'type': 'str'},
+        'email_address_sender_email_address': {'key': 'sender.emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
+        'email_address_from_email_address': {'key': 'from.emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
         'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
         'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
         'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
@@ -1184,7 +1169,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         categories: Optional[List[str]] = None,
         change_key: Optional[str] = None,
@@ -1218,10 +1202,8 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         extensions: Optional[List["MicrosoftGraphExtension"]] = None,
         multi_value_extended_properties: Optional[List["MicrosoftGraphMultiValueLegacyExtendedProperty"]] = None,
         single_value_extended_properties: Optional[List["MicrosoftGraphSingleValueLegacyExtendedProperty"]] = None,
-        address_sender_email_address: Optional[str] = None,
-        name_sender_email_address_name: Optional[str] = None,
-        address_from_email_address: Optional[str] = None,
-        name_from_email_address_name: Optional[str] = None,
+        email_address_sender_email_address: Optional["MicrosoftGraphEmailAddress"] = None,
+        email_address_from_email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         completed_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
         due_date_time: Optional["MicrosoftGraphDateTimeZone"] = None,
         flag_status: Optional[Union[str, "MicrosoftGraphFollowupFlagStatus"]] = None,
@@ -1229,7 +1211,6 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         **kwargs
     ):
         super(MicrosoftGraphMessage, self).__init__(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.bcc_recipients = bcc_recipients
         self.body = body
@@ -1258,10 +1239,8 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.extensions = extensions
         self.multi_value_extended_properties = multi_value_extended_properties
         self.single_value_extended_properties = single_value_extended_properties
-        self.address_sender_email_address = address_sender_email_address
-        self.name_sender_email_address_name = name_sender_email_address_name
-        self.address_from_email_address = address_from_email_address
-        self.name_from_email_address_name = name_from_email_address_name
+        self.email_address_sender_email_address = email_address_sender_email_address
+        self.email_address_from_email_address = email_address_from_email_address
         self.completed_date_time = completed_date_time
         self.due_date_time = due_date_time
         self.flag_status = flag_status
@@ -2078,30 +2057,25 @@ class MicrosoftGraphRecipient(msrest.serialization.Model):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
-    :param address: The email address of the person or entity.
-    :type address: str
-    :param name: The display name of the person or entity.
-    :type name: str
+    :param email_address: emailAddress.
+    :type email_address: ~mail.models.MicrosoftGraphEmailAddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'address': {'key': 'emailAddress.address', 'type': 'str'},
-        'name': {'key': 'emailAddress.name', 'type': 'str'},
+        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        address: Optional[str] = None,
-        name: Optional[str] = None,
+        email_address: Optional["MicrosoftGraphEmailAddress"] = None,
         **kwargs
     ):
         super(MicrosoftGraphRecipient, self).__init__(**kwargs)
         self.additional_properties = additional_properties
-        self.address = address
-        self.name = name
+        self.email_address = email_address
 
 
 class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):

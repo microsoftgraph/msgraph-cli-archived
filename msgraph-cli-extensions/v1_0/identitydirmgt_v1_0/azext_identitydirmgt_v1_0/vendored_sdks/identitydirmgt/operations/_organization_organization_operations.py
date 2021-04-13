@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class OrganizationOrganizationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOrganization"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class OrganizationOrganizationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -241,10 +242,12 @@ class OrganizationOrganizationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOrganization"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOrganization(id=id, deleted_date_time=deleted_date_time, assigned_plans=assigned_plans, business_phones=business_phones, city=city, country=country, country_letter_code=country_letter_code, created_date_time=created_date_time, display_name=display_name, marketing_notification_emails=marketing_notification_emails, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, postal_code=postal_code, preferred_language=preferred_language, privacy_profile=privacy_profile, provisioned_plans=provisioned_plans, security_compliance_notification_mails=security_compliance_notification_mails, security_compliance_notification_phones=security_compliance_notification_phones, state=state, street=street, technical_notification_mails=technical_notification_mails, tenant_type=tenant_type, verified_domains=verified_domains, mobile_device_management_authority=mobile_device_management_authority, certificate_based_auth_configuration=certificate_based_auth_configuration, extensions=extensions)
+        body = models.MicrosoftGraphOrganization(id=id, deleted_date_time=deleted_date_time, assigned_plans=assigned_plans, business_phones=business_phones, city=city, country=country, country_letter_code=country_letter_code, created_date_time=created_date_time, display_name=display_name, marketing_notification_emails=marketing_notification_emails, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, postal_code=postal_code, preferred_language=preferred_language, privacy_profile=privacy_profile, provisioned_plans=provisioned_plans, security_compliance_notification_mails=security_compliance_notification_mails, security_compliance_notification_phones=security_compliance_notification_phones, state=state, street=street, technical_notification_mails=technical_notification_mails, tenant_type=tenant_type, verified_domains=verified_domains, mobile_device_management_authority=mobile_device_management_authority, certificate_based_auth_configuration=certificate_based_auth_configuration, extensions=extensions)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -258,13 +261,11 @@ class OrganizationOrganizationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphOrganization')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOrganization')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -305,7 +306,9 @@ class OrganizationOrganizationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOrganization"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -326,7 +329,6 @@ class OrganizationOrganizationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -455,10 +457,12 @@ class OrganizationOrganizationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOrganization(id=id, deleted_date_time=deleted_date_time, assigned_plans=assigned_plans, business_phones=business_phones, city=city, country=country, country_letter_code=country_letter_code, created_date_time=created_date_time, display_name=display_name, marketing_notification_emails=marketing_notification_emails, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, postal_code=postal_code, preferred_language=preferred_language, privacy_profile=privacy_profile, provisioned_plans=provisioned_plans, security_compliance_notification_mails=security_compliance_notification_mails, security_compliance_notification_phones=security_compliance_notification_phones, state=state, street=street, technical_notification_mails=technical_notification_mails, tenant_type=tenant_type, verified_domains=verified_domains, mobile_device_management_authority=mobile_device_management_authority, certificate_based_auth_configuration=certificate_based_auth_configuration, extensions=extensions)
+        body = models.MicrosoftGraphOrganization(id=id, deleted_date_time=deleted_date_time, assigned_plans=assigned_plans, business_phones=business_phones, city=city, country=country, country_letter_code=country_letter_code, created_date_time=created_date_time, display_name=display_name, marketing_notification_emails=marketing_notification_emails, on_premises_last_sync_date_time=on_premises_last_sync_date_time, on_premises_sync_enabled=on_premises_sync_enabled, postal_code=postal_code, preferred_language=preferred_language, privacy_profile=privacy_profile, provisioned_plans=provisioned_plans, security_compliance_notification_mails=security_compliance_notification_mails, security_compliance_notification_phones=security_compliance_notification_phones, state=state, street=street, technical_notification_mails=technical_notification_mails, tenant_type=tenant_type, verified_domains=verified_domains, mobile_device_management_authority=mobile_device_management_authority, certificate_based_auth_configuration=certificate_based_auth_configuration, extensions=extensions)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -478,10 +482,9 @@ class OrganizationOrganizationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphOrganization')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOrganization')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -516,7 +519,9 @@ class OrganizationOrganizationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

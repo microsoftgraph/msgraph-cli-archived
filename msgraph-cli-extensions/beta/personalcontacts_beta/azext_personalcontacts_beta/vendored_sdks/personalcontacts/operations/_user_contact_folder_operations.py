@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -76,7 +76,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfContactFolder0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -84,7 +86,6 @@ class UserContactFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -193,10 +194,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContactFolder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphContactFolder(id=id, display_name=display_name, parent_folder_id=parent_folder_id, well_known_name=well_known_name, child_folders=child_folders, contacts=contacts, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
+        body = models.MicrosoftGraphContactFolder(id=id, display_name=display_name, parent_folder_id=parent_folder_id, well_known_name=well_known_name, child_folders=child_folders, contacts=contacts, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -215,13 +218,11 @@ class UserContactFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphContactFolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContactFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -268,7 +269,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContactFolder"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -291,7 +294,6 @@ class UserContactFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -361,10 +363,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphContactFolder(id=id, display_name=display_name, parent_folder_id=parent_folder_id, well_known_name=well_known_name, child_folders=child_folders, contacts=contacts, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
+        body = models.MicrosoftGraphContactFolder(id=id, display_name=display_name, parent_folder_id=parent_folder_id, well_known_name=well_known_name, child_folders=child_folders, contacts=contacts, multi_value_extended_properties=multi_value_extended_properties, single_value_extended_properties=single_value_extended_properties)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -386,10 +390,9 @@ class UserContactFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphContactFolder')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContactFolder')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -430,7 +433,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -496,7 +501,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfContact"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -504,7 +511,6 @@ class UserContactFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -735,10 +741,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContact"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphContact(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, assistant_name=assistant_name, birthday=birthday, children=children, company_name=company_name, department=department, display_name=display_name, email_addresses=email_addresses, file_as=file_as, gender=gender, generation=generation, given_name=given_name, im_addresses=im_addresses, initials=initials, is_favorite=is_favorite, job_title=job_title, manager=manager, middle_name=middle_name, nick_name=nick_name, office_location=office_location, parent_folder_id=parent_folder_id, personal_notes=personal_notes, phones=phones, postal_addresses=postal_addresses, profession=profession, spouse_name=spouse_name, surname=surname, title=title, websites=websites, wedding_anniversary=wedding_anniversary, yomi_company_name=yomi_company_name, yomi_given_name=yomi_given_name, yomi_surname=yomi_surname, extensions=extensions, multi_value_extended_properties=multi_value_extended_properties, photo=photo, single_value_extended_properties=single_value_extended_properties, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
+        body = models.MicrosoftGraphContact(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, assistant_name=assistant_name, birthday=birthday, children=children, company_name=company_name, department=department, display_name=display_name, email_addresses=email_addresses, file_as=file_as, gender=gender, generation=generation, given_name=given_name, im_addresses=im_addresses, initials=initials, is_favorite=is_favorite, job_title=job_title, manager=manager, middle_name=middle_name, nick_name=nick_name, office_location=office_location, parent_folder_id=parent_folder_id, personal_notes=personal_notes, phones=phones, postal_addresses=postal_addresses, profession=profession, spouse_name=spouse_name, surname=surname, title=title, websites=websites, wedding_anniversary=wedding_anniversary, yomi_company_name=yomi_company_name, yomi_given_name=yomi_given_name, yomi_surname=yomi_surname, extensions=extensions, multi_value_extended_properties=multi_value_extended_properties, photo=photo, single_value_extended_properties=single_value_extended_properties, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -757,13 +765,11 @@ class UserContactFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphContact')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContact')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -810,7 +816,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphContact"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -833,7 +841,6 @@ class UserContactFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1025,10 +1032,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphContact(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, assistant_name=assistant_name, birthday=birthday, children=children, company_name=company_name, department=department, display_name=display_name, email_addresses=email_addresses, file_as=file_as, gender=gender, generation=generation, given_name=given_name, im_addresses=im_addresses, initials=initials, is_favorite=is_favorite, job_title=job_title, manager=manager, middle_name=middle_name, nick_name=nick_name, office_location=office_location, parent_folder_id=parent_folder_id, personal_notes=personal_notes, phones=phones, postal_addresses=postal_addresses, profession=profession, spouse_name=spouse_name, surname=surname, title=title, websites=websites, wedding_anniversary=wedding_anniversary, yomi_company_name=yomi_company_name, yomi_given_name=yomi_given_name, yomi_surname=yomi_surname, extensions=extensions, multi_value_extended_properties=multi_value_extended_properties, photo=photo, single_value_extended_properties=single_value_extended_properties, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
+        body = models.MicrosoftGraphContact(id=id, categories=categories, change_key=change_key, created_date_time=created_date_time, last_modified_date_time=last_modified_date_time, assistant_name=assistant_name, birthday=birthday, children=children, company_name=company_name, department=department, display_name=display_name, email_addresses=email_addresses, file_as=file_as, gender=gender, generation=generation, given_name=given_name, im_addresses=im_addresses, initials=initials, is_favorite=is_favorite, job_title=job_title, manager=manager, middle_name=middle_name, nick_name=nick_name, office_location=office_location, parent_folder_id=parent_folder_id, personal_notes=personal_notes, phones=phones, postal_addresses=postal_addresses, profession=profession, spouse_name=spouse_name, surname=surname, title=title, websites=websites, wedding_anniversary=wedding_anniversary, yomi_company_name=yomi_company_name, yomi_given_name=yomi_given_name, yomi_surname=yomi_surname, extensions=extensions, multi_value_extended_properties=multi_value_extended_properties, photo=photo, single_value_extended_properties=single_value_extended_properties, completed_date_time=completed_date_time, due_date_time=due_date_time, flag_status=flag_status, start_date_time=start_date_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1050,10 +1059,9 @@ class UserContactFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphContact')
+        body_content = self._serialize.body(body, 'MicrosoftGraphContact')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1094,7 +1102,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1160,7 +1170,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfMultiValueLegacyExtendedProperty0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1168,7 +1180,6 @@ class UserContactFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1256,10 +1267,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1278,13 +1291,11 @@ class UserContactFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1331,7 +1342,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphMultiValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1354,7 +1367,6 @@ class UserContactFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1403,10 +1415,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphMultiValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1428,10 +1442,9 @@ class UserContactFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphMultiValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1472,7 +1485,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1538,7 +1553,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSingleValueLegacyExtendedProperty0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1546,7 +1563,6 @@ class UserContactFolderOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1634,10 +1650,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1656,13 +1674,11 @@ class UserContactFolderOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1709,7 +1725,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSingleValueLegacyExtendedProperty"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1732,7 +1750,6 @@ class UserContactFolderOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1781,10 +1798,12 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
+        body = models.MicrosoftGraphSingleValueLegacyExtendedProperty(id=id, value=value)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1806,10 +1825,9 @@ class UserContactFolderOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSingleValueLegacyExtendedProperty')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1850,7 +1868,9 @@ class UserContactFolderOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

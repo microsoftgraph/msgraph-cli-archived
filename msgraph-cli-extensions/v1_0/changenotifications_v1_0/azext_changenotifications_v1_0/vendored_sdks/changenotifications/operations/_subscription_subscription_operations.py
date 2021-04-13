@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class SubscriptionSubscriptionOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfSubscription"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class SubscriptionSubscriptionOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -210,10 +211,12 @@ class SubscriptionSubscriptionOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSubscription"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSubscription(id=id, application_id=application_id, change_type=change_type, client_state=client_state, creator_id=creator_id, encryption_certificate=encryption_certificate, encryption_certificate_id=encryption_certificate_id, expiration_date_time=expiration_date_time, include_resource_data=include_resource_data, latest_supported_tls_version=latest_supported_tls_version, lifecycle_notification_url=lifecycle_notification_url, notification_url=notification_url, resource=resource)
+        body = models.MicrosoftGraphSubscription(id=id, application_id=application_id, change_type=change_type, client_state=client_state, creator_id=creator_id, encryption_certificate=encryption_certificate, encryption_certificate_id=encryption_certificate_id, expiration_date_time=expiration_date_time, include_resource_data=include_resource_data, latest_supported_tls_version=latest_supported_tls_version, lifecycle_notification_url=lifecycle_notification_url, notification_url=notification_url, resource=resource)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -227,13 +230,11 @@ class SubscriptionSubscriptionOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSubscription')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSubscription')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -274,7 +275,9 @@ class SubscriptionSubscriptionOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSubscription"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -295,7 +298,6 @@ class SubscriptionSubscriptionOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -393,10 +395,12 @@ class SubscriptionSubscriptionOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSubscription(id=id, application_id=application_id, change_type=change_type, client_state=client_state, creator_id=creator_id, encryption_certificate=encryption_certificate, encryption_certificate_id=encryption_certificate_id, expiration_date_time=expiration_date_time, include_resource_data=include_resource_data, latest_supported_tls_version=latest_supported_tls_version, lifecycle_notification_url=lifecycle_notification_url, notification_url=notification_url, resource=resource)
+        body = models.MicrosoftGraphSubscription(id=id, application_id=application_id, change_type=change_type, client_state=client_state, creator_id=creator_id, encryption_certificate=encryption_certificate, encryption_certificate_id=encryption_certificate_id, expiration_date_time=expiration_date_time, include_resource_data=include_resource_data, latest_supported_tls_version=latest_supported_tls_version, lifecycle_notification_url=lifecycle_notification_url, notification_url=notification_url, resource=resource)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -416,10 +420,9 @@ class SubscriptionSubscriptionOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSubscription')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSubscription')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -454,7 +457,9 @@ class SubscriptionSubscriptionOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

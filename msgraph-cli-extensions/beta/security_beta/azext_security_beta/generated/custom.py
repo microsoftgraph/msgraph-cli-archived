@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_update(client,
+def security_security_create(client,
                              id_=None,
                              provider_status=None,
                              alerts=None,
@@ -42,9 +42,69 @@ def security_security_update(client,
                                   user_security_profiles=user_security_profiles)
 
 
-def security_security_get(client,
-                          select=None,
-                          expand=None):
+def security_security_create_action(client,
+                                    security_action_id=None,
+                                    id_=None,
+                                    action_reason=None,
+                                    app_id=None,
+                                    azure_tenant_id=None,
+                                    client_context=None,
+                                    completed_date_time=None,
+                                    created_date_time=None,
+                                    error_info=None,
+                                    last_action_date_time=None,
+                                    name=None,
+                                    parameters=None,
+                                    states=None,
+                                    status=None,
+                                    user=None,
+                                    vendor_information=None):
+    if security_action_id is not None:
+        return client.update_security_action(security_action_id=security_action_id,
+                                             id=id_,
+                                             action_reason=action_reason,
+                                             app_id=app_id,
+                                             azure_tenant_id=azure_tenant_id,
+                                             client_context=client_context,
+                                             completed_date_time=completed_date_time,
+                                             created_date_time=created_date_time,
+                                             error_info=error_info,
+                                             last_action_date_time=last_action_date_time,
+                                             name=name,
+                                             parameters=parameters,
+                                             states=states,
+                                             status=status,
+                                             user=user,
+                                             vendor_information=vendor_information)
+    return client.create_security_action(id=id_,
+                                         action_reason=action_reason,
+                                         app_id=app_id,
+                                         azure_tenant_id=azure_tenant_id,
+                                         client_context=client_context,
+                                         completed_date_time=completed_date_time,
+                                         created_date_time=created_date_time,
+                                         error_info=error_info,
+                                         last_action_date_time=last_action_date_time,
+                                         name=name,
+                                         parameters=parameters,
+                                         states=states,
+                                         status=status,
+                                         user=user,
+                                         vendor_information=vendor_information)
+
+
+def security_security_list_action(client,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_security_action(orderby=orderby,
+                                       select=select,
+                                       expand=expand)
+
+
+def security_security_show_security(client,
+                                    select=None,
+                                    expand=None):
     return client.get_security(select=select,
                                expand=expand)
 
@@ -98,39 +158,6 @@ def security_security_delete(client,
                                           if_match=if_match)
     return client.delete_user_security_profile(user_security_profile_id=user_security_profile_id,
                                                if_match=if_match)
-
-
-def security_security_create_action(client,
-                                    id_=None,
-                                    action_reason=None,
-                                    app_id=None,
-                                    azure_tenant_id=None,
-                                    client_context=None,
-                                    completed_date_time=None,
-                                    created_date_time=None,
-                                    error_info=None,
-                                    last_action_date_time=None,
-                                    name=None,
-                                    parameters=None,
-                                    states=None,
-                                    status=None,
-                                    user=None,
-                                    vendor_information=None):
-    return client.create_security_action(id=id_,
-                                         action_reason=action_reason,
-                                         app_id=app_id,
-                                         azure_tenant_id=azure_tenant_id,
-                                         client_context=client_context,
-                                         completed_date_time=completed_date_time,
-                                         created_date_time=created_date_time,
-                                         error_info=error_info,
-                                         last_action_date_time=last_action_date_time,
-                                         name=name,
-                                         parameters=parameters,
-                                         states=states,
-                                         status=status,
-                                         user=user,
-                                         vendor_information=vendor_information)
 
 
 def security_security_create_alert(client,
@@ -616,123 +643,6 @@ def security_security_create_user_security_profile(client,
                                                vendor_information=vendor_information)
 
 
-def security_security_get_action(client,
-                                 security_action_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_security_action(security_action_id=security_action_id,
-                                      select=select,
-                                      expand=expand)
-
-
-def security_security_get_alert(client,
-                                alert_id,
-                                select=None,
-                                expand=None):
-    return client.get_alert(alert_id=alert_id,
-                            select=select,
-                            expand=expand)
-
-
-def security_security_get_cloud_app_security_profile(client,
-                                                     cloud_app_security_profile_id,
-                                                     select=None,
-                                                     expand=None):
-    return client.get_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
-                                                 select=select,
-                                                 expand=expand)
-
-
-def security_security_get_domain_security_profile(client,
-                                                  domain_security_profile_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def security_security_get_file_security_profile(client,
-                                                file_security_profile_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_file_security_profile(file_security_profile_id=file_security_profile_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def security_security_get_host_security_profile(client,
-                                                host_security_profile_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_host_security_profile(host_security_profile_id=host_security_profile_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def security_security_get_ip_security_profile(client,
-                                              ip_security_profile_id,
-                                              select=None,
-                                              expand=None):
-    return client.get_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
-                                          select=select,
-                                          expand=expand)
-
-
-def security_security_get_provider_tenant_setting(client,
-                                                  provider_tenant_setting_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
-                                              select=select,
-                                              expand=expand)
-
-
-def security_security_get_secure_score(client,
-                                       secure_score_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_secure_score(secure_score_id=secure_score_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def security_security_get_secure_score_control_profile(client,
-                                                       secure_score_control_profile_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                   select=select,
-                                                   expand=expand)
-
-
-def security_security_get_ti_indicator(client,
-                                       ti_indicator_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_ti_indicator(ti_indicator_id=ti_indicator_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def security_security_get_user_security_profile(client,
-                                                user_security_profile_id,
-                                                select=None,
-                                                expand=None):
-    return client.get_user_security_profile(user_security_profile_id=user_security_profile_id,
-                                            select=select,
-                                            expand=expand)
-
-
-def security_security_list_action(client,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_security_action(orderby=orderby,
-                                       select=select,
-                                       expand=expand)
-
-
 def security_security_list_alert(client,
                                  orderby=None,
                                  select=None,
@@ -832,39 +742,112 @@ def security_security_list_user_security_profile(client,
                                              expand=expand)
 
 
-def security_security_update_action(client,
-                                    security_action_id,
-                                    id_=None,
-                                    action_reason=None,
-                                    app_id=None,
-                                    azure_tenant_id=None,
-                                    client_context=None,
-                                    completed_date_time=None,
-                                    created_date_time=None,
-                                    error_info=None,
-                                    last_action_date_time=None,
-                                    name=None,
-                                    parameters=None,
-                                    states=None,
-                                    status=None,
-                                    user=None,
-                                    vendor_information=None):
-    return client.update_security_action(security_action_id=security_action_id,
-                                         id=id_,
-                                         action_reason=action_reason,
-                                         app_id=app_id,
-                                         azure_tenant_id=azure_tenant_id,
-                                         client_context=client_context,
-                                         completed_date_time=completed_date_time,
-                                         created_date_time=created_date_time,
-                                         error_info=error_info,
-                                         last_action_date_time=last_action_date_time,
-                                         name=name,
-                                         parameters=parameters,
-                                         states=states,
-                                         status=status,
-                                         user=user,
-                                         vendor_information=vendor_information)
+def security_security_show_alert(client,
+                                 alert_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_alert(alert_id=alert_id,
+                            select=select,
+                            expand=expand)
+
+
+def security_security_show_cloud_app_security_profile(client,
+                                                      cloud_app_security_profile_id,
+                                                      select=None,
+                                                      expand=None):
+    return client.get_cloud_app_security_profile(cloud_app_security_profile_id=cloud_app_security_profile_id,
+                                                 select=select,
+                                                 expand=expand)
+
+
+def security_security_show_domain_security_profile(client,
+                                                   domain_security_profile_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_domain_security_profile(domain_security_profile_id=domain_security_profile_id,
+                                              select=select,
+                                              expand=expand)
+
+
+def security_security_show_file_security_profile(client,
+                                                 file_security_profile_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_file_security_profile(file_security_profile_id=file_security_profile_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def security_security_show_host_security_profile(client,
+                                                 host_security_profile_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_host_security_profile(host_security_profile_id=host_security_profile_id,
+                                            select=select,
+                                            expand=expand)
+
+
+def security_security_show_ip_security_profile(client,
+                                               ip_security_profile_id,
+                                               select=None,
+                                               expand=None):
+    return client.get_ip_security_profile(ip_security_profile_id=ip_security_profile_id,
+                                          select=select,
+                                          expand=expand)
+
+
+def security_security_show_provider_tenant_setting(client,
+                                                   provider_tenant_setting_id,
+                                                   select=None,
+                                                   expand=None):
+    return client.get_provider_tenant_setting(provider_tenant_setting_id=provider_tenant_setting_id,
+                                              select=select,
+                                              expand=expand)
+
+
+def security_security_show_secure_score(client,
+                                        secure_score_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_secure_score(secure_score_id=secure_score_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def security_security_show_secure_score_control_profile(client,
+                                                        secure_score_control_profile_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                   select=select,
+                                                   expand=expand)
+
+
+def security_security_show_security_action(client,
+                                           security_action_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_security_action(security_action_id=security_action_id,
+                                      select=select,
+                                      expand=expand)
+
+
+def security_security_show_ti_indicator(client,
+                                        ti_indicator_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_ti_indicator(ti_indicator_id=ti_indicator_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def security_security_show_user_security_profile(client,
+                                                 user_security_profile_id,
+                                                 select=None,
+                                                 expand=None):
+    return client.get_user_security_profile(user_security_profile_id=user_security_profile_id,
+                                            select=select,
+                                            expand=expand)
 
 
 def security_security_update_alert(client,

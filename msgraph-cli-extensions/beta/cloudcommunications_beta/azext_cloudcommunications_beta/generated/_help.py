@@ -14,17 +14,17 @@ from knack.help_files import helps
 
 helps['cloudcommunications communication-cloud-communication'] = """
     type: group
-    short-summary: cloudcommunications communication-cloud-communication
+    short-summary: Manage communication cloud communication with cloudcommunications_beta
 """
 
-helps['cloudcommunications communication-cloud-communication get-cloud-communication'] = """
+helps['cloudcommunications communication-cloud-communication show-cloud-communication'] = """
     type: command
-    short-summary: "Get communications"
+    short-summary: "Get communications."
 """
 
 helps['cloudcommunications communication-cloud-communication update-cloud-communication'] = """
     type: command
-    short-summary: "Update communications"
+    short-summary: "Update communications."
     parameters:
       - name: --presences
         long-summary: |
@@ -37,17 +37,19 @@ helps['cloudcommunications communication-cloud-communication update-cloud-commun
 
 helps['cloudcommunications communication'] = """
     type: group
-    short-summary: cloudcommunications communication
+    short-summary: Manage communication with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication delete'] = """
     type: command
-    short-summary: "Delete navigation property presences for communications"
+    short-summary: "Delete navigation property callRecords for communications And Delete navigation property calls for \
+communications And Delete navigation property onlineMeetings for communications And Delete navigation property \
+presences for communications."
 """
 
 helps['cloudcommunications communication create-call'] = """
     type: command
-    short-summary: "Create new navigation property to calls for communications"
+    short-summary: "Create new navigation property to calls for communications."
     parameters:
       - name: --chat-info
         short-summary: "chatInfo"
@@ -68,28 +70,6 @@ auto-admitted-users=XX
         long-summary: |
             Usage: --result-info code=XX message=XX subcode=XX
 
-      - name: --targets
-        long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
-id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
-display-name-identity-application-display-name=XX id-identity-application-id=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --targets argument.
       - name: --tone-info
         short-summary: "toneInfo"
         long-summary: |
@@ -109,118 +89,44 @@ future response, but the items associated with the user won't show up as having 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --audio-routing-groups argument.
-      - name: --operations
-        short-summary: "Read-only. Nullable."
-        long-summary: |
-            Usage: --operations client-context=XX status=XX code=XX message=XX subcode=XX id=XX
-
-            client-context: Unique Client Context string. Max limit is 256 chars.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --operations argument.
-      - name: --source-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --source-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=X\
-X id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --incoming-context-on-behalf-of
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-on-behalf-of display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --incoming-context-transferor
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-transferor display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --answered-by-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --answered-by-identity display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication create-call-record'] = """
     type: command
-    short-summary: "Create new navigation property to callRecords for communications"
+    short-summary: "Create new navigation property to callRecords for communications."
     parameters:
-      - name: --participants
-        short-summary: "List of distinct identities involved in the call."
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --participants display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --participants argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication create-online-meeting'] = """
     type: command
-    short-summary: "Create new navigation property to onlineMeetings for communications"
+    short-summary: "Create new navigation property to onlineMeetings for communications."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"
@@ -253,57 +159,57 @@ helps['cloudcommunications communication create-online-meeting'] = """
 
 helps['cloudcommunications communication create-presence'] = """
     type: command
-    short-summary: "Create new navigation property to presences for communications"
-"""
-
-helps['cloudcommunications communication get-call'] = """
-    type: command
-    short-summary: "Get calls from communications"
-"""
-
-helps['cloudcommunications communication get-call-record'] = """
-    type: command
-    short-summary: "Get callRecords from communications"
-"""
-
-helps['cloudcommunications communication get-online-meeting'] = """
-    type: command
-    short-summary: "Get onlineMeetings from communications"
-"""
-
-helps['cloudcommunications communication get-presence'] = """
-    type: command
-    short-summary: "Get presences from communications"
+    short-summary: "Create new navigation property to presences for communications."
 """
 
 helps['cloudcommunications communication get-presence-by-user-id'] = """
     type: command
-    short-summary: "Invoke action getPresencesByUserId"
+    short-summary: "Invoke action getPresencesByUserId."
 """
 
 helps['cloudcommunications communication list-call'] = """
     type: command
-    short-summary: "Get calls from communications"
+    short-summary: "Get calls from communications."
 """
 
 helps['cloudcommunications communication list-call-record'] = """
     type: command
-    short-summary: "Get callRecords from communications"
+    short-summary: "Get callRecords from communications."
 """
 
 helps['cloudcommunications communication list-online-meeting'] = """
     type: command
-    short-summary: "Get onlineMeetings from communications"
+    short-summary: "Get onlineMeetings from communications."
 """
 
 helps['cloudcommunications communication list-presence'] = """
     type: command
-    short-summary: "Get presences from communications"
+    short-summary: "Get presences from communications."
+"""
+
+helps['cloudcommunications communication show-call'] = """
+    type: command
+    short-summary: "Get calls from communications."
+"""
+
+helps['cloudcommunications communication show-call-record'] = """
+    type: command
+    short-summary: "Get callRecords from communications."
+"""
+
+helps['cloudcommunications communication show-online-meeting'] = """
+    type: command
+    short-summary: "Get onlineMeetings from communications."
+"""
+
+helps['cloudcommunications communication show-presence'] = """
+    type: command
+    short-summary: "Get presences from communications."
 """
 
 helps['cloudcommunications communication update-call'] = """
     type: command
-    short-summary: "Update the navigation property calls in communications"
+    short-summary: "Update the navigation property calls in communications."
     parameters:
       - name: --chat-info
         short-summary: "chatInfo"
@@ -324,28 +230,6 @@ auto-admitted-users=XX
         long-summary: |
             Usage: --result-info code=XX message=XX subcode=XX
 
-      - name: --targets
-        long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
-id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
-display-name-identity-application-display-name=XX id-identity-application-id=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --targets argument.
       - name: --tone-info
         short-summary: "toneInfo"
         long-summary: |
@@ -365,118 +249,44 @@ future response, but the items associated with the user won't show up as having 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --audio-routing-groups argument.
-      - name: --operations
-        short-summary: "Read-only. Nullable."
-        long-summary: |
-            Usage: --operations client-context=XX status=XX code=XX message=XX subcode=XX id=XX
-
-            client-context: Unique Client Context string. Max limit is 256 chars.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --operations argument.
-      - name: --source-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --source-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=X\
-X id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --incoming-context-on-behalf-of
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-on-behalf-of display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --incoming-context-transferor
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --incoming-context-transferor display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --answered-by-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --answered-by-identity display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication update-call-record'] = """
     type: command
-    short-summary: "Update the navigation property callRecords in communications"
+    short-summary: "Update the navigation property callRecords in communications."
     parameters:
-      - name: --participants
-        short-summary: "List of distinct identities involved in the call."
+      - name: --application
+        short-summary: "identity"
         long-summary: |
-            Usage: --participants display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
+            Usage: --application display-name=XX id=XX
 
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
 
-            Multiple actions can be specified by using more than one --participants argument.
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication update-online-meeting'] = """
     type: command
-    short-summary: "Update the navigation property onlineMeetings in communications"
+    short-summary: "Update the navigation property onlineMeetings in communications."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"
@@ -509,22 +319,22 @@ helps['cloudcommunications communication update-online-meeting'] = """
 
 helps['cloudcommunications communication update-presence'] = """
     type: command
-    short-summary: "Update the navigation property presences in communications"
+    short-summary: "Update the navigation property presences in communications."
 """
 
 helps['cloudcommunications communication-call-record'] = """
     type: group
-    short-summary: cloudcommunications communication-call-record
+    short-summary: Manage communication call record with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication-call-record delete'] = """
     type: command
-    short-summary: "Delete navigation property sessions for communications"
+    short-summary: "Delete navigation property sessions for communications."
 """
 
 helps['cloudcommunications communication-call-record create-session'] = """
     type: command
-    short-summary: "Create new navigation property to sessions for communications"
+    short-summary: "Create new navigation property to sessions for communications."
     parameters:
       - name: --failure-info
         short-summary: "failureInfo"
@@ -532,35 +342,35 @@ helps['cloudcommunications communication-call-record create-session'] = """
             Usage: --failure-info reason=XX stage=XX
 
             reason: Classification of why a call or portion of a call failed.
-      - name: --caller-user-agent
+      - name: --user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent application-version=XX header-value=XX
+            Usage: --user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-      - name: --callee-user-agent
+      - name: --microsoft-graph-call-records-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --callee-user-agent application-version=XX header-value=XX
+            Usage: --microsoft-graph-call-records-user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-"""
-
-helps['cloudcommunications communication-call-record get-session'] = """
-    type: command
-    short-summary: "Get sessions from communications"
 """
 
 helps['cloudcommunications communication-call-record list-session'] = """
     type: command
-    short-summary: "Get sessions from communications"
+    short-summary: "Get sessions from communications."
+"""
+
+helps['cloudcommunications communication-call-record show-session'] = """
+    type: command
+    short-summary: "Get sessions from communications."
 """
 
 helps['cloudcommunications communication-call-record update-session'] = """
     type: command
-    short-summary: "Update the navigation property sessions in communications"
+    short-summary: "Update the navigation property sessions in communications."
     parameters:
       - name: --failure-info
         short-summary: "failureInfo"
@@ -568,17 +378,17 @@ helps['cloudcommunications communication-call-record update-session'] = """
             Usage: --failure-info reason=XX stage=XX
 
             reason: Classification of why a call or portion of a call failed.
-      - name: --caller-user-agent
+      - name: --user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent application-version=XX header-value=XX
+            Usage: --user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-      - name: --callee-user-agent
+      - name: --microsoft-graph-call-records-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --callee-user-agent application-version=XX header-value=XX
+            Usage: --microsoft-graph-call-records-user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
@@ -586,17 +396,17 @@ helps['cloudcommunications communication-call-record update-session'] = """
 
 helps['cloudcommunications communication-call-record-session'] = """
     type: group
-    short-summary: cloudcommunications communication-call-record-session
+    short-summary: Manage communication call record session with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication-call-record-session delete'] = """
     type: command
-    short-summary: "Delete navigation property segments for communications"
+    short-summary: "Delete navigation property segments for communications."
 """
 
 helps['cloudcommunications communication-call-record-session create-segment'] = """
     type: command
-    short-summary: "Create new navigation property to segments for communications"
+    short-summary: "Create new navigation property to segments for communications."
     parameters:
       - name: --failure-info
         short-summary: "failureInfo"
@@ -604,35 +414,35 @@ helps['cloudcommunications communication-call-record-session create-segment'] = 
             Usage: --failure-info reason=XX stage=XX
 
             reason: Classification of why a call or portion of a call failed.
-      - name: --caller-user-agent
+      - name: --user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent application-version=XX header-value=XX
+            Usage: --user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-      - name: --callee-user-agent
+      - name: --microsoft-graph-call-records-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --callee-user-agent application-version=XX header-value=XX
+            Usage: --microsoft-graph-call-records-user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-"""
-
-helps['cloudcommunications communication-call-record-session get-segment'] = """
-    type: command
-    short-summary: "Get segments from communications"
 """
 
 helps['cloudcommunications communication-call-record-session list-segment'] = """
     type: command
-    short-summary: "Get segments from communications"
+    short-summary: "Get segments from communications."
+"""
+
+helps['cloudcommunications communication-call-record-session show-segment'] = """
+    type: command
+    short-summary: "Get segments from communications."
 """
 
 helps['cloudcommunications communication-call-record-session update-segment'] = """
     type: command
-    short-summary: "Update the navigation property segments in communications"
+    short-summary: "Update the navigation property segments in communications."
     parameters:
       - name: --failure-info
         short-summary: "failureInfo"
@@ -640,17 +450,17 @@ helps['cloudcommunications communication-call-record-session update-segment'] = 
             Usage: --failure-info reason=XX stage=XX
 
             reason: Classification of why a call or portion of a call failed.
-      - name: --caller-user-agent
+      - name: --user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --caller-user-agent application-version=XX header-value=XX
+            Usage: --user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
-      - name: --callee-user-agent
+      - name: --microsoft-graph-call-records-user-agent
         short-summary: "userAgent"
         long-summary: |
-            Usage: --callee-user-agent application-version=XX header-value=XX
+            Usage: --microsoft-graph-call-records-user-agent application-version=XX header-value=XX
 
             application-version: Identifies the version of application software used by this endpoint.
             header-value: User-agent header value reported by this endpoint.
@@ -658,42 +468,49 @@ helps['cloudcommunications communication-call-record-session update-segment'] = 
 
 helps['cloudcommunications communication-call'] = """
     type: group
-    short-summary: cloudcommunications communication-call
+    short-summary: Manage communication call with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication-call delete'] = """
     type: command
-    short-summary: "Delete navigation property participants for communications"
+    short-summary: "Delete navigation property audioRoutingGroups for communications And Delete navigation property \
+operations for communications And Delete navigation property participants for communications."
 """
 
 helps['cloudcommunications communication-call answer'] = """
     type: command
-    short-summary: "Invoke action answer"
+    short-summary: "Invoke action answer."
 """
 
 helps['cloudcommunications communication-call cancel-media-processing'] = """
     type: command
-    short-summary: "Invoke action cancelMediaProcessing"
+    short-summary: "Invoke action cancelMediaProcessing."
 """
 
 helps['cloudcommunications communication-call change-screen-sharing-role'] = """
     type: command
-    short-summary: "Invoke action changeScreenSharingRole"
+    short-summary: "Invoke action changeScreenSharingRole."
 """
 
 helps['cloudcommunications communication-call create-audio-routing-group'] = """
     type: command
-    short-summary: "Create new navigation property to audioRoutingGroups for communications"
+    short-summary: "Create new navigation property to audioRoutingGroups for communications."
 """
 
 helps['cloudcommunications communication-call create-operation'] = """
     type: command
-    short-summary: "Create new navigation property to operations for communications"
+    short-summary: "Create new navigation property to operations for communications."
+    parameters:
+      - name: --result-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --result-info code=XX message=XX subcode=XX
+
 """
 
 helps['cloudcommunications communication-call create-participant'] = """
     type: command
-    short-summary: "Create new navigation property to participants for communications"
+    short-summary: "Create new navigation property to participants for communications."
     parameters:
       - name: --media-streams
         short-summary: "The list of media streams."
@@ -705,89 +522,38 @@ helps['cloudcommunications communication-call create-participant'] = """
             source-id: The source ID.
 
             Multiple actions can be specified by using more than one --media-streams argument.
-      - name: --recording-info-initiator
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --recording-info-initiator display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --info-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --info-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-"""
-
-helps['cloudcommunications communication-call get-audio-routing-group'] = """
-    type: command
-    short-summary: "Get audioRoutingGroups from communications"
-"""
-
-helps['cloudcommunications communication-call get-operation'] = """
-    type: command
-    short-summary: "Get operations from communications"
-"""
-
-helps['cloudcommunications communication-call get-participant'] = """
-    type: command
-    short-summary: "Get participants from communications"
 """
 
 helps['cloudcommunications communication-call keep-alive'] = """
     type: command
-    short-summary: "Invoke action keepAlive"
+    short-summary: "Invoke action keepAlive."
 """
 
 helps['cloudcommunications communication-call list-audio-routing-group'] = """
     type: command
-    short-summary: "Get audioRoutingGroups from communications"
+    short-summary: "Get audioRoutingGroups from communications."
 """
 
 helps['cloudcommunications communication-call list-operation'] = """
     type: command
-    short-summary: "Get operations from communications"
+    short-summary: "Get operations from communications."
 """
 
 helps['cloudcommunications communication-call list-participant'] = """
     type: command
-    short-summary: "Get participants from communications"
+    short-summary: "Get participants from communications."
 """
 
 helps['cloudcommunications communication-call log-teleconference-device-quality'] = """
     type: command
-    short-summary: "Invoke action logTeleconferenceDeviceQuality"
+    short-summary: "Invoke action logTeleconferenceDeviceQuality."
     parameters:
-      - name: --quality-media-quality-list
+      - name: --media-quality-list
         short-summary: "The list of media qualities in a media session (call), such as audio quality, video quality, \
 and/or screen sharing quality."
         long-summary: |
-            Usage: --quality-media-quality-list average-inbound-jitter=XX average-inbound-packet-loss-rate-in-percentag\
-e=XX average-inbound-round-trip-delay=XX average-outbound-jitter=XX average-outbound-packet-loss-rate-in-percentage=XX \
+            Usage: --media-quality-list average-inbound-jitter=XX average-inbound-packet-loss-rate-in-percentage=XX \
+average-inbound-round-trip-delay=XX average-outbound-jitter=XX average-outbound-packet-loss-rate-in-percentage=XX \
 average-outbound-round-trip-delay=XX channel-index=XX inbound-packets=XX local-ip-address=XX local-port=XX \
 maximum-inbound-jitter=XX maximum-inbound-packet-loss-rate-in-percentage=XX maximum-inbound-round-trip-delay=XX \
 maximum-outbound-jitter=XX maximum-outbound-packet-loss-rate-in-percentage=XX maximum-outbound-round-trip-delay=XX \
@@ -821,90 +587,116 @@ MediaDuration will the summation of all of the durations.
             remote-ip-address: The remote IP address for the media session.
             remote-port: The remote media port.
 
-            Multiple actions can be specified by using more than one --quality-media-quality-list argument.
+            Multiple actions can be specified by using more than one --media-quality-list argument.
 """
 
 helps['cloudcommunications communication-call mute'] = """
     type: command
-    short-summary: "Invoke action mute"
+    short-summary: "Invoke action mute."
 """
 
 helps['cloudcommunications communication-call play-prompt'] = """
     type: command
-    short-summary: "Invoke action playPrompt"
+    short-summary: "Invoke action playPrompt."
 """
 
 helps['cloudcommunications communication-call record'] = """
     type: command
-    short-summary: "Invoke action record"
+    short-summary: "Invoke action record."
 """
 
 helps['cloudcommunications communication-call record-response'] = """
     type: command
-    short-summary: "Invoke action recordResponse"
+    short-summary: "Invoke action recordResponse."
 """
 
 helps['cloudcommunications communication-call redirect'] = """
     type: command
-    short-summary: "Invoke action redirect"
-    parameters:
-      - name: --targets
-        long-summary: |
-            Usage: --targets endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
-id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
-display-name-identity-application-display-name=XX id-identity-application-id=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --targets argument.
+    short-summary: "Invoke action redirect."
 """
 
 helps['cloudcommunications communication-call reject'] = """
     type: command
-    short-summary: "Invoke action reject"
+    short-summary: "Invoke action reject."
+"""
+
+helps['cloudcommunications communication-call show-audio-routing-group'] = """
+    type: command
+    short-summary: "Get audioRoutingGroups from communications."
+"""
+
+helps['cloudcommunications communication-call show-operation'] = """
+    type: command
+    short-summary: "Get operations from communications."
+"""
+
+helps['cloudcommunications communication-call show-participant'] = """
+    type: command
+    short-summary: "Get participants from communications."
 """
 
 helps['cloudcommunications communication-call subscribe-to-tone'] = """
     type: command
-    short-summary: "Invoke action subscribeToTone"
+    short-summary: "Invoke action subscribeToTone."
 """
 
 helps['cloudcommunications communication-call transfer'] = """
     type: command
-    short-summary: "Invoke action transfer"
+    short-summary: "Invoke action transfer."
+    parameters:
+      - name: --application
+        short-summary: "identity"
+        long-summary: |
+            Usage: --application display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --device
+        short-summary: "identity"
+        long-summary: |
+            Usage: --device display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
+      - name: --user
+        short-summary: "identity"
+        long-summary: |
+            Usage: --user display-name=XX id=XX
+
+            display-name: The identity's display name. Note that this may not always be available or up to date. For \
+example, if a user changes their display name, the API may show the new value in a future response, but the items \
+associated with the user won't show up as having changed when using delta.
+            id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication-call unmute'] = """
     type: command
-    short-summary: "Invoke action unmute"
+    short-summary: "Invoke action unmute."
 """
 
 helps['cloudcommunications communication-call update-audio-routing-group'] = """
     type: command
-    short-summary: "Update the navigation property audioRoutingGroups in communications"
+    short-summary: "Update the navigation property audioRoutingGroups in communications."
 """
 
 helps['cloudcommunications communication-call update-operation'] = """
     type: command
-    short-summary: "Update the navigation property operations in communications"
+    short-summary: "Update the navigation property operations in communications."
+    parameters:
+      - name: --result-info
+        short-summary: "ResultInfo"
+        long-summary: |
+            Usage: --result-info code=XX message=XX subcode=XX
+
 """
 
 helps['cloudcommunications communication-call update-participant'] = """
     type: command
-    short-summary: "Update the navigation property participants in communications"
+    short-summary: "Update the navigation property participants in communications."
     parameters:
       - name: --media-streams
         short-summary: "The list of media streams."
@@ -916,100 +708,41 @@ helps['cloudcommunications communication-call update-participant'] = """
             source-id: The source ID.
 
             Multiple actions can be specified by using more than one --media-streams argument.
-      - name: --recording-info-initiator
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --recording-info-initiator display-name-user-display-name=XX id-user-id=XX \
-display-name-device-display-name=XX id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
-      - name: --info-identity
-        short-summary: "identitySet"
-        long-summary: |
-            Usage: --info-identity display-name-user-display-name=XX id-user-id=XX display-name-device-display-name=XX \
-id-device-id=XX display-name-application-display-name=XX id-application-id=XX
-
-            display-name-user-display-name: The identity's display name. Note that this may not always be available or \
-up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-user-id: Unique identifier for the identity.
-            display-name-device-display-name: The identity's display name. Note that this may not always be available \
-or up to date. For example, if a user changes their display name, the API may show the new value in a future response, \
-but the items associated with the user won't show up as having changed when using delta.
-            id-device-id: Unique identifier for the identity.
-            display-name-application-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-application-id: Unique identifier for the identity.
 """
 
 helps['cloudcommunications communication-call update-recording-status'] = """
     type: command
-    short-summary: "Invoke action updateRecordingStatus"
+    short-summary: "Invoke action updateRecordingStatus."
 """
 
 helps['cloudcommunications communication-call-participant'] = """
     type: group
-    short-summary: cloudcommunications communication-call-participant
+    short-summary: Manage communication call participant with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication-call-participant invite'] = """
     type: command
-    short-summary: "Invoke action invite"
-    parameters:
-      - name: --participants
-        long-summary: |
-            Usage: --participants endpoint-type=XX replaces-call-id=XX display-name-identity-user-display-name=XX \
-id-identity-user-id=XX display-name-identity-device-display-name=XX id-identity-device-id=XX \
-display-name-identity-application-display-name=XX id-identity-application-id=XX
-
-            replaces-call-id: Optional. The call which the target identity is currently a part of. This call will be \
-dropped once the participant is added.
-            display-name-identity-user-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-user-id: Unique identifier for the identity.
-            display-name-identity-device-display-name: The identity's display name. Note that this may not always be \
-available or up to date. For example, if a user changes their display name, the API may show the new value in a future \
-response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-device-id: Unique identifier for the identity.
-            display-name-identity-application-display-name: The identity's display name. Note that this may not always \
-be available or up to date. For example, if a user changes their display name, the API may show the new value in a \
-future response, but the items associated with the user won't show up as having changed when using delta.
-            id-identity-application-id: Unique identifier for the identity.
-
-            Multiple actions can be specified by using more than one --participants argument.
+    short-summary: "Invoke action invite."
 """
 
 helps['cloudcommunications communication-call-participant mute'] = """
     type: command
-    short-summary: "Invoke action mute"
+    short-summary: "Invoke action mute."
 """
 
 helps['cloudcommunications communication-call-participant mute-all'] = """
     type: command
-    short-summary: "Invoke action muteAll"
+    short-summary: "Invoke action muteAll."
 """
 
 helps['cloudcommunications communication-online-meeting'] = """
     type: group
-    short-summary: cloudcommunications communication-online-meeting
+    short-summary: Manage communication online meeting with cloudcommunications_beta
 """
 
 helps['cloudcommunications communication-online-meeting create-or-get'] = """
     type: command
-    short-summary: "Invoke action createOrGet"
+    short-summary: "Invoke action createOrGet."
     parameters:
       - name: --chat-info
         short-summary: "chatInfo"
@@ -1023,17 +756,18 @@ helps['cloudcommunications communication-online-meeting create-or-get'] = """
 
 helps['cloudcommunications user'] = """
     type: group
-    short-summary: cloudcommunications user
+    short-summary: Manage user with cloudcommunications_beta
 """
 
 helps['cloudcommunications user delete'] = """
     type: command
-    short-summary: "Delete navigation property presence for users"
+    short-summary: "Delete navigation property onlineMeetings for users And Delete navigation property presence for \
+users."
 """
 
 helps['cloudcommunications user create-online-meeting'] = """
     type: command
-    short-summary: "Create new navigation property to onlineMeetings for users"
+    short-summary: "Create new navigation property to onlineMeetings for users."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"
@@ -1064,24 +798,24 @@ helps['cloudcommunications user create-online-meeting'] = """
 
 """
 
-helps['cloudcommunications user get-online-meeting'] = """
-    type: command
-    short-summary: "Get onlineMeetings from users"
-"""
-
-helps['cloudcommunications user get-presence'] = """
-    type: command
-    short-summary: "Get presence from users"
-"""
-
 helps['cloudcommunications user list-online-meeting'] = """
     type: command
-    short-summary: "Get onlineMeetings from users"
+    short-summary: "Get onlineMeetings from users."
+"""
+
+helps['cloudcommunications user show-online-meeting'] = """
+    type: command
+    short-summary: "Get onlineMeetings from users."
+"""
+
+helps['cloudcommunications user show-presence'] = """
+    type: command
+    short-summary: "Get presence from users."
 """
 
 helps['cloudcommunications user update-online-meeting'] = """
     type: command
-    short-summary: "Update the navigation property onlineMeetings in users"
+    short-summary: "Update the navigation property onlineMeetings in users."
     parameters:
       - name: --audio-conferencing
         short-summary: "audioConferencing"
@@ -1114,5 +848,5 @@ helps['cloudcommunications user update-online-meeting'] = """
 
 helps['cloudcommunications user update-presence'] = """
     type: command
-    short-summary: "Update the navigation property presence in users"
+    short-summary: "Update the navigation property presence in users."
 """

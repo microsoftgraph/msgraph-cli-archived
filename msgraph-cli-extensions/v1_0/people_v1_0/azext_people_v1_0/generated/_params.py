@@ -19,7 +19,7 @@ from azext_people_v1_0.action import (
     AddWebsites,
     AddResourceReference,
     AddResourceVisualization,
-    AddLastSharedSharedBy,
+    AddSharedBy,
     AddLastUsed
 )
 
@@ -46,36 +46,36 @@ def load_arguments(self, _):
         c.argument('job_title', type=str, help='The person\'s job title.')
         c.argument('office_location', type=str, help='The location of the person\'s office.')
         c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
-        c.argument('person_type', action=AddPersonType, nargs='*', help='personType')
-        c.argument('phones', action=AddPhones, nargs='*', help='The person\'s phone numbers.')
+        c.argument('person_type', action=AddPersonType, nargs='+', help='personType')
+        c.argument('phones', action=AddPhones, nargs='+', help='The person\'s phone numbers.')
         c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
                    'json-string/@json-file.')
         c.argument('profession', type=str, help='The person\'s profession.')
-        c.argument('scored_email_addresses', action=AddScoredEmailAddresses, nargs='*', help='The person\'s email '
+        c.argument('scored_email_addresses', action=AddScoredEmailAddresses, nargs='+', help='The person\'s email '
                    'addresses.')
         c.argument('surname', type=str, help='The person\'s surname.')
         c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
                    'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
                    'this should map to the person\'s email name. The general format is alias@domain.')
-        c.argument('websites', action=AddWebsites, nargs='*', help='The person\'s websites.')
+        c.argument('websites', action=AddWebsites, nargs='+', help='The person\'s websites.')
         c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
-
-    with self.argument_context('people user get-insight') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('people user get-person') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('person_id', type=str, help='key: id of person')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('people user list-person') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user show-insight') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user show-person') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('person_id', type=str, help='key: id of person')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('people user update-insight') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -110,18 +110,18 @@ def load_arguments(self, _):
         c.argument('job_title', type=str, help='The person\'s job title.')
         c.argument('office_location', type=str, help='The location of the person\'s office.')
         c.argument('person_notes', type=str, help='Free-form notes that the user has taken about this person.')
-        c.argument('person_type', action=AddPersonType, nargs='*', help='personType')
-        c.argument('phones', action=AddPhones, nargs='*', help='The person\'s phone numbers.')
+        c.argument('person_type', action=AddPersonType, nargs='+', help='personType')
+        c.argument('phones', action=AddPhones, nargs='+', help='The person\'s phone numbers.')
         c.argument('postal_addresses', type=validate_file_or_dict, help='The person\'s addresses. Expected value: '
                    'json-string/@json-file.')
         c.argument('profession', type=str, help='The person\'s profession.')
-        c.argument('scored_email_addresses', action=AddScoredEmailAddresses, nargs='*', help='The person\'s email '
+        c.argument('scored_email_addresses', action=AddScoredEmailAddresses, nargs='+', help='The person\'s email '
                    'addresses.')
         c.argument('surname', type=str, help='The person\'s surname.')
         c.argument('user_principal_name', type=str, help='The user principal name (UPN) of the person. The UPN is an '
                    'Internet-style login name for the person based on the Internet standard RFC 822. By convention, '
                    'this should map to the person\'s email name. The general format is alias@domain.')
-        c.argument('websites', action=AddWebsites, nargs='*', help='The person\'s websites.')
+        c.argument('websites', action=AddWebsites, nargs='+', help='The person\'s websites.')
         c.argument('yomi_company', type=str, help='The phonetic Japanese name of the person\'s company.')
 
     with self.argument_context('people user-insight delete') as c:
@@ -134,138 +134,122 @@ def load_arguments(self, _):
     with self.argument_context('people user-insight create-shared') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
         c.argument('sharing_history', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('resource_id', type=str, help='Read-only.')
-        c.argument('last_shared_method_id', type=str, help='Read-only.')
-        c.argument('last_shared_shared_by', action=AddLastSharedSharedBy, nargs='*', help='insightIdentity')
-        c.argument('last_shared_shared_date_time', help='The date and time the file was last shared. The timestamp '
-                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
-                   'midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.')
-        c.argument('last_shared_sharing_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('last_shared_sharing_subject', type=str, help='The subject with which the document was shared.')
-        c.argument('last_shared_sharing_type', type=str, help='Determines the way the document was shared, can be by a '
-                   '\'Link\', \'Attachment\', \'Group\', \'Site\'.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Last Shared Method')
+        c.argument('shared_by', action=AddSharedBy, nargs='+', help='insightIdentity', arg_group='Last Shared')
+        c.argument('shared_date_time', help='The date and time the file was last shared. The timestamp represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.', arg_group='Last Shared')
+        c.argument('sharing_reference', action=AddResourceReference, nargs='+', help='resourceReference',
+                   arg_group='Last Shared')
+        c.argument('sharing_subject', type=str, help='The subject with which the document was shared.',
+                   arg_group='Last Shared')
+        c.argument('sharing_type', type=str, help='Determines the way the document was shared, can be by a \'Link\', '
+                   '\'Attachment\', \'Group\', \'Site\'.', arg_group='Last Shared')
 
     with self.argument_context('people user-insight create-trending') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
         c.argument('weight', type=float, help='Value indicating how much the document is currently trending. The '
                    'larger the number, the more the document is currently trending around the user (the more relevant '
                    'it is). Returned documents are sorted by this value.')
-        c.argument('resource_id', type=str, help='Read-only.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
 
     with self.argument_context('people user-insight create-used') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('last_used', action=AddLastUsed, nargs='*', help='usageDetails')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
-        c.argument('resource_id', type=str, help='Read-only.')
-
-    with self.argument_context('people user-insight get-shared') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('people user-insight get-trending') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('trending_id', type=str, help='key: id of trending')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('people user-insight get-used') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('last_used', action=AddLastUsed, nargs='+', help='usageDetails')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
 
     with self.argument_context('people user-insight list-shared') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('people user-insight list-trending') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('people user-insight list-used') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user-insight show-shared') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user-insight show-trending') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('trending_id', type=str, help='key: id of trending')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user-insight show-used') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('people user-insight update-shared') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
         c.argument('sharing_history', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('resource_id', type=str, help='Read-only.')
-        c.argument('last_shared_method_id', type=str, help='Read-only.')
-        c.argument('last_shared_shared_by', action=AddLastSharedSharedBy, nargs='*', help='insightIdentity')
-        c.argument('last_shared_shared_date_time', help='The date and time the file was last shared. The timestamp '
-                   'represents date and time information using ISO 8601 format and is always in UTC time. For example, '
-                   'midnight UTC on Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.')
-        c.argument('last_shared_sharing_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('last_shared_sharing_subject', type=str, help='The subject with which the document was shared.')
-        c.argument('last_shared_sharing_type', type=str, help='Determines the way the document was shared, can be by a '
-                   '\'Link\', \'Attachment\', \'Group\', \'Site\'.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
+        c.argument('id1', type=str, help='Read-only.', arg_group='Last Shared Method')
+        c.argument('shared_by', action=AddSharedBy, nargs='+', help='insightIdentity', arg_group='Last Shared')
+        c.argument('shared_date_time', help='The date and time the file was last shared. The timestamp represents date '
+                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
+                   'Jan 1, 2014 would look like this: 2014-01-01T00:00:00Z. Read-only.', arg_group='Last Shared')
+        c.argument('sharing_reference', action=AddResourceReference, nargs='+', help='resourceReference',
+                   arg_group='Last Shared')
+        c.argument('sharing_subject', type=str, help='The subject with which the document was shared.',
+                   arg_group='Last Shared')
+        c.argument('sharing_type', type=str, help='Determines the way the document was shared, can be by a \'Link\', '
+                   '\'Attachment\', \'Group\', \'Site\'.', arg_group='Last Shared')
 
     with self.argument_context('people user-insight update-trending') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('trending_id', type=str, help='key: id of trending')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('last_modified_date_time', help='')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
         c.argument('weight', type=float, help='Value indicating how much the document is currently trending. The '
                    'larger the number, the more the document is currently trending around the user (the more relevant '
                    'it is). Returned documents are sorted by this value.')
-        c.argument('resource_id', type=str, help='Read-only.')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
 
     with self.argument_context('people user-insight update-used') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('used_insight_id', type=str, help='key: id of usedInsight')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('last_used', action=AddLastUsed, nargs='*', help='usageDetails')
-        c.argument('resource_reference', action=AddResourceReference, nargs='*', help='resourceReference')
-        c.argument('resource_visualization', action=AddResourceVisualization, nargs='*', help='resourceVisualization')
-        c.argument('resource_id', type=str, help='Read-only.')
+        c.argument('last_used', action=AddLastUsed, nargs='+', help='usageDetails')
+        c.argument('resource_reference', action=AddResourceReference, nargs='+', help='resourceReference')
+        c.argument('resource_visualization', action=AddResourceVisualization, nargs='+', help='resourceVisualization')
+        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Resource')
 
     with self.argument_context('people user-insight-shared delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('people user-insight-shared get-last-shared-method') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('people user-insight-shared get-ref-last-shared-method') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
-
-    with self.argument_context('people user-insight-shared get-ref-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
-
-    with self.argument_context('people user-insight-shared get-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('people user-insight-shared set-ref-last-shared-method') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -279,20 +263,30 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('people user-insight-shared show-last-shared-method') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('people user-insight-shared show-ref-last-shared-method') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
+
+    with self.argument_context('people user-insight-shared show-ref-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
+
+    with self.argument_context('people user-insight-shared show-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('shared_insight_id', type=str, help='key: id of sharedInsight')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('people user-insight-trending delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('trending_id', type=str, help='key: id of trending')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('people user-insight-trending get-ref-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('trending_id', type=str, help='key: id of trending')
-
-    with self.argument_context('people user-insight-trending get-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('trending_id', type=str, help='key: id of trending')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('people user-insight-trending set-ref-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -300,23 +294,33 @@ def load_arguments(self, _):
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
 
+    with self.argument_context('people user-insight-trending show-ref-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('trending_id', type=str, help='key: id of trending')
+
+    with self.argument_context('people user-insight-trending show-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('trending_id', type=str, help='key: id of trending')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
     with self.argument_context('people user-insight-used delete') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('used_insight_id', type=str, help='key: id of usedInsight')
         c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('people user-insight-used get-ref-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
-
-    with self.argument_context('people user-insight-used get-resource') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
 
     with self.argument_context('people user-insight-used set-ref-resource') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('used_insight_id', type=str, help='key: id of usedInsight')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('people user-insight-used show-ref-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
+
+    with self.argument_context('people user-insight-used show-resource') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('used_insight_id', type=str, help='key: id of usedInsight')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')

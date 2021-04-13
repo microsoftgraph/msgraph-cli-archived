@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -72,7 +72,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfExtension0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -80,7 +82,6 @@ class DirectoryAdministrativeUnitOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -161,10 +162,12 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphExtension(id=id)
+        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -182,13 +185,11 @@ class DirectoryAdministrativeUnitOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphExtension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -232,7 +233,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphExtension"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -254,7 +257,6 @@ class DirectoryAdministrativeUnitOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -297,10 +299,12 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphExtension(id=id)
+        body = models.MicrosoftGraphExtension(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -321,10 +325,9 @@ class DirectoryAdministrativeUnitOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphExtension')
+        body_content = self._serialize.body(body, 'MicrosoftGraphExtension')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -362,7 +365,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -424,7 +429,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfDirectoryObject6"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -432,7 +439,6 @@ class DirectoryAdministrativeUnitOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -513,7 +519,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfDirectoryObject6"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -521,7 +529,6 @@ class DirectoryAdministrativeUnitOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -598,7 +605,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -617,13 +626,11 @@ class DirectoryAdministrativeUnitOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -667,7 +674,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfScopedRoleMembership"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -675,7 +684,6 @@ class DirectoryAdministrativeUnitOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -741,8 +749,7 @@ class DirectoryAdministrativeUnitOperations(object):
         id=None,  # type: Optional[str]
         microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,  # type: Optional[str]
         role_id=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
+        role_member_info=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphScopedRoleMembership"
@@ -759,23 +766,20 @@ class DirectoryAdministrativeUnitOperations(object):
         :type microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id: str
         :param role_id: Unique identifier for the directory role that the member is in.
         :type role_id: str
-        :param display_name: The identity's display name. Note that this may not always be available or
-         up to date. For example, if a user changes their display name, the API may show the new value
-         in a future response, but the items associated with the user won't show up as having changed
-         when using delta.
-        :type display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
+        :param role_member_info: identity.
+        :type role_member_info: ~identity_directory_management.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphScopedRoleMembership, or the result of cls(response)
         :rtype: ~identity_directory_management.models.MicrosoftGraphScopedRoleMembership
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphScopedRoleMembership"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphScopedRoleMembership(id=id, administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id, role_id=role_id, display_name=display_name, id_role_member_info_id=microsoft_graph_identity_id)
+        body = models.MicrosoftGraphScopedRoleMembership(id=id, administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id, role_id=role_id, role_member_info=role_member_info)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -793,13 +797,11 @@ class DirectoryAdministrativeUnitOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphScopedRoleMembership')
+        body_content = self._serialize.body(body, 'MicrosoftGraphScopedRoleMembership')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -843,7 +845,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphScopedRoleMembership"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -865,7 +869,6 @@ class DirectoryAdministrativeUnitOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -891,8 +894,7 @@ class DirectoryAdministrativeUnitOperations(object):
         id=None,  # type: Optional[str]
         microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id=None,  # type: Optional[str]
         role_id=None,  # type: Optional[str]
-        display_name=None,  # type: Optional[str]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
+        role_member_info=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -911,23 +913,20 @@ class DirectoryAdministrativeUnitOperations(object):
         :type microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id: str
         :param role_id: Unique identifier for the directory role that the member is in.
         :type role_id: str
-        :param display_name: The identity's display name. Note that this may not always be available or
-         up to date. For example, if a user changes their display name, the API may show the new value
-         in a future response, but the items associated with the user won't show up as having changed
-         when using delta.
-        :type display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
+        :param role_member_info: identity.
+        :type role_member_info: ~identity_directory_management.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphScopedRoleMembership(id=id, administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id, role_id=role_id, display_name=display_name, id_role_member_info_id=microsoft_graph_identity_id)
+        body = models.MicrosoftGraphScopedRoleMembership(id=id, administrative_unit_id=microsoft_graph_scoped_role_membership_administrative_unit_id_administrative_unit_id, role_id=role_id, role_member_info=role_member_info)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -948,10 +947,9 @@ class DirectoryAdministrativeUnitOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphScopedRoleMembership')
+        body_content = self._serialize.body(body, 'MicrosoftGraphScopedRoleMembership')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -989,7 +987,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1039,7 +1039,9 @@ class DirectoryAdministrativeUnitOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphAdministrativeUnit"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1052,7 +1054,6 @@ class DirectoryAdministrativeUnitOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)

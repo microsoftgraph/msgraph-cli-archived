@@ -11,7 +11,7 @@
 
 def cf_identitysignins_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.identitysignins import IdentitySignIns
+    from azext_identitysignins_v1_0.vendored_sdks.identitysignins import IdentitySignIns
     return get_mgmt_service_client(cli_ctx,
                                    IdentitySignIns,
                                    subscription_bound=False,

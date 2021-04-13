@@ -11,7 +11,7 @@
 
 def cf_usersfunctions_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.usersfunctions import UsersFunctions
+    from azext_usersfunctions_v1_0.vendored_sdks.usersfunctions import UsersFunctions
     return get_mgmt_service_client(cli_ctx,
                                    UsersFunctions,
                                    subscription_bound=False,

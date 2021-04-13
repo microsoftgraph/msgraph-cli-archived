@@ -31,8 +31,9 @@ CLASSIFIERS = [
 ]
 
 DEPENDENCIES = []
+
 try:
-    from .manual.dependency import DEPENDENCIES
+    from azext_cloudcommunications_beta.manual.dependency import DEPENDENCIES
 except ImportError:
     pass
 
@@ -47,7 +48,7 @@ setup(
     description='Microsoft Azure Command-Line Tools CloudCommunications Extension',
     author='Microsoft Corporation',
     author_email='azpycli@microsoft.com',
-    url='https://github.com/Azure/azure-cli-extensions/tree/master/src/cloudcommunications_beta',
+    url='https://github.com/Azure/azure-cli-extensions/tree/master/cloudcommunications_beta',
     long_description=README + '\n\n' + HISTORY,
     license='MIT',
     classifiers=CLASSIFIERS,

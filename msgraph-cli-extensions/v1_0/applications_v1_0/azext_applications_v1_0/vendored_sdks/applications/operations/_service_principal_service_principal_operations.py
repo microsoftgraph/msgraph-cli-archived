@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class ServicePrincipalServicePrincipalOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfServicePrincipal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class ServicePrincipalServicePrincipalOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -331,10 +332,12 @@ class ServicePrincipalServicePrincipalOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphServicePrincipal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphServicePrincipal(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, add_ins=add_ins, alternative_names=alternative_names, app_description=app_description, app_display_name=app_display_name, app_id=app_id, application_template_id=application_template_id, app_owner_organization_id=app_owner_organization_id, app_role_assignment_required=app_role_assignment_required, app_roles=app_roles, description=description, display_name=display_name, homepage=homepage, info=info, key_credentials=key_credentials, login_url=login_url, logout_url=logout_url, notes=notes, notification_email_addresses=notification_email_addresses, oauth2_permission_scopes=oauth2_permission_scopes, password_credentials=password_credentials, preferred_single_sign_on_mode=preferred_single_sign_on_mode, preferred_token_signing_key_thumbprint=preferred_token_signing_key_thumbprint, reply_urls=reply_urls, service_principal_names=service_principal_names, service_principal_type=service_principal_type, tags=tags, token_encryption_key_id=token_encryption_key_id, app_role_assigned_to=app_role_assigned_to, app_role_assignments=app_role_assignments, claims_mapping_policies=claims_mapping_policies, created_objects=created_objects, endpoints=endpoints, home_realm_discovery_policies=home_realm_discovery_policies, member_of=member_of, oauth2_permission_grants=oauth2_permission_grants, owned_objects=owned_objects, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, transitive_member_of=transitive_member_of, relay_state=relay_state)
+        body = models.MicrosoftGraphServicePrincipal(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, add_ins=add_ins, alternative_names=alternative_names, app_description=app_description, app_display_name=app_display_name, app_id=app_id, application_template_id=application_template_id, app_owner_organization_id=app_owner_organization_id, app_role_assignment_required=app_role_assignment_required, app_roles=app_roles, description=description, display_name=display_name, homepage=homepage, info=info, key_credentials=key_credentials, login_url=login_url, logout_url=logout_url, notes=notes, notification_email_addresses=notification_email_addresses, oauth2_permission_scopes=oauth2_permission_scopes, password_credentials=password_credentials, preferred_single_sign_on_mode=preferred_single_sign_on_mode, preferred_token_signing_key_thumbprint=preferred_token_signing_key_thumbprint, reply_urls=reply_urls, service_principal_names=service_principal_names, service_principal_type=service_principal_type, tags=tags, token_encryption_key_id=token_encryption_key_id, app_role_assigned_to=app_role_assigned_to, app_role_assignments=app_role_assignments, claims_mapping_policies=claims_mapping_policies, created_objects=created_objects, endpoints=endpoints, home_realm_discovery_policies=home_realm_discovery_policies, member_of=member_of, oauth2_permission_grants=oauth2_permission_grants, owned_objects=owned_objects, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, transitive_member_of=transitive_member_of, relay_state=relay_state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -348,13 +351,11 @@ class ServicePrincipalServicePrincipalOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphServicePrincipal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphServicePrincipal')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -395,7 +396,9 @@ class ServicePrincipalServicePrincipalOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphServicePrincipal"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -416,7 +419,6 @@ class ServicePrincipalServicePrincipalOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -635,10 +637,12 @@ class ServicePrincipalServicePrincipalOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphServicePrincipal(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, add_ins=add_ins, alternative_names=alternative_names, app_description=app_description, app_display_name=app_display_name, app_id=app_id, application_template_id=application_template_id, app_owner_organization_id=app_owner_organization_id, app_role_assignment_required=app_role_assignment_required, app_roles=app_roles, description=description, display_name=display_name, homepage=homepage, info=info, key_credentials=key_credentials, login_url=login_url, logout_url=logout_url, notes=notes, notification_email_addresses=notification_email_addresses, oauth2_permission_scopes=oauth2_permission_scopes, password_credentials=password_credentials, preferred_single_sign_on_mode=preferred_single_sign_on_mode, preferred_token_signing_key_thumbprint=preferred_token_signing_key_thumbprint, reply_urls=reply_urls, service_principal_names=service_principal_names, service_principal_type=service_principal_type, tags=tags, token_encryption_key_id=token_encryption_key_id, app_role_assigned_to=app_role_assigned_to, app_role_assignments=app_role_assignments, claims_mapping_policies=claims_mapping_policies, created_objects=created_objects, endpoints=endpoints, home_realm_discovery_policies=home_realm_discovery_policies, member_of=member_of, oauth2_permission_grants=oauth2_permission_grants, owned_objects=owned_objects, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, transitive_member_of=transitive_member_of, relay_state=relay_state)
+        body = models.MicrosoftGraphServicePrincipal(id=id, deleted_date_time=deleted_date_time, account_enabled=account_enabled, add_ins=add_ins, alternative_names=alternative_names, app_description=app_description, app_display_name=app_display_name, app_id=app_id, application_template_id=application_template_id, app_owner_organization_id=app_owner_organization_id, app_role_assignment_required=app_role_assignment_required, app_roles=app_roles, description=description, display_name=display_name, homepage=homepage, info=info, key_credentials=key_credentials, login_url=login_url, logout_url=logout_url, notes=notes, notification_email_addresses=notification_email_addresses, oauth2_permission_scopes=oauth2_permission_scopes, password_credentials=password_credentials, preferred_single_sign_on_mode=preferred_single_sign_on_mode, preferred_token_signing_key_thumbprint=preferred_token_signing_key_thumbprint, reply_urls=reply_urls, service_principal_names=service_principal_names, service_principal_type=service_principal_type, tags=tags, token_encryption_key_id=token_encryption_key_id, app_role_assigned_to=app_role_assigned_to, app_role_assignments=app_role_assignments, claims_mapping_policies=claims_mapping_policies, created_objects=created_objects, endpoints=endpoints, home_realm_discovery_policies=home_realm_discovery_policies, member_of=member_of, oauth2_permission_grants=oauth2_permission_grants, owned_objects=owned_objects, owners=owners, token_issuance_policies=token_issuance_policies, token_lifetime_policies=token_lifetime_policies, transitive_member_of=transitive_member_of, relay_state=relay_state)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -658,10 +662,9 @@ class ServicePrincipalServicePrincipalOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphServicePrincipal')
+        body_content = self._serialize.body(body, 'MicrosoftGraphServicePrincipal')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -696,7 +699,9 @@ class ServicePrincipalServicePrincipalOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

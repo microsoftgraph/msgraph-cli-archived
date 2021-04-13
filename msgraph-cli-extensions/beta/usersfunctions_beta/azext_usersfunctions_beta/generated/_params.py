@@ -230,14 +230,14 @@ def load_arguments(self, _):
     with self.argument_context('usersfunctions user-mail-folder delta') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions user-managed-app-registration get-user-id-with-flagged-app-registration') as c:
+    with self.argument_context('usersfunctions user-managed-app-registration show-user-id-with-flagged-app-registration') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions user-managed-device get-file-vault-key') as c:
+    with self.argument_context('usersfunctions user-managed-device show-file-vault-key') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
-    with self.argument_context('usersfunctions user-managed-device get-non-compliant-setting') as c:
+    with self.argument_context('usersfunctions user-managed-device show-non-compliant-setting') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
@@ -262,24 +262,6 @@ def load_arguments(self, _):
     with self.argument_context('usersfunctions user find-room-list') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
-    with self.argument_context('usersfunctions user get-effective-device-enrollment-configuration') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-logged-on-managed-device') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-app-diagnostic-statuses') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-app-policy') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-device-with-app-failure') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
-    with self.argument_context('usersfunctions user get-managed-device-with-failed-or-pending-app') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-
     with self.argument_context('usersfunctions user is-managed-app-user-blocked') as c:
         c.argument('user_id', type=str, help='key: id of user')
 
@@ -287,6 +269,24 @@ def load_arguments(self, _):
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('start_date_time', type=str, help='')
         c.argument('end_date_time', type=str, help='')
+
+    with self.argument_context('usersfunctions user show-effective-device-enrollment-configuration') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-logged-on-managed-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-app-diagnostic-statuses') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-app-policy') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-device-with-app-failure') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+
+    with self.argument_context('usersfunctions user show-managed-device-with-failed-or-pending-app') as c:
+        c.argument('user_id', type=str, help='key: id of user')
 
     with self.argument_context('usersfunctions user-onenote-notebook-section-group-section-page preview') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -301,7 +301,7 @@ def load_arguments(self, _):
         c.argument('onenote_section_id', type=str, help='key: id of onenoteSection')
         c.argument('onenote_page_id', type=str, help='key: id of onenotePage')
 
-    with self.argument_context('usersfunctions user-onenote-notebook get-recent-notebook') as c:
+    with self.argument_context('usersfunctions user-onenote-notebook show-recent-notebook') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('include_personal_notebooks', arg_type=get_three_state_flag(), help='')
 

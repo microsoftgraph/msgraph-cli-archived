@@ -902,9 +902,6 @@ class MicrosoftGraphItemFacet(MicrosoftGraphEntity):
 class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """educationalActivity.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -952,7 +949,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -979,7 +975,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1004,7 +999,6 @@ class MicrosoftGraphEducationalActivity(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphEducationalActivity, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.completion_month_year = completion_month_year
         self.end_month_year = end_month_year
@@ -1270,9 +1264,6 @@ class MicrosoftGraphInstitutionData(msrest.serialization.Model):
 class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """itemAddress.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1310,7 +1301,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1332,7 +1322,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1352,7 +1341,6 @@ class MicrosoftGraphItemAddress(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphItemAddress, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.detail = detail
         self.display_name = display_name
@@ -1394,9 +1382,6 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
 class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """itemEmail.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1434,7 +1419,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1456,7 +1440,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1477,7 +1460,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemEmail, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.address = address
         self.display_name = display_name
         self.type = type
@@ -1486,9 +1468,6 @@ class MicrosoftGraphItemEmail(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """itemPatent.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1534,7 +1513,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1560,7 +1538,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1585,7 +1562,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPatent, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
         self.is_pending = is_pending
@@ -1598,9 +1574,6 @@ class MicrosoftGraphItemPatent(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """itemPhone.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1639,7 +1612,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1661,7 +1633,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1682,7 +1653,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPhone, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.display_name = display_name
         self.number = number
         self.type = type
@@ -1691,9 +1661,6 @@ class MicrosoftGraphItemPhone(MicrosoftGraphItemFacet):
 class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """itemPublication.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1737,7 +1704,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1762,7 +1728,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1786,7 +1751,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphItemPublication, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
         self.published_date = published_date
@@ -1798,9 +1762,6 @@ class MicrosoftGraphItemPublication(MicrosoftGraphItemFacet):
 class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """languageProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -1848,7 +1809,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -1873,7 +1833,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -1896,7 +1855,6 @@ class MicrosoftGraphLanguageProficiency(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphLanguageProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.proficiency = proficiency
@@ -2186,9 +2144,6 @@ class MicrosoftGraphPerson(MicrosoftGraphEntity):
 class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """personAnniversary.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2224,7 +2179,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2245,7 +2199,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2265,7 +2218,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnniversary, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.date = date
         self.type = type
 
@@ -2273,9 +2225,6 @@ class MicrosoftGraphPersonAnniversary(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """personAnnotation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2311,7 +2260,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2332,7 +2280,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2352,7 +2299,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAnnotation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.detail = detail
         self.display_name = display_name
 
@@ -2360,9 +2306,6 @@ class MicrosoftGraphPersonAnnotation(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """personAward.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2406,7 +2349,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2431,7 +2373,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2455,7 +2396,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonAward, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.description = description
         self.display_name = display_name
         self.issued_date = issued_date
@@ -2467,9 +2407,6 @@ class MicrosoftGraphPersonAward(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """personCertification.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2521,7 +2458,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2550,7 +2486,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2577,7 +2512,6 @@ class MicrosoftGraphPersonCertification(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonCertification, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.certification_id = certification_id
         self.description = description
@@ -2648,9 +2582,6 @@ class MicrosoftGraphPersonDataSources(msrest.serialization.Model):
 class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """personInterest.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2692,7 +2623,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2716,7 +2646,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2739,7 +2668,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonInterest, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.categories = categories
         self.collaboration_tags = collaboration_tags
         self.description = description
@@ -2750,9 +2678,6 @@ class MicrosoftGraphPersonInterest(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """personName.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2806,7 +2731,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2836,7 +2760,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2865,7 +2788,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphPersonName, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.display_name = display_name
         self.first = first
         self.initials = initials
@@ -2882,9 +2804,6 @@ class MicrosoftGraphPersonName(MicrosoftGraphItemFacet):
 class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """personWebsite.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -2924,7 +2843,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -2947,7 +2865,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -2968,7 +2885,6 @@ class MicrosoftGraphPersonWebsite(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphPersonWebsite, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.categories = categories
         self.description = description
@@ -3248,9 +3164,6 @@ class MicrosoftGraphProfile(MicrosoftGraphEntity):
 class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """projectParticipation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -3318,7 +3231,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3355,7 +3267,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -3390,7 +3301,6 @@ class MicrosoftGraphProjectParticipation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphProjectParticipation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.categories = categories
         self.collaboration_tags = collaboration_tags
@@ -3555,9 +3465,6 @@ class MicrosoftGraphSettings(msrest.serialization.Model):
 class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """skillProficiency.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -3600,7 +3507,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3624,7 +3530,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -3647,7 +3552,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
     ):
         super(MicrosoftGraphSkillProficiency, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
         self.additional_properties = additional_properties
-        self.additional_properties = additional_properties
         self.categories = categories
         self.collaboration_tags = collaboration_tags
         self.display_name = display_name
@@ -3658,9 +3562,6 @@ class MicrosoftGraphSkillProficiency(MicrosoftGraphItemFacet):
 class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """userAccountInformation.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -3700,7 +3601,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3723,7 +3623,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -3744,7 +3643,6 @@ class MicrosoftGraphUserAccountInformation(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphUserAccountInformation, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.age_group = age_group
         self.country_code = country_code
@@ -3791,9 +3689,6 @@ class MicrosoftGraphUserAnalytics(MicrosoftGraphEntity):
 class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """webAccount.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -3835,7 +3730,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -3859,7 +3753,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -3881,7 +3774,6 @@ class MicrosoftGraphWebAccount(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWebAccount, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.description = description
         self.service = service
@@ -3930,9 +3822,6 @@ class MicrosoftGraphWebsite(msrest.serialization.Model):
 class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """workPosition.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param allowed_audiences:  Possible values include: "me", "family", "contacts", "groupMembers",
@@ -3986,7 +3875,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'allowed_audiences': {'key': 'allowedAudiences', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -4016,7 +3904,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         allowed_audiences: Optional[Union[str, "MicrosoftGraphAllowedAudiences"]] = None,
         created_date_time: Optional[datetime.datetime] = None,
@@ -4044,7 +3931,6 @@ class MicrosoftGraphWorkPosition(MicrosoftGraphItemFacet):
         **kwargs
     ):
         super(MicrosoftGraphWorkPosition, self).__init__(id=id, allowed_audiences=allowed_audiences, created_date_time=created_date_time, inference=inference, last_modified_date_time=last_modified_date_time, source=source, application_last_modified_by_application=application_last_modified_by_application, device_last_modified_by_device=device_last_modified_by_device, user_last_modified_by_user=user_last_modified_by_user, application_created_by_application=application_created_by_application, device_created_by_device=device_created_by_device, user_created_by_user=user_created_by_user, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.categories = categories
         self.colleagues = colleagues

@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -69,7 +69,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOfficeGraphInsights"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -90,7 +92,6 @@ class UserOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -146,10 +147,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOfficeGraphInsights(id=id, shared=shared, trending=trending, used=used)
+        body = models.MicrosoftGraphOfficeGraphInsights(id=id, shared=shared, trending=trending, used=used)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -169,10 +172,9 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphOfficeGraphInsights')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOfficeGraphInsights')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -207,7 +209,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -268,7 +272,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPerson"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -276,7 +282,6 @@ class UserOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -417,10 +422,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPerson"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPerson(id=id, birthday=birthday, company_name=company_name, department=department, display_name=display_name, given_name=given_name, im_address=im_address, is_favorite=is_favorite, job_title=job_title, office_location=office_location, person_notes=person_notes, person_type=person_type, phones=phones, postal_addresses=postal_addresses, profession=profession, scored_email_addresses=scored_email_addresses, surname=surname, user_principal_name=user_principal_name, websites=websites, yomi_company=yomi_company)
+        body = models.MicrosoftGraphPerson(id=id, birthday=birthday, company_name=company_name, department=department, display_name=display_name, given_name=given_name, im_address=im_address, is_favorite=is_favorite, job_title=job_title, office_location=office_location, person_notes=person_notes, person_type=person_type, phones=phones, postal_addresses=postal_addresses, profession=profession, scored_email_addresses=scored_email_addresses, surname=surname, user_principal_name=user_principal_name, websites=websites, yomi_company=yomi_company)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -438,13 +445,11 @@ class UserOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPerson')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPerson')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -488,7 +493,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPerson"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -510,7 +517,6 @@ class UserOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -613,10 +619,12 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPerson(id=id, birthday=birthday, company_name=company_name, department=department, display_name=display_name, given_name=given_name, im_address=im_address, is_favorite=is_favorite, job_title=job_title, office_location=office_location, person_notes=person_notes, person_type=person_type, phones=phones, postal_addresses=postal_addresses, profession=profession, scored_email_addresses=scored_email_addresses, surname=surname, user_principal_name=user_principal_name, websites=websites, yomi_company=yomi_company)
+        body = models.MicrosoftGraphPerson(id=id, birthday=birthday, company_name=company_name, department=department, display_name=display_name, given_name=given_name, im_address=im_address, is_favorite=is_favorite, job_title=job_title, office_location=office_location, person_notes=person_notes, person_type=person_type, phones=phones, postal_addresses=postal_addresses, profession=profession, scored_email_addresses=scored_email_addresses, surname=surname, user_principal_name=user_principal_name, websites=websites, yomi_company=yomi_company)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -637,10 +645,9 @@ class UserOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPerson')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPerson')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -678,7 +685,9 @@ class UserOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

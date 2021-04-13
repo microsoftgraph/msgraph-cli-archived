@@ -487,19 +487,9 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
     :type app_id: str
     :param sign_in_count:
     :type sign_in_count: long
-    :param additional_details: Provides additional details on the sign-in activity.
-    :type additional_details: str
-    :param error_code: Provides the 5-6digit error code that's generated during a sign-in failure.
-     Check out the list of error codes and messages.
-    :type error_code: int
-    :param failure_reason: Provides the error message or the reason for failure for the
-     corresponding sign-in activity. Check out the list of error codes and messages.
-    :type failure_reason: str
+    :param status: signInStatus.
+    :type status: ~reports.models.MicrosoftGraphSignInStatus
     """
-
-    _validation = {
-        'error_code': {'maximum': 2147483647, 'minimum': -2147483648},
-    }
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
@@ -508,9 +498,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'additional_details': {'key': 'status.additionalDetails', 'type': 'str'},
-        'error_code': {'key': 'status.errorCode', 'type': 'int'},
-        'failure_reason': {'key': 'status.failureReason', 'type': 'str'},
+        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
     }
 
     def __init__(
@@ -522,9 +510,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
         sign_in_count: Optional[int] = None,
-        additional_details: Optional[str] = None,
-        error_code: Optional[int] = None,
-        failure_reason: Optional[str] = None,
+        status: Optional["MicrosoftGraphSignInStatus"] = None,
         **kwargs
     ):
         super(MicrosoftGraphApplicationSignInDetailedSummary, self).__init__(id=id, **kwargs)
@@ -533,9 +519,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         self.app_display_name = app_display_name
         self.app_id = app_id
         self.sign_in_count = sign_in_count
-        self.additional_details = additional_details
-        self.error_code = error_code
-        self.failure_reason = failure_reason
+        self.status = status
 
 
 class MicrosoftGraphApplicationSignInSummary(MicrosoftGraphEntity):
@@ -4349,9 +4333,6 @@ class MicrosoftGraphSignIn(MicrosoftGraphEntity):
 class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     """restrictedSignIn.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param alternate_sign_in_name:
@@ -4475,7 +4456,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'alternate_sign_in_name': {'key': 'alternateSignInName', 'type': 'str'},
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
@@ -4527,7 +4507,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
     def __init__(
         self,
         *,
-        additional_properties: Optional[Dict[str, object]] = None,
         id: Optional[str] = None,
         alternate_sign_in_name: Optional[str] = None,
         app_display_name: Optional[str] = None,
@@ -4577,7 +4556,6 @@ class MicrosoftGraphRestrictedSignIn(MicrosoftGraphSignIn):
         **kwargs
     ):
         super(MicrosoftGraphRestrictedSignIn, self).__init__(id=id, alternate_sign_in_name=alternate_sign_in_name, app_display_name=app_display_name, app_id=app_id, applied_conditional_access_policies=applied_conditional_access_policies, authentication_details=authentication_details, authentication_methods_used=authentication_methods_used, authentication_processing_details=authentication_processing_details, authentication_requirement=authentication_requirement, authentication_requirement_policies=authentication_requirement_policies, client_app_used=client_app_used, conditional_access_status=conditional_access_status, correlation_id=correlation_id, created_date_time=created_date_time, device_detail=device_detail, ip_address=ip_address, is_interactive=is_interactive, mfa_detail=mfa_detail, network_location_details=network_location_details, original_request_id=original_request_id, processing_time_in_milliseconds=processing_time_in_milliseconds, resource_display_name=resource_display_name, resource_id=resource_id, resource_tenant_id=resource_tenant_id, risk_detail=risk_detail, risk_event_types=risk_event_types, risk_event_types_v2=risk_event_types_v2, risk_level_aggregated=risk_level_aggregated, risk_level_during_sign_in=risk_level_during_sign_in, risk_state=risk_state, service_principal_id=service_principal_id, service_principal_name=service_principal_name, sign_in_event_types=sign_in_event_types, status=status, token_issuer_name=token_issuer_name, token_issuer_type=token_issuer_type, user_agent=user_agent, user_display_name=user_display_name, user_id=user_id, user_principal_name=user_principal_name, city=city, country_or_region=country_or_region, geo_coordinates=geo_coordinates, state=state, **kwargs)
-        self.additional_properties = additional_properties
         self.additional_properties = additional_properties
         self.target_tenant_id = target_tenant_id
 

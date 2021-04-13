@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCallRecord"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class CommunicationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -146,12 +147,9 @@ class CommunicationOperations(object):
         type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
         version=None,  # type: Optional[int]
         sessions=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSession"]]
-        display_name=None,  # type: Optional[str]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
-        microsoft_graph_identity_display_name=None,  # type: Optional[str]
-        id1=None,  # type: Optional[str]
-        display_name1=None,  # type: Optional[str]
-        id2=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphCallRecordsCallRecord"
@@ -190,37 +188,24 @@ class CommunicationOperations(object):
          one session, whereas group calls typically have at least one session per participant. Read-
          only. Nullable.
         :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-        :param display_name: The identity's display name. Note that this may not always be available or
-         up to date. For example, if a user changes their display name, the API may show the new value
-         in a future response, but the items associated with the user won't show up as having changed
-         when using delta.
-        :type display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
-        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
-         not always be available or up to date. For example, if a user changes their display name, the
-         API may show the new value in a future response, but the items associated with the user won't
-         show up as having changed when using delta.
-        :type microsoft_graph_identity_display_name: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
-        :param display_name1: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name1: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
+        :param application: identity.
+        :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~cloud_communications.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphCallRecordsCallRecord, or the result of cls(response)
         :rtype: ~cloud_communications.models.MicrosoftGraphCallRecordsCallRecord
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCallRecordsCallRecord"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, display_name_organizer_user_display_name=display_name, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_device_id=id1, display_name_organizer_application_display_name=display_name1, id_organizer_application_id=id2)
+        body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -234,13 +219,11 @@ class CommunicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCallRecordsCallRecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCallRecordsCallRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -281,7 +264,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCallRecordsCallRecord"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -302,7 +287,6 @@ class CommunicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -334,12 +318,9 @@ class CommunicationOperations(object):
         type=None,  # type: Optional[Union[str, "models.MicrosoftGraphCallRecordsCallType"]]
         version=None,  # type: Optional[int]
         sessions=None,  # type: Optional[List["models.MicrosoftGraphCallRecordsSession"]]
-        display_name=None,  # type: Optional[str]
-        microsoft_graph_identity_id=None,  # type: Optional[str]
-        microsoft_graph_identity_display_name=None,  # type: Optional[str]
-        id1=None,  # type: Optional[str]
-        display_name1=None,  # type: Optional[str]
-        id2=None,  # type: Optional[str]
+        application=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        device=None,  # type: Optional["models.MicrosoftGraphIdentity"]
+        user=None,  # type: Optional["models.MicrosoftGraphIdentity"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -380,37 +361,24 @@ class CommunicationOperations(object):
          one session, whereas group calls typically have at least one session per participant. Read-
          only. Nullable.
         :type sessions: list[~cloud_communications.models.MicrosoftGraphCallRecordsSession]
-        :param display_name: The identity's display name. Note that this may not always be available or
-         up to date. For example, if a user changes their display name, the API may show the new value
-         in a future response, but the items associated with the user won't show up as having changed
-         when using delta.
-        :type display_name: str
-        :param microsoft_graph_identity_id: Unique identifier for the identity.
-        :type microsoft_graph_identity_id: str
-        :param microsoft_graph_identity_display_name: The identity's display name. Note that this may
-         not always be available or up to date. For example, if a user changes their display name, the
-         API may show the new value in a future response, but the items associated with the user won't
-         show up as having changed when using delta.
-        :type microsoft_graph_identity_display_name: str
-        :param id1: Unique identifier for the identity.
-        :type id1: str
-        :param display_name1: The identity's display name. Note that this may not always be available
-         or up to date. For example, if a user changes their display name, the API may show the new
-         value in a future response, but the items associated with the user won't show up as having
-         changed when using delta.
-        :type display_name1: str
-        :param id2: Unique identifier for the identity.
-        :type id2: str
+        :param application: identity.
+        :type application: ~cloud_communications.models.MicrosoftGraphIdentity
+        :param device: identity.
+        :type device: ~cloud_communications.models.MicrosoftGraphIdentity
+        :param user: identity.
+        :type user: ~cloud_communications.models.MicrosoftGraphIdentity
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, display_name_organizer_user_display_name=display_name, id_organizer_user_id=microsoft_graph_identity_id, display_name_organizer_device_display_name=microsoft_graph_identity_display_name, id_organizer_device_id=id1, display_name_organizer_application_display_name=display_name1, id_organizer_application_id=id2)
+        body = models.MicrosoftGraphCallRecordsCallRecord(id=id, end_date_time=end_date_time, join_web_url=join_web_url, last_modified_date_time=last_modified_date_time, modalities=modalities, participants=participants, start_date_time=start_date_time, type=type, version=version, sessions=sessions, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -430,10 +398,9 @@ class CommunicationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCallRecordsCallRecord')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCallRecordsCallRecord')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -468,7 +435,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -526,7 +495,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfCall"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -534,7 +505,6 @@ class CommunicationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -737,10 +707,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCall"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
+        body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -754,13 +726,11 @@ class CommunicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCall')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCall')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -801,7 +771,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphCall"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -822,7 +794,6 @@ class CommunicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -991,10 +962,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
+        body = models.MicrosoftGraphCall(id=id, active_modalities=active_modalities, callback_uri=callback_uri, call_chain_id=call_chain_id, call_options=call_options, call_routes=call_routes, chat_info=chat_info, direction=direction, meeting_capability=meeting_capability, my_participant_id=my_participant_id, requested_modalities=requested_modalities, result_info=result_info, ringing_timeout_in_seconds=ringing_timeout_in_seconds, routing_policies=routing_policies, state=state, subject=subject, targets=targets, tenant_id=tenant_id, termination_reason=termination_reason, tone_info=tone_info, transcription=transcription, audio_routing_groups=audio_routing_groups, operations=operations, participants=participants, country_code_source_country_code=country_code, endpoint_type_source_endpoint_type=endpoint_type, identity_source_identity=identity, language_id_source_language_id=language_id, region_source_region=region, allow_conversation_without_host=allow_conversation_without_host, audio=audio, remove_from_default_audio_group=remove_from_default_audio_group, observed_participant_id=observed_participant_id, on_behalf_of=on_behalf_of, source_participant_id=source_participant_id, transferor=transferor, country_code_answered_by_country_code=microsoft_graph_participant_info_country_code, endpoint_type_answered_by_endpoint_type=microsoft_graph_endpoint_type, identity_answered_by_identity=microsoft_graph_identity_set_identity, language_id_answered_by_language_id=microsoft_graph_participant_info_language_id, region_answered_by_region=microsoft_graph_participant_info_region)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1014,10 +987,9 @@ class CommunicationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphCall')
+        body_content = self._serialize.body(body, 'MicrosoftGraphCall')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1052,7 +1024,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1104,10 +1078,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphPresence"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema(ids=ids)
+        body = models.Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema(ids=ids)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1121,13 +1097,11 @@ class CommunicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths10WpgkzCommunicationsMicrosoftGraphGetpresencesbyuseridPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1168,7 +1142,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfOnlineMeeting"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1176,7 +1152,6 @@ class CommunicationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1322,10 +1297,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
+        body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1339,13 +1316,11 @@ class CommunicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphOnlineMeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1386,7 +1361,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphOnlineMeeting"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1407,7 +1384,6 @@ class CommunicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1519,10 +1495,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
+        body = models.MicrosoftGraphOnlineMeeting(id=id, access_level=access_level, allowed_presenters=allowed_presenters, audio_conferencing=audio_conferencing, canceled_date_time=canceled_date_time, capabilities=capabilities, chat_info=chat_info, creation_date_time=creation_date_time, end_date_time=end_date_time, entry_exit_announcement=entry_exit_announcement, expiration_date_time=expiration_date_time, external_id=external_id, is_broadcast=is_broadcast, is_cancelled=is_cancelled, is_entry_exit_announced=is_entry_exit_announced, join_information=join_information, join_url=join_url, lobby_bypass_settings=lobby_bypass_settings, start_date_time=start_date_time, subject=subject, video_teleconference_id=video_teleconference_id, attendees=attendees, contributors=contributors, organizer=organizer, producers=producers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1542,10 +1520,9 @@ class CommunicationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphOnlineMeeting')
+        body_content = self._serialize.body(body, 'MicrosoftGraphOnlineMeeting')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1580,7 +1557,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1638,7 +1617,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPresence"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1646,7 +1627,6 @@ class CommunicationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1726,10 +1706,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
+        body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1743,13 +1725,11 @@ class CommunicationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPresence')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPresence')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1790,7 +1770,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPresence"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1811,7 +1793,6 @@ class CommunicationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1857,10 +1838,12 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
+        body = models.MicrosoftGraphPresence(id=id, activity=activity, availability=availability)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1880,10 +1863,9 @@ class CommunicationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPresence')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPresence')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1918,7 +1900,9 @@ class CommunicationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

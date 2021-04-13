@@ -11,7 +11,7 @@
 
 def cf_devicescloudprint_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.devicescloudprint import DevicesCloudPrint
+    from azext_devicescloudprint_beta.vendored_sdks.devicescloudprint import DevicesCloudPrint
     return get_mgmt_service_client(cli_ctx,
                                    DevicesCloudPrint,
                                    subscription_bound=False,

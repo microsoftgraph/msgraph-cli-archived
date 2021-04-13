@@ -10,19 +10,19 @@
 # pylint: disable=too-many-lines
 
 
-def education_education_root_get_root(client,
-                                      select=None,
-                                      expand=None):
+def education_education_root_show_education_root(client,
+                                                 select=None,
+                                                 expand=None):
     return client.get_education_root(select=select,
                                      expand=expand)
 
 
-def education_education_root_update_root(client,
-                                         id_=None,
-                                         classes=None,
-                                         me=None,
-                                         schools=None,
-                                         users=None):
+def education_education_root_update_education_root(client,
+                                                   id_=None,
+                                                   classes=None,
+                                                   me=None,
+                                                   schools=None,
+                                                   users=None):
     return client.update_education_root(id=id_,
                                         classes=classes,
                                         me=me,
@@ -61,9 +61,9 @@ def education_education_create_class(client,
                                      members=None,
                                      schools=None,
                                      teachers=None,
-                                     created_by_application=None,
-                                     created_by_device=None,
-                                     created_by_user=None):
+                                     application=None,
+                                     device=None,
+                                     user=None):
     return client.create_class(id=id_,
                                class_code=class_code,
                                description=description,
@@ -77,9 +77,9 @@ def education_education_create_class(client,
                                members=members,
                                schools=schools,
                                teachers=teachers,
-                               application=created_by_application,
-                               device=created_by_device,
-                               user=created_by_user)
+                               application=application,
+                               device=device,
+                               user=user)
 
 
 def education_education_create_school(client,
@@ -99,9 +99,9 @@ def education_education_create_school(client,
                                       school_number=None,
                                       classes=None,
                                       users=None,
-                                      created_by_application=None,
-                                      created_by_device=None,
-                                      created_by_user=None):
+                                      application=None,
+                                      device=None,
+                                      user=None):
     return client.create_school(id=id_,
                                 description=description,
                                 display_name=display_name,
@@ -118,9 +118,9 @@ def education_education_create_school(client,
                                 school_number=school_number,
                                 classes=classes,
                                 users=users,
-                                application=created_by_application,
-                                device=created_by_device,
-                                user=created_by_user)
+                                application=application,
+                                device=device,
+                                user=user)
 
 
 def education_education_create_user(client,
@@ -156,9 +156,9 @@ def education_education_create_user(client,
                                     classes=None,
                                     schools=None,
                                     user=None,
-                                    created_by_application=None,
-                                    created_by_device=None,
-                                    created_by_user=None):
+                                    application=None,
+                                    device=None,
+                                    microsoft_graph_identity_user=None):
     return client.create_user(id=id_,
                               account_enabled=account_enabled,
                               assigned_licenses=assigned_licenses,
@@ -191,43 +191,9 @@ def education_education_create_user(client,
                               classes=classes,
                               schools=schools,
                               user=user,
-                              application=created_by_application,
-                              device=created_by_device,
-                              microsoft_graph_identity_user=created_by_user)
-
-
-def education_education_get_class(client,
-                                  education_class_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_class(education_class_id=education_class_id,
-                            select=select,
-                            expand=expand)
-
-
-def education_education_get_me(client,
-                               select=None,
-                               expand=None):
-    return client.get_me(select=select,
-                         expand=expand)
-
-
-def education_education_get_school(client,
-                                   education_school_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_school(education_school_id=education_school_id,
-                             select=select,
-                             expand=expand)
-
-
-def education_education_get_user(client,
-                                 education_user_id,
-                                 select=None,
-                                 expand=None):
-    return client.get_user(education_user_id=education_user_id,
-                           select=select,
-                           expand=expand)
+                              application=application,
+                              device=device,
+                              microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
 def education_education_list_class(client,
@@ -257,6 +223,40 @@ def education_education_list_user(client,
                             expand=expand)
 
 
+def education_education_show_class(client,
+                                   education_class_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_class(education_class_id=education_class_id,
+                            select=select,
+                            expand=expand)
+
+
+def education_education_show_me(client,
+                                select=None,
+                                expand=None):
+    return client.get_me(select=select,
+                         expand=expand)
+
+
+def education_education_show_school(client,
+                                    education_school_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_school(education_school_id=education_school_id,
+                             select=select,
+                             expand=expand)
+
+
+def education_education_show_user(client,
+                                  education_user_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_user(education_user_id=education_user_id,
+                           select=select,
+                           expand=expand)
+
+
 def education_education_update_class(client,
                                      education_class_id,
                                      id_=None,
@@ -272,9 +272,9 @@ def education_education_update_class(client,
                                      members=None,
                                      schools=None,
                                      teachers=None,
-                                     created_by_application=None,
-                                     created_by_device=None,
-                                     created_by_user=None):
+                                     application=None,
+                                     device=None,
+                                     user=None):
     return client.update_class(education_class_id=education_class_id,
                                id=id_,
                                class_code=class_code,
@@ -289,9 +289,9 @@ def education_education_update_class(client,
                                members=members,
                                schools=schools,
                                teachers=teachers,
-                               application=created_by_application,
-                               device=created_by_device,
-                               user=created_by_user)
+                               application=application,
+                               device=device,
+                               user=user)
 
 
 def education_education_update_me(client,
@@ -327,9 +327,9 @@ def education_education_update_me(client,
                                   classes=None,
                                   schools=None,
                                   user=None,
-                                  created_by_application=None,
-                                  created_by_device=None,
-                                  created_by_user=None):
+                                  application=None,
+                                  device=None,
+                                  microsoft_graph_identity_user=None):
     return client.update_me(id=id_,
                             account_enabled=account_enabled,
                             assigned_licenses=assigned_licenses,
@@ -362,9 +362,9 @@ def education_education_update_me(client,
                             classes=classes,
                             schools=schools,
                             user=user,
-                            application=created_by_application,
-                            device=created_by_device,
-                            microsoft_graph_identity_user=created_by_user)
+                            application=application,
+                            device=device,
+                            microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
 def education_education_update_school(client,
@@ -385,9 +385,9 @@ def education_education_update_school(client,
                                       school_number=None,
                                       classes=None,
                                       users=None,
-                                      created_by_application=None,
-                                      created_by_device=None,
-                                      created_by_user=None):
+                                      application=None,
+                                      device=None,
+                                      user=None):
     return client.update_school(education_school_id=education_school_id,
                                 id=id_,
                                 description=description,
@@ -405,9 +405,9 @@ def education_education_update_school(client,
                                 school_number=school_number,
                                 classes=classes,
                                 users=users,
-                                application=created_by_application,
-                                device=created_by_device,
-                                user=created_by_user)
+                                application=application,
+                                device=device,
+                                user=user)
 
 
 def education_education_update_user(client,
@@ -444,9 +444,9 @@ def education_education_update_user(client,
                                     classes=None,
                                     schools=None,
                                     user=None,
-                                    created_by_application=None,
-                                    created_by_device=None,
-                                    created_by_user=None):
+                                    application=None,
+                                    device=None,
+                                    microsoft_graph_identity_user=None):
     return client.update_user(education_user_id=education_user_id,
                               id=id_,
                               account_enabled=account_enabled,
@@ -480,9 +480,9 @@ def education_education_update_user(client,
                               classes=classes,
                               schools=schools,
                               user=user,
-                              application=created_by_application,
-                              device=created_by_device,
-                              microsoft_graph_identity_user=created_by_user)
+                              application=application,
+                              device=device,
+                              microsoft_graph_identity_user=microsoft_graph_identity_user)
 
 
 def education_education_class_delete(client,
@@ -511,20 +511,6 @@ def education_education_class_create_ref_teacher(client,
                                                  body):
     return client.create_ref_teacher(education_class_id=education_class_id,
                                      body=body)
-
-
-def education_education_class_get_group(client,
-                                        education_class_id,
-                                        select=None,
-                                        expand=None):
-    return client.get_group(education_class_id=education_class_id,
-                            select=select,
-                            expand=expand)
-
-
-def education_education_class_get_ref_group(client,
-                                            education_class_id):
-    return client.get_ref_group(education_class_id=education_class_id)
 
 
 def education_education_class_list_member(client,
@@ -588,6 +574,20 @@ def education_education_class_set_ref_group(client,
                                 body=body)
 
 
+def education_education_class_show_group(client,
+                                         education_class_id,
+                                         select=None,
+                                         expand=None):
+    return client.get_group(education_class_id=education_class_id,
+                            select=select,
+                            expand=expand)
+
+
+def education_education_class_show_ref_group(client,
+                                             education_class_id):
+    return client.get_ref_group(education_class_id=education_class_id)
+
+
 def education_education_me_delete(client,
                                   if_match=None):
     return client.delete_ref_user(if_match=if_match)
@@ -601,17 +601,6 @@ def education_education_me_create_ref_class(client,
 def education_education_me_create_ref_school(client,
                                              body):
     return client.create_ref_school(body=body)
-
-
-def education_education_me_get_ref_user(client):
-    return client.get_ref_user()
-
-
-def education_education_me_get_user(client,
-                                    select=None,
-                                    expand=None):
-    return client.get_user(select=select,
-                           expand=expand)
 
 
 def education_education_me_list_class(client,
@@ -645,6 +634,17 @@ def education_education_me_list_school(client,
 def education_education_me_set_ref_user(client,
                                         body):
     return client.set_ref_user(body=body)
+
+
+def education_education_me_show_ref_user(client):
+    return client.get_ref_user()
+
+
+def education_education_me_show_user(client,
+                                     select=None,
+                                     expand=None):
+    return client.get_user(select=select,
+                           expand=expand)
 
 
 def education_education_school_create_ref_class(client,
@@ -718,20 +718,6 @@ def education_education_user_create_ref_school(client,
                                     body=body)
 
 
-def education_education_user_get_ref_user(client,
-                                          education_user_id):
-    return client.get_ref_user(education_user_id=education_user_id)
-
-
-def education_education_user_get_user(client,
-                                      education_user_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_user(education_user_id=education_user_id,
-                           select=select,
-                           expand=expand)
-
-
 def education_education_user_list_class(client,
                                         education_user_id,
                                         orderby=None,
@@ -773,3 +759,17 @@ def education_education_user_set_ref_user(client,
                                           body):
     return client.set_ref_user(education_user_id=education_user_id,
                                body=body)
+
+
+def education_education_user_show_ref_user(client,
+                                           education_user_id):
+    return client.get_ref_user(education_user_id=education_user_id)
+
+
+def education_education_user_show_user(client,
+                                       education_user_id,
+                                       select=None,
+                                       expand=None):
+    return client.get_user(education_user_id=education_user_id,
+                           select=select,
+                           expand=expand)

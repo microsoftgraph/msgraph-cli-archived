@@ -19,16 +19,16 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_identitysignins_v1_0.action import (
     AddNamedLocations,
     AddGrantControls,
-    AddSessionControlsApplicationEnforcedRestrictions,
-    AddSessionControlsCloudAppSecurity,
-    AddSessionControlsPersistentBrowser,
-    AddSessionControlsSignInFrequency,
-    AddConditionsApplications,
-    AddConditionsLocations,
-    AddConditionsPlatforms,
-    AddConditionsUsers,
+    AddApplicationEnforcedRestrictions,
+    AddCloudAppSecurity,
+    AddPersistentBrowser,
+    AddSignInFrequency,
+    AddApplications,
+    AddLocations,
+    AddPlatforms,
+    AddUsers,
     AddResults,
-    AddCreatedByApplication,
+    AddApplication,
     AddActivityBasedTimeoutPolicies,
     AddClaimsMappingPolicies,
     AddHomeRealmDiscoveryPolicies,
@@ -53,7 +53,7 @@ def load_arguments(self, _):
                    'completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would '
                    'look like this: \'2014-01-01T00:00:00Z\'. Null until the operation completes.')
         c.argument('progress', type=float, help='Specifies the progress of an operation.')
-        c.argument('status', arg_type=get_enum_type(['notStarted', 'running', 'complete', 'failed', ''
+        c.argument('status', arg_type=get_enum_type(['notStarted', 'running', 'complete', 'failed',
                                                      'unknownFutureValue']), help='')
         c.argument('storage_location', type=str, help='The URL location to where data is being exported for export '
                    'requests.')
@@ -62,15 +62,15 @@ def load_arguments(self, _):
                    'this: \'2014-01-01T00:00:00Z\'')
         c.argument('user_id', type=str, help='The id for the user on whom the operation is performed.')
 
-    with self.argument_context('identitysignins data-policy-operation-data-policy-operation get-data-policy-operation') as c:
-        c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('identitysignins data-policy-operation-data-policy-operation list-data-policy-operation') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins data-policy-operation-data-policy-operation show-data-policy-operation') as c:
+        c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins data-policy-operation-data-policy-operation update-data-policy-operation') as c:
         c.argument('data_policy_operation_id', type=str, help='key: id of dataPolicyOperation')
@@ -79,7 +79,7 @@ def load_arguments(self, _):
                    'completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 would '
                    'look like this: \'2014-01-01T00:00:00Z\'. Null until the operation completes.')
         c.argument('progress', type=float, help='Specifies the progress of an operation.')
-        c.argument('status', arg_type=get_enum_type(['notStarted', 'running', 'complete', 'failed', ''
+        c.argument('status', arg_type=get_enum_type(['notStarted', 'running', 'complete', 'failed',
                                                      'unknownFutureValue']), help='')
         c.argument('storage_location', type=str, help='The URL location to where data is being exported for export '
                    'requests.')
@@ -91,13 +91,13 @@ def load_arguments(self, _):
     with self.argument_context('identitysignins identity delete') as c:
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins identity get-conditional-access') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('identitysignins identity show-conditional-access') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins identity update-conditional-access') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('named_locations', action=AddNamedLocations, nargs='*', help='')
+        c.argument('named_locations', action=AddNamedLocations, nargs='+', help='')
         c.argument('policies', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
     with self.argument_context('identitysignins identity-conditional-access delete') as c:
@@ -122,53 +122,52 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='Specifies a display name for the conditionalAccessPolicy object.')
-        c.argument('grant_controls', action=AddGrantControls, nargs='*', help='conditionalAccessGrantControls')
+        c.argument('grant_controls', action=AddGrantControls, nargs='+', help='conditionalAccessGrantControls')
         c.argument('modified_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('state', arg_type=get_enum_type(['enabled', 'disabled', 'enabledForReportingButNotEnforced']),
                    help='')
-        c.argument('session_controls_application_enforced_restrictions',
-                   action=AddSessionControlsApplicationEnforcedRestrictions, nargs='*', help=''
-                   'applicationEnforcedRestrictionsSessionControl')
-        c.argument('session_controls_cloud_app_security', action=AddSessionControlsCloudAppSecurity, nargs='*', help=''
-                   'cloudAppSecuritySessionControl')
-        c.argument('session_controls_persistent_browser', action=AddSessionControlsPersistentBrowser, nargs='*', help=''
-                   'persistentBrowserSessionControl')
-        c.argument('session_controls_sign_in_frequency', action=AddSessionControlsSignInFrequency, nargs='*', help=''
-                   'signInFrequencySessionControl')
-        c.argument('conditions_applications', action=AddConditionsApplications, nargs='*', help=''
-                   'conditionalAccessApplications')
-        c.argument('conditions_client_app_types', nargs='*', help='Client application types included in the policy. '
-                   'Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, '
-                   'other.')
-        c.argument('conditions_locations', action=AddConditionsLocations, nargs='*',
-                   help='conditionalAccessLocations')
-        c.argument('conditions_platforms', action=AddConditionsPlatforms, nargs='*',
-                   help='conditionalAccessPlatforms')
-        c.argument('conditions_sign_in_risk_levels', nargs='*', help='Risk levels included in the policy. Possible '
-                   'values are: low, medium, high, none.')
-        c.argument('conditions_users', action=AddConditionsUsers, nargs='*', help='conditionalAccessUsers')
-
-    with self.argument_context('identitysignins identity-conditional-access get-named-location') as c:
-        c.argument('named_location_id', type=str, help='key: id of namedLocation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins identity-conditional-access get-policy') as c:
-        c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('application_enforced_restrictions', action=AddApplicationEnforcedRestrictions, nargs='+',
+                   help='applicationEnforcedRestrictionsSessionControl', arg_group='Session Controls')
+        c.argument('cloud_app_security', action=AddCloudAppSecurity, nargs='+', help='cloudAppSecuritySessionControl',
+                   arg_group='Session Controls')
+        c.argument('persistent_browser', action=AddPersistentBrowser, nargs='+',
+                   help='persistentBrowserSessionControl', arg_group='Session Controls')
+        c.argument('sign_in_frequency', action=AddSignInFrequency, nargs='+', help='signInFrequencySessionControl',
+                   arg_group='Session Controls')
+        c.argument('applications', action=AddApplications, nargs='+', help='conditionalAccessApplications',
+                   arg_group='Conditions')
+        c.argument('client_app_types', nargs='+', help='Client application types included in the policy. Possible '
+                   'values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.',
+                   arg_group='Conditions')
+        c.argument('locations', action=AddLocations, nargs='+', help='conditionalAccessLocations',
+                   arg_group='Conditions')
+        c.argument('platforms', action=AddPlatforms, nargs='+', help='conditionalAccessPlatforms',
+                   arg_group='Conditions')
+        c.argument('sign_in_risk_levels', nargs='+', help='Risk levels included in the policy. Possible values are: '
+                   'low, medium, high, none.', arg_group='Conditions')
+        c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
     with self.argument_context('identitysignins identity-conditional-access list-named-location') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins identity-conditional-access list-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins identity-conditional-access show-named-location') as c:
+        c.argument('named_location_id', type=str, help='key: id of namedLocation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins identity-conditional-access show-policy') as c:
+        c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins identity-conditional-access update-named-location') as c:
         c.argument('named_location_id', type=str, help='key: id of namedLocation')
@@ -189,33 +188,32 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='Specifies a display name for the conditionalAccessPolicy object.')
-        c.argument('grant_controls', action=AddGrantControls, nargs='*', help='conditionalAccessGrantControls')
+        c.argument('grant_controls', action=AddGrantControls, nargs='+', help='conditionalAccessGrantControls')
         c.argument('modified_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('state', arg_type=get_enum_type(['enabled', 'disabled', 'enabledForReportingButNotEnforced']),
                    help='')
-        c.argument('session_controls_application_enforced_restrictions',
-                   action=AddSessionControlsApplicationEnforcedRestrictions, nargs='*', help=''
-                   'applicationEnforcedRestrictionsSessionControl')
-        c.argument('session_controls_cloud_app_security', action=AddSessionControlsCloudAppSecurity, nargs='*', help=''
-                   'cloudAppSecuritySessionControl')
-        c.argument('session_controls_persistent_browser', action=AddSessionControlsPersistentBrowser, nargs='*', help=''
-                   'persistentBrowserSessionControl')
-        c.argument('session_controls_sign_in_frequency', action=AddSessionControlsSignInFrequency, nargs='*', help=''
-                   'signInFrequencySessionControl')
-        c.argument('conditions_applications', action=AddConditionsApplications, nargs='*', help=''
-                   'conditionalAccessApplications')
-        c.argument('conditions_client_app_types', nargs='*', help='Client application types included in the policy. '
-                   'Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, '
-                   'other.')
-        c.argument('conditions_locations', action=AddConditionsLocations, nargs='*',
-                   help='conditionalAccessLocations')
-        c.argument('conditions_platforms', action=AddConditionsPlatforms, nargs='*',
-                   help='conditionalAccessPlatforms')
-        c.argument('conditions_sign_in_risk_levels', nargs='*', help='Risk levels included in the policy. Possible '
-                   'values are: low, medium, high, none.')
-        c.argument('conditions_users', action=AddConditionsUsers, nargs='*', help='conditionalAccessUsers')
+        c.argument('application_enforced_restrictions', action=AddApplicationEnforcedRestrictions, nargs='+',
+                   help='applicationEnforcedRestrictionsSessionControl', arg_group='Session Controls')
+        c.argument('cloud_app_security', action=AddCloudAppSecurity, nargs='+', help='cloudAppSecuritySessionControl',
+                   arg_group='Session Controls')
+        c.argument('persistent_browser', action=AddPersistentBrowser, nargs='+',
+                   help='persistentBrowserSessionControl', arg_group='Session Controls')
+        c.argument('sign_in_frequency', action=AddSignInFrequency, nargs='+', help='signInFrequencySessionControl',
+                   arg_group='Session Controls')
+        c.argument('applications', action=AddApplications, nargs='+', help='conditionalAccessApplications',
+                   arg_group='Conditions')
+        c.argument('client_app_types', nargs='+', help='Client application types included in the policy. Possible '
+                   'values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.',
+                   arg_group='Conditions')
+        c.argument('locations', action=AddLocations, nargs='+', help='conditionalAccessLocations',
+                   arg_group='Conditions')
+        c.argument('platforms', action=AddPlatforms, nargs='+', help='conditionalAccessPlatforms',
+                   arg_group='Conditions')
+        c.argument('sign_in_risk_levels', nargs='+', help='Risk levels included in the policy. Possible values are: '
+                   'low, medium, high, none.', arg_group='Conditions')
+        c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
     with self.argument_context('identitysignins identity-provider-identity-provider delete') as c:
         c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
@@ -228,15 +226,15 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
 
-    with self.argument_context('identitysignins identity-provider-identity-provider get-identity-provider') as c:
-        c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('identitysignins identity-provider-identity-provider list-identity-provider') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins identity-provider-identity-provider show-identity-provider') as c:
+        c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins identity-provider-identity-provider update-identity-provider') as c:
         c.argument('identity_provider_id', type=str, help='key: id of identityProvider')
@@ -246,9 +244,9 @@ def load_arguments(self, _):
         c.argument('name', type=str, help='')
         c.argument('type_', options_list=['--type'], type=str, help='')
 
-    with self.argument_context('identitysignins information-protection-information-protection get-information-protection') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('identitysignins information-protection-information-protection show-information-protection') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins information-protection-information-protection update-information-protection') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -270,22 +268,22 @@ def load_arguments(self, _):
         c.argument('expected_assessment', arg_type=get_enum_type(['block', 'unblock']), help='')
         c.argument('request_source', arg_type=get_enum_type(['undefined', 'user', 'administrator']), help='')
         c.argument('status', arg_type=get_enum_type(['pending', 'completed']), help='')
-        c.argument('results', action=AddResults, nargs='*', help='A collection of threat assessment results. '
+        c.argument('results', action=AddResults, nargs='+', help='A collection of threat assessment results. '
                    'Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless '
                    'you apply $expand on it.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
-
-    with self.argument_context('identitysignins information-protection get-threat-assessment-request') as c:
-        c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('identitysignins information-protection list-threat-assessment-request') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins information-protection show-threat-assessment-request') as c:
+        c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins information-protection update-threat-assessment-request') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
@@ -299,12 +297,12 @@ def load_arguments(self, _):
         c.argument('expected_assessment', arg_type=get_enum_type(['block', 'unblock']), help='')
         c.argument('request_source', arg_type=get_enum_type(['undefined', 'user', 'administrator']), help='')
         c.argument('status', arg_type=get_enum_type(['pending', 'completed']), help='')
-        c.argument('results', action=AddResults, nargs='*', help='A collection of threat assessment results. '
+        c.argument('results', action=AddResults, nargs='+', help='A collection of threat assessment results. '
                    'Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless '
                    'you apply $expand on it.')
-        c.argument('created_by_application', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_device', action=AddCreatedByApplication, nargs='*', help='identity')
-        c.argument('created_by_user', action=AddCreatedByApplication, nargs='*', help='identity')
+        c.argument('application', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('device', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
+        c.argument('user', action=AddApplication, nargs='+', help='identity', arg_group='Created By')
 
     with self.argument_context('identitysignins information-protection-threat-assessment-request delete') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
@@ -320,17 +318,17 @@ def load_arguments(self, _):
         c.argument('message', type=str, help='The result message for each threat assessment.')
         c.argument('result_type', arg_type=get_enum_type(['checkPolicy', 'rescan', 'unknownFutureValue']), help='')
 
-    with self.argument_context('identitysignins information-protection-threat-assessment-request get-result') as c:
-        c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
-        c.argument('threat_assessment_result_id', type=str, help='key: id of threatAssessmentResult')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('identitysignins information-protection-threat-assessment-request list-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins information-protection-threat-assessment-request show-result') as c:
+        c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
+        c.argument('threat_assessment_result_id', type=str, help='key: id of threatAssessmentResult')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins information-protection-threat-assessment-request update-result') as c:
         c.argument('threat_assessment_request_id', type=str, help='key: id of threatAssessmentRequest')
@@ -369,25 +367,25 @@ def load_arguments(self, _):
                    'Completed, InProgress, and Error')
         c.argument('invited_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
                    'Expected value: json-string/@json-file.')
-        c.argument('invited_user_message_info_cc_recipients', type=validate_file_or_dict, help='Additional recipients '
-                   'the invitation message should be sent to. Currently only 1 additional recipient is supported. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('invited_user_message_info_customized_message_body', type=str, help='Customized message body you '
-                   'want to send if you don\'t want the default message.')
-        c.argument('invited_user_message_info_message_language', type=str, help='The language you want to send the '
-                   'default message in. If the customizedMessageBody is specified, this property is ignored, and the '
-                   'message is sent using the customizedMessageBody. The language format should be in ISO 639. The '
-                   'default is en-US.')
-
-    with self.argument_context('identitysignins invitation-invitation get-invitation') as c:
-        c.argument('invitation_id', type=str, help='key: id of invitation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='Additional recipients the invitation message '
+                   'should be sent to. Currently only 1 additional recipient is supported. Expected value: '
+                   'json-string/@json-file.', arg_group='Invited User Message Info')
+        c.argument('customized_message_body', type=str, help='Customized message body you want to send if you don\'t '
+                   'want the default message.', arg_group='Invited User Message Info')
+        c.argument('message_language', type=str, help='The language you want to send the default message in. If the '
+                   'customizedMessageBody is specified, this property is ignored, and the message is sent using the '
+                   'customizedMessageBody. The language format should be in ISO 639. The default is en-US.',
+                   arg_group='Invited User Message Info')
 
     with self.argument_context('identitysignins invitation-invitation list-invitation') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins invitation-invitation show-invitation') as c:
+        c.argument('invitation_id', type=str, help='key: id of invitation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins invitation-invitation update-invitation') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
@@ -413,32 +411,32 @@ def load_arguments(self, _):
                    'Completed, InProgress, and Error')
         c.argument('invited_user', type=validate_file_or_dict, help='Represents an Azure Active Directory user object. '
                    'Expected value: json-string/@json-file.')
-        c.argument('invited_user_message_info_cc_recipients', type=validate_file_or_dict, help='Additional recipients '
-                   'the invitation message should be sent to. Currently only 1 additional recipient is supported. '
-                   'Expected value: json-string/@json-file.')
-        c.argument('invited_user_message_info_customized_message_body', type=str, help='Customized message body you '
-                   'want to send if you don\'t want the default message.')
-        c.argument('invited_user_message_info_message_language', type=str, help='The language you want to send the '
-                   'default message in. If the customizedMessageBody is specified, this property is ignored, and the '
-                   'message is sent using the customizedMessageBody. The language format should be in ISO 639. The '
-                   'default is en-US.')
+        c.argument('cc_recipients', type=validate_file_or_dict, help='Additional recipients the invitation message '
+                   'should be sent to. Currently only 1 additional recipient is supported. Expected value: '
+                   'json-string/@json-file.', arg_group='Invited User Message Info')
+        c.argument('customized_message_body', type=str, help='Customized message body you want to send if you don\'t '
+                   'want the default message.', arg_group='Invited User Message Info')
+        c.argument('message_language', type=str, help='The language you want to send the default message in. If the '
+                   'customizedMessageBody is specified, this property is ignored, and the message is sent using the '
+                   'customizedMessageBody. The language format should be in ISO 639. The default is en-US.',
+                   arg_group='Invited User Message Info')
 
     with self.argument_context('identitysignins invitation delete') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
         c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('identitysignins invitation get-invited-user') as c:
-        c.argument('invitation_id', type=str, help='key: id of invitation')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins invitation get-ref-invited-user') as c:
-        c.argument('invitation_id', type=str, help='key: id of invitation')
-
     with self.argument_context('identitysignins invitation set-ref-invited-user') as c:
         c.argument('invitation_id', type=str, help='key: id of invitation')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref values Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('identitysignins invitation show-invited-user') as c:
+        c.argument('invitation_id', type=str, help='key: id of invitation')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins invitation show-ref-invited-user') as c:
+        c.argument('invitation_id', type=str, help='key: id of invitation')
 
     with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant delete') as c:
         c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
@@ -467,15 +465,15 @@ def load_arguments(self, _):
                    'delegated permissions defined by the API, listed in the publishedPermissionScopes property of the '
                    'resource service principal.')
 
-    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant get-o-auth2-permission-grant') as c:
-        c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant list-o-auth2-permission-grant') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant show-o-auth2-permission-grant') as c:
+        c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins oauth2-permission-grant-o-auth2-permission-grant update-o-auth2-permission-grant') as c:
         c.argument('o_auth2_permission_grant_id', type=str, help='key: id of oAuth2PermissionGrant')
@@ -508,31 +506,31 @@ def load_arguments(self, _):
 
     with self.argument_context('identitysignins organization list-certificate-based-auth-configuration') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins organization list-ref-certificate-based-auth-configuration') as c:
         c.argument('organization_id', type=str, help='key: id of organization')
-        c.argument('orderby', nargs='*', help='Order items by property values')
+        c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('identitysignins policy-policy-root get-policy-root') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+    with self.argument_context('identitysignins policy-policy-root show-policy-root') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy-policy-root update-policy-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_based_timeout_policies', action=AddActivityBasedTimeoutPolicies, nargs='*', help='')
-        c.argument('claims_mapping_policies', action=AddClaimsMappingPolicies, nargs='*', help='')
-        c.argument('home_realm_discovery_policies', action=AddHomeRealmDiscoveryPolicies, nargs='*', help='')
+        c.argument('activity_based_timeout_policies', action=AddActivityBasedTimeoutPolicies, nargs='+', help='')
+        c.argument('claims_mapping_policies', action=AddClaimsMappingPolicies, nargs='+', help='')
+        c.argument('home_realm_discovery_policies', action=AddHomeRealmDiscoveryPolicies, nargs='+', help='')
         c.argument('permission_grant_policies', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
-        c.argument('token_issuance_policies', action=AddTokenIssuancePolicies, nargs='*', help='')
-        c.argument('token_lifetime_policies', action=AddTokenLifetimePolicies, nargs='*', help='')
+        c.argument('token_issuance_policies', action=AddTokenIssuancePolicies, nargs='+', help='')
+        c.argument('token_lifetime_policies', action=AddTokenLifetimePolicies, nargs='+', help='')
         c.argument('conditional_access_policies', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
         c.argument('identity_security_defaults_enforcement_policy',
-                   action=AddIdentitySecurityDefaultsEnforcementPolicy, nargs='*', help='Represents an Azure Active '
+                   action=AddIdentitySecurityDefaultsEnforcementPolicy, nargs='+', help='Represents an Azure Active '
                    'Directory object. The directoryObject type is the base type for many other directory entity types.')
 
     with self.argument_context('identitysignins policy delete') as c:
@@ -550,26 +548,26 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy create-claim-mapping-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy create-conditional-access-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -578,154 +576,153 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='Specifies a display name for the conditionalAccessPolicy object.')
-        c.argument('grant_controls', action=AddGrantControls, nargs='*', help='conditionalAccessGrantControls')
+        c.argument('grant_controls', action=AddGrantControls, nargs='+', help='conditionalAccessGrantControls')
         c.argument('modified_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('state', arg_type=get_enum_type(['enabled', 'disabled', 'enabledForReportingButNotEnforced']),
                    help='')
-        c.argument('session_controls_application_enforced_restrictions',
-                   action=AddSessionControlsApplicationEnforcedRestrictions, nargs='*', help=''
-                   'applicationEnforcedRestrictionsSessionControl')
-        c.argument('session_controls_cloud_app_security', action=AddSessionControlsCloudAppSecurity, nargs='*', help=''
-                   'cloudAppSecuritySessionControl')
-        c.argument('session_controls_persistent_browser', action=AddSessionControlsPersistentBrowser, nargs='*', help=''
-                   'persistentBrowserSessionControl')
-        c.argument('session_controls_sign_in_frequency', action=AddSessionControlsSignInFrequency, nargs='*', help=''
-                   'signInFrequencySessionControl')
-        c.argument('conditions_applications', action=AddConditionsApplications, nargs='*', help=''
-                   'conditionalAccessApplications')
-        c.argument('conditions_client_app_types', nargs='*', help='Client application types included in the policy. '
-                   'Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, '
-                   'other.')
-        c.argument('conditions_locations', action=AddConditionsLocations, nargs='*',
-                   help='conditionalAccessLocations')
-        c.argument('conditions_platforms', action=AddConditionsPlatforms, nargs='*',
-                   help='conditionalAccessPlatforms')
-        c.argument('conditions_sign_in_risk_levels', nargs='*', help='Risk levels included in the policy. Possible '
-                   'values are: low, medium, high, none.')
-        c.argument('conditions_users', action=AddConditionsUsers, nargs='*', help='conditionalAccessUsers')
+        c.argument('application_enforced_restrictions', action=AddApplicationEnforcedRestrictions, nargs='+',
+                   help='applicationEnforcedRestrictionsSessionControl', arg_group='Session Controls')
+        c.argument('cloud_app_security', action=AddCloudAppSecurity, nargs='+', help='cloudAppSecuritySessionControl',
+                   arg_group='Session Controls')
+        c.argument('persistent_browser', action=AddPersistentBrowser, nargs='+',
+                   help='persistentBrowserSessionControl', arg_group='Session Controls')
+        c.argument('sign_in_frequency', action=AddSignInFrequency, nargs='+', help='signInFrequencySessionControl',
+                   arg_group='Session Controls')
+        c.argument('applications', action=AddApplications, nargs='+', help='conditionalAccessApplications',
+                   arg_group='Conditions')
+        c.argument('client_app_types', nargs='+', help='Client application types included in the policy. Possible '
+                   'values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.',
+                   arg_group='Conditions')
+        c.argument('locations', action=AddLocations, nargs='+', help='conditionalAccessLocations',
+                   arg_group='Conditions')
+        c.argument('platforms', action=AddPlatforms, nargs='+', help='conditionalAccessPlatforms',
+                   arg_group='Conditions')
+        c.argument('sign_in_risk_levels', nargs='+', help='Risk levels included in the policy. Possible values are: '
+                   'low, medium, high, none.', arg_group='Conditions')
+        c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
     with self.argument_context('identitysignins policy create-home-realm-discovery-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy create-permission-grant-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('excludes', action=AddExcludes, nargs='*', help='')
-        c.argument('includes', action=AddIncludes, nargs='*', help='')
+        c.argument('excludes', action=AddExcludes, nargs='+', help='')
+        c.argument('includes', action=AddIncludes, nargs='+', help='')
 
     with self.argument_context('identitysignins policy create-token-issuance-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy create-token-lifetime-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
-
-    with self.argument_context('identitysignins policy get-activity-based-timeout-policy') as c:
-        c.argument('activity_based_timeout_policy_id', type=str, help='key: id of activityBasedTimeoutPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-claim-mapping-policy') as c:
-        c.argument('claims_mapping_policy_id', type=str, help='key: id of claimsMappingPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-conditional-access-policy') as c:
-        c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-home-realm-discovery-policy') as c:
-        c.argument('home_realm_discovery_policy_id', type=str, help='key: id of homeRealmDiscoveryPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-identity-security-default-enforcement-policy') as c:
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-permission-grant-policy') as c:
-        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-token-issuance-policy') as c:
-        c.argument('token_issuance_policy_id', type=str, help='key: id of tokenIssuancePolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy get-token-lifetime-policy') as c:
-        c.argument('token_lifetime_policy_id', type=str, help='key: id of tokenLifetimePolicy')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy list-activity-based-timeout-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-claim-mapping-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-conditional-access-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-home-realm-discovery-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-permission-grant-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-token-issuance-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy list-token-lifetime-policy') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-activity-based-timeout-policy') as c:
+        c.argument('activity_based_timeout_policy_id', type=str, help='key: id of activityBasedTimeoutPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-claim-mapping-policy') as c:
+        c.argument('claims_mapping_policy_id', type=str, help='key: id of claimsMappingPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-conditional-access-policy') as c:
+        c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-home-realm-discovery-policy') as c:
+        c.argument('home_realm_discovery_policy_id', type=str, help='key: id of homeRealmDiscoveryPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-identity-security-default-enforcement-policy') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-permission-grant-policy') as c:
+        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-token-issuance-policy') as c:
+        c.argument('token_issuance_policy_id', type=str, help='key: id of tokenIssuancePolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy show-token-lifetime-policy') as c:
+        c.argument('token_lifetime_policy_id', type=str, help='key: id of tokenLifetimePolicy')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy update-activity-based-timeout-policy') as c:
         c.argument('activity_based_timeout_policy_id', type=str, help='key: id of activityBasedTimeoutPolicy')
@@ -733,13 +730,13 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy update-claim-mapping-policy') as c:
         c.argument('claims_mapping_policy_id', type=str, help='key: id of claimsMappingPolicy')
@@ -747,13 +744,13 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy update-conditional-access-policy') as c:
         c.argument('conditional_access_policy_id', type=str, help='key: id of conditionalAccessPolicy')
@@ -763,33 +760,32 @@ def load_arguments(self, _):
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('description', type=str, help='')
         c.argument('display_name', type=str, help='Specifies a display name for the conditionalAccessPolicy object.')
-        c.argument('grant_controls', action=AddGrantControls, nargs='*', help='conditionalAccessGrantControls')
+        c.argument('grant_controls', action=AddGrantControls, nargs='+', help='conditionalAccessGrantControls')
         c.argument('modified_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
                    'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
                    '\'2014-01-01T00:00:00Z\'. Readonly.')
         c.argument('state', arg_type=get_enum_type(['enabled', 'disabled', 'enabledForReportingButNotEnforced']),
                    help='')
-        c.argument('session_controls_application_enforced_restrictions',
-                   action=AddSessionControlsApplicationEnforcedRestrictions, nargs='*', help=''
-                   'applicationEnforcedRestrictionsSessionControl')
-        c.argument('session_controls_cloud_app_security', action=AddSessionControlsCloudAppSecurity, nargs='*', help=''
-                   'cloudAppSecuritySessionControl')
-        c.argument('session_controls_persistent_browser', action=AddSessionControlsPersistentBrowser, nargs='*', help=''
-                   'persistentBrowserSessionControl')
-        c.argument('session_controls_sign_in_frequency', action=AddSessionControlsSignInFrequency, nargs='*', help=''
-                   'signInFrequencySessionControl')
-        c.argument('conditions_applications', action=AddConditionsApplications, nargs='*', help=''
-                   'conditionalAccessApplications')
-        c.argument('conditions_client_app_types', nargs='*', help='Client application types included in the policy. '
-                   'Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, '
-                   'other.')
-        c.argument('conditions_locations', action=AddConditionsLocations, nargs='*',
-                   help='conditionalAccessLocations')
-        c.argument('conditions_platforms', action=AddConditionsPlatforms, nargs='*',
-                   help='conditionalAccessPlatforms')
-        c.argument('conditions_sign_in_risk_levels', nargs='*', help='Risk levels included in the policy. Possible '
-                   'values are: low, medium, high, none.')
-        c.argument('conditions_users', action=AddConditionsUsers, nargs='*', help='conditionalAccessUsers')
+        c.argument('application_enforced_restrictions', action=AddApplicationEnforcedRestrictions, nargs='+',
+                   help='applicationEnforcedRestrictionsSessionControl', arg_group='Session Controls')
+        c.argument('cloud_app_security', action=AddCloudAppSecurity, nargs='+', help='cloudAppSecuritySessionControl',
+                   arg_group='Session Controls')
+        c.argument('persistent_browser', action=AddPersistentBrowser, nargs='+',
+                   help='persistentBrowserSessionControl', arg_group='Session Controls')
+        c.argument('sign_in_frequency', action=AddSignInFrequency, nargs='+', help='signInFrequencySessionControl',
+                   arg_group='Session Controls')
+        c.argument('applications', action=AddApplications, nargs='+', help='conditionalAccessApplications',
+                   arg_group='Conditions')
+        c.argument('client_app_types', nargs='+', help='Client application types included in the policy. Possible '
+                   'values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other.',
+                   arg_group='Conditions')
+        c.argument('locations', action=AddLocations, nargs='+', help='conditionalAccessLocations',
+                   arg_group='Conditions')
+        c.argument('platforms', action=AddPlatforms, nargs='+', help='conditionalAccessPlatforms',
+                   arg_group='Conditions')
+        c.argument('sign_in_risk_levels', nargs='+', help='Risk levels included in the policy. Possible values are: '
+                   'low, medium, high, none.', arg_group='Conditions')
+        c.argument('users', action=AddUsers, nargs='+', help='conditionalAccessUsers', arg_group='Conditions')
 
     with self.argument_context('identitysignins policy update-home-realm-discovery-policy') as c:
         c.argument('home_realm_discovery_policy_id', type=str, help='key: id of homeRealmDiscoveryPolicy')
@@ -797,13 +793,13 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy update-identity-security-default-enforcement-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -819,8 +815,8 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('excludes', action=AddExcludes, nargs='*', help='')
-        c.argument('includes', action=AddIncludes, nargs='*', help='')
+        c.argument('excludes', action=AddExcludes, nargs='+', help='')
+        c.argument('includes', action=AddIncludes, nargs='+', help='')
 
     with self.argument_context('identitysignins policy update-token-issuance-policy') as c:
         c.argument('token_issuance_policy_id', type=str, help='key: id of tokenIssuancePolicy')
@@ -828,13 +824,13 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy update-token-lifetime-policy') as c:
         c.argument('token_lifetime_policy_id', type=str, help='key: id of tokenLifetimePolicy')
@@ -842,13 +838,13 @@ def load_arguments(self, _):
         c.argument('deleted_date_time', help='')
         c.argument('description', type=str, help='Description for this policy.')
         c.argument('display_name', type=str, help='Display name for this policy.')
-        c.argument('definition', nargs='*', help='A string collection containing a JSON string that defines the rules '
+        c.argument('definition', nargs='+', help='A string collection containing a JSON string that defines the rules '
                    'and settings for a policy. The syntax for the definition differs for each derived policy type. '
                    'Required.')
         c.argument('is_organization_default', arg_type=get_three_state_flag(), help='If set to true, activates this '
                    'policy. There can be many policies for the same policy type, but only one can be activated as the '
                    'organization default. Optional, default value is false.')
-        c.argument('applies_to', action=AddAppliesTo, nargs='*', help='')
+        c.argument('applies_to', action=AddAppliesTo, nargs='+', help='')
 
     with self.argument_context('identitysignins policy-permission-grant-policy delete') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
@@ -858,12 +854,12 @@ def load_arguments(self, _):
     with self.argument_context('identitysignins policy-permission-grant-policy create-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('client_application_ids', nargs='*', help='')
-        c.argument('client_application_publisher_ids', nargs='*', help='')
+        c.argument('client_application_ids', nargs='+', help='')
+        c.argument('client_application_publisher_ids', nargs='+', help='')
         c.argument('client_applications_from_verified_publisher_only', arg_type=get_three_state_flag(), help='')
-        c.argument('client_application_tenant_ids', nargs='*', help='')
+        c.argument('client_application_tenant_ids', nargs='+', help='')
         c.argument('permission_classification', type=str, help='')
-        c.argument('permissions', nargs='*', help='')
+        c.argument('permissions', nargs='+', help='')
         c.argument('permission_type', arg_type=get_enum_type(['application', 'delegated', 'delegatedUserConsentable']),
                    help='')
         c.argument('resource_application', type=str, help='')
@@ -871,50 +867,50 @@ def load_arguments(self, _):
     with self.argument_context('identitysignins policy-permission-grant-policy create-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('client_application_ids', nargs='*', help='')
-        c.argument('client_application_publisher_ids', nargs='*', help='')
+        c.argument('client_application_ids', nargs='+', help='')
+        c.argument('client_application_publisher_ids', nargs='+', help='')
         c.argument('client_applications_from_verified_publisher_only', arg_type=get_three_state_flag(), help='')
-        c.argument('client_application_tenant_ids', nargs='*', help='')
+        c.argument('client_application_tenant_ids', nargs='+', help='')
         c.argument('permission_classification', type=str, help='')
-        c.argument('permissions', nargs='*', help='')
+        c.argument('permissions', nargs='+', help='')
         c.argument('permission_type', arg_type=get_enum_type(['application', 'delegated', 'delegatedUserConsentable']),
                    help='')
         c.argument('resource_application', type=str, help='')
 
-    with self.argument_context('identitysignins policy-permission-grant-policy get-exclude') as c:
-        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
-        c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
-    with self.argument_context('identitysignins policy-permission-grant-policy get-include') as c:
-        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
-        c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('identitysignins policy-permission-grant-policy list-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy-permission-grant-policy list-include') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy-permission-grant-policy show-exclude') as c:
+        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
+        c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('identitysignins policy-permission-grant-policy show-include') as c:
+        c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
+        c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('identitysignins policy-permission-grant-policy update-exclude') as c:
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('client_application_ids', nargs='*', help='')
-        c.argument('client_application_publisher_ids', nargs='*', help='')
+        c.argument('client_application_ids', nargs='+', help='')
+        c.argument('client_application_publisher_ids', nargs='+', help='')
         c.argument('client_applications_from_verified_publisher_only', arg_type=get_three_state_flag(), help='')
-        c.argument('client_application_tenant_ids', nargs='*', help='')
+        c.argument('client_application_tenant_ids', nargs='+', help='')
         c.argument('permission_classification', type=str, help='')
-        c.argument('permissions', nargs='*', help='')
+        c.argument('permissions', nargs='+', help='')
         c.argument('permission_type', arg_type=get_enum_type(['application', 'delegated', 'delegatedUserConsentable']),
                    help='')
         c.argument('resource_application', type=str, help='')
@@ -923,12 +919,12 @@ def load_arguments(self, _):
         c.argument('permission_grant_policy_id', type=str, help='key: id of permissionGrantPolicy')
         c.argument('permission_grant_condition_set_id', type=str, help='key: id of permissionGrantConditionSet')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('client_application_ids', nargs='*', help='')
-        c.argument('client_application_publisher_ids', nargs='*', help='')
+        c.argument('client_application_ids', nargs='+', help='')
+        c.argument('client_application_publisher_ids', nargs='+', help='')
         c.argument('client_applications_from_verified_publisher_only', arg_type=get_three_state_flag(), help='')
-        c.argument('client_application_tenant_ids', nargs='*', help='')
+        c.argument('client_application_tenant_ids', nargs='+', help='')
         c.argument('permission_classification', type=str, help='')
-        c.argument('permissions', nargs='*', help='')
+        c.argument('permissions', nargs='+', help='')
         c.argument('permission_type', arg_type=get_enum_type(['application', 'delegated', 'delegatedUserConsentable']),
                    help='')
         c.argument('resource_application', type=str, help='')

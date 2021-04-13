@@ -32,15 +32,6 @@ def schemaextensions_schema_extension_schema_extension_create_schema_extension(c
                                           target_types=target_types)
 
 
-def schemaextensions_schema_extension_schema_extension_get_schema_extension(client,
-                                                                            schema_extension_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_schema_extension(schema_extension_id=schema_extension_id,
-                                       select=select,
-                                       expand=expand)
-
-
 def schemaextensions_schema_extension_schema_extension_list_schema_extension(client,
                                                                              orderby=None,
                                                                              select=None,
@@ -48,6 +39,15 @@ def schemaextensions_schema_extension_schema_extension_list_schema_extension(cli
     return client.list_schema_extension(orderby=orderby,
                                         select=select,
                                         expand=expand)
+
+
+def schemaextensions_schema_extension_schema_extension_show_schema_extension(client,
+                                                                             schema_extension_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_schema_extension(schema_extension_id=schema_extension_id,
+                                       select=select,
+                                       expand=expand)
 
 
 def schemaextensions_schema_extension_schema_extension_update_schema_extension(client,

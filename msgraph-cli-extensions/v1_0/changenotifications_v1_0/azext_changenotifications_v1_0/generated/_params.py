@@ -57,15 +57,15 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('changenotifications subscription-subscription get-subscription') as c:
-        c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
-
     with self.argument_context('changenotifications subscription-subscription list-subscription') as c:
-        c.argument('orderby', nargs='*', help='Order items by property values')
-        c.argument('select', nargs='*', help='Select properties to be returned')
-        c.argument('expand', nargs='*', help='Expand related entities')
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('changenotifications subscription-subscription show-subscription') as c:
+        c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('changenotifications subscription-subscription update-subscription') as c:
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')

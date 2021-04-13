@@ -14,17 +14,18 @@ from knack.help_files import helps
 
 helps['mail user'] = """
     type: group
-    short-summary: mail user
+    short-summary: Manage user with mail_beta
 """
 
 helps['mail user delete'] = """
     type: command
-    short-summary: "Delete navigation property inferenceClassification for users"
+    short-summary: "Delete navigation property mailFolders for users And Delete navigation property messages for users \
+And Delete navigation property inferenceClassification for users."
 """
 
-helps['mail user create-folder'] = """
+helps['mail user create-mail-folder'] = """
     type: command
-    short-summary: "Create new navigation property to mailFolders for users"
+    short-summary: "Create new navigation property to mailFolders for users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the mailFolder. Read-only. \
@@ -57,32 +58,14 @@ Nullable."
 
 helps['mail user create-message'] = """
     type: command
-    short-summary: "Create new navigation property to messages for users"
+    short-summary: "Create new navigation property to messages for users."
     parameters:
-      - name: --bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --bcc-recipients argument.
       - name: --body
         short-summary: "itemBody"
         long-summary: |
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --cc-recipients argument.
       - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
@@ -94,24 +77,6 @@ headers that hold app data for the message.  Returned only on applying a $select
             value: The value in a key-value pair.
 
             Multiple actions can be specified by using more than one --internet-message-headers argument.
-      - name: --reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --reply-to argument.
-      - name: --to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
       - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
@@ -158,28 +123,42 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --flag-completed-date-time
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+            Usage: --completed-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-due-date-time
+      - name: --due-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-due-date-time date-time=XX time-zone=XX
+            Usage: --due-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-start-date-time
+      - name: --start-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-start-date-time date-time=XX time-zone=XX
+            Usage: --start-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
@@ -187,44 +166,49 @@ values.
 values.
 """
 
-helps['mail user get-folder'] = """
+helps['mail user list-mail-folder'] = """
     type: command
-    short-summary: "Get mailFolders from users"
-"""
-
-helps['mail user get-inference-classification'] = """
-    type: command
-    short-summary: "Get inferenceClassification from users"
-"""
-
-helps['mail user get-message'] = """
-    type: command
-    short-summary: "Get messages from users"
-"""
-
-helps['mail user get-message-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property messages from users"
-"""
-
-helps['mail user list-folder'] = """
-    type: command
-    short-summary: "Get mailFolders from users"
+    short-summary: "Get mailFolders from users."
 """
 
 helps['mail user list-message'] = """
     type: command
-    short-summary: "Get messages from users"
+    short-summary: "Get messages from users."
 """
 
 helps['mail user set-message-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property messages in users"
+    short-summary: "Update media content for the navigation property messages in users."
 """
 
-helps['mail user update-folder'] = """
+helps['mail user show-inference-classification'] = """
     type: command
-    short-summary: "Update the navigation property mailFolders in users"
+    short-summary: "Get inferenceClassification from users."
+"""
+
+helps['mail user show-mail-folder'] = """
+    type: command
+    short-summary: "Get mailFolders from users."
+"""
+
+helps['mail user show-message'] = """
+    type: command
+    short-summary: "Get messages from users."
+"""
+
+helps['mail user show-message-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property messages from users."
+"""
+
+helps['mail user update-inference-classification'] = """
+    type: command
+    short-summary: "Update the navigation property inferenceClassification in users."
+"""
+
+helps['mail user update-mail-folder'] = """
+    type: command
+    short-summary: "Update the navigation property mailFolders in users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the mailFolder. Read-only. \
@@ -255,51 +239,16 @@ Nullable."
             Multiple actions can be specified by using more than one --user-configurations argument.
 """
 
-helps['mail user update-inference-classification'] = """
-    type: command
-    short-summary: "Update the navigation property inferenceClassification in users"
-    parameters:
-      - name: --overrides
-        short-summary: "A set of overrides for a user to always classify messages from specific senders in certain \
-ways: focused, or other. Read-only. Nullable."
-        long-summary: |
-            Usage: --overrides classify-as=XX address=XX name=XX id=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --overrides argument.
-"""
-
 helps['mail user update-message'] = """
     type: command
-    short-summary: "Update the navigation property messages in users"
+    short-summary: "Update the navigation property messages in users."
     parameters:
-      - name: --bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --bcc-recipients argument.
       - name: --body
         short-summary: "itemBody"
         long-summary: |
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --cc-recipients argument.
       - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
@@ -311,24 +260,6 @@ headers that hold app data for the message.  Returned only on applying a $select
             value: The value in a key-value pair.
 
             Multiple actions can be specified by using more than one --internet-message-headers argument.
-      - name: --reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --reply-to argument.
-      - name: --to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
       - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
@@ -375,28 +306,42 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --flag-completed-date-time
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+            Usage: --completed-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-due-date-time
+      - name: --due-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-due-date-time date-time=XX time-zone=XX
+            Usage: --due-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-start-date-time
+      - name: --start-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-start-date-time date-time=XX time-zone=XX
+            Usage: --start-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
@@ -406,47 +351,66 @@ values.
 
 helps['mail user-inference-classification'] = """
     type: group
-    short-summary: mail user-inference-classification
+    short-summary: Manage user inference classification with mail_beta
 """
 
 helps['mail user-inference-classification delete'] = """
     type: command
-    short-summary: "Delete navigation property overrides for users"
+    short-summary: "Delete navigation property overrides for users."
 """
 
 helps['mail user-inference-classification create-override'] = """
     type: command
-    short-summary: "Create new navigation property to overrides for users"
-"""
+    short-summary: "Create new navigation property to overrides for users."
+    parameters:
+      - name: --sender-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --sender-email-address address=XX name=XX
 
-helps['mail user-inference-classification get-override'] = """
-    type: command
-    short-summary: "Get overrides from users"
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
 """
 
 helps['mail user-inference-classification list-override'] = """
     type: command
-    short-summary: "Get overrides from users"
+    short-summary: "Get overrides from users."
+"""
+
+helps['mail user-inference-classification show-override'] = """
+    type: command
+    short-summary: "Get overrides from users."
 """
 
 helps['mail user-inference-classification update-override'] = """
     type: command
-    short-summary: "Update the navigation property overrides in users"
+    short-summary: "Update the navigation property overrides in users."
+    parameters:
+      - name: --sender-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --sender-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
 """
 
 helps['mail user-mail-folder'] = """
     type: group
-    short-summary: mail user-mail-folder
+    short-summary: Manage user mail folder with mail_beta
 """
 
 helps['mail user-mail-folder delete'] = """
     type: command
-    short-summary: "Delete navigation property userConfigurations for users"
+    short-summary: "Delete navigation property childFolders for users And Delete navigation property messageRules for \
+users And Delete navigation property messages for users And Delete navigation property multiValueExtendedProperties \
+for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
+userConfigurations for users."
 """
 
 helps['mail user-mail-folder create-child-folder'] = """
     type: command
-    short-summary: "Create new navigation property to childFolders for users"
+    short-summary: "Create new navigation property to childFolders for users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the mailFolder. Read-only. \
@@ -479,32 +443,14 @@ Nullable."
 
 helps['mail user-mail-folder create-message'] = """
     type: command
-    short-summary: "Create new navigation property to messages for users"
+    short-summary: "Create new navigation property to messages for users."
     parameters:
-      - name: --bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --bcc-recipients argument.
       - name: --body
         short-summary: "itemBody"
         long-summary: |
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --cc-recipients argument.
       - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
@@ -516,24 +462,6 @@ headers that hold app data for the message.  Returned only on applying a $select
             value: The value in a key-value pair.
 
             Multiple actions can be specified by using more than one --internet-message-headers argument.
-      - name: --reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --reply-to argument.
-      - name: --to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
       - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
@@ -580,28 +508,42 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --flag-completed-date-time
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+            Usage: --completed-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-due-date-time
+      - name: --due-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-due-date-time date-time=XX time-zone=XX
+            Usage: --due-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-start-date-time
+      - name: --start-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-start-date-time date-time=XX time-zone=XX
+            Usage: --start-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
@@ -611,184 +553,116 @@ values.
 
 helps['mail user-mail-folder create-message-rule'] = """
     type: command
-    short-summary: "Create new navigation property to messageRules for users"
+    short-summary: "Create new navigation property to messageRules for users."
     parameters:
-      - name: --exceptions-from-addresses
-        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
-condition or exception to apply."
-        long-summary: |
-            Usage: --exceptions-from-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --exceptions-from-addresses argument.
-      - name: --exceptions-sent-to-addresses
-        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
-the condition or exception to apply."
-        long-summary: |
-            Usage: --exceptions-sent-to-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --exceptions-sent-to-addresses argument.
-      - name: --exceptions-within-size-range
+      - name: --within-size-range
         short-summary: "sizeRange"
         long-summary: |
-            Usage: --exceptions-within-size-range maximum-size=XX minimum-size=XX
+            Usage: --within-size-range maximum-size=XX minimum-size=XX
 
             maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
             minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
-      - name: --conditions-from-addresses
-        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
-condition or exception to apply."
-        long-summary: |
-            Usage: --conditions-from-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --conditions-from-addresses argument.
-      - name: --conditions-sent-to-addresses
-        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
-the condition or exception to apply."
-        long-summary: |
-            Usage: --conditions-sent-to-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --conditions-sent-to-addresses argument.
-      - name: --conditions-within-size-range
+      - name: --microsoft-graph-size-range-within-size-range
         short-summary: "sizeRange"
         long-summary: |
-            Usage: --conditions-within-size-range maximum-size=XX minimum-size=XX
+            Usage: --microsoft-graph-size-range-within-size-range maximum-size=XX minimum-size=XX
 
             maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
             minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
-      - name: --actions-forward-as-attachment-to
-        short-summary: "The email addresses of the recipients to which a message should be forwarded as an \
-attachment."
-        long-summary: |
-            Usage: --actions-forward-as-attachment-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-forward-as-attachment-to argument.
-      - name: --actions-forward-to
-        short-summary: "The email addresses of the recipients to which a message should be forwarded."
-        long-summary: |
-            Usage: --actions-forward-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-forward-to argument.
-      - name: --actions-redirect-to
-        short-summary: "The email addresses to which a message should be redirected."
-        long-summary: |
-            Usage: --actions-redirect-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-redirect-to argument.
 """
 
 helps['mail user-mail-folder create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder create-user-configuration'] = """
     type: command
-    short-summary: "Create new navigation property to userConfigurations for users"
-"""
-
-helps['mail user-mail-folder get-child-folder'] = """
-    type: command
-    short-summary: "Get childFolders from users"
-"""
-
-helps['mail user-mail-folder get-message'] = """
-    type: command
-    short-summary: "Get messages from users"
-"""
-
-helps['mail user-mail-folder get-message-content'] = """
-    type: command
-    short-summary: "Get media content for the navigation property messages from users"
-"""
-
-helps['mail user-mail-folder get-message-rule'] = """
-    type: command
-    short-summary: "Get messageRules from users"
-"""
-
-helps['mail user-mail-folder get-multi-value-extended-property'] = """
-    type: command
-    short-summary: "Get multiValueExtendedProperties from users"
-"""
-
-helps['mail user-mail-folder get-single-value-extended-property'] = """
-    type: command
-    short-summary: "Get singleValueExtendedProperties from users"
-"""
-
-helps['mail user-mail-folder get-user-configuration'] = """
-    type: command
-    short-summary: "Get userConfigurations from users"
+    short-summary: "Create new navigation property to userConfigurations for users."
 """
 
 helps['mail user-mail-folder list-child-folder'] = """
     type: command
-    short-summary: "Get childFolders from users"
+    short-summary: "Get childFolders from users."
 """
 
 helps['mail user-mail-folder list-message'] = """
     type: command
-    short-summary: "Get messages from users"
+    short-summary: "Get messages from users."
 """
 
 helps['mail user-mail-folder list-message-rule'] = """
     type: command
-    short-summary: "Get messageRules from users"
+    short-summary: "Get messageRules from users."
 """
 
 helps['mail user-mail-folder list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['mail user-mail-folder list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['mail user-mail-folder list-user-configuration'] = """
     type: command
-    short-summary: "Get userConfigurations from users"
+    short-summary: "Get userConfigurations from users."
 """
 
 helps['mail user-mail-folder set-message-content'] = """
     type: command
-    short-summary: "Update media content for the navigation property messages in users"
+    short-summary: "Update media content for the navigation property messages in users."
+"""
+
+helps['mail user-mail-folder show-child-folder'] = """
+    type: command
+    short-summary: "Get childFolders from users."
+"""
+
+helps['mail user-mail-folder show-message'] = """
+    type: command
+    short-summary: "Get messages from users."
+"""
+
+helps['mail user-mail-folder show-message-content'] = """
+    type: command
+    short-summary: "Get media content for the navigation property messages from users."
+"""
+
+helps['mail user-mail-folder show-message-rule'] = """
+    type: command
+    short-summary: "Get messageRules from users."
+"""
+
+helps['mail user-mail-folder show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['mail user-mail-folder show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['mail user-mail-folder show-user-configuration'] = """
+    type: command
+    short-summary: "Get userConfigurations from users."
 """
 
 helps['mail user-mail-folder update-child-folder'] = """
     type: command
-    short-summary: "Update the navigation property childFolders in users"
+    short-summary: "Update the navigation property childFolders in users."
     parameters:
       - name: --multi-value-extended-properties
         short-summary: "The collection of multi-value extended properties defined for the mailFolder. Read-only. \
@@ -821,32 +695,14 @@ Nullable."
 
 helps['mail user-mail-folder update-message'] = """
     type: command
-    short-summary: "Update the navigation property messages in users"
+    short-summary: "Update the navigation property messages in users."
     parameters:
-      - name: --bcc-recipients
-        short-summary: "The Bcc: recipients for the message."
-        long-summary: |
-            Usage: --bcc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --bcc-recipients argument.
       - name: --body
         short-summary: "itemBody"
         long-summary: |
             Usage: --body content=XX content-type=XX
 
             content: The content of the item.
-      - name: --cc-recipients
-        short-summary: "The Cc: recipients for the message."
-        long-summary: |
-            Usage: --cc-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --cc-recipients argument.
       - name: --internet-message-headers
         short-summary: "A collection of message headers defined by RFC5322. The set includes message headers \
 indicating the network path taken by a message from the sender to the recipient. It can also contain custom message \
@@ -858,24 +714,6 @@ headers that hold app data for the message.  Returned only on applying a $select
             value: The value in a key-value pair.
 
             Multiple actions can be specified by using more than one --internet-message-headers argument.
-      - name: --reply-to
-        short-summary: "The email addresses to use when replying."
-        long-summary: |
-            Usage: --reply-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --reply-to argument.
-      - name: --to-recipients
-        short-summary: "The To: recipients for the message."
-        long-summary: |
-            Usage: --to-recipients address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --to-recipients argument.
       - name: --unique-body
         short-summary: "itemBody"
         long-summary: |
@@ -922,28 +760,42 @@ is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like 
             id: Read-only.
 
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --flag-completed-date-time
+      - name: --email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --microsoft-graph-email-address
+        short-summary: "emailAddress"
+        long-summary: |
+            Usage: --microsoft-graph-email-address address=XX name=XX
+
+            address: The email address of the person or entity.
+            name: The display name of the person or entity.
+      - name: --completed-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-completed-date-time date-time=XX time-zone=XX
+            Usage: --completed-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-due-date-time
+      - name: --due-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-due-date-time date-time=XX time-zone=XX
+            Usage: --due-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
             time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
 values.
-      - name: --flag-start-date-time
+      - name: --start-date-time
         short-summary: "dateTimeTimeZone"
         long-summary: |
-            Usage: --flag-start-date-time date-time=XX time-zone=XX
+            Usage: --start-date-time date-time=XX time-zone=XX
 
             date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
 2017-08-29T04:00:00.0000000).
@@ -953,134 +805,68 @@ values.
 
 helps['mail user-mail-folder update-message-rule'] = """
     type: command
-    short-summary: "Update the navigation property messageRules in users"
+    short-summary: "Update the navigation property messageRules in users."
     parameters:
-      - name: --exceptions-from-addresses
-        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
-condition or exception to apply."
-        long-summary: |
-            Usage: --exceptions-from-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --exceptions-from-addresses argument.
-      - name: --exceptions-sent-to-addresses
-        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
-the condition or exception to apply."
-        long-summary: |
-            Usage: --exceptions-sent-to-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --exceptions-sent-to-addresses argument.
-      - name: --exceptions-within-size-range
+      - name: --within-size-range
         short-summary: "sizeRange"
         long-summary: |
-            Usage: --exceptions-within-size-range maximum-size=XX minimum-size=XX
+            Usage: --within-size-range maximum-size=XX minimum-size=XX
 
             maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
             minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
-      - name: --conditions-from-addresses
-        short-summary: "Represents the specific sender email addresses of an incoming message in order for the \
-condition or exception to apply."
-        long-summary: |
-            Usage: --conditions-from-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --conditions-from-addresses argument.
-      - name: --conditions-sent-to-addresses
-        short-summary: "Represents the email addresses that an incoming message must have been sent to in order for \
-the condition or exception to apply."
-        long-summary: |
-            Usage: --conditions-sent-to-addresses address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --conditions-sent-to-addresses argument.
-      - name: --conditions-within-size-range
+      - name: --microsoft-graph-size-range-within-size-range
         short-summary: "sizeRange"
         long-summary: |
-            Usage: --conditions-within-size-range maximum-size=XX minimum-size=XX
+            Usage: --microsoft-graph-size-range-within-size-range maximum-size=XX minimum-size=XX
 
             maximum-size: The maximum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
             minimum-size: The minimum size (in kilobytes) that an incoming message must have in order for a condition \
 or exception to apply.
-      - name: --actions-forward-as-attachment-to
-        short-summary: "The email addresses of the recipients to which a message should be forwarded as an \
-attachment."
-        long-summary: |
-            Usage: --actions-forward-as-attachment-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-forward-as-attachment-to argument.
-      - name: --actions-forward-to
-        short-summary: "The email addresses of the recipients to which a message should be forwarded."
-        long-summary: |
-            Usage: --actions-forward-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-forward-to argument.
-      - name: --actions-redirect-to
-        short-summary: "The email addresses to which a message should be redirected."
-        long-summary: |
-            Usage: --actions-redirect-to address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-
-            Multiple actions can be specified by using more than one --actions-redirect-to argument.
 """
 
 helps['mail user-mail-folder update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['mail user-mail-folder update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
 helps['mail user-mail-folder update-user-configuration'] = """
     type: command
-    short-summary: "Update the navigation property userConfigurations in users"
+    short-summary: "Update the navigation property userConfigurations in users."
 """
 
 helps['mail user-mail-folder-message'] = """
     type: group
-    short-summary: mail user-mail-folder-message
+    short-summary: Manage user mail folder message with mail_beta
 """
 
 helps['mail user-mail-folder-message delete'] = """
     type: command
-    short-summary: "Delete navigation property singleValueExtendedProperties for users"
+    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
+users And Delete navigation property mentions for users And Delete navigation property multiValueExtendedProperties \
+for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder-message create-attachment'] = """
     type: command
-    short-summary: "Create new navigation property to attachments for users"
+    short-summary: "Create new navigation property to attachments for users."
 """
 
 helps['mail user-mail-folder-message create-extension'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Create new navigation property to extensions for users."
 """
 
 helps['mail user-mail-folder-message create-mention'] = """
     type: command
-    short-summary: "Create new navigation property to mentions for users"
+    short-summary: "Create new navigation property to mentions for users."
     parameters:
       - name: --created-by
         short-summary: "emailAddress"
@@ -1100,77 +886,77 @@ helps['mail user-mail-folder-message create-mention'] = """
 
 helps['mail user-mail-folder-message create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder-message create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
-"""
-
-helps['mail user-mail-folder-message get-attachment'] = """
-    type: command
-    short-summary: "Get attachments from users"
-"""
-
-helps['mail user-mail-folder-message get-extension'] = """
-    type: command
-    short-summary: "Get extensions from users"
-"""
-
-helps['mail user-mail-folder-message get-mention'] = """
-    type: command
-    short-summary: "Get mentions from users"
-"""
-
-helps['mail user-mail-folder-message get-multi-value-extended-property'] = """
-    type: command
-    short-summary: "Get multiValueExtendedProperties from users"
-"""
-
-helps['mail user-mail-folder-message get-single-value-extended-property'] = """
-    type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
 helps['mail user-mail-folder-message list-attachment'] = """
     type: command
-    short-summary: "Get attachments from users"
+    short-summary: "Get attachments from users."
 """
 
 helps['mail user-mail-folder-message list-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get extensions from users."
 """
 
 helps['mail user-mail-folder-message list-mention'] = """
     type: command
-    short-summary: "Get mentions from users"
+    short-summary: "Get mentions from users."
 """
 
 helps['mail user-mail-folder-message list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['mail user-mail-folder-message list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['mail user-mail-folder-message show-attachment'] = """
+    type: command
+    short-summary: "Get attachments from users."
+"""
+
+helps['mail user-mail-folder-message show-extension'] = """
+    type: command
+    short-summary: "Get extensions from users."
+"""
+
+helps['mail user-mail-folder-message show-mention'] = """
+    type: command
+    short-summary: "Get mentions from users."
+"""
+
+helps['mail user-mail-folder-message show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['mail user-mail-folder-message show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['mail user-mail-folder-message update-attachment'] = """
     type: command
-    short-summary: "Update the navigation property attachments in users"
+    short-summary: "Update the navigation property attachments in users."
 """
 
 helps['mail user-mail-folder-message update-extension'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Update the navigation property extensions in users."
 """
 
 helps['mail user-mail-folder-message update-mention'] = """
     type: command
-    short-summary: "Update the navigation property mentions in users"
+    short-summary: "Update the navigation property mentions in users."
     parameters:
       - name: --created-by
         short-summary: "emailAddress"
@@ -1190,37 +976,39 @@ helps['mail user-mail-folder-message update-mention'] = """
 
 helps['mail user-mail-folder-message update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['mail user-mail-folder-message update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
 helps['mail user-message'] = """
     type: group
-    short-summary: mail user-message
+    short-summary: Manage user message with mail_beta
 """
 
 helps['mail user-message delete'] = """
     type: command
-    short-summary: "Delete navigation property singleValueExtendedProperties for users"
+    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
+users And Delete navigation property mentions for users And Delete navigation property multiValueExtendedProperties \
+for users And Delete navigation property singleValueExtendedProperties for users."
 """
 
 helps['mail user-message create-attachment'] = """
     type: command
-    short-summary: "Create new navigation property to attachments for users"
+    short-summary: "Create new navigation property to attachments for users."
 """
 
 helps['mail user-message create-extension'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Create new navigation property to extensions for users."
 """
 
 helps['mail user-message create-mention'] = """
     type: command
-    short-summary: "Create new navigation property to mentions for users"
+    short-summary: "Create new navigation property to mentions for users."
     parameters:
       - name: --created-by
         short-summary: "emailAddress"
@@ -1240,77 +1028,77 @@ helps['mail user-message create-mention'] = """
 
 helps['mail user-message create-multi-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to multiValueExtendedProperties for users"
+    short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
 helps['mail user-message create-single-value-extended-property'] = """
     type: command
-    short-summary: "Create new navigation property to singleValueExtendedProperties for users"
-"""
-
-helps['mail user-message get-attachment'] = """
-    type: command
-    short-summary: "Get attachments from users"
-"""
-
-helps['mail user-message get-extension'] = """
-    type: command
-    short-summary: "Get extensions from users"
-"""
-
-helps['mail user-message get-mention'] = """
-    type: command
-    short-summary: "Get mentions from users"
-"""
-
-helps['mail user-message get-multi-value-extended-property'] = """
-    type: command
-    short-summary: "Get multiValueExtendedProperties from users"
-"""
-
-helps['mail user-message get-single-value-extended-property'] = """
-    type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
 helps['mail user-message list-attachment'] = """
     type: command
-    short-summary: "Get attachments from users"
+    short-summary: "Get attachments from users."
 """
 
 helps['mail user-message list-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get extensions from users."
 """
 
 helps['mail user-message list-mention'] = """
     type: command
-    short-summary: "Get mentions from users"
+    short-summary: "Get mentions from users."
 """
 
 helps['mail user-message list-multi-value-extended-property'] = """
     type: command
-    short-summary: "Get multiValueExtendedProperties from users"
+    short-summary: "Get multiValueExtendedProperties from users."
 """
 
 helps['mail user-message list-single-value-extended-property'] = """
     type: command
-    short-summary: "Get singleValueExtendedProperties from users"
+    short-summary: "Get singleValueExtendedProperties from users."
+"""
+
+helps['mail user-message show-attachment'] = """
+    type: command
+    short-summary: "Get attachments from users."
+"""
+
+helps['mail user-message show-extension'] = """
+    type: command
+    short-summary: "Get extensions from users."
+"""
+
+helps['mail user-message show-mention'] = """
+    type: command
+    short-summary: "Get mentions from users."
+"""
+
+helps['mail user-message show-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Get multiValueExtendedProperties from users."
+"""
+
+helps['mail user-message show-single-value-extended-property'] = """
+    type: command
+    short-summary: "Get singleValueExtendedProperties from users."
 """
 
 helps['mail user-message update-attachment'] = """
     type: command
-    short-summary: "Update the navigation property attachments in users"
+    short-summary: "Update the navigation property attachments in users."
 """
 
 helps['mail user-message update-extension'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Update the navigation property extensions in users."
 """
 
 helps['mail user-message update-mention'] = """
     type: command
-    short-summary: "Update the navigation property mentions in users"
+    short-summary: "Update the navigation property mentions in users."
     parameters:
       - name: --created-by
         short-summary: "emailAddress"
@@ -1330,10 +1118,10 @@ helps['mail user-message update-mention'] = """
 
 helps['mail user-message update-multi-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property multiValueExtendedProperties in users"
+    short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
 helps['mail user-message update-single-value-extended-property'] = """
     type: command
-    short-summary: "Update the navigation property singleValueExtendedProperties in users"
+    short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """

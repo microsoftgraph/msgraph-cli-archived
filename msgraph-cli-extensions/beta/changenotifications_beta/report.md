@@ -1,20 +1,41 @@
 # Azure CLI Module Creation Report
 
-### changenotifications subscription-subscription create-subscription
-
-create-subscription a changenotifications subscription-subscription.
-
-#### Command group
-|Name (az)|Swagger name|
+## EXTENSION
+|CLI Extension|Command Groups|
 |---------|------------|
-|changenotifications subscription-subscription|subscriptions.subscription|
+|az changenotifications_beta|[groups](#CommandGroups)
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|create-subscription|CreateSubscription|
+## GROUPS
+### <a name="CommandGroups">Command groups in `az changenotifications_beta` extension </a>
+|CLI Command Group|Group Swagger name|Commands|
+|---------|------------|--------|
+|az changenotifications subscription-subscription|subscriptions.subscription|[commands](#CommandsInsubscriptions.subscription)|
 
-#### Parameters
+## COMMANDS
+### <a name="CommandsInsubscriptions.subscription">Commands in `az changenotifications subscription-subscription` group</a>
+|CLI Command|Operation Swagger name|Parameters|Examples|
+|---------|------------|--------|-----------|
+|[az changenotifications subscription-subscription delete](#subscriptions.subscriptionDeleteSubscription)|DeleteSubscription|[Parameters](#Parameterssubscriptions.subscriptionDeleteSubscription)|Not Found|
+|[az changenotifications subscription-subscription create-subscription](#subscriptions.subscriptionCreateSubscription)|CreateSubscription|[Parameters](#Parameterssubscriptions.subscriptionCreateSubscription)|Not Found|
+|[az changenotifications subscription-subscription list-subscription](#subscriptions.subscriptionListSubscription)|ListSubscription|[Parameters](#Parameterssubscriptions.subscriptionListSubscription)|Not Found|
+|[az changenotifications subscription-subscription show-subscription](#subscriptions.subscriptionGetSubscription)|GetSubscription|[Parameters](#Parameterssubscriptions.subscriptionGetSubscription)|Not Found|
+|[az changenotifications subscription-subscription update-subscription](#subscriptions.subscriptionUpdateSubscription)|UpdateSubscription|[Parameters](#Parameterssubscriptions.subscriptionUpdateSubscription)|Not Found|
+
+
+## COMMAND DETAILS
+
+### group `az changenotifications subscription-subscription`
+#### <a name="subscriptions.subscriptionDeleteSubscription">Command `az changenotifications subscription-subscription delete`</a>
+
+##### <a name="Parameterssubscriptions.subscriptionDeleteSubscription">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="subscriptions.subscriptionCreateSubscription">Command `az changenotifications subscription-subscription create-subscription`</a>
+
+##### <a name="Parameterssubscriptions.subscriptionCreateSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--id**|string|Read-only.|id|id|
@@ -32,83 +53,27 @@ create-subscription a changenotifications subscription-subscription.
 |**--notification-url**|string|Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.|notification_url|notificationUrl|
 |**--resource**|string|Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.|resource|resource|
 
-### changenotifications subscription-subscription delete
+#### <a name="subscriptions.subscriptionListSubscription">Command `az changenotifications subscription-subscription list-subscription`</a>
 
-delete a changenotifications subscription-subscription.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|changenotifications subscription-subscription|subscriptions.subscription|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|delete|DeleteSubscription|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-### changenotifications subscription-subscription get-subscription
-
-get-subscription a changenotifications subscription-subscription.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|changenotifications subscription-subscription|subscriptions.subscription|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|get-subscription|GetSubscription|
-
-#### Parameters
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-### changenotifications subscription-subscription list-subscription
-
-list-subscription a changenotifications subscription-subscription.
-
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|changenotifications subscription-subscription|subscriptions.subscription|
-
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|list-subscription|ListSubscription|
-
-#### Parameters
+##### <a name="Parameterssubscriptions.subscriptionListSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-### changenotifications subscription-subscription update-subscription
+#### <a name="subscriptions.subscriptionGetSubscription">Command `az changenotifications subscription-subscription show-subscription`</a>
 
-update-subscription a changenotifications subscription-subscription.
+##### <a name="Parameterssubscriptions.subscriptionGetSubscription">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
 
-#### Command group
-|Name (az)|Swagger name|
-|---------|------------|
-|changenotifications subscription-subscription|subscriptions.subscription|
+#### <a name="subscriptions.subscriptionUpdateSubscription">Command `az changenotifications subscription-subscription update-subscription`</a>
 
-#### Methods
-|Name (az)|Swagger name|
-|---------|------------|
-|update-subscription|UpdateSubscription|
-
-#### Parameters
+##### <a name="Parameterssubscriptions.subscriptionUpdateSubscription">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--subscription-id**|string|key: id of subscription|subscription_id|subscription-id|

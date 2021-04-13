@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,7 +65,9 @@ class SecuritySecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphSecurity"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -82,7 +84,6 @@ class SecuritySecurityOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -158,10 +159,12 @@ class SecuritySecurityOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphSecurity(id=id, provider_status=provider_status, alerts=alerts, cloud_app_security_profiles=cloud_app_security_profiles, domain_security_profiles=domain_security_profiles, file_security_profiles=file_security_profiles, host_security_profiles=host_security_profiles, ip_security_profiles=ip_security_profiles, provider_tenant_settings=provider_tenant_settings, secure_score_control_profiles=secure_score_control_profiles, secure_scores=secure_scores, security_actions=security_actions, ti_indicators=ti_indicators, user_security_profiles=user_security_profiles)
+        body = models.MicrosoftGraphSecurity(id=id, provider_status=provider_status, alerts=alerts, cloud_app_security_profiles=cloud_app_security_profiles, domain_security_profiles=domain_security_profiles, file_security_profiles=file_security_profiles, host_security_profiles=host_security_profiles, ip_security_profiles=ip_security_profiles, provider_tenant_settings=provider_tenant_settings, secure_score_control_profiles=secure_score_control_profiles, secure_scores=secure_scores, security_actions=security_actions, ti_indicators=ti_indicators, user_security_profiles=user_security_profiles)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -177,10 +180,9 @@ class SecuritySecurityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphSecurity')
+        body_content = self._serialize.body(body, 'MicrosoftGraphSecurity')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

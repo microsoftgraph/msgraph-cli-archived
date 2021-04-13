@@ -14,17 +14,17 @@ from knack.help_files import helps
 
 helps['users user'] = """
     type: group
-    short-summary: users user
+    short-summary: Manage user user with users_v1_0
 """
 
 helps['users user list'] = """
     type: command
-    short-summary: "Get entities from users"
+    short-summary: "Get entities from users."
 """
 
 helps['users user create'] = """
     type: command
-    short-summary: "Add new entity to users"
+    short-summary: "Update entity in users And Add new entity to users."
     parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
@@ -258,20 +258,6 @@ publishedPermissionScopes property of the resource service principal.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --registered-devices argument.
-      - name: --scoped-role-member-of
-        long-summary: |
-            Usage: --scoped-role-member-of administrative-unit-id=XX role-id=XX display-name=XX \
-id-role-member-info-id=XX id=XX
-
-            administrative-unit-id: Unique identifier for the administrative unit that the directory role is scoped to
-            role-id: Unique identifier for the directory role that the member is in.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id-role-member-info-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --scoped-role-member-of argument.
       - name: --transitive-member-of
         long-summary: |
             Usage: --transitive-member-of deleted-date-time=XX id=XX
@@ -315,71 +301,65 @@ associated with the user won't show up as having changed when using delta.
 
             Multiple actions can be specified by using more than one --device-management-troubleshooting-events \
 argument.
-      - name: --onenote-resources
+      - name: --resources
         short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
 supported, but you can get the binary content of a specific resource. Read-only. Nullable."
         long-summary: |
-            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+            Usage: --resources content=XX content-url=XX self=XX id=XX
 
             content: The content stream
             content-url: The URL for downloading the content
             self: The endpoint where you can get details about the page. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --onenote-resources argument.
-      - name: --settings-shift-preferences-last-modified-by-application
+            Multiple actions can be specified by using more than one --resources argument.
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --settings-shift-preferences-last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --settings-shift-preferences-last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --outlook-master-categories
+      - name: --master-categories
         short-summary: "A list of categories defined for the user."
         long-summary: |
-            Usage: --outlook-master-categories color=XX display-name=XX id=XX
+            Usage: --master-categories color=XX display-name=XX id=XX
 
             display-name: A unique name that identifies a category in the user's mailbox. After a category is created, \
 the name cannot be changed. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --outlook-master-categories argument.
-      - name: --mailbox-settings-language
+            Multiple actions can be specified by using more than one --master-categories argument.
+      - name: --language
         short-summary: "localeInfo"
         long-summary: |
-            Usage: --mailbox-settings-language display-name=XX locale=XX
+            Usage: --language display-name=XX locale=XX
 
             display-name: A name representing the user's locale in natural language, for example, 'English (United \
 States)'.
             locale: A locale representation for the user, which includes the user's preferred language and \
 country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the \
 country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
-"""
-
-helps['users user update'] = """
-    type: command
-    short-summary: "Update entity in users"
-    parameters:
       - name: --assigned-licenses
         short-summary: "The licenses that are assigned to the user. Not nullable."
         long-summary: |
@@ -612,20 +592,6 @@ publishedPermissionScopes property of the resource service principal.
             id: Read-only.
 
             Multiple actions can be specified by using more than one --registered-devices argument.
-      - name: --scoped-role-member-of
-        long-summary: |
-            Usage: --scoped-role-member-of administrative-unit-id=XX role-id=XX display-name=XX \
-id-role-member-info-id=XX id=XX
-
-            administrative-unit-id: Unique identifier for the administrative unit that the directory role is scoped to
-            role-id: Unique identifier for the directory role that the member is in.
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id-role-member-info-id: Unique identifier for the identity.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --scoped-role-member-of argument.
       - name: --transitive-member-of
         long-summary: |
             Usage: --transitive-member-of deleted-date-time=XX id=XX
@@ -669,59 +635,59 @@ associated with the user won't show up as having changed when using delta.
 
             Multiple actions can be specified by using more than one --device-management-troubleshooting-events \
 argument.
-      - name: --onenote-resources
+      - name: --resources
         short-summary: "The image and other file resources in OneNote pages. Getting a resources collection is not \
 supported, but you can get the binary content of a specific resource. Read-only. Nullable."
         long-summary: |
-            Usage: --onenote-resources content=XX content-url=XX self=XX id=XX
+            Usage: --resources content=XX content-url=XX self=XX id=XX
 
             content: The content stream
             content-url: The URL for downloading the content
             self: The endpoint where you can get details about the page. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --onenote-resources argument.
-      - name: --settings-shift-preferences-last-modified-by-application
+            Multiple actions can be specified by using more than one --resources argument.
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --settings-shift-preferences-last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --settings-shift-preferences-last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --settings-shift-preferences-last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --outlook-master-categories
+      - name: --master-categories
         short-summary: "A list of categories defined for the user."
         long-summary: |
-            Usage: --outlook-master-categories color=XX display-name=XX id=XX
+            Usage: --master-categories color=XX display-name=XX id=XX
 
             display-name: A unique name that identifies a category in the user's mailbox. After a category is created, \
 the name cannot be changed. Read-only.
             id: Read-only.
 
-            Multiple actions can be specified by using more than one --outlook-master-categories argument.
-      - name: --mailbox-settings-language
+            Multiple actions can be specified by using more than one --master-categories argument.
+      - name: --language
         short-summary: "localeInfo"
         long-summary: |
-            Usage: --mailbox-settings-language display-name=XX locale=XX
+            Usage: --language display-name=XX locale=XX
 
             display-name: A name representing the user's locale in natural language, for example, 'English (United \
 States)'.
@@ -732,32 +698,35 @@ country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
 
 helps['users user delete'] = """
     type: command
-    short-summary: "Delete entity from users"
+    short-summary: "Delete entity from users."
 """
 
-helps['users user get'] = """
+helps['users user show-user'] = """
     type: command
-    short-summary: "Get entity from users by key"
+    short-summary: "Get entity from users by key."
 """
 
 helps['users user'] = """
     type: group
-    short-summary: users user
+    short-summary: Manage user with users_v1_0
 """
 
 helps['users user delete'] = """
     type: command
-    short-summary: "Delete navigation property settings for users"
+    short-summary: "Delete navigation property extensions for users And Delete navigation property licenseDetails for \
+users And Delete navigation property photos for users And Delete ref of navigation property manager for users And \
+Delete navigation property outlook for users And Delete navigation property photo for users And Delete navigation \
+property settings for users."
 """
 
 helps['users user create-extension'] = """
     type: command
-    short-summary: "Create new navigation property to extensions for users"
+    short-summary: "Create new navigation property to extensions for users."
 """
 
 helps['users user create-license-detail'] = """
     type: command
-    short-summary: "Create new navigation property to licenseDetails for users"
+    short-summary: "Create new navigation property to licenseDetails for users."
     parameters:
       - name: --service-plans
         short-summary: "Information about the service plans assigned with the license. Read-only, Not nullable"
@@ -779,192 +748,192 @@ and it has not been activated in the tenant, yet.
 
 helps['users user create-photo'] = """
     type: command
-    short-summary: "Create new navigation property to photos for users"
+    short-summary: "Create new navigation property to photos for users."
 """
 
 helps['users user create-ref-created-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to createdObjects for users"
+    short-summary: "Create new navigation property ref to createdObjects for users."
 """
 
 helps['users user create-ref-direct-report'] = """
     type: command
-    short-summary: "Create new navigation property ref to directReports for users"
+    short-summary: "Create new navigation property ref to directReports for users."
 """
 
 helps['users user create-ref-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to memberOf for users"
+    short-summary: "Create new navigation property ref to memberOf for users."
 """
 
 helps['users user create-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Create new navigation property ref to oauth2PermissionGrants for users"
+    short-summary: "Create new navigation property ref to oauth2PermissionGrants for users."
 """
 
 helps['users user create-ref-owned-device'] = """
     type: command
-    short-summary: "Create new navigation property ref to ownedDevices for users"
+    short-summary: "Create new navigation property ref to ownedDevices for users."
 """
 
 helps['users user create-ref-owned-object'] = """
     type: command
-    short-summary: "Create new navigation property ref to ownedObjects for users"
+    short-summary: "Create new navigation property ref to ownedObjects for users."
 """
 
 helps['users user create-ref-registered-device'] = """
     type: command
-    short-summary: "Create new navigation property ref to registeredDevices for users"
+    short-summary: "Create new navigation property ref to registeredDevices for users."
 """
 
 helps['users user create-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Create new navigation property ref to transitiveMemberOf for users"
-"""
-
-helps['users user get-extension'] = """
-    type: command
-    short-summary: "Get extensions from users"
-"""
-
-helps['users user get-license-detail'] = """
-    type: command
-    short-summary: "Get licenseDetails from users"
-"""
-
-helps['users user get-manager'] = """
-    type: command
-    short-summary: "Get manager from users"
-"""
-
-helps['users user get-outlook'] = """
-    type: command
-    short-summary: "Get outlook from users"
-"""
-
-helps['users user get-photo'] = """
-    type: command
-    short-summary: "Get photo from users"
-"""
-
-helps['users user get-ref-manager'] = """
-    type: command
-    short-summary: "Get ref of manager from users"
-"""
-
-helps['users user get-setting'] = """
-    type: command
-    short-summary: "Get settings from users"
+    short-summary: "Create new navigation property ref to transitiveMemberOf for users."
 """
 
 helps['users user list-created-object'] = """
     type: command
-    short-summary: "Get createdObjects from users"
+    short-summary: "Get createdObjects from users."
 """
 
 helps['users user list-direct-report'] = """
     type: command
-    short-summary: "Get directReports from users"
+    short-summary: "Get directReports from users."
 """
 
 helps['users user list-extension'] = """
     type: command
-    short-summary: "Get extensions from users"
+    short-summary: "Get extensions from users."
 """
 
 helps['users user list-license-detail'] = """
     type: command
-    short-summary: "Get licenseDetails from users"
+    short-summary: "Get licenseDetails from users."
 """
 
 helps['users user list-member-of'] = """
     type: command
-    short-summary: "Get memberOf from users"
+    short-summary: "Get memberOf from users."
 """
 
 helps['users user list-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get oauth2PermissionGrants from users"
+    short-summary: "Get oauth2PermissionGrants from users."
 """
 
 helps['users user list-owned-device'] = """
     type: command
-    short-summary: "Get ownedDevices from users"
+    short-summary: "Get ownedDevices from users."
 """
 
 helps['users user list-owned-object'] = """
     type: command
-    short-summary: "Get ownedObjects from users"
+    short-summary: "Get ownedObjects from users."
 """
 
 helps['users user list-photo'] = """
     type: command
-    short-summary: "Get photos from users"
+    short-summary: "Get photos from users."
 """
 
 helps['users user list-ref-created-object'] = """
     type: command
-    short-summary: "Get ref of createdObjects from users"
+    short-summary: "Get ref of createdObjects from users."
 """
 
 helps['users user list-ref-direct-report'] = """
     type: command
-    short-summary: "Get ref of directReports from users"
+    short-summary: "Get ref of directReports from users."
 """
 
 helps['users user list-ref-member-of'] = """
     type: command
-    short-summary: "Get ref of memberOf from users"
+    short-summary: "Get ref of memberOf from users."
 """
 
 helps['users user list-ref-oauth2-permission-grant'] = """
     type: command
-    short-summary: "Get ref of oauth2PermissionGrants from users"
+    short-summary: "Get ref of oauth2PermissionGrants from users."
 """
 
 helps['users user list-ref-owned-device'] = """
     type: command
-    short-summary: "Get ref of ownedDevices from users"
+    short-summary: "Get ref of ownedDevices from users."
 """
 
 helps['users user list-ref-owned-object'] = """
     type: command
-    short-summary: "Get ref of ownedObjects from users"
+    short-summary: "Get ref of ownedObjects from users."
 """
 
 helps['users user list-ref-registered-device'] = """
     type: command
-    short-summary: "Get ref of registeredDevices from users"
+    short-summary: "Get ref of registeredDevices from users."
 """
 
 helps['users user list-ref-transitive-member-of'] = """
     type: command
-    short-summary: "Get ref of transitiveMemberOf from users"
+    short-summary: "Get ref of transitiveMemberOf from users."
 """
 
 helps['users user list-registered-device'] = """
     type: command
-    short-summary: "Get registeredDevices from users"
+    short-summary: "Get registeredDevices from users."
 """
 
 helps['users user list-transitive-member-of'] = """
     type: command
-    short-summary: "Get transitiveMemberOf from users"
+    short-summary: "Get transitiveMemberOf from users."
 """
 
 helps['users user set-ref-manager'] = """
     type: command
-    short-summary: "Update the ref of navigation property manager in users"
+    short-summary: "Update the ref of navigation property manager in users."
+"""
+
+helps['users user show-extension'] = """
+    type: command
+    short-summary: "Get extensions from users."
+"""
+
+helps['users user show-license-detail'] = """
+    type: command
+    short-summary: "Get licenseDetails from users."
+"""
+
+helps['users user show-manager'] = """
+    type: command
+    short-summary: "Get manager from users."
+"""
+
+helps['users user show-outlook'] = """
+    type: command
+    short-summary: "Get outlook from users."
+"""
+
+helps['users user show-photo'] = """
+    type: command
+    short-summary: "Get photos from users And Get photo from users."
+"""
+
+helps['users user show-ref-manager'] = """
+    type: command
+    short-summary: "Get ref of manager from users."
+"""
+
+helps['users user show-setting'] = """
+    type: command
+    short-summary: "Get settings from users."
 """
 
 helps['users user update-extension'] = """
     type: command
-    short-summary: "Update the navigation property extensions in users"
+    short-summary: "Update the navigation property extensions in users."
 """
 
 helps['users user update-license-detail'] = """
     type: command
-    short-summary: "Update the navigation property licenseDetails in users"
+    short-summary: "Update the navigation property licenseDetails in users."
     parameters:
       - name: --service-plans
         short-summary: "Information about the service plans assigned with the license. Read-only, Not nullable"
@@ -986,7 +955,7 @@ and it has not been activated in the tenant, yet.
 
 helps['users user update-outlook'] = """
     type: command
-    short-summary: "Update the navigation property outlook in users"
+    short-summary: "Update the navigation property outlook in users."
     parameters:
       - name: --master-categories
         short-summary: "A list of categories defined for the user."
@@ -1002,35 +971,35 @@ the name cannot be changed. Read-only.
 
 helps['users user update-photo'] = """
     type: command
-    short-summary: "Update the navigation property photo in users"
+    short-summary: "Update the navigation property photos in users And Update the navigation property photo in users."
 """
 
 helps['users user update-setting'] = """
     type: command
-    short-summary: "Update the navigation property settings in users"
+    short-summary: "Update the navigation property settings in users."
     parameters:
-      - name: --shift-preferences-last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --shift-preferences-last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --shift-preferences-last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --shift-preferences-last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
@@ -1040,75 +1009,75 @@ associated with the user won't show up as having changed when using delta.
 
 helps['users user-outlook'] = """
     type: group
-    short-summary: users user-outlook
+    short-summary: Manage user outlook with users_v1_0
 """
 
 helps['users user-outlook delete'] = """
     type: command
-    short-summary: "Delete navigation property masterCategories for users"
+    short-summary: "Delete navigation property masterCategories for users."
 """
 
 helps['users user-outlook create-master-category'] = """
     type: command
-    short-summary: "Create new navigation property to masterCategories for users"
-"""
-
-helps['users user-outlook get-master-category'] = """
-    type: command
-    short-summary: "Get masterCategories from users"
+    short-summary: "Create new navigation property to masterCategories for users."
 """
 
 helps['users user-outlook list-master-category'] = """
     type: command
-    short-summary: "Get masterCategories from users"
+    short-summary: "Get masterCategories from users."
+"""
+
+helps['users user-outlook show-master-category'] = """
+    type: command
+    short-summary: "Get masterCategories from users."
 """
 
 helps['users user-outlook update-master-category'] = """
     type: command
-    short-summary: "Update the navigation property masterCategories in users"
+    short-summary: "Update the navigation property masterCategories in users."
 """
 
 helps['users user-setting'] = """
     type: group
-    short-summary: users user-setting
+    short-summary: Manage user setting with users_v1_0
 """
 
 helps['users user-setting delete'] = """
     type: command
-    short-summary: "Delete navigation property shiftPreferences for users"
+    short-summary: "Delete navigation property shiftPreferences for users."
 """
 
-helps['users user-setting get-shift-preference'] = """
+helps['users user-setting show-shift-preference'] = """
     type: command
-    short-summary: "Get shiftPreferences from users"
+    short-summary: "Get shiftPreferences from users."
 """
 
 helps['users user-setting update-shift-preference'] = """
     type: command
-    short-summary: "Update the navigation property shiftPreferences in users"
+    short-summary: "Update the navigation property shiftPreferences in users."
     parameters:
-      - name: --last-modified-by-application
+      - name: --application
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-application display-name=XX id=XX
+            Usage: --application display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-device
+      - name: --device
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-device display-name=XX id=XX
+            Usage: --device display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \
 associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
-      - name: --last-modified-by-user
+      - name: --user
         short-summary: "identity"
         long-summary: |
-            Usage: --last-modified-by-user display-name=XX id=XX
+            Usage: --user display-name=XX id=XX
 
             display-name: The identity's display name. Note that this may not always be available or up to date. For \
 example, if a user changes their display name, the API may show the new value in a future response, but the items \

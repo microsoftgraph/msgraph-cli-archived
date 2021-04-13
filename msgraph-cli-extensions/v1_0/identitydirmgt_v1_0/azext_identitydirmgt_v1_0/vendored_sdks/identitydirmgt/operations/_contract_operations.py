@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
 from azure.mgmt.core.exceptions import ARMErrorFormat
@@ -65,10 +65,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List[str]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema(group_ids=group_ids)
+        body = models.Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema(group_ids=group_ids)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -86,13 +88,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths30M7S8ContractsContractIdMicrosoftGraphCheckmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -130,10 +130,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List[str]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema(ids=ids)
+        body = models.PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema(ids=ids)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -151,13 +153,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'PathsXq94UjContractsContractIdMicrosoftGraphCheckmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -195,10 +195,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List[str]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
+        body = models.Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -216,13 +218,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths9PdmsbContractsContractIdMicrosoftGraphGetmembergroupsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -260,10 +260,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List[str]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
+        body = models.Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema(security_enabled_only=security_enabled_only)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -281,13 +283,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths6Crxp6ContractsContractIdMicrosoftGraphGetmemberobjectsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -322,7 +322,9 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphDirectoryObject"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -339,7 +341,6 @@ class ContractOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.post(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -376,10 +377,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphExtensionProperty"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema(is_synced_from_on_premises=is_synced_from_on_premises)
+        body = models.Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema(is_synced_from_on_premises=is_synced_from_on_premises)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -393,13 +396,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths2Yqm8DContractsMicrosoftGraphGetavailableextensionpropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -437,10 +438,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[List["models.MicrosoftGraphDirectoryObject"]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema(ids=ids, types=types)
+        body = models.Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema(ids=ids, types=types)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -454,13 +457,11 @@ class ContractOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'Paths1T6Lra6ContractsMicrosoftGraphGetbyidsPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -504,10 +505,12 @@ class ContractOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema(entity_type=entity_type, display_name=display_name, mail_nickname=mail_nickname, on_behalf_of_user_id=on_behalf_of_user_id)
+        body = models.PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema(entity_type=entity_type, display_name=display_name, mail_nickname=mail_nickname, on_behalf_of_user_id=on_behalf_of_user_id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -523,10 +526,9 @@ class ContractOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema')
+        body_content = self._serialize.body(body, 'PathsZahmwmContractsMicrosoftGraphValidatepropertiesPostRequestbodyContentApplicationJsonSchema')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 

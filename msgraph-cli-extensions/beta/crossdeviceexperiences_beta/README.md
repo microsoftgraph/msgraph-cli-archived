@@ -1,5 +1,13 @@
-Microsoft Azure CLI 'crossdeviceexperiences_beta' Extension
-==========================================
+# Azure CLI crossdeviceexperiences_beta Extension #
+This is the extension for crossdeviceexperiences_beta
 
-This package is for the 'crossdeviceexperiences_beta' extension.
-i.e. 'az crossdeviceexperiences_beta'
+### How to use ###
+Install this extension using the below CLI command
+```
+az extension add --name crossdeviceexperiences_beta
+```
+
+### Included Features ###
+#### crossdeviceexperiences user ####
+#### crossdeviceexperiences user-activity ####
+#### crossdeviceexperiences user-activity-history-item ####

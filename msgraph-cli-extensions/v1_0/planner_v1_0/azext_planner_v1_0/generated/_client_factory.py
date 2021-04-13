@@ -11,7 +11,7 @@
 
 def cf_planner_v1_0_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.planner import Planner
+    from azext_planner_v1_0.vendored_sdks.planner import Planner
     return get_mgmt_service_client(cli_ctx,
                                    Planner,
                                    subscription_bound=False,

@@ -24,15 +24,6 @@ def directoryobjects_directory_object_directory_object_create_directory_object(c
                                           deleted_date_time=deleted_date_time)
 
 
-def directoryobjects_directory_object_directory_object_get_directory_object(client,
-                                                                            directory_object_id,
-                                                                            select=None,
-                                                                            expand=None):
-    return client.get_directory_object(directory_object_id=directory_object_id,
-                                       select=select,
-                                       expand=expand)
-
-
 def directoryobjects_directory_object_directory_object_list_directory_object(client,
                                                                              orderby=None,
                                                                              select=None,
@@ -40,6 +31,15 @@ def directoryobjects_directory_object_directory_object_list_directory_object(cli
     return client.list_directory_object(orderby=orderby,
                                         select=select,
                                         expand=expand)
+
+
+def directoryobjects_directory_object_directory_object_show_directory_object(client,
+                                                                             directory_object_id,
+                                                                             select=None,
+                                                                             expand=None):
+    return client.get_directory_object(directory_object_id=directory_object_id,
+                                       select=select,
+                                       expand=expand)
 
 
 def directoryobjects_directory_object_directory_object_update_directory_object(client,

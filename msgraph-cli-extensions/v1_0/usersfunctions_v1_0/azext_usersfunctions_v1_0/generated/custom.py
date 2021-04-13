@@ -317,8 +317,8 @@ def usersfunctions_user_mail_folder_delta(client,
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_managed_app_registration_get_user_id_with_flagged_app_registration(client,
-                                                                                           user_id):
+def usersfunctions_user_managed_app_registration_show_user_id_with_flagged_app_registration(client,
+                                                                                            user_id):
     return client.get_user_id_with_flagged_app_registration(user_id=user_id)
 
 
@@ -331,16 +331,6 @@ def usersfunctions_user_delta(client):
     return client.delta()
 
 
-def usersfunctions_user_get_managed_app_diagnostic_statuses(client,
-                                                            user_id):
-    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
-
-
-def usersfunctions_user_get_managed_app_policy(client,
-                                               user_id):
-    return client.get_managed_app_policy(user_id=user_id)
-
-
 def usersfunctions_user_reminder_view(client,
                                       user_id,
                                       start_date_time,
@@ -348,6 +338,16 @@ def usersfunctions_user_reminder_view(client,
     return client.reminder_view(user_id=user_id,
                                 start_date_time=start_date_time,
                                 end_date_time=end_date_time)
+
+
+def usersfunctions_user_show_managed_app_diagnostic_statuses(client,
+                                                             user_id):
+    return client.get_managed_app_diagnostic_statuses(user_id=user_id)
+
+
+def usersfunctions_user_show_managed_app_policy(client,
+                                                user_id):
+    return client.get_managed_app_policy(user_id=user_id)
 
 
 def usersfunctions_user_onenote_notebook_section_group_section_page_preview(client,
@@ -374,9 +374,9 @@ def usersfunctions_user_onenote_notebook_section_page_preview(client,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_notebook_get_recent_notebook(client,
-                                                             user_id,
-                                                             include_personal_notebooks):
+def usersfunctions_user_onenote_notebook_show_recent_notebook(client,
+                                                              user_id,
+                                                              include_personal_notebooks):
     if include_personal_notebooks is None:
         include_personal_notebooks = False
     return client.get_recent_notebook(user_id=user_id,

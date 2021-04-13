@@ -9,6 +9,7 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
 
@@ -16,30 +17,39 @@ from msgraph.cli.core.commands import CliCommandType
 def load_command_table(self, _):
 
     from azext_directoryobjects_beta.generated._client_factory import cf_directory_object_directory_object
+
     directoryobjects_beta_directory_object_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_direct'
-        'ory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
-        client_factory=cf_directory_object_directory_object)
-    with self.command_group('directoryobjects directory-object-directory-object',
-                            directoryobjects_beta_directory_object_directory_object,
-                            client_factory=cf_directory_object_directory_object, is_experimental=True) as g:
+        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_directory_object_operations#DirectoryObjectDirectoryObjectOperations.{}',
+        client_factory=cf_directory_object_directory_object,
+    )
+    with self.command_group(
+        'directoryobjects directory-object-directory-object',
+        directoryobjects_beta_directory_object_directory_object,
+        client_factory=cf_directory_object_directory_object,
+    ) as g:
         g.custom_command('delete', 'directoryobjects_directory_object_directory_object_delete', confirmation=True)
-        g.custom_command('create-directory-object', 'directoryobjects_directory_object_directory_object_create_director'
-                         'y_object')
-        g.custom_command('get-directory-object', 'directoryobjects_directory_object_directory_object_get_directory_obje'
-                         'ct')
-        g.custom_command('list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_ob'
-                         'ject')
-        g.custom_command('update-directory-object', 'directoryobjects_directory_object_directory_object_update_director'
-                         'y_object')
+        g.custom_command(
+            'create-directory-object', 'directoryobjects_directory_object_directory_object_create_directory_object'
+        )
+        g.custom_command(
+            'list-directory-object', 'directoryobjects_directory_object_directory_object_list_directory_object'
+        )
+        g.custom_command(
+            'show-directory-object', 'directoryobjects_directory_object_directory_object_show_directory_object'
+        )
+        g.custom_command(
+            'update-directory-object', 'directoryobjects_directory_object_directory_object_update_directory_object'
+        )
 
     from azext_directoryobjects_beta.generated._client_factory import cf_directory_object
+
     directoryobjects_beta_directory_object = CliCommandType(
-        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_operat'
-        'ions#DirectoryObjectOperations.{}',
-        client_factory=cf_directory_object)
-    with self.command_group('directoryobjects directory-object', directoryobjects_beta_directory_object,
-                            client_factory=cf_directory_object, is_experimental=True) as g:
+        operations_tmpl='azext_directoryobjects_beta.vendored_sdks.directoryobjects.operations._directory_object_operations#DirectoryObjectOperations.{}',
+        client_factory=cf_directory_object,
+    )
+    with self.command_group(
+        'directoryobjects directory-object', directoryobjects_beta_directory_object, client_factory=cf_directory_object
+    ) as g:
         g.custom_command('check-member-group', 'directoryobjects_directory_object_check_member_group')
         g.custom_command('check-member-object', 'directoryobjects_directory_object_check_member_object')
         g.custom_command('get-by-id', 'directoryobjects_directory_object_get_by_id')
@@ -48,3 +58,6 @@ def load_command_table(self, _):
         g.custom_command('get-user-owned-object', 'directoryobjects_directory_object_get_user_owned_object')
         g.custom_command('restore', 'directoryobjects_directory_object_restore')
         g.custom_command('validate-property', 'directoryobjects_directory_object_validate_property')
+
+    with self.command_group('directoryobjects_beta', is_experimental=True):
+        pass

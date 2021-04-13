@@ -11,7 +11,7 @@
 
 def cf_schemaextensions_beta_cl(cli_ctx, *_):
     from msgraph.cli.core.commands.client_factory import get_mgmt_service_client
-    from ..vendored_sdks.schemaextensions import SchemaExtensions
+    from azext_schemaextensions_beta.vendored_sdks.schemaextensions import SchemaExtensions
     return get_mgmt_service_client(cli_ctx,
                                    SchemaExtensions,
                                    subscription_bound=False,

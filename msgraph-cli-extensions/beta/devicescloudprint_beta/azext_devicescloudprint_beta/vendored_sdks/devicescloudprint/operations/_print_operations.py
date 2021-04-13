@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -70,7 +70,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintConnector"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -78,7 +80,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -176,10 +177,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintConnector"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintConnector(id=id, app_version=app_version, display_name=display_name, fully_qualified_domain_name=fully_qualified_domain_name, location=location, name=name, operating_system=operating_system, registered_date_time=registered_date_time, last_connection_time=last_connection_time)
+        body = models.MicrosoftGraphPrintConnector(id=id, app_version=app_version, display_name=display_name, fully_qualified_domain_name=fully_qualified_domain_name, location=location, name=name, operating_system=operating_system, registered_date_time=registered_date_time, last_connection_time=last_connection_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -193,13 +196,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintConnector')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintConnector')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -240,7 +241,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintConnector"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -261,7 +264,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -325,10 +327,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintConnector(id=id, app_version=app_version, display_name=display_name, fully_qualified_domain_name=fully_qualified_domain_name, location=location, name=name, operating_system=operating_system, registered_date_time=registered_date_time, last_connection_time=last_connection_time)
+        body = models.MicrosoftGraphPrintConnector(id=id, app_version=app_version, display_name=display_name, fully_qualified_domain_name=fully_qualified_domain_name, location=location, name=name, operating_system=operating_system, registered_date_time=registered_date_time, last_connection_time=last_connection_time)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -348,10 +352,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintConnector')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintConnector')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -386,7 +389,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -444,7 +449,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintOperation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -452,7 +459,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -512,8 +518,7 @@ class PrintOperations(object):
         self,
         id=None,  # type: Optional[str]
         created_date_time=None,  # type: Optional[datetime.datetime]
-        description=None,  # type: Optional[str]
-        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphPrintOperationProcessingState"]]
+        status=None,  # type: Optional["models.MicrosoftGraphPrintOperationStatus"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphPrintOperation"
@@ -525,20 +530,20 @@ class PrintOperations(object):
         :type id: str
         :param created_date_time:
         :type created_date_time: ~datetime.datetime
-        :param description:
-        :type description: str
-        :param state:
-        :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintOperationProcessingState
+        :param status: printOperationStatus.
+        :type status: ~devices_cloud_print.models.MicrosoftGraphPrintOperationStatus
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphPrintOperation, or the result of cls(response)
         :rtype: ~devices_cloud_print.models.MicrosoftGraphPrintOperation
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintOperation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintOperation(id=id, created_date_time=created_date_time, description=description, state=state)
+        body = models.MicrosoftGraphPrintOperation(id=id, created_date_time=created_date_time, status=status)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -552,13 +557,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintOperation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintOperation')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -599,7 +602,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintOperation"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -620,7 +625,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -644,8 +648,7 @@ class PrintOperations(object):
         print_operation_id,  # type: str
         id=None,  # type: Optional[str]
         created_date_time=None,  # type: Optional[datetime.datetime]
-        description=None,  # type: Optional[str]
-        state=None,  # type: Optional[Union[str, "models.MicrosoftGraphPrintOperationProcessingState"]]
+        status=None,  # type: Optional["models.MicrosoftGraphPrintOperationStatus"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -659,20 +662,20 @@ class PrintOperations(object):
         :type id: str
         :param created_date_time:
         :type created_date_time: ~datetime.datetime
-        :param description:
-        :type description: str
-        :param state:
-        :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintOperationProcessingState
+        :param status: printOperationStatus.
+        :type status: ~devices_cloud_print.models.MicrosoftGraphPrintOperationStatus
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintOperation(id=id, created_date_time=created_date_time, description=description, state=state)
+        body = models.MicrosoftGraphPrintOperation(id=id, created_date_time=created_date_time, status=status)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -692,10 +695,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintOperation')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintOperation')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -730,7 +732,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -788,7 +792,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -796,7 +802,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1041,10 +1046,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinter(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, accepting_jobs=accepting_jobs, is_shared=is_shared, registered_date_time=registered_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, connectors=connectors, share=share, shares=shares, task_triggers=task_triggers)
+        body = models.MicrosoftGraphPrinter(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, accepting_jobs=accepting_jobs, is_shared=is_shared, registered_date_time=registered_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, connectors=connectors, share=share, shares=shares, task_triggers=task_triggers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1058,13 +1065,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinter')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinter')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1105,7 +1110,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinter"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1126,7 +1133,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1337,10 +1343,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinter(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, accepting_jobs=accepting_jobs, is_shared=is_shared, registered_date_time=registered_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, connectors=connectors, share=share, shares=shares, task_triggers=task_triggers)
+        body = models.MicrosoftGraphPrinter(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, accepting_jobs=accepting_jobs, is_shared=is_shared, registered_date_time=registered_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, connectors=connectors, share=share, shares=shares, task_triggers=task_triggers)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1360,10 +1368,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinter')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinter')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1398,7 +1405,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1456,7 +1465,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinterShare0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1464,7 +1475,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1697,10 +1707,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
+        body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1714,13 +1726,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinterShare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1761,7 +1771,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1782,7 +1794,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1981,10 +1992,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
+        body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2004,10 +2017,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinterShare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2042,7 +2054,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2100,7 +2114,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfReportRoot"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2108,7 +2124,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2203,10 +2218,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReportRoot"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphReportRoot(id=id, application_sign_in_detailed_summary=application_sign_in_detailed_summary, credential_user_registration_details=credential_user_registration_details, user_credential_usage_details=user_credential_usage_details, daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer, daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user, monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer, monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
+        body = models.MicrosoftGraphReportRoot(id=id, application_sign_in_detailed_summary=application_sign_in_detailed_summary, credential_user_registration_details=credential_user_registration_details, user_credential_usage_details=user_credential_usage_details, daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer, daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user, monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer, monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2220,13 +2237,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphReportRoot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphReportRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2267,7 +2282,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphReportRoot"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2288,7 +2305,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2349,10 +2365,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphReportRoot(id=id, application_sign_in_detailed_summary=application_sign_in_detailed_summary, credential_user_registration_details=credential_user_registration_details, user_credential_usage_details=user_credential_usage_details, daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer, daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user, monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer, monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
+        body = models.MicrosoftGraphReportRoot(id=id, application_sign_in_detailed_summary=application_sign_in_detailed_summary, credential_user_registration_details=credential_user_registration_details, user_credential_usage_details=user_credential_usage_details, daily_print_usage_summaries_by_printer=daily_print_usage_summaries_by_printer, daily_print_usage_summaries_by_user=daily_print_usage_summaries_by_user, monthly_print_usage_summaries_by_printer=monthly_print_usage_summaries_by_printer, monthly_print_usage_summaries_by_user=monthly_print_usage_summaries_by_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2372,10 +2390,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphReportRoot')
+        body_content = self._serialize.body(body, 'MicrosoftGraphReportRoot')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2410,7 +2427,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2468,7 +2487,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintService"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2476,7 +2497,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -2553,10 +2573,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintService"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintService(id=id, endpoints=endpoints)
+        body = models.MicrosoftGraphPrintService(id=id, endpoints=endpoints)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2570,13 +2592,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintService')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintService')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2617,7 +2637,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintService"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2638,7 +2660,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -2681,10 +2702,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintService(id=id, endpoints=endpoints)
+        body = models.MicrosoftGraphPrintService(id=id, endpoints=endpoints)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -2704,10 +2727,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintService')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintService')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -2742,7 +2764,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2800,7 +2824,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrinterShare1"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -2808,7 +2834,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3041,10 +3066,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
+        body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3058,13 +3085,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinterShare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3105,7 +3130,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrinterShare"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3126,7 +3153,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3325,10 +3351,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
+        body = models.MicrosoftGraphPrinterShare(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, allow_all_users=allow_all_users, created_date_time=created_date_time, allowed_groups=allowed_groups, allowed_users=allowed_users, printer=printer)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3348,10 +3376,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrinterShare')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrinterShare')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3386,7 +3413,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3444,7 +3473,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPrintTaskDefinition"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3452,7 +3483,6 @@ class PrintOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -3535,10 +3565,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintTaskDefinition"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintTaskDefinition(id=id, created_by=created_by, display_name=display_name, tasks=tasks)
+        body = models.MicrosoftGraphPrintTaskDefinition(id=id, created_by=created_by, display_name=display_name, tasks=tasks)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3552,13 +3584,11 @@ class PrintOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintTaskDefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintTaskDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3599,7 +3629,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPrintTaskDefinition"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -3620,7 +3652,6 @@ class PrintOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -3669,10 +3700,12 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPrintTaskDefinition(id=id, created_by=created_by, display_name=display_name, tasks=tasks)
+        body = models.MicrosoftGraphPrintTaskDefinition(id=id, created_by=created_by, display_name=display_name, tasks=tasks)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -3692,10 +3725,9 @@ class PrintOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPrintTaskDefinition')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPrintTaskDefinition')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -3730,7 +3762,9 @@ class PrintOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

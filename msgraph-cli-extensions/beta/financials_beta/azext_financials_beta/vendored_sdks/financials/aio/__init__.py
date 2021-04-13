@@ -6,5 +6,5 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._financials_async import Financials
+from ._financials import Financials
 __all__ = ['Financials']

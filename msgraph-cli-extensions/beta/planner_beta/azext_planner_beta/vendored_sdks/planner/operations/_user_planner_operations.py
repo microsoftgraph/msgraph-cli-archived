@@ -9,7 +9,7 @@ import datetime
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -73,7 +73,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerDelta"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -81,7 +83,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -162,10 +163,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerDelta"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerDelta(id=id)
+        body = models.MicrosoftGraphPlannerDelta(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -183,13 +186,11 @@ class UserPlannerOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerDelta')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerDelta')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -233,7 +234,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerDelta"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -255,7 +258,6 @@ class UserPlannerOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -298,10 +300,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerDelta(id=id)
+        body = models.MicrosoftGraphPlannerDelta(id=id)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -322,10 +326,9 @@ class UserPlannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerDelta')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerDelta')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -363,7 +366,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -425,7 +430,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerPlan1"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -433,7 +440,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -514,7 +520,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfPlannerPlan"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -522,7 +530,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -599,7 +606,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -618,13 +627,11 @@ class UserPlannerOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -668,7 +675,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerPlan2"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -676,7 +685,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -799,10 +807,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerPlan"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerPlan(id=id, contexts=contexts, created_date_time=created_date_time, owner=owner, title=title, buckets=buckets, tasks=tasks, id_details_id=microsoft_graph_entity_id, category_descriptions=category_descriptions, context_details=context_details, shared_with=shared_with, application=application, device=device, user=user)
+        body = models.MicrosoftGraphPlannerPlan(id=id, contexts=contexts, created_date_time=created_date_time, owner=owner, title=title, buckets=buckets, tasks=tasks, id_details_id=microsoft_graph_entity_id, category_descriptions=category_descriptions, context_details=context_details, shared_with=shared_with, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -820,13 +830,11 @@ class UserPlannerOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerPlan')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerPlan')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -870,7 +878,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerPlan"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -892,7 +902,6 @@ class UserPlannerOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -977,10 +986,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerPlan(id=id, contexts=contexts, created_date_time=created_date_time, owner=owner, title=title, buckets=buckets, tasks=tasks, id_details_id=microsoft_graph_entity_id, category_descriptions=category_descriptions, context_details=context_details, shared_with=shared_with, application=application, device=device, user=user)
+        body = models.MicrosoftGraphPlannerPlan(id=id, contexts=contexts, created_date_time=created_date_time, owner=owner, title=title, buckets=buckets, tasks=tasks, id_details_id=microsoft_graph_entity_id, category_descriptions=category_descriptions, context_details=context_details, shared_with=shared_with, application=application, device=device, user=user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1001,10 +1012,9 @@ class UserPlannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerPlan')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerPlan')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1042,7 +1052,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1104,7 +1116,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerPlan3"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1112,7 +1126,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1193,7 +1206,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfLinksOfPlannerPlan0"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1201,7 +1216,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1278,7 +1292,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[Dict[str, object]]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
@@ -1297,13 +1313,11 @@ class UserPlannerOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
         body_content = self._serialize.body(body, '{object}')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1347,7 +1361,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfPlannerTask7"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1355,7 +1371,6 @@ class UserPlannerOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -1561,10 +1576,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerTask"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, priority=priority, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
+        body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, priority=priority, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1582,13 +1599,11 @@ class UserPlannerOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerTask')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1632,7 +1647,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphPlannerTask"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -1654,7 +1671,6 @@ class UserPlannerOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -1822,10 +1838,12 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, priority=priority, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
+        body = models.MicrosoftGraphPlannerTask(id=id, active_checklist_item_count=active_checklist_item_count, applied_categories=applied_categories, assignee_priority=assignee_priority, assignments=assignments, bucket_id=bucket_id, checklist_item_count=checklist_item_count, completed_date_time=completed_date_time, conversation_thread_id=conversation_thread_id, created_date_time=created_date_time, due_date_time=due_date_time, has_description=has_description, order_hint=order_hint, percent_complete=percent_complete, plan_id=plan_id, preview_type=preview_type, priority=priority, reference_count=reference_count, start_date_time=start_date_time, title=title, bucket_task_board_format=bucket_task_board_format, progress_task_board_format=progress_task_board_format, id_details_id=microsoft_graph_entity_id, checklist=checklist, description=description, preview_type_details_preview_type=microsoft_graph_planner_preview_type, references=references, id_assigned_to_task_board_format_id=id1, order_hints_by_assignee=order_hints_by_assignee, unassigned_order_hint=unassigned_order_hint, application_created_by_application=application, device_created_by_device=device, user_created_by_user=user, application_completed_by_application=microsoft_graph_identity_application, device_completed_by_device=microsoft_graph_identity_device, user_completed_by_user=microsoft_graph_identity_user)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -1846,10 +1864,9 @@ class UserPlannerOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphPlannerTask')
+        body_content = self._serialize.body(body, 'MicrosoftGraphPlannerTask')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -1887,7 +1904,9 @@ class UserPlannerOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

@@ -8,7 +8,7 @@
 from typing import TYPE_CHECKING
 import warnings
 
-from azure.core.exceptions import HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
+from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.paging import ItemPaged
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
@@ -72,7 +72,9 @@ class UserInferenceClassificationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.CollectionOfInferenceClassificationOverride"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -80,7 +82,6 @@ class UserInferenceClassificationOperations(object):
             # Construct headers
             header_parameters = {}  # type: Dict[str, Any]
             header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-            header_parameters['Accept'] = 'application/json'
 
             if not next_link:
                 # Construct URL
@@ -145,8 +146,7 @@ class UserInferenceClassificationOperations(object):
         user_id,  # type: str
         id=None,  # type: Optional[str]
         classify_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphInferenceClassificationType"]]
-        address=None,  # type: Optional[str]
-        name=None,  # type: Optional[str]
+        sender_email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         **kwargs  # type: Any
     ):
         # type: (...) -> "models.MicrosoftGraphInferenceClassificationOverride"
@@ -160,20 +160,20 @@ class UserInferenceClassificationOperations(object):
         :type id: str
         :param classify_as:
         :type classify_as: str or ~mail.models.MicrosoftGraphInferenceClassificationType
-        :param address: The email address of the person or entity.
-        :type address: str
-        :param name: The display name of the person or entity.
-        :type name: str
+        :param sender_email_address: emailAddress.
+        :type sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: MicrosoftGraphInferenceClassificationOverride, or the result of cls(response)
         :rtype: ~mail.models.MicrosoftGraphInferenceClassificationOverride
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInferenceClassificationOverride"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphInferenceClassificationOverride(id=id, classify_as=classify_as, address=address, name=name)
+        body = models.MicrosoftGraphInferenceClassificationOverride(id=id, classify_as=classify_as, sender_email_address=sender_email_address)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -191,13 +191,11 @@ class UserInferenceClassificationOperations(object):
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Content-Type'] = self._serialize.header("content_type", content_type, 'str')
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphInferenceClassificationOverride')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInferenceClassificationOverride')
         body_content_kwargs['content'] = body_content
         request = self._client.post(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -241,7 +239,9 @@ class UserInferenceClassificationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphInferenceClassificationOverride"]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 
@@ -263,7 +263,6 @@ class UserInferenceClassificationOperations(object):
         # Construct headers
         header_parameters = {}  # type: Dict[str, Any]
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
-        header_parameters['Accept'] = 'application/json'
 
         request = self._client.get(url, query_parameters, header_parameters)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -288,8 +287,7 @@ class UserInferenceClassificationOperations(object):
         inference_classification_override_id,  # type: str
         id=None,  # type: Optional[str]
         classify_as=None,  # type: Optional[Union[str, "models.MicrosoftGraphInferenceClassificationType"]]
-        address=None,  # type: Optional[str]
-        name=None,  # type: Optional[str]
+        sender_email_address=None,  # type: Optional["models.MicrosoftGraphEmailAddress"]
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -305,20 +303,20 @@ class UserInferenceClassificationOperations(object):
         :type id: str
         :param classify_as:
         :type classify_as: str or ~mail.models.MicrosoftGraphInferenceClassificationType
-        :param address: The email address of the person or entity.
-        :type address: str
-        :param name: The display name of the person or entity.
-        :type name: str
+        :param sender_email_address: emailAddress.
+        :type sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
 
-        _body = models.MicrosoftGraphInferenceClassificationOverride(id=id, classify_as=classify_as, address=address, name=name)
+        body = models.MicrosoftGraphInferenceClassificationOverride(id=id, classify_as=classify_as, sender_email_address=sender_email_address)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -339,10 +337,9 @@ class UserInferenceClassificationOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(_body, 'MicrosoftGraphInferenceClassificationOverride')
+        body_content = self._serialize.body(body, 'MicrosoftGraphInferenceClassificationOverride')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
-
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
         response = pipeline_response.http_response
 
@@ -380,7 +377,9 @@ class UserInferenceClassificationOperations(object):
         :raises: ~azure.core.exceptions.HttpResponseError
         """
         cls = kwargs.pop('cls', None)  # type: ClsType[None]
-        error_map = {404: ResourceNotFoundError, 409: ResourceExistsError}
+        error_map = {
+            401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
+        }
         error_map.update(kwargs.pop('error_map', {}))
         accept = "application/json"
 

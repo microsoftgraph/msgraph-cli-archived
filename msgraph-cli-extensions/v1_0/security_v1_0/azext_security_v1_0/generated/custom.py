@@ -11,7 +11,7 @@
 # pylint: disable=too-many-lines
 
 
-def security_security_update(client,
+def security_security_create(client,
                              id_=None,
                              alerts=None,
                              secure_score_control_profiles=None,
@@ -22,9 +22,9 @@ def security_security_update(client,
                                   secure_scores=secure_scores)
 
 
-def security_security_get(client,
-                          select=None,
-                          expand=None):
+def security_security_show_security(client,
+                                    select=None,
+                                    expand=None):
     return client.get_security(select=select,
                                expand=expand)
 
@@ -185,33 +185,6 @@ def security_security_create_secure_score_control_profile(client,
                                                       vendor_information=vendor_information)
 
 
-def security_security_get_alert(client,
-                                alert_id,
-                                select=None,
-                                expand=None):
-    return client.get_alert(alert_id=alert_id,
-                            select=select,
-                            expand=expand)
-
-
-def security_security_get_secure_score(client,
-                                       secure_score_id,
-                                       select=None,
-                                       expand=None):
-    return client.get_secure_score(secure_score_id=secure_score_id,
-                                   select=select,
-                                   expand=expand)
-
-
-def security_security_get_secure_score_control_profile(client,
-                                                       secure_score_control_profile_id,
-                                                       select=None,
-                                                       expand=None):
-    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                   select=select,
-                                                   expand=expand)
-
-
 def security_security_list_alert(client,
                                  orderby=None,
                                  select=None,
@@ -237,6 +210,33 @@ def security_security_list_secure_score_control_profile(client,
     return client.list_secure_score_control_profile(orderby=orderby,
                                                     select=select,
                                                     expand=expand)
+
+
+def security_security_show_alert(client,
+                                 alert_id,
+                                 select=None,
+                                 expand=None):
+    return client.get_alert(alert_id=alert_id,
+                            select=select,
+                            expand=expand)
+
+
+def security_security_show_secure_score(client,
+                                        secure_score_id,
+                                        select=None,
+                                        expand=None):
+    return client.get_secure_score(secure_score_id=secure_score_id,
+                                   select=select,
+                                   expand=expand)
+
+
+def security_security_show_secure_score_control_profile(client,
+                                                        secure_score_control_profile_id,
+                                                        select=None,
+                                                        expand=None):
+    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                   select=select,
+                                                   expand=expand)
 
 
 def security_security_update_alert(client,

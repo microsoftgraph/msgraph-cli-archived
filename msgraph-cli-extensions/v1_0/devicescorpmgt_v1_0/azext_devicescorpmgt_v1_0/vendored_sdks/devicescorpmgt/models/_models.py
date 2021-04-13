@@ -1156,9 +1156,6 @@ class MicrosoftGraphManagedAppPolicy(MicrosoftGraphEntity):
 class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     """Policy used to configure detailed management settings for a specified set of apps.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1262,7 +1259,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -1305,7 +1301,6 @@ class MicrosoftGraphManagedAppProtection(MicrosoftGraphManagedAppPolicy):
     ):
         super(MicrosoftGraphManagedAppProtection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.allowed_data_storage_locations = kwargs.get('allowed_data_storage_locations', None)
         self.allowed_inbound_data_transfer_sources = kwargs.get('allowed_inbound_data_transfer_sources', None)
         self.allowed_outbound_clipboard_sharing_level = kwargs.get('allowed_outbound_clipboard_sharing_level', None)
@@ -1340,9 +1335,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -1451,7 +1443,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1495,7 +1486,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
     ):
         super(MicrosoftGraphTargetedManagedAppProtection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.is_assigned = kwargs.get('is_assigned', None)
         self.assignments = kwargs.get('assignments', None)
 
@@ -1503,9 +1493,6 @@ class MicrosoftGraphTargetedManagedAppProtection(MicrosoftGraphManagedAppProtect
 class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -1518,9 +1505,6 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
@@ -1660,14 +1644,12 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -1720,8 +1702,6 @@ class MicrosoftGraphAndroidManagedAppProtection(MicrosoftGraphTargetedManagedApp
         **kwargs
     ):
         super(MicrosoftGraphAndroidManagedAppProtection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.custom_browser_display_name = kwargs.get('custom_browser_display_name', None)
         self.custom_browser_package_id = kwargs.get('custom_browser_package_id', None)
@@ -1789,9 +1769,6 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -1940,7 +1917,6 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -1998,7 +1974,6 @@ class MicrosoftGraphDefaultManagedAppProtection(MicrosoftGraphManagedAppProtecti
         **kwargs
     ):
         super(MicrosoftGraphDefaultManagedAppProtection, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_data_encryption_type = kwargs.get('app_data_encryption_type', None)
         self.custom_settings = kwargs.get('custom_settings', None)
@@ -2767,9 +2742,6 @@ class MicrosoftGraphEBookInstallSummary(MicrosoftGraphEntity):
 class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProtection):
     """Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an iOS device.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -2782,9 +2754,6 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     :type last_modified_date_time: ~datetime.datetime
     :param version: Version of the entity.
     :type version: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param allowed_data_storage_locations: Data storage locations where a user may store managed
      data.
     :type allowed_data_storage_locations: list[str or
@@ -2914,14 +2883,12 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     }
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'version': {'key': 'version', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'allowed_data_storage_locations': {'key': 'allowedDataStorageLocations', 'type': '[str]'},
         'allowed_inbound_data_transfer_sources': {'key': 'allowedInboundDataTransferSources', 'type': 'str'},
         'allowed_outbound_clipboard_sharing_level': {'key': 'allowedOutboundClipboardSharingLevel', 'type': 'str'},
@@ -2972,8 +2939,6 @@ class MicrosoftGraphIosManagedAppProtection(MicrosoftGraphTargetedManagedAppProt
     ):
         super(MicrosoftGraphIosManagedAppProtection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.app_data_encryption_type = kwargs.get('app_data_encryption_type', None)
         self.custom_browser_protocol = kwargs.get('custom_browser_protocol', None)
         self.deployed_app_count = kwargs.get('deployed_app_count', None)
@@ -3019,9 +2984,6 @@ class MicrosoftGraphKeyValuePair(msrest.serialization.Model):
 class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     """Configuration used to deliver a set of custom settings as-is to apps for users to whom the configuration is scoped.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -3043,7 +3005,6 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -3059,7 +3020,6 @@ class MicrosoftGraphManagedAppConfiguration(MicrosoftGraphManagedAppPolicy):
         **kwargs
     ):
         super(MicrosoftGraphManagedAppConfiguration, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.custom_settings = kwargs.get('custom_settings', None)
 
@@ -4033,9 +3993,6 @@ class MicrosoftGraphManagedMobileApp(MicrosoftGraphEntity):
 class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy):
     """Policy for Windows information protection to configure detailed management settings.
 
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param id: Read-only.
     :type id: str
     :param created_date_time: The date and time the policy was created.
@@ -4157,7 +4114,6 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     """
 
     _attribute_map = {
-        'additional_properties': {'key': '', 'type': '{object}'},
         'id': {'key': 'id', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
@@ -4198,7 +4154,6 @@ class MicrosoftGraphWindowsInformationProtection(MicrosoftGraphManagedAppPolicy)
     ):
         super(MicrosoftGraphWindowsInformationProtection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.azure_rights_management_services_allowed = kwargs.get('azure_rights_management_services_allowed', None)
         self.data_recovery_certificate = kwargs.get('data_recovery_certificate', None)
         self.enforcement_level = kwargs.get('enforcement_level', None)
@@ -4231,9 +4186,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -4354,7 +4306,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -4393,7 +4344,6 @@ class MicrosoftGraphMdmWindowsInformationProtectionPolicy(MicrosoftGraphWindowsI
         **kwargs
     ):
         super(MicrosoftGraphMdmWindowsInformationProtectionPolicy, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
@@ -4637,9 +4587,6 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -4688,7 +4635,6 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -4713,7 +4659,6 @@ class MicrosoftGraphTargetedManagedAppConfiguration(MicrosoftGraphManagedAppConf
         **kwargs
     ):
         super(MicrosoftGraphTargetedManagedAppConfiguration, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.deployed_app_count = kwargs.get('deployed_app_count', None)
         self.is_assigned = kwargs.get('is_assigned', None)
@@ -5028,9 +4973,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
 
     :param id: Read-only.
     :type id: str
-    :param additional_properties: Unmatched properties from the message are deserialized to this
-     collection.
-    :type additional_properties: dict[str, object]
     :param created_date_time: The date and time the policy was created.
     :type created_date_time: ~datetime.datetime
     :param description: The policy's description.
@@ -5206,7 +5148,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'description': {'key': 'description', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
@@ -5257,7 +5198,6 @@ class MicrosoftGraphWindowsInformationProtectionPolicy(MicrosoftGraphWindowsInfo
         **kwargs
     ):
         super(MicrosoftGraphWindowsInformationProtectionPolicy, self).__init__(**kwargs)
-        self.additional_properties = kwargs.get('additional_properties', None)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.days_without_contact_before_unenroll = kwargs.get('days_without_contact_before_unenroll', None)
         self.mdm_enrollment_url = kwargs.get('mdm_enrollment_url', None)
