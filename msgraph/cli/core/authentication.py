@@ -27,7 +27,6 @@ class Authentication:
             Token can't be stored securely. Install PyGObject to store token securely.
 
             sudo apt install libgirepository1.0-dev libcairo2-dev python3-dev gir1.2-secret-1
-            pip install pygobject
             '''
             print(warning)
             return False

@@ -3,7 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 # --------------------------------------------------------------------------------------------
 
+import os
 from knack import CLI
+
 from msgraph.cli.core.commands._util import _load_module_command_loader, _load_extension_command_loader
 from msgraph.cli.core.invocation import GraphCliCommandInvoker
 from msgraph.cli.core.commands import GraphCommandGroup, GraphCliCommand
