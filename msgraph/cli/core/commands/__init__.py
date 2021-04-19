@@ -95,6 +95,11 @@ class GraphCommandGroup(CommandGroup):
         """
         return self._command(name, method_name=method_name, custom_command=True, **kwargs)
 
+    # This is a dummy method called by the sites extensions.
+    # We are stubbing it to prevent the site extension from breaking the CLI experience.
+    def custom_show_command(self, name, method_name=None, **kwargs):
+        return self._command(name, method_name=method_name, **kwargs)
+
     def _command(self, name, method_name, custom_command=False, **kwargs):
         self._check_stale()
         merged_kwargs = self._flatten_kwargs(kwargs, get_command_type_kwarg(custom_command))

@@ -48,16 +48,8 @@ def cli_main(cli, args):
     return cli.invoke(args)
 
 
-def ctrl_c_handler(signum, frame):
-    # Python flushes standard streams on exit; redirect remaining output to devnull
-    # to avoid another BrokenPipeError at shutdown
-    dev = open(devnull, O_WRONLY)
-    dup2(dev, sys.stdout.fileno())
-    sys.exit(0)
-
-
-# Kill CLI process when CTRL+C is pressed
-signal.signal(signal.SIGINT, ctrl_c_handler)
-
-exit_code = cli_main(mg_cli, sys.argv[1:])
-sys.exit(exit_code)
+try:
+    exit_code = cli_main(mg_cli, sys.argv[1:])
+    sys.exit(exit_code)
+except KeyboardInterrupt:
+    sys.exit(1)
