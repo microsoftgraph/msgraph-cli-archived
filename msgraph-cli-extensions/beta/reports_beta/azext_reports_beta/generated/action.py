@@ -165,41 +165,6 @@ class AddAdditionalDetails(argparse._AppendAction):
         return d
 
 
-class AddTargetResources(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddTargetResources, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'group-type':
-                d['group_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'modified-properties':
-                d['modified_properties'] = v
-            elif kl == 'type':
-                d['type'] = v[0]
-            elif kl == 'user-principal-name':
-                d['user_principal_name'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter target_resources. All possible keys are: '
-                               'display-name, group-type, id, modified-properties, type, user-principal-name'.format(k))
-        return d
-
-
 class AddApp(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -259,91 +224,6 @@ class AddUser(argparse.Action):
             else:
                 raise CLIError('Unsupported Key {} is provided for parameter user. All possible keys are: ip-address, '
                                'user-principal-name, display-name, id'.format(k))
-        return d
-
-
-class AddInitiatedBy(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.initiated_by = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            elif kl == 'initiator-type':
-                d['initiator_type'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter initiated_by. All possible keys are: '
-                               'display-name, id, initiator-type'.format(k))
-        return d
-
-
-class AddModifiedProperties(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddModifiedProperties, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'new-value':
-                d['new_value'] = v[0]
-            elif kl == 'old-value':
-                d['old_value'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter modified_properties. All possible keys '
-                               'are: display-name, new-value, old-value'.format(k))
-        return d
-
-
-class AddServicePrincipal(argparse.Action):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        namespace.service_principal = action
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter service_principal. All possible keys are: '
-                               'display-name, id'.format(k))
         return d
 
 

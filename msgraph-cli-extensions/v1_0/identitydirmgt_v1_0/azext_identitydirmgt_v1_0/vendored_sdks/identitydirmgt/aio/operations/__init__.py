@@ -6,44 +6,44 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._contact_org_contact_operations import ContactOrgContactOperations
-from ._contact_operations import ContactOperations
-from ._contract_contract_operations import ContractContractOperations
-from ._contract_operations import ContractOperations
-from ._device_device_operations import DeviceDeviceOperations
-from ._device_operations import DeviceOperations
-from ._directory_directory_operations import DirectoryDirectoryOperations
-from ._directory_operations import DirectoryOperations
-from ._directory_administrative_unit_operations import DirectoryAdministrativeUnitOperations
-from ._directory_role_directory_role_operations import DirectoryRoleDirectoryRoleOperations
-from ._directory_role_operations import DirectoryRoleOperations
-from ._directory_role_template_directory_role_template_operations import DirectoryRoleTemplateDirectoryRoleTemplateOperations
-from ._directory_role_template_operations import DirectoryRoleTemplateOperations
-from ._domain_domain_operations import DomainDomainOperations
-from ._domain_operations import DomainOperations
-from ._organization_organization_operations import OrganizationOrganizationOperations
-from ._organization_operations import OrganizationOperations
-from ._subscribed_sku_subscribed_sku_operations import SubscribedSkuSubscribedSkuOperations
-from ._user_operations import UserOperations
+from ._contactsorgcontact_operations import contactsorgcontactOperations
+from ._contacts_operations import contactsOperations
+from ._contractscontract_operations import contractscontractOperations
+from ._contracts_operations import contractsOperations
+from ._devicesdevice_operations import devicesdeviceOperations
+from ._devices_operations import devicesOperations
+from ._directorydirectory_operations import directorydirectoryOperations
+from ._directory_operations import directoryOperations
+from ._directoryadministrativeunits_operations import directoryadministrativeunitsOperations
+from ._directoryrolesdirectoryrole_operations import directoryrolesdirectoryroleOperations
+from ._directoryroles_operations import directoryrolesOperations
+from ._directoryroletemplatesdirectoryroletemplate_operations import directoryroletemplatesdirectoryroletemplateOperations
+from ._directoryroletemplates_operations import directoryroletemplatesOperations
+from ._domainsdomain_operations import domainsdomainOperations
+from ._domains_operations import domainsOperations
+from ._organizationorganization_operations import organizationorganizationOperations
+from ._organization_operations import organizationOperations
+from ._subscribedskussubscribedsku_operations import subscribedskussubscribedskuOperations
+from ._users_operations import usersOperations
 
 __all__ = [
-    'ContactOrgContactOperations',
-    'ContactOperations',
-    'ContractContractOperations',
-    'ContractOperations',
-    'DeviceDeviceOperations',
-    'DeviceOperations',
-    'DirectoryDirectoryOperations',
-    'DirectoryOperations',
-    'DirectoryAdministrativeUnitOperations',
-    'DirectoryRoleDirectoryRoleOperations',
-    'DirectoryRoleOperations',
-    'DirectoryRoleTemplateDirectoryRoleTemplateOperations',
-    'DirectoryRoleTemplateOperations',
-    'DomainDomainOperations',
-    'DomainOperations',
-    'OrganizationOrganizationOperations',
-    'OrganizationOperations',
-    'SubscribedSkuSubscribedSkuOperations',
-    'UserOperations',
+    'contactsorgcontactOperations',
+    'contactsOperations',
+    'contractscontractOperations',
+    'contractsOperations',
+    'devicesdeviceOperations',
+    'devicesOperations',
+    'directorydirectoryOperations',
+    'directoryOperations',
+    'directoryadministrativeunitsOperations',
+    'directoryrolesdirectoryroleOperations',
+    'directoryrolesOperations',
+    'directoryroletemplatesdirectoryroletemplateOperations',
+    'directoryroletemplatesOperations',
+    'domainsdomainOperations',
+    'domainsOperations',
+    'organizationorganizationOperations',
+    'organizationOperations',
+    'subscribedskussubscribedskuOperations',
+    'usersOperations',
 ]

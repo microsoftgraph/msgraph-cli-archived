@@ -8,9 +8,9 @@ az extension add --name education_v1_0
 ```
 
 ### Included Features ###
-#### education education-root ####
+#### education educationroot ####
 #### education education ####
-#### education education-class ####
-#### education education-me ####
-#### education education-school ####
-#### education education-user ####
+#### education educationclass ####
+#### education educationme ####
+#### education educationschool ####
+#### education educationuser ####

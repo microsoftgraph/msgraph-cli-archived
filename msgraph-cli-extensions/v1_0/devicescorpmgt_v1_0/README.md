@@ -8,20 +8,20 @@ az extension add --name devicescorpmgt_v1_0
 ```
 
 ### Included Features ###
-#### devicescorpmgt device-app-management-device-app-management ####
-#### devicescorpmgt device-app-management ####
-#### devicescorpmgt device-app-management-android-managed-app-protection ####
-#### devicescorpmgt device-app-management-default-managed-app-protection ####
-#### devicescorpmgt device-app-management-io-managed-app-protection ####
-#### devicescorpmgt device-app-management-managed-app-policy ####
-#### devicescorpmgt device-app-management-managed-app-registration ####
-#### devicescorpmgt device-app-management-managed-app-registration-applied-policy ####
-#### devicescorpmgt device-app-management-managed-app-registration-intended-policy ####
-#### devicescorpmgt device-app-management-managed-e-book ####
-#### devicescorpmgt device-app-management-managed-e-book-user-state-summary ####
-#### devicescorpmgt device-app-management-mobile-app-configuration ####
-#### devicescorpmgt device-app-management-mobile-app ####
-#### devicescorpmgt device-app-management-targeted-managed-app-configuration ####
-#### devicescorpmgt device-app-management-vpp-token ####
+#### devicescorpmgt deviceappmanagementdeviceappmanagement ####
+#### devicescorpmgt deviceappmanagement ####
+#### devicescorpmgt deviceappmanagementandroidmanagedappprotection ####
+#### devicescorpmgt deviceappmanagementdefaultmanagedappprotection ####
+#### devicescorpmgt deviceappmanagementiosmanagedappprotection ####
+#### devicescorpmgt deviceappmanagementmanagedapppolicy ####
+#### devicescorpmgt deviceappmanagementmanagedappregistration ####
+#### devicescorpmgt deviceappmanagementmanagedappregistrationsappliedpolicy ####
+#### devicescorpmgt deviceappmanagementmanagedappregistrationsintendedpolicy ####
+#### devicescorpmgt deviceappmanagementmanagedebook ####
+#### devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary ####
+#### devicescorpmgt deviceappmanagementmobileappconfiguration ####
+#### devicescorpmgt deviceappmanagementmobileapp ####
+#### devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration ####
+#### devicescorpmgt deviceappmanagementvpptoken ####
 #### devicescorpmgt user ####
-#### devicescorpmgt user-managed-device ####
+#### devicescorpmgt usersmanageddevice ####

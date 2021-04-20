@@ -15,11 +15,7 @@ from msgraph.cli.core.commands.parameters import get_three_state_flag
 
 def load_arguments(self, _):
 
-    with self.argument_context('changenotifications subscription-subscription delete') as c:
-        c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('changenotifications subscription-subscription create-subscription') as c:
+    with self.argument_context('changenotifications subscriptionssubscription create-subscription') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_id', type=str, help='Identifier of the application used to create the subscription. '
                    'Read-only.')
@@ -57,17 +53,21 @@ def load_arguments(self, _):
                    'not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path '
                    'values for each supported resource.')
 
-    with self.argument_context('changenotifications subscription-subscription list-subscription') as c:
+    with self.argument_context('changenotifications subscriptionssubscription delete-subscription') as c:
+        c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('changenotifications subscriptionssubscription list-subscription') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('changenotifications subscription-subscription show-subscription') as c:
+    with self.argument_context('changenotifications subscriptionssubscription show-subscription') as c:
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('changenotifications subscription-subscription update-subscription') as c:
+    with self.argument_context('changenotifications subscriptionssubscription update-subscription') as c:
         c.argument('subscription_id', type=str, help='key: id of subscription', id_part='subscription')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_id', type=str, help='Identifier of the application used to create the subscription. '

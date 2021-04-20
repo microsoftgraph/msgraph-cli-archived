@@ -9,68 +9,73 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_reports_v1_0.generated._client_factory import (
+    cf_auditlogsauditlogroot,
+    cf_auditlog,
+    cf_reportsreportroot,
+    cf_report,
+)
+
+
+reports_v1_0_auditlogsauditlogroot = CliCommandType(
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._auditlogsauditlogroot_operations#auditlogsauditlogrootOperations.{}',
+    client_factory=cf_auditlogsauditlogroot,
+)
+
+
+reports_v1_0_auditlog = CliCommandType(
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._auditlogs_operations#auditlogsOperations.{}',
+    client_factory=cf_auditlog,
+)
+
+
+reports_v1_0_reportsreportroot = CliCommandType(
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._reportsreportroot_operations#reportsreportrootOperations.{}',
+    client_factory=cf_reportsreportroot,
+)
+
+
+reports_v1_0_report = CliCommandType(
+    operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._reports_operations#reportsOperations.{}',
+    client_factory=cf_report,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_reports_v1_0.generated._client_factory import cf_audit_log_audit_log_root
-
-    reports_v1_0_audit_log_audit_log_root = CliCommandType(
-        operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._audit_log_audit_log_root_operations#AuditLogAuditLogRootOperations.{}',
-        client_factory=cf_audit_log_audit_log_root,
-    )
     with self.command_group(
-        'reports audit-log-audit-log-root',
-        reports_v1_0_audit_log_audit_log_root,
-        client_factory=cf_audit_log_audit_log_root,
+        'reports auditlogsauditlogroot', reports_v1_0_auditlogsauditlogroot, client_factory=cf_auditlogsauditlogroot
     ) as g:
-        g.custom_command('show-audit-log-root', 'reports_audit_log_audit_log_root_show_audit_log_root')
-        g.custom_command('update-audit-log-root', 'reports_audit_log_audit_log_root_update_audit_log_root')
+        g.custom_command('show-audit-log-root', 'reports_auditlogsauditlogroot_show_audit_log_root')
+        g.custom_command('update-audit-log-root', 'reports_auditlogsauditlogroot_update_audit_log_root')
 
-    from azext_reports_v1_0.generated._client_factory import cf_audit_log
+    with self.command_group('reports auditlog', reports_v1_0_auditlog, client_factory=cf_auditlog) as g:
+        g.custom_command('create-directory-audit', 'reports_auditlog_create_directory_audit')
+        g.custom_command('create-restricted-sign-in', 'reports_auditlog_create_restricted_sign_in')
+        g.custom_command('create-sign-in', 'reports_auditlog_create_sign_in')
+        g.custom_command('delete-directory-audit', 'reports_auditlog_delete_directory_audit')
+        g.custom_command('delete-restricted-sign-in', 'reports_auditlog_delete_restricted_sign_in')
+        g.custom_command('delete-sign-in', 'reports_auditlog_delete_sign_in')
+        g.custom_command('list-directory-audit', 'reports_auditlog_list_directory_audit')
+        g.custom_command('list-restricted-sign-in', 'reports_auditlog_list_restricted_sign_in')
+        g.custom_command('list-sign-in', 'reports_auditlog_list_sign_in')
+        g.custom_command('show-directory-audit', 'reports_auditlog_show_directory_audit')
+        g.custom_command('show-restricted-sign-in', 'reports_auditlog_show_restricted_sign_in')
+        g.custom_command('show-sign-in', 'reports_auditlog_show_sign_in')
+        g.custom_command('update-directory-audit', 'reports_auditlog_update_directory_audit')
+        g.custom_command('update-restricted-sign-in', 'reports_auditlog_update_restricted_sign_in')
+        g.custom_command('update-sign-in', 'reports_auditlog_update_sign_in')
 
-    reports_v1_0_audit_log = CliCommandType(
-        operations_tmpl=(
-            'azext_reports_v1_0.vendored_sdks.reports.operations._audit_log_operations#AuditLogOperations.{}'
-        ),
-        client_factory=cf_audit_log,
-    )
-    with self.command_group('reports audit-log', reports_v1_0_audit_log, client_factory=cf_audit_log) as g:
-        g.custom_command('delete', 'reports_audit_log_delete', confirmation=True)
-        g.custom_command('create-directory-audit', 'reports_audit_log_create_directory_audit')
-        g.custom_command('create-restricted-sign-in', 'reports_audit_log_create_restricted_sign_in')
-        g.custom_command('create-sign-in', 'reports_audit_log_create_sign_in')
-        g.custom_command('list-directory-audit', 'reports_audit_log_list_directory_audit')
-        g.custom_command('list-restricted-sign-in', 'reports_audit_log_list_restricted_sign_in')
-        g.custom_command('list-sign-in', 'reports_audit_log_list_sign_in')
-        g.custom_command('show-directory-audit', 'reports_audit_log_show_directory_audit')
-        g.custom_command('show-restricted-sign-in', 'reports_audit_log_show_restricted_sign_in')
-        g.custom_command('show-sign-in', 'reports_audit_log_show_sign_in')
-        g.custom_command('update-directory-audit', 'reports_audit_log_update_directory_audit')
-        g.custom_command('update-restricted-sign-in', 'reports_audit_log_update_restricted_sign_in')
-        g.custom_command('update-sign-in', 'reports_audit_log_update_sign_in')
-
-    from azext_reports_v1_0.generated._client_factory import cf_report_report_root
-
-    reports_v1_0_report_report_root = CliCommandType(
-        operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._report_report_root_operations#ReportReportRootOperations.{}',
-        client_factory=cf_report_report_root,
-    )
     with self.command_group(
-        'reports report-root', reports_v1_0_report_report_root, client_factory=cf_report_report_root
+        'reports reportsreportroot', reports_v1_0_reportsreportroot, client_factory=cf_reportsreportroot
     ) as g:
-        g.custom_command('show-report-root', 'reports_report_root_show_report_root')
-        g.custom_command('update-report-root', 'reports_report_root_update_report_root')
+        g.custom_command('show-report-root', 'reports_reportsreportroot_show_report_root')
+        g.custom_command('update-report-root', 'reports_reportsreportroot_update_report_root')
 
-    from azext_reports_v1_0.generated._client_factory import cf_report
-
-    reports_v1_0_report = CliCommandType(
-        operations_tmpl='azext_reports_v1_0.vendored_sdks.reports.operations._report_operations#ReportOperations.{}',
-        client_factory=cf_report,
-    )
     with self.command_group('reports report', reports_v1_0_report, client_factory=cf_report) as g:
         g.custom_command('device-configuration-device-activity', 'reports_report_device_configuration_device_activity')
         g.custom_command('device-configuration-user-activity', 'reports_report_device_configuration_user_activity')

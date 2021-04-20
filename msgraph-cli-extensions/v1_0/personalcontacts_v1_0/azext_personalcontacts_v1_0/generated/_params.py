@@ -13,85 +13,17 @@
 
 from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_personalcontacts_v1_0.action import (
-    AddBusinessAddress,
-    AddEmailAddresses,
-    AddExtensions,
-    AddPersonalcontactsUserCreateContactMultiValueExtendedProperties,
-    AddPhoto,
-    AddPersonalcontactsUserCreateContactSingleValueExtendedProperties,
-    AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties,
-    AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties
+    AddMultiValueExtendedProperties,
+    AddSingleValueExtendedProperties
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('personalcontacts user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('contact_id', type=str, help='key: id of contact')
-
     with self.argument_context('personalcontacts user create-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('categories', nargs='+', help='The categories associated with the item')
-        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
-                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
-                   'object. Read-only.')
-        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
-                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('assistant_name', type=str, help='The name of the contact\'s assistant.')
-        c.argument('birthday', help='The contact\'s birthday. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('business_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('business_home_page', type=str, help='The business home page of the contact.')
-        c.argument('business_phones', nargs='+', help='The contact\'s business phone numbers.')
-        c.argument('children', nargs='+', help='The names of the contact\'s children.')
-        c.argument('company_name', type=str, help='The name of the contact\'s company.')
-        c.argument('department', type=str, help='The contact\'s department.')
-        c.argument('display_name', type=str, help='The contact\'s display name. You can specify the display name in a '
-                   'create or update operation. Note that later updates to other properties may cause an automatically '
-                   'generated value to overwrite the displayName value you have specified. To preserve a pre-existing '
-                   'value, always include it as displayName in an update operation.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='The contact\'s email addresses.')
-        c.argument('file_as', type=str, help='The name the contact is filed under.')
-        c.argument('generation', type=str, help='The contact\'s generation.')
-        c.argument('given_name', type=str, help='The contact\'s given name.')
-        c.argument('home_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('home_phones', nargs='+', help='The contact\'s home phone numbers.')
-        c.argument('im_addresses', nargs='+', help='The contact\'s instant messaging (IM) addresses.')
-        c.argument('initials', type=str, help='The contact\'s initials.')
-        c.argument('job_title', type=str, help='The contact’s job title.')
-        c.argument('manager', type=str, help='The name of the contact\'s manager.')
-        c.argument('middle_name', type=str, help='The contact\'s middle name.')
-        c.argument('mobile_phone', type=str, help='The contact\'s mobile phone number.')
-        c.argument('nick_name', type=str, help='The contact\'s nickname.')
-        c.argument('office_location', type=str, help='The location of the contact\'s office.')
-        c.argument('other_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('parent_folder_id', type=str, help='The ID of the contact\'s parent folder.')
-        c.argument('personal_notes', type=str, help='The user\'s notes about the contact.')
-        c.argument('profession', type=str, help='The contact\'s profession.')
-        c.argument('spouse_name', type=str, help='The name of the contact\'s spouse/partner.')
-        c.argument('surname', type=str, help='The contact\'s surname.')
-        c.argument('title', type=str, help='The contact\'s title.')
-        c.argument('yomi_company_name', type=str, help='The phonetic Japanese company name of the contact.')
-        c.argument('yomi_given_name', type=str, help='The phonetic Japanese given name (first name) of the contact.')
-        c.argument('yomi_surname', type=str, help='The phonetic Japanese surname (last name)  of the contact.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the contact. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the contact. Read-only. Nullable.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the contact. Read-only. Nullable.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
     with self.argument_context('personalcontacts user create-contact-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -102,13 +34,20 @@ def load_arguments(self, _):
                    'Navigation property. Read-only. Nullable. Expected value: json-string/@json-file.')
         c.argument('contacts', type=validate_file_or_dict, help='The contacts in the folder. Navigation property. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties, nargs='+', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties, nargs='+',
-                   help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
-                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
+                   'collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.')
+
+    with self.argument_context('personalcontacts user delete-contact') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts user delete-contact-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('personalcontacts user list-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -137,64 +76,8 @@ def load_arguments(self, _):
     with self.argument_context('personalcontacts user update-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('categories', nargs='+', help='The categories associated with the item')
-        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
-                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
-                   'object. Read-only.')
-        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
-                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('assistant_name', type=str, help='The name of the contact\'s assistant.')
-        c.argument('birthday', help='The contact\'s birthday. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('business_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('business_home_page', type=str, help='The business home page of the contact.')
-        c.argument('business_phones', nargs='+', help='The contact\'s business phone numbers.')
-        c.argument('children', nargs='+', help='The names of the contact\'s children.')
-        c.argument('company_name', type=str, help='The name of the contact\'s company.')
-        c.argument('department', type=str, help='The contact\'s department.')
-        c.argument('display_name', type=str, help='The contact\'s display name. You can specify the display name in a '
-                   'create or update operation. Note that later updates to other properties may cause an automatically '
-                   'generated value to overwrite the displayName value you have specified. To preserve a pre-existing '
-                   'value, always include it as displayName in an update operation.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='The contact\'s email addresses.')
-        c.argument('file_as', type=str, help='The name the contact is filed under.')
-        c.argument('generation', type=str, help='The contact\'s generation.')
-        c.argument('given_name', type=str, help='The contact\'s given name.')
-        c.argument('home_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('home_phones', nargs='+', help='The contact\'s home phone numbers.')
-        c.argument('im_addresses', nargs='+', help='The contact\'s instant messaging (IM) addresses.')
-        c.argument('initials', type=str, help='The contact\'s initials.')
-        c.argument('job_title', type=str, help='The contact’s job title.')
-        c.argument('manager', type=str, help='The name of the contact\'s manager.')
-        c.argument('middle_name', type=str, help='The contact\'s middle name.')
-        c.argument('mobile_phone', type=str, help='The contact\'s mobile phone number.')
-        c.argument('nick_name', type=str, help='The contact\'s nickname.')
-        c.argument('office_location', type=str, help='The location of the contact\'s office.')
-        c.argument('other_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('parent_folder_id', type=str, help='The ID of the contact\'s parent folder.')
-        c.argument('personal_notes', type=str, help='The user\'s notes about the contact.')
-        c.argument('profession', type=str, help='The contact\'s profession.')
-        c.argument('spouse_name', type=str, help='The name of the contact\'s spouse/partner.')
-        c.argument('surname', type=str, help='The contact\'s surname.')
-        c.argument('title', type=str, help='The contact\'s title.')
-        c.argument('yomi_company_name', type=str, help='The phonetic Japanese company name of the contact.')
-        c.argument('yomi_given_name', type=str, help='The phonetic Japanese given name (first name) of the contact.')
-        c.argument('yomi_surname', type=str, help='The phonetic Japanese surname (last name)  of the contact.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the contact. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the contact. Read-only. Nullable.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the contact. Read-only. Nullable.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
     with self.argument_context('personalcontacts user update-contact-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -206,26 +89,12 @@ def load_arguments(self, _):
                    'Navigation property. Read-only. Nullable. Expected value: json-string/@json-file.')
         c.argument('contacts', type=validate_file_or_dict, help='The contacts in the folder. Navigation property. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties, nargs='+', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties, nargs='+',
-                   help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
-                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
+                   'collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.')
 
-    with self.argument_context('personalcontacts user-contact-folder delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('personalcontacts user-contact-folder create-child-folder') as c:
+    with self.argument_context('personalcontacts userscontactfolder create-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -235,131 +104,98 @@ def load_arguments(self, _):
                    'Navigation property. Read-only. Nullable. Expected value: json-string/@json-file.')
         c.argument('contacts', type=validate_file_or_dict, help='The contacts in the folder. Navigation property. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties, nargs='+', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties, nargs='+',
-                   help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
-                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
+                   'collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.')
 
-    with self.argument_context('personalcontacts user-contact-folder create-contact') as c:
+    with self.argument_context('personalcontacts userscontactfolder create-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('categories', nargs='+', help='The categories associated with the item')
-        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
-                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
-                   'object. Read-only.')
-        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
-                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('assistant_name', type=str, help='The name of the contact\'s assistant.')
-        c.argument('birthday', help='The contact\'s birthday. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('business_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('business_home_page', type=str, help='The business home page of the contact.')
-        c.argument('business_phones', nargs='+', help='The contact\'s business phone numbers.')
-        c.argument('children', nargs='+', help='The names of the contact\'s children.')
-        c.argument('company_name', type=str, help='The name of the contact\'s company.')
-        c.argument('department', type=str, help='The contact\'s department.')
-        c.argument('display_name', type=str, help='The contact\'s display name. You can specify the display name in a '
-                   'create or update operation. Note that later updates to other properties may cause an automatically '
-                   'generated value to overwrite the displayName value you have specified. To preserve a pre-existing '
-                   'value, always include it as displayName in an update operation.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='The contact\'s email addresses.')
-        c.argument('file_as', type=str, help='The name the contact is filed under.')
-        c.argument('generation', type=str, help='The contact\'s generation.')
-        c.argument('given_name', type=str, help='The contact\'s given name.')
-        c.argument('home_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('home_phones', nargs='+', help='The contact\'s home phone numbers.')
-        c.argument('im_addresses', nargs='+', help='The contact\'s instant messaging (IM) addresses.')
-        c.argument('initials', type=str, help='The contact\'s initials.')
-        c.argument('job_title', type=str, help='The contact’s job title.')
-        c.argument('manager', type=str, help='The name of the contact\'s manager.')
-        c.argument('middle_name', type=str, help='The contact\'s middle name.')
-        c.argument('mobile_phone', type=str, help='The contact\'s mobile phone number.')
-        c.argument('nick_name', type=str, help='The contact\'s nickname.')
-        c.argument('office_location', type=str, help='The location of the contact\'s office.')
-        c.argument('other_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('parent_folder_id', type=str, help='The ID of the contact\'s parent folder.')
-        c.argument('personal_notes', type=str, help='The user\'s notes about the contact.')
-        c.argument('profession', type=str, help='The contact\'s profession.')
-        c.argument('spouse_name', type=str, help='The name of the contact\'s spouse/partner.')
-        c.argument('surname', type=str, help='The contact\'s surname.')
-        c.argument('title', type=str, help='The contact\'s title.')
-        c.argument('yomi_company_name', type=str, help='The phonetic Japanese company name of the contact.')
-        c.argument('yomi_given_name', type=str, help='The phonetic Japanese given name (first name) of the contact.')
-        c.argument('yomi_surname', type=str, help='The phonetic Japanese surname (last name)  of the contact.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the contact. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the contact. Read-only. Nullable.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the contact. Read-only. Nullable.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('personalcontacts user-contact-folder create-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('personalcontacts user-contact-folder create-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact-folder list-child-folder') as c:
+    with self.argument_context('personalcontacts userscontactfolder delete-child-folder') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolder delete-contact') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolder delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolder delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolder list-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder list-contact') as c:
+    with self.argument_context('personalcontacts userscontactfolder list-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder list-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder list-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder show-child-folder') as c:
+    with self.argument_context('personalcontacts userscontactfolder show-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder show-contact') as c:
+    with self.argument_context('personalcontacts userscontactfolder show-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder show-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -367,7 +203,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder show-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -375,7 +211,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder update-child-folder') as c:
+    with self.argument_context('personalcontacts userscontactfolder update-child-folder') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_folder_id1', type=str, help='key: id of contactFolder')
@@ -386,78 +222,19 @@ def load_arguments(self, _):
                    'Navigation property. Read-only. Nullable. Expected value: json-string/@json-file.')
         c.argument('contacts', type=validate_file_or_dict, help='The contacts in the folder. Navigation property. '
                    'Read-only. Nullable. Expected value: json-string/@json-file.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderMultiValueExtendedProperties, nargs='+', help='The '
+        c.argument('multi_value_extended_properties', action=AddMultiValueExtendedProperties, nargs='+', help='The '
                    'collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactFolderSingleValueExtendedProperties, nargs='+',
-                   help='The collection of single-value extended properties defined for the contactFolder. Read-only. '
-                   'Nullable.')
+        c.argument('single_value_extended_properties', action=AddSingleValueExtendedProperties, nargs='+', help='The '
+                   'collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.')
 
-    with self.argument_context('personalcontacts user-contact-folder update-contact') as c:
+    with self.argument_context('personalcontacts userscontactfolder update-contact') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('categories', nargs='+', help='The categories associated with the item')
-        c.argument('change_key', type=str, help='Identifies the version of the item. Every time the item is changed, '
-                   'changeKey changes as well. This allows Exchange to apply changes to the correct version of the '
-                   'object. Read-only.')
-        c.argument('created_date_time', help='The Timestamp type represents date and time information using ISO 8601 '
-                   'format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'')
-        c.argument('last_modified_date_time', help='The Timestamp type represents date and time information using ISO '
-                   '8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like '
-                   'this: \'2014-01-01T00:00:00Z\'')
-        c.argument('assistant_name', type=str, help='The name of the contact\'s assistant.')
-        c.argument('birthday', help='The contact\'s birthday. The Timestamp type represents date and time information '
-                   'using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would '
-                   'look like this: \'2014-01-01T00:00:00Z\'')
-        c.argument('business_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('business_home_page', type=str, help='The business home page of the contact.')
-        c.argument('business_phones', nargs='+', help='The contact\'s business phone numbers.')
-        c.argument('children', nargs='+', help='The names of the contact\'s children.')
-        c.argument('company_name', type=str, help='The name of the contact\'s company.')
-        c.argument('department', type=str, help='The contact\'s department.')
-        c.argument('display_name', type=str, help='The contact\'s display name. You can specify the display name in a '
-                   'create or update operation. Note that later updates to other properties may cause an automatically '
-                   'generated value to overwrite the displayName value you have specified. To preserve a pre-existing '
-                   'value, always include it as displayName in an update operation.')
-        c.argument('email_addresses', action=AddEmailAddresses, nargs='+', help='The contact\'s email addresses.')
-        c.argument('file_as', type=str, help='The name the contact is filed under.')
-        c.argument('generation', type=str, help='The contact\'s generation.')
-        c.argument('given_name', type=str, help='The contact\'s given name.')
-        c.argument('home_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('home_phones', nargs='+', help='The contact\'s home phone numbers.')
-        c.argument('im_addresses', nargs='+', help='The contact\'s instant messaging (IM) addresses.')
-        c.argument('initials', type=str, help='The contact\'s initials.')
-        c.argument('job_title', type=str, help='The contact’s job title.')
-        c.argument('manager', type=str, help='The name of the contact\'s manager.')
-        c.argument('middle_name', type=str, help='The contact\'s middle name.')
-        c.argument('mobile_phone', type=str, help='The contact\'s mobile phone number.')
-        c.argument('nick_name', type=str, help='The contact\'s nickname.')
-        c.argument('office_location', type=str, help='The location of the contact\'s office.')
-        c.argument('other_address', action=AddBusinessAddress, nargs='+', help='physicalAddress')
-        c.argument('parent_folder_id', type=str, help='The ID of the contact\'s parent folder.')
-        c.argument('personal_notes', type=str, help='The user\'s notes about the contact.')
-        c.argument('profession', type=str, help='The contact\'s profession.')
-        c.argument('spouse_name', type=str, help='The name of the contact\'s spouse/partner.')
-        c.argument('surname', type=str, help='The contact\'s surname.')
-        c.argument('title', type=str, help='The contact\'s title.')
-        c.argument('yomi_company_name', type=str, help='The phonetic Japanese company name of the contact.')
-        c.argument('yomi_given_name', type=str, help='The phonetic Japanese given name (first name) of the contact.')
-        c.argument('yomi_surname', type=str, help='The phonetic Japanese surname (last name)  of the contact.')
-        c.argument('extensions', action=AddExtensions, nargs='+', help='The collection of open extensions defined for '
-                   'the contact. Read-only. Nullable.')
-        c.argument('multi_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactMultiValueExtendedProperties, nargs='+', help='The '
-                   'collection of multi-value extended properties defined for the contact. Read-only. Nullable.')
-        c.argument('photo', action=AddPhoto, nargs='+', help='profilePhoto')
-        c.argument('single_value_extended_properties',
-                   action=AddPersonalcontactsUserCreateContactSingleValueExtendedProperties, nargs='+', help='The '
-                   'collection of single-value extended properties defined for the contact. Read-only. Nullable.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('personalcontacts user-contact-folder update-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -465,7 +242,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('personalcontacts user-contact-folder update-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolder update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -473,38 +250,56 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact delete') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact create-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact create-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', nargs='+', help='A collection of property values.')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact create-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('value', type=str, help='A property value.')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact delete-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
                    'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact delete-photo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontactfolderscontact delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
+        c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
                    'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact create-extension') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-
-    with self.argument_context('personalcontacts user-contact-folder-contact create-multi-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', nargs='+', help='A collection of property values.')
-
-    with self.argument_context('personalcontacts user-contact-folder-contact create-single-value-extended-property') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('value', type=str, help='A property value.')
-
-    with self.argument_context('personalcontacts user-contact-folder-contact list-extension') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -512,7 +307,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact list-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -520,7 +315,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact list-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -528,7 +323,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact show-extension') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -536,7 +331,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact show-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -545,14 +340,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact show-photo') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact show-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact show-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -561,14 +356,14 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact update-extension') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact update-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -577,7 +372,7 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact update-photo') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact update-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -585,7 +380,7 @@ def load_arguments(self, _):
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('personalcontacts user-contact-folder-contact update-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontactfolderscontact update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_folder_id', type=str, help='key: id of contactFolder')
         c.argument('contact_id', type=str, help='key: id of contact')
@@ -594,62 +389,77 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('contact_id', type=str, help='key: id of contact')
-        c.argument('extension_id', type=str, help='key: id of extension')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'multiValueLegacyExtendedProperty')
-        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
-                   'singleValueLegacyExtendedProperty')
-
-    with self.argument_context('personalcontacts user-contact create-extension') as c:
+    with self.argument_context('personalcontacts userscontact create-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('personalcontacts user-contact create-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact create-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('personalcontacts user-contact create-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact create-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', type=str, help='A property value.')
 
-    with self.argument_context('personalcontacts user-contact list-extension') as c:
+    with self.argument_context('personalcontacts userscontact delete-extension') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('extension_id', type=str, help='key: id of extension')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontact delete-multi-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'multiValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontact delete-photo') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontact delete-single-value-extended-property') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('contact_id', type=str, help='key: id of contact')
+        c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
+                   'singleValueLegacyExtendedProperty')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('personalcontacts userscontact list-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact list-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact list-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact list-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact list-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact show-extension') as c:
+    with self.argument_context('personalcontacts userscontact show-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact show-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact show-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -657,13 +467,13 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact show-photo') as c:
+    with self.argument_context('personalcontacts userscontact show-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact show-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact show-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -671,13 +481,13 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('personalcontacts user-contact update-extension') as c:
+    with self.argument_context('personalcontacts userscontact update-extension') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('extension_id', type=str, help='key: id of extension')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
 
-    with self.argument_context('personalcontacts user-contact update-multi-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact update-multi-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('multi_value_legacy_extended_property_id', type=str, help='key: id of '
@@ -685,14 +495,14 @@ def load_arguments(self, _):
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('value', nargs='+', help='A collection of property values.')
 
-    with self.argument_context('personalcontacts user-contact update-photo') as c:
+    with self.argument_context('personalcontacts userscontact update-photo') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('height', type=int, help='The height of the photo. Read-only.')
         c.argument('width', type=int, help='The width of the photo. Read-only.')
 
-    with self.argument_context('personalcontacts user-contact update-single-value-extended-property') as c:
+    with self.argument_context('personalcontacts userscontact update-single-value-extended-property') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('contact_id', type=str, help='key: id of contact')
         c.argument('single_value_legacy_extended_property_id', type=str, help='key: id of '

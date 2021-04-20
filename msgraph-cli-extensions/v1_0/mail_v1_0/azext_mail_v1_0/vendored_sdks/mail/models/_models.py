@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfAttachment(msrest.serialization.Model):
+class collectionofattachment(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphAttachment]
+    :type value: list[~mail.models.microsoftgraphattachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class CollectionOfAttachment(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfAttachment, self).__init__(**kwargs)
+        super(collectionofattachment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfAttachment0(msrest.serialization.Model):
+class collectionofattachment0(msrest.serialization.Model):
     """Collection of attachment.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphAttachment]
+    :type value: list[~mail.models.microsoftgraphattachment]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphAttachment]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphattachment]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class CollectionOfAttachment0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfAttachment0, self).__init__(**kwargs)
+        super(collectionofattachment0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfExtension(msrest.serialization.Model):
+class collectionofextension(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphExtension]
+    :type value: list[~mail.models.microsoftgraphextension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,27 +88,27 @@ class CollectionOfExtension(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfExtension, self).__init__(**kwargs)
+        super(collectionofextension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfExtension0(msrest.serialization.Model):
+class collectionofextension0(msrest.serialization.Model):
     """Collection of extension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphExtension]
+    :type value: list[~mail.models.microsoftgraphextension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphExtension]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphextension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -116,27 +116,27 @@ class CollectionOfExtension0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfExtension0, self).__init__(**kwargs)
+        super(collectionofextension0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfInferenceClassificationOverride(msrest.serialization.Model):
+class collectionofinferenceclassificationoverride(msrest.serialization.Model):
     """Collection of inferenceClassificationOverride.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphInferenceClassificationOverride]
+    :type value: list[~mail.models.microsoftgraphinferenceclassificationoverride]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphInferenceClassificationOverride]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphinferenceclassificationoverride]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -144,27 +144,27 @@ class CollectionOfInferenceClassificationOverride(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfInferenceClassificationOverride, self).__init__(**kwargs)
+        super(collectionofinferenceclassificationoverride, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMailFolder(msrest.serialization.Model):
+class collectionofmailfolder(msrest.serialization.Model):
     """Collection of mailFolder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMailFolder]
+    :type value: list[~mail.models.microsoftgraphmailfolder]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMailFolder]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmailfolder]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -172,27 +172,27 @@ class CollectionOfMailFolder(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMailFolder, self).__init__(**kwargs)
+        super(collectionofmailfolder, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMailFolder0(msrest.serialization.Model):
+class collectionofmailfolder0(msrest.serialization.Model):
     """Collection of mailFolder.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMailFolder]
+    :type value: list[~mail.models.microsoftgraphmailfolder]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMailFolder]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmailfolder]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -200,27 +200,27 @@ class CollectionOfMailFolder0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMailFolder0, self).__init__(**kwargs)
+        super(collectionofmailfolder0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMessage(msrest.serialization.Model):
+class collectionofmessage(msrest.serialization.Model):
     """Collection of message.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMessage]
+    :type value: list[~mail.models.microsoftgraphmessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMessage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -228,27 +228,27 @@ class CollectionOfMessage(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMessage, self).__init__(**kwargs)
+        super(collectionofmessage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMessage0(msrest.serialization.Model):
+class collectionofmessage0(msrest.serialization.Model):
     """Collection of message.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMessage]
+    :type value: list[~mail.models.microsoftgraphmessage]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMessage]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmessage]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -256,27 +256,27 @@ class CollectionOfMessage0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMessage0, self).__init__(**kwargs)
+        super(collectionofmessage0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMessageRule(msrest.serialization.Model):
+class collectionofmessagerule(msrest.serialization.Model):
     """Collection of messageRule.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMessageRule]
+    :type value: list[~mail.models.microsoftgraphmessagerule]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMessageRule]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmessagerule]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -284,27 +284,27 @@ class CollectionOfMessageRule(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMessageRule, self).__init__(**kwargs)
+        super(collectionofmessagerule, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMultiValueLegacyExtendedProperty(msrest.serialization.Model):
+class collectionofmultivaluelegacyextendedproperty(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphmultivaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -312,27 +312,27 @@ class CollectionOfMultiValueLegacyExtendedProperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMultiValueLegacyExtendedProperty, self).__init__(**kwargs)
+        super(collectionofmultivaluelegacyextendedproperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMultiValueLegacyExtendedProperty0(msrest.serialization.Model):
+class collectionofmultivaluelegacyextendedproperty0(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphmultivaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -340,27 +340,27 @@ class CollectionOfMultiValueLegacyExtendedProperty0(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMultiValueLegacyExtendedProperty0, self).__init__(**kwargs)
+        super(collectionofmultivaluelegacyextendedproperty0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfMultiValueLegacyExtendedProperty1(msrest.serialization.Model):
+class collectionofmultivaluelegacyextendedproperty1(msrest.serialization.Model):
     """Collection of multiValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphmultivaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -368,27 +368,27 @@ class CollectionOfMultiValueLegacyExtendedProperty1(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfMultiValueLegacyExtendedProperty1, self).__init__(**kwargs)
+        super(collectionofmultivaluelegacyextendedproperty1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSingleValueLegacyExtendedProperty(msrest.serialization.Model):
+class collectionofsinglevaluelegacyextendedproperty(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphsinglevaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -396,27 +396,27 @@ class CollectionOfSingleValueLegacyExtendedProperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSingleValueLegacyExtendedProperty, self).__init__(**kwargs)
+        super(collectionofsinglevaluelegacyextendedproperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSingleValueLegacyExtendedProperty0(msrest.serialization.Model):
+class collectionofsinglevaluelegacyextendedproperty0(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphsinglevaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -424,27 +424,27 @@ class CollectionOfSingleValueLegacyExtendedProperty0(msrest.serialization.Model)
         self,
         **kwargs
     ):
-        super(CollectionOfSingleValueLegacyExtendedProperty0, self).__init__(**kwargs)
+        super(collectionofsinglevaluelegacyextendedproperty0, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSingleValueLegacyExtendedProperty1(msrest.serialization.Model):
+class collectionofsinglevaluelegacyextendedproperty1(msrest.serialization.Model):
     """Collection of singleValueLegacyExtendedProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+    :type value: list[~mail.models.microsoftgraphsinglevaluelegacyextendedproperty]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -452,13 +452,13 @@ class CollectionOfSingleValueLegacyExtendedProperty1(msrest.serialization.Model)
         self,
         **kwargs
     ):
-        super(CollectionOfSingleValueLegacyExtendedProperty1, self).__init__(**kwargs)
+        super(collectionofsinglevaluelegacyextendedproperty1, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -477,12 +477,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphAttachment(MicrosoftGraphEntity):
+class microsoftgraphattachment(microsoftgraphentity):
     """attachment.
 
     :param id: Read-only.
@@ -522,7 +522,7 @@ class MicrosoftGraphAttachment(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAttachment, self).__init__(**kwargs)
+        super(microsoftgraphattachment, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content_type = kwargs.get('content_type', None)
         self.is_inline = kwargs.get('is_inline', None)
@@ -531,7 +531,7 @@ class MicrosoftGraphAttachment(MicrosoftGraphEntity):
         self.size = kwargs.get('size', None)
 
 
-class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
+class microsoftgraphdatetimezone(msrest.serialization.Model):
     """dateTimeTimeZone.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -555,13 +555,13 @@ class MicrosoftGraphDateTimeZone(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphDateTimeZone, self).__init__(**kwargs)
+        super(microsoftgraphdatetimezone, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.date_time = kwargs.get('date_time', None)
         self.time_zone = kwargs.get('time_zone', None)
 
 
-class MicrosoftGraphEmailAddress(msrest.serialization.Model):
+class microsoftgraphemailaddress(msrest.serialization.Model):
     """emailAddress.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -583,13 +583,13 @@ class MicrosoftGraphEmailAddress(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEmailAddress, self).__init__(**kwargs)
+        super(microsoftgraphemailaddress, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.address = kwargs.get('address', None)
         self.name = kwargs.get('name', None)
 
 
-class MicrosoftGraphExtension(MicrosoftGraphEntity):
+class microsoftgraphextension(microsoftgraphentity):
     """extension.
 
     :param id: Read-only.
@@ -608,39 +608,39 @@ class MicrosoftGraphExtension(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphExtension, self).__init__(**kwargs)
+        super(microsoftgraphextension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
 
 
-class MicrosoftGraphFollowupFlag(msrest.serialization.Model):
+class microsoftgraphfollowupflag(msrest.serialization.Model):
     """followupFlag.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+    :type completed_date_time: ~mail.models.microsoftgraphdatetimezone
     :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+    :type due_date_time: ~mail.models.microsoftgraphdatetimezone
     :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~mail.models.MicrosoftGraphFollowupFlagStatus
+    :type flag_status: str or ~mail.models.Microsoftgraphfollowupflagstatus
     :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+    :type start_date_time: ~mail.models.microsoftgraphdatetimezone
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'completed_date_time': {'key': 'completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'due_date_time': {'key': 'dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'completed_date_time': {'key': 'completedDateTime', 'type': 'microsoftgraphdatetimezone'},
+        'due_date_time': {'key': 'dueDateTime', 'type': 'microsoftgraphdatetimezone'},
         'flag_status': {'key': 'flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'start_date_time': {'key': 'startDateTime', 'type': 'microsoftgraphdatetimezone'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphFollowupFlag, self).__init__(**kwargs)
+        super(microsoftgraphfollowupflag, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.completed_date_time = kwargs.get('completed_date_time', None)
         self.due_date_time = kwargs.get('due_date_time', None)
@@ -648,7 +648,7 @@ class MicrosoftGraphFollowupFlag(msrest.serialization.Model):
         self.start_date_time = kwargs.get('start_date_time', None)
 
 
-class MicrosoftGraphInferenceClassification(MicrosoftGraphEntity):
+class microsoftgraphinferenceclassification(microsoftgraphentity):
     """inferenceClassification.
 
     :param id: Read-only.
@@ -658,25 +658,25 @@ class MicrosoftGraphInferenceClassification(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param overrides: A set of overrides for a user to always classify messages from specific
      senders in certain ways: focused, or other. Read-only. Nullable.
-    :type overrides: list[~mail.models.MicrosoftGraphInferenceClassificationOverride]
+    :type overrides: list[~mail.models.microsoftgraphinferenceclassificationoverride]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'overrides': {'key': 'overrides', 'type': '[MicrosoftGraphInferenceClassificationOverride]'},
+        'overrides': {'key': 'overrides', 'type': '[microsoftgraphinferenceclassificationoverride]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphInferenceClassification, self).__init__(**kwargs)
+        super(microsoftgraphinferenceclassification, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.overrides = kwargs.get('overrides', None)
 
 
-class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
+class microsoftgraphinferenceclassificationoverride(microsoftgraphentity):
     """inferenceClassificationOverride.
 
     :param id: Read-only.
@@ -685,29 +685,29 @@ class MicrosoftGraphInferenceClassificationOverride(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param classify_as:  Possible values include: "focused", "other".
-    :type classify_as: str or ~mail.models.MicrosoftGraphInferenceClassificationType
+    :type classify_as: str or ~mail.models.Microsoftgraphinferenceclassificationtype
     :param sender_email_address: emailAddress.
-    :type sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
+    :type sender_email_address: ~mail.models.microsoftgraphemailaddress
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'classify_as': {'key': 'classifyAs', 'type': 'str'},
-        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'MicrosoftGraphEmailAddress'},
+        'sender_email_address': {'key': 'senderEmailAddress', 'type': 'microsoftgraphemailaddress'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphInferenceClassificationOverride, self).__init__(**kwargs)
+        super(microsoftgraphinferenceclassificationoverride, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.classify_as = kwargs.get('classify_as', None)
         self.sender_email_address = kwargs.get('sender_email_address', None)
 
 
-class MicrosoftGraphInternetMessageHeader(msrest.serialization.Model):
+class microsoftgraphinternetmessageheader(msrest.serialization.Model):
     """internetMessageHeader.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -729,13 +729,13 @@ class MicrosoftGraphInternetMessageHeader(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphInternetMessageHeader, self).__init__(**kwargs)
+        super(microsoftgraphinternetmessageheader, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.value = kwargs.get('value', None)
 
 
-class MicrosoftGraphItemBody(msrest.serialization.Model):
+class microsoftgraphitembody(msrest.serialization.Model):
     """itemBody.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -744,7 +744,7 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
     :param content: The content of the item.
     :type content: str
     :param content_type:  Possible values include: "text", "html".
-    :type content_type: str or ~mail.models.MicrosoftGraphBodyType
+    :type content_type: str or ~mail.models.Microsoftgraphbodytype
     """
 
     _attribute_map = {
@@ -757,13 +757,13 @@ class MicrosoftGraphItemBody(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphItemBody, self).__init__(**kwargs)
+        super(microsoftgraphitembody, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.content = kwargs.get('content', None)
         self.content_type = kwargs.get('content_type', None)
 
 
-class MicrosoftGraphMailFolder(MicrosoftGraphEntity):
+class microsoftgraphmailfolder(microsoftgraphentity):
     """mailFolder.
 
     :param id: Read-only.
@@ -782,19 +782,19 @@ class MicrosoftGraphMailFolder(MicrosoftGraphEntity):
     :param unread_item_count: The number of items in the mailFolder marked as unread.
     :type unread_item_count: int
     :param child_folders: The collection of child folders in the mailFolder.
-    :type child_folders: list[~mail.models.MicrosoftGraphMailFolder]
+    :type child_folders: list[~mail.models.microsoftgraphmailfolder]
     :param message_rules: The collection of rules that apply to the user's Inbox folder.
-    :type message_rules: list[~mail.models.MicrosoftGraphMessageRule]
+    :type message_rules: list[~mail.models.microsoftgraphmessagerule]
     :param messages: The collection of messages in the mailFolder.
-    :type messages: list[~mail.models.MicrosoftGraphMessage]
+    :type messages: list[~mail.models.microsoftgraphmessage]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the mailFolder. Read-only. Nullable.
     :type multi_value_extended_properties:
-     list[~mail.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+     list[~mail.models.microsoftgraphmultivaluelegacyextendedproperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the mailFolder. Read-only. Nullable.
     :type single_value_extended_properties:
-     list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
+     list[~mail.models.microsoftgraphsinglevaluelegacyextendedproperty]
     """
 
     _validation = {
@@ -811,18 +811,18 @@ class MicrosoftGraphMailFolder(MicrosoftGraphEntity):
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'total_item_count': {'key': 'totalItemCount', 'type': 'int'},
         'unread_item_count': {'key': 'unreadItemCount', 'type': 'int'},
-        'child_folders': {'key': 'childFolders', 'type': '[MicrosoftGraphMailFolder]'},
-        'message_rules': {'key': 'messageRules', 'type': '[MicrosoftGraphMessageRule]'},
-        'messages': {'key': 'messages', 'type': '[MicrosoftGraphMessage]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
+        'child_folders': {'key': 'childFolders', 'type': '[microsoftgraphmailfolder]'},
+        'message_rules': {'key': 'messageRules', 'type': '[microsoftgraphmessagerule]'},
+        'messages': {'key': 'messages', 'type': '[microsoftgraphmessage]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMailFolder, self).__init__(**kwargs)
+        super(microsoftgraphmailfolder, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.child_folder_count = kwargs.get('child_folder_count', None)
         self.display_name = kwargs.get('display_name', None)
@@ -836,7 +836,7 @@ class MicrosoftGraphMailFolder(MicrosoftGraphEntity):
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
 
 
-class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
+class microsoftgraphoutlookitem(microsoftgraphentity):
     """outlookItem.
 
     :param id: Read-only.
@@ -873,7 +873,7 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphOutlookItem, self).__init__(**kwargs)
+        super(microsoftgraphoutlookitem, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.categories = kwargs.get('categories', None)
         self.change_key = kwargs.get('change_key', None)
@@ -881,7 +881,7 @@ class MicrosoftGraphOutlookItem(MicrosoftGraphEntity):
         self.last_modified_date_time = kwargs.get('last_modified_date_time', None)
 
 
-class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
+class microsoftgraphmessage(microsoftgraphoutlookitem):
     """message.
 
     :param id: Read-only.
@@ -904,31 +904,35 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
      collection.
     :type additional_properties: dict[str, object]
     :param bcc_recipients: The Bcc: recipients for the message.
-    :type bcc_recipients: list[~mail.models.MicrosoftGraphRecipient]
+    :type bcc_recipients: list[~mail.models.microsoftgraphrecipient]
     :param body: itemBody.
-    :type body: ~mail.models.MicrosoftGraphItemBody
+    :type body: ~mail.models.microsoftgraphitembody
     :param body_preview: The first 255 characters of the message body. It is in text format.
     :type body_preview: str
     :param cc_recipients: The Cc: recipients for the message.
-    :type cc_recipients: list[~mail.models.MicrosoftGraphRecipient]
+    :type cc_recipients: list[~mail.models.microsoftgraphrecipient]
     :param conversation_id: The ID of the conversation the email belongs to.
     :type conversation_id: str
     :param conversation_index: Indicates the position of the message within the conversation.
     :type conversation_index: bytes
+    :param flag: followupFlag.
+    :type flag: ~mail.models.microsoftgraphfollowupflag
+    :param from_property: recipient.
+    :type from_property: ~mail.models.microsoftgraphrecipient
     :param has_attachments: Indicates whether the message has attachments. This property doesn't
      include inline attachments, so if a message contains only inline attachments, this property is
      false. To verify the existence of inline attachments, parse the body property to look for a src
      attribute, such as :code:`<IMG src='cid:image001.jpg@01D26CD8.6C05F070'>`.
     :type has_attachments: bool
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~mail.models.MicrosoftGraphImportance
+    :type importance: str or ~mail.models.Microsoftgraphimportance
     :param inference_classification:  Possible values include: "focused", "other".
-    :type inference_classification: str or ~mail.models.MicrosoftGraphInferenceClassificationType
+    :type inference_classification: str or ~mail.models.Microsoftgraphinferenceclassificationtype
     :param internet_message_headers: A collection of message headers defined by RFC5322. The set
      includes message headers indicating the network path taken by a message from the sender to the
      recipient. It can also contain custom message headers that hold app data for the message.
      Returned only on applying a $select query option. Read-only.
-    :type internet_message_headers: list[~mail.models.MicrosoftGraphInternetMessageHeader]
+    :type internet_message_headers: list[~mail.models.microsoftgraphinternetmessageheader]
     :param internet_message_id: The message ID in the format specified by RFC2822.
     :type internet_message_id: str
     :param is_delivery_receipt_requested: Indicates whether a read receipt is requested for the
@@ -947,15 +951,17 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
     :param received_date_time: The date and time the message was received.
     :type received_date_time: ~datetime.datetime
     :param reply_to: The email addresses to use when replying.
-    :type reply_to: list[~mail.models.MicrosoftGraphRecipient]
+    :type reply_to: list[~mail.models.microsoftgraphrecipient]
+    :param sender: recipient.
+    :type sender: ~mail.models.microsoftgraphrecipient
     :param sent_date_time: The date and time the message was sent.
     :type sent_date_time: ~datetime.datetime
     :param subject: The subject of the message.
     :type subject: str
     :param to_recipients: The To: recipients for the message.
-    :type to_recipients: list[~mail.models.MicrosoftGraphRecipient]
+    :type to_recipients: list[~mail.models.microsoftgraphrecipient]
     :param unique_body: itemBody.
-    :type unique_body: ~mail.models.MicrosoftGraphItemBody
+    :type unique_body: ~mail.models.microsoftgraphitembody
     :param web_link: The URL to open the message in Outlook Web App.You can append an ispopout
      argument to the end of the URL to change how the message is displayed. If ispopout is not
      present or if it is set to 1, then the message is shown in a popout window. If ispopout is set
@@ -965,29 +971,17 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
      from within an iFrame.
     :type web_link: str
     :param attachments: The fileAttachment and itemAttachment attachments for the message.
-    :type attachments: list[~mail.models.MicrosoftGraphAttachment]
+    :type attachments: list[~mail.models.microsoftgraphattachment]
     :param extensions: The collection of open extensions defined for the message. Nullable.
-    :type extensions: list[~mail.models.MicrosoftGraphExtension]
+    :type extensions: list[~mail.models.microsoftgraphextension]
     :param multi_value_extended_properties: The collection of multi-value extended properties
      defined for the message. Nullable.
     :type multi_value_extended_properties:
-     list[~mail.models.MicrosoftGraphMultiValueLegacyExtendedProperty]
+     list[~mail.models.microsoftgraphmultivaluelegacyextendedproperty]
     :param single_value_extended_properties: The collection of single-value extended properties
      defined for the message. Nullable.
     :type single_value_extended_properties:
-     list[~mail.models.MicrosoftGraphSingleValueLegacyExtendedProperty]
-    :param email_address_sender_email_address: emailAddress.
-    :type email_address_sender_email_address: ~mail.models.MicrosoftGraphEmailAddress
-    :param email_address_from_email_address: emailAddress.
-    :type email_address_from_email_address: ~mail.models.MicrosoftGraphEmailAddress
-    :param completed_date_time: dateTimeTimeZone.
-    :type completed_date_time: ~mail.models.MicrosoftGraphDateTimeZone
-    :param due_date_time: dateTimeTimeZone.
-    :type due_date_time: ~mail.models.MicrosoftGraphDateTimeZone
-    :param flag_status:  Possible values include: "notFlagged", "complete", "flagged".
-    :type flag_status: str or ~mail.models.MicrosoftGraphFollowupFlagStatus
-    :param start_date_time: dateTimeTimeZone.
-    :type start_date_time: ~mail.models.MicrosoftGraphDateTimeZone
+     list[~mail.models.microsoftgraphsinglevaluelegacyextendedproperty]
     """
 
     _attribute_map = {
@@ -997,16 +991,18 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'bcc_recipients': {'key': 'bccRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'body': {'key': 'body', 'type': 'MicrosoftGraphItemBody'},
+        'bcc_recipients': {'key': 'bccRecipients', 'type': '[microsoftgraphrecipient]'},
+        'body': {'key': 'body', 'type': 'microsoftgraphitembody'},
         'body_preview': {'key': 'bodyPreview', 'type': 'str'},
-        'cc_recipients': {'key': 'ccRecipients', 'type': '[MicrosoftGraphRecipient]'},
+        'cc_recipients': {'key': 'ccRecipients', 'type': '[microsoftgraphrecipient]'},
         'conversation_id': {'key': 'conversationId', 'type': 'str'},
         'conversation_index': {'key': 'conversationIndex', 'type': 'base64'},
+        'flag': {'key': 'flag', 'type': 'microsoftgraphfollowupflag'},
+        'from_property': {'key': 'from', 'type': 'microsoftgraphrecipient'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'importance': {'key': 'importance', 'type': 'str'},
         'inference_classification': {'key': 'inferenceClassification', 'type': 'str'},
-        'internet_message_headers': {'key': 'internetMessageHeaders', 'type': '[MicrosoftGraphInternetMessageHeader]'},
+        'internet_message_headers': {'key': 'internetMessageHeaders', 'type': '[microsoftgraphinternetmessageheader]'},
         'internet_message_id': {'key': 'internetMessageId', 'type': 'str'},
         'is_delivery_receipt_requested': {'key': 'isDeliveryReceiptRequested', 'type': 'bool'},
         'is_draft': {'key': 'isDraft', 'type': 'bool'},
@@ -1014,29 +1010,24 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         'is_read_receipt_requested': {'key': 'isReadReceiptRequested', 'type': 'bool'},
         'parent_folder_id': {'key': 'parentFolderId', 'type': 'str'},
         'received_date_time': {'key': 'receivedDateTime', 'type': 'iso-8601'},
-        'reply_to': {'key': 'replyTo', 'type': '[MicrosoftGraphRecipient]'},
+        'reply_to': {'key': 'replyTo', 'type': '[microsoftgraphrecipient]'},
+        'sender': {'key': 'sender', 'type': 'microsoftgraphrecipient'},
         'sent_date_time': {'key': 'sentDateTime', 'type': 'iso-8601'},
         'subject': {'key': 'subject', 'type': 'str'},
-        'to_recipients': {'key': 'toRecipients', 'type': '[MicrosoftGraphRecipient]'},
-        'unique_body': {'key': 'uniqueBody', 'type': 'MicrosoftGraphItemBody'},
+        'to_recipients': {'key': 'toRecipients', 'type': '[microsoftgraphrecipient]'},
+        'unique_body': {'key': 'uniqueBody', 'type': 'microsoftgraphitembody'},
         'web_link': {'key': 'webLink', 'type': 'str'},
-        'attachments': {'key': 'attachments', 'type': '[MicrosoftGraphAttachment]'},
-        'extensions': {'key': 'extensions', 'type': '[MicrosoftGraphExtension]'},
-        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[MicrosoftGraphMultiValueLegacyExtendedProperty]'},
-        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[MicrosoftGraphSingleValueLegacyExtendedProperty]'},
-        'email_address_sender_email_address': {'key': 'sender.emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
-        'email_address_from_email_address': {'key': 'from.emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
-        'completed_date_time': {'key': 'flag.completedDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'due_date_time': {'key': 'flag.dueDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
-        'flag_status': {'key': 'flag.flagStatus', 'type': 'str'},
-        'start_date_time': {'key': 'flag.startDateTime', 'type': 'MicrosoftGraphDateTimeZone'},
+        'attachments': {'key': 'attachments', 'type': '[microsoftgraphattachment]'},
+        'extensions': {'key': 'extensions', 'type': '[microsoftgraphextension]'},
+        'multi_value_extended_properties': {'key': 'multiValueExtendedProperties', 'type': '[microsoftgraphmultivaluelegacyextendedproperty]'},
+        'single_value_extended_properties': {'key': 'singleValueExtendedProperties', 'type': '[microsoftgraphsinglevaluelegacyextendedproperty]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMessage, self).__init__(**kwargs)
+        super(microsoftgraphmessage, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.bcc_recipients = kwargs.get('bcc_recipients', None)
         self.body = kwargs.get('body', None)
@@ -1044,6 +1035,8 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.cc_recipients = kwargs.get('cc_recipients', None)
         self.conversation_id = kwargs.get('conversation_id', None)
         self.conversation_index = kwargs.get('conversation_index', None)
+        self.flag = kwargs.get('flag', None)
+        self.from_property = kwargs.get('from_property', None)
         self.has_attachments = kwargs.get('has_attachments', None)
         self.importance = kwargs.get('importance', None)
         self.inference_classification = kwargs.get('inference_classification', None)
@@ -1056,6 +1049,7 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.parent_folder_id = kwargs.get('parent_folder_id', None)
         self.received_date_time = kwargs.get('received_date_time', None)
         self.reply_to = kwargs.get('reply_to', None)
+        self.sender = kwargs.get('sender', None)
         self.sent_date_time = kwargs.get('sent_date_time', None)
         self.subject = kwargs.get('subject', None)
         self.to_recipients = kwargs.get('to_recipients', None)
@@ -1065,15 +1059,9 @@ class MicrosoftGraphMessage(MicrosoftGraphOutlookItem):
         self.extensions = kwargs.get('extensions', None)
         self.multi_value_extended_properties = kwargs.get('multi_value_extended_properties', None)
         self.single_value_extended_properties = kwargs.get('single_value_extended_properties', None)
-        self.email_address_sender_email_address = kwargs.get('email_address_sender_email_address', None)
-        self.email_address_from_email_address = kwargs.get('email_address_from_email_address', None)
-        self.completed_date_time = kwargs.get('completed_date_time', None)
-        self.due_date_time = kwargs.get('due_date_time', None)
-        self.flag_status = kwargs.get('flag_status', None)
-        self.start_date_time = kwargs.get('start_date_time', None)
 
 
-class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
+class microsoftgraphmessagerule(microsoftgraphentity):
     """messageRule.
 
     :param id: Read-only.
@@ -1081,8 +1069,14 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param actions: messageRuleActions.
+    :type actions: ~mail.models.microsoftgraphmessageruleactions
+    :param conditions: messageRulePredicates.
+    :type conditions: ~mail.models.microsoftgraphmessagerulepredicates
     :param display_name: The display name of the rule.
     :type display_name: str
+    :param exceptions: messageRulePredicates.
+    :type exceptions: ~mail.models.microsoftgraphmessagerulepredicates
     :param has_error: Indicates whether the rule is in an error condition. Read-only.
     :type has_error: bool
     :param is_enabled: Indicates whether the rule is enabled to be applied to messages.
@@ -1092,229 +1086,6 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     :type is_read_only: bool
     :param sequence: Indicates the order in which the rule is executed, among other rules.
     :type sequence: int
-    :param body_contains_exceptions_body_contains: Represents the strings that should appear in the
-     body of an incoming message in order for the condition or exception to apply.
-    :type body_contains_exceptions_body_contains: list[str]
-    :param body_or_subject_contains_exceptions_body_or_subject_contains: Represents the strings
-     that should appear in the body or subject of an incoming message in order for the condition or
-     exception to apply.
-    :type body_or_subject_contains_exceptions_body_or_subject_contains: list[str]
-    :param categories_exceptions_categories: Represents the categories that an incoming message
-     should be labeled with in order for the condition or exception to apply.
-    :type categories_exceptions_categories: list[str]
-    :param from_addresses_exceptions_from_addresses: Represents the specific sender email addresses
-     of an incoming message in order for the condition or exception to apply.
-    :type from_addresses_exceptions_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
-    :param has_attachments_exceptions_has_attachments: Indicates whether an incoming message must
-     have attachments in order for the condition or exception to apply.
-    :type has_attachments_exceptions_has_attachments: bool
-    :param header_contains_exceptions_header_contains: Represents the strings that appear in the
-     headers of an incoming message in order for the condition or exception to apply.
-    :type header_contains_exceptions_header_contains: list[str]
-    :param importance_exceptions_importance:  Possible values include: "low", "normal", "high".
-    :type importance_exceptions_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param is_approval_request_exceptions_is_approval_request: Indicates whether an incoming
-     message must be an approval request in order for the condition or exception to apply.
-    :type is_approval_request_exceptions_is_approval_request: bool
-    :param is_automatic_forward_exceptions_is_automatic_forward: Indicates whether an incoming
-     message must be automatically forwarded in order for the condition or exception to apply.
-    :type is_automatic_forward_exceptions_is_automatic_forward: bool
-    :param is_automatic_reply_exceptions_is_automatic_reply: Indicates whether an incoming message
-     must be an auto reply in order for the condition or exception to apply.
-    :type is_automatic_reply_exceptions_is_automatic_reply: bool
-    :param is_encrypted_exceptions_is_encrypted: Indicates whether an incoming message must be
-     encrypted in order for the condition or exception to apply.
-    :type is_encrypted_exceptions_is_encrypted: bool
-    :param is_meeting_request_exceptions_is_meeting_request: Indicates whether an incoming message
-     must be a meeting request in order for the condition or exception to apply.
-    :type is_meeting_request_exceptions_is_meeting_request: bool
-    :param is_meeting_response_exceptions_is_meeting_response: Indicates whether an incoming
-     message must be a meeting response in order for the condition or exception to apply.
-    :type is_meeting_response_exceptions_is_meeting_response: bool
-    :param is_non_delivery_report_exceptions_is_non_delivery_report: Indicates whether an incoming
-     message must be a non-delivery report in order for the condition or exception to apply.
-    :type is_non_delivery_report_exceptions_is_non_delivery_report: bool
-    :param is_permission_controlled_exceptions_is_permission_controlled: Indicates whether an
-     incoming message must be permission controlled (RMS-protected) in order for the condition or
-     exception to apply.
-    :type is_permission_controlled_exceptions_is_permission_controlled: bool
-    :param is_read_receipt_exceptions_is_read_receipt: Indicates whether an incoming message must
-     be a read receipt in order for the condition or exception to apply.
-    :type is_read_receipt_exceptions_is_read_receipt: bool
-    :param is_signed_exceptions_is_signed: Indicates whether an incoming message must be S/MIME-
-     signed in order for the condition or exception to apply.
-    :type is_signed_exceptions_is_signed: bool
-    :param is_voicemail_exceptions_is_voicemail: Indicates whether an incoming message must be a
-     voice mail in order for the condition or exception to apply.
-    :type is_voicemail_exceptions_is_voicemail: bool
-    :param message_action_flag_exceptions_message_action_flag:  Possible values include: "any",
-     "call", "doNotForward", "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply",
-     "replyToAll", "review".
-    :type message_action_flag_exceptions_message_action_flag: str or
-     ~mail.models.MicrosoftGraphMessageActionFlag
-    :param not_sent_to_me_exceptions_not_sent_to_me: Indicates whether the owner of the mailbox
-     must not be a recipient of an incoming message in order for the condition or exception to
-     apply.
-    :type not_sent_to_me_exceptions_not_sent_to_me: bool
-    :param recipient_contains_exceptions_recipient_contains: Represents the strings that appear in
-     either the toRecipients or ccRecipients properties of an incoming message in order for the
-     condition or exception to apply.
-    :type recipient_contains_exceptions_recipient_contains: list[str]
-    :param sender_contains_exceptions_sender_contains: Represents the strings that appear in the
-     from property of an incoming message in order for the condition or exception to apply.
-    :type sender_contains_exceptions_sender_contains: list[str]
-    :param sensitivity_exceptions_sensitivity:  Possible values include: "normal", "personal",
-     "private", "confidential".
-    :type sensitivity_exceptions_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
-    :param sent_cc_me_exceptions_sent_cc_me: Indicates whether the owner of the mailbox must be in
-     the ccRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_cc_me_exceptions_sent_cc_me: bool
-    :param sent_only_to_me_exceptions_sent_only_to_me: Indicates whether the owner of the mailbox
-     must be the only recipient in an incoming message in order for the condition or exception to
-     apply.
-    :type sent_only_to_me_exceptions_sent_only_to_me: bool
-    :param sent_to_addresses_exceptions_sent_to_addresses: Represents the email addresses that an
-     incoming message must have been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses_exceptions_sent_to_addresses:
-     list[~mail.models.MicrosoftGraphRecipient]
-    :param sent_to_me_exceptions_sent_to_me: Indicates whether the owner of the mailbox must be in
-     the toRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_to_me_exceptions_sent_to_me: bool
-    :param sent_to_or_cc_me_exceptions_sent_to_or_cc_me: Indicates whether the owner of the mailbox
-     must be in either a toRecipients or ccRecipients property of an incoming message in order for
-     the condition or exception to apply.
-    :type sent_to_or_cc_me_exceptions_sent_to_or_cc_me: bool
-    :param subject_contains_exceptions_subject_contains: Represents the strings that appear in the
-     subject of an incoming message in order for the condition or exception to apply.
-    :type subject_contains_exceptions_subject_contains: list[str]
-    :param within_size_range_exceptions_within_size_range: sizeRange.
-    :type within_size_range_exceptions_within_size_range: ~mail.models.MicrosoftGraphSizeRange
-    :param body_contains_conditions_body_contains: Represents the strings that should appear in the
-     body of an incoming message in order for the condition or exception to apply.
-    :type body_contains_conditions_body_contains: list[str]
-    :param body_or_subject_contains_conditions_body_or_subject_contains: Represents the strings
-     that should appear in the body or subject of an incoming message in order for the condition or
-     exception to apply.
-    :type body_or_subject_contains_conditions_body_or_subject_contains: list[str]
-    :param categories_conditions_categories: Represents the categories that an incoming message
-     should be labeled with in order for the condition or exception to apply.
-    :type categories_conditions_categories: list[str]
-    :param from_addresses_conditions_from_addresses: Represents the specific sender email addresses
-     of an incoming message in order for the condition or exception to apply.
-    :type from_addresses_conditions_from_addresses: list[~mail.models.MicrosoftGraphRecipient]
-    :param has_attachments_conditions_has_attachments: Indicates whether an incoming message must
-     have attachments in order for the condition or exception to apply.
-    :type has_attachments_conditions_has_attachments: bool
-    :param header_contains_conditions_header_contains: Represents the strings that appear in the
-     headers of an incoming message in order for the condition or exception to apply.
-    :type header_contains_conditions_header_contains: list[str]
-    :param importance_conditions_importance:  Possible values include: "low", "normal", "high".
-    :type importance_conditions_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param is_approval_request_conditions_is_approval_request: Indicates whether an incoming
-     message must be an approval request in order for the condition or exception to apply.
-    :type is_approval_request_conditions_is_approval_request: bool
-    :param is_automatic_forward_conditions_is_automatic_forward: Indicates whether an incoming
-     message must be automatically forwarded in order for the condition or exception to apply.
-    :type is_automatic_forward_conditions_is_automatic_forward: bool
-    :param is_automatic_reply_conditions_is_automatic_reply: Indicates whether an incoming message
-     must be an auto reply in order for the condition or exception to apply.
-    :type is_automatic_reply_conditions_is_automatic_reply: bool
-    :param is_encrypted_conditions_is_encrypted: Indicates whether an incoming message must be
-     encrypted in order for the condition or exception to apply.
-    :type is_encrypted_conditions_is_encrypted: bool
-    :param is_meeting_request_conditions_is_meeting_request: Indicates whether an incoming message
-     must be a meeting request in order for the condition or exception to apply.
-    :type is_meeting_request_conditions_is_meeting_request: bool
-    :param is_meeting_response_conditions_is_meeting_response: Indicates whether an incoming
-     message must be a meeting response in order for the condition or exception to apply.
-    :type is_meeting_response_conditions_is_meeting_response: bool
-    :param is_non_delivery_report_conditions_is_non_delivery_report: Indicates whether an incoming
-     message must be a non-delivery report in order for the condition or exception to apply.
-    :type is_non_delivery_report_conditions_is_non_delivery_report: bool
-    :param is_permission_controlled_conditions_is_permission_controlled: Indicates whether an
-     incoming message must be permission controlled (RMS-protected) in order for the condition or
-     exception to apply.
-    :type is_permission_controlled_conditions_is_permission_controlled: bool
-    :param is_read_receipt_conditions_is_read_receipt: Indicates whether an incoming message must
-     be a read receipt in order for the condition or exception to apply.
-    :type is_read_receipt_conditions_is_read_receipt: bool
-    :param is_signed_conditions_is_signed: Indicates whether an incoming message must be S/MIME-
-     signed in order for the condition or exception to apply.
-    :type is_signed_conditions_is_signed: bool
-    :param is_voicemail_conditions_is_voicemail: Indicates whether an incoming message must be a
-     voice mail in order for the condition or exception to apply.
-    :type is_voicemail_conditions_is_voicemail: bool
-    :param message_action_flag_conditions_message_action_flag:  Possible values include: "any",
-     "call", "doNotForward", "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply",
-     "replyToAll", "review".
-    :type message_action_flag_conditions_message_action_flag: str or
-     ~mail.models.MicrosoftGraphMessageActionFlag
-    :param not_sent_to_me_conditions_not_sent_to_me: Indicates whether the owner of the mailbox
-     must not be a recipient of an incoming message in order for the condition or exception to
-     apply.
-    :type not_sent_to_me_conditions_not_sent_to_me: bool
-    :param recipient_contains_conditions_recipient_contains: Represents the strings that appear in
-     either the toRecipients or ccRecipients properties of an incoming message in order for the
-     condition or exception to apply.
-    :type recipient_contains_conditions_recipient_contains: list[str]
-    :param sender_contains_conditions_sender_contains: Represents the strings that appear in the
-     from property of an incoming message in order for the condition or exception to apply.
-    :type sender_contains_conditions_sender_contains: list[str]
-    :param sensitivity_conditions_sensitivity:  Possible values include: "normal", "personal",
-     "private", "confidential".
-    :type sensitivity_conditions_sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
-    :param sent_cc_me_conditions_sent_cc_me: Indicates whether the owner of the mailbox must be in
-     the ccRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_cc_me_conditions_sent_cc_me: bool
-    :param sent_only_to_me_conditions_sent_only_to_me: Indicates whether the owner of the mailbox
-     must be the only recipient in an incoming message in order for the condition or exception to
-     apply.
-    :type sent_only_to_me_conditions_sent_only_to_me: bool
-    :param sent_to_addresses_conditions_sent_to_addresses: Represents the email addresses that an
-     incoming message must have been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses_conditions_sent_to_addresses:
-     list[~mail.models.MicrosoftGraphRecipient]
-    :param sent_to_me_conditions_sent_to_me: Indicates whether the owner of the mailbox must be in
-     the toRecipients property of an incoming message in order for the condition or exception to
-     apply.
-    :type sent_to_me_conditions_sent_to_me: bool
-    :param sent_to_or_cc_me_conditions_sent_to_or_cc_me: Indicates whether the owner of the mailbox
-     must be in either a toRecipients or ccRecipients property of an incoming message in order for
-     the condition or exception to apply.
-    :type sent_to_or_cc_me_conditions_sent_to_or_cc_me: bool
-    :param subject_contains_conditions_subject_contains: Represents the strings that appear in the
-     subject of an incoming message in order for the condition or exception to apply.
-    :type subject_contains_conditions_subject_contains: list[str]
-    :param within_size_range_conditions_within_size_range: sizeRange.
-    :type within_size_range_conditions_within_size_range: ~mail.models.MicrosoftGraphSizeRange
-    :param assign_categories: A list of categories to be assigned to a message.
-    :type assign_categories: list[str]
-    :param copy_to_folder: The ID of a folder that a message is to be copied to.
-    :type copy_to_folder: str
-    :param delete: Indicates whether a message should be moved to the Deleted Items folder.
-    :type delete: bool
-    :param forward_as_attachment_to: The email addresses of the recipients to which a message
-     should be forwarded as an attachment.
-    :type forward_as_attachment_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param forward_to: The email addresses of the recipients to which a message should be
-     forwarded.
-    :type forward_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param mark_as_read: Indicates whether a message should be marked as read.
-    :type mark_as_read: bool
-    :param mark_importance:  Possible values include: "low", "normal", "high".
-    :type mark_importance: str or ~mail.models.MicrosoftGraphImportance
-    :param move_to_folder: The ID of the folder that a message will be moved to.
-    :type move_to_folder: str
-    :param permanent_delete: Indicates whether a message should be permanently deleted and not
-     saved to the Deleted Items folder.
-    :type permanent_delete: bool
-    :param redirect_to: The email addresses to which a message should be redirected.
-    :type redirect_to: list[~mail.models.MicrosoftGraphRecipient]
-    :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
-    :type stop_processing_rules: bool
     """
 
     _validation = {
@@ -1324,169 +1095,33 @@ class MicrosoftGraphMessageRule(MicrosoftGraphEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
+        'actions': {'key': 'actions', 'type': 'microsoftgraphmessageruleactions'},
+        'conditions': {'key': 'conditions', 'type': 'microsoftgraphmessagerulepredicates'},
         'display_name': {'key': 'displayName', 'type': 'str'},
+        'exceptions': {'key': 'exceptions', 'type': 'microsoftgraphmessagerulepredicates'},
         'has_error': {'key': 'hasError', 'type': 'bool'},
         'is_enabled': {'key': 'isEnabled', 'type': 'bool'},
         'is_read_only': {'key': 'isReadOnly', 'type': 'bool'},
         'sequence': {'key': 'sequence', 'type': 'int'},
-        'body_contains_exceptions_body_contains': {'key': 'exceptions.bodyContains', 'type': '[str]'},
-        'body_or_subject_contains_exceptions_body_or_subject_contains': {'key': 'exceptions.bodyOrSubjectContains', 'type': '[str]'},
-        'categories_exceptions_categories': {'key': 'exceptions.categories', 'type': '[str]'},
-        'from_addresses_exceptions_from_addresses': {'key': 'exceptions.fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'has_attachments_exceptions_has_attachments': {'key': 'exceptions.hasAttachments', 'type': 'bool'},
-        'header_contains_exceptions_header_contains': {'key': 'exceptions.headerContains', 'type': '[str]'},
-        'importance_exceptions_importance': {'key': 'exceptions.importance', 'type': 'str'},
-        'is_approval_request_exceptions_is_approval_request': {'key': 'exceptions.isApprovalRequest', 'type': 'bool'},
-        'is_automatic_forward_exceptions_is_automatic_forward': {'key': 'exceptions.isAutomaticForward', 'type': 'bool'},
-        'is_automatic_reply_exceptions_is_automatic_reply': {'key': 'exceptions.isAutomaticReply', 'type': 'bool'},
-        'is_encrypted_exceptions_is_encrypted': {'key': 'exceptions.isEncrypted', 'type': 'bool'},
-        'is_meeting_request_exceptions_is_meeting_request': {'key': 'exceptions.isMeetingRequest', 'type': 'bool'},
-        'is_meeting_response_exceptions_is_meeting_response': {'key': 'exceptions.isMeetingResponse', 'type': 'bool'},
-        'is_non_delivery_report_exceptions_is_non_delivery_report': {'key': 'exceptions.isNonDeliveryReport', 'type': 'bool'},
-        'is_permission_controlled_exceptions_is_permission_controlled': {'key': 'exceptions.isPermissionControlled', 'type': 'bool'},
-        'is_read_receipt_exceptions_is_read_receipt': {'key': 'exceptions.isReadReceipt', 'type': 'bool'},
-        'is_signed_exceptions_is_signed': {'key': 'exceptions.isSigned', 'type': 'bool'},
-        'is_voicemail_exceptions_is_voicemail': {'key': 'exceptions.isVoicemail', 'type': 'bool'},
-        'message_action_flag_exceptions_message_action_flag': {'key': 'exceptions.messageActionFlag', 'type': 'str'},
-        'not_sent_to_me_exceptions_not_sent_to_me': {'key': 'exceptions.notSentToMe', 'type': 'bool'},
-        'recipient_contains_exceptions_recipient_contains': {'key': 'exceptions.recipientContains', 'type': '[str]'},
-        'sender_contains_exceptions_sender_contains': {'key': 'exceptions.senderContains', 'type': '[str]'},
-        'sensitivity_exceptions_sensitivity': {'key': 'exceptions.sensitivity', 'type': 'str'},
-        'sent_cc_me_exceptions_sent_cc_me': {'key': 'exceptions.sentCcMe', 'type': 'bool'},
-        'sent_only_to_me_exceptions_sent_only_to_me': {'key': 'exceptions.sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses_exceptions_sent_to_addresses': {'key': 'exceptions.sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'sent_to_me_exceptions_sent_to_me': {'key': 'exceptions.sentToMe', 'type': 'bool'},
-        'sent_to_or_cc_me_exceptions_sent_to_or_cc_me': {'key': 'exceptions.sentToOrCcMe', 'type': 'bool'},
-        'subject_contains_exceptions_subject_contains': {'key': 'exceptions.subjectContains', 'type': '[str]'},
-        'within_size_range_exceptions_within_size_range': {'key': 'exceptions.withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
-        'body_contains_conditions_body_contains': {'key': 'conditions.bodyContains', 'type': '[str]'},
-        'body_or_subject_contains_conditions_body_or_subject_contains': {'key': 'conditions.bodyOrSubjectContains', 'type': '[str]'},
-        'categories_conditions_categories': {'key': 'conditions.categories', 'type': '[str]'},
-        'from_addresses_conditions_from_addresses': {'key': 'conditions.fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'has_attachments_conditions_has_attachments': {'key': 'conditions.hasAttachments', 'type': 'bool'},
-        'header_contains_conditions_header_contains': {'key': 'conditions.headerContains', 'type': '[str]'},
-        'importance_conditions_importance': {'key': 'conditions.importance', 'type': 'str'},
-        'is_approval_request_conditions_is_approval_request': {'key': 'conditions.isApprovalRequest', 'type': 'bool'},
-        'is_automatic_forward_conditions_is_automatic_forward': {'key': 'conditions.isAutomaticForward', 'type': 'bool'},
-        'is_automatic_reply_conditions_is_automatic_reply': {'key': 'conditions.isAutomaticReply', 'type': 'bool'},
-        'is_encrypted_conditions_is_encrypted': {'key': 'conditions.isEncrypted', 'type': 'bool'},
-        'is_meeting_request_conditions_is_meeting_request': {'key': 'conditions.isMeetingRequest', 'type': 'bool'},
-        'is_meeting_response_conditions_is_meeting_response': {'key': 'conditions.isMeetingResponse', 'type': 'bool'},
-        'is_non_delivery_report_conditions_is_non_delivery_report': {'key': 'conditions.isNonDeliveryReport', 'type': 'bool'},
-        'is_permission_controlled_conditions_is_permission_controlled': {'key': 'conditions.isPermissionControlled', 'type': 'bool'},
-        'is_read_receipt_conditions_is_read_receipt': {'key': 'conditions.isReadReceipt', 'type': 'bool'},
-        'is_signed_conditions_is_signed': {'key': 'conditions.isSigned', 'type': 'bool'},
-        'is_voicemail_conditions_is_voicemail': {'key': 'conditions.isVoicemail', 'type': 'bool'},
-        'message_action_flag_conditions_message_action_flag': {'key': 'conditions.messageActionFlag', 'type': 'str'},
-        'not_sent_to_me_conditions_not_sent_to_me': {'key': 'conditions.notSentToMe', 'type': 'bool'},
-        'recipient_contains_conditions_recipient_contains': {'key': 'conditions.recipientContains', 'type': '[str]'},
-        'sender_contains_conditions_sender_contains': {'key': 'conditions.senderContains', 'type': '[str]'},
-        'sensitivity_conditions_sensitivity': {'key': 'conditions.sensitivity', 'type': 'str'},
-        'sent_cc_me_conditions_sent_cc_me': {'key': 'conditions.sentCcMe', 'type': 'bool'},
-        'sent_only_to_me_conditions_sent_only_to_me': {'key': 'conditions.sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses_conditions_sent_to_addresses': {'key': 'conditions.sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
-        'sent_to_me_conditions_sent_to_me': {'key': 'conditions.sentToMe', 'type': 'bool'},
-        'sent_to_or_cc_me_conditions_sent_to_or_cc_me': {'key': 'conditions.sentToOrCcMe', 'type': 'bool'},
-        'subject_contains_conditions_subject_contains': {'key': 'conditions.subjectContains', 'type': '[str]'},
-        'within_size_range_conditions_within_size_range': {'key': 'conditions.withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
-        'assign_categories': {'key': 'actions.assignCategories', 'type': '[str]'},
-        'copy_to_folder': {'key': 'actions.copyToFolder', 'type': 'str'},
-        'delete': {'key': 'actions.delete', 'type': 'bool'},
-        'forward_as_attachment_to': {'key': 'actions.forwardAsAttachmentTo', 'type': '[MicrosoftGraphRecipient]'},
-        'forward_to': {'key': 'actions.forwardTo', 'type': '[MicrosoftGraphRecipient]'},
-        'mark_as_read': {'key': 'actions.markAsRead', 'type': 'bool'},
-        'mark_importance': {'key': 'actions.markImportance', 'type': 'str'},
-        'move_to_folder': {'key': 'actions.moveToFolder', 'type': 'str'},
-        'permanent_delete': {'key': 'actions.permanentDelete', 'type': 'bool'},
-        'redirect_to': {'key': 'actions.redirectTo', 'type': '[MicrosoftGraphRecipient]'},
-        'stop_processing_rules': {'key': 'actions.stopProcessingRules', 'type': 'bool'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMessageRule, self).__init__(**kwargs)
+        super(microsoftgraphmessagerule, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
+        self.actions = kwargs.get('actions', None)
+        self.conditions = kwargs.get('conditions', None)
         self.display_name = kwargs.get('display_name', None)
+        self.exceptions = kwargs.get('exceptions', None)
         self.has_error = kwargs.get('has_error', None)
         self.is_enabled = kwargs.get('is_enabled', None)
         self.is_read_only = kwargs.get('is_read_only', None)
         self.sequence = kwargs.get('sequence', None)
-        self.body_contains_exceptions_body_contains = kwargs.get('body_contains_exceptions_body_contains', None)
-        self.body_or_subject_contains_exceptions_body_or_subject_contains = kwargs.get('body_or_subject_contains_exceptions_body_or_subject_contains', None)
-        self.categories_exceptions_categories = kwargs.get('categories_exceptions_categories', None)
-        self.from_addresses_exceptions_from_addresses = kwargs.get('from_addresses_exceptions_from_addresses', None)
-        self.has_attachments_exceptions_has_attachments = kwargs.get('has_attachments_exceptions_has_attachments', None)
-        self.header_contains_exceptions_header_contains = kwargs.get('header_contains_exceptions_header_contains', None)
-        self.importance_exceptions_importance = kwargs.get('importance_exceptions_importance', None)
-        self.is_approval_request_exceptions_is_approval_request = kwargs.get('is_approval_request_exceptions_is_approval_request', None)
-        self.is_automatic_forward_exceptions_is_automatic_forward = kwargs.get('is_automatic_forward_exceptions_is_automatic_forward', None)
-        self.is_automatic_reply_exceptions_is_automatic_reply = kwargs.get('is_automatic_reply_exceptions_is_automatic_reply', None)
-        self.is_encrypted_exceptions_is_encrypted = kwargs.get('is_encrypted_exceptions_is_encrypted', None)
-        self.is_meeting_request_exceptions_is_meeting_request = kwargs.get('is_meeting_request_exceptions_is_meeting_request', None)
-        self.is_meeting_response_exceptions_is_meeting_response = kwargs.get('is_meeting_response_exceptions_is_meeting_response', None)
-        self.is_non_delivery_report_exceptions_is_non_delivery_report = kwargs.get('is_non_delivery_report_exceptions_is_non_delivery_report', None)
-        self.is_permission_controlled_exceptions_is_permission_controlled = kwargs.get('is_permission_controlled_exceptions_is_permission_controlled', None)
-        self.is_read_receipt_exceptions_is_read_receipt = kwargs.get('is_read_receipt_exceptions_is_read_receipt', None)
-        self.is_signed_exceptions_is_signed = kwargs.get('is_signed_exceptions_is_signed', None)
-        self.is_voicemail_exceptions_is_voicemail = kwargs.get('is_voicemail_exceptions_is_voicemail', None)
-        self.message_action_flag_exceptions_message_action_flag = kwargs.get('message_action_flag_exceptions_message_action_flag', None)
-        self.not_sent_to_me_exceptions_not_sent_to_me = kwargs.get('not_sent_to_me_exceptions_not_sent_to_me', None)
-        self.recipient_contains_exceptions_recipient_contains = kwargs.get('recipient_contains_exceptions_recipient_contains', None)
-        self.sender_contains_exceptions_sender_contains = kwargs.get('sender_contains_exceptions_sender_contains', None)
-        self.sensitivity_exceptions_sensitivity = kwargs.get('sensitivity_exceptions_sensitivity', None)
-        self.sent_cc_me_exceptions_sent_cc_me = kwargs.get('sent_cc_me_exceptions_sent_cc_me', None)
-        self.sent_only_to_me_exceptions_sent_only_to_me = kwargs.get('sent_only_to_me_exceptions_sent_only_to_me', None)
-        self.sent_to_addresses_exceptions_sent_to_addresses = kwargs.get('sent_to_addresses_exceptions_sent_to_addresses', None)
-        self.sent_to_me_exceptions_sent_to_me = kwargs.get('sent_to_me_exceptions_sent_to_me', None)
-        self.sent_to_or_cc_me_exceptions_sent_to_or_cc_me = kwargs.get('sent_to_or_cc_me_exceptions_sent_to_or_cc_me', None)
-        self.subject_contains_exceptions_subject_contains = kwargs.get('subject_contains_exceptions_subject_contains', None)
-        self.within_size_range_exceptions_within_size_range = kwargs.get('within_size_range_exceptions_within_size_range', None)
-        self.body_contains_conditions_body_contains = kwargs.get('body_contains_conditions_body_contains', None)
-        self.body_or_subject_contains_conditions_body_or_subject_contains = kwargs.get('body_or_subject_contains_conditions_body_or_subject_contains', None)
-        self.categories_conditions_categories = kwargs.get('categories_conditions_categories', None)
-        self.from_addresses_conditions_from_addresses = kwargs.get('from_addresses_conditions_from_addresses', None)
-        self.has_attachments_conditions_has_attachments = kwargs.get('has_attachments_conditions_has_attachments', None)
-        self.header_contains_conditions_header_contains = kwargs.get('header_contains_conditions_header_contains', None)
-        self.importance_conditions_importance = kwargs.get('importance_conditions_importance', None)
-        self.is_approval_request_conditions_is_approval_request = kwargs.get('is_approval_request_conditions_is_approval_request', None)
-        self.is_automatic_forward_conditions_is_automatic_forward = kwargs.get('is_automatic_forward_conditions_is_automatic_forward', None)
-        self.is_automatic_reply_conditions_is_automatic_reply = kwargs.get('is_automatic_reply_conditions_is_automatic_reply', None)
-        self.is_encrypted_conditions_is_encrypted = kwargs.get('is_encrypted_conditions_is_encrypted', None)
-        self.is_meeting_request_conditions_is_meeting_request = kwargs.get('is_meeting_request_conditions_is_meeting_request', None)
-        self.is_meeting_response_conditions_is_meeting_response = kwargs.get('is_meeting_response_conditions_is_meeting_response', None)
-        self.is_non_delivery_report_conditions_is_non_delivery_report = kwargs.get('is_non_delivery_report_conditions_is_non_delivery_report', None)
-        self.is_permission_controlled_conditions_is_permission_controlled = kwargs.get('is_permission_controlled_conditions_is_permission_controlled', None)
-        self.is_read_receipt_conditions_is_read_receipt = kwargs.get('is_read_receipt_conditions_is_read_receipt', None)
-        self.is_signed_conditions_is_signed = kwargs.get('is_signed_conditions_is_signed', None)
-        self.is_voicemail_conditions_is_voicemail = kwargs.get('is_voicemail_conditions_is_voicemail', None)
-        self.message_action_flag_conditions_message_action_flag = kwargs.get('message_action_flag_conditions_message_action_flag', None)
-        self.not_sent_to_me_conditions_not_sent_to_me = kwargs.get('not_sent_to_me_conditions_not_sent_to_me', None)
-        self.recipient_contains_conditions_recipient_contains = kwargs.get('recipient_contains_conditions_recipient_contains', None)
-        self.sender_contains_conditions_sender_contains = kwargs.get('sender_contains_conditions_sender_contains', None)
-        self.sensitivity_conditions_sensitivity = kwargs.get('sensitivity_conditions_sensitivity', None)
-        self.sent_cc_me_conditions_sent_cc_me = kwargs.get('sent_cc_me_conditions_sent_cc_me', None)
-        self.sent_only_to_me_conditions_sent_only_to_me = kwargs.get('sent_only_to_me_conditions_sent_only_to_me', None)
-        self.sent_to_addresses_conditions_sent_to_addresses = kwargs.get('sent_to_addresses_conditions_sent_to_addresses', None)
-        self.sent_to_me_conditions_sent_to_me = kwargs.get('sent_to_me_conditions_sent_to_me', None)
-        self.sent_to_or_cc_me_conditions_sent_to_or_cc_me = kwargs.get('sent_to_or_cc_me_conditions_sent_to_or_cc_me', None)
-        self.subject_contains_conditions_subject_contains = kwargs.get('subject_contains_conditions_subject_contains', None)
-        self.within_size_range_conditions_within_size_range = kwargs.get('within_size_range_conditions_within_size_range', None)
-        self.assign_categories = kwargs.get('assign_categories', None)
-        self.copy_to_folder = kwargs.get('copy_to_folder', None)
-        self.delete = kwargs.get('delete', None)
-        self.forward_as_attachment_to = kwargs.get('forward_as_attachment_to', None)
-        self.forward_to = kwargs.get('forward_to', None)
-        self.mark_as_read = kwargs.get('mark_as_read', None)
-        self.mark_importance = kwargs.get('mark_importance', None)
-        self.move_to_folder = kwargs.get('move_to_folder', None)
-        self.permanent_delete = kwargs.get('permanent_delete', None)
-        self.redirect_to = kwargs.get('redirect_to', None)
-        self.stop_processing_rules = kwargs.get('stop_processing_rules', None)
 
 
-class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
+class microsoftgraphmessageruleactions(msrest.serialization.Model):
     """messageRuleActions.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1500,21 +1135,21 @@ class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
     :type delete: bool
     :param forward_as_attachment_to: The email addresses of the recipients to which a message
      should be forwarded as an attachment.
-    :type forward_as_attachment_to: list[~mail.models.MicrosoftGraphRecipient]
+    :type forward_as_attachment_to: list[~mail.models.microsoftgraphrecipient]
     :param forward_to: The email addresses of the recipients to which a message should be
      forwarded.
-    :type forward_to: list[~mail.models.MicrosoftGraphRecipient]
+    :type forward_to: list[~mail.models.microsoftgraphrecipient]
     :param mark_as_read: Indicates whether a message should be marked as read.
     :type mark_as_read: bool
     :param mark_importance:  Possible values include: "low", "normal", "high".
-    :type mark_importance: str or ~mail.models.MicrosoftGraphImportance
+    :type mark_importance: str or ~mail.models.Microsoftgraphimportance
     :param move_to_folder: The ID of the folder that a message will be moved to.
     :type move_to_folder: str
     :param permanent_delete: Indicates whether a message should be permanently deleted and not
      saved to the Deleted Items folder.
     :type permanent_delete: bool
     :param redirect_to: The email addresses to which a message should be redirected.
-    :type redirect_to: list[~mail.models.MicrosoftGraphRecipient]
+    :type redirect_to: list[~mail.models.microsoftgraphrecipient]
     :param stop_processing_rules: Indicates whether subsequent rules should be evaluated.
     :type stop_processing_rules: bool
     """
@@ -1524,13 +1159,13 @@ class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
         'assign_categories': {'key': 'assignCategories', 'type': '[str]'},
         'copy_to_folder': {'key': 'copyToFolder', 'type': 'str'},
         'delete': {'key': 'delete', 'type': 'bool'},
-        'forward_as_attachment_to': {'key': 'forwardAsAttachmentTo', 'type': '[MicrosoftGraphRecipient]'},
-        'forward_to': {'key': 'forwardTo', 'type': '[MicrosoftGraphRecipient]'},
+        'forward_as_attachment_to': {'key': 'forwardAsAttachmentTo', 'type': '[microsoftgraphrecipient]'},
+        'forward_to': {'key': 'forwardTo', 'type': '[microsoftgraphrecipient]'},
         'mark_as_read': {'key': 'markAsRead', 'type': 'bool'},
         'mark_importance': {'key': 'markImportance', 'type': 'str'},
         'move_to_folder': {'key': 'moveToFolder', 'type': 'str'},
         'permanent_delete': {'key': 'permanentDelete', 'type': 'bool'},
-        'redirect_to': {'key': 'redirectTo', 'type': '[MicrosoftGraphRecipient]'},
+        'redirect_to': {'key': 'redirectTo', 'type': '[microsoftgraphrecipient]'},
         'stop_processing_rules': {'key': 'stopProcessingRules', 'type': 'bool'},
     }
 
@@ -1538,7 +1173,7 @@ class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMessageRuleActions, self).__init__(**kwargs)
+        super(microsoftgraphmessageruleactions, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assign_categories = kwargs.get('assign_categories', None)
         self.copy_to_folder = kwargs.get('copy_to_folder', None)
@@ -1553,7 +1188,7 @@ class MicrosoftGraphMessageRuleActions(msrest.serialization.Model):
         self.stop_processing_rules = kwargs.get('stop_processing_rules', None)
 
 
-class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
+class microsoftgraphmessagerulepredicates(msrest.serialization.Model):
     """messageRulePredicates.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1570,7 +1205,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
     :type categories: list[str]
     :param from_addresses: Represents the specific sender email addresses of an incoming message in
      order for the condition or exception to apply.
-    :type from_addresses: list[~mail.models.MicrosoftGraphRecipient]
+    :type from_addresses: list[~mail.models.microsoftgraphrecipient]
     :param has_attachments: Indicates whether an incoming message must have attachments in order
      for the condition or exception to apply.
     :type has_attachments: bool
@@ -1578,7 +1213,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type header_contains: list[str]
     :param importance:  Possible values include: "low", "normal", "high".
-    :type importance: str or ~mail.models.MicrosoftGraphImportance
+    :type importance: str or ~mail.models.Microsoftgraphimportance
     :param is_approval_request: Indicates whether an incoming message must be an approval request
      in order for the condition or exception to apply.
     :type is_approval_request: bool
@@ -1614,7 +1249,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
     :type is_voicemail: bool
     :param message_action_flag:  Possible values include: "any", "call", "doNotForward",
      "followUp", "fyi", "forward", "noResponseNecessary", "read", "reply", "replyToAll", "review".
-    :type message_action_flag: str or ~mail.models.MicrosoftGraphMessageActionFlag
+    :type message_action_flag: str or ~mail.models.Microsoftgraphmessageactionflag
     :param not_sent_to_me: Indicates whether the owner of the mailbox must not be a recipient of an
      incoming message in order for the condition or exception to apply.
     :type not_sent_to_me: bool
@@ -1626,7 +1261,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type sender_contains: list[str]
     :param sensitivity:  Possible values include: "normal", "personal", "private", "confidential".
-    :type sensitivity: str or ~mail.models.MicrosoftGraphSensitivity
+    :type sensitivity: str or ~mail.models.Microsoftgraphsensitivity
     :param sent_cc_me: Indicates whether the owner of the mailbox must be in the ccRecipients
      property of an incoming message in order for the condition or exception to apply.
     :type sent_cc_me: bool
@@ -1635,7 +1270,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
     :type sent_only_to_me: bool
     :param sent_to_addresses: Represents the email addresses that an incoming message must have
      been sent to in order for the condition or exception to apply.
-    :type sent_to_addresses: list[~mail.models.MicrosoftGraphRecipient]
+    :type sent_to_addresses: list[~mail.models.microsoftgraphrecipient]
     :param sent_to_me: Indicates whether the owner of the mailbox must be in the toRecipients
      property of an incoming message in order for the condition or exception to apply.
     :type sent_to_me: bool
@@ -1647,7 +1282,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
      message in order for the condition or exception to apply.
     :type subject_contains: list[str]
     :param within_size_range: sizeRange.
-    :type within_size_range: ~mail.models.MicrosoftGraphSizeRange
+    :type within_size_range: ~mail.models.microsoftgraphsizerange
     """
 
     _attribute_map = {
@@ -1655,7 +1290,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
         'body_contains': {'key': 'bodyContains', 'type': '[str]'},
         'body_or_subject_contains': {'key': 'bodyOrSubjectContains', 'type': '[str]'},
         'categories': {'key': 'categories', 'type': '[str]'},
-        'from_addresses': {'key': 'fromAddresses', 'type': '[MicrosoftGraphRecipient]'},
+        'from_addresses': {'key': 'fromAddresses', 'type': '[microsoftgraphrecipient]'},
         'has_attachments': {'key': 'hasAttachments', 'type': 'bool'},
         'header_contains': {'key': 'headerContains', 'type': '[str]'},
         'importance': {'key': 'importance', 'type': 'str'},
@@ -1677,18 +1312,18 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
         'sensitivity': {'key': 'sensitivity', 'type': 'str'},
         'sent_cc_me': {'key': 'sentCcMe', 'type': 'bool'},
         'sent_only_to_me': {'key': 'sentOnlyToMe', 'type': 'bool'},
-        'sent_to_addresses': {'key': 'sentToAddresses', 'type': '[MicrosoftGraphRecipient]'},
+        'sent_to_addresses': {'key': 'sentToAddresses', 'type': '[microsoftgraphrecipient]'},
         'sent_to_me': {'key': 'sentToMe', 'type': 'bool'},
         'sent_to_or_cc_me': {'key': 'sentToOrCcMe', 'type': 'bool'},
         'subject_contains': {'key': 'subjectContains', 'type': '[str]'},
-        'within_size_range': {'key': 'withinSizeRange', 'type': 'MicrosoftGraphSizeRange'},
+        'within_size_range': {'key': 'withinSizeRange', 'type': 'microsoftgraphsizerange'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMessageRulePredicates, self).__init__(**kwargs)
+        super(microsoftgraphmessagerulepredicates, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.body_contains = kwargs.get('body_contains', None)
         self.body_or_subject_contains = kwargs.get('body_or_subject_contains', None)
@@ -1722,7 +1357,7 @@ class MicrosoftGraphMessageRulePredicates(msrest.serialization.Model):
         self.within_size_range = kwargs.get('within_size_range', None)
 
 
-class MicrosoftGraphMultiValueLegacyExtendedProperty(MicrosoftGraphEntity):
+class microsoftgraphmultivaluelegacyextendedproperty(microsoftgraphentity):
     """multiValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -1744,36 +1379,36 @@ class MicrosoftGraphMultiValueLegacyExtendedProperty(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMultiValueLegacyExtendedProperty, self).__init__(**kwargs)
+        super(microsoftgraphmultivaluelegacyextendedproperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
 
 
-class MicrosoftGraphRecipient(msrest.serialization.Model):
+class microsoftgraphrecipient(msrest.serialization.Model):
     """recipient.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param email_address: emailAddress.
-    :type email_address: ~mail.models.MicrosoftGraphEmailAddress
+    :type email_address: ~mail.models.microsoftgraphemailaddress
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'email_address': {'key': 'emailAddress', 'type': 'MicrosoftGraphEmailAddress'},
+        'email_address': {'key': 'emailAddress', 'type': 'microsoftgraphemailaddress'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphRecipient, self).__init__(**kwargs)
+        super(microsoftgraphrecipient, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.email_address = kwargs.get('email_address', None)
 
 
-class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
+class microsoftgraphsinglevaluelegacyextendedproperty(microsoftgraphentity):
     """singleValueLegacyExtendedProperty.
 
     :param id: Read-only.
@@ -1795,12 +1430,12 @@ class MicrosoftGraphSingleValueLegacyExtendedProperty(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSingleValueLegacyExtendedProperty, self).__init__(**kwargs)
+        super(microsoftgraphsinglevaluelegacyextendedproperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
 
 
-class MicrosoftGraphSizeRange(msrest.serialization.Model):
+class microsoftgraphsizerange(msrest.serialization.Model):
     """sizeRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1829,14 +1464,14 @@ class MicrosoftGraphSizeRange(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSizeRange, self).__init__(**kwargs)
+        super(microsoftgraphsizerange, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.maximum_size = kwargs.get('maximum_size', None)
         self.minimum_size = kwargs.get('minimum_size', None)
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1844,7 +1479,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~mail.models.OdataErrorMain
+    :type error: ~mail.models.odataerrormain
     """
 
     _validation = {
@@ -1853,20 +1488,20 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1897,15 +1532,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1919,7 +1554,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~mail.models.OdataErrorDetail]
+    :type details: list[~mail.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1934,7 +1569,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1942,7 +1577,7 @@ class OdataErrorMain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

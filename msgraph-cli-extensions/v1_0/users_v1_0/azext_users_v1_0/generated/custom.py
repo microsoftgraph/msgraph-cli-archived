@@ -11,484 +11,50 @@
 # pylint: disable=too-many-lines
 
 
-def users_user_list(client,
-                    orderby=None,
-                    select=None,
-                    expand=None):
+def users_usersuser_create_user(client,
+                                body):
+    return client.create_user(body=body)
+
+
+def users_usersuser_delete_user(client,
+                                user_id,
+                                if_match=None):
+    return client.delete_user(user_id=user_id,
+                              if_match=if_match)
+
+
+def users_usersuser_list_user(client,
+                              orderby=None,
+                              select=None,
+                              expand=None):
     return client.list_user(orderby=orderby,
                             select=select,
                             expand=expand)
 
 
-def users_user_create(client,
-                      user_id=None,
-                      id_=None,
-                      deleted_date_time=None,
-                      account_enabled=None,
-                      age_group=None,
-                      assigned_licenses=None,
-                      assigned_plans=None,
-                      business_phones=None,
-                      city=None,
-                      company_name=None,
-                      consent_provided_for_minor=None,
-                      country=None,
-                      created_date_time=None,
-                      creation_type=None,
-                      department=None,
-                      display_name=None,
-                      employee_id=None,
-                      external_user_state=None,
-                      external_user_state_change_date_time=None,
-                      fax_number=None,
-                      given_name=None,
-                      identities=None,
-                      im_addresses=None,
-                      is_resource_account=None,
-                      job_title=None,
-                      last_password_change_date_time=None,
-                      legal_age_group_classification=None,
-                      license_assignment_states=None,
-                      mail=None,
-                      mail_nickname=None,
-                      mobile_phone=None,
-                      office_location=None,
-                      on_premises_distinguished_name=None,
-                      on_premises_domain_name=None,
-                      on_premises_extension_attributes=None,
-                      on_premises_immutable_id=None,
-                      on_premises_last_sync_date_time=None,
-                      on_premises_provisioning_errors=None,
-                      on_premises_sam_account_name=None,
-                      on_premises_security_identifier=None,
-                      on_premises_sync_enabled=None,
-                      on_premises_user_principal_name=None,
-                      other_mails=None,
-                      password_policies=None,
-                      password_profile=None,
-                      postal_code=None,
-                      preferred_language=None,
-                      provisioned_plans=None,
-                      proxy_addresses=None,
-                      show_in_address_list=None,
-                      sign_in_sessions_valid_from_date_time=None,
-                      state=None,
-                      street_address=None,
-                      surname=None,
-                      usage_location=None,
-                      user_principal_name=None,
-                      user_type=None,
-                      device_enrollment_limit=None,
-                      about_me=None,
-                      birthday=None,
-                      hire_date=None,
-                      interests=None,
-                      my_site=None,
-                      past_projects=None,
-                      preferred_name=None,
-                      responsibilities=None,
-                      schools=None,
-                      skills=None,
-                      app_role_assignments=None,
-                      created_objects=None,
-                      direct_reports=None,
-                      license_details=None,
-                      manager=None,
-                      member_of=None,
-                      oauth2_permission_grants=None,
-                      owned_devices=None,
-                      owned_objects=None,
-                      registered_devices=None,
-                      scoped_role_member_of=None,
-                      transitive_member_of=None,
-                      calendar=None,
-                      calendar_groups=None,
-                      calendars=None,
-                      calendar_view=None,
-                      contact_folders=None,
-                      contacts=None,
-                      events=None,
-                      mail_folders=None,
-                      messages=None,
-                      people=None,
-                      photo=None,
-                      photos=None,
-                      drive=None,
-                      drives=None,
-                      followed_sites=None,
-                      extensions=None,
-                      managed_devices=None,
-                      managed_app_registrations=None,
-                      device_management_troubleshooting_events=None,
-                      activities=None,
-                      online_meetings=None,
-                      joined_teams=None,
-                      microsoft_graph_entity_id=None,
-                      notebooks=None,
-                      operations=None,
-                      pages=None,
-                      resources=None,
-                      section_groups=None,
-                      sections=None,
-                      id1=None,
-                      contribution_to_content_discovery_as_organization_disabled=None,
-                      contribution_to_content_discovery_disabled=None,
-                      id2=None,
-                      microsoft_graph_change_tracked_entity_created_date_time_created_date_time=None,
-                      last_modified_date_time=None,
-                      application=None,
-                      device=None,
-                      user=None,
-                      availability=None,
-                      id3=None,
-                      shared=None,
-                      trending=None,
-                      used=None,
-                      id4=None,
-                      plans=None,
-                      tasks=None,
-                      id5=None,
-                      master_categories=None,
-                      id6=None,
-                      overrides=None,
-                      archive_folder=None,
-                      automatic_replies_setting=None,
-                      date_format=None,
-                      delegate_meeting_message_delivery_options=None,
-                      language=None,
-                      time_format=None,
-                      time_zone=None,
-                      working_hours=None):
-    if user_id is not None:
-        return client.update_user(user_id=user_id,
-                                  id=id_,
-                                  deleted_date_time=deleted_date_time,
-                                  account_enabled=account_enabled,
-                                  age_group=age_group,
-                                  assigned_licenses=assigned_licenses,
-                                  assigned_plans=assigned_plans,
-                                  business_phones=business_phones,
-                                  city=city,
-                                  company_name=company_name,
-                                  consent_provided_for_minor=consent_provided_for_minor,
-                                  country=country,
-                                  created_date_time=created_date_time,
-                                  creation_type=creation_type,
-                                  department=department,
-                                  display_name=display_name,
-                                  employee_id=employee_id,
-                                  external_user_state=external_user_state,
-                                  external_user_state_change_date_time=external_user_state_change_date_time,
-                                  fax_number=fax_number,
-                                  given_name=given_name,
-                                  identities=identities,
-                                  im_addresses=im_addresses,
-                                  is_resource_account=is_resource_account,
-                                  job_title=job_title,
-                                  last_password_change_date_time=last_password_change_date_time,
-                                  legal_age_group_classification=legal_age_group_classification,
-                                  license_assignment_states=license_assignment_states,
-                                  mail=mail,
-                                  mail_nickname=mail_nickname,
-                                  mobile_phone=mobile_phone,
-                                  office_location=office_location,
-                                  on_premises_distinguished_name=on_premises_distinguished_name,
-                                  on_premises_domain_name=on_premises_domain_name,
-                                  on_premises_extension_attributes=on_premises_extension_attributes,
-                                  on_premises_immutable_id=on_premises_immutable_id,
-                                  on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                  on_premises_provisioning_errors=on_premises_provisioning_errors,
-                                  on_premises_sam_account_name=on_premises_sam_account_name,
-                                  on_premises_security_identifier=on_premises_security_identifier,
-                                  on_premises_sync_enabled=on_premises_sync_enabled,
-                                  on_premises_user_principal_name=on_premises_user_principal_name,
-                                  other_mails=other_mails,
-                                  password_policies=password_policies,
-                                  password_profile=password_profile,
-                                  postal_code=postal_code,
-                                  preferred_language=preferred_language,
-                                  provisioned_plans=provisioned_plans,
-                                  proxy_addresses=proxy_addresses,
-                                  show_in_address_list=show_in_address_list,
-                                  sign_in_sessions_valid_from_date_time=sign_in_sessions_valid_from_date_time,
-                                  state=state,
-                                  street_address=street_address,
-                                  surname=surname,
-                                  usage_location=usage_location,
-                                  user_principal_name=user_principal_name,
-                                  user_type=user_type,
-                                  device_enrollment_limit=device_enrollment_limit,
-                                  about_me=about_me,
-                                  birthday=birthday,
-                                  hire_date=hire_date,
-                                  interests=interests,
-                                  my_site=my_site,
-                                  past_projects=past_projects,
-                                  preferred_name=preferred_name,
-                                  responsibilities=responsibilities,
-                                  schools=schools,
-                                  skills=skills,
-                                  app_role_assignments=app_role_assignments,
-                                  created_objects=created_objects,
-                                  direct_reports=direct_reports,
-                                  license_details=license_details,
-                                  manager=manager,
-                                  member_of=member_of,
-                                  oauth2_permission_grants=oauth2_permission_grants,
-                                  owned_devices=owned_devices,
-                                  owned_objects=owned_objects,
-                                  registered_devices=registered_devices,
-                                  scoped_role_member_of=scoped_role_member_of,
-                                  transitive_member_of=transitive_member_of,
-                                  calendar=calendar,
-                                  calendar_groups=calendar_groups,
-                                  calendars=calendars,
-                                  calendar_view=calendar_view,
-                                  contact_folders=contact_folders,
-                                  contacts=contacts,
-                                  events=events,
-                                  mail_folders=mail_folders,
-                                  messages=messages,
-                                  people=people,
-                                  photo=photo,
-                                  photos=photos,
-                                  drive=drive,
-                                  drives=drives,
-                                  followed_sites=followed_sites,
-                                  extensions=extensions,
-                                  managed_devices=managed_devices,
-                                  managed_app_registrations=managed_app_registrations,
-                                  device_management_troubleshooting_events=device_management_troubleshooting_events,
-                                  activities=activities,
-                                  online_meetings=online_meetings,
-                                  joined_teams=joined_teams,
-                                  microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                  notebooks=notebooks,
-                                  operations=operations,
-                                  pages=pages,
-                                  resources=resources,
-                                  section_groups=section_groups,
-                                  sections=sections,
-                                  id1=id1,
-                                  contribution_to_content_discovery_as_organization_disabled=contribution_to_content_discovery_as_organization_disabled,
-                                  contribution_to_content_discovery_disabled=contribution_to_content_discovery_disabled,
-                                  id2=id2,
-                                  microsoft_graph_change_tracked_entity_created_date_time_created_date_time=microsoft_graph_change_tracked_entity_created_date_time_created_date_time,
-                                  last_modified_date_time=last_modified_date_time,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  availability=availability,
-                                  id3=id3,
-                                  shared=shared,
-                                  trending=trending,
-                                  used=used,
-                                  id4=id4,
-                                  plans=plans,
-                                  tasks=tasks,
-                                  id5=id5,
-                                  master_categories=master_categories,
-                                  id6=id6,
-                                  overrides=overrides,
-                                  archive_folder=archive_folder,
-                                  automatic_replies_setting=automatic_replies_setting,
-                                  date_format=date_format,
-                                  delegate_meeting_message_delivery_options=delegate_meeting_message_delivery_options,
-                                  language=language,
-                                  time_format=time_format,
-                                  time_zone=time_zone,
-                                  working_hours=working_hours)
-    return client.create_user(id=id_,
-                              deleted_date_time=deleted_date_time,
-                              account_enabled=account_enabled,
-                              age_group=age_group,
-                              assigned_licenses=assigned_licenses,
-                              assigned_plans=assigned_plans,
-                              business_phones=business_phones,
-                              city=city,
-                              company_name=company_name,
-                              consent_provided_for_minor=consent_provided_for_minor,
-                              country=country,
-                              created_date_time=created_date_time,
-                              creation_type=creation_type,
-                              department=department,
-                              display_name=display_name,
-                              employee_id=employee_id,
-                              external_user_state=external_user_state,
-                              external_user_state_change_date_time=external_user_state_change_date_time,
-                              fax_number=fax_number,
-                              given_name=given_name,
-                              identities=identities,
-                              im_addresses=im_addresses,
-                              is_resource_account=is_resource_account,
-                              job_title=job_title,
-                              last_password_change_date_time=last_password_change_date_time,
-                              legal_age_group_classification=legal_age_group_classification,
-                              license_assignment_states=license_assignment_states,
-                              mail=mail,
-                              mail_nickname=mail_nickname,
-                              mobile_phone=mobile_phone,
-                              office_location=office_location,
-                              on_premises_distinguished_name=on_premises_distinguished_name,
-                              on_premises_domain_name=on_premises_domain_name,
-                              on_premises_extension_attributes=on_premises_extension_attributes,
-                              on_premises_immutable_id=on_premises_immutable_id,
-                              on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                              on_premises_provisioning_errors=on_premises_provisioning_errors,
-                              on_premises_sam_account_name=on_premises_sam_account_name,
-                              on_premises_security_identifier=on_premises_security_identifier,
-                              on_premises_sync_enabled=on_premises_sync_enabled,
-                              on_premises_user_principal_name=on_premises_user_principal_name,
-                              other_mails=other_mails,
-                              password_policies=password_policies,
-                              password_profile=password_profile,
-                              postal_code=postal_code,
-                              preferred_language=preferred_language,
-                              provisioned_plans=provisioned_plans,
-                              proxy_addresses=proxy_addresses,
-                              show_in_address_list=show_in_address_list,
-                              sign_in_sessions_valid_from_date_time=sign_in_sessions_valid_from_date_time,
-                              state=state,
-                              street_address=street_address,
-                              surname=surname,
-                              usage_location=usage_location,
-                              user_principal_name=user_principal_name,
-                              user_type=user_type,
-                              device_enrollment_limit=device_enrollment_limit,
-                              about_me=about_me,
-                              birthday=birthday,
-                              hire_date=hire_date,
-                              interests=interests,
-                              my_site=my_site,
-                              past_projects=past_projects,
-                              preferred_name=preferred_name,
-                              responsibilities=responsibilities,
-                              schools=schools,
-                              skills=skills,
-                              app_role_assignments=app_role_assignments,
-                              created_objects=created_objects,
-                              direct_reports=direct_reports,
-                              license_details=license_details,
-                              manager=manager,
-                              member_of=member_of,
-                              oauth2_permission_grants=oauth2_permission_grants,
-                              owned_devices=owned_devices,
-                              owned_objects=owned_objects,
-                              registered_devices=registered_devices,
-                              scoped_role_member_of=scoped_role_member_of,
-                              transitive_member_of=transitive_member_of,
-                              calendar=calendar,
-                              calendar_groups=calendar_groups,
-                              calendars=calendars,
-                              calendar_view=calendar_view,
-                              contact_folders=contact_folders,
-                              contacts=contacts,
-                              events=events,
-                              mail_folders=mail_folders,
-                              messages=messages,
-                              people=people,
-                              photo=photo,
-                              photos=photos,
-                              drive=drive,
-                              drives=drives,
-                              followed_sites=followed_sites,
-                              extensions=extensions,
-                              managed_devices=managed_devices,
-                              managed_app_registrations=managed_app_registrations,
-                              device_management_troubleshooting_events=device_management_troubleshooting_events,
-                              activities=activities,
-                              online_meetings=online_meetings,
-                              joined_teams=joined_teams,
-                              microsoft_graph_entity_id=microsoft_graph_entity_id,
-                              notebooks=notebooks,
-                              operations=operations,
-                              pages=pages,
-                              resources=resources,
-                              section_groups=section_groups,
-                              sections=sections,
-                              id1=id1,
-                              contribution_to_content_discovery_as_organization_disabled=contribution_to_content_discovery_as_organization_disabled,
-                              contribution_to_content_discovery_disabled=contribution_to_content_discovery_disabled,
-                              id2=id2,
-                              microsoft_graph_change_tracked_entity_created_date_time_created_date_time=microsoft_graph_change_tracked_entity_created_date_time_created_date_time,
-                              last_modified_date_time=last_modified_date_time,
-                              application=application,
-                              device=device,
-                              user=user,
-                              availability=availability,
-                              id3=id3,
-                              shared=shared,
-                              trending=trending,
-                              used=used,
-                              id4=id4,
-                              plans=plans,
-                              tasks=tasks,
-                              id5=id5,
-                              master_categories=master_categories,
-                              id6=id6,
-                              overrides=overrides,
-                              archive_folder=archive_folder,
-                              automatic_replies_setting=automatic_replies_setting,
-                              date_format=date_format,
-                              delegate_meeting_message_delivery_options=delegate_meeting_message_delivery_options,
-                              language=language,
-                              time_format=time_format,
-                              time_zone=time_zone,
-                              working_hours=working_hours)
-
-
-def users_user_delete(client,
-                      user_id,
-                      if_match=None):
-    return client.delete_user(user_id=user_id,
-                              if_match=if_match)
-
-
-def users_user_show_user(client,
-                         user_id,
-                         select=None,
-                         expand=None):
+def users_usersuser_show_user(client,
+                              user_id,
+                              select=None,
+                              expand=None):
     return client.get_user(user_id=user_id,
                            select=select,
                            expand=expand)
 
 
-def users_user_delete(client,
-                      user_id,
-                      extension_id=None,
-                      if_match=None,
-                      license_details_id=None,
-                      profile_photo_id=None):
-    if user_id is not None and extension_id is not None:
-        return client.delete_extension(user_id=user_id,
-                                       extension_id=extension_id,
-                                       if_match=if_match)
-    elif user_id is not None and license_details_id is not None:
-        return client.delete_license_detail(user_id=user_id,
-                                            license_details_id=license_details_id,
-                                            if_match=if_match)
-    elif user_id is not None and profile_photo_id is not None:
-        return client.delete_photo(user_id=user_id,
-                                   profile_photo_id=profile_photo_id,
-                                   if_match=if_match)
-    elif user_id is not None:
-        return client.delete_ref_manager(user_id=user_id,
-                                         if_match=if_match)
-    elif user_id is not None:
-        return client.delete_outlook(user_id=user_id,
-                                     if_match=if_match)
-    elif user_id is not None:
-        return client.delete_photo(user_id=user_id,
-                                   if_match=if_match)
-    return client.delete_setting(user_id=user_id,
-                                 if_match=if_match)
+def users_usersuser_update_user(client,
+                                user_id,
+                                body):
+    return client.update_user(user_id=user_id,
+                              body=body)
 
 
 def users_user_create_extension(client,
                                 user_id,
                                 id_=None):
-    return client.create_extension(user_id=user_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.create_extensions(user_id=user_id,
+                                    body=body)
 
 
 def users_user_create_license_detail(client,
@@ -497,11 +63,13 @@ def users_user_create_license_detail(client,
                                      service_plans=None,
                                      sku_id=None,
                                      sku_part_number=None):
-    return client.create_license_detail(user_id=user_id,
-                                        id=id_,
-                                        service_plans=service_plans,
-                                        sku_id=sku_id,
-                                        sku_part_number=sku_part_number)
+    body = {}
+    body['id'] = id_
+    body['service_plans'] = service_plans
+    body['sku_id'] = sku_id
+    body['sku_part_number'] = sku_part_number
+    return client.create_license_details(user_id=user_id,
+                                         body=body)
 
 
 def users_user_create_photo(client,
@@ -509,24 +77,26 @@ def users_user_create_photo(client,
                             id_=None,
                             height=None,
                             width=None):
-    return client.create_photo(user_id=user_id,
-                               id=id_,
-                               height=height,
-                               width=width)
+    body = {}
+    body['id'] = id_
+    body['height'] = height
+    body['width'] = width
+    return client.create_photos(user_id=user_id,
+                                body=body)
 
 
 def users_user_create_ref_created_object(client,
                                          user_id,
                                          body):
-    return client.create_ref_created_object(user_id=user_id,
-                                            body=body)
+    return client.create_ref_created_objects(user_id=user_id,
+                                             body=body)
 
 
 def users_user_create_ref_direct_report(client,
                                         user_id,
                                         body):
-    return client.create_ref_direct_report(user_id=user_id,
-                                           body=body)
+    return client.create_ref_direct_reports(user_id=user_id,
+                                            body=body)
 
 
 def users_user_create_ref_member_of(client,
@@ -539,29 +109,29 @@ def users_user_create_ref_member_of(client,
 def users_user_create_ref_oauth2_permission_grant(client,
                                                   user_id,
                                                   body):
-    return client.create_ref_oauth2_permission_grant(user_id=user_id,
-                                                     body=body)
+    return client.create_ref_oauth2_permission_grants(user_id=user_id,
+                                                      body=body)
 
 
 def users_user_create_ref_owned_device(client,
                                        user_id,
                                        body):
-    return client.create_ref_owned_device(user_id=user_id,
-                                          body=body)
+    return client.create_ref_owned_devices(user_id=user_id,
+                                           body=body)
 
 
 def users_user_create_ref_owned_object(client,
                                        user_id,
                                        body):
-    return client.create_ref_owned_object(user_id=user_id,
-                                          body=body)
+    return client.create_ref_owned_objects(user_id=user_id,
+                                           body=body)
 
 
 def users_user_create_ref_registered_device(client,
                                             user_id,
                                             body):
-    return client.create_ref_registered_device(user_id=user_id,
-                                               body=body)
+    return client.create_ref_registered_devices(user_id=user_id,
+                                                body=body)
 
 
 def users_user_create_ref_transitive_member_of(client,
@@ -571,15 +141,66 @@ def users_user_create_ref_transitive_member_of(client,
                                                   body=body)
 
 
+def users_user_delete_extension(client,
+                                user_id,
+                                extension_id,
+                                if_match=None):
+    return client.delete_extensions(user_id=user_id,
+                                    extension_id=extension_id,
+                                    if_match=if_match)
+
+
+def users_user_delete_license_detail(client,
+                                     user_id,
+                                     license_details_id,
+                                     if_match=None):
+    return client.delete_license_details(user_id=user_id,
+                                         license_details_id=license_details_id,
+                                         if_match=if_match)
+
+
+def users_user_delete_outlook(client,
+                              user_id,
+                              if_match=None):
+    return client.delete_outlook(user_id=user_id,
+                                 if_match=if_match)
+
+
+def users_user_delete_photo(client,
+                            user_id,
+                            profile_photo_id=None,
+                            if_match=None):
+    if user_id is not None and profile_photo_id is not None:
+        return client.delete_photos(user_id=user_id,
+                                    profile_photo_id=profile_photo_id,
+                                    if_match=if_match)
+    return client.delete_photo(user_id=user_id,
+                               if_match=if_match)
+
+
+def users_user_delete_ref_manager(client,
+                                  user_id,
+                                  if_match=None):
+    return client.delete_ref_manager(user_id=user_id,
+                                     if_match=if_match)
+
+
+def users_user_delete_setting(client,
+                              user_id,
+                              if_match=None):
+    return client.delete_settings(user_id=user_id,
+                                  if_match=if_match)
+
+
 def users_user_list_created_object(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_created_object(user_id=user_id,
-                                      orderby=orderby,
-                                      select=select,
-                                      expand=expand)
+    return client.list_created_objects(user_id=user_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def users_user_list_direct_report(client,
@@ -587,10 +208,10 @@ def users_user_list_direct_report(client,
                                   orderby=None,
                                   select=None,
                                   expand=None):
-    return client.list_direct_report(user_id=user_id,
-                                     orderby=orderby,
-                                     select=select,
-                                     expand=expand)
+    return client.list_direct_reports(user_id=user_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
 
 
 def users_user_list_extension(client,
@@ -598,10 +219,10 @@ def users_user_list_extension(client,
                               orderby=None,
                               select=None,
                               expand=None):
-    return client.list_extension(user_id=user_id,
-                                 orderby=orderby,
-                                 select=select,
-                                 expand=expand)
+    return client.list_extensions(user_id=user_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def users_user_list_license_detail(client,
@@ -609,10 +230,10 @@ def users_user_list_license_detail(client,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_license_detail(user_id=user_id,
-                                      orderby=orderby,
-                                      select=select,
-                                      expand=expand)
+    return client.list_license_details(user_id=user_id,
+                                       orderby=orderby,
+                                       select=select,
+                                       expand=expand)
 
 
 def users_user_list_member_of(client,
@@ -631,10 +252,10 @@ def users_user_list_oauth2_permission_grant(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_oauth2_permission_grant(user_id=user_id,
-                                               orderby=orderby,
-                                               select=select,
-                                               expand=expand)
+    return client.list_oauth2_permission_grants(user_id=user_id,
+                                                orderby=orderby,
+                                                select=select,
+                                                expand=expand)
 
 
 def users_user_list_owned_device(client,
@@ -642,10 +263,10 @@ def users_user_list_owned_device(client,
                                  orderby=None,
                                  select=None,
                                  expand=None):
-    return client.list_owned_device(user_id=user_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_owned_devices(user_id=user_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def users_user_list_owned_object(client,
@@ -653,10 +274,10 @@ def users_user_list_owned_object(client,
                                  orderby=None,
                                  select=None,
                                  expand=None):
-    return client.list_owned_object(user_id=user_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_owned_objects(user_id=user_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def users_user_list_photo(client,
@@ -664,24 +285,24 @@ def users_user_list_photo(client,
                           orderby=None,
                           select=None,
                           expand=None):
-    return client.list_photo(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_photos(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def users_user_list_ref_created_object(client,
                                        user_id,
                                        orderby=None):
-    return client.list_ref_created_object(user_id=user_id,
-                                          orderby=orderby)
+    return client.list_ref_created_objects(user_id=user_id,
+                                           orderby=orderby)
 
 
 def users_user_list_ref_direct_report(client,
                                       user_id,
                                       orderby=None):
-    return client.list_ref_direct_report(user_id=user_id,
-                                         orderby=orderby)
+    return client.list_ref_direct_reports(user_id=user_id,
+                                          orderby=orderby)
 
 
 def users_user_list_ref_member_of(client,
@@ -694,29 +315,29 @@ def users_user_list_ref_member_of(client,
 def users_user_list_ref_oauth2_permission_grant(client,
                                                 user_id,
                                                 orderby=None):
-    return client.list_ref_oauth2_permission_grant(user_id=user_id,
-                                                   orderby=orderby)
+    return client.list_ref_oauth2_permission_grants(user_id=user_id,
+                                                    orderby=orderby)
 
 
 def users_user_list_ref_owned_device(client,
                                      user_id,
                                      orderby=None):
-    return client.list_ref_owned_device(user_id=user_id,
-                                        orderby=orderby)
+    return client.list_ref_owned_devices(user_id=user_id,
+                                         orderby=orderby)
 
 
 def users_user_list_ref_owned_object(client,
                                      user_id,
                                      orderby=None):
-    return client.list_ref_owned_object(user_id=user_id,
-                                        orderby=orderby)
+    return client.list_ref_owned_objects(user_id=user_id,
+                                         orderby=orderby)
 
 
 def users_user_list_ref_registered_device(client,
                                           user_id,
                                           orderby=None):
-    return client.list_ref_registered_device(user_id=user_id,
-                                             orderby=orderby)
+    return client.list_ref_registered_devices(user_id=user_id,
+                                              orderby=orderby)
 
 
 def users_user_list_ref_transitive_member_of(client,
@@ -731,10 +352,10 @@ def users_user_list_registered_device(client,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_registered_device(user_id=user_id,
-                                         orderby=orderby,
-                                         select=select,
-                                         expand=expand)
+    return client.list_registered_devices(user_id=user_id,
+                                          orderby=orderby,
+                                          select=select,
+                                          expand=expand)
 
 
 def users_user_list_transitive_member_of(client,
@@ -760,10 +381,10 @@ def users_user_show_extension(client,
                               extension_id,
                               select=None,
                               expand=None):
-    return client.get_extension(user_id=user_id,
-                                extension_id=extension_id,
-                                select=select,
-                                expand=expand)
+    return client.get_extensions(user_id=user_id,
+                                 extension_id=extension_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def users_user_show_license_detail(client,
@@ -771,10 +392,10 @@ def users_user_show_license_detail(client,
                                    license_details_id,
                                    select=None,
                                    expand=None):
-    return client.get_license_detail(user_id=user_id,
-                                     license_details_id=license_details_id,
-                                     select=select,
-                                     expand=expand)
+    return client.get_license_details(user_id=user_id,
+                                      license_details_id=license_details_id,
+                                      select=select,
+                                      expand=expand)
 
 
 def users_user_show_manager(client,
@@ -801,10 +422,10 @@ def users_user_show_photo(client,
                           select=None,
                           expand=None):
     if user_id is not None and profile_photo_id is not None:
-        return client.get_photo(user_id=user_id,
-                                profile_photo_id=profile_photo_id,
-                                select=select,
-                                expand=expand)
+        return client.get_photos(user_id=user_id,
+                                 profile_photo_id=profile_photo_id,
+                                 select=select,
+                                 expand=expand)
     return client.get_photo(user_id=user_id,
                             select=select,
                             expand=expand)
@@ -819,18 +440,20 @@ def users_user_show_setting(client,
                             user_id,
                             select=None,
                             expand=None):
-    return client.get_setting(user_id=user_id,
-                              select=select,
-                              expand=expand)
+    return client.get_settings(user_id=user_id,
+                               select=select,
+                               expand=expand)
 
 
 def users_user_update_extension(client,
                                 user_id,
                                 extension_id,
                                 id_=None):
-    return client.update_extension(user_id=user_id,
-                                   extension_id=extension_id,
-                                   id=id_)
+    body = {}
+    body['id'] = id_
+    return client.update_extensions(user_id=user_id,
+                                    extension_id=extension_id,
+                                    body=body)
 
 
 def users_user_update_license_detail(client,
@@ -840,21 +463,25 @@ def users_user_update_license_detail(client,
                                      service_plans=None,
                                      sku_id=None,
                                      sku_part_number=None):
-    return client.update_license_detail(user_id=user_id,
-                                        license_details_id=license_details_id,
-                                        id=id_,
-                                        service_plans=service_plans,
-                                        sku_id=sku_id,
-                                        sku_part_number=sku_part_number)
+    body = {}
+    body['id'] = id_
+    body['service_plans'] = service_plans
+    body['sku_id'] = sku_id
+    body['sku_part_number'] = sku_part_number
+    return client.update_license_details(user_id=user_id,
+                                         license_details_id=license_details_id,
+                                         body=body)
 
 
 def users_user_update_outlook(client,
                               user_id,
                               id_=None,
                               master_categories=None):
+    body = {}
+    body['id'] = id_
+    body['master_categories'] = master_categories
     return client.update_outlook(user_id=user_id,
-                                 id=id_,
-                                 master_categories=master_categories)
+                                 body=body)
 
 
 def users_user_update_photo(client,
@@ -863,16 +490,16 @@ def users_user_update_photo(client,
                             id_=None,
                             height=None,
                             width=None):
+    body = {}
+    body['id'] = id_
+    body['height'] = height
+    body['width'] = width
     if user_id is not None and profile_photo_id is not None:
-        return client.update_photo(user_id=user_id,
-                                   profile_photo_id=profile_photo_id,
-                                   id=id_,
-                                   height=height,
-                                   width=width)
+        return client.update_photos(user_id=user_id,
+                                    profile_photo_id=profile_photo_id,
+                                    body=body)
     return client.update_photo(user_id=user_id,
-                               id=id_,
-                               height=height,
-                               width=width)
+                               body=body)
 
 
 def users_user_update_setting(client,
@@ -887,91 +514,99 @@ def users_user_update_setting(client,
                               device=None,
                               user=None,
                               availability=None):
-    return client.update_setting(user_id=user_id,
-                                 id=id_,
-                                 contribution_to_content_discovery_as_organization_disabled=contribution_to_content_discovery_as_organization_disabled,
-                                 contribution_to_content_discovery_disabled=contribution_to_content_discovery_disabled,
-                                 microsoft_graph_entity_id=microsoft_graph_entity_id,
-                                 created_date_time=created_date_time,
-                                 last_modified_date_time=last_modified_date_time,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 availability=availability)
+    body = {}
+    body['id'] = id_
+    body['contribution_to_content_discovery_as_organization_disabled'] = contribution_to_content_discovery_as_organization_disabled
+    body['contribution_to_content_discovery_disabled'] = contribution_to_content_discovery_disabled
+    body['shift_preferences'] = {}
+    body['shift_preferences']['id'] = microsoft_graph_entity_id
+    body['shift_preferences']['created_date_time'] = created_date_time
+    body['shift_preferences']['last_modified_date_time'] = last_modified_date_time
+    body['shift_preferences']['last_modified_by'] = {}
+    body['shift_preferences']['last_modified_by']['application'] = application
+    body['shift_preferences']['last_modified_by']['device'] = device
+    body['shift_preferences']['last_modified_by']['user'] = user
+    body['shift_preferences']['availability'] = availability
+    return client.update_settings(user_id=user_id,
+                                  body=body)
 
 
-def users_user_outlook_delete(client,
-                              user_id,
-                              outlook_category_id,
-                              if_match=None):
-    return client.delete_master_category(user_id=user_id,
-                                         outlook_category_id=outlook_category_id,
-                                         if_match=if_match)
-
-
-def users_user_outlook_create_master_category(client,
+def users_usersoutlook_create_master_category(client,
                                               user_id,
                                               id_=None,
                                               color=None,
                                               display_name=None):
-    return client.create_master_category(user_id=user_id,
-                                         id=id_,
-                                         color=color,
-                                         display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['color'] = color
+    body['display_name'] = display_name
+    return client.create_master_categories(user_id=user_id,
+                                           body=body)
 
 
-def users_user_outlook_list_master_category(client,
+def users_usersoutlook_delete_master_category(client,
+                                              user_id,
+                                              outlook_category_id,
+                                              if_match=None):
+    return client.delete_master_categories(user_id=user_id,
+                                           outlook_category_id=outlook_category_id,
+                                           if_match=if_match)
+
+
+def users_usersoutlook_list_master_category(client,
                                             user_id,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_master_category(user_id=user_id,
-                                       orderby=orderby,
-                                       select=select,
-                                       expand=expand)
+    return client.list_master_categories(user_id=user_id,
+                                         orderby=orderby,
+                                         select=select,
+                                         expand=expand)
 
 
-def users_user_outlook_show_master_category(client,
+def users_usersoutlook_show_master_category(client,
                                             user_id,
                                             outlook_category_id,
                                             select=None,
                                             expand=None):
-    return client.get_master_category(user_id=user_id,
-                                      outlook_category_id=outlook_category_id,
-                                      select=select,
-                                      expand=expand)
+    return client.get_master_categories(user_id=user_id,
+                                        outlook_category_id=outlook_category_id,
+                                        select=select,
+                                        expand=expand)
 
 
-def users_user_outlook_update_master_category(client,
+def users_usersoutlook_update_master_category(client,
                                               user_id,
                                               outlook_category_id,
                                               id_=None,
                                               color=None,
                                               display_name=None):
-    return client.update_master_category(user_id=user_id,
-                                         outlook_category_id=outlook_category_id,
-                                         id=id_,
-                                         color=color,
-                                         display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['color'] = color
+    body['display_name'] = display_name
+    return client.update_master_categories(user_id=user_id,
+                                           outlook_category_id=outlook_category_id,
+                                           body=body)
 
 
-def users_user_setting_delete(client,
-                              user_id,
-                              if_match=None):
-    return client.delete_shift_preference(user_id=user_id,
-                                          if_match=if_match)
+def users_userssetting_delete_shift_preference(client,
+                                               user_id,
+                                               if_match=None):
+    return client.delete_shift_preferences(user_id=user_id,
+                                           if_match=if_match)
 
 
-def users_user_setting_show_shift_preference(client,
+def users_userssetting_show_shift_preference(client,
                                              user_id,
                                              select=None,
                                              expand=None):
-    return client.get_shift_preference(user_id=user_id,
-                                       select=select,
-                                       expand=expand)
+    return client.get_shift_preferences(user_id=user_id,
+                                        select=select,
+                                        expand=expand)
 
 
-def users_user_setting_update_shift_preference(client,
+def users_userssetting_update_shift_preference(client,
                                                user_id,
                                                id_=None,
                                                created_date_time=None,
@@ -980,11 +615,14 @@ def users_user_setting_update_shift_preference(client,
                                                device=None,
                                                user=None,
                                                availability=None):
-    return client.update_shift_preference(user_id=user_id,
-                                          id=id_,
-                                          created_date_time=created_date_time,
-                                          last_modified_date_time=last_modified_date_time,
-                                          application=application,
-                                          device=device,
-                                          user=user,
-                                          availability=availability)
+    body = {}
+    body['id'] = id_
+    body['created_date_time'] = created_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['availability'] = availability
+    return client.update_shift_preferences(user_id=user_id,
+                                           body=body)

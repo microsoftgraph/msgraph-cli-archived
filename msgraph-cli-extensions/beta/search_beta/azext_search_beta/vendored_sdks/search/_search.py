@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import SearchConfiguration
-from .operations import ExternalExternalOperations
-from .operations import ExternalOperations
-from .operations import SearchSearchEntityOperations
-from .operations import SearchOperations
+from .operations import externalexternalOperations
+from .operations import externalOperations
+from .operations import searchsearchentityOperations
+from .operations import searchOperations
 from . import models
 
 
 class Search(object):
     """Search.
 
-    :ivar external_external: ExternalExternalOperations operations
-    :vartype external_external: search.operations.ExternalExternalOperations
-    :ivar external: ExternalOperations operations
-    :vartype external: search.operations.ExternalOperations
-    :ivar search_search_entity: SearchSearchEntityOperations operations
-    :vartype search_search_entity: search.operations.SearchSearchEntityOperations
-    :ivar search: SearchOperations operations
-    :vartype search: search.operations.SearchOperations
+    :ivar externalexternal: externalexternalOperations operations
+    :vartype externalexternal: search.operations.externalexternalOperations
+    :ivar external: externalOperations operations
+    :vartype external: search.operations.externalOperations
+    :ivar searchsearchentity: searchsearchentityOperations operations
+    :vartype searchsearchentity: search.operations.searchsearchentityOperations
+    :ivar search: searchOperations operations
+    :vartype search: search.operations.searchOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -66,20 +66,20 @@ class Search(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = SearchConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.external_external = ExternalExternalOperations(
+        self.externalexternal = externalexternalOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.external = ExternalOperations(
+        self.external = externalOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.search_search_entity = SearchSearchEntityOperations(
+        self.searchsearchentity = searchsearchentityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.search = SearchOperations(
+        self.search = searchOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

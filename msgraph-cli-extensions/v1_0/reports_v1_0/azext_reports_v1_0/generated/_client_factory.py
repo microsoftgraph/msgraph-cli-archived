@@ -18,17 +18,17 @@ def cf_reports_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_audit_log_audit_log_root(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).audit_log_audit_log_root
+def cf_auditlogsauditlogroot(cli_ctx, *_):
+    return cf_reports_v1_0_cl(cli_ctx).auditlogsauditlogroot
 
 
-def cf_audit_log(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).audit_log
+def cf_auditlog(cli_ctx, *_):
+    return cf_reports_v1_0_cl(cli_ctx).auditlogs
 
 
-def cf_report_report_root(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).report_report_root
+def cf_reportsreportroot(cli_ctx, *_):
+    return cf_reports_v1_0_cl(cli_ctx).reportsreportroot
 
 
 def cf_report(cli_ctx, *_):
-    return cf_reports_v1_0_cl(cli_ctx).report
+    return cf_reports_v1_0_cl(cli_ctx).reports

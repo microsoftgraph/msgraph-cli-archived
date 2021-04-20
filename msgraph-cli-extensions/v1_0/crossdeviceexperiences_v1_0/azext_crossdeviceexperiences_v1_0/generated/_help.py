@@ -12,14 +12,14 @@
 from knack.help_files import helps
 
 
+helps['crossdeviceexperiences_v1_0'] = '''
+    type: group
+    short-summary: Manage Cross Device Experiences
+'''
+
 helps['crossdeviceexperiences user'] = """
     type: group
     short-summary: Manage user with crossdeviceexperiences_v1_0
-"""
-
-helps['crossdeviceexperiences user delete'] = """
-    type: command
-    short-summary: "Delete navigation property activities for users."
 """
 
 helps['crossdeviceexperiences user create-activity'] = """
@@ -36,6 +36,11 @@ response to parameterization. For example – a high contrast image
             alternate-text: Optional; alt-text accessible content for the image
             icon-url: Optional; URI that points to an icon which represents the application used to generate the \
 activity
+"""
+
+helps['crossdeviceexperiences user delete-activity'] = """
+    type: command
+    short-summary: "Delete navigation property activities for users."
 """
 
 helps['crossdeviceexperiences user list-activity'] = """
@@ -64,57 +69,57 @@ response to parameterization. For example – a high contrast image
 activity
 """
 
-helps['crossdeviceexperiences user-activity'] = """
+helps['crossdeviceexperiences usersactivity'] = """
     type: group
-    short-summary: Manage user activity with crossdeviceexperiences_v1_0
+    short-summary: Manage usersactivity with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences user-activity delete'] = """
-    type: command
-    short-summary: "Delete navigation property historyItems for users."
-"""
-
-helps['crossdeviceexperiences user-activity create-history-item'] = """
+helps['crossdeviceexperiences usersactivity create-history-item'] = """
     type: command
     short-summary: "Create new navigation property to historyItems for users."
 """
 
-helps['crossdeviceexperiences user-activity list-history-item'] = """
+helps['crossdeviceexperiences usersactivity delete-history-item'] = """
+    type: command
+    short-summary: "Delete navigation property historyItems for users."
+"""
+
+helps['crossdeviceexperiences usersactivity list-history-item'] = """
     type: command
     short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences user-activity show-history-item'] = """
+helps['crossdeviceexperiences usersactivity show-history-item'] = """
     type: command
     short-summary: "Get historyItems from users."
 """
 
-helps['crossdeviceexperiences user-activity update-history-item'] = """
+helps['crossdeviceexperiences usersactivity update-history-item'] = """
     type: command
     short-summary: "Update the navigation property historyItems in users."
 """
 
-helps['crossdeviceexperiences user-activity-history-item'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem'] = """
     type: group
-    short-summary: Manage user activity history item with crossdeviceexperiences_v1_0
+    short-summary: Manage usersactivitieshistoryitem with crossdeviceexperiences_v1_0
 """
 
-helps['crossdeviceexperiences user-activity-history-item delete'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem delete-ref-activity'] = """
     type: command
     short-summary: "Delete ref of navigation property activity for users."
 """
 
-helps['crossdeviceexperiences user-activity-history-item set-ref-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem set-ref-activity'] = """
     type: command
     short-summary: "Update the ref of navigation property activity in users."
 """
 
-helps['crossdeviceexperiences user-activity-history-item show-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem show-activity'] = """
     type: command
     short-summary: "Get activity from users."
 """
 
-helps['crossdeviceexperiences user-activity-history-item show-ref-activity'] = """
+helps['crossdeviceexperiences usersactivitieshistoryitem show-ref-activity'] = """
     type: command
     short-summary: "Get ref of activity from users."
 """

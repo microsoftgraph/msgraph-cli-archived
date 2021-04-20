@@ -20,42 +20,35 @@ from azext_security_beta.action import (
     AddProviderStatus,
     AddProviderTenantSettings,
     AddTiIndicators,
-    AddErrorInfo,
-    AddParameters,
-    AddStates,
     AddVendorInformation,
-    AddCloudAppStates,
-    AddHistoryStates,
-    AddHostStates,
-    AddSecuritySecurityCreateAlertMalwareStates,
-    AddNetworkConnections,
-    AddRegistryKeyStates,
-    AddSecurityResources,
-    AddTriggers,
-    AddUserStates,
-    AddSecuritySecurityCreateAlertVulnerabilityStates,
     AddDomainCategories,
     AddRegistrant,
     AddHashes,
-    AddSecuritySecurityCreateFileSecurityProfileMalwareStates,
-    AddSecuritySecurityCreateFileSecurityProfileVulnerabilityStates,
+    AddMalwareStates,
+    AddVulnerabilityStates,
     AddLogonUsers,
     AddNetworkInterfaces,
     AddIpCategories,
     AddIpReferenceData,
     AddAverageComparativeScores,
     AddControlScores,
-    AddComplianceInformation,
     AddControlStateUpdates,
+    AddErrorInfo,
+    AddParameters,
+    AddStates,
     AddAccounts,
-    AddSecuritySecurityTiIndicatorSubmitTiIndicatorValue,
-    AddSecuritySecurityTiIndicatorUpdateTiIndicatorValue
+    AddSecuritySecuritytiindicatorSubmitTiIndicatorValue,
+    AddSecuritySecuritytiindicatorUpdateTiIndicatorValue
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('security security create') as c:
+    with self.argument_context('security security show-security') as c:
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security update-security') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('provider_status', action=AddProviderStatus, nargs='+', help='')
         c.argument('alerts', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
@@ -79,118 +72,9 @@ def load_arguments(self, _):
         c.argument('user_security_profiles', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('security security create-action') as c:
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action_reason', type=str, help='')
-        c.argument('app_id', type=str, help='')
-        c.argument('azure_tenant_id', type=str, help='')
-        c.argument('client_context', type=str, help='')
-        c.argument('completed_date_time', help='')
-        c.argument('created_date_time', help='')
-        c.argument('error_info', action=AddErrorInfo, nargs='+', help='ResultInfo')
-        c.argument('last_action_date_time', help='')
-        c.argument('name', type=str, help='')
-        c.argument('parameters', action=AddParameters, nargs='+', help='')
-        c.argument('states', action=AddStates, nargs='+', help='')
-        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
-        c.argument('user', type=str, help='')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
-
-    with self.argument_context('security security list-action') as c:
-        c.argument('orderby', nargs='+', help='Order items by property values')
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('security security show-security') as c:
-        c.argument('select', nargs='+', help='Select properties to be returned')
-        c.argument('expand', nargs='+', help='Expand related entities')
-
-    with self.argument_context('security security delete') as c:
-        c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
-        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
-        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
-        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
-        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
-        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
-        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
-        c.argument('secure_score_id', type=str, help='key: id of secureScore')
-        c.argument('security_action_id', type=str, help='key: id of securityAction')
-        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
-        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
-
     with self.argument_context('security security create-alert') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_name', type=str, help='Name or alias of the activity group (attacker) this alert is '
-                   'attributed to.')
-        c.argument('assigned_to', type=str, help='Name of the analyst the alert is assigned to for triage, '
-                   'investigation, or remediation (supports update).')
-        c.argument('azure_subscription_id', type=str, help='Azure subscription ID, present if this alert is related to '
-                   'an Azure resource.')
-        c.argument('azure_tenant_id', type=str, help='Azure Active Directory tenant ID. Required.')
-        c.argument('category', type=str,
-                   help='Category of the alert (for example, credentialTheft, ransomware, etc.).')
-        c.argument('closed_date_time', help='Time at which the alert was closed. The Timestamp type represents date '
-                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
-                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\' (supports update).')
-        c.argument('cloud_app_states', action=AddCloudAppStates, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the cloud application/s related to this alert.')
-        c.argument('comments', nargs='+', help='Customer-provided comments on alert (for customer alert management) '
-                   '(supports update).')
-        c.argument('confidence', type=int, help='Confidence of the detection logic (percentage between 1-100).')
-        c.argument('created_date_time', help='Time at which the alert was created by the alert provider. The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Required.')
-        c.argument('description', type=str, help='Alert description.')
-        c.argument('detection_ids', nargs='+', help='Set of alerts related to this alert entity (each alert is pushed '
-                   'to the SIEM as a separate record).')
-        c.argument('event_date_time', help='Time at which the event(s) that served as the trigger(s) to generate the '
-                   'alert occurred. The Timestamp type represents date and time information using ISO 8601 format and '
-                   'is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'. Required.')
-        c.argument('feedback', arg_type=get_enum_type(['unknown', 'truePositive', 'falsePositive', 'benignPositive',
-                                                       'unknownFutureValue']), help='')
-        c.argument('file_states', type=validate_file_or_dict, help='Security-related stateful information generated by '
-                   'the provider about the file(s) related to this alert. Expected value: json-string/@json-file.')
-        c.argument('history_states', action=AddHistoryStates, nargs='+', help='')
-        c.argument('host_states', action=AddHostStates, nargs='+', help='Security-related stateful information '
-                   'generated by the provider about the host(s) related to this alert.')
-        c.argument('incident_ids', nargs='+', help='IDs of incidents related to current alert.')
-        c.argument('last_modified_date_time', help='Time at which the alert entity was last modified. The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'.')
-        c.argument('malware_states', action=AddSecuritySecurityCreateAlertMalwareStates, nargs='+', help='Threat '
-                   'Intelligence pertaining to malware related to this alert.')
-        c.argument('network_connections', action=AddNetworkConnections, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the network connection(s) related to this alert.')
-        c.argument('processes', type=validate_file_or_dict, help='Security-related stateful information generated by '
-                   'the provider about the process or processes related to this alert. Expected value: '
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
                    'json-string/@json-file.')
-        c.argument('recommended_actions', nargs='+', help='Vendor/provider recommended action(s) to take as a result '
-                   'of the alert (for example, isolate machine, enforce2FA, reimage host).')
-        c.argument('registry_key_states', action=AddRegistryKeyStates, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the registry keys related to this alert.')
-        c.argument('security_resources', action=AddSecurityResources, nargs='+', help='Resources related to current '
-                   'alert. For example, for some alerts this can have the Azure Resource value.')
-        c.argument('severity', arg_type=get_enum_type(['unknown', 'informational', 'low', 'medium', 'high',
-                                                       'unknownFutureValue']), help='')
-        c.argument('source_materials', nargs='+', help='Hyperlinks (URIs) to the source material related to the alert, '
-                   'for example, provider\'s user interface for alerts or log search, etc.')
-        c.argument('status', arg_type=get_enum_type(['unknown', 'newAlert', 'inProgress', 'resolved', 'dismissed',
-                                                     'unknownFutureValue']), help='')
-        c.argument('tags', tags_type)
-        c.argument('title', type=str, help='Alert title. Required.')
-        c.argument('triggers', action=AddTriggers, nargs='+', help='Security-related information about the specific '
-                   'properties that triggered the alert (properties appearing in the alert). Alerts might contain '
-                   'information about multiple users, hosts, files, ip addresses. This field indicates which '
-                   'properties triggered the alert generation.')
-        c.argument('user_states', action=AddUserStates, nargs='+', help='Security-related stateful information '
-                   'generated by the provider about the user accounts related to this alert.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddSecuritySecurityCreateAlertVulnerabilityStates, nargs='+',
-                   help='Threat intelligence pertaining to one or more vulnerabilities related to this alert.')
 
     with self.argument_context('security security create-cloud-app-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -242,15 +126,13 @@ def load_arguments(self, _):
         c.argument('first_seen_date_time', help='')
         c.argument('hashes', action=AddHashes, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('malware_states', action=AddSecuritySecurityCreateFileSecurityProfileMalwareStates, nargs='+',
-                   help='')
+        c.argument('malware_states', action=AddMalwareStates, nargs='+', help='')
         c.argument('names', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('size', type=int, help='')
         c.argument('tags', tags_type)
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddSecuritySecurityCreateFileSecurityProfileVulnerabilityStates,
-                   nargs='+', help='')
+        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='+', help='')
 
     with self.argument_context('security security create-host-security-profile') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -319,7 +201,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
@@ -339,6 +222,23 @@ def load_arguments(self, _):
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+
+    with self.argument_context('security security create-security-action') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action_reason', type=str, help='')
+        c.argument('app_id', type=str, help='')
+        c.argument('azure_tenant_id', type=str, help='')
+        c.argument('client_context', type=str, help='')
+        c.argument('completed_date_time', help='')
+        c.argument('created_date_time', help='')
+        c.argument('error_info', action=AddErrorInfo, nargs='+', help='ResultInfo')
+        c.argument('last_action_date_time', help='')
+        c.argument('name', type=str, help='')
+        c.argument('parameters', action=AddParameters, nargs='+', help='')
+        c.argument('states', action=AddStates, nargs='+', help='')
+        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
+        c.argument('user', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
     with self.argument_context('security security create-ti-indicator') as c:
@@ -419,6 +319,54 @@ def load_arguments(self, _):
         c.argument('user_principal_name', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
+    with self.argument_context('security security delete-alert') as c:
+        c.argument('alert_id', type=str, help='key: id of alert')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-cloud-app-security-profile') as c:
+        c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-domain-security-profile') as c:
+        c.argument('domain_security_profile_id', type=str, help='key: id of domainSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-file-security-profile') as c:
+        c.argument('file_security_profile_id', type=str, help='key: id of fileSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-host-security-profile') as c:
+        c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-ip-security-profile') as c:
+        c.argument('ip_security_profile_id', type=str, help='key: id of ipSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-provider-tenant-setting') as c:
+        c.argument('provider_tenant_setting_id', type=str, help='key: id of providerTenantSetting')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score') as c:
+        c.argument('secure_score_id', type=str, help='key: id of secureScore')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-secure-score-control-profile') as c:
+        c.argument('secure_score_control_profile_id', type=str, help='key: id of secureScoreControlProfile')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-security-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-ti-indicator') as c:
+        c.argument('ti_indicator_id', type=str, help='key: id of tiIndicator')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('security security delete-user-security-profile') as c:
+        c.argument('user_security_profile_id', type=str, help='key: id of userSecurityProfile')
+        c.argument('if_match', type=str, help='ETag')
+
     with self.argument_context('security security list-alert') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
@@ -460,6 +408,11 @@ def load_arguments(self, _):
         c.argument('expand', nargs='+', help='Expand related entities')
 
     with self.argument_context('security security list-secure-score-control-profile') as c:
+        c.argument('orderby', nargs='+', help='Order items by property values')
+        c.argument('select', nargs='+', help='Select properties to be returned')
+        c.argument('expand', nargs='+', help='Expand related entities')
+
+    with self.argument_context('security security list-security-action') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
@@ -536,75 +489,8 @@ def load_arguments(self, _):
 
     with self.argument_context('security security update-alert') as c:
         c.argument('alert_id', type=str, help='key: id of alert')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_group_name', type=str, help='Name or alias of the activity group (attacker) this alert is '
-                   'attributed to.')
-        c.argument('assigned_to', type=str, help='Name of the analyst the alert is assigned to for triage, '
-                   'investigation, or remediation (supports update).')
-        c.argument('azure_subscription_id', type=str, help='Azure subscription ID, present if this alert is related to '
-                   'an Azure resource.')
-        c.argument('azure_tenant_id', type=str, help='Azure Active Directory tenant ID. Required.')
-        c.argument('category', type=str,
-                   help='Category of the alert (for example, credentialTheft, ransomware, etc.).')
-        c.argument('closed_date_time', help='Time at which the alert was closed. The Timestamp type represents date '
-                   'and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on '
-                   'Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\' (supports update).')
-        c.argument('cloud_app_states', action=AddCloudAppStates, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the cloud application/s related to this alert.')
-        c.argument('comments', nargs='+', help='Customer-provided comments on alert (for customer alert management) '
-                   '(supports update).')
-        c.argument('confidence', type=int, help='Confidence of the detection logic (percentage between 1-100).')
-        c.argument('created_date_time', help='Time at which the alert was created by the alert provider. The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'. Required.')
-        c.argument('description', type=str, help='Alert description.')
-        c.argument('detection_ids', nargs='+', help='Set of alerts related to this alert entity (each alert is pushed '
-                   'to the SIEM as a separate record).')
-        c.argument('event_date_time', help='Time at which the event(s) that served as the trigger(s) to generate the '
-                   'alert occurred. The Timestamp type represents date and time information using ISO 8601 format and '
-                   'is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'. Required.')
-        c.argument('feedback', arg_type=get_enum_type(['unknown', 'truePositive', 'falsePositive', 'benignPositive',
-                                                       'unknownFutureValue']), help='')
-        c.argument('file_states', type=validate_file_or_dict, help='Security-related stateful information generated by '
-                   'the provider about the file(s) related to this alert. Expected value: json-string/@json-file.')
-        c.argument('history_states', action=AddHistoryStates, nargs='+', help='')
-        c.argument('host_states', action=AddHostStates, nargs='+', help='Security-related stateful information '
-                   'generated by the provider about the host(s) related to this alert.')
-        c.argument('incident_ids', nargs='+', help='IDs of incidents related to current alert.')
-        c.argument('last_modified_date_time', help='Time at which the alert entity was last modified. The Timestamp '
-                   'type represents date and time information using ISO 8601 format and is always in UTC time. For '
-                   'example, midnight UTC on Jan 1, 2014 would look like this: \'2014-01-01T00:00:00Z\'.')
-        c.argument('malware_states', action=AddSecuritySecurityCreateAlertMalwareStates, nargs='+', help='Threat '
-                   'Intelligence pertaining to malware related to this alert.')
-        c.argument('network_connections', action=AddNetworkConnections, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the network connection(s) related to this alert.')
-        c.argument('processes', type=validate_file_or_dict, help='Security-related stateful information generated by '
-                   'the provider about the process or processes related to this alert. Expected value: '
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
                    'json-string/@json-file.')
-        c.argument('recommended_actions', nargs='+', help='Vendor/provider recommended action(s) to take as a result '
-                   'of the alert (for example, isolate machine, enforce2FA, reimage host).')
-        c.argument('registry_key_states', action=AddRegistryKeyStates, nargs='+', help='Security-related stateful '
-                   'information generated by the provider about the registry keys related to this alert.')
-        c.argument('security_resources', action=AddSecurityResources, nargs='+', help='Resources related to current '
-                   'alert. For example, for some alerts this can have the Azure Resource value.')
-        c.argument('severity', arg_type=get_enum_type(['unknown', 'informational', 'low', 'medium', 'high',
-                                                       'unknownFutureValue']), help='')
-        c.argument('source_materials', nargs='+', help='Hyperlinks (URIs) to the source material related to the alert, '
-                   'for example, provider\'s user interface for alerts or log search, etc.')
-        c.argument('status', arg_type=get_enum_type(['unknown', 'newAlert', 'inProgress', 'resolved', 'dismissed',
-                                                     'unknownFutureValue']), help='')
-        c.argument('tags', tags_type)
-        c.argument('title', type=str, help='Alert title. Required.')
-        c.argument('triggers', action=AddTriggers, nargs='+', help='Security-related information about the specific '
-                   'properties that triggered the alert (properties appearing in the alert). Alerts might contain '
-                   'information about multiple users, hosts, files, ip addresses. This field indicates which '
-                   'properties triggered the alert generation.')
-        c.argument('user_states', action=AddUserStates, nargs='+', help='Security-related stateful information '
-                   'generated by the provider about the user accounts related to this alert.')
-        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddSecuritySecurityCreateAlertVulnerabilityStates, nargs='+',
-                   help='Threat intelligence pertaining to one or more vulnerabilities related to this alert.')
 
     with self.argument_context('security security update-cloud-app-security-profile') as c:
         c.argument('cloud_app_security_profile_id', type=str, help='key: id of cloudAppSecurityProfile')
@@ -659,15 +545,13 @@ def load_arguments(self, _):
         c.argument('first_seen_date_time', help='')
         c.argument('hashes', action=AddHashes, nargs='+', help='')
         c.argument('last_seen_date_time', help='')
-        c.argument('malware_states', action=AddSecuritySecurityCreateFileSecurityProfileMalwareStates, nargs='+',
-                   help='')
+        c.argument('malware_states', action=AddMalwareStates, nargs='+', help='')
         c.argument('names', nargs='+', help='')
         c.argument('risk_score', type=str, help='')
         c.argument('size', type=int, help='')
         c.argument('tags', tags_type)
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
-        c.argument('vulnerability_states', action=AddSecuritySecurityCreateFileSecurityProfileVulnerabilityStates,
-                   nargs='+', help='')
+        c.argument('vulnerability_states', action=AddVulnerabilityStates, nargs='+', help='')
 
     with self.argument_context('security security update-host-security-profile') as c:
         c.argument('host_security_profile_id', type=str, help='key: id of hostSecurityProfile')
@@ -741,7 +625,8 @@ def load_arguments(self, _):
         c.argument('action_type', type=str, help='Control action type (Config, Review, Behavior).')
         c.argument('action_url', type=str, help='URL to where the control can be actioned.')
         c.argument('azure_tenant_id', type=str, help='GUID string for tenant ID.')
-        c.argument('compliance_information', action=AddComplianceInformation, nargs='+', help='')
+        c.argument('compliance_information', type=validate_file_or_dict, help=' Expected value: '
+                   'json-string/@json-file.')
         c.argument('control_category', type=str, help='Control action category (Identity, Data, Device, Apps, '
                    'Infrastructure).')
         c.argument('control_state_updates', action=AddControlStateUpdates, nargs='+', help='')
@@ -761,6 +646,24 @@ def load_arguments(self, _):
         c.argument('tier', type=str, help='')
         c.argument('title', type=str, help='Title of the control.')
         c.argument('user_impact', type=str, help='')
+        c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
+
+    with self.argument_context('security security update-security-action') as c:
+        c.argument('security_action_id', type=str, help='key: id of securityAction')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('action_reason', type=str, help='')
+        c.argument('app_id', type=str, help='')
+        c.argument('azure_tenant_id', type=str, help='')
+        c.argument('client_context', type=str, help='')
+        c.argument('completed_date_time', help='')
+        c.argument('created_date_time', help='')
+        c.argument('error_info', action=AddErrorInfo, nargs='+', help='ResultInfo')
+        c.argument('last_action_date_time', help='')
+        c.argument('name', type=str, help='')
+        c.argument('parameters', action=AddParameters, nargs='+', help='')
+        c.argument('states', action=AddStates, nargs='+', help='')
+        c.argument('status', arg_type=get_enum_type(['NotStarted', 'Running', 'Completed', 'Failed']), help='')
+        c.argument('user', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
     with self.argument_context('security security update-ti-indicator') as c:
@@ -843,20 +746,20 @@ def load_arguments(self, _):
         c.argument('user_principal_name', type=str, help='')
         c.argument('vendor_information', action=AddVendorInformation, nargs='+', help='securityVendorInformation')
 
-    with self.argument_context('security security-alert update-alert') as c:
+    with self.argument_context('security securityalert update-alert') as c:
         c.argument('value', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('security security-action cancel-security-action') as c:
+    with self.argument_context('security securityaction cancel-security-action') as c:
         c.argument('security_action_id', type=str, help='key: id of securityAction')
 
-    with self.argument_context('security security-ti-indicator delete-ti-indicator') as c:
+    with self.argument_context('security securitytiindicator delete-ti-indicator') as c:
         c.argument('value', nargs='+', help='')
 
-    with self.argument_context('security security-ti-indicator delete-ti-indicator-by-external-id') as c:
+    with self.argument_context('security securitytiindicator delete-ti-indicator-by-external-id') as c:
         c.argument('value', nargs='+', help='')
 
-    with self.argument_context('security security-ti-indicator submit-ti-indicator') as c:
-        c.argument('value', action=AddSecuritySecurityTiIndicatorSubmitTiIndicatorValue, nargs='+', help='')
+    with self.argument_context('security securitytiindicator submit-ti-indicator') as c:
+        c.argument('value', action=AddSecuritySecuritytiindicatorSubmitTiIndicatorValue, nargs='+', help='')
 
-    with self.argument_context('security security-ti-indicator update-ti-indicator') as c:
-        c.argument('value', action=AddSecuritySecurityTiIndicatorUpdateTiIndicatorValue, nargs='+', help='')
+    with self.argument_context('security securitytiindicator update-ti-indicator') as c:
+        c.argument('value', action=AddSecuritySecuritytiindicatorUpdateTiIndicatorValue, nargs='+', help='')

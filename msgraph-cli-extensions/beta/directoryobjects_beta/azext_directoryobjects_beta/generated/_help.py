@@ -12,77 +12,82 @@
 from knack.help_files import helps
 
 
-helps['directoryobjects directory-object-directory-object'] = """
+helps['directoryobjects_beta'] = '''
     type: group
-    short-summary: Manage directory object directory object with directoryobjects_beta
+    short-summary: Manage Directory Objects
+'''
+
+helps['directoryobjects directoryobjectsdirectoryobject'] = """
+    type: group
+    short-summary: Manage directoryobjectsdirectoryobject with directoryobjects_beta
 """
 
-helps['directoryobjects directory-object-directory-object delete'] = """
-    type: command
-    short-summary: "Delete entity from directoryObjects."
-"""
-
-helps['directoryobjects directory-object-directory-object create-directory-object'] = """
+helps['directoryobjects directoryobjectsdirectoryobject create-directory-object'] = """
     type: command
     short-summary: "Add new entity to directoryObjects."
 """
 
-helps['directoryobjects directory-object-directory-object list-directory-object'] = """
+helps['directoryobjects directoryobjectsdirectoryobject delete-directory-object'] = """
+    type: command
+    short-summary: "Delete entity from directoryObjects."
+"""
+
+helps['directoryobjects directoryobjectsdirectoryobject list-directory-object'] = """
     type: command
     short-summary: "Get entities from directoryObjects."
 """
 
-helps['directoryobjects directory-object-directory-object show-directory-object'] = """
+helps['directoryobjects directoryobjectsdirectoryobject show-directory-object'] = """
     type: command
     short-summary: "Get entity from directoryObjects by key."
 """
 
-helps['directoryobjects directory-object-directory-object update-directory-object'] = """
+helps['directoryobjects directoryobjectsdirectoryobject update-directory-object'] = """
     type: command
     short-summary: "Update entity in directoryObjects."
 """
 
-helps['directoryobjects directory-object'] = """
+helps['directoryobjects directoryobject'] = """
     type: group
-    short-summary: Manage directory object with directoryobjects_beta
+    short-summary: Manage directoryobject with directoryobjects_beta
 """
 
-helps['directoryobjects directory-object check-member-group'] = """
+helps['directoryobjects directoryobject check-member-group'] = """
     type: command
     short-summary: "Invoke action checkMemberGroups."
 """
 
-helps['directoryobjects directory-object check-member-object'] = """
+helps['directoryobjects directoryobject check-member-object'] = """
     type: command
     short-summary: "Invoke action checkMemberObjects."
 """
 
-helps['directoryobjects directory-object get-by-id'] = """
+helps['directoryobjects directoryobject get-by-id'] = """
     type: command
     short-summary: "Invoke action getByIds."
 """
 
-helps['directoryobjects directory-object get-member-group'] = """
+helps['directoryobjects directoryobject get-member-group'] = """
     type: command
     short-summary: "Invoke action getMemberGroups."
 """
 
-helps['directoryobjects directory-object get-member-object'] = """
+helps['directoryobjects directoryobject get-member-object'] = """
     type: command
     short-summary: "Invoke action getMemberObjects."
 """
 
-helps['directoryobjects directory-object get-user-owned-object'] = """
+helps['directoryobjects directoryobject get-user-owned-object'] = """
     type: command
     short-summary: "Invoke action getUserOwnedObjects."
 """
 
-helps['directoryobjects directory-object restore'] = """
+helps['directoryobjects directoryobject restore'] = """
     type: command
     short-summary: "Invoke action restore."
 """
 
-helps['directoryobjects directory-object validate-property'] = """
+helps['directoryobjects directoryobject validate-property'] = """
     type: command
     short-summary: "Invoke action validateProperties."
 """

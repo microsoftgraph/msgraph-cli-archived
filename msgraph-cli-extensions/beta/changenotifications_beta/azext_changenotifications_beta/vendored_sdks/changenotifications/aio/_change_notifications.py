@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,15 +16,15 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import ChangeNotificationsConfiguration
-from .operations import SubscriptionSubscriptionOperations
+from .operations import subscriptionssubscriptionOperations
 from .. import models
 
 
 class ChangeNotifications(object):
     """ChangeNotifications.
 
-    :ivar subscription_subscription: SubscriptionSubscriptionOperations operations
-    :vartype subscription_subscription: change_notifications.aio.operations.SubscriptionSubscriptionOperations
+    :ivar subscriptionssubscription: subscriptionssubscriptionOperations operations
+    :vartype subscriptionssubscription: change_notifications.aio.operations.subscriptionssubscriptionOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -54,14 +54,14 @@ class ChangeNotifications(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = ChangeNotificationsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.subscription_subscription = SubscriptionSubscriptionOperations(
+        self.subscriptionssubscription = subscriptionssubscriptionOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

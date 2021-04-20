@@ -6,36 +6,36 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._data_policy_operation_data_policy_operation_operations import DataPolicyOperationDataPolicyOperationOperations
-from ._identity_operations import IdentityOperations
-from ._identity_conditional_access_operations import IdentityConditionalAccessOperations
-from ._identity_provider_identity_provider_operations import IdentityProviderIdentityProviderOperations
-from ._information_protection_information_protection_operations import InformationProtectionInformationProtectionOperations
-from ._information_protection_operations import InformationProtectionOperations
-from ._information_protection_threat_assessment_request_operations import InformationProtectionThreatAssessmentRequestOperations
-from ._invitation_invitation_operations import InvitationInvitationOperations
-from ._invitation_operations import InvitationOperations
-from ._oauth2_permission_grant_oauth2_permission_grant_operations import Oauth2PermissionGrantOAuth2PermissionGrantOperations
-from ._oauth2_permission_grant_operations import Oauth2PermissionGrantOperations
-from ._organization_operations import OrganizationOperations
-from ._policy_policy_root_operations import PolicyPolicyRootOperations
-from ._policy_operations import PolicyOperations
-from ._policy_permission_grant_policy_operations import PolicyPermissionGrantPolicyOperations
+from ._datapolicyoperationsdatapolicyoperation_operations import datapolicyoperationsdatapolicyoperationOperations
+from ._identity_operations import identityOperations
+from ._identityconditionalaccess_operations import identityconditionalaccessOperations
+from ._identityprovidersidentityprovider_operations import identityprovidersidentityproviderOperations
+from ._informationprotectioninformationprotection_operations import informationprotectioninformationprotectionOperations
+from ._informationprotection_operations import informationprotectionOperations
+from ._informationprotectionthreatassessmentrequests_operations import informationprotectionthreatassessmentrequestsOperations
+from ._invitationsinvitation_operations import invitationsinvitationOperations
+from ._invitations_operations import invitationsOperations
+from ._oauth2permissiongrantsoauth2permissiongrant_operations import oauth2permissiongrantsoauth2permissiongrantOperations
+from ._oauth2permissiongrants_operations import oauth2permissiongrantsOperations
+from ._organization_operations import organizationOperations
+from ._policiespolicyroot_operations import policiespolicyrootOperations
+from ._policies_operations import policiesOperations
+from ._policiespermissiongrantpolicies_operations import policiespermissiongrantpoliciesOperations
 
 __all__ = [
-    'DataPolicyOperationDataPolicyOperationOperations',
-    'IdentityOperations',
-    'IdentityConditionalAccessOperations',
-    'IdentityProviderIdentityProviderOperations',
-    'InformationProtectionInformationProtectionOperations',
-    'InformationProtectionOperations',
-    'InformationProtectionThreatAssessmentRequestOperations',
-    'InvitationInvitationOperations',
-    'InvitationOperations',
-    'Oauth2PermissionGrantOAuth2PermissionGrantOperations',
-    'Oauth2PermissionGrantOperations',
-    'OrganizationOperations',
-    'PolicyPolicyRootOperations',
-    'PolicyOperations',
-    'PolicyPermissionGrantPolicyOperations',
+    'datapolicyoperationsdatapolicyoperationOperations',
+    'identityOperations',
+    'identityconditionalaccessOperations',
+    'identityprovidersidentityproviderOperations',
+    'informationprotectioninformationprotectionOperations',
+    'informationprotectionOperations',
+    'informationprotectionthreatassessmentrequestsOperations',
+    'invitationsinvitationOperations',
+    'invitationsOperations',
+    'oauth2permissiongrantsoauth2permissiongrantOperations',
+    'oauth2permissiongrantsOperations',
+    'organizationOperations',
+    'policiespolicyrootOperations',
+    'policiesOperations',
+    'policiespermissiongrantpoliciesOperations',
 ]

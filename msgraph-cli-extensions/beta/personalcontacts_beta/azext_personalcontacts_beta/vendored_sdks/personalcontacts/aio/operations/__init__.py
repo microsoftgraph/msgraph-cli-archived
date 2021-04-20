@@ -6,14 +6,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._user_operations import UserOperations
-from ._user_contact_folder_operations import UserContactFolderOperations
-from ._user_contact_folder_contact_operations import UserContactFolderContactOperations
-from ._user_contact_operations import UserContactOperations
+from ._users_operations import usersOperations
+from ._userscontactfolders_operations import userscontactfoldersOperations
+from ._userscontactfolderscontacts_operations import userscontactfolderscontactsOperations
+from ._userscontacts_operations import userscontactsOperations
 
 __all__ = [
-    'UserOperations',
-    'UserContactFolderOperations',
-    'UserContactFolderContactOperations',
-    'UserContactOperations',
+    'usersOperations',
+    'userscontactfoldersOperations',
+    'userscontactfolderscontactsOperations',
+    'userscontactsOperations',
 ]

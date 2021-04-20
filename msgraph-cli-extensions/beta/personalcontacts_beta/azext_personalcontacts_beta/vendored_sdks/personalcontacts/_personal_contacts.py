@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,24 +18,24 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import PersonalContactsConfiguration
-from .operations import UserOperations
-from .operations import UserContactFolderOperations
-from .operations import UserContactFolderContactOperations
-from .operations import UserContactOperations
+from .operations import usersOperations
+from .operations import userscontactfoldersOperations
+from .operations import userscontactfolderscontactsOperations
+from .operations import userscontactsOperations
 from . import models
 
 
 class PersonalContacts(object):
     """PersonalContacts.
 
-    :ivar user: UserOperations operations
-    :vartype user: personal_contacts.operations.UserOperations
-    :ivar user_contact_folder: UserContactFolderOperations operations
-    :vartype user_contact_folder: personal_contacts.operations.UserContactFolderOperations
-    :ivar user_contact_folder_contact: UserContactFolderContactOperations operations
-    :vartype user_contact_folder_contact: personal_contacts.operations.UserContactFolderContactOperations
-    :ivar user_contact: UserContactOperations operations
-    :vartype user_contact: personal_contacts.operations.UserContactOperations
+    :ivar users: usersOperations operations
+    :vartype users: personal_contacts.operations.usersOperations
+    :ivar userscontactfolders: userscontactfoldersOperations operations
+    :vartype userscontactfolders: personal_contacts.operations.userscontactfoldersOperations
+    :ivar userscontactfolderscontacts: userscontactfolderscontactsOperations operations
+    :vartype userscontactfolderscontacts: personal_contacts.operations.userscontactfolderscontactsOperations
+    :ivar userscontacts: userscontactsOperations operations
+    :vartype userscontacts: personal_contacts.operations.userscontactsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -66,20 +66,20 @@ class PersonalContacts(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = PersonalContactsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact_folder = UserContactFolderOperations(
+        self.userscontactfolders = userscontactfoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact_folder_contact = UserContactFolderContactOperations(
+        self.userscontactfolderscontacts = userscontactfolderscontactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_contact = UserContactOperations(
+        self.userscontacts = userscontactsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

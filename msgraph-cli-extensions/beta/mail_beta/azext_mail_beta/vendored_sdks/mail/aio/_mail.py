@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,27 +16,27 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import MailConfiguration
-from .operations import UserOperations
-from .operations import UserInferenceClassificationOperations
-from .operations import UserMailFolderOperations
-from .operations import UserMailFolderMessageOperations
-from .operations import UserMessageOperations
+from .operations import usersOperations
+from .operations import usersinferenceclassificationOperations
+from .operations import usersmailfoldersOperations
+from .operations import usersmailfoldersmessagesOperations
+from .operations import usersmessagesOperations
 from .. import models
 
 
 class Mail(object):
     """Mail.
 
-    :ivar user: UserOperations operations
-    :vartype user: mail.aio.operations.UserOperations
-    :ivar user_inference_classification: UserInferenceClassificationOperations operations
-    :vartype user_inference_classification: mail.aio.operations.UserInferenceClassificationOperations
-    :ivar user_mail_folder: UserMailFolderOperations operations
-    :vartype user_mail_folder: mail.aio.operations.UserMailFolderOperations
-    :ivar user_mail_folder_message: UserMailFolderMessageOperations operations
-    :vartype user_mail_folder_message: mail.aio.operations.UserMailFolderMessageOperations
-    :ivar user_message: UserMessageOperations operations
-    :vartype user_message: mail.aio.operations.UserMessageOperations
+    :ivar users: usersOperations operations
+    :vartype users: mail.aio.operations.usersOperations
+    :ivar usersinferenceclassification: usersinferenceclassificationOperations operations
+    :vartype usersinferenceclassification: mail.aio.operations.usersinferenceclassificationOperations
+    :ivar usersmailfolders: usersmailfoldersOperations operations
+    :vartype usersmailfolders: mail.aio.operations.usersmailfoldersOperations
+    :ivar usersmailfoldersmessages: usersmailfoldersmessagesOperations operations
+    :vartype usersmailfoldersmessages: mail.aio.operations.usersmailfoldersmessagesOperations
+    :ivar usersmessages: usersmessagesOperations operations
+    :vartype usersmessages: mail.aio.operations.usersmessagesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -66,22 +66,22 @@ class Mail(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = MailConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_inference_classification = UserInferenceClassificationOperations(
+        self.usersinferenceclassification = usersinferenceclassificationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_mail_folder = UserMailFolderOperations(
+        self.usersmailfolders = usersmailfoldersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_mail_folder_message = UserMailFolderMessageOperations(
+        self.usersmailfoldersmessages = usersmailfoldersmessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_message = UserMessageOperations(
+        self.usersmessages = usersmessagesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

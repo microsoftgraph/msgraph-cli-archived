@@ -9,36 +9,36 @@
 ### <a name="CommandGroups">Command groups in `az reports_v1_0` extension </a>
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
-|az reports audit-log-audit-log-root|auditLogs.auditLogRoot|[commands](#CommandsInauditLogs.auditLogRoot)|
-|az reports audit-log|auditLogs|[commands](#CommandsInauditLogs)|
-|az reports report-root|reports.reportRoot|[commands](#CommandsInreports.reportRoot)|
+|az reports auditlogsauditlogroot|auditLogs.auditLogRoot|[commands](#CommandsInauditLogs.auditLogRoot)|
+|az reports auditlog|auditLogs|[commands](#CommandsInauditLogs)|
+|az reports reportsreportroot|reports.reportRoot|[commands](#CommandsInreports.reportRoot)|
 |az reports report|reports|[commands](#CommandsInreports)|
 
 ## COMMANDS
-### <a name="CommandsInauditLogs">Commands in `az reports audit-log` group</a>
+### <a name="CommandsInauditLogs">Commands in `az reports auditlog` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
-|[az reports audit-log create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
-|[az reports audit-log create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
-|[az reports audit-log create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
-|[az reports audit-log list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
-|[az reports audit-log list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
-|[az reports audit-log list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
-|[az reports audit-log show-directory-audit](#auditLogsGetDirectoryAudits)|GetDirectoryAudits|[Parameters](#ParametersauditLogsGetDirectoryAudits)|Not Found|
-|[az reports audit-log show-restricted-sign-in](#auditLogsGetRestrictedSignIns)|GetRestrictedSignIns|[Parameters](#ParametersauditLogsGetRestrictedSignIns)|Not Found|
-|[az reports audit-log show-sign-in](#auditLogsGetSignIns)|GetSignIns|[Parameters](#ParametersauditLogsGetSignIns)|Not Found|
-|[az reports audit-log update-directory-audit](#auditLogsUpdateDirectoryAudits)|UpdateDirectoryAudits|[Parameters](#ParametersauditLogsUpdateDirectoryAudits)|Not Found|
-|[az reports audit-log update-restricted-sign-in](#auditLogsUpdateRestrictedSignIns)|UpdateRestrictedSignIns|[Parameters](#ParametersauditLogsUpdateRestrictedSignIns)|Not Found|
-|[az reports audit-log update-sign-in](#auditLogsUpdateSignIns)|UpdateSignIns|[Parameters](#ParametersauditLogsUpdateSignIns)|Not Found|
+|[az reports auditlog create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
+|[az reports auditlog create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
+|[az reports auditlog create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
+|[az reports auditlog delete-directory-audit](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
+|[az reports auditlog delete-restricted-sign-in](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
+|[az reports auditlog delete-sign-in](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
+|[az reports auditlog list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
+|[az reports auditlog list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
+|[az reports auditlog list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
+|[az reports auditlog show-directory-audit](#auditLogsGetDirectoryAudits)|GetDirectoryAudits|[Parameters](#ParametersauditLogsGetDirectoryAudits)|Not Found|
+|[az reports auditlog show-restricted-sign-in](#auditLogsGetRestrictedSignIns)|GetRestrictedSignIns|[Parameters](#ParametersauditLogsGetRestrictedSignIns)|Not Found|
+|[az reports auditlog show-sign-in](#auditLogsGetSignIns)|GetSignIns|[Parameters](#ParametersauditLogsGetSignIns)|Not Found|
+|[az reports auditlog update-directory-audit](#auditLogsUpdateDirectoryAudits)|UpdateDirectoryAudits|[Parameters](#ParametersauditLogsUpdateDirectoryAudits)|Not Found|
+|[az reports auditlog update-restricted-sign-in](#auditLogsUpdateRestrictedSignIns)|UpdateRestrictedSignIns|[Parameters](#ParametersauditLogsUpdateRestrictedSignIns)|Not Found|
+|[az reports auditlog update-sign-in](#auditLogsUpdateSignIns)|UpdateSignIns|[Parameters](#ParametersauditLogsUpdateSignIns)|Not Found|
 
-### <a name="CommandsInauditLogs.auditLogRoot">Commands in `az reports audit-log-audit-log-root` group</a>
+### <a name="CommandsInauditLogs.auditLogRoot">Commands in `az reports auditlogsauditlogroot` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log-audit-log-root show-audit-log-root](#auditLogs.auditLogRootGetAuditLogRoot)|GetAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootGetAuditLogRoot)|Not Found|
-|[az reports audit-log-audit-log-root update-audit-log-root](#auditLogs.auditLogRootUpdateAuditLogRoot)|UpdateAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootUpdateAuditLogRoot)|Not Found|
+|[az reports auditlogsauditlogroot show-audit-log-root](#auditLogs.auditLogRootGetAuditLogRoot)|GetAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootGetAuditLogRoot)|Not Found|
+|[az reports auditlogsauditlogroot update-audit-log-root](#auditLogs.auditLogRootUpdateAuditLogRoot)|UpdateAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootUpdateAuditLogRoot)|Not Found|
 
 ### <a name="CommandsInreports">Commands in `az reports report` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
@@ -133,39 +133,17 @@
 |[az reports report show-yammer-group-activity-detail0-d7-d](#reportsgetYammerGroupsActivityDetail-0d7d)|getYammerGroupsActivityDetail-0d7d|[Parameters](#ParametersreportsgetYammerGroupsActivityDetail-0d7d)|Not Found|
 |[az reports report show-yammer-group-activity-group-count](#reportsgetYammerGroupsActivityGroupCounts)|getYammerGroupsActivityGroupCounts|[Parameters](#ParametersreportsgetYammerGroupsActivityGroupCounts)|Not Found|
 
-### <a name="CommandsInreports.reportRoot">Commands in `az reports report-root` group</a>
+### <a name="CommandsInreports.reportRoot">Commands in `az reports reportsreportroot` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports report-root show-report-root](#reports.reportRootGetReportRoot)|GetReportRoot|[Parameters](#Parametersreports.reportRootGetReportRoot)|Not Found|
-|[az reports report-root update-report-root](#reports.reportRootUpdateReportRoot)|UpdateReportRoot|[Parameters](#Parametersreports.reportRootUpdateReportRoot)|Not Found|
+|[az reports reportsreportroot show-report-root](#reports.reportRootGetReportRoot)|GetReportRoot|[Parameters](#Parametersreports.reportRootGetReportRoot)|Not Found|
+|[az reports reportsreportroot update-report-root](#reports.reportRootUpdateReportRoot)|UpdateReportRoot|[Parameters](#Parametersreports.reportRootUpdateReportRoot)|Not Found|
 
 
 ## COMMAND DETAILS
 
-### group `az reports audit-log`
-#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
-
-#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
-
-#### <a name="auditLogsCreateDirectoryAudits">Command `az reports audit-log create-directory-audit`</a>
+### group `az reports auditlog`
+#### <a name="auditLogsCreateDirectoryAudits">Command `az reports auditlog create-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsCreateDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -184,7 +162,7 @@
 |**--app**|object|appIdentity|app|app|
 |**--user**|object|userIdentity|user|user|
 
-#### <a name="auditLogsCreateRestrictedSignIns">Command `az reports audit-log create-restricted-sign-in`</a>
+#### <a name="auditLogsCreateRestrictedSignIns">Command `az reports auditlog create-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsCreateRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -218,7 +196,7 @@
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 |**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-#### <a name="auditLogsCreateSignIns">Command `az reports audit-log create-sign-in`</a>
+#### <a name="auditLogsCreateSignIns">Command `az reports auditlog create-sign-in`</a>
 
 ##### <a name="ParametersauditLogsCreateSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -251,7 +229,31 @@
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 
-#### <a name="auditLogsListDirectoryAudits">Command `az reports audit-log list-directory-audit`</a>
+#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports auditlog delete-directory-audit`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports auditlog delete-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteSignIns">Command `az reports auditlog delete-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsListDirectoryAudits">Command `az reports auditlog list-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsListDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -260,7 +262,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListRestrictedSignIns">Command `az reports audit-log list-restricted-sign-in`</a>
+#### <a name="auditLogsListRestrictedSignIns">Command `az reports auditlog list-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsListRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -269,7 +271,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListSignIns">Command `az reports audit-log list-sign-in`</a>
+#### <a name="auditLogsListSignIns">Command `az reports auditlog list-sign-in`</a>
 
 ##### <a name="ParametersauditLogsListSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -278,7 +280,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetDirectoryAudits">Command `az reports audit-log show-directory-audit`</a>
+#### <a name="auditLogsGetDirectoryAudits">Command `az reports auditlog show-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsGetDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -287,7 +289,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetRestrictedSignIns">Command `az reports audit-log show-restricted-sign-in`</a>
+#### <a name="auditLogsGetRestrictedSignIns">Command `az reports auditlog show-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsGetRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -296,7 +298,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetSignIns">Command `az reports audit-log show-sign-in`</a>
+#### <a name="auditLogsGetSignIns">Command `az reports auditlog show-sign-in`</a>
 
 ##### <a name="ParametersauditLogsGetSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -305,7 +307,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsUpdateDirectoryAudits">Command `az reports audit-log update-directory-audit`</a>
+#### <a name="auditLogsUpdateDirectoryAudits">Command `az reports auditlog update-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsUpdateDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -325,7 +327,7 @@
 |**--app**|object|appIdentity|app|app|
 |**--user**|object|userIdentity|user|user|
 
-#### <a name="auditLogsUpdateRestrictedSignIns">Command `az reports audit-log update-restricted-sign-in`</a>
+#### <a name="auditLogsUpdateRestrictedSignIns">Command `az reports auditlog update-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsUpdateRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -360,7 +362,7 @@
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 |**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-#### <a name="auditLogsUpdateSignIns">Command `az reports audit-log update-sign-in`</a>
+#### <a name="auditLogsUpdateSignIns">Command `az reports auditlog update-sign-in`</a>
 
 ##### <a name="ParametersauditLogsUpdateSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -394,8 +396,8 @@
 |**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 
-### group `az reports audit-log-audit-log-root`
-#### <a name="auditLogs.auditLogRootGetAuditLogRoot">Command `az reports audit-log-audit-log-root show-audit-log-root`</a>
+### group `az reports auditlogsauditlogroot`
+#### <a name="auditLogs.auditLogRootGetAuditLogRoot">Command `az reports auditlogsauditlogroot show-audit-log-root`</a>
 
 ##### <a name="ParametersauditLogs.auditLogRootGetAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -403,7 +405,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogs.auditLogRootUpdateAuditLogRoot">Command `az reports audit-log-audit-log-root update-audit-log-root`</a>
+#### <a name="auditLogs.auditLogRootUpdateAuditLogRoot">Command `az reports auditlogsauditlogroot update-audit-log-root`</a>
 
 ##### <a name="ParametersauditLogs.auditLogRootUpdateAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1026,8 +1028,8 @@
 |------|----|-----------|----------|------------|
 |**--period**|string||period|period|
 
-### group `az reports report-root`
-#### <a name="reports.reportRootGetReportRoot">Command `az reports report-root show-report-root`</a>
+### group `az reports reportsreportroot`
+#### <a name="reports.reportRootGetReportRoot">Command `az reports reportsreportroot show-report-root`</a>
 
 ##### <a name="Parametersreports.reportRootGetReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1035,7 +1037,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="reports.reportRootUpdateReportRoot">Command `az reports report-root update-report-root`</a>
+#### <a name="reports.reportRootUpdateReportRoot">Command `az reports reportsreportroot update-report-root`</a>
 
 ##### <a name="Parametersreports.reportRootUpdateReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

@@ -15,7 +15,7 @@ import msrest.serialization
 from ._devices_cloud_print_enums import *
 
 
-class CollectionOfLinksOfPrintConnector(msrest.serialization.Model):
+class collectionoflinksofprintconnector(msrest.serialization.Model):
     """Collection of links of printConnector.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -41,13 +41,13 @@ class CollectionOfLinksOfPrintConnector(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfLinksOfPrintConnector, self).__init__(**kwargs)
+        super(collectionoflinksofprintconnector, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfLinksOfPrinterShare(msrest.serialization.Model):
+class collectionoflinksofprintershare(msrest.serialization.Model):
     """Collection of links of printerShare.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -73,27 +73,27 @@ class CollectionOfLinksOfPrinterShare(msrest.serialization.Model):
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfLinksOfPrinterShare, self).__init__(**kwargs)
+        super(collectionoflinksofprintershare, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintConnector(msrest.serialization.Model):
+class collectionofprintconnector(msrest.serialization.Model):
     """Collection of printConnector.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintconnector]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintConnector]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintconnector]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -101,31 +101,31 @@ class CollectionOfPrintConnector(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintConnector"]] = None,
+        value: Optional[List["microsoftgraphprintconnector"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintConnector, self).__init__(**kwargs)
+        super(collectionofprintconnector, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintConnector0(msrest.serialization.Model):
+class collectionofprintconnector0(msrest.serialization.Model):
     """Collection of printConnector.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintconnector]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintConnector]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintconnector]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -133,31 +133,31 @@ class CollectionOfPrintConnector0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintConnector"]] = None,
+        value: Optional[List["microsoftgraphprintconnector"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintConnector0, self).__init__(**kwargs)
+        super(collectionofprintconnector0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrinter(msrest.serialization.Model):
+class collectionofprinter(msrest.serialization.Model):
     """Collection of printer.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrinter]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprinter]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrinter]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprinter]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -165,31 +165,31 @@ class CollectionOfPrinter(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrinter"]] = None,
+        value: Optional[List["microsoftgraphprinter"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrinter, self).__init__(**kwargs)
+        super(collectionofprinter, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrinterShare(msrest.serialization.Model):
+class collectionofprintershare(msrest.serialization.Model):
     """Collection of printerShare.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrinterShare]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintershare]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -197,31 +197,31 @@ class CollectionOfPrinterShare(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrinterShare"]] = None,
+        value: Optional[List["microsoftgraphprintershare"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrinterShare, self).__init__(**kwargs)
+        super(collectionofprintershare, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrinterShare0(msrest.serialization.Model):
+class collectionofprintershare0(msrest.serialization.Model):
     """Collection of printerShare.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrinterShare]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintershare]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -229,31 +229,31 @@ class CollectionOfPrinterShare0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrinterShare"]] = None,
+        value: Optional[List["microsoftgraphprintershare"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrinterShare0, self).__init__(**kwargs)
+        super(collectionofprintershare0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrinterShare1(msrest.serialization.Model):
+class collectionofprintershare1(msrest.serialization.Model):
     """Collection of printerShare.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrinterShare]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintershare]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -261,31 +261,31 @@ class CollectionOfPrinterShare1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrinterShare"]] = None,
+        value: Optional[List["microsoftgraphprintershare"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrinterShare1, self).__init__(**kwargs)
+        super(collectionofprintershare1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintIdentity(msrest.serialization.Model):
+class collectionofprintidentity(msrest.serialization.Model):
     """Collection of printIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintidentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintidentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -293,31 +293,31 @@ class CollectionOfPrintIdentity(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintidentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintIdentity, self).__init__(**kwargs)
+        super(collectionofprintidentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintIdentity0(msrest.serialization.Model):
+class collectionofprintidentity0(msrest.serialization.Model):
     """Collection of printIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintidentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintidentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -325,31 +325,31 @@ class CollectionOfPrintIdentity0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintidentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintIdentity0, self).__init__(**kwargs)
+        super(collectionofprintidentity0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintIdentity1(msrest.serialization.Model):
+class collectionofprintidentity1(msrest.serialization.Model):
     """Collection of printIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintidentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintidentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -357,31 +357,31 @@ class CollectionOfPrintIdentity1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintidentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintIdentity1, self).__init__(**kwargs)
+        super(collectionofprintidentity1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintOperation(msrest.serialization.Model):
+class collectionofprintoperation(msrest.serialization.Model):
     """Collection of printOperation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintOperation]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintoperation]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintOperation]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintoperation]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -389,31 +389,31 @@ class CollectionOfPrintOperation(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintOperation"]] = None,
+        value: Optional[List["microsoftgraphprintoperation"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintOperation, self).__init__(**kwargs)
+        super(collectionofprintoperation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintService(msrest.serialization.Model):
+class collectionofprintservice(msrest.serialization.Model):
     """Collection of printService.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintService]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintservice]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintService]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintservice]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -421,31 +421,31 @@ class CollectionOfPrintService(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintService"]] = None,
+        value: Optional[List["microsoftgraphprintservice"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintService, self).__init__(**kwargs)
+        super(collectionofprintservice, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintServiceEndpoint(msrest.serialization.Model):
+class collectionofprintserviceendpoint(msrest.serialization.Model):
     """Collection of printServiceEndpoint.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintServiceEndpoint]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintserviceendpoint]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintServiceEndpoint]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintserviceendpoint]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -453,31 +453,31 @@ class CollectionOfPrintServiceEndpoint(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintServiceEndpoint"]] = None,
+        value: Optional[List["microsoftgraphprintserviceendpoint"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintServiceEndpoint, self).__init__(**kwargs)
+        super(collectionofprintserviceendpoint, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintTask(msrest.serialization.Model):
+class collectionofprinttask(msrest.serialization.Model):
     """Collection of printTask.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintTask]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprinttask]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintTask]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprinttask]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -485,31 +485,31 @@ class CollectionOfPrintTask(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintTask"]] = None,
+        value: Optional[List["microsoftgraphprinttask"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintTask, self).__init__(**kwargs)
+        super(collectionofprinttask, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintTaskDefinition(msrest.serialization.Model):
+class collectionofprinttaskdefinition(msrest.serialization.Model):
     """Collection of printTaskDefinition.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprinttaskdefinition]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintTaskDefinition]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprinttaskdefinition]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -517,31 +517,31 @@ class CollectionOfPrintTaskDefinition(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintTaskDefinition"]] = None,
+        value: Optional[List["microsoftgraphprinttaskdefinition"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintTaskDefinition, self).__init__(**kwargs)
+        super(collectionofprinttaskdefinition, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintTaskTrigger(msrest.serialization.Model):
+class collectionofprinttasktrigger(msrest.serialization.Model):
     """Collection of printTaskTrigger.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskTrigger]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprinttasktrigger]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintTaskTrigger]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprinttasktrigger]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -549,31 +549,31 @@ class CollectionOfPrintTaskTrigger(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintTaskTrigger"]] = None,
+        value: Optional[List["microsoftgraphprinttasktrigger"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintTaskTrigger, self).__init__(**kwargs)
+        super(collectionofprinttasktrigger, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintUserIdentity(msrest.serialization.Model):
+class collectionofprintuseridentity(msrest.serialization.Model):
     """Collection of printUserIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintUserIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintuseridentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUserIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintuseridentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -581,31 +581,31 @@ class CollectionOfPrintUserIdentity(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintUserIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintuseridentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintUserIdentity, self).__init__(**kwargs)
+        super(collectionofprintuseridentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintUserIdentity0(msrest.serialization.Model):
+class collectionofprintuseridentity0(msrest.serialization.Model):
     """Collection of printUserIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintUserIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintuseridentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUserIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintuseridentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -613,31 +613,31 @@ class CollectionOfPrintUserIdentity0(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintUserIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintuseridentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintUserIdentity0, self).__init__(**kwargs)
+        super(collectionofprintuseridentity0, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfPrintUserIdentity1(msrest.serialization.Model):
+class collectionofprintuseridentity1(msrest.serialization.Model):
     """Collection of printUserIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphPrintUserIdentity]
+    :type value: list[~devices_cloud_print.models.microsoftgraphprintuseridentity]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphPrintUserIdentity]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphprintuseridentity]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -645,31 +645,31 @@ class CollectionOfPrintUserIdentity1(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphPrintUserIdentity"]] = None,
+        value: Optional[List["microsoftgraphprintuseridentity"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfPrintUserIdentity1, self).__init__(**kwargs)
+        super(collectionofprintuseridentity1, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class CollectionOfReportRoot(msrest.serialization.Model):
+class collectionofreportroot(msrest.serialization.Model):
     """Collection of reportRoot.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~devices_cloud_print.models.MicrosoftGraphReportRoot]
+    :type value: list[~devices_cloud_print.models.microsoftgraphreportroot]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphReportRoot]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphreportroot]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -677,17 +677,17 @@ class CollectionOfReportRoot(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        value: Optional[List["MicrosoftGraphReportRoot"]] = None,
+        value: Optional[List["microsoftgraphreportroot"]] = None,
         odata_next_link: Optional[str] = None,
         **kwargs
     ):
-        super(CollectionOfReportRoot, self).__init__(**kwargs)
+        super(collectionofreportroot, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.value = value
         self.odata_next_link = odata_next_link
 
 
-class MicrosoftGraphAppIdentity(msrest.serialization.Model):
+class microsoftgraphappidentity(msrest.serialization.Model):
     """appIdentity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -724,7 +724,7 @@ class MicrosoftGraphAppIdentity(msrest.serialization.Model):
         service_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphAppIdentity, self).__init__(**kwargs)
+        super(microsoftgraphappidentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.app_id = app_id
         self.display_name = display_name
@@ -732,7 +732,7 @@ class MicrosoftGraphAppIdentity(msrest.serialization.Model):
         self.service_principal_name = service_principal_name
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -754,12 +754,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.id = id
 
 
-class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
+class microsoftgraphapplicationsignindetailedsummary(microsoftgraphentity):
     """applicationSignInDetailedSummary.
 
     :param id: Read-only.
@@ -776,7 +776,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
     :param sign_in_count:
     :type sign_in_count: long
     :param status: signInStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphSignInStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphsigninstatus
     """
 
     _attribute_map = {
@@ -786,7 +786,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         'app_display_name': {'key': 'appDisplayName', 'type': 'str'},
         'app_id': {'key': 'appId', 'type': 'str'},
         'sign_in_count': {'key': 'signInCount', 'type': 'long'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphSignInStatus'},
+        'status': {'key': 'status', 'type': 'microsoftgraphsigninstatus'},
     }
 
     def __init__(
@@ -798,10 +798,10 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         app_display_name: Optional[str] = None,
         app_id: Optional[str] = None,
         sign_in_count: Optional[int] = None,
-        status: Optional["MicrosoftGraphSignInStatus"] = None,
+        status: Optional["microsoftgraphsigninstatus"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphApplicationSignInDetailedSummary, self).__init__(id=id, **kwargs)
+        super(microsoftgraphapplicationsignindetailedsummary, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.aggregated_event_date_time = aggregated_event_date_time
         self.app_display_name = app_display_name
@@ -810,7 +810,7 @@ class MicrosoftGraphApplicationSignInDetailedSummary(MicrosoftGraphEntity):
         self.status = status
 
 
-class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
+class microsoftgrapharchivedprintjob(msrest.serialization.Model):
     """archivedPrintJob.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -829,7 +829,7 @@ class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
     :param copies_printed:
     :type copies_printed: int
     :param created_by: userIdentity.
-    :type created_by: ~devices_cloud_print.models.MicrosoftGraphUserIdentity
+    :type created_by: ~devices_cloud_print.models.microsoftgraphuseridentity
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param duplex_page_count:
@@ -843,7 +843,7 @@ class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
     :param processing_state:  Possible values include: "unknown", "pending", "processing",
      "paused", "stopped", "completed", "canceled", "aborted".
     :type processing_state: str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintJobProcessingState
+     ~devices_cloud_print.models.Microsoftgraphprintjobprocessingstate
     :param simplex_page_count:
     :type simplex_page_count: int
     """
@@ -865,7 +865,7 @@ class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
         'color_page_count': {'key': 'colorPageCount', 'type': 'int'},
         'completion_date_time': {'key': 'completionDateTime', 'type': 'iso-8601'},
         'copies_printed': {'key': 'copiesPrinted', 'type': 'int'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphUserIdentity'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphuseridentity'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'duplex_page_count': {'key': 'duplexPageCount', 'type': 'int'},
         'id': {'key': 'id', 'type': 'str'},
@@ -885,17 +885,17 @@ class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
         color_page_count: Optional[int] = None,
         completion_date_time: Optional[datetime.datetime] = None,
         copies_printed: Optional[int] = None,
-        created_by: Optional["MicrosoftGraphUserIdentity"] = None,
+        created_by: Optional["microsoftgraphuseridentity"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         duplex_page_count: Optional[int] = None,
         id: Optional[str] = None,
         page_count: Optional[int] = None,
         printer_id: Optional[str] = None,
-        processing_state: Optional[Union[str, "MicrosoftGraphPrintJobProcessingState"]] = None,
+        processing_state: Optional[Union[str, "Microsoftgraphprintjobprocessingstate"]] = None,
         simplex_page_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphArchivedPrintJob, self).__init__(**kwargs)
+        super(microsoftgrapharchivedprintjob, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.acquired_by_printer = acquired_by_printer
         self.acquired_date_time = acquired_date_time
@@ -913,7 +913,7 @@ class MicrosoftGraphArchivedPrintJob(msrest.serialization.Model):
         self.simplex_page_count = simplex_page_count
 
 
-class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
+class microsoftgraphcredentialuserregistrationdetails(microsoftgraphentity):
     """credentialUserRegistrationDetails.
 
     :param id: Read-only.
@@ -923,7 +923,7 @@ class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param auth_methods:
     :type auth_methods: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphRegistrationAuthMethod]
+     ~devices_cloud_print.models.Microsoftgraphregistrationauthmethod]
     :param is_capable:
     :type is_capable: bool
     :param is_enabled:
@@ -955,7 +955,7 @@ class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        auth_methods: Optional[List[Union[str, "MicrosoftGraphRegistrationAuthMethod"]]] = None,
+        auth_methods: Optional[List[Union[str, "Microsoftgraphregistrationauthmethod"]]] = None,
         is_capable: Optional[bool] = None,
         is_enabled: Optional[bool] = None,
         is_mfa_registered: Optional[bool] = None,
@@ -964,7 +964,7 @@ class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphCredentialUserRegistrationDetails, self).__init__(id=id, **kwargs)
+        super(microsoftgraphcredentialuserregistrationdetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.auth_methods = auth_methods
         self.is_capable = is_capable
@@ -975,7 +975,7 @@ class MicrosoftGraphCredentialUserRegistrationDetails(MicrosoftGraphEntity):
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphDeviceHealth(msrest.serialization.Model):
+class microsoftgraphdevicehealth(msrest.serialization.Model):
     """deviceHealth.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -997,12 +997,12 @@ class MicrosoftGraphDeviceHealth(msrest.serialization.Model):
         last_connection_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDeviceHealth, self).__init__(**kwargs)
+        super(microsoftgraphdevicehealth, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.last_connection_time = last_connection_time
 
 
-class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
+class microsoftgraphdirectoryobject(microsoftgraphentity):
     """Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
 
     :param id: Read-only.
@@ -1028,12 +1028,12 @@ class MicrosoftGraphDirectoryObject(MicrosoftGraphEntity):
         deleted_date_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphDirectoryObject, self).__init__(id=id, **kwargs)
+        super(microsoftgraphdirectoryobject, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.deleted_date_time = deleted_date_time
 
 
-class MicrosoftGraphGroupPrintUsageSummary(msrest.serialization.Model):
+class microsoftgraphgroupprintusagesummary(msrest.serialization.Model):
     """groupPrintUsageSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1042,7 +1042,7 @@ class MicrosoftGraphGroupPrintUsageSummary(msrest.serialization.Model):
     :param completed_job_count:
     :type completed_job_count: int
     :param group: identity.
-    :type group: ~devices_cloud_print.models.MicrosoftGraphIdentity
+    :type group: ~devices_cloud_print.models.microsoftgraphidentity
     :param group_display_name:
     :type group_display_name: str
     :param group_mail:
@@ -1059,7 +1059,7 @@ class MicrosoftGraphGroupPrintUsageSummary(msrest.serialization.Model):
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
         'completed_job_count': {'key': 'completedJobCount', 'type': 'int'},
-        'group': {'key': 'group', 'type': 'MicrosoftGraphIdentity'},
+        'group': {'key': 'group', 'type': 'microsoftgraphidentity'},
         'group_display_name': {'key': 'groupDisplayName', 'type': 'str'},
         'group_mail': {'key': 'groupMail', 'type': 'str'},
         'incomplete_job_count': {'key': 'incompleteJobCount', 'type': 'int'},
@@ -1070,13 +1070,13 @@ class MicrosoftGraphGroupPrintUsageSummary(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         completed_job_count: Optional[int] = None,
-        group: Optional["MicrosoftGraphIdentity"] = None,
+        group: Optional["microsoftgraphidentity"] = None,
         group_display_name: Optional[str] = None,
         group_mail: Optional[str] = None,
         incomplete_job_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphGroupPrintUsageSummary, self).__init__(**kwargs)
+        super(microsoftgraphgroupprintusagesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.completed_job_count = completed_job_count
         self.group = group
@@ -1085,7 +1085,7 @@ class MicrosoftGraphGroupPrintUsageSummary(msrest.serialization.Model):
         self.incomplete_job_count = incomplete_job_count
 
 
-class MicrosoftGraphIdentity(msrest.serialization.Model):
+class microsoftgraphidentity(msrest.serialization.Model):
     """identity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1114,13 +1114,13 @@ class MicrosoftGraphIdentity(msrest.serialization.Model):
         id: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphIdentity, self).__init__(**kwargs)
+        super(microsoftgraphidentity, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.id = id
 
 
-class MicrosoftGraphIntegerRange(msrest.serialization.Model):
+class microsoftgraphintegerrange(msrest.serialization.Model):
     """integerRange.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1154,7 +1154,7 @@ class MicrosoftGraphIntegerRange(msrest.serialization.Model):
         start: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphIntegerRange, self).__init__(**kwargs)
+        super(microsoftgraphintegerrange, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.end = end
         self.maximum = maximum
@@ -1162,7 +1162,7 @@ class MicrosoftGraphIntegerRange(msrest.serialization.Model):
         self.start = start
 
 
-class MicrosoftGraphOverallPrintUsageSummary(msrest.serialization.Model):
+class microsoftgraphoverallprintusagesummary(msrest.serialization.Model):
     """overallPrintUsageSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1175,9 +1175,9 @@ class MicrosoftGraphOverallPrintUsageSummary(msrest.serialization.Model):
     :param days_in_period:
     :type days_in_period: int
     :param top_printers:
-    :type top_printers: list[~devices_cloud_print.models.MicrosoftGraphPrinterUsageSummary]
+    :type top_printers: list[~devices_cloud_print.models.microsoftgraphprinterusagesummary]
     :param top_users:
-    :type top_users: list[~devices_cloud_print.models.MicrosoftGraphUserPrintUsageSummary]
+    :type top_users: list[~devices_cloud_print.models.microsoftgraphuserprintusagesummary]
     :param total_incomplete_jobs:
     :type total_incomplete_jobs: int
     :param total_jobs_processed:
@@ -1197,8 +1197,8 @@ class MicrosoftGraphOverallPrintUsageSummary(msrest.serialization.Model):
         'active_printers_count': {'key': 'activePrintersCount', 'type': 'int'},
         'active_users_count': {'key': 'activeUsersCount', 'type': 'int'},
         'days_in_period': {'key': 'daysInPeriod', 'type': 'int'},
-        'top_printers': {'key': 'topPrinters', 'type': '[MicrosoftGraphPrinterUsageSummary]'},
-        'top_users': {'key': 'topUsers', 'type': '[MicrosoftGraphUserPrintUsageSummary]'},
+        'top_printers': {'key': 'topPrinters', 'type': '[microsoftgraphprinterusagesummary]'},
+        'top_users': {'key': 'topUsers', 'type': '[microsoftgraphuserprintusagesummary]'},
         'total_incomplete_jobs': {'key': 'totalIncompleteJobs', 'type': 'int'},
         'total_jobs_processed': {'key': 'totalJobsProcessed', 'type': 'int'},
     }
@@ -1210,13 +1210,13 @@ class MicrosoftGraphOverallPrintUsageSummary(msrest.serialization.Model):
         active_printers_count: Optional[int] = None,
         active_users_count: Optional[int] = None,
         days_in_period: Optional[int] = None,
-        top_printers: Optional[List["MicrosoftGraphPrinterUsageSummary"]] = None,
-        top_users: Optional[List["MicrosoftGraphUserPrintUsageSummary"]] = None,
+        top_printers: Optional[List["microsoftgraphprinterusagesummary"]] = None,
+        top_users: Optional[List["microsoftgraphuserprintusagesummary"]] = None,
         total_incomplete_jobs: Optional[int] = None,
         total_jobs_processed: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphOverallPrintUsageSummary, self).__init__(**kwargs)
+        super(microsoftgraphoverallprintusagesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.active_printers_count = active_printers_count
         self.active_users_count = active_users_count
@@ -1227,62 +1227,63 @@ class MicrosoftGraphOverallPrintUsageSummary(msrest.serialization.Model):
         self.total_jobs_processed = total_jobs_processed
 
 
-class MicrosoftGraphPrint(msrest.serialization.Model):
+class microsoftgraphprint(msrest.serialization.Model):
     """print.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param settings: printSettings.
+    :type settings: ~devices_cloud_print.models.microsoftgraphprintsettings
     :param connectors:
-    :type connectors: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
+    :type connectors: list[~devices_cloud_print.models.microsoftgraphprintconnector]
     :param operations:
-    :type operations: list[~devices_cloud_print.models.MicrosoftGraphPrintOperation]
+    :type operations: list[~devices_cloud_print.models.microsoftgraphprintoperation]
     :param printers:
-    :type printers: list[~devices_cloud_print.models.MicrosoftGraphPrinter]
+    :type printers: list[~devices_cloud_print.models.microsoftgraphprinter]
     :param printer_shares:
-    :type printer_shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type printer_shares: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param reports:
-    :type reports: list[~devices_cloud_print.models.MicrosoftGraphReportRoot]
+    :type reports: list[~devices_cloud_print.models.microsoftgraphreportroot]
     :param services:
-    :type services: list[~devices_cloud_print.models.MicrosoftGraphPrintService]
+    :type services: list[~devices_cloud_print.models.microsoftgraphprintservice]
     :param shares:
-    :type shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type shares: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param task_definitions:
-    :type task_definitions: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition]
-    :param document_conversion_enabled:
-    :type document_conversion_enabled: bool
+    :type task_definitions: list[~devices_cloud_print.models.microsoftgraphprinttaskdefinition]
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'connectors': {'key': 'connectors', 'type': '[MicrosoftGraphPrintConnector]'},
-        'operations': {'key': 'operations', 'type': '[MicrosoftGraphPrintOperation]'},
-        'printers': {'key': 'printers', 'type': '[MicrosoftGraphPrinter]'},
-        'printer_shares': {'key': 'printerShares', 'type': '[MicrosoftGraphPrinterShare]'},
-        'reports': {'key': 'reports', 'type': '[MicrosoftGraphReportRoot]'},
-        'services': {'key': 'services', 'type': '[MicrosoftGraphPrintService]'},
-        'shares': {'key': 'shares', 'type': '[MicrosoftGraphPrinterShare]'},
-        'task_definitions': {'key': 'taskDefinitions', 'type': '[MicrosoftGraphPrintTaskDefinition]'},
-        'document_conversion_enabled': {'key': 'settings.documentConversionEnabled', 'type': 'bool'},
+        'settings': {'key': 'settings', 'type': 'microsoftgraphprintsettings'},
+        'connectors': {'key': 'connectors', 'type': '[microsoftgraphprintconnector]'},
+        'operations': {'key': 'operations', 'type': '[microsoftgraphprintoperation]'},
+        'printers': {'key': 'printers', 'type': '[microsoftgraphprinter]'},
+        'printer_shares': {'key': 'printerShares', 'type': '[microsoftgraphprintershare]'},
+        'reports': {'key': 'reports', 'type': '[microsoftgraphreportroot]'},
+        'services': {'key': 'services', 'type': '[microsoftgraphprintservice]'},
+        'shares': {'key': 'shares', 'type': '[microsoftgraphprintershare]'},
+        'task_definitions': {'key': 'taskDefinitions', 'type': '[microsoftgraphprinttaskdefinition]'},
     }
 
     def __init__(
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        connectors: Optional[List["MicrosoftGraphPrintConnector"]] = None,
-        operations: Optional[List["MicrosoftGraphPrintOperation"]] = None,
-        printers: Optional[List["MicrosoftGraphPrinter"]] = None,
-        printer_shares: Optional[List["MicrosoftGraphPrinterShare"]] = None,
-        reports: Optional[List["MicrosoftGraphReportRoot"]] = None,
-        services: Optional[List["MicrosoftGraphPrintService"]] = None,
-        shares: Optional[List["MicrosoftGraphPrinterShare"]] = None,
-        task_definitions: Optional[List["MicrosoftGraphPrintTaskDefinition"]] = None,
-        document_conversion_enabled: Optional[bool] = None,
+        settings: Optional["microsoftgraphprintsettings"] = None,
+        connectors: Optional[List["microsoftgraphprintconnector"]] = None,
+        operations: Optional[List["microsoftgraphprintoperation"]] = None,
+        printers: Optional[List["microsoftgraphprinter"]] = None,
+        printer_shares: Optional[List["microsoftgraphprintershare"]] = None,
+        reports: Optional[List["microsoftgraphreportroot"]] = None,
+        services: Optional[List["microsoftgraphprintservice"]] = None,
+        shares: Optional[List["microsoftgraphprintershare"]] = None,
+        task_definitions: Optional[List["microsoftgraphprinttaskdefinition"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrint, self).__init__(**kwargs)
+        super(microsoftgraphprint, self).__init__(**kwargs)
         self.additional_properties = additional_properties
+        self.settings = settings
         self.connectors = connectors
         self.operations = operations
         self.printers = printers
@@ -1291,10 +1292,9 @@ class MicrosoftGraphPrint(msrest.serialization.Model):
         self.services = services
         self.shares = shares
         self.task_definitions = task_definitions
-        self.document_conversion_enabled = document_conversion_enabled
 
 
-class MicrosoftGraphPrintCertificateSigningRequest(msrest.serialization.Model):
+class microsoftgraphprintcertificatesigningrequest(msrest.serialization.Model):
     """printCertificateSigningRequest.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1320,13 +1320,13 @@ class MicrosoftGraphPrintCertificateSigningRequest(msrest.serialization.Model):
         transport_key: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintCertificateSigningRequest, self).__init__(**kwargs)
+        super(microsoftgraphprintcertificatesigningrequest, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.content = content
         self.transport_key = transport_key
 
 
-class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
+class microsoftgraphprintconnector(microsoftgraphentity):
     """printConnector.
 
     :param id: Read-only.
@@ -1336,33 +1336,33 @@ class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param app_version:
     :type app_version: str
+    :param device_health: deviceHealth.
+    :type device_health: ~devices_cloud_print.models.microsoftgraphdevicehealth
     :param display_name:
     :type display_name: str
     :param fully_qualified_domain_name:
     :type fully_qualified_domain_name: str
     :param location: printerLocation.
-    :type location: ~devices_cloud_print.models.MicrosoftGraphPrinterLocation
+    :type location: ~devices_cloud_print.models.microsoftgraphprinterlocation
     :param name:
     :type name: str
     :param operating_system:
     :type operating_system: str
     :param registered_date_time:
     :type registered_date_time: ~datetime.datetime
-    :param last_connection_time:
-    :type last_connection_time: ~datetime.datetime
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'app_version': {'key': 'appVersion', 'type': 'str'},
+        'device_health': {'key': 'deviceHealth', 'type': 'microsoftgraphdevicehealth'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'fully_qualified_domain_name': {'key': 'fullyQualifiedDomainName', 'type': 'str'},
-        'location': {'key': 'location', 'type': 'MicrosoftGraphPrinterLocation'},
+        'location': {'key': 'location', 'type': 'microsoftgraphprinterlocation'},
         'name': {'key': 'name', 'type': 'str'},
         'operating_system': {'key': 'operatingSystem', 'type': 'str'},
         'registered_date_time': {'key': 'registeredDateTime', 'type': 'iso-8601'},
-        'last_connection_time': {'key': 'deviceHealth.lastConnectionTime', 'type': 'iso-8601'},
     }
 
     def __init__(
@@ -1371,28 +1371,28 @@ class MicrosoftGraphPrintConnector(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         app_version: Optional[str] = None,
+        device_health: Optional["microsoftgraphdevicehealth"] = None,
         display_name: Optional[str] = None,
         fully_qualified_domain_name: Optional[str] = None,
-        location: Optional["MicrosoftGraphPrinterLocation"] = None,
+        location: Optional["microsoftgraphprinterlocation"] = None,
         name: Optional[str] = None,
         operating_system: Optional[str] = None,
         registered_date_time: Optional[datetime.datetime] = None,
-        last_connection_time: Optional[datetime.datetime] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintConnector, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintconnector, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.app_version = app_version
+        self.device_health = device_health
         self.display_name = display_name
         self.fully_qualified_domain_name = fully_qualified_domain_name
         self.location = location
         self.name = name
         self.operating_system = operating_system
         self.registered_date_time = registered_date_time
-        self.last_connection_time = last_connection_time
 
 
-class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
+class microsoftgraphprintdocument(microsoftgraphentity):
     """printDocument.
 
     :param id: Read-only.
@@ -1401,7 +1401,7 @@ class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param configuration: printerDocumentConfiguration.
-    :type configuration: ~devices_cloud_print.models.MicrosoftGraphPrinterDocumentConfiguration
+    :type configuration: ~devices_cloud_print.models.microsoftgraphprinterdocumentconfiguration
     :param content_type:
     :type content_type: str
     :param display_name:
@@ -1413,7 +1413,7 @@ class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'configuration': {'key': 'configuration', 'type': 'MicrosoftGraphPrinterDocumentConfiguration'},
+        'configuration': {'key': 'configuration', 'type': 'microsoftgraphprinterdocumentconfiguration'},
         'content_type': {'key': 'contentType', 'type': 'str'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'size': {'key': 'size', 'type': 'long'},
@@ -1424,13 +1424,13 @@ class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        configuration: Optional["MicrosoftGraphPrinterDocumentConfiguration"] = None,
+        configuration: Optional["microsoftgraphprinterdocumentconfiguration"] = None,
         content_type: Optional[str] = None,
         display_name: Optional[str] = None,
         size: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintDocument, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintdocument, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration = configuration
         self.content_type = content_type
@@ -1438,7 +1438,7 @@ class MicrosoftGraphPrintDocument(MicrosoftGraphEntity):
         self.size = size
 
 
-class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
+class microsoftgraphprinterbase(microsoftgraphentity):
     """printerBase.
 
     :param id: Read-only.
@@ -1446,14 +1446,16 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.microsoftgraphprintercapabilities
     :param defaults: printerDefaults.
-    :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
+    :type defaults: ~devices_cloud_print.models.microsoftgraphprinterdefaults
     :param display_name:
     :type display_name: str
     :param is_accepting_jobs:
     :type is_accepting_jobs: bool
     :param location: printerLocation.
-    :type location: ~devices_cloud_print.models.MicrosoftGraphPrinterLocation
+    :type location: ~devices_cloud_print.models.microsoftgraphprinterlocation
     :param manufacturer:
     :type manufacturer: str
     :param model:
@@ -1461,150 +1463,24 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
     :param name:
     :type name: str
     :param status: printerStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprinterstatus
     :param jobs:
-    :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
+    :type jobs: list[~devices_cloud_print.models.microsoftgraphprintjob]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
+        'capabilities': {'key': 'capabilities', 'type': 'microsoftgraphprintercapabilities'},
+        'defaults': {'key': 'defaults', 'type': 'microsoftgraphprinterdefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'MicrosoftGraphPrinterLocation'},
+        'location': {'key': 'location', 'type': 'microsoftgraphprinterlocation'},
         'manufacturer': {'key': 'manufacturer', 'type': 'str'},
         'model': {'key': 'model', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
-        'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprinterstatus'},
+        'jobs': {'key': 'jobs', 'type': '[microsoftgraphprintjob]'},
     }
 
     def __init__(
@@ -1612,58 +1488,21 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
+        capabilities: Optional["microsoftgraphprintercapabilities"] = None,
+        defaults: Optional["microsoftgraphprinterdefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
-        location: Optional["MicrosoftGraphPrinterLocation"] = None,
+        location: Optional["microsoftgraphprinterlocation"] = None,
         manufacturer: Optional[str] = None,
         model: Optional[str] = None,
         name: Optional[str] = None,
-        status: Optional["MicrosoftGraphPrinterStatus"] = None,
-        jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
+        status: Optional["microsoftgraphprinterstatus"] = None,
+        jobs: Optional[List["microsoftgraphprintjob"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterBase, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprinterbase, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
+        self.capabilities = capabilities
         self.defaults = defaults
         self.display_name = display_name
         self.is_accepting_jobs = is_accepting_jobs
@@ -1673,60 +1512,23 @@ class MicrosoftGraphPrinterBase(MicrosoftGraphEntity):
         self.name = name
         self.status = status
         self.jobs = jobs
-        self.bottom_margins = bottom_margins
-        self.collation = collation
-        self.color_modes = color_modes
-        self.content_types = content_types
-        self.copies_per_job = copies_per_job
-        self.dpis = dpis
-        self.duplex_modes = duplex_modes
-        self.feed_directions = feed_directions
-        self.feed_orientations = feed_orientations
-        self.finishings = finishings
-        self.input_bins = input_bins
-        self.is_color_printing_supported = is_color_printing_supported
-        self.is_page_range_supported = is_page_range_supported
-        self.left_margins = left_margins
-        self.media_colors = media_colors
-        self.media_sizes = media_sizes
-        self.media_types = media_types
-        self.multipage_layouts = multipage_layouts
-        self.orientations = orientations
-        self.output_bins = output_bins
-        self.pages_per_sheet = pages_per_sheet
-        self.qualities = qualities
-        self.right_margins = right_margins
-        self.scalings = scalings
-        self.supported_color_configurations = supported_color_configurations
-        self.supported_copies_per_job = supported_copies_per_job
-        self.supported_document_mime_types = supported_document_mime_types
-        self.supported_duplex_configurations = supported_duplex_configurations
-        self.supported_finishings = supported_finishings
-        self.supported_media_colors = supported_media_colors
-        self.supported_media_sizes = supported_media_sizes
-        self.supported_media_types = supported_media_types
-        self.supported_orientations = supported_orientations
-        self.supported_output_bins = supported_output_bins
-        self.supported_pages_per_sheet = supported_pages_per_sheet
-        self.supported_presentation_directions = supported_presentation_directions
-        self.supported_print_qualities = supported_print_qualities
-        self.supports_fit_pdf_to_page = supports_fit_pdf_to_page
-        self.top_margins = top_margins
 
 
-class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
+class microsoftgraphprinter(microsoftgraphprinterbase):
     """printer.
 
     :param id: Read-only.
     :type id: str
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.microsoftgraphprintercapabilities
     :param defaults: printerDefaults.
-    :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
+    :type defaults: ~devices_cloud_print.models.microsoftgraphprinterdefaults
     :param display_name:
     :type display_name: str
     :param is_accepting_jobs:
     :type is_accepting_jobs: bool
     :param location: printerLocation.
-    :type location: ~devices_cloud_print.models.MicrosoftGraphPrinterLocation
+    :type location: ~devices_cloud_print.models.microsoftgraphprinterlocation
     :param manufacturer:
     :type manufacturer: str
     :param model:
@@ -1734,97 +1536,9 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     :param name:
     :type name: str
     :param status: printerStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprinterstatus
     :param jobs:
-    :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
+    :type jobs: list[~devices_cloud_print.models.microsoftgraphprintjob]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -1835,146 +1549,70 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
     :param registered_date_time:
     :type registered_date_time: ~datetime.datetime
     :param allowed_groups:
-    :type allowed_groups: list[~devices_cloud_print.models.MicrosoftGraphPrintIdentity]
+    :type allowed_groups: list[~devices_cloud_print.models.microsoftgraphprintidentity]
     :param allowed_users:
-    :type allowed_users: list[~devices_cloud_print.models.MicrosoftGraphPrintUserIdentity]
+    :type allowed_users: list[~devices_cloud_print.models.microsoftgraphprintuseridentity]
     :param connectors:
-    :type connectors: list[~devices_cloud_print.models.MicrosoftGraphPrintConnector]
+    :type connectors: list[~devices_cloud_print.models.microsoftgraphprintconnector]
     :param share: printerShare.
-    :type share: ~devices_cloud_print.models.MicrosoftGraphPrinterShare
+    :type share: ~devices_cloud_print.models.microsoftgraphprintershare
     :param shares:
-    :type shares: list[~devices_cloud_print.models.MicrosoftGraphPrinterShare]
+    :type shares: list[~devices_cloud_print.models.microsoftgraphprintershare]
     :param task_triggers:
-    :type task_triggers: list[~devices_cloud_print.models.MicrosoftGraphPrintTaskTrigger]
+    :type task_triggers: list[~devices_cloud_print.models.microsoftgraphprinttasktrigger]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
+        'capabilities': {'key': 'capabilities', 'type': 'microsoftgraphprintercapabilities'},
+        'defaults': {'key': 'defaults', 'type': 'microsoftgraphprinterdefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'MicrosoftGraphPrinterLocation'},
+        'location': {'key': 'location', 'type': 'microsoftgraphprinterlocation'},
         'manufacturer': {'key': 'manufacturer', 'type': 'str'},
         'model': {'key': 'model', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
-        'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprinterstatus'},
+        'jobs': {'key': 'jobs', 'type': '[microsoftgraphprintjob]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'accepting_jobs': {'key': 'acceptingJobs', 'type': 'bool'},
         'is_shared': {'key': 'isShared', 'type': 'bool'},
         'registered_date_time': {'key': 'registeredDateTime', 'type': 'iso-8601'},
-        'allowed_groups': {'key': 'allowedGroups', 'type': '[MicrosoftGraphPrintIdentity]'},
-        'allowed_users': {'key': 'allowedUsers', 'type': '[MicrosoftGraphPrintUserIdentity]'},
-        'connectors': {'key': 'connectors', 'type': '[MicrosoftGraphPrintConnector]'},
-        'share': {'key': 'share', 'type': 'MicrosoftGraphPrinterShare'},
-        'shares': {'key': 'shares', 'type': '[MicrosoftGraphPrinterShare]'},
-        'task_triggers': {'key': 'taskTriggers', 'type': '[MicrosoftGraphPrintTaskTrigger]'},
+        'allowed_groups': {'key': 'allowedGroups', 'type': '[microsoftgraphprintidentity]'},
+        'allowed_users': {'key': 'allowedUsers', 'type': '[microsoftgraphprintuseridentity]'},
+        'connectors': {'key': 'connectors', 'type': '[microsoftgraphprintconnector]'},
+        'share': {'key': 'share', 'type': 'microsoftgraphprintershare'},
+        'shares': {'key': 'shares', 'type': '[microsoftgraphprintershare]'},
+        'task_triggers': {'key': 'taskTriggers', 'type': '[microsoftgraphprinttasktrigger]'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
+        capabilities: Optional["microsoftgraphprintercapabilities"] = None,
+        defaults: Optional["microsoftgraphprinterdefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
-        location: Optional["MicrosoftGraphPrinterLocation"] = None,
+        location: Optional["microsoftgraphprinterlocation"] = None,
         manufacturer: Optional[str] = None,
         model: Optional[str] = None,
         name: Optional[str] = None,
-        status: Optional["MicrosoftGraphPrinterStatus"] = None,
-        jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
+        status: Optional["microsoftgraphprinterstatus"] = None,
+        jobs: Optional[List["microsoftgraphprintjob"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         accepting_jobs: Optional[bool] = None,
         is_shared: Optional[bool] = None,
         registered_date_time: Optional[datetime.datetime] = None,
-        allowed_groups: Optional[List["MicrosoftGraphPrintIdentity"]] = None,
-        allowed_users: Optional[List["MicrosoftGraphPrintUserIdentity"]] = None,
-        connectors: Optional[List["MicrosoftGraphPrintConnector"]] = None,
-        share: Optional["MicrosoftGraphPrinterShare"] = None,
-        shares: Optional[List["MicrosoftGraphPrinterShare"]] = None,
-        task_triggers: Optional[List["MicrosoftGraphPrintTaskTrigger"]] = None,
+        allowed_groups: Optional[List["microsoftgraphprintidentity"]] = None,
+        allowed_users: Optional[List["microsoftgraphprintuseridentity"]] = None,
+        connectors: Optional[List["microsoftgraphprintconnector"]] = None,
+        share: Optional["microsoftgraphprintershare"] = None,
+        shares: Optional[List["microsoftgraphprintershare"]] = None,
+        task_triggers: Optional[List["microsoftgraphprinttasktrigger"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinter, self).__init__(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, **kwargs)
+        super(microsoftgraphprinter, self).__init__(id=id, capabilities=capabilities, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, **kwargs)
         self.additional_properties = additional_properties
         self.accepting_jobs = accepting_jobs
         self.is_shared = is_shared
@@ -1987,7 +1625,7 @@ class MicrosoftGraphPrinter(MicrosoftGraphPrinterBase):
         self.task_triggers = task_triggers
 
 
-class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
+class microsoftgraphprintercapabilities(msrest.serialization.Model):
     """printerCapabilities.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1998,23 +1636,23 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
     :param collation:
     :type collation: bool
     :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
+    :type color_modes: list[str or ~devices_cloud_print.models.Microsoftgraphprintcolormode]
     :param content_types:
     :type content_types: list[str]
     :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
+    :type copies_per_job: ~devices_cloud_print.models.microsoftgraphintegerrange
     :param dpis:
     :type dpis: list[int]
     :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
+    :type duplex_modes: list[str or ~devices_cloud_print.models.Microsoftgraphprintduplexmode]
     :param feed_directions:
     :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
+     ~devices_cloud_print.models.Microsoftgraphprinterfeeddirection]
     :param feed_orientations:
     :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
+     ~devices_cloud_print.models.Microsoftgraphprinterfeedorientation]
     :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
+    :type finishings: list[str or ~devices_cloud_print.models.Microsoftgraphprintfinishing]
     :param input_bins:
     :type input_bins: list[str]
     :param is_color_printing_supported:
@@ -2031,52 +1669,52 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
     :type media_types: list[str]
     :param multipage_layouts:
     :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
+     ~devices_cloud_print.models.Microsoftgraphprintmultipagelayout]
     :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
+    :type orientations: list[str or ~devices_cloud_print.models.Microsoftgraphprintorientation]
     :param output_bins:
     :type output_bins: list[str]
     :param pages_per_sheet:
     :type pages_per_sheet: list[int]
     :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
+    :type qualities: list[str or ~devices_cloud_print.models.Microsoftgraphprintquality]
     :param right_margins:
     :type right_margins: list[int]
     :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
+    :type scalings: list[str or ~devices_cloud_print.models.Microsoftgraphprintscaling]
     :param supported_color_configurations:
     :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
+     ~devices_cloud_print.models.Microsoftgraphprintcolorconfiguration]
     :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
+    :type supported_copies_per_job: ~devices_cloud_print.models.microsoftgraphintegerrange
     :param supported_document_mime_types:
     :type supported_document_mime_types: list[str]
     :param supported_duplex_configurations:
     :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
+     ~devices_cloud_print.models.Microsoftgraphprintduplexconfiguration]
     :param supported_finishings:
     :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
+     ~devices_cloud_print.models.Microsoftgraphprintfinishing]
     :param supported_media_colors:
     :type supported_media_colors: list[str]
     :param supported_media_sizes:
     :type supported_media_sizes: list[str]
     :param supported_media_types:
     :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
+     ~devices_cloud_print.models.Microsoftgraphprintmediatype]
     :param supported_orientations:
     :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
+     ~devices_cloud_print.models.Microsoftgraphprintorientation]
     :param supported_output_bins:
     :type supported_output_bins: list[str]
     :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
+    :type supported_pages_per_sheet: ~devices_cloud_print.models.microsoftgraphintegerrange
     :param supported_presentation_directions:
     :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
+     ~devices_cloud_print.models.Microsoftgraphprintpresentationdirection]
     :param supported_print_qualities:
     :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
+     ~devices_cloud_print.models.Microsoftgraphprintquality]
     :param supports_fit_pdf_to_page:
     :type supports_fit_pdf_to_page: bool
     :param top_margins:
@@ -2089,7 +1727,7 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         'collation': {'key': 'collation', 'type': 'bool'},
         'color_modes': {'key': 'colorModes', 'type': '[str]'},
         'content_types': {'key': 'contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
+        'copies_per_job': {'key': 'copiesPerJob', 'type': 'microsoftgraphintegerrange'},
         'dpis': {'key': 'dpis', 'type': '[int]'},
         'duplex_modes': {'key': 'duplexModes', 'type': '[str]'},
         'feed_directions': {'key': 'feedDirections', 'type': '[str]'},
@@ -2110,7 +1748,7 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         'right_margins': {'key': 'rightMargins', 'type': '[int]'},
         'scalings': {'key': 'scalings', 'type': '[str]'},
         'supported_color_configurations': {'key': 'supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
+        'supported_copies_per_job': {'key': 'supportedCopiesPerJob', 'type': 'microsoftgraphintegerrange'},
         'supported_document_mime_types': {'key': 'supportedDocumentMimeTypes', 'type': '[str]'},
         'supported_duplex_configurations': {'key': 'supportedDuplexConfigurations', 'type': '[str]'},
         'supported_finishings': {'key': 'supportedFinishings', 'type': '[str]'},
@@ -2119,7 +1757,7 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         'supported_media_types': {'key': 'supportedMediaTypes', 'type': '[str]'},
         'supported_orientations': {'key': 'supportedOrientations', 'type': '[str]'},
         'supported_output_bins': {'key': 'supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
+        'supported_pages_per_sheet': {'key': 'supportedPagesPerSheet', 'type': 'microsoftgraphintegerrange'},
         'supported_presentation_directions': {'key': 'supportedPresentationDirections', 'type': '[str]'},
         'supported_print_qualities': {'key': 'supportedPrintQualities', 'type': '[str]'},
         'supports_fit_pdf_to_page': {'key': 'supportsFitPdfToPage', 'type': 'bool'},
@@ -2132,14 +1770,14 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         bottom_margins: Optional[List[int]] = None,
         collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
+        color_modes: Optional[List[Union[str, "Microsoftgraphprintcolormode"]]] = None,
         content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
+        copies_per_job: Optional["microsoftgraphintegerrange"] = None,
         dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
+        duplex_modes: Optional[List[Union[str, "Microsoftgraphprintduplexmode"]]] = None,
+        feed_directions: Optional[List[Union[str, "Microsoftgraphprinterfeeddirection"]]] = None,
+        feed_orientations: Optional[List[Union[str, "Microsoftgraphprinterfeedorientation"]]] = None,
+        finishings: Optional[List[Union[str, "Microsoftgraphprintfinishing"]]] = None,
         input_bins: Optional[List[str]] = None,
         is_color_printing_supported: Optional[bool] = None,
         is_page_range_supported: Optional[bool] = None,
@@ -2147,31 +1785,31 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         media_colors: Optional[List[str]] = None,
         media_sizes: Optional[List[str]] = None,
         media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
+        multipage_layouts: Optional[List[Union[str, "Microsoftgraphprintmultipagelayout"]]] = None,
+        orientations: Optional[List[Union[str, "Microsoftgraphprintorientation"]]] = None,
         output_bins: Optional[List[str]] = None,
         pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
+        qualities: Optional[List[Union[str, "Microsoftgraphprintquality"]]] = None,
         right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
+        scalings: Optional[List[Union[str, "Microsoftgraphprintscaling"]]] = None,
+        supported_color_configurations: Optional[List[Union[str, "Microsoftgraphprintcolorconfiguration"]]] = None,
+        supported_copies_per_job: Optional["microsoftgraphintegerrange"] = None,
         supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
+        supported_duplex_configurations: Optional[List[Union[str, "Microsoftgraphprintduplexconfiguration"]]] = None,
+        supported_finishings: Optional[List[Union[str, "Microsoftgraphprintfinishing"]]] = None,
         supported_media_colors: Optional[List[str]] = None,
         supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
+        supported_media_types: Optional[List[Union[str, "Microsoftgraphprintmediatype"]]] = None,
+        supported_orientations: Optional[List[Union[str, "Microsoftgraphprintorientation"]]] = None,
         supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
+        supported_pages_per_sheet: Optional["microsoftgraphintegerrange"] = None,
+        supported_presentation_directions: Optional[List[Union[str, "Microsoftgraphprintpresentationdirection"]]] = None,
+        supported_print_qualities: Optional[List[Union[str, "Microsoftgraphprintquality"]]] = None,
         supports_fit_pdf_to_page: Optional[bool] = None,
         top_margins: Optional[List[int]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterCapabilities, self).__init__(**kwargs)
+        super(microsoftgraphprintercapabilities, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.bottom_margins = bottom_margins
         self.collation = collation
@@ -2214,14 +1852,14 @@ class MicrosoftGraphPrinterCapabilities(msrest.serialization.Model):
         self.top_margins = top_margins
 
 
-class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
+class microsoftgraphprinterdefaults(msrest.serialization.Model):
     """printerDefaults.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param color_mode:  Possible values include: "blackAndWhite", "grayscale", "color", "auto".
-    :type color_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode
+    :type color_mode: str or ~devices_cloud_print.models.Microsoftgraphprintcolormode
     :param content_type:
     :type content_type: str
     :param copies_per_job:
@@ -2233,11 +1871,11 @@ class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
     :param duplex_configuration:  Possible values include: "twoSidedLongEdge", "twoSidedShortEdge",
      "oneSided".
     :type duplex_configuration: str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration
+     ~devices_cloud_print.models.Microsoftgraphprintduplexconfiguration
     :param duplex_mode:  Possible values include: "flipOnLongEdge", "flipOnShortEdge", "oneSided".
-    :type duplex_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode
+    :type duplex_mode: str or ~devices_cloud_print.models.Microsoftgraphprintduplexmode
     :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
+    :type finishings: list[str or ~devices_cloud_print.models.Microsoftgraphprintfinishing]
     :param fit_pdf_to_page:
     :type fit_pdf_to_page: bool
     :param media_color:
@@ -2250,10 +1888,10 @@ class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
      "counterclockwiseFromTopLeft", "counterclockwiseFromTopRight", "clockwiseFromTopRight",
      "counterclockwiseFromBottomLeft", "clockwiseFromBottomLeft", "counterclockwiseFromBottomRight",
      "clockwiseFromBottomRight".
-    :type multipage_layout: str or ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout
+    :type multipage_layout: str or ~devices_cloud_print.models.Microsoftgraphprintmultipagelayout
     :param orientation:  Possible values include: "portrait", "landscape", "reverseLandscape",
      "reversePortrait".
-    :type orientation: str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation
+    :type orientation: str or ~devices_cloud_print.models.Microsoftgraphprintorientation
     :param output_bin:
     :type output_bin: str
     :param pages_per_sheet:
@@ -2265,18 +1903,18 @@ class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
      "counterClockwiseFromBottomLeft", "clockwiseFromBottomLeft", "counterClockwiseFromBottomRight",
      "clockwiseFromBottomRight".
     :type presentation_direction: str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection
+     ~devices_cloud_print.models.Microsoftgraphprintpresentationdirection
     :param print_color_configuration:  Possible values include: "blackAndWhite", "grayscale",
      "color", "auto".
     :type print_color_configuration: str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration
+     ~devices_cloud_print.models.Microsoftgraphprintcolorconfiguration
     :param print_quality:  Possible values include: "low", "medium", "high", "unknownFutureValue".
-    :type print_quality: str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality
+    :type print_quality: str or ~devices_cloud_print.models.Microsoftgraphprintquality
     :param quality:  Possible values include: "low", "medium", "high", "unknownFutureValue".
-    :type quality: str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality
+    :type quality: str or ~devices_cloud_print.models.Microsoftgraphprintquality
     :param scaling:  Possible values include: "auto", "shrinkToFit", "fill", "fit", "none",
      "unknownFutureValue".
-    :type scaling: str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling
+    :type scaling: str or ~devices_cloud_print.models.Microsoftgraphprintscaling
     """
 
     _validation = {
@@ -2315,31 +1953,31 @@ class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
         self,
         *,
         additional_properties: Optional[Dict[str, object]] = None,
-        color_mode: Optional[Union[str, "MicrosoftGraphPrintColorMode"]] = None,
+        color_mode: Optional[Union[str, "Microsoftgraphprintcolormode"]] = None,
         content_type: Optional[str] = None,
         copies_per_job: Optional[int] = None,
         document_mime_type: Optional[str] = None,
         dpi: Optional[int] = None,
-        duplex_configuration: Optional[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]] = None,
-        duplex_mode: Optional[Union[str, "MicrosoftGraphPrintDuplexMode"]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
+        duplex_configuration: Optional[Union[str, "Microsoftgraphprintduplexconfiguration"]] = None,
+        duplex_mode: Optional[Union[str, "Microsoftgraphprintduplexmode"]] = None,
+        finishings: Optional[List[Union[str, "Microsoftgraphprintfinishing"]]] = None,
         fit_pdf_to_page: Optional[bool] = None,
         media_color: Optional[str] = None,
         media_size: Optional[str] = None,
         media_type: Optional[str] = None,
-        multipage_layout: Optional[Union[str, "MicrosoftGraphPrintMultipageLayout"]] = None,
-        orientation: Optional[Union[str, "MicrosoftGraphPrintOrientation"]] = None,
+        multipage_layout: Optional[Union[str, "Microsoftgraphprintmultipagelayout"]] = None,
+        orientation: Optional[Union[str, "Microsoftgraphprintorientation"]] = None,
         output_bin: Optional[str] = None,
         pages_per_sheet: Optional[int] = None,
         pdf_fit_to_page: Optional[bool] = None,
-        presentation_direction: Optional[Union[str, "MicrosoftGraphPrintPresentationDirection"]] = None,
-        print_color_configuration: Optional[Union[str, "MicrosoftGraphPrintColorConfiguration"]] = None,
-        print_quality: Optional[Union[str, "MicrosoftGraphPrintQuality"]] = None,
-        quality: Optional[Union[str, "MicrosoftGraphPrintQuality"]] = None,
-        scaling: Optional[Union[str, "MicrosoftGraphPrintScaling"]] = None,
+        presentation_direction: Optional[Union[str, "Microsoftgraphprintpresentationdirection"]] = None,
+        print_color_configuration: Optional[Union[str, "Microsoftgraphprintcolorconfiguration"]] = None,
+        print_quality: Optional[Union[str, "Microsoftgraphprintquality"]] = None,
+        quality: Optional[Union[str, "Microsoftgraphprintquality"]] = None,
+        scaling: Optional[Union[str, "Microsoftgraphprintscaling"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterDefaults, self).__init__(**kwargs)
+        super(microsoftgraphprinterdefaults, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.color_mode = color_mode
         self.content_type = content_type
@@ -2365,7 +2003,7 @@ class MicrosoftGraphPrinterDefaults(msrest.serialization.Model):
         self.scaling = scaling
 
 
-class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
+class microsoftgraphprinterdocumentconfiguration(msrest.serialization.Model):
     """printerDocumentConfiguration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2374,25 +2012,25 @@ class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
     :param collate:
     :type collate: bool
     :param color_mode:  Possible values include: "blackAndWhite", "grayscale", "color", "auto".
-    :type color_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode
+    :type color_mode: str or ~devices_cloud_print.models.Microsoftgraphprintcolormode
     :param copies:
     :type copies: int
     :param dpi:
     :type dpi: int
     :param duplex_mode:  Possible values include: "flipOnLongEdge", "flipOnShortEdge", "oneSided".
-    :type duplex_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode
+    :type duplex_mode: str or ~devices_cloud_print.models.Microsoftgraphprintduplexmode
     :param feed_direction:  Possible values include: "longEdgeFirst", "shortEdgeFirst".
-    :type feed_direction: str or ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection
+    :type feed_direction: str or ~devices_cloud_print.models.Microsoftgraphprinterfeeddirection
     :param feed_orientation:  Possible values include: "longEdgeFirst", "shortEdgeFirst".
-    :type feed_orientation: str or ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation
+    :type feed_orientation: str or ~devices_cloud_print.models.Microsoftgraphprinterfeedorientation
     :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
+    :type finishings: list[str or ~devices_cloud_print.models.Microsoftgraphprintfinishing]
     :param fit_pdf_to_page:
     :type fit_pdf_to_page: bool
     :param input_bin:
     :type input_bin: str
     :param margin: printMargin.
-    :type margin: ~devices_cloud_print.models.MicrosoftGraphPrintMargin
+    :type margin: ~devices_cloud_print.models.microsoftgraphprintmargin
     :param media_size:
     :type media_size: str
     :param media_type:
@@ -2401,21 +2039,21 @@ class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
      "counterclockwiseFromTopLeft", "counterclockwiseFromTopRight", "clockwiseFromTopRight",
      "counterclockwiseFromBottomLeft", "clockwiseFromBottomLeft", "counterclockwiseFromBottomRight",
      "clockwiseFromBottomRight".
-    :type multipage_layout: str or ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout
+    :type multipage_layout: str or ~devices_cloud_print.models.Microsoftgraphprintmultipagelayout
     :param orientation:  Possible values include: "portrait", "landscape", "reverseLandscape",
      "reversePortrait".
-    :type orientation: str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation
+    :type orientation: str or ~devices_cloud_print.models.Microsoftgraphprintorientation
     :param output_bin:
     :type output_bin: str
     :param page_ranges:
-    :type page_ranges: list[~devices_cloud_print.models.MicrosoftGraphIntegerRange]
+    :type page_ranges: list[~devices_cloud_print.models.microsoftgraphintegerrange]
     :param pages_per_sheet:
     :type pages_per_sheet: int
     :param quality:  Possible values include: "low", "medium", "high", "unknownFutureValue".
-    :type quality: str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality
+    :type quality: str or ~devices_cloud_print.models.Microsoftgraphprintquality
     :param scaling:  Possible values include: "auto", "shrinkToFit", "fill", "fit", "none",
      "unknownFutureValue".
-    :type scaling: str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling
+    :type scaling: str or ~devices_cloud_print.models.Microsoftgraphprintscaling
     """
 
     _validation = {
@@ -2436,13 +2074,13 @@ class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
         'finishings': {'key': 'finishings', 'type': '[str]'},
         'fit_pdf_to_page': {'key': 'fitPdfToPage', 'type': 'bool'},
         'input_bin': {'key': 'inputBin', 'type': 'str'},
-        'margin': {'key': 'margin', 'type': 'MicrosoftGraphPrintMargin'},
+        'margin': {'key': 'margin', 'type': 'microsoftgraphprintmargin'},
         'media_size': {'key': 'mediaSize', 'type': 'str'},
         'media_type': {'key': 'mediaType', 'type': 'str'},
         'multipage_layout': {'key': 'multipageLayout', 'type': 'str'},
         'orientation': {'key': 'orientation', 'type': 'str'},
         'output_bin': {'key': 'outputBin', 'type': 'str'},
-        'page_ranges': {'key': 'pageRanges', 'type': '[MicrosoftGraphIntegerRange]'},
+        'page_ranges': {'key': 'pageRanges', 'type': '[microsoftgraphintegerrange]'},
         'pages_per_sheet': {'key': 'pagesPerSheet', 'type': 'int'},
         'quality': {'key': 'quality', 'type': 'str'},
         'scaling': {'key': 'scaling', 'type': 'str'},
@@ -2453,28 +2091,28 @@ class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         collate: Optional[bool] = None,
-        color_mode: Optional[Union[str, "MicrosoftGraphPrintColorMode"]] = None,
+        color_mode: Optional[Union[str, "Microsoftgraphprintcolormode"]] = None,
         copies: Optional[int] = None,
         dpi: Optional[int] = None,
-        duplex_mode: Optional[Union[str, "MicrosoftGraphPrintDuplexMode"]] = None,
-        feed_direction: Optional[Union[str, "MicrosoftGraphPrinterFeedDirection"]] = None,
-        feed_orientation: Optional[Union[str, "MicrosoftGraphPrinterFeedOrientation"]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
+        duplex_mode: Optional[Union[str, "Microsoftgraphprintduplexmode"]] = None,
+        feed_direction: Optional[Union[str, "Microsoftgraphprinterfeeddirection"]] = None,
+        feed_orientation: Optional[Union[str, "Microsoftgraphprinterfeedorientation"]] = None,
+        finishings: Optional[List[Union[str, "Microsoftgraphprintfinishing"]]] = None,
         fit_pdf_to_page: Optional[bool] = None,
         input_bin: Optional[str] = None,
-        margin: Optional["MicrosoftGraphPrintMargin"] = None,
+        margin: Optional["microsoftgraphprintmargin"] = None,
         media_size: Optional[str] = None,
         media_type: Optional[str] = None,
-        multipage_layout: Optional[Union[str, "MicrosoftGraphPrintMultipageLayout"]] = None,
-        orientation: Optional[Union[str, "MicrosoftGraphPrintOrientation"]] = None,
+        multipage_layout: Optional[Union[str, "Microsoftgraphprintmultipagelayout"]] = None,
+        orientation: Optional[Union[str, "Microsoftgraphprintorientation"]] = None,
         output_bin: Optional[str] = None,
-        page_ranges: Optional[List["MicrosoftGraphIntegerRange"]] = None,
+        page_ranges: Optional[List["microsoftgraphintegerrange"]] = None,
         pages_per_sheet: Optional[int] = None,
-        quality: Optional[Union[str, "MicrosoftGraphPrintQuality"]] = None,
-        scaling: Optional[Union[str, "MicrosoftGraphPrintScaling"]] = None,
+        quality: Optional[Union[str, "Microsoftgraphprintquality"]] = None,
+        scaling: Optional[Union[str, "Microsoftgraphprintscaling"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterDocumentConfiguration, self).__init__(**kwargs)
+        super(microsoftgraphprinterdocumentconfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.collate = collate
         self.color_mode = color_mode
@@ -2498,7 +2136,7 @@ class MicrosoftGraphPrinterDocumentConfiguration(msrest.serialization.Model):
         self.scaling = scaling
 
 
-class MicrosoftGraphPrinterLocation(msrest.serialization.Model):
+class microsoftgraphprinterlocation(msrest.serialization.Model):
     """printerLocation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2590,7 +2228,7 @@ class MicrosoftGraphPrinterLocation(msrest.serialization.Model):
         subunit: Optional[List[str]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterLocation, self).__init__(**kwargs)
+        super(microsoftgraphprinterlocation, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.altitude_in_meters = altitude_in_meters
         self.building = building
@@ -2611,19 +2249,21 @@ class MicrosoftGraphPrinterLocation(msrest.serialization.Model):
         self.subunit = subunit
 
 
-class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
+class microsoftgraphprintershare(microsoftgraphprinterbase):
     """printerShare.
 
     :param id: Read-only.
     :type id: str
+    :param capabilities: printerCapabilities.
+    :type capabilities: ~devices_cloud_print.models.microsoftgraphprintercapabilities
     :param defaults: printerDefaults.
-    :type defaults: ~devices_cloud_print.models.MicrosoftGraphPrinterDefaults
+    :type defaults: ~devices_cloud_print.models.microsoftgraphprinterdefaults
     :param display_name:
     :type display_name: str
     :param is_accepting_jobs:
     :type is_accepting_jobs: bool
     :param location: printerLocation.
-    :type location: ~devices_cloud_print.models.MicrosoftGraphPrinterLocation
+    :type location: ~devices_cloud_print.models.microsoftgraphprinterlocation
     :param manufacturer:
     :type manufacturer: str
     :param model:
@@ -2631,97 +2271,9 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     :param name:
     :type name: str
     :param status: printerStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrinterStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprinterstatus
     :param jobs:
-    :type jobs: list[~devices_cloud_print.models.MicrosoftGraphPrintJob]
-    :param bottom_margins:
-    :type bottom_margins: list[int]
-    :param collation:
-    :type collation: bool
-    :param color_modes:
-    :type color_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode]
-    :param content_types:
-    :type content_types: list[str]
-    :param copies_per_job: integerRange.
-    :type copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param dpis:
-    :type dpis: list[int]
-    :param duplex_modes:
-    :type duplex_modes: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode]
-    :param feed_directions:
-    :type feed_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedDirection]
-    :param feed_orientations:
-    :type feed_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation]
-    :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param input_bins:
-    :type input_bins: list[str]
-    :param is_color_printing_supported:
-    :type is_color_printing_supported: bool
-    :param is_page_range_supported:
-    :type is_page_range_supported: bool
-    :param left_margins:
-    :type left_margins: list[int]
-    :param media_colors:
-    :type media_colors: list[str]
-    :param media_sizes:
-    :type media_sizes: list[str]
-    :param media_types:
-    :type media_types: list[str]
-    :param multipage_layouts:
-    :type multipage_layouts: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout]
-    :param orientations:
-    :type orientations: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param output_bins:
-    :type output_bins: list[str]
-    :param pages_per_sheet:
-    :type pages_per_sheet: list[int]
-    :param qualities:
-    :type qualities: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param right_margins:
-    :type right_margins: list[int]
-    :param scalings:
-    :type scalings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling]
-    :param supported_color_configurations:
-    :type supported_color_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintColorConfiguration]
-    :param supported_copies_per_job: integerRange.
-    :type supported_copies_per_job: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_document_mime_types:
-    :type supported_document_mime_types: list[str]
-    :param supported_duplex_configurations:
-    :type supported_duplex_configurations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintDuplexConfiguration]
-    :param supported_finishings:
-    :type supported_finishings: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
-    :param supported_media_colors:
-    :type supported_media_colors: list[str]
-    :param supported_media_sizes:
-    :type supported_media_sizes: list[str]
-    :param supported_media_types:
-    :type supported_media_types: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintMediaType]
-    :param supported_orientations:
-    :type supported_orientations: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintOrientation]
-    :param supported_output_bins:
-    :type supported_output_bins: list[str]
-    :param supported_pages_per_sheet: integerRange.
-    :type supported_pages_per_sheet: ~devices_cloud_print.models.MicrosoftGraphIntegerRange
-    :param supported_presentation_directions:
-    :type supported_presentation_directions: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintPresentationDirection]
-    :param supported_print_qualities:
-    :type supported_print_qualities: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintQuality]
-    :param supports_fit_pdf_to_page:
-    :type supports_fit_pdf_to_page: bool
-    :param top_margins:
-    :type top_margins: list[int]
+    :type jobs: list[~devices_cloud_print.models.microsoftgraphprintjob]
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
@@ -2730,132 +2282,56 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param allowed_groups:
-    :type allowed_groups: list[~devices_cloud_print.models.MicrosoftGraphPrintIdentity]
+    :type allowed_groups: list[~devices_cloud_print.models.microsoftgraphprintidentity]
     :param allowed_users:
-    :type allowed_users: list[~devices_cloud_print.models.MicrosoftGraphPrintUserIdentity]
+    :type allowed_users: list[~devices_cloud_print.models.microsoftgraphprintuseridentity]
     :param printer: printer.
-    :type printer: ~devices_cloud_print.models.MicrosoftGraphPrinter
+    :type printer: ~devices_cloud_print.models.microsoftgraphprinter
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
-        'defaults': {'key': 'defaults', 'type': 'MicrosoftGraphPrinterDefaults'},
+        'capabilities': {'key': 'capabilities', 'type': 'microsoftgraphprintercapabilities'},
+        'defaults': {'key': 'defaults', 'type': 'microsoftgraphprinterdefaults'},
         'display_name': {'key': 'displayName', 'type': 'str'},
         'is_accepting_jobs': {'key': 'isAcceptingJobs', 'type': 'bool'},
-        'location': {'key': 'location', 'type': 'MicrosoftGraphPrinterLocation'},
+        'location': {'key': 'location', 'type': 'microsoftgraphprinterlocation'},
         'manufacturer': {'key': 'manufacturer', 'type': 'str'},
         'model': {'key': 'model', 'type': 'str'},
         'name': {'key': 'name', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrinterStatus'},
-        'jobs': {'key': 'jobs', 'type': '[MicrosoftGraphPrintJob]'},
-        'bottom_margins': {'key': 'capabilities.bottomMargins', 'type': '[int]'},
-        'collation': {'key': 'capabilities.collation', 'type': 'bool'},
-        'color_modes': {'key': 'capabilities.colorModes', 'type': '[str]'},
-        'content_types': {'key': 'capabilities.contentTypes', 'type': '[str]'},
-        'copies_per_job': {'key': 'capabilities.copiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'dpis': {'key': 'capabilities.dpis', 'type': '[int]'},
-        'duplex_modes': {'key': 'capabilities.duplexModes', 'type': '[str]'},
-        'feed_directions': {'key': 'capabilities.feedDirections', 'type': '[str]'},
-        'feed_orientations': {'key': 'capabilities.feedOrientations', 'type': '[str]'},
-        'finishings': {'key': 'capabilities.finishings', 'type': '[str]'},
-        'input_bins': {'key': 'capabilities.inputBins', 'type': '[str]'},
-        'is_color_printing_supported': {'key': 'capabilities.isColorPrintingSupported', 'type': 'bool'},
-        'is_page_range_supported': {'key': 'capabilities.isPageRangeSupported', 'type': 'bool'},
-        'left_margins': {'key': 'capabilities.leftMargins', 'type': '[int]'},
-        'media_colors': {'key': 'capabilities.mediaColors', 'type': '[str]'},
-        'media_sizes': {'key': 'capabilities.mediaSizes', 'type': '[str]'},
-        'media_types': {'key': 'capabilities.mediaTypes', 'type': '[str]'},
-        'multipage_layouts': {'key': 'capabilities.multipageLayouts', 'type': '[str]'},
-        'orientations': {'key': 'capabilities.orientations', 'type': '[str]'},
-        'output_bins': {'key': 'capabilities.outputBins', 'type': '[str]'},
-        'pages_per_sheet': {'key': 'capabilities.pagesPerSheet', 'type': '[int]'},
-        'qualities': {'key': 'capabilities.qualities', 'type': '[str]'},
-        'right_margins': {'key': 'capabilities.rightMargins', 'type': '[int]'},
-        'scalings': {'key': 'capabilities.scalings', 'type': '[str]'},
-        'supported_color_configurations': {'key': 'capabilities.supportedColorConfigurations', 'type': '[str]'},
-        'supported_copies_per_job': {'key': 'capabilities.supportedCopiesPerJob', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_document_mime_types': {'key': 'capabilities.supportedDocumentMimeTypes', 'type': '[str]'},
-        'supported_duplex_configurations': {'key': 'capabilities.supportedDuplexConfigurations', 'type': '[str]'},
-        'supported_finishings': {'key': 'capabilities.supportedFinishings', 'type': '[str]'},
-        'supported_media_colors': {'key': 'capabilities.supportedMediaColors', 'type': '[str]'},
-        'supported_media_sizes': {'key': 'capabilities.supportedMediaSizes', 'type': '[str]'},
-        'supported_media_types': {'key': 'capabilities.supportedMediaTypes', 'type': '[str]'},
-        'supported_orientations': {'key': 'capabilities.supportedOrientations', 'type': '[str]'},
-        'supported_output_bins': {'key': 'capabilities.supportedOutputBins', 'type': '[str]'},
-        'supported_pages_per_sheet': {'key': 'capabilities.supportedPagesPerSheet', 'type': 'MicrosoftGraphIntegerRange'},
-        'supported_presentation_directions': {'key': 'capabilities.supportedPresentationDirections', 'type': '[str]'},
-        'supported_print_qualities': {'key': 'capabilities.supportedPrintQualities', 'type': '[str]'},
-        'supports_fit_pdf_to_page': {'key': 'capabilities.supportsFitPdfToPage', 'type': 'bool'},
-        'top_margins': {'key': 'capabilities.topMargins', 'type': '[int]'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprinterstatus'},
+        'jobs': {'key': 'jobs', 'type': '[microsoftgraphprintjob]'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'allow_all_users': {'key': 'allowAllUsers', 'type': 'bool'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'allowed_groups': {'key': 'allowedGroups', 'type': '[MicrosoftGraphPrintIdentity]'},
-        'allowed_users': {'key': 'allowedUsers', 'type': '[MicrosoftGraphPrintUserIdentity]'},
-        'printer': {'key': 'printer', 'type': 'MicrosoftGraphPrinter'},
+        'allowed_groups': {'key': 'allowedGroups', 'type': '[microsoftgraphprintidentity]'},
+        'allowed_users': {'key': 'allowedUsers', 'type': '[microsoftgraphprintuseridentity]'},
+        'printer': {'key': 'printer', 'type': 'microsoftgraphprinter'},
     }
 
     def __init__(
         self,
         *,
         id: Optional[str] = None,
-        defaults: Optional["MicrosoftGraphPrinterDefaults"] = None,
+        capabilities: Optional["microsoftgraphprintercapabilities"] = None,
+        defaults: Optional["microsoftgraphprinterdefaults"] = None,
         display_name: Optional[str] = None,
         is_accepting_jobs: Optional[bool] = None,
-        location: Optional["MicrosoftGraphPrinterLocation"] = None,
+        location: Optional["microsoftgraphprinterlocation"] = None,
         manufacturer: Optional[str] = None,
         model: Optional[str] = None,
         name: Optional[str] = None,
-        status: Optional["MicrosoftGraphPrinterStatus"] = None,
-        jobs: Optional[List["MicrosoftGraphPrintJob"]] = None,
-        bottom_margins: Optional[List[int]] = None,
-        collation: Optional[bool] = None,
-        color_modes: Optional[List[Union[str, "MicrosoftGraphPrintColorMode"]]] = None,
-        content_types: Optional[List[str]] = None,
-        copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        dpis: Optional[List[int]] = None,
-        duplex_modes: Optional[List[Union[str, "MicrosoftGraphPrintDuplexMode"]]] = None,
-        feed_directions: Optional[List[Union[str, "MicrosoftGraphPrinterFeedDirection"]]] = None,
-        feed_orientations: Optional[List[Union[str, "MicrosoftGraphPrinterFeedOrientation"]]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        input_bins: Optional[List[str]] = None,
-        is_color_printing_supported: Optional[bool] = None,
-        is_page_range_supported: Optional[bool] = None,
-        left_margins: Optional[List[int]] = None,
-        media_colors: Optional[List[str]] = None,
-        media_sizes: Optional[List[str]] = None,
-        media_types: Optional[List[str]] = None,
-        multipage_layouts: Optional[List[Union[str, "MicrosoftGraphPrintMultipageLayout"]]] = None,
-        orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        output_bins: Optional[List[str]] = None,
-        pages_per_sheet: Optional[List[int]] = None,
-        qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        right_margins: Optional[List[int]] = None,
-        scalings: Optional[List[Union[str, "MicrosoftGraphPrintScaling"]]] = None,
-        supported_color_configurations: Optional[List[Union[str, "MicrosoftGraphPrintColorConfiguration"]]] = None,
-        supported_copies_per_job: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_document_mime_types: Optional[List[str]] = None,
-        supported_duplex_configurations: Optional[List[Union[str, "MicrosoftGraphPrintDuplexConfiguration"]]] = None,
-        supported_finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
-        supported_media_colors: Optional[List[str]] = None,
-        supported_media_sizes: Optional[List[str]] = None,
-        supported_media_types: Optional[List[Union[str, "MicrosoftGraphPrintMediaType"]]] = None,
-        supported_orientations: Optional[List[Union[str, "MicrosoftGraphPrintOrientation"]]] = None,
-        supported_output_bins: Optional[List[str]] = None,
-        supported_pages_per_sheet: Optional["MicrosoftGraphIntegerRange"] = None,
-        supported_presentation_directions: Optional[List[Union[str, "MicrosoftGraphPrintPresentationDirection"]]] = None,
-        supported_print_qualities: Optional[List[Union[str, "MicrosoftGraphPrintQuality"]]] = None,
-        supports_fit_pdf_to_page: Optional[bool] = None,
-        top_margins: Optional[List[int]] = None,
+        status: Optional["microsoftgraphprinterstatus"] = None,
+        jobs: Optional[List["microsoftgraphprintjob"]] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         allow_all_users: Optional[bool] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        allowed_groups: Optional[List["MicrosoftGraphPrintIdentity"]] = None,
-        allowed_users: Optional[List["MicrosoftGraphPrintUserIdentity"]] = None,
-        printer: Optional["MicrosoftGraphPrinter"] = None,
+        allowed_groups: Optional[List["microsoftgraphprintidentity"]] = None,
+        allowed_users: Optional[List["microsoftgraphprintuseridentity"]] = None,
+        printer: Optional["microsoftgraphprinter"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterShare, self).__init__(id=id, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, bottom_margins=bottom_margins, collation=collation, color_modes=color_modes, content_types=content_types, copies_per_job=copies_per_job, dpis=dpis, duplex_modes=duplex_modes, feed_directions=feed_directions, feed_orientations=feed_orientations, finishings=finishings, input_bins=input_bins, is_color_printing_supported=is_color_printing_supported, is_page_range_supported=is_page_range_supported, left_margins=left_margins, media_colors=media_colors, media_sizes=media_sizes, media_types=media_types, multipage_layouts=multipage_layouts, orientations=orientations, output_bins=output_bins, pages_per_sheet=pages_per_sheet, qualities=qualities, right_margins=right_margins, scalings=scalings, supported_color_configurations=supported_color_configurations, supported_copies_per_job=supported_copies_per_job, supported_document_mime_types=supported_document_mime_types, supported_duplex_configurations=supported_duplex_configurations, supported_finishings=supported_finishings, supported_media_colors=supported_media_colors, supported_media_sizes=supported_media_sizes, supported_media_types=supported_media_types, supported_orientations=supported_orientations, supported_output_bins=supported_output_bins, supported_pages_per_sheet=supported_pages_per_sheet, supported_presentation_directions=supported_presentation_directions, supported_print_qualities=supported_print_qualities, supports_fit_pdf_to_page=supports_fit_pdf_to_page, top_margins=top_margins, **kwargs)
+        super(microsoftgraphprintershare, self).__init__(id=id, capabilities=capabilities, defaults=defaults, display_name=display_name, is_accepting_jobs=is_accepting_jobs, location=location, manufacturer=manufacturer, model=model, name=name, status=status, jobs=jobs, **kwargs)
         self.additional_properties = additional_properties
         self.allow_all_users = allow_all_users
         self.created_date_time = created_date_time
@@ -2864,7 +2340,7 @@ class MicrosoftGraphPrinterShare(MicrosoftGraphPrinterBase):
         self.printer = printer
 
 
-class MicrosoftGraphPrinterStatus(msrest.serialization.Model):
+class microsoftgraphprinterstatus(msrest.serialization.Model):
     """printerStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2874,18 +2350,18 @@ class MicrosoftGraphPrinterStatus(msrest.serialization.Model):
     :type description: str
     :param details:
     :type details: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterProcessingStateDetail]
+     ~devices_cloud_print.models.Microsoftgraphprinterprocessingstatedetail]
     :param processing_state:  Possible values include: "unknown", "idle", "processing", "stopped",
      "unknownFutureValue".
-    :type processing_state: str or ~devices_cloud_print.models.MicrosoftGraphPrinterProcessingState
+    :type processing_state: str or ~devices_cloud_print.models.Microsoftgraphprinterprocessingstate
     :param processing_state_description:
     :type processing_state_description: str
     :param processing_state_reasons:
     :type processing_state_reasons: list[str or
-     ~devices_cloud_print.models.MicrosoftGraphPrinterProcessingStateReason]
+     ~devices_cloud_print.models.Microsoftgraphprinterprocessingstatereason]
     :param state:  Possible values include: "unknown", "idle", "processing", "stopped",
      "unknownFutureValue".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrinterProcessingState
+    :type state: str or ~devices_cloud_print.models.Microsoftgraphprinterprocessingstate
     """
 
     _attribute_map = {
@@ -2903,14 +2379,14 @@ class MicrosoftGraphPrinterStatus(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
-        details: Optional[List[Union[str, "MicrosoftGraphPrinterProcessingStateDetail"]]] = None,
-        processing_state: Optional[Union[str, "MicrosoftGraphPrinterProcessingState"]] = None,
+        details: Optional[List[Union[str, "Microsoftgraphprinterprocessingstatedetail"]]] = None,
+        processing_state: Optional[Union[str, "Microsoftgraphprinterprocessingstate"]] = None,
         processing_state_description: Optional[str] = None,
-        processing_state_reasons: Optional[List[Union[str, "MicrosoftGraphPrinterProcessingStateReason"]]] = None,
-        state: Optional[Union[str, "MicrosoftGraphPrinterProcessingState"]] = None,
+        processing_state_reasons: Optional[List[Union[str, "Microsoftgraphprinterprocessingstatereason"]]] = None,
+        state: Optional[Union[str, "Microsoftgraphprinterprocessingstate"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterStatus, self).__init__(**kwargs)
+        super(microsoftgraphprinterstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.details = details
@@ -2920,7 +2396,7 @@ class MicrosoftGraphPrinterStatus(msrest.serialization.Model):
         self.state = state
 
 
-class MicrosoftGraphPrinterUsageSummary(msrest.serialization.Model):
+class microsoftgraphprinterusagesummary(msrest.serialization.Model):
     """printerUsageSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -2940,7 +2416,7 @@ class MicrosoftGraphPrinterUsageSummary(msrest.serialization.Model):
     :type printer_model: str
     :param printer: Represents an Azure Active Directory object. The directoryObject type is the
      base type for many other directory entity types.
-    :type printer: ~devices_cloud_print.models.MicrosoftGraphDirectoryObject
+    :type printer: ~devices_cloud_print.models.microsoftgraphdirectoryobject
     """
 
     _validation = {
@@ -2956,7 +2432,7 @@ class MicrosoftGraphPrinterUsageSummary(msrest.serialization.Model):
         'printer_id': {'key': 'printerId', 'type': 'str'},
         'printer_manufacturer': {'key': 'printerManufacturer', 'type': 'str'},
         'printer_model': {'key': 'printerModel', 'type': 'str'},
-        'printer': {'key': 'printer', 'type': 'MicrosoftGraphDirectoryObject'},
+        'printer': {'key': 'printer', 'type': 'microsoftgraphdirectoryobject'},
     }
 
     def __init__(
@@ -2969,10 +2445,10 @@ class MicrosoftGraphPrinterUsageSummary(msrest.serialization.Model):
         printer_id: Optional[str] = None,
         printer_manufacturer: Optional[str] = None,
         printer_model: Optional[str] = None,
-        printer: Optional["MicrosoftGraphDirectoryObject"] = None,
+        printer: Optional["microsoftgraphdirectoryobject"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrinterUsageSummary, self).__init__(**kwargs)
+        super(microsoftgraphprinterusagesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.completed_job_count = completed_job_count
         self.incomplete_job_count = incomplete_job_count
@@ -2983,7 +2459,7 @@ class MicrosoftGraphPrinterUsageSummary(msrest.serialization.Model):
         self.printer = printer
 
 
-class MicrosoftGraphPrintIdentity(MicrosoftGraphEntity):
+class microsoftgraphprintidentity(microsoftgraphentity):
     """printIdentity.
 
     :param id: Read-only.
@@ -3009,12 +2485,12 @@ class MicrosoftGraphPrintIdentity(MicrosoftGraphEntity):
         display_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintIdentity, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintidentity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
 
 
-class MicrosoftGraphPrintJob(MicrosoftGraphEntity):
+class microsoftgraphprintjob(microsoftgraphentity):
     """printJob.
 
     :param id: Read-only.
@@ -3023,9 +2499,9 @@ class MicrosoftGraphPrintJob(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param configuration: printJobConfiguration.
-    :type configuration: ~devices_cloud_print.models.MicrosoftGraphPrintJobConfiguration
+    :type configuration: ~devices_cloud_print.models.microsoftgraphprintjobconfiguration
     :param created_by: userIdentity.
-    :type created_by: ~devices_cloud_print.models.MicrosoftGraphUserIdentity
+    :type created_by: ~devices_cloud_print.models.microsoftgraphuseridentity
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param is_fetchable:
@@ -3035,25 +2511,25 @@ class MicrosoftGraphPrintJob(MicrosoftGraphEntity):
     :param redirected_to:
     :type redirected_to: str
     :param status: printJobStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrintJobStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprintjobstatus
     :param documents:
-    :type documents: list[~devices_cloud_print.models.MicrosoftGraphPrintDocument]
+    :type documents: list[~devices_cloud_print.models.microsoftgraphprintdocument]
     :param tasks:
-    :type tasks: list[~devices_cloud_print.models.MicrosoftGraphPrintTask]
+    :type tasks: list[~devices_cloud_print.models.microsoftgraphprinttask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'configuration': {'key': 'configuration', 'type': 'MicrosoftGraphPrintJobConfiguration'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphUserIdentity'},
+        'configuration': {'key': 'configuration', 'type': 'microsoftgraphprintjobconfiguration'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphuseridentity'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'is_fetchable': {'key': 'isFetchable', 'type': 'bool'},
         'redirected_from': {'key': 'redirectedFrom', 'type': 'str'},
         'redirected_to': {'key': 'redirectedTo', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrintJobStatus'},
-        'documents': {'key': 'documents', 'type': '[MicrosoftGraphPrintDocument]'},
-        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPrintTask]'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprintjobstatus'},
+        'documents': {'key': 'documents', 'type': '[microsoftgraphprintdocument]'},
+        'tasks': {'key': 'tasks', 'type': '[microsoftgraphprinttask]'},
     }
 
     def __init__(
@@ -3061,18 +2537,18 @@ class MicrosoftGraphPrintJob(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        configuration: Optional["MicrosoftGraphPrintJobConfiguration"] = None,
-        created_by: Optional["MicrosoftGraphUserIdentity"] = None,
+        configuration: Optional["microsoftgraphprintjobconfiguration"] = None,
+        created_by: Optional["microsoftgraphuseridentity"] = None,
         created_date_time: Optional[datetime.datetime] = None,
         is_fetchable: Optional[bool] = None,
         redirected_from: Optional[str] = None,
         redirected_to: Optional[str] = None,
-        status: Optional["MicrosoftGraphPrintJobStatus"] = None,
-        documents: Optional[List["MicrosoftGraphPrintDocument"]] = None,
-        tasks: Optional[List["MicrosoftGraphPrintTask"]] = None,
+        status: Optional["microsoftgraphprintjobstatus"] = None,
+        documents: Optional[List["microsoftgraphprintdocument"]] = None,
+        tasks: Optional[List["microsoftgraphprinttask"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintJob, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintjob, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.configuration = configuration
         self.created_by = created_by
@@ -3085,7 +2561,7 @@ class MicrosoftGraphPrintJob(MicrosoftGraphEntity):
         self.tasks = tasks
 
 
-class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
+class microsoftgraphprintjobconfiguration(msrest.serialization.Model):
     """printJobConfiguration.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3094,23 +2570,23 @@ class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
     :param collate:
     :type collate: bool
     :param color_mode:  Possible values include: "blackAndWhite", "grayscale", "color", "auto".
-    :type color_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintColorMode
+    :type color_mode: str or ~devices_cloud_print.models.Microsoftgraphprintcolormode
     :param copies:
     :type copies: int
     :param dpi:
     :type dpi: int
     :param duplex_mode:  Possible values include: "flipOnLongEdge", "flipOnShortEdge", "oneSided".
-    :type duplex_mode: str or ~devices_cloud_print.models.MicrosoftGraphPrintDuplexMode
+    :type duplex_mode: str or ~devices_cloud_print.models.Microsoftgraphprintduplexmode
     :param feed_orientation:  Possible values include: "longEdgeFirst", "shortEdgeFirst".
-    :type feed_orientation: str or ~devices_cloud_print.models.MicrosoftGraphPrinterFeedOrientation
+    :type feed_orientation: str or ~devices_cloud_print.models.Microsoftgraphprinterfeedorientation
     :param finishings:
-    :type finishings: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintFinishing]
+    :type finishings: list[str or ~devices_cloud_print.models.Microsoftgraphprintfinishing]
     :param fit_pdf_to_page:
     :type fit_pdf_to_page: bool
     :param input_bin:
     :type input_bin: str
     :param margin: printMargin.
-    :type margin: ~devices_cloud_print.models.MicrosoftGraphPrintMargin
+    :type margin: ~devices_cloud_print.models.microsoftgraphprintmargin
     :param media_size:
     :type media_size: str
     :param media_type:
@@ -3119,21 +2595,21 @@ class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
      "counterclockwiseFromTopLeft", "counterclockwiseFromTopRight", "clockwiseFromTopRight",
      "counterclockwiseFromBottomLeft", "clockwiseFromBottomLeft", "counterclockwiseFromBottomRight",
      "clockwiseFromBottomRight".
-    :type multipage_layout: str or ~devices_cloud_print.models.MicrosoftGraphPrintMultipageLayout
+    :type multipage_layout: str or ~devices_cloud_print.models.Microsoftgraphprintmultipagelayout
     :param orientation:  Possible values include: "portrait", "landscape", "reverseLandscape",
      "reversePortrait".
-    :type orientation: str or ~devices_cloud_print.models.MicrosoftGraphPrintOrientation
+    :type orientation: str or ~devices_cloud_print.models.Microsoftgraphprintorientation
     :param output_bin:
     :type output_bin: str
     :param page_ranges:
-    :type page_ranges: list[~devices_cloud_print.models.MicrosoftGraphIntegerRange]
+    :type page_ranges: list[~devices_cloud_print.models.microsoftgraphintegerrange]
     :param pages_per_sheet:
     :type pages_per_sheet: int
     :param quality:  Possible values include: "low", "medium", "high", "unknownFutureValue".
-    :type quality: str or ~devices_cloud_print.models.MicrosoftGraphPrintQuality
+    :type quality: str or ~devices_cloud_print.models.Microsoftgraphprintquality
     :param scaling:  Possible values include: "auto", "shrinkToFit", "fill", "fit", "none",
      "unknownFutureValue".
-    :type scaling: str or ~devices_cloud_print.models.MicrosoftGraphPrintScaling
+    :type scaling: str or ~devices_cloud_print.models.Microsoftgraphprintscaling
     """
 
     _validation = {
@@ -3153,13 +2629,13 @@ class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
         'finishings': {'key': 'finishings', 'type': '[str]'},
         'fit_pdf_to_page': {'key': 'fitPdfToPage', 'type': 'bool'},
         'input_bin': {'key': 'inputBin', 'type': 'str'},
-        'margin': {'key': 'margin', 'type': 'MicrosoftGraphPrintMargin'},
+        'margin': {'key': 'margin', 'type': 'microsoftgraphprintmargin'},
         'media_size': {'key': 'mediaSize', 'type': 'str'},
         'media_type': {'key': 'mediaType', 'type': 'str'},
         'multipage_layout': {'key': 'multipageLayout', 'type': 'str'},
         'orientation': {'key': 'orientation', 'type': 'str'},
         'output_bin': {'key': 'outputBin', 'type': 'str'},
-        'page_ranges': {'key': 'pageRanges', 'type': '[MicrosoftGraphIntegerRange]'},
+        'page_ranges': {'key': 'pageRanges', 'type': '[microsoftgraphintegerrange]'},
         'pages_per_sheet': {'key': 'pagesPerSheet', 'type': 'int'},
         'quality': {'key': 'quality', 'type': 'str'},
         'scaling': {'key': 'scaling', 'type': 'str'},
@@ -3170,27 +2646,27 @@ class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         collate: Optional[bool] = None,
-        color_mode: Optional[Union[str, "MicrosoftGraphPrintColorMode"]] = None,
+        color_mode: Optional[Union[str, "Microsoftgraphprintcolormode"]] = None,
         copies: Optional[int] = None,
         dpi: Optional[int] = None,
-        duplex_mode: Optional[Union[str, "MicrosoftGraphPrintDuplexMode"]] = None,
-        feed_orientation: Optional[Union[str, "MicrosoftGraphPrinterFeedOrientation"]] = None,
-        finishings: Optional[List[Union[str, "MicrosoftGraphPrintFinishing"]]] = None,
+        duplex_mode: Optional[Union[str, "Microsoftgraphprintduplexmode"]] = None,
+        feed_orientation: Optional[Union[str, "Microsoftgraphprinterfeedorientation"]] = None,
+        finishings: Optional[List[Union[str, "Microsoftgraphprintfinishing"]]] = None,
         fit_pdf_to_page: Optional[bool] = None,
         input_bin: Optional[str] = None,
-        margin: Optional["MicrosoftGraphPrintMargin"] = None,
+        margin: Optional["microsoftgraphprintmargin"] = None,
         media_size: Optional[str] = None,
         media_type: Optional[str] = None,
-        multipage_layout: Optional[Union[str, "MicrosoftGraphPrintMultipageLayout"]] = None,
-        orientation: Optional[Union[str, "MicrosoftGraphPrintOrientation"]] = None,
+        multipage_layout: Optional[Union[str, "Microsoftgraphprintmultipagelayout"]] = None,
+        orientation: Optional[Union[str, "Microsoftgraphprintorientation"]] = None,
         output_bin: Optional[str] = None,
-        page_ranges: Optional[List["MicrosoftGraphIntegerRange"]] = None,
+        page_ranges: Optional[List["microsoftgraphintegerrange"]] = None,
         pages_per_sheet: Optional[int] = None,
-        quality: Optional[Union[str, "MicrosoftGraphPrintQuality"]] = None,
-        scaling: Optional[Union[str, "MicrosoftGraphPrintScaling"]] = None,
+        quality: Optional[Union[str, "Microsoftgraphprintquality"]] = None,
+        scaling: Optional[Union[str, "Microsoftgraphprintscaling"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintJobConfiguration, self).__init__(**kwargs)
+        super(microsoftgraphprintjobconfiguration, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.collate = collate
         self.color_mode = color_mode
@@ -3213,7 +2689,7 @@ class MicrosoftGraphPrintJobConfiguration(msrest.serialization.Model):
         self.scaling = scaling
 
 
-class MicrosoftGraphPrintJobStatus(msrest.serialization.Model):
+class microsoftgraphprintjobstatus(msrest.serialization.Model):
     """printJobStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3224,18 +2700,18 @@ class MicrosoftGraphPrintJobStatus(msrest.serialization.Model):
     :param description:
     :type description: str
     :param details:
-    :type details: list[str or ~devices_cloud_print.models.MicrosoftGraphPrintJobStateDetail]
+    :type details: list[str or ~devices_cloud_print.models.Microsoftgraphprintjobstatedetail]
     :param is_acquired_by_printer:
     :type is_acquired_by_printer: bool
     :param processing_state:  Possible values include: "unknown", "pending", "processing",
      "paused", "stopped", "completed", "canceled", "aborted".
     :type processing_state: str or
-     ~devices_cloud_print.models.MicrosoftGraphPrintJobProcessingState
+     ~devices_cloud_print.models.Microsoftgraphprintjobprocessingstate
     :param processing_state_description:
     :type processing_state_description: str
     :param state:  Possible values include: "unknown", "pending", "processing", "paused",
      "stopped", "completed", "canceled", "aborted".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintJobProcessingState
+    :type state: str or ~devices_cloud_print.models.Microsoftgraphprintjobprocessingstate
     """
 
     _attribute_map = {
@@ -3255,14 +2731,14 @@ class MicrosoftGraphPrintJobStatus(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         acquired_by_printer: Optional[bool] = None,
         description: Optional[str] = None,
-        details: Optional[List[Union[str, "MicrosoftGraphPrintJobStateDetail"]]] = None,
+        details: Optional[List[Union[str, "Microsoftgraphprintjobstatedetail"]]] = None,
         is_acquired_by_printer: Optional[bool] = None,
-        processing_state: Optional[Union[str, "MicrosoftGraphPrintJobProcessingState"]] = None,
+        processing_state: Optional[Union[str, "Microsoftgraphprintjobprocessingstate"]] = None,
         processing_state_description: Optional[str] = None,
-        state: Optional[Union[str, "MicrosoftGraphPrintJobProcessingState"]] = None,
+        state: Optional[Union[str, "Microsoftgraphprintjobprocessingstate"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintJobStatus, self).__init__(**kwargs)
+        super(microsoftgraphprintjobstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.acquired_by_printer = acquired_by_printer
         self.description = description
@@ -3273,7 +2749,7 @@ class MicrosoftGraphPrintJobStatus(msrest.serialization.Model):
         self.state = state
 
 
-class MicrosoftGraphPrintMargin(msrest.serialization.Model):
+class microsoftgraphprintmargin(msrest.serialization.Model):
     """printMargin.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3314,7 +2790,7 @@ class MicrosoftGraphPrintMargin(msrest.serialization.Model):
         top: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintMargin, self).__init__(**kwargs)
+        super(microsoftgraphprintmargin, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.bottom = bottom
         self.left = left
@@ -3322,7 +2798,7 @@ class MicrosoftGraphPrintMargin(msrest.serialization.Model):
         self.top = top
 
 
-class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
+class microsoftgraphprintoperation(microsoftgraphentity):
     """printOperation.
 
     :param id: Read-only.
@@ -3333,14 +2809,14 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
     :param created_date_time:
     :type created_date_time: ~datetime.datetime
     :param status: printOperationStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrintOperationStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprintoperationstatus
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrintOperationStatus'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprintoperationstatus'},
     }
 
     def __init__(
@@ -3349,16 +2825,16 @@ class MicrosoftGraphPrintOperation(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         created_date_time: Optional[datetime.datetime] = None,
-        status: Optional["MicrosoftGraphPrintOperationStatus"] = None,
+        status: Optional["microsoftgraphprintoperationstatus"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintOperation, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintoperation, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_date_time = created_date_time
         self.status = status
 
 
-class MicrosoftGraphPrintOperationStatus(msrest.serialization.Model):
+class microsoftgraphprintoperationstatus(msrest.serialization.Model):
     """printOperationStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3368,7 +2844,7 @@ class MicrosoftGraphPrintOperationStatus(msrest.serialization.Model):
     :type description: str
     :param state:  Possible values include: "notStarted", "running", "succeeded", "failed",
      "unknownFutureValue".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintOperationProcessingState
+    :type state: str or ~devices_cloud_print.models.Microsoftgraphprintoperationprocessingstate
     """
 
     _attribute_map = {
@@ -3382,16 +2858,16 @@ class MicrosoftGraphPrintOperationStatus(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
-        state: Optional[Union[str, "MicrosoftGraphPrintOperationProcessingState"]] = None,
+        state: Optional[Union[str, "Microsoftgraphprintoperationprocessingstate"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintOperationStatus, self).__init__(**kwargs)
+        super(microsoftgraphprintoperationstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.state = state
 
 
-class MicrosoftGraphPrintService(MicrosoftGraphEntity):
+class microsoftgraphprintservice(microsoftgraphentity):
     """printService.
 
     :param id: Read-only.
@@ -3400,13 +2876,13 @@ class MicrosoftGraphPrintService(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param endpoints:
-    :type endpoints: list[~devices_cloud_print.models.MicrosoftGraphPrintServiceEndpoint]
+    :type endpoints: list[~devices_cloud_print.models.microsoftgraphprintserviceendpoint]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'endpoints': {'key': 'endpoints', 'type': '[MicrosoftGraphPrintServiceEndpoint]'},
+        'endpoints': {'key': 'endpoints', 'type': '[microsoftgraphprintserviceendpoint]'},
     }
 
     def __init__(
@@ -3414,15 +2890,15 @@ class MicrosoftGraphPrintService(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        endpoints: Optional[List["MicrosoftGraphPrintServiceEndpoint"]] = None,
+        endpoints: Optional[List["microsoftgraphprintserviceendpoint"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintService, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintservice, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.endpoints = endpoints
 
 
-class MicrosoftGraphPrintServiceEndpoint(MicrosoftGraphEntity):
+class microsoftgraphprintserviceendpoint(microsoftgraphentity):
     """printServiceEndpoint.
 
     :param id: Read-only.
@@ -3452,13 +2928,13 @@ class MicrosoftGraphPrintServiceEndpoint(MicrosoftGraphEntity):
         uri: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintServiceEndpoint, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintserviceendpoint, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.uri = uri
 
 
-class MicrosoftGraphPrintSettings(msrest.serialization.Model):
+class microsoftgraphprintsettings(msrest.serialization.Model):
     """printSettings.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3480,12 +2956,12 @@ class MicrosoftGraphPrintSettings(msrest.serialization.Model):
         document_conversion_enabled: Optional[bool] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintSettings, self).__init__(**kwargs)
+        super(microsoftgraphprintsettings, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.document_conversion_enabled = document_conversion_enabled
 
 
-class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
+class microsoftgraphprinttask(microsoftgraphentity):
     """printTask.
 
     :param id: Read-only.
@@ -3496,27 +2972,20 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
     :param parent_url:
     :type parent_url: str
     :param status: printTaskStatus.
-    :type status: ~devices_cloud_print.models.MicrosoftGraphPrintTaskStatus
+    :type status: ~devices_cloud_print.models.microsoftgraphprinttaskstatus
     :param definition: printTaskDefinition.
-    :type definition: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
-    :param id_trigger_id: Read-only.
-    :type id_trigger_id: str
-    :param event:  Possible values include: "jobStarted", "unknownFutureValue".
-    :type event: str or ~devices_cloud_print.models.MicrosoftGraphPrintEvent
-    :param definition_trigger_definition: printTaskDefinition.
-    :type definition_trigger_definition:
-     ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
+    :type definition: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
+    :param trigger: printTaskTrigger.
+    :type trigger: ~devices_cloud_print.models.microsoftgraphprinttasktrigger
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'parent_url': {'key': 'parentUrl', 'type': 'str'},
-        'status': {'key': 'status', 'type': 'MicrosoftGraphPrintTaskStatus'},
-        'definition': {'key': 'definition', 'type': 'MicrosoftGraphPrintTaskDefinition'},
-        'id_trigger_id': {'key': 'trigger.id', 'type': 'str'},
-        'event': {'key': 'trigger.event', 'type': 'str'},
-        'definition_trigger_definition': {'key': 'trigger.definition', 'type': 'MicrosoftGraphPrintTaskDefinition'},
+        'status': {'key': 'status', 'type': 'microsoftgraphprinttaskstatus'},
+        'definition': {'key': 'definition', 'type': 'microsoftgraphprinttaskdefinition'},
+        'trigger': {'key': 'trigger', 'type': 'microsoftgraphprinttasktrigger'},
     }
 
     def __init__(
@@ -3525,24 +2994,20 @@ class MicrosoftGraphPrintTask(MicrosoftGraphEntity):
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
         parent_url: Optional[str] = None,
-        status: Optional["MicrosoftGraphPrintTaskStatus"] = None,
-        definition: Optional["MicrosoftGraphPrintTaskDefinition"] = None,
-        id_trigger_id: Optional[str] = None,
-        event: Optional[Union[str, "MicrosoftGraphPrintEvent"]] = None,
-        definition_trigger_definition: Optional["MicrosoftGraphPrintTaskDefinition"] = None,
+        status: Optional["microsoftgraphprinttaskstatus"] = None,
+        definition: Optional["microsoftgraphprinttaskdefinition"] = None,
+        trigger: Optional["microsoftgraphprinttasktrigger"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintTask, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprinttask, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.parent_url = parent_url
         self.status = status
         self.definition = definition
-        self.id_trigger_id = id_trigger_id
-        self.event = event
-        self.definition_trigger_definition = definition_trigger_definition
+        self.trigger = trigger
 
 
-class MicrosoftGraphPrintTaskDefinition(MicrosoftGraphEntity):
+class microsoftgraphprinttaskdefinition(microsoftgraphentity):
     """printTaskDefinition.
 
     :param id: Read-only.
@@ -3551,19 +3016,19 @@ class MicrosoftGraphPrintTaskDefinition(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param created_by: appIdentity.
-    :type created_by: ~devices_cloud_print.models.MicrosoftGraphAppIdentity
+    :type created_by: ~devices_cloud_print.models.microsoftgraphappidentity
     :param display_name:
     :type display_name: str
     :param tasks:
-    :type tasks: list[~devices_cloud_print.models.MicrosoftGraphPrintTask]
+    :type tasks: list[~devices_cloud_print.models.microsoftgraphprinttask]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'created_by': {'key': 'createdBy', 'type': 'MicrosoftGraphAppIdentity'},
+        'created_by': {'key': 'createdBy', 'type': 'microsoftgraphappidentity'},
         'display_name': {'key': 'displayName', 'type': 'str'},
-        'tasks': {'key': 'tasks', 'type': '[MicrosoftGraphPrintTask]'},
+        'tasks': {'key': 'tasks', 'type': '[microsoftgraphprinttask]'},
     }
 
     def __init__(
@@ -3571,19 +3036,19 @@ class MicrosoftGraphPrintTaskDefinition(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        created_by: Optional["MicrosoftGraphAppIdentity"] = None,
+        created_by: Optional["microsoftgraphappidentity"] = None,
         display_name: Optional[str] = None,
-        tasks: Optional[List["MicrosoftGraphPrintTask"]] = None,
+        tasks: Optional[List["microsoftgraphprinttask"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintTaskDefinition, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprinttaskdefinition, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.created_by = created_by
         self.display_name = display_name
         self.tasks = tasks
 
 
-class MicrosoftGraphPrintTaskStatus(msrest.serialization.Model):
+class microsoftgraphprinttaskstatus(msrest.serialization.Model):
     """printTaskStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3593,7 +3058,7 @@ class MicrosoftGraphPrintTaskStatus(msrest.serialization.Model):
     :type description: str
     :param state:  Possible values include: "pending", "processing", "completed", "aborted",
      "unknownFutureValue".
-    :type state: str or ~devices_cloud_print.models.MicrosoftGraphPrintTaskProcessingState
+    :type state: str or ~devices_cloud_print.models.Microsoftgraphprinttaskprocessingstate
     """
 
     _attribute_map = {
@@ -3607,16 +3072,16 @@ class MicrosoftGraphPrintTaskStatus(msrest.serialization.Model):
         *,
         additional_properties: Optional[Dict[str, object]] = None,
         description: Optional[str] = None,
-        state: Optional[Union[str, "MicrosoftGraphPrintTaskProcessingState"]] = None,
+        state: Optional[Union[str, "Microsoftgraphprinttaskprocessingstate"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintTaskStatus, self).__init__(**kwargs)
+        super(microsoftgraphprinttaskstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.description = description
         self.state = state
 
 
-class MicrosoftGraphPrintTaskTrigger(MicrosoftGraphEntity):
+class microsoftgraphprinttasktrigger(microsoftgraphentity):
     """printTaskTrigger.
 
     :param id: Read-only.
@@ -3625,16 +3090,16 @@ class MicrosoftGraphPrintTaskTrigger(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param event:  Possible values include: "jobStarted", "unknownFutureValue".
-    :type event: str or ~devices_cloud_print.models.MicrosoftGraphPrintEvent
+    :type event: str or ~devices_cloud_print.models.Microsoftgraphprintevent
     :param definition: printTaskDefinition.
-    :type definition: ~devices_cloud_print.models.MicrosoftGraphPrintTaskDefinition
+    :type definition: ~devices_cloud_print.models.microsoftgraphprinttaskdefinition
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'event': {'key': 'event', 'type': 'str'},
-        'definition': {'key': 'definition', 'type': 'MicrosoftGraphPrintTaskDefinition'},
+        'definition': {'key': 'definition', 'type': 'microsoftgraphprinttaskdefinition'},
     }
 
     def __init__(
@@ -3642,17 +3107,17 @@ class MicrosoftGraphPrintTaskTrigger(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        event: Optional[Union[str, "MicrosoftGraphPrintEvent"]] = None,
-        definition: Optional["MicrosoftGraphPrintTaskDefinition"] = None,
+        event: Optional[Union[str, "Microsoftgraphprintevent"]] = None,
+        definition: Optional["microsoftgraphprinttaskdefinition"] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintTaskTrigger, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprinttasktrigger, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.event = event
         self.definition = definition
 
 
-class MicrosoftGraphPrintUsageSummary(msrest.serialization.Model):
+class microsoftgraphprintusagesummary(msrest.serialization.Model):
     """printUsageSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3683,13 +3148,13 @@ class MicrosoftGraphPrintUsageSummary(msrest.serialization.Model):
         incomplete_job_count: Optional[int] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintUsageSummary, self).__init__(**kwargs)
+        super(microsoftgraphprintusagesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.completed_job_count = completed_job_count
         self.incomplete_job_count = incomplete_job_count
 
 
-class MicrosoftGraphPrintUsageSummaryByPrinter(MicrosoftGraphEntity):
+class microsoftgraphprintusagesummarybyprinter(microsoftgraphentity):
     """PrintUsageSummaryByPrinter.
 
     :param id: Read-only.
@@ -3731,7 +3196,7 @@ class MicrosoftGraphPrintUsageSummaryByPrinter(MicrosoftGraphEntity):
         usage_date: Optional[datetime.date] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintUsageSummaryByPrinter, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintusagesummarybyprinter, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.completed_black_and_white_job_count = completed_black_and_white_job_count
         self.completed_color_job_count = completed_color_job_count
@@ -3740,7 +3205,7 @@ class MicrosoftGraphPrintUsageSummaryByPrinter(MicrosoftGraphEntity):
         self.usage_date = usage_date
 
 
-class MicrosoftGraphPrintUsageSummaryByUser(MicrosoftGraphEntity):
+class microsoftgraphprintusagesummarybyuser(microsoftgraphentity):
     """PrintUsageSummaryByUser.
 
     :param id: Read-only.
@@ -3782,7 +3247,7 @@ class MicrosoftGraphPrintUsageSummaryByUser(MicrosoftGraphEntity):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintUsageSummaryByUser, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintusagesummarybyuser, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.completed_black_and_white_job_count = completed_black_and_white_job_count
         self.completed_color_job_count = completed_color_job_count
@@ -3791,7 +3256,7 @@ class MicrosoftGraphPrintUsageSummaryByUser(MicrosoftGraphEntity):
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphPrintUserIdentity(MicrosoftGraphEntity):
+class microsoftgraphprintuseridentity(microsoftgraphentity):
     """printUserIdentity.
 
     :param id: Read-only.
@@ -3825,14 +3290,14 @@ class MicrosoftGraphPrintUserIdentity(MicrosoftGraphEntity):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphPrintUserIdentity, self).__init__(id=id, **kwargs)
+        super(microsoftgraphprintuseridentity, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.ip_address = ip_address
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
+class microsoftgraphreportroot(microsoftgraphentity):
     """The resource that represents an instance of History Reports.
 
     :param id: Read-only.
@@ -3842,37 +3307,37 @@ class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
     :type additional_properties: dict[str, object]
     :param application_sign_in_detailed_summary:
     :type application_sign_in_detailed_summary:
-     list[~devices_cloud_print.models.MicrosoftGraphApplicationSignInDetailedSummary]
+     list[~devices_cloud_print.models.microsoftgraphapplicationsignindetailedsummary]
     :param credential_user_registration_details:
     :type credential_user_registration_details:
-     list[~devices_cloud_print.models.MicrosoftGraphCredentialUserRegistrationDetails]
+     list[~devices_cloud_print.models.microsoftgraphcredentialuserregistrationdetails]
     :param user_credential_usage_details:
     :type user_credential_usage_details:
-     list[~devices_cloud_print.models.MicrosoftGraphUserCredentialUsageDetails]
+     list[~devices_cloud_print.models.microsoftgraphusercredentialusagedetails]
     :param daily_print_usage_summaries_by_printer:
     :type daily_print_usage_summaries_by_printer:
-     list[~devices_cloud_print.models.MicrosoftGraphPrintUsageSummaryByPrinter]
+     list[~devices_cloud_print.models.microsoftgraphprintusagesummarybyprinter]
     :param daily_print_usage_summaries_by_user:
     :type daily_print_usage_summaries_by_user:
-     list[~devices_cloud_print.models.MicrosoftGraphPrintUsageSummaryByUser]
+     list[~devices_cloud_print.models.microsoftgraphprintusagesummarybyuser]
     :param monthly_print_usage_summaries_by_printer:
     :type monthly_print_usage_summaries_by_printer:
-     list[~devices_cloud_print.models.MicrosoftGraphPrintUsageSummaryByPrinter]
+     list[~devices_cloud_print.models.microsoftgraphprintusagesummarybyprinter]
     :param monthly_print_usage_summaries_by_user:
     :type monthly_print_usage_summaries_by_user:
-     list[~devices_cloud_print.models.MicrosoftGraphPrintUsageSummaryByUser]
+     list[~devices_cloud_print.models.microsoftgraphprintusagesummarybyuser]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'application_sign_in_detailed_summary': {'key': 'applicationSignInDetailedSummary', 'type': '[MicrosoftGraphApplicationSignInDetailedSummary]'},
-        'credential_user_registration_details': {'key': 'credentialUserRegistrationDetails', 'type': '[MicrosoftGraphCredentialUserRegistrationDetails]'},
-        'user_credential_usage_details': {'key': 'userCredentialUsageDetails', 'type': '[MicrosoftGraphUserCredentialUsageDetails]'},
-        'daily_print_usage_summaries_by_printer': {'key': 'dailyPrintUsageSummariesByPrinter', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
-        'daily_print_usage_summaries_by_user': {'key': 'dailyPrintUsageSummariesByUser', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
-        'monthly_print_usage_summaries_by_printer': {'key': 'monthlyPrintUsageSummariesByPrinter', 'type': '[MicrosoftGraphPrintUsageSummaryByPrinter]'},
-        'monthly_print_usage_summaries_by_user': {'key': 'monthlyPrintUsageSummariesByUser', 'type': '[MicrosoftGraphPrintUsageSummaryByUser]'},
+        'application_sign_in_detailed_summary': {'key': 'applicationSignInDetailedSummary', 'type': '[microsoftgraphapplicationsignindetailedsummary]'},
+        'credential_user_registration_details': {'key': 'credentialUserRegistrationDetails', 'type': '[microsoftgraphcredentialuserregistrationdetails]'},
+        'user_credential_usage_details': {'key': 'userCredentialUsageDetails', 'type': '[microsoftgraphusercredentialusagedetails]'},
+        'daily_print_usage_summaries_by_printer': {'key': 'dailyPrintUsageSummariesByPrinter', 'type': '[microsoftgraphprintusagesummarybyprinter]'},
+        'daily_print_usage_summaries_by_user': {'key': 'dailyPrintUsageSummariesByUser', 'type': '[microsoftgraphprintusagesummarybyuser]'},
+        'monthly_print_usage_summaries_by_printer': {'key': 'monthlyPrintUsageSummariesByPrinter', 'type': '[microsoftgraphprintusagesummarybyprinter]'},
+        'monthly_print_usage_summaries_by_user': {'key': 'monthlyPrintUsageSummariesByUser', 'type': '[microsoftgraphprintusagesummarybyuser]'},
     }
 
     def __init__(
@@ -3880,16 +3345,16 @@ class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        application_sign_in_detailed_summary: Optional[List["MicrosoftGraphApplicationSignInDetailedSummary"]] = None,
-        credential_user_registration_details: Optional[List["MicrosoftGraphCredentialUserRegistrationDetails"]] = None,
-        user_credential_usage_details: Optional[List["MicrosoftGraphUserCredentialUsageDetails"]] = None,
-        daily_print_usage_summaries_by_printer: Optional[List["MicrosoftGraphPrintUsageSummaryByPrinter"]] = None,
-        daily_print_usage_summaries_by_user: Optional[List["MicrosoftGraphPrintUsageSummaryByUser"]] = None,
-        monthly_print_usage_summaries_by_printer: Optional[List["MicrosoftGraphPrintUsageSummaryByPrinter"]] = None,
-        monthly_print_usage_summaries_by_user: Optional[List["MicrosoftGraphPrintUsageSummaryByUser"]] = None,
+        application_sign_in_detailed_summary: Optional[List["microsoftgraphapplicationsignindetailedsummary"]] = None,
+        credential_user_registration_details: Optional[List["microsoftgraphcredentialuserregistrationdetails"]] = None,
+        user_credential_usage_details: Optional[List["microsoftgraphusercredentialusagedetails"]] = None,
+        daily_print_usage_summaries_by_printer: Optional[List["microsoftgraphprintusagesummarybyprinter"]] = None,
+        daily_print_usage_summaries_by_user: Optional[List["microsoftgraphprintusagesummarybyuser"]] = None,
+        monthly_print_usage_summaries_by_printer: Optional[List["microsoftgraphprintusagesummarybyprinter"]] = None,
+        monthly_print_usage_summaries_by_user: Optional[List["microsoftgraphprintusagesummarybyuser"]] = None,
         **kwargs
     ):
-        super(MicrosoftGraphReportRoot, self).__init__(id=id, **kwargs)
+        super(microsoftgraphreportroot, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.application_sign_in_detailed_summary = application_sign_in_detailed_summary
         self.credential_user_registration_details = credential_user_registration_details
@@ -3900,7 +3365,7 @@ class MicrosoftGraphReportRoot(MicrosoftGraphEntity):
         self.monthly_print_usage_summaries_by_user = monthly_print_usage_summaries_by_user
 
 
-class MicrosoftGraphSignInStatus(msrest.serialization.Model):
+class microsoftgraphsigninstatus(msrest.serialization.Model):
     """signInStatus.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -3936,14 +3401,14 @@ class MicrosoftGraphSignInStatus(msrest.serialization.Model):
         failure_reason: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphSignInStatus, self).__init__(**kwargs)
+        super(microsoftgraphsigninstatus, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.additional_details = additional_details
         self.error_code = error_code
         self.failure_reason = failure_reason
 
 
-class MicrosoftGraphUserCredentialUsageDetails(MicrosoftGraphEntity):
+class microsoftgraphusercredentialusagedetails(microsoftgraphentity):
     """userCredentialUsageDetails.
 
     :param id: Read-only.
@@ -3954,13 +3419,13 @@ class MicrosoftGraphUserCredentialUsageDetails(MicrosoftGraphEntity):
     :param auth_method:  Possible values include: "email", "mobileSMS", "mobileCall",
      "officePhone", "securityQuestion", "appNotification", "appCode", "alternateMobileCall", "fido",
      "appPassword", "unknownFutureValue".
-    :type auth_method: str or ~devices_cloud_print.models.MicrosoftGraphUsageAuthMethod
+    :type auth_method: str or ~devices_cloud_print.models.Microsoftgraphusageauthmethod
     :param event_date_time:
     :type event_date_time: ~datetime.datetime
     :param failure_reason:
     :type failure_reason: str
     :param feature:  Possible values include: "registration", "reset", "unknownFutureValue".
-    :type feature: str or ~devices_cloud_print.models.MicrosoftGraphFeatureType
+    :type feature: str or ~devices_cloud_print.models.Microsoftgraphfeaturetype
     :param is_success:
     :type is_success: bool
     :param user_display_name:
@@ -3986,16 +3451,16 @@ class MicrosoftGraphUserCredentialUsageDetails(MicrosoftGraphEntity):
         *,
         id: Optional[str] = None,
         additional_properties: Optional[Dict[str, object]] = None,
-        auth_method: Optional[Union[str, "MicrosoftGraphUsageAuthMethod"]] = None,
+        auth_method: Optional[Union[str, "Microsoftgraphusageauthmethod"]] = None,
         event_date_time: Optional[datetime.datetime] = None,
         failure_reason: Optional[str] = None,
-        feature: Optional[Union[str, "MicrosoftGraphFeatureType"]] = None,
+        feature: Optional[Union[str, "Microsoftgraphfeaturetype"]] = None,
         is_success: Optional[bool] = None,
         user_display_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphUserCredentialUsageDetails, self).__init__(id=id, **kwargs)
+        super(microsoftgraphusercredentialusagedetails, self).__init__(id=id, **kwargs)
         self.additional_properties = additional_properties
         self.auth_method = auth_method
         self.event_date_time = event_date_time
@@ -4006,7 +3471,7 @@ class MicrosoftGraphUserCredentialUsageDetails(MicrosoftGraphEntity):
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphUserIdentity(MicrosoftGraphIdentity):
+class microsoftgraphuseridentity(microsoftgraphidentity):
     """userIdentity.
 
     :param display_name: The identity's display name. Note that this may not always be available or
@@ -4044,13 +3509,13 @@ class MicrosoftGraphUserIdentity(MicrosoftGraphIdentity):
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphUserIdentity, self).__init__(display_name=display_name, id=id, **kwargs)
+        super(microsoftgraphuseridentity, self).__init__(display_name=display_name, id=id, **kwargs)
         self.additional_properties = additional_properties
         self.ip_address = ip_address
         self.user_principal_name = user_principal_name
 
 
-class MicrosoftGraphUserPrintUsageSummary(msrest.serialization.Model):
+class microsoftgraphuserprintusagesummary(msrest.serialization.Model):
     """userPrintUsageSummary.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -4061,7 +3526,7 @@ class MicrosoftGraphUserPrintUsageSummary(msrest.serialization.Model):
     :param incomplete_job_count:
     :type incomplete_job_count: int
     :param user: identity.
-    :type user: ~devices_cloud_print.models.MicrosoftGraphIdentity
+    :type user: ~devices_cloud_print.models.microsoftgraphidentity
     :param user_display_name:
     :type user_display_name: str
     :param user_principal_name:
@@ -4077,7 +3542,7 @@ class MicrosoftGraphUserPrintUsageSummary(msrest.serialization.Model):
         'additional_properties': {'key': '', 'type': '{object}'},
         'completed_job_count': {'key': 'completedJobCount', 'type': 'int'},
         'incomplete_job_count': {'key': 'incompleteJobCount', 'type': 'int'},
-        'user': {'key': 'user', 'type': 'MicrosoftGraphIdentity'},
+        'user': {'key': 'user', 'type': 'microsoftgraphidentity'},
         'user_display_name': {'key': 'userDisplayName', 'type': 'str'},
         'user_principal_name': {'key': 'userPrincipalName', 'type': 'str'},
     }
@@ -4088,12 +3553,12 @@ class MicrosoftGraphUserPrintUsageSummary(msrest.serialization.Model):
         additional_properties: Optional[Dict[str, object]] = None,
         completed_job_count: Optional[int] = None,
         incomplete_job_count: Optional[int] = None,
-        user: Optional["MicrosoftGraphIdentity"] = None,
+        user: Optional["microsoftgraphidentity"] = None,
         user_display_name: Optional[str] = None,
         user_principal_name: Optional[str] = None,
         **kwargs
     ):
-        super(MicrosoftGraphUserPrintUsageSummary, self).__init__(**kwargs)
+        super(microsoftgraphuserprintusagesummary, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.completed_job_count = completed_job_count
         self.incomplete_job_count = incomplete_job_count
@@ -4102,8 +3567,8 @@ class MicrosoftGraphUserPrintUsageSummary(msrest.serialization.Model):
         self.user_principal_name = user_principal_name
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -4111,7 +3576,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~devices_cloud_print.models.OdataErrorMain
+    :type error: ~devices_cloud_print.models.odataerrormain
     """
 
     _validation = {
@@ -4120,23 +3585,23 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         *,
-        error: "OdataErrorMain",
+        error: "odataerrormain",
         additional_properties: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.error = error
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -4172,15 +3637,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         target: Optional[str] = None,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
         self.target = target
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -4194,7 +3659,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~devices_cloud_print.models.OdataErrorDetail]
+    :type details: list[~devices_cloud_print.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -4209,7 +3674,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -4220,11 +3685,11 @@ class OdataErrorMain(msrest.serialization.Model):
         message: str,
         additional_properties: Optional[Dict[str, object]] = None,
         target: Optional[str] = None,
-        details: Optional[List["OdataErrorDetail"]] = None,
+        details: Optional[List["odataerrordetail"]] = None,
         innererror: Optional[Dict[str, object]] = None,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.code = code
         self.message = message
@@ -4233,8 +3698,8 @@ class OdataErrorMain(msrest.serialization.Model):
         self.innererror = innererror
 
 
-class Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema(msrest.serialization.Model):
-    """Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema.
+class paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema(msrest.serialization.Model):
+    """paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
@@ -4251,7 +3716,7 @@ class Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplica
     :type has_physical_device: bool
     :param certificate_signing_request: printCertificateSigningRequest.
     :type certificate_signing_request:
-     ~devices_cloud_print.models.MicrosoftGraphPrintCertificateSigningRequest
+     ~devices_cloud_print.models.microsoftgraphprintcertificatesigningrequest
     :param connector_id:
     :type connector_id: str
     """
@@ -4263,7 +3728,7 @@ class Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplica
         'model': {'key': 'model', 'type': 'str'},
         'physical_device_id': {'key': 'physicalDeviceId', 'type': 'str'},
         'has_physical_device': {'key': 'hasPhysicalDevice', 'type': 'bool'},
-        'certificate_signing_request': {'key': 'certificateSigningRequest', 'type': 'MicrosoftGraphPrintCertificateSigningRequest'},
+        'certificate_signing_request': {'key': 'certificateSigningRequest', 'type': 'microsoftgraphprintcertificatesigningrequest'},
         'connector_id': {'key': 'connectorId', 'type': 'str'},
     }
 
@@ -4276,11 +3741,11 @@ class Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplica
         model: Optional[str] = None,
         physical_device_id: Optional[str] = None,
         has_physical_device: Optional[bool] = False,
-        certificate_signing_request: Optional["MicrosoftGraphPrintCertificateSigningRequest"] = None,
+        certificate_signing_request: Optional["microsoftgraphprintcertificatesigningrequest"] = None,
         connector_id: Optional[str] = None,
         **kwargs
     ):
-        super(Paths18VwyqhPrintPrintersMicrosoftGraphCreatePostRequestbodyContentApplicationJsonSchema, self).__init__(**kwargs)
+        super(paths18vwyqhprintprintersmicrosoftgraphcreatepostrequestbodycontentapplicationjsonschema, self).__init__(**kwargs)
         self.additional_properties = additional_properties
         self.display_name = display_name
         self.manufacturer = manufacturer

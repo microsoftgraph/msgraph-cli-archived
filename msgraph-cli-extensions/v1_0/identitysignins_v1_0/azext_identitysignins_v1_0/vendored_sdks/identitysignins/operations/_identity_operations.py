@@ -11,7 +11,6 @@ import warnings
 from azure.core.exceptions import ClientAuthenticationError, HttpResponseError, ResourceExistsError, ResourceNotFoundError, map_error
 from azure.core.pipeline import PipelineResponse
 from azure.core.pipeline.transport import HttpRequest, HttpResponse
-from azure.mgmt.core.exceptions import ARMErrorFormat
 
 from .. import models
 
@@ -22,8 +21,8 @@ if TYPE_CHECKING:
     T = TypeVar('T')
     ClsType = Optional[Callable[[PipelineResponse[HttpRequest, HttpResponse], T, Dict[str, Any]], Any]]
 
-class IdentityOperations(object):
-    """IdentityOperations operations.
+class identityOperations(object):
+    """identityOperations operations.
 
     You should not instantiate this class directly. Instead, you should create a Client instance that
     instantiates it for you and attaches it as an attribute.
@@ -46,25 +45,25 @@ class IdentityOperations(object):
 
     def get_conditional_access(
         self,
-        select=None,  # type: Optional[List[Union[str, "models.Get0ItemsItem"]]]
+        select=None,  # type: Optional[List[Union[str, "models.Get0itemsitem"]]]
         expand=None,  # type: Optional[List[Union[str, "models.Enum5"]]]
         **kwargs  # type: Any
     ):
-        # type: (...) -> "models.MicrosoftGraphConditionalAccessRoot"
+        # type: (...) -> "models.microsoftgraphconditionalaccessroot"
         """Get conditionalAccess from identity.
 
         Get conditionalAccess from identity.
 
         :param select: Select properties to be returned.
-        :type select: list[str or ~identity_sign_ins.models.Get0ItemsItem]
+        :type select: list[str or ~identity_sign_ins.models.Get0itemsitem]
         :param expand: Expand related entities.
         :type expand: list[str or ~identity_sign_ins.models.Enum5]
         :keyword callable cls: A custom type or function that will be passed the direct response
-        :return: MicrosoftGraphConditionalAccessRoot, or the result of cls(response)
-        :rtype: ~identity_sign_ins.models.MicrosoftGraphConditionalAccessRoot
+        :return: microsoftgraphconditionalaccessroot, or the result of cls(response)
+        :rtype: ~identity_sign_ins.models.microsoftgraphconditionalaccessroot
         :raises: ~azure.core.exceptions.HttpResponseError
         """
-        cls = kwargs.pop('cls', None)  # type: ClsType["models.MicrosoftGraphConditionalAccessRoot"]
+        cls = kwargs.pop('cls', None)  # type: ClsType["models.microsoftgraphconditionalaccessroot"]
         error_map = {
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
@@ -91,10 +90,10 @@ class IdentityOperations(object):
 
         if response.status_code not in [200]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
-        deserialized = self._deserialize('MicrosoftGraphConditionalAccessRoot', pipeline_response)
+        deserialized = self._deserialize('microsoftgraphconditionalaccessroot', pipeline_response)
 
         if cls:
             return cls(pipeline_response, deserialized, {})
@@ -104,9 +103,7 @@ class IdentityOperations(object):
 
     def update_conditional_access(
         self,
-        id=None,  # type: Optional[str]
-        named_locations=None,  # type: Optional[List["models.MicrosoftGraphNamedLocation"]]
-        policies=None,  # type: Optional[List["models.MicrosoftGraphConditionalAccessPolicy"]]
+        body,  # type: "models.microsoftgraphconditionalaccessroot"
         **kwargs  # type: Any
     ):
         # type: (...) -> None
@@ -114,12 +111,8 @@ class IdentityOperations(object):
 
         Update the navigation property conditionalAccess in identity.
 
-        :param id: Read-only.
-        :type id: str
-        :param named_locations:
-        :type named_locations: list[~identity_sign_ins.models.MicrosoftGraphNamedLocation]
-        :param policies:
-        :type policies: list[~identity_sign_ins.models.MicrosoftGraphConditionalAccessPolicy]
+        :param body: New navigation property values.
+        :type body: ~identity_sign_ins.models.microsoftgraphconditionalaccessroot
         :keyword callable cls: A custom type or function that will be passed the direct response
         :return: None, or the result of cls(response)
         :rtype: None
@@ -130,8 +123,6 @@ class IdentityOperations(object):
             401: ClientAuthenticationError, 404: ResourceNotFoundError, 409: ResourceExistsError
         }
         error_map.update(kwargs.pop('error_map', {}))
-
-        body = models.MicrosoftGraphConditionalAccessRoot(id=id, named_locations=named_locations, policies=policies)
         content_type = kwargs.pop("content_type", "application/json")
         accept = "application/json"
 
@@ -147,7 +138,7 @@ class IdentityOperations(object):
         header_parameters['Accept'] = self._serialize.header("accept", accept, 'str')
 
         body_content_kwargs = {}  # type: Dict[str, Any]
-        body_content = self._serialize.body(body, 'MicrosoftGraphConditionalAccessRoot')
+        body_content = self._serialize.body(body, 'microsoftgraphconditionalaccessroot')
         body_content_kwargs['content'] = body_content
         request = self._client.patch(url, query_parameters, header_parameters, **body_content_kwargs)
         pipeline_response = self._client._pipeline.run(request, stream=False, **kwargs)
@@ -155,8 +146,8 @@ class IdentityOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})
@@ -205,8 +196,8 @@ class IdentityOperations(object):
 
         if response.status_code not in [204]:
             map_error(status_code=response.status_code, response=response, error_map=error_map)
-            error = self._deserialize(models.OdataError, response)
-            raise HttpResponseError(response=response, model=error, error_format=ARMErrorFormat)
+            error = self._deserialize(models.odataerror, response)
+            raise HttpResponseError(response=response, model=error)
 
         if cls:
             return cls(pipeline_response, None, {})

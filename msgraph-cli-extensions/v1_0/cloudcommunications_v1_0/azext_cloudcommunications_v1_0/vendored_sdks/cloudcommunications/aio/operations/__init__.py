@@ -6,8 +6,8 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._user_operations import UserOperations
+from ._users_operations import usersOperations
 
 __all__ = [
-    'UserOperations',
+    'usersOperations',
 ]

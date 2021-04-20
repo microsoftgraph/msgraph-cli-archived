@@ -11,35 +11,20 @@
 |---------|------------|--------|
 |az security security|Security.security|[commands](#CommandsInSecurity.security)|
 |az security security|Security|[commands](#CommandsInSecurity)|
-|az security security-alert|Security.alerts|[commands](#CommandsInSecurity.alerts)|
-|az security security-action|Security.securityActions|[commands](#CommandsInSecurity.securityActions)|
-|az security security-ti-indicator|Security.tiIndicators|[commands](#CommandsInSecurity.tiIndicators)|
+|az security securityalert|Security.alerts|[commands](#CommandsInSecurity.alerts)|
+|az security securityaction|Security.securityActions|[commands](#CommandsInSecurity.securityActions)|
+|az security securitytiindicator|Security.tiIndicators|[commands](#CommandsInSecurity.tiIndicators)|
 
 ## COMMANDS
 ### <a name="CommandsInSecurity.security">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security create](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
-|[az security security create-action](#Security.securityUpdateSecurityActions)|UpdateSecurityActions|[Parameters](#ParametersSecurity.securityUpdateSecurityActions)|Not Found|
-|[az security security create-action](#Security.securityCreateSecurityActions)|CreateSecurityActions|[Parameters](#ParametersSecurity.securityCreateSecurityActions)|Not Found|
-|[az security security list-action](#Security.securityListSecurityActions)|ListSecurityActions|[Parameters](#ParametersSecurity.securityListSecurityActions)|Not Found|
 |[az security security show-security](#Security.securityGetSecurity)|GetSecurity|[Parameters](#ParametersSecurity.securityGetSecurity)|Not Found|
+|[az security security update-security](#Security.securityUpdateSecurity)|UpdateSecurity|[Parameters](#ParametersSecurity.securityUpdateSecurity)|Not Found|
 
 ### <a name="CommandsInSecurity">Commands in `az security security` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security delete](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
-|[az security security delete](#SecurityDeleteCloudAppSecurityProfiles)|DeleteCloudAppSecurityProfiles|[Parameters](#ParametersSecurityDeleteCloudAppSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteDomainSecurityProfiles)|DeleteDomainSecurityProfiles|[Parameters](#ParametersSecurityDeleteDomainSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteFileSecurityProfiles)|DeleteFileSecurityProfiles|[Parameters](#ParametersSecurityDeleteFileSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteHostSecurityProfiles)|DeleteHostSecurityProfiles|[Parameters](#ParametersSecurityDeleteHostSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteIpSecurityProfiles)|DeleteIpSecurityProfiles|[Parameters](#ParametersSecurityDeleteIpSecurityProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteProviderTenantSettings)|DeleteProviderTenantSettings|[Parameters](#ParametersSecurityDeleteProviderTenantSettings)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
-|[az security security delete](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
-|[az security security delete](#SecurityDeleteSecurityActions)|DeleteSecurityActions|[Parameters](#ParametersSecurityDeleteSecurityActions)|Not Found|
-|[az security security delete](#SecurityDeleteTiIndicators)|DeleteTiIndicators|[Parameters](#ParametersSecurityDeleteTiIndicators)|Not Found|
-|[az security security delete](#SecurityDeleteUserSecurityProfiles)|DeleteUserSecurityProfiles|[Parameters](#ParametersSecurityDeleteUserSecurityProfiles)|Not Found|
 |[az security security create-alert](#SecurityCreateAlerts)|CreateAlerts|[Parameters](#ParametersSecurityCreateAlerts)|Not Found|
 |[az security security create-cloud-app-security-profile](#SecurityCreateCloudAppSecurityProfiles)|CreateCloudAppSecurityProfiles|[Parameters](#ParametersSecurityCreateCloudAppSecurityProfiles)|Not Found|
 |[az security security create-domain-security-profile](#SecurityCreateDomainSecurityProfiles)|CreateDomainSecurityProfiles|[Parameters](#ParametersSecurityCreateDomainSecurityProfiles)|Not Found|
@@ -49,8 +34,21 @@
 |[az security security create-provider-tenant-setting](#SecurityCreateProviderTenantSettings)|CreateProviderTenantSettings|[Parameters](#ParametersSecurityCreateProviderTenantSettings)|Not Found|
 |[az security security create-secure-score](#SecurityCreateSecureScores)|CreateSecureScores|[Parameters](#ParametersSecurityCreateSecureScores)|Not Found|
 |[az security security create-secure-score-control-profile](#SecurityCreateSecureScoreControlProfiles)|CreateSecureScoreControlProfiles|[Parameters](#ParametersSecurityCreateSecureScoreControlProfiles)|Not Found|
+|[az security security create-security-action](#SecurityCreateSecurityActions)|CreateSecurityActions|[Parameters](#ParametersSecurityCreateSecurityActions)|Not Found|
 |[az security security create-ti-indicator](#SecurityCreateTiIndicators)|CreateTiIndicators|[Parameters](#ParametersSecurityCreateTiIndicators)|Not Found|
 |[az security security create-user-security-profile](#SecurityCreateUserSecurityProfiles)|CreateUserSecurityProfiles|[Parameters](#ParametersSecurityCreateUserSecurityProfiles)|Not Found|
+|[az security security delete-alert](#SecurityDeleteAlerts)|DeleteAlerts|[Parameters](#ParametersSecurityDeleteAlerts)|Not Found|
+|[az security security delete-cloud-app-security-profile](#SecurityDeleteCloudAppSecurityProfiles)|DeleteCloudAppSecurityProfiles|[Parameters](#ParametersSecurityDeleteCloudAppSecurityProfiles)|Not Found|
+|[az security security delete-domain-security-profile](#SecurityDeleteDomainSecurityProfiles)|DeleteDomainSecurityProfiles|[Parameters](#ParametersSecurityDeleteDomainSecurityProfiles)|Not Found|
+|[az security security delete-file-security-profile](#SecurityDeleteFileSecurityProfiles)|DeleteFileSecurityProfiles|[Parameters](#ParametersSecurityDeleteFileSecurityProfiles)|Not Found|
+|[az security security delete-host-security-profile](#SecurityDeleteHostSecurityProfiles)|DeleteHostSecurityProfiles|[Parameters](#ParametersSecurityDeleteHostSecurityProfiles)|Not Found|
+|[az security security delete-ip-security-profile](#SecurityDeleteIpSecurityProfiles)|DeleteIpSecurityProfiles|[Parameters](#ParametersSecurityDeleteIpSecurityProfiles)|Not Found|
+|[az security security delete-provider-tenant-setting](#SecurityDeleteProviderTenantSettings)|DeleteProviderTenantSettings|[Parameters](#ParametersSecurityDeleteProviderTenantSettings)|Not Found|
+|[az security security delete-secure-score](#SecurityDeleteSecureScores)|DeleteSecureScores|[Parameters](#ParametersSecurityDeleteSecureScores)|Not Found|
+|[az security security delete-secure-score-control-profile](#SecurityDeleteSecureScoreControlProfiles)|DeleteSecureScoreControlProfiles|[Parameters](#ParametersSecurityDeleteSecureScoreControlProfiles)|Not Found|
+|[az security security delete-security-action](#SecurityDeleteSecurityActions)|DeleteSecurityActions|[Parameters](#ParametersSecurityDeleteSecurityActions)|Not Found|
+|[az security security delete-ti-indicator](#SecurityDeleteTiIndicators)|DeleteTiIndicators|[Parameters](#ParametersSecurityDeleteTiIndicators)|Not Found|
+|[az security security delete-user-security-profile](#SecurityDeleteUserSecurityProfiles)|DeleteUserSecurityProfiles|[Parameters](#ParametersSecurityDeleteUserSecurityProfiles)|Not Found|
 |[az security security list-alert](#SecurityListAlerts)|ListAlerts|[Parameters](#ParametersSecurityListAlerts)|Not Found|
 |[az security security list-cloud-app-security-profile](#SecurityListCloudAppSecurityProfiles)|ListCloudAppSecurityProfiles|[Parameters](#ParametersSecurityListCloudAppSecurityProfiles)|Not Found|
 |[az security security list-domain-security-profile](#SecurityListDomainSecurityProfiles)|ListDomainSecurityProfiles|[Parameters](#ParametersSecurityListDomainSecurityProfiles)|Not Found|
@@ -60,6 +58,7 @@
 |[az security security list-provider-tenant-setting](#SecurityListProviderTenantSettings)|ListProviderTenantSettings|[Parameters](#ParametersSecurityListProviderTenantSettings)|Not Found|
 |[az security security list-secure-score](#SecurityListSecureScores)|ListSecureScores|[Parameters](#ParametersSecurityListSecureScores)|Not Found|
 |[az security security list-secure-score-control-profile](#SecurityListSecureScoreControlProfiles)|ListSecureScoreControlProfiles|[Parameters](#ParametersSecurityListSecureScoreControlProfiles)|Not Found|
+|[az security security list-security-action](#SecurityListSecurityActions)|ListSecurityActions|[Parameters](#ParametersSecurityListSecurityActions)|Not Found|
 |[az security security list-ti-indicator](#SecurityListTiIndicators)|ListTiIndicators|[Parameters](#ParametersSecurityListTiIndicators)|Not Found|
 |[az security security list-user-security-profile](#SecurityListUserSecurityProfiles)|ListUserSecurityProfiles|[Parameters](#ParametersSecurityListUserSecurityProfiles)|Not Found|
 |[az security security show-alert](#SecurityGetAlerts)|GetAlerts|[Parameters](#ParametersSecurityGetAlerts)|Not Found|
@@ -83,32 +82,41 @@
 |[az security security update-provider-tenant-setting](#SecurityUpdateProviderTenantSettings)|UpdateProviderTenantSettings|[Parameters](#ParametersSecurityUpdateProviderTenantSettings)|Not Found|
 |[az security security update-secure-score](#SecurityUpdateSecureScores)|UpdateSecureScores|[Parameters](#ParametersSecurityUpdateSecureScores)|Not Found|
 |[az security security update-secure-score-control-profile](#SecurityUpdateSecureScoreControlProfiles)|UpdateSecureScoreControlProfiles|[Parameters](#ParametersSecurityUpdateSecureScoreControlProfiles)|Not Found|
+|[az security security update-security-action](#SecurityUpdateSecurityActions)|UpdateSecurityActions|[Parameters](#ParametersSecurityUpdateSecurityActions)|Not Found|
 |[az security security update-ti-indicator](#SecurityUpdateTiIndicators)|UpdateTiIndicators|[Parameters](#ParametersSecurityUpdateTiIndicators)|Not Found|
 |[az security security update-user-security-profile](#SecurityUpdateUserSecurityProfiles)|UpdateUserSecurityProfiles|[Parameters](#ParametersSecurityUpdateUserSecurityProfiles)|Not Found|
 
-### <a name="CommandsInSecurity.securityActions">Commands in `az security security-action` group</a>
+### <a name="CommandsInSecurity.securityActions">Commands in `az security securityaction` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security-action cancel-security-action](#Security.securityActionscancelSecurityAction)|cancelSecurityAction|[Parameters](#ParametersSecurity.securityActionscancelSecurityAction)|Not Found|
+|[az security securityaction cancel-security-action](#Security.securityActionscancelSecurityAction)|cancelSecurityAction|[Parameters](#ParametersSecurity.securityActionscancelSecurityAction)|Not Found|
 
-### <a name="CommandsInSecurity.alerts">Commands in `az security security-alert` group</a>
+### <a name="CommandsInSecurity.alerts">Commands in `az security securityalert` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security-alert update-alert](#Security.alertsupdateAlerts)|updateAlerts|[Parameters](#ParametersSecurity.alertsupdateAlerts)|Not Found|
+|[az security securityalert update-alert](#Security.alertsupdateAlerts)|updateAlerts|[Parameters](#ParametersSecurity.alertsupdateAlerts)|Not Found|
 
-### <a name="CommandsInSecurity.tiIndicators">Commands in `az security security-ti-indicator` group</a>
+### <a name="CommandsInSecurity.tiIndicators">Commands in `az security securitytiindicator` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az security security-ti-indicator delete-ti-indicator](#Security.tiIndicatorsdeleteTiIndicators)|deleteTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicators)|Not Found|
-|[az security security-ti-indicator delete-ti-indicator-by-external-id](#Security.tiIndicatorsdeleteTiIndicatorsByExternalId)|deleteTiIndicatorsByExternalId|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicatorsByExternalId)|Not Found|
-|[az security security-ti-indicator submit-ti-indicator](#Security.tiIndicatorssubmitTiIndicators)|submitTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorssubmitTiIndicators)|Not Found|
-|[az security security-ti-indicator update-ti-indicator](#Security.tiIndicatorsupdateTiIndicators)|updateTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsupdateTiIndicators)|Not Found|
+|[az security securitytiindicator delete-ti-indicator](#Security.tiIndicatorsdeleteTiIndicators)|deleteTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicators)|Not Found|
+|[az security securitytiindicator delete-ti-indicator-by-external-id](#Security.tiIndicatorsdeleteTiIndicatorsByExternalId)|deleteTiIndicatorsByExternalId|[Parameters](#ParametersSecurity.tiIndicatorsdeleteTiIndicatorsByExternalId)|Not Found|
+|[az security securitytiindicator submit-ti-indicator](#Security.tiIndicatorssubmitTiIndicators)|submitTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorssubmitTiIndicators)|Not Found|
+|[az security securitytiindicator update-ti-indicator](#Security.tiIndicatorsupdateTiIndicators)|updateTiIndicators|[Parameters](#ParametersSecurity.tiIndicatorsupdateTiIndicators)|Not Found|
 
 
 ## COMMAND DETAILS
 
 ### group `az security security`
-#### <a name="Security.securityUpdateSecurity">Command `az security security create`</a>
+#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
+
+##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="Security.securityUpdateSecurity">Command `az security security update-security`</a>
 
 ##### <a name="ParametersSecurity.securityUpdateSecurity">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -128,176 +136,13 @@
 |**--ti-indicators**|array||ti_indicators|tiIndicators|
 |**--user-security-profiles**|array||user_security_profiles|userSecurityProfiles|
 
-#### <a name="Security.securityUpdateSecurityActions">Command `az security security create-action`</a>
-
-##### <a name="ParametersSecurity.securityUpdateSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
-|**--id**|string|Read-only.|id|id|
-|**--action-reason**|string||action_reason|actionReason|
-|**--app-id**|string||app_id|appId|
-|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
-|**--client-context**|string||client_context|clientContext|
-|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
-|**--created-date-time**|date-time||created_date_time|createdDateTime|
-|**--error-info**|object|ResultInfo|error_info|errorInfo|
-|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
-|**--name**|string||name|name|
-|**--parameters**|array||parameters|parameters|
-|**--states**|array||states|states|
-|**--status**|choice||status|status|
-|**--user**|string||user|user|
-|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-
-#### <a name="Security.securityCreateSecurityActions">Command `az security security create-action`</a>
-
-##### <a name="ParametersSecurity.securityCreateSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="Security.securityListSecurityActions">Command `az security security list-action`</a>
-
-##### <a name="ParametersSecurity.securityListSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--orderby**|array|Order items by property values|orderby|$orderby|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
-#### <a name="Security.securityGetSecurity">Command `az security security show-security`</a>
-
-##### <a name="ParametersSecurity.securityGetSecurity">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--select**|array|Select properties to be returned|select|$select|
-|**--expand**|array|Expand related entities|expand|$expand|
-
 ### group `az security security`
-#### <a name="SecurityDeleteAlerts">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--alert-id**|string|key: id of alert|alert_id|alert-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="SecurityDeleteCloudAppSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteCloudAppSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
-
-#### <a name="SecurityDeleteDomainSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteDomainSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
-
-#### <a name="SecurityDeleteFileSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteFileSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
-
-#### <a name="SecurityDeleteHostSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteHostSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
-
-#### <a name="SecurityDeleteIpSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteIpSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
-
-#### <a name="SecurityDeleteProviderTenantSettings">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteProviderTenantSettings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
-
-#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
-
-#### <a name="SecurityDeleteSecureScores">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
-
-#### <a name="SecurityDeleteSecurityActions">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteSecurityActions">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
-
-#### <a name="SecurityDeleteTiIndicators">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteTiIndicators">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
-
-#### <a name="SecurityDeleteUserSecurityProfiles">Command `az security security delete`</a>
-
-##### <a name="ParametersSecurityDeleteUserSecurityProfiles">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
-
 #### <a name="SecurityCreateAlerts">Command `az security security create-alert`</a>
 
 ##### <a name="ParametersSecurityCreateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--activity-group-name**|string|Name or alias of the activity group (attacker) this alert is attributed to.|activity_group_name|activityGroupName|
-|**--assigned-to**|string|Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update).|assigned_to|assignedTo|
-|**--azure-subscription-id**|string|Azure subscription ID, present if this alert is related to an Azure resource.|azure_subscription_id|azureSubscriptionId|
-|**--azure-tenant-id**|string|Azure Active Directory tenant ID. Required.|azure_tenant_id|azureTenantId|
-|**--category**|string|Category of the alert (for example, credentialTheft, ransomware, etc.).|category|category|
-|**--closed-date-time**|date-time|Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' (supports update).|closed_date_time|closedDateTime|
-|**--cloud-app-states**|array|Security-related stateful information generated by the provider about the cloud application/s related to this alert.|cloud_app_states|cloudAppStates|
-|**--comments**|array|Customer-provided comments on alert (for customer alert management) (supports update).|comments|comments|
-|**--confidence**|integer|Confidence of the detection logic (percentage between 1-100).|confidence|confidence|
-|**--created-date-time**|date-time|Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.|created_date_time|createdDateTime|
-|**--description**|string|Alert description.|description|description|
-|**--detection-ids**|array|Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).|detection_ids|detectionIds|
-|**--event-date-time**|date-time|Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.|event_date_time|eventDateTime|
-|**--feedback**|choice||feedback|feedback|
-|**--file-states**|array|Security-related stateful information generated by the provider about the file(s) related to this alert.|file_states|fileStates|
-|**--history-states**|array||history_states|historyStates|
-|**--host-states**|array|Security-related stateful information generated by the provider about the host(s) related to this alert.|host_states|hostStates|
-|**--incident-ids**|array|IDs of incidents related to current alert.|incident_ids|incidentIds|
-|**--last-modified-date-time**|date-time|Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.|last_modified_date_time|lastModifiedDateTime|
-|**--malware-states**|array|Threat Intelligence pertaining to malware related to this alert.|malware_states|malwareStates|
-|**--network-connections**|array|Security-related stateful information generated by the provider about the network connection(s) related to this alert.|network_connections|networkConnections|
-|**--processes**|array|Security-related stateful information generated by the provider about the process or processes related to this alert.|processes|processes|
-|**--recommended-actions**|array|Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).|recommended_actions|recommendedActions|
-|**--registry-key-states**|array|Security-related stateful information generated by the provider about the registry keys related to this alert.|registry_key_states|registryKeyStates|
-|**--security-resources**|array|Resources related to current alert. For example, for some alerts this can have the Azure Resource value.|security_resources|securityResources|
-|**--severity**|choice||severity|severity|
-|**--source-materials**|array|Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.|source_materials|sourceMaterials|
-|**--status**|choice||status|status|
-|**--tags**|array|User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).|tags|tags|
-|**--title**|string|Alert title. Required.|title|title|
-|**--triggers**|array|Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation.|triggers|triggers|
-|**--user-states**|array|Security-related stateful information generated by the provider about the user accounts related to this alert.|user_states|userStates|
-|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-|**--vulnerability-states**|array|Threat intelligence pertaining to one or more vulnerabilities related to this alert.|vulnerability_states|vulnerabilityStates|
+|**--body**|object|New navigation property|body|body|
 
 #### <a name="SecurityCreateCloudAppSecurityProfiles">Command `az security security create-cloud-app-security-profile`</a>
 
@@ -467,6 +312,27 @@
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
+#### <a name="SecurityCreateSecurityActions">Command `az security security create-security-action`</a>
+
+##### <a name="ParametersSecurityCreateSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--id**|string|Read-only.|id|id|
+|**--action-reason**|string||action_reason|actionReason|
+|**--app-id**|string||app_id|appId|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--client-context**|string||client_context|clientContext|
+|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--error-info**|object|ResultInfo|error_info|errorInfo|
+|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
+|**--name**|string||name|name|
+|**--parameters**|array||parameters|parameters|
+|**--states**|array||states|states|
+|**--status**|choice||status|status|
+|**--user**|string||user|user|
+|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
 #### <a name="SecurityCreateTiIndicators">Command `az security security create-ti-indicator`</a>
 
 ##### <a name="ParametersSecurityCreateTiIndicators">Parameters</a> 
@@ -549,6 +415,102 @@
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
+#### <a name="SecurityDeleteAlerts">Command `az security security delete-alert`</a>
+
+##### <a name="ParametersSecurityDeleteAlerts">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--alert-id**|string|key: id of alert|alert_id|alert-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteCloudAppSecurityProfiles">Command `az security security delete-cloud-app-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteCloudAppSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--cloud-app-security-profile-id**|string|key: id of cloudAppSecurityProfile|cloud_app_security_profile_id|cloudAppSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteDomainSecurityProfiles">Command `az security security delete-domain-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteDomainSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--domain-security-profile-id**|string|key: id of domainSecurityProfile|domain_security_profile_id|domainSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteFileSecurityProfiles">Command `az security security delete-file-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteFileSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--file-security-profile-id**|string|key: id of fileSecurityProfile|file_security_profile_id|fileSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteHostSecurityProfiles">Command `az security security delete-host-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteHostSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--host-security-profile-id**|string|key: id of hostSecurityProfile|host_security_profile_id|hostSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteIpSecurityProfiles">Command `az security security delete-ip-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteIpSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ip-security-profile-id**|string|key: id of ipSecurityProfile|ip_security_profile_id|ipSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteProviderTenantSettings">Command `az security security delete-provider-tenant-setting`</a>
+
+##### <a name="ParametersSecurityDeleteProviderTenantSettings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provider-tenant-setting-id**|string|key: id of providerTenantSetting|provider_tenant_setting_id|providerTenantSetting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScores">Command `az security security delete-secure-score`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScores">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-id**|string|key: id of secureScore|secure_score_id|secureScore-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecureScoreControlProfiles">Command `az security security delete-secure-score-control-profile`</a>
+
+##### <a name="ParametersSecurityDeleteSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--secure-score-control-profile-id**|string|key: id of secureScoreControlProfile|secure_score_control_profile_id|secureScoreControlProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteSecurityActions">Command `az security security delete-security-action`</a>
+
+##### <a name="ParametersSecurityDeleteSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteTiIndicators">Command `az security security delete-ti-indicator`</a>
+
+##### <a name="ParametersSecurityDeleteTiIndicators">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--ti-indicator-id**|string|key: id of tiIndicator|ti_indicator_id|tiIndicator-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="SecurityDeleteUserSecurityProfiles">Command `az security security delete-user-security-profile`</a>
+
+##### <a name="ParametersSecurityDeleteUserSecurityProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-security-profile-id**|string|key: id of userSecurityProfile|user_security_profile_id|userSecurityProfile-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
 #### <a name="SecurityListAlerts">Command `az security security list-alert`</a>
 
 ##### <a name="ParametersSecurityListAlerts">Parameters</a> 
@@ -624,6 +586,15 @@
 #### <a name="SecurityListSecureScoreControlProfiles">Command `az security security list-secure-score-control-profile`</a>
 
 ##### <a name="ParametersSecurityListSecureScoreControlProfiles">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--orderby**|array|Order items by property values|orderby|$orderby|
+|**--select**|array|Select properties to be returned|select|$select|
+|**--expand**|array|Expand related entities|expand|$expand|
+
+#### <a name="SecurityListSecurityActions">Command `az security security list-security-action`</a>
+
+##### <a name="ParametersSecurityListSecurityActions">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--orderby**|array|Order items by property values|orderby|$orderby|
@@ -762,41 +733,7 @@
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--alert-id**|string|key: id of alert|alert_id|alert-id|
-|**--id**|string|Read-only.|id|id|
-|**--activity-group-name**|string|Name or alias of the activity group (attacker) this alert is attributed to.|activity_group_name|activityGroupName|
-|**--assigned-to**|string|Name of the analyst the alert is assigned to for triage, investigation, or remediation (supports update).|assigned_to|assignedTo|
-|**--azure-subscription-id**|string|Azure subscription ID, present if this alert is related to an Azure resource.|azure_subscription_id|azureSubscriptionId|
-|**--azure-tenant-id**|string|Azure Active Directory tenant ID. Required.|azure_tenant_id|azureTenantId|
-|**--category**|string|Category of the alert (for example, credentialTheft, ransomware, etc.).|category|category|
-|**--closed-date-time**|date-time|Time at which the alert was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z' (supports update).|closed_date_time|closedDateTime|
-|**--cloud-app-states**|array|Security-related stateful information generated by the provider about the cloud application/s related to this alert.|cloud_app_states|cloudAppStates|
-|**--comments**|array|Customer-provided comments on alert (for customer alert management) (supports update).|comments|comments|
-|**--confidence**|integer|Confidence of the detection logic (percentage between 1-100).|confidence|confidence|
-|**--created-date-time**|date-time|Time at which the alert was created by the alert provider. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.|created_date_time|createdDateTime|
-|**--description**|string|Alert description.|description|description|
-|**--detection-ids**|array|Set of alerts related to this alert entity (each alert is pushed to the SIEM as a separate record).|detection_ids|detectionIds|
-|**--event-date-time**|date-time|Time at which the event(s) that served as the trigger(s) to generate the alert occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'. Required.|event_date_time|eventDateTime|
-|**--feedback**|choice||feedback|feedback|
-|**--file-states**|array|Security-related stateful information generated by the provider about the file(s) related to this alert.|file_states|fileStates|
-|**--history-states**|array||history_states|historyStates|
-|**--host-states**|array|Security-related stateful information generated by the provider about the host(s) related to this alert.|host_states|hostStates|
-|**--incident-ids**|array|IDs of incidents related to current alert.|incident_ids|incidentIds|
-|**--last-modified-date-time**|date-time|Time at which the alert entity was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.|last_modified_date_time|lastModifiedDateTime|
-|**--malware-states**|array|Threat Intelligence pertaining to malware related to this alert.|malware_states|malwareStates|
-|**--network-connections**|array|Security-related stateful information generated by the provider about the network connection(s) related to this alert.|network_connections|networkConnections|
-|**--processes**|array|Security-related stateful information generated by the provider about the process or processes related to this alert.|processes|processes|
-|**--recommended-actions**|array|Vendor/provider recommended action(s) to take as a result of the alert (for example, isolate machine, enforce2FA, reimage host).|recommended_actions|recommendedActions|
-|**--registry-key-states**|array|Security-related stateful information generated by the provider about the registry keys related to this alert.|registry_key_states|registryKeyStates|
-|**--security-resources**|array|Resources related to current alert. For example, for some alerts this can have the Azure Resource value.|security_resources|securityResources|
-|**--severity**|choice||severity|severity|
-|**--source-materials**|array|Hyperlinks (URIs) to the source material related to the alert, for example, provider's user interface for alerts or log search, etc.|source_materials|sourceMaterials|
-|**--status**|choice||status|status|
-|**--tags**|array|User-definable labels that can be applied to an alert and can serve as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).|tags|tags|
-|**--title**|string|Alert title. Required.|title|title|
-|**--triggers**|array|Security-related information about the specific properties that triggered the alert (properties appearing in the alert). Alerts might contain information about multiple users, hosts, files, ip addresses. This field indicates which properties triggered the alert generation.|triggers|triggers|
-|**--user-states**|array|Security-related stateful information generated by the provider about the user accounts related to this alert.|user_states|userStates|
-|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
-|**--vulnerability-states**|array|Threat intelligence pertaining to one or more vulnerabilities related to this alert.|vulnerability_states|vulnerabilityStates|
+|**--body**|object|New navigation property values|body|body|
 
 #### <a name="SecurityUpdateCloudAppSecurityProfiles">Command `az security security update-cloud-app-security-profile`</a>
 
@@ -974,6 +911,28 @@
 |**--user-impact**|string||user_impact|userImpact|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
+#### <a name="SecurityUpdateSecurityActions">Command `az security security update-security-action`</a>
+
+##### <a name="ParametersSecurityUpdateSecurityActions">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
+|**--id**|string|Read-only.|id|id|
+|**--action-reason**|string||action_reason|actionReason|
+|**--app-id**|string||app_id|appId|
+|**--azure-tenant-id**|string||azure_tenant_id|azureTenantId|
+|**--client-context**|string||client_context|clientContext|
+|**--completed-date-time**|date-time||completed_date_time|completedDateTime|
+|**--created-date-time**|date-time||created_date_time|createdDateTime|
+|**--error-info**|object|ResultInfo|error_info|errorInfo|
+|**--last-action-date-time**|date-time||last_action_date_time|lastActionDateTime|
+|**--name**|string||name|name|
+|**--parameters**|array||parameters|parameters|
+|**--states**|array||states|states|
+|**--status**|choice||status|status|
+|**--user**|string||user|user|
+|**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
+
 #### <a name="SecurityUpdateTiIndicators">Command `az security security update-ti-indicator`</a>
 
 ##### <a name="ParametersSecurityUpdateTiIndicators">Parameters</a> 
@@ -1058,45 +1017,45 @@
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 |**--vendor-information**|object|securityVendorInformation|vendor_information|vendorInformation|
 
-### group `az security security-action`
-#### <a name="Security.securityActionscancelSecurityAction">Command `az security security-action cancel-security-action`</a>
+### group `az security securityaction`
+#### <a name="Security.securityActionscancelSecurityAction">Command `az security securityaction cancel-security-action`</a>
 
 ##### <a name="ParametersSecurity.securityActionscancelSecurityAction">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--security-action-id**|string|key: id of securityAction|security_action_id|securityAction-id|
 
-### group `az security security-alert`
-#### <a name="Security.alertsupdateAlerts">Command `az security security-alert update-alert`</a>
+### group `az security securityalert`
+#### <a name="Security.alertsupdateAlerts">Command `az security securityalert update-alert`</a>
 
 ##### <a name="ParametersSecurity.alertsupdateAlerts">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
 
-### group `az security security-ti-indicator`
-#### <a name="Security.tiIndicatorsdeleteTiIndicators">Command `az security security-ti-indicator delete-ti-indicator`</a>
+### group `az security securitytiindicator`
+#### <a name="Security.tiIndicatorsdeleteTiIndicators">Command `az security securitytiindicator delete-ti-indicator`</a>
 
 ##### <a name="ParametersSecurity.tiIndicatorsdeleteTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
 
-#### <a name="Security.tiIndicatorsdeleteTiIndicatorsByExternalId">Command `az security security-ti-indicator delete-ti-indicator-by-external-id`</a>
+#### <a name="Security.tiIndicatorsdeleteTiIndicatorsByExternalId">Command `az security securitytiindicator delete-ti-indicator-by-external-id`</a>
 
 ##### <a name="ParametersSecurity.tiIndicatorsdeleteTiIndicatorsByExternalId">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
 
-#### <a name="Security.tiIndicatorssubmitTiIndicators">Command `az security security-ti-indicator submit-ti-indicator`</a>
+#### <a name="Security.tiIndicatorssubmitTiIndicators">Command `az security securitytiindicator submit-ti-indicator`</a>
 
 ##### <a name="ParametersSecurity.tiIndicatorssubmitTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--value**|array||value|value|
 
-#### <a name="Security.tiIndicatorsupdateTiIndicators">Command `az security security-ti-indicator update-ti-indicator`</a>
+#### <a name="Security.tiIndicatorsupdateTiIndicators">Command `az security securitytiindicator update-ti-indicator`</a>
 
 ##### <a name="ParametersSecurity.tiIndicatorsupdateTiIndicators">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

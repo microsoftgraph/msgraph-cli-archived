@@ -18,25 +18,25 @@ def cf_applications_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_application_application(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).application_application
+def cf_applicationsapplication(cli_ctx, *_):
+    return cf_applications_v1_0_cl(cli_ctx).applicationsapplication
 
 
 def cf_application(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).application
+    return cf_applications_v1_0_cl(cli_ctx).applications
 
 
 def cf_group(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).group
+    return cf_applications_v1_0_cl(cli_ctx).groups
 
 
-def cf_service_principal_service_principal(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).service_principal_service_principal
+def cf_serviceprincipalsserviceprincipal(cli_ctx, *_):
+    return cf_applications_v1_0_cl(cli_ctx).serviceprincipalsserviceprincipal
 
 
-def cf_service_principal(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).service_principal
+def cf_serviceprincipal(cli_ctx, *_):
+    return cf_applications_v1_0_cl(cli_ctx).serviceprincipals
 
 
 def cf_user(cli_ctx, *_):
-    return cf_applications_v1_0_cl(cli_ctx).user
+    return cf_applications_v1_0_cl(cli_ctx).users

@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,21 +16,21 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import CrossDeviceExperiencesConfiguration
-from .operations import UserOperations
-from .operations import UserActivityOperations
-from .operations import UserActivityHistoryItemOperations
+from .operations import usersOperations
+from .operations import usersactivitiesOperations
+from .operations import usersactivitieshistoryitemsOperations
 from .. import models
 
 
 class CrossDeviceExperiences(object):
     """CrossDeviceExperiences.
 
-    :ivar user: UserOperations operations
-    :vartype user: cross_device_experiences.aio.operations.UserOperations
-    :ivar user_activity: UserActivityOperations operations
-    :vartype user_activity: cross_device_experiences.aio.operations.UserActivityOperations
-    :ivar user_activity_history_item: UserActivityHistoryItemOperations operations
-    :vartype user_activity_history_item: cross_device_experiences.aio.operations.UserActivityHistoryItemOperations
+    :ivar users: usersOperations operations
+    :vartype users: cross_device_experiences.aio.operations.usersOperations
+    :ivar usersactivities: usersactivitiesOperations operations
+    :vartype usersactivities: cross_device_experiences.aio.operations.usersactivitiesOperations
+    :ivar usersactivitieshistoryitems: usersactivitieshistoryitemsOperations operations
+    :vartype usersactivitieshistoryitems: cross_device_experiences.aio.operations.usersactivitieshistoryitemsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -60,18 +60,18 @@ class CrossDeviceExperiences(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = CrossDeviceExperiencesConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_activity = UserActivityOperations(
+        self.usersactivities = usersactivitiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_activity_history_item = UserActivityHistoryItemOperations(
+        self.usersactivitieshistoryitems = usersactivitieshistoryitemsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

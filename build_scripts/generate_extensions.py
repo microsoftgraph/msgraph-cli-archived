@@ -18,12 +18,13 @@ def generate_extension_from_open_api_description(version='v1_0'):
 
         subprocess.run([
             'autorest',
+            '--markOpenAPI3ErrorsAsWarning'
             '--version=3.0.6370',
-            '--sdk-flatten',
+            '--clear-output-folder',
             '--az',
             f'''--input-file={file_path}''',
             f'''--azure-cli-extension-folder=../msgraph-cli-extensions/{version}''',
-            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210302.1/autorest-az-1.7.3.tgz''',
+            r'''--use=https://github.com/Azure/autorest.az/releases/download/1.7.3-b.20210325.1/autorest-az-1.7.3.tgz''',
         ],
                        shell=True)
 

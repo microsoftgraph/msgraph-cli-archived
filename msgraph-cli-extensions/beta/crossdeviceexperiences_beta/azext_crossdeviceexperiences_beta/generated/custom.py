@@ -10,20 +10,6 @@
 # pylint: disable=too-many-lines
 
 
-def crossdeviceexperiences_user_delete(client,
-                                       user_id,
-                                       user_activity_id=None,
-                                       if_match=None,
-                                       device_id=None):
-    if user_id is not None and user_activity_id is not None:
-        return client.delete_activity(user_id=user_id,
-                                      user_activity_id=user_activity_id,
-                                      if_match=if_match)
-    return client.delete_device(user_id=user_id,
-                                device_id=device_id,
-                                if_match=if_match)
-
-
 def crossdeviceexperiences_user_create_activity(client,
                                                 user_id,
                                                 id_=None,
@@ -45,113 +31,54 @@ def crossdeviceexperiences_user_create_activity(client,
                                                 content=None,
                                                 description=None,
                                                 display_text=None):
-    return client.create_activity(user_id=user_id,
-                                  id=id_,
-                                  activation_url=activation_url,
-                                  activity_source_host=activity_source_host,
-                                  app_activity_id=app_activity_id,
-                                  app_display_name=app_display_name,
-                                  content_info=content_info,
-                                  content_url=content_url,
-                                  created_date_time=created_date_time,
-                                  expiration_date_time=expiration_date_time,
-                                  fallback_url=fallback_url,
-                                  last_modified_date_time=last_modified_date_time,
-                                  status=status,
-                                  user_timezone=user_timezone,
-                                  history_items=history_items,
-                                  attribution=attribution,
-                                  background_color=background_color,
-                                  content=content,
-                                  description=description,
-                                  display_text=display_text)
+    body = {}
+    body['id'] = id_
+    body['activation_url'] = activation_url
+    body['activity_source_host'] = activity_source_host
+    body['app_activity_id'] = app_activity_id
+    body['app_display_name'] = app_display_name
+    body['content_info'] = content_info
+    body['content_url'] = content_url
+    body['created_date_time'] = created_date_time
+    body['expiration_date_time'] = expiration_date_time
+    body['fallback_url'] = fallback_url
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['user_timezone'] = user_timezone
+    body['history_items'] = history_items
+    body['visual_elements'] = {}
+    body['visual_elements']['attribution'] = attribution
+    body['visual_elements']['background_color'] = background_color
+    body['visual_elements']['content'] = content
+    body['visual_elements']['description'] = description
+    body['visual_elements']['display_text'] = display_text
+    return client.create_activities(user_id=user_id,
+                                    body=body)
 
 
 def crossdeviceexperiences_user_create_device(client,
                                               user_id,
-                                              id_=None,
-                                              deleted_date_time=None,
-                                              account_enabled=None,
-                                              alternative_security_ids=None,
-                                              approximate_last_sign_in_date_time=None,
-                                              compliance_expiration_date_time=None,
-                                              device_category=None,
-                                              device_id=None,
-                                              device_metadata=None,
-                                              device_ownership=None,
-                                              device_version=None,
-                                              display_name=None,
-                                              domain_name=None,
-                                              enrollment_profile_name=None,
-                                              enrollment_type=None,
-                                              extension_attributes=None,
-                                              is_compliant=None,
-                                              is_managed=None,
-                                              is_rooted=None,
-                                              management_type=None,
-                                              on_premises_last_sync_date_time=None,
-                                              on_premises_sync_enabled=None,
-                                              operating_system=None,
-                                              operating_system_version=None,
-                                              physical_ids=None,
-                                              profile_type=None,
-                                              registration_date_time=None,
-                                              system_labels=None,
-                                              trust_type=None,
-                                              kind=None,
-                                              manufacturer=None,
-                                              model=None,
-                                              name=None,
-                                              platform=None,
-                                              status=None,
-                                              member_of=None,
-                                              registered_owners=None,
-                                              registered_users=None,
-                                              transitive_member_of=None,
-                                              extensions=None,
-                                              commands=None):
-    return client.create_device(user_id=user_id,
-                                id=id_,
-                                deleted_date_time=deleted_date_time,
-                                account_enabled=account_enabled,
-                                alternative_security_ids=alternative_security_ids,
-                                approximate_last_sign_in_date_time=approximate_last_sign_in_date_time,
-                                compliance_expiration_date_time=compliance_expiration_date_time,
-                                device_category=device_category,
-                                device_id=device_id,
-                                device_metadata=device_metadata,
-                                device_ownership=device_ownership,
-                                device_version=device_version,
-                                display_name=display_name,
-                                domain_name=domain_name,
-                                enrollment_profile_name=enrollment_profile_name,
-                                enrollment_type=enrollment_type,
-                                extension_attributes=extension_attributes,
-                                is_compliant=is_compliant,
-                                is_managed=is_managed,
-                                is_rooted=is_rooted,
-                                management_type=management_type,
-                                on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                on_premises_sync_enabled=on_premises_sync_enabled,
-                                operating_system=operating_system,
-                                operating_system_version=operating_system_version,
-                                physical_ids=physical_ids,
-                                profile_type=profile_type,
-                                registration_date_time=registration_date_time,
-                                system_labels=system_labels,
-                                trust_type=trust_type,
-                                kind=kind,
-                                manufacturer=manufacturer,
-                                model=model,
-                                name=name,
-                                platform=platform,
-                                status=status,
-                                member_of=member_of,
-                                registered_owners=registered_owners,
-                                registered_users=registered_users,
-                                transitive_member_of=transitive_member_of,
-                                extensions=extensions,
-                                commands=commands)
+                                              body):
+    return client.create_devices(user_id=user_id,
+                                 body=body)
+
+
+def crossdeviceexperiences_user_delete_activity(client,
+                                                user_id,
+                                                user_activity_id,
+                                                if_match=None):
+    return client.delete_activities(user_id=user_id,
+                                    user_activity_id=user_activity_id,
+                                    if_match=if_match)
+
+
+def crossdeviceexperiences_user_delete_device(client,
+                                              user_id,
+                                              device_id,
+                                              if_match=None):
+    return client.delete_devices(user_id=user_id,
+                                 device_id=device_id,
+                                 if_match=if_match)
 
 
 def crossdeviceexperiences_user_list_activity(client,
@@ -159,10 +86,10 @@ def crossdeviceexperiences_user_list_activity(client,
                                               orderby=None,
                                               select=None,
                                               expand=None):
-    return client.list_activity(user_id=user_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
+    return client.list_activities(user_id=user_id,
+                                  orderby=orderby,
+                                  select=select,
+                                  expand=expand)
 
 
 def crossdeviceexperiences_user_list_device(client,
@@ -170,10 +97,10 @@ def crossdeviceexperiences_user_list_device(client,
                                             orderby=None,
                                             select=None,
                                             expand=None):
-    return client.list_device(user_id=user_id,
-                              orderby=orderby,
-                              select=select,
-                              expand=expand)
+    return client.list_devices(user_id=user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
 
 
 def crossdeviceexperiences_user_show_activity(client,
@@ -181,10 +108,10 @@ def crossdeviceexperiences_user_show_activity(client,
                                               user_activity_id,
                                               select=None,
                                               expand=None):
-    return client.get_activity(user_id=user_id,
-                               user_activity_id=user_activity_id,
-                               select=select,
-                               expand=expand)
+    return client.get_activities(user_id=user_id,
+                                 user_activity_id=user_activity_id,
+                                 select=select,
+                                 expand=expand)
 
 
 def crossdeviceexperiences_user_show_device(client,
@@ -192,10 +119,10 @@ def crossdeviceexperiences_user_show_device(client,
                                             device_id,
                                             select=None,
                                             expand=None):
-    return client.get_device(user_id=user_id,
-                             device_id=device_id,
-                             select=select,
-                             expand=expand)
+    return client.get_devices(user_id=user_id,
+                              device_id=device_id,
+                              select=select,
+                              expand=expand)
 
 
 def crossdeviceexperiences_user_update_activity(client,
@@ -220,130 +147,42 @@ def crossdeviceexperiences_user_update_activity(client,
                                                 content=None,
                                                 description=None,
                                                 display_text=None):
-    return client.update_activity(user_id=user_id,
-                                  user_activity_id=user_activity_id,
-                                  id=id_,
-                                  activation_url=activation_url,
-                                  activity_source_host=activity_source_host,
-                                  app_activity_id=app_activity_id,
-                                  app_display_name=app_display_name,
-                                  content_info=content_info,
-                                  content_url=content_url,
-                                  created_date_time=created_date_time,
-                                  expiration_date_time=expiration_date_time,
-                                  fallback_url=fallback_url,
-                                  last_modified_date_time=last_modified_date_time,
-                                  status=status,
-                                  user_timezone=user_timezone,
-                                  history_items=history_items,
-                                  attribution=attribution,
-                                  background_color=background_color,
-                                  content=content,
-                                  description=description,
-                                  display_text=display_text)
+    body = {}
+    body['id'] = id_
+    body['activation_url'] = activation_url
+    body['activity_source_host'] = activity_source_host
+    body['app_activity_id'] = app_activity_id
+    body['app_display_name'] = app_display_name
+    body['content_info'] = content_info
+    body['content_url'] = content_url
+    body['created_date_time'] = created_date_time
+    body['expiration_date_time'] = expiration_date_time
+    body['fallback_url'] = fallback_url
+    body['last_modified_date_time'] = last_modified_date_time
+    body['status'] = status
+    body['user_timezone'] = user_timezone
+    body['history_items'] = history_items
+    body['visual_elements'] = {}
+    body['visual_elements']['attribution'] = attribution
+    body['visual_elements']['background_color'] = background_color
+    body['visual_elements']['content'] = content
+    body['visual_elements']['description'] = description
+    body['visual_elements']['display_text'] = display_text
+    return client.update_activities(user_id=user_id,
+                                    user_activity_id=user_activity_id,
+                                    body=body)
 
 
 def crossdeviceexperiences_user_update_device(client,
                                               user_id,
                                               device_id,
-                                              id_=None,
-                                              deleted_date_time=None,
-                                              account_enabled=None,
-                                              alternative_security_ids=None,
-                                              approximate_last_sign_in_date_time=None,
-                                              compliance_expiration_date_time=None,
-                                              device_category=None,
-                                              microsoft_graph_device_id=None,
-                                              device_metadata=None,
-                                              device_ownership=None,
-                                              device_version=None,
-                                              display_name=None,
-                                              domain_name=None,
-                                              enrollment_profile_name=None,
-                                              enrollment_type=None,
-                                              extension_attributes=None,
-                                              is_compliant=None,
-                                              is_managed=None,
-                                              is_rooted=None,
-                                              management_type=None,
-                                              on_premises_last_sync_date_time=None,
-                                              on_premises_sync_enabled=None,
-                                              operating_system=None,
-                                              operating_system_version=None,
-                                              physical_ids=None,
-                                              profile_type=None,
-                                              registration_date_time=None,
-                                              system_labels=None,
-                                              trust_type=None,
-                                              kind=None,
-                                              manufacturer=None,
-                                              model=None,
-                                              name=None,
-                                              platform=None,
-                                              status=None,
-                                              member_of=None,
-                                              registered_owners=None,
-                                              registered_users=None,
-                                              transitive_member_of=None,
-                                              extensions=None,
-                                              commands=None):
-    return client.update_device(user_id=user_id,
-                                device_id=device_id,
-                                id=id_,
-                                deleted_date_time=deleted_date_time,
-                                account_enabled=account_enabled,
-                                alternative_security_ids=alternative_security_ids,
-                                approximate_last_sign_in_date_time=approximate_last_sign_in_date_time,
-                                compliance_expiration_date_time=compliance_expiration_date_time,
-                                device_category=device_category,
-                                microsoft_graph_device_id=microsoft_graph_device_id,
-                                device_metadata=device_metadata,
-                                device_ownership=device_ownership,
-                                device_version=device_version,
-                                display_name=display_name,
-                                domain_name=domain_name,
-                                enrollment_profile_name=enrollment_profile_name,
-                                enrollment_type=enrollment_type,
-                                extension_attributes=extension_attributes,
-                                is_compliant=is_compliant,
-                                is_managed=is_managed,
-                                is_rooted=is_rooted,
-                                management_type=management_type,
-                                on_premises_last_sync_date_time=on_premises_last_sync_date_time,
-                                on_premises_sync_enabled=on_premises_sync_enabled,
-                                operating_system=operating_system,
-                                operating_system_version=operating_system_version,
-                                physical_ids=physical_ids,
-                                profile_type=profile_type,
-                                registration_date_time=registration_date_time,
-                                system_labels=system_labels,
-                                trust_type=trust_type,
-                                kind=kind,
-                                manufacturer=manufacturer,
-                                model=model,
-                                name=name,
-                                platform=platform,
-                                status=status,
-                                member_of=member_of,
-                                registered_owners=registered_owners,
-                                registered_users=registered_users,
-                                transitive_member_of=transitive_member_of,
-                                extensions=extensions,
-                                commands=commands)
+                                              body):
+    return client.update_devices(user_id=user_id,
+                                 device_id=device_id,
+                                 body=body)
 
 
-def crossdeviceexperiences_user_activity_delete(client,
-                                                user_id,
-                                                user_activity_id,
-                                                activity_history_item_id,
-                                                if_match=None):
-    return client.delete_history_item(user_id=user_id,
-                                      user_activity_id=user_activity_id,
-                                      activity_history_item_id=activity_history_item_id,
-                                      if_match=if_match)
-
-
-def crossdeviceexperiences_user_activity_create_history_item(client,
+def crossdeviceexperiences_usersactivity_create_history_item(client,
                                                              user_id,
                                                              user_activity_id,
                                                              id_=None,
@@ -356,47 +195,60 @@ def crossdeviceexperiences_user_activity_create_history_item(client,
                                                              status=None,
                                                              user_timezone=None,
                                                              activity=None):
-    return client.create_history_item(user_id=user_id,
-                                      user_activity_id=user_activity_id,
-                                      id=id_,
-                                      active_duration_seconds=active_duration_seconds,
-                                      created_date_time=created_date_time,
-                                      expiration_date_time=expiration_date_time,
-                                      last_active_date_time=last_active_date_time,
-                                      last_modified_date_time=last_modified_date_time,
-                                      started_date_time=started_date_time,
-                                      status=status,
-                                      user_timezone=user_timezone,
-                                      activity=activity)
+    body = {}
+    body['id'] = id_
+    body['active_duration_seconds'] = active_duration_seconds
+    body['created_date_time'] = created_date_time
+    body['expiration_date_time'] = expiration_date_time
+    body['last_active_date_time'] = last_active_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['started_date_time'] = started_date_time
+    body['status'] = status
+    body['user_timezone'] = user_timezone
+    body['activity'] = activity
+    return client.create_history_items(user_id=user_id,
+                                       user_activity_id=user_activity_id,
+                                       body=body)
 
 
-def crossdeviceexperiences_user_activity_list_history_item(client,
+def crossdeviceexperiences_usersactivity_delete_history_item(client,
+                                                             user_id,
+                                                             user_activity_id,
+                                                             activity_history_item_id,
+                                                             if_match=None):
+    return client.delete_history_items(user_id=user_id,
+                                       user_activity_id=user_activity_id,
+                                       activity_history_item_id=activity_history_item_id,
+                                       if_match=if_match)
+
+
+def crossdeviceexperiences_usersactivity_list_history_item(client,
                                                            user_id,
                                                            user_activity_id,
                                                            orderby=None,
                                                            select=None,
                                                            expand=None):
-    return client.list_history_item(user_id=user_id,
-                                    user_activity_id=user_activity_id,
-                                    orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_history_items(user_id=user_id,
+                                     user_activity_id=user_activity_id,
+                                     orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
-def crossdeviceexperiences_user_activity_show_history_item(client,
+def crossdeviceexperiences_usersactivity_show_history_item(client,
                                                            user_id,
                                                            user_activity_id,
                                                            activity_history_item_id,
                                                            select=None,
                                                            expand=None):
-    return client.get_history_item(user_id=user_id,
-                                   user_activity_id=user_activity_id,
-                                   activity_history_item_id=activity_history_item_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_history_items(user_id=user_id,
+                                    user_activity_id=user_activity_id,
+                                    activity_history_item_id=activity_history_item_id,
+                                    select=select,
+                                    expand=expand)
 
 
-def crossdeviceexperiences_user_activity_update_history_item(client,
+def crossdeviceexperiences_usersactivity_update_history_item(client,
                                                              user_id,
                                                              user_activity_id,
                                                              activity_history_item_id,
@@ -410,33 +262,35 @@ def crossdeviceexperiences_user_activity_update_history_item(client,
                                                              status=None,
                                                              user_timezone=None,
                                                              activity=None):
-    return client.update_history_item(user_id=user_id,
-                                      user_activity_id=user_activity_id,
-                                      activity_history_item_id=activity_history_item_id,
-                                      id=id_,
-                                      active_duration_seconds=active_duration_seconds,
-                                      created_date_time=created_date_time,
-                                      expiration_date_time=expiration_date_time,
-                                      last_active_date_time=last_active_date_time,
-                                      last_modified_date_time=last_modified_date_time,
-                                      started_date_time=started_date_time,
-                                      status=status,
-                                      user_timezone=user_timezone,
-                                      activity=activity)
+    body = {}
+    body['id'] = id_
+    body['active_duration_seconds'] = active_duration_seconds
+    body['created_date_time'] = created_date_time
+    body['expiration_date_time'] = expiration_date_time
+    body['last_active_date_time'] = last_active_date_time
+    body['last_modified_date_time'] = last_modified_date_time
+    body['started_date_time'] = started_date_time
+    body['status'] = status
+    body['user_timezone'] = user_timezone
+    body['activity'] = activity
+    return client.update_history_items(user_id=user_id,
+                                       user_activity_id=user_activity_id,
+                                       activity_history_item_id=activity_history_item_id,
+                                       body=body)
 
 
-def crossdeviceexperiences_user_activity_history_item_delete(client,
-                                                             user_id,
-                                                             user_activity_id,
-                                                             activity_history_item_id,
-                                                             if_match=None):
+def crossdeviceexperiences_usersactivitieshistoryitem_delete_ref_activity(client,
+                                                                          user_id,
+                                                                          user_activity_id,
+                                                                          activity_history_item_id,
+                                                                          if_match=None):
     return client.delete_ref_activity(user_id=user_id,
                                       user_activity_id=user_activity_id,
                                       activity_history_item_id=activity_history_item_id,
                                       if_match=if_match)
 
 
-def crossdeviceexperiences_user_activity_history_item_set_ref_activity(client,
+def crossdeviceexperiences_usersactivitieshistoryitem_set_ref_activity(client,
                                                                        user_id,
                                                                        user_activity_id,
                                                                        activity_history_item_id,
@@ -447,7 +301,7 @@ def crossdeviceexperiences_user_activity_history_item_set_ref_activity(client,
                                    body=body)
 
 
-def crossdeviceexperiences_user_activity_history_item_show_activity(client,
+def crossdeviceexperiences_usersactivitieshistoryitem_show_activity(client,
                                                                     user_id,
                                                                     user_activity_id,
                                                                     activity_history_item_id,
@@ -460,7 +314,7 @@ def crossdeviceexperiences_user_activity_history_item_show_activity(client,
                                expand=expand)
 
 
-def crossdeviceexperiences_user_activity_history_item_show_ref_activity(client,
+def crossdeviceexperiences_usersactivitieshistoryitem_show_ref_activity(client,
                                                                         user_id,
                                                                         user_activity_id,
                                                                         activity_history_item_id):

@@ -7,37 +7,37 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfSchemaExtension
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphExtensionSchemaProperty
-    from ._models_py3 import MicrosoftGraphSchemaExtension
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionofschemaextension
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphextensionschemaproperty
+    from ._models_py3 import microsoftgraphschemaextension
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfSchemaExtension  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphExtensionSchemaProperty  # type: ignore
-    from ._models import MicrosoftGraphSchemaExtension  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionofschemaextension  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphextensionschemaproperty  # type: ignore
+    from ._models import microsoftgraphschemaextension  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._schema_extensions_enums import (
-    Get1ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
+    Get1itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
 )
 
 __all__ = [
-    'CollectionOfSchemaExtension',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphExtensionSchemaProperty',
-    'MicrosoftGraphSchemaExtension',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Get1ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
+    'collectionofschemaextension',
+    'microsoftgraphentity',
+    'microsoftgraphextensionschemaproperty',
+    'microsoftgraphschemaextension',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'Get1itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
 ]

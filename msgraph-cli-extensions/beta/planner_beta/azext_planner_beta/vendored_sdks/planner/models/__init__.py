@@ -7,87 +7,87 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfLinksOfPlannerPlan
-    from ._models_py3 import CollectionOfLinksOfPlannerPlan0
-    from ._models_py3 import CollectionOfPlannerBucket
-    from ._models_py3 import CollectionOfPlannerBucket0
-    from ._models_py3 import CollectionOfPlannerBucket1
-    from ._models_py3 import CollectionOfPlannerBucket2
-    from ._models_py3 import CollectionOfPlannerDelta
-    from ._models_py3 import CollectionOfPlannerPlan
-    from ._models_py3 import CollectionOfPlannerPlan0
-    from ._models_py3 import CollectionOfPlannerPlan1
-    from ._models_py3 import CollectionOfPlannerPlan2
-    from ._models_py3 import CollectionOfPlannerPlan3
-    from ._models_py3 import CollectionOfPlannerTask
-    from ._models_py3 import CollectionOfPlannerTask0
-    from ._models_py3 import CollectionOfPlannerTask1
-    from ._models_py3 import CollectionOfPlannerTask2
-    from ._models_py3 import CollectionOfPlannerTask3
-    from ._models_py3 import CollectionOfPlannerTask4
-    from ._models_py3 import CollectionOfPlannerTask5
-    from ._models_py3 import CollectionOfPlannerTask6
-    from ._models_py3 import CollectionOfPlannerTask7
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphIdentity
-    from ._models_py3 import MicrosoftGraphIdentitySet
-    from ._models_py3 import MicrosoftGraphPlanner
-    from ._models_py3 import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerBucket
-    from ._models_py3 import MicrosoftGraphPlannerBucketTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerCategoryDescriptions
-    from ._models_py3 import MicrosoftGraphPlannerDelta
-    from ._models_py3 import MicrosoftGraphPlannerGroup
-    from ._models_py3 import MicrosoftGraphPlannerPlan
-    from ._models_py3 import MicrosoftGraphPlannerPlanDetails
-    from ._models_py3 import MicrosoftGraphPlannerProgressTaskBoardTaskFormat
-    from ._models_py3 import MicrosoftGraphPlannerTask
-    from ._models_py3 import MicrosoftGraphPlannerTaskDetails
-    from ._models_py3 import MicrosoftGraphPlannerUser
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
+    from ._models_py3 import collectionoflinksofplannerplan
+    from ._models_py3 import collectionoflinksofplannerplan0
+    from ._models_py3 import collectionofplannerbucket
+    from ._models_py3 import collectionofplannerbucket0
+    from ._models_py3 import collectionofplannerbucket1
+    from ._models_py3 import collectionofplannerbucket2
+    from ._models_py3 import collectionofplannerdelta
+    from ._models_py3 import collectionofplannerplan
+    from ._models_py3 import collectionofplannerplan0
+    from ._models_py3 import collectionofplannerplan1
+    from ._models_py3 import collectionofplannerplan2
+    from ._models_py3 import collectionofplannerplan3
+    from ._models_py3 import collectionofplannertask
+    from ._models_py3 import collectionofplannertask0
+    from ._models_py3 import collectionofplannertask1
+    from ._models_py3 import collectionofplannertask2
+    from ._models_py3 import collectionofplannertask3
+    from ._models_py3 import collectionofplannertask4
+    from ._models_py3 import collectionofplannertask5
+    from ._models_py3 import collectionofplannertask6
+    from ._models_py3 import collectionofplannertask7
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphidentity
+    from ._models_py3 import microsoftgraphidentityset
+    from ._models_py3 import microsoftgraphplanner
+    from ._models_py3 import microsoftgraphplannerassignedtotaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannerbucket
+    from ._models_py3 import microsoftgraphplannerbuckettaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannercategorydescriptions
+    from ._models_py3 import microsoftgraphplannerdelta
+    from ._models_py3 import microsoftgraphplannergroup
+    from ._models_py3 import microsoftgraphplannerplan
+    from ._models_py3 import microsoftgraphplannerplandetails
+    from ._models_py3 import microsoftgraphplannerprogresstaskboardtaskformat
+    from ._models_py3 import microsoftgraphplannertask
+    from ._models_py3 import microsoftgraphplannertaskdetails
+    from ._models_py3 import microsoftgraphplanneruser
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfLinksOfPlannerPlan  # type: ignore
-    from ._models import CollectionOfLinksOfPlannerPlan0  # type: ignore
-    from ._models import CollectionOfPlannerBucket  # type: ignore
-    from ._models import CollectionOfPlannerBucket0  # type: ignore
-    from ._models import CollectionOfPlannerBucket1  # type: ignore
-    from ._models import CollectionOfPlannerBucket2  # type: ignore
-    from ._models import CollectionOfPlannerDelta  # type: ignore
-    from ._models import CollectionOfPlannerPlan  # type: ignore
-    from ._models import CollectionOfPlannerPlan0  # type: ignore
-    from ._models import CollectionOfPlannerPlan1  # type: ignore
-    from ._models import CollectionOfPlannerPlan2  # type: ignore
-    from ._models import CollectionOfPlannerPlan3  # type: ignore
-    from ._models import CollectionOfPlannerTask  # type: ignore
-    from ._models import CollectionOfPlannerTask0  # type: ignore
-    from ._models import CollectionOfPlannerTask1  # type: ignore
-    from ._models import CollectionOfPlannerTask2  # type: ignore
-    from ._models import CollectionOfPlannerTask3  # type: ignore
-    from ._models import CollectionOfPlannerTask4  # type: ignore
-    from ._models import CollectionOfPlannerTask5  # type: ignore
-    from ._models import CollectionOfPlannerTask6  # type: ignore
-    from ._models import CollectionOfPlannerTask7  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphIdentity  # type: ignore
-    from ._models import MicrosoftGraphIdentitySet  # type: ignore
-    from ._models import MicrosoftGraphPlanner  # type: ignore
-    from ._models import MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerBucket  # type: ignore
-    from ._models import MicrosoftGraphPlannerBucketTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerCategoryDescriptions  # type: ignore
-    from ._models import MicrosoftGraphPlannerDelta  # type: ignore
-    from ._models import MicrosoftGraphPlannerGroup  # type: ignore
-    from ._models import MicrosoftGraphPlannerPlan  # type: ignore
-    from ._models import MicrosoftGraphPlannerPlanDetails  # type: ignore
-    from ._models import MicrosoftGraphPlannerProgressTaskBoardTaskFormat  # type: ignore
-    from ._models import MicrosoftGraphPlannerTask  # type: ignore
-    from ._models import MicrosoftGraphPlannerTaskDetails  # type: ignore
-    from ._models import MicrosoftGraphPlannerUser  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
+    from ._models import collectionoflinksofplannerplan  # type: ignore
+    from ._models import collectionoflinksofplannerplan0  # type: ignore
+    from ._models import collectionofplannerbucket  # type: ignore
+    from ._models import collectionofplannerbucket0  # type: ignore
+    from ._models import collectionofplannerbucket1  # type: ignore
+    from ._models import collectionofplannerbucket2  # type: ignore
+    from ._models import collectionofplannerdelta  # type: ignore
+    from ._models import collectionofplannerplan  # type: ignore
+    from ._models import collectionofplannerplan0  # type: ignore
+    from ._models import collectionofplannerplan1  # type: ignore
+    from ._models import collectionofplannerplan2  # type: ignore
+    from ._models import collectionofplannerplan3  # type: ignore
+    from ._models import collectionofplannertask  # type: ignore
+    from ._models import collectionofplannertask0  # type: ignore
+    from ._models import collectionofplannertask1  # type: ignore
+    from ._models import collectionofplannertask2  # type: ignore
+    from ._models import collectionofplannertask3  # type: ignore
+    from ._models import collectionofplannertask4  # type: ignore
+    from ._models import collectionofplannertask5  # type: ignore
+    from ._models import collectionofplannertask6  # type: ignore
+    from ._models import collectionofplannertask7  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphidentity  # type: ignore
+    from ._models import microsoftgraphidentityset  # type: ignore
+    from ._models import microsoftgraphplanner  # type: ignore
+    from ._models import microsoftgraphplannerassignedtotaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannerbucket  # type: ignore
+    from ._models import microsoftgraphplannerbuckettaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannercategorydescriptions  # type: ignore
+    from ._models import microsoftgraphplannerdelta  # type: ignore
+    from ._models import microsoftgraphplannergroup  # type: ignore
+    from ._models import microsoftgraphplannerplan  # type: ignore
+    from ._models import microsoftgraphplannerplandetails  # type: ignore
+    from ._models import microsoftgraphplannerprogresstaskboardtaskformat  # type: ignore
+    from ._models import microsoftgraphplannertask  # type: ignore
+    from ._models import microsoftgraphplannertaskdetails  # type: ignore
+    from ._models import microsoftgraphplanneruser  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
 
 from ._planner_enums import (
     Enum100,
@@ -213,61 +213,61 @@ from ._planner_enums import (
     Enum97,
     Enum98,
     Enum99,
-    Get0ItemsItem,
-    Get10ItemsItem,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get3ItemsItem,
-    Get4ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    Get8ItemsItem,
-    Get9ItemsItem,
-    MicrosoftGraphPlannerPreviewType,
+    Get0itemsitem,
+    Get10itemsitem,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get3itemsitem,
+    Get4itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Get8itemsitem,
+    Get9itemsitem,
+    Microsoftgraphplannerpreviewtype,
 )
 
 __all__ = [
-    'CollectionOfLinksOfPlannerPlan',
-    'CollectionOfLinksOfPlannerPlan0',
-    'CollectionOfPlannerBucket',
-    'CollectionOfPlannerBucket0',
-    'CollectionOfPlannerBucket1',
-    'CollectionOfPlannerBucket2',
-    'CollectionOfPlannerDelta',
-    'CollectionOfPlannerPlan',
-    'CollectionOfPlannerPlan0',
-    'CollectionOfPlannerPlan1',
-    'CollectionOfPlannerPlan2',
-    'CollectionOfPlannerPlan3',
-    'CollectionOfPlannerTask',
-    'CollectionOfPlannerTask0',
-    'CollectionOfPlannerTask1',
-    'CollectionOfPlannerTask2',
-    'CollectionOfPlannerTask3',
-    'CollectionOfPlannerTask4',
-    'CollectionOfPlannerTask5',
-    'CollectionOfPlannerTask6',
-    'CollectionOfPlannerTask7',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphIdentity',
-    'MicrosoftGraphIdentitySet',
-    'MicrosoftGraphPlanner',
-    'MicrosoftGraphPlannerAssignedToTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerBucket',
-    'MicrosoftGraphPlannerBucketTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerCategoryDescriptions',
-    'MicrosoftGraphPlannerDelta',
-    'MicrosoftGraphPlannerGroup',
-    'MicrosoftGraphPlannerPlan',
-    'MicrosoftGraphPlannerPlanDetails',
-    'MicrosoftGraphPlannerProgressTaskBoardTaskFormat',
-    'MicrosoftGraphPlannerTask',
-    'MicrosoftGraphPlannerTaskDetails',
-    'MicrosoftGraphPlannerUser',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
+    'collectionoflinksofplannerplan',
+    'collectionoflinksofplannerplan0',
+    'collectionofplannerbucket',
+    'collectionofplannerbucket0',
+    'collectionofplannerbucket1',
+    'collectionofplannerbucket2',
+    'collectionofplannerdelta',
+    'collectionofplannerplan',
+    'collectionofplannerplan0',
+    'collectionofplannerplan1',
+    'collectionofplannerplan2',
+    'collectionofplannerplan3',
+    'collectionofplannertask',
+    'collectionofplannertask0',
+    'collectionofplannertask1',
+    'collectionofplannertask2',
+    'collectionofplannertask3',
+    'collectionofplannertask4',
+    'collectionofplannertask5',
+    'collectionofplannertask6',
+    'collectionofplannertask7',
+    'microsoftgraphentity',
+    'microsoftgraphidentity',
+    'microsoftgraphidentityset',
+    'microsoftgraphplanner',
+    'microsoftgraphplannerassignedtotaskboardtaskformat',
+    'microsoftgraphplannerbucket',
+    'microsoftgraphplannerbuckettaskboardtaskformat',
+    'microsoftgraphplannercategorydescriptions',
+    'microsoftgraphplannerdelta',
+    'microsoftgraphplannergroup',
+    'microsoftgraphplannerplan',
+    'microsoftgraphplannerplandetails',
+    'microsoftgraphplannerprogresstaskboardtaskformat',
+    'microsoftgraphplannertask',
+    'microsoftgraphplannertaskdetails',
+    'microsoftgraphplanneruser',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
     'Enum100',
     'Enum101',
     'Enum102',
@@ -391,16 +391,16 @@ __all__ = [
     'Enum97',
     'Enum98',
     'Enum99',
-    'Get0ItemsItem',
-    'Get10ItemsItem',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get3ItemsItem',
-    'Get4ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'Get8ItemsItem',
-    'Get9ItemsItem',
-    'MicrosoftGraphPlannerPreviewType',
+    'Get0itemsitem',
+    'Get10itemsitem',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get3itemsitem',
+    'Get4itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Get8itemsitem',
+    'Get9itemsitem',
+    'Microsoftgraphplannerpreviewtype',
 ]

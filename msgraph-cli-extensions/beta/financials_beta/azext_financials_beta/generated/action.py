@@ -14,537 +14,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddAccounts(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddAccounts, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'blocked':
-                d['blocked'] = v[0]
-            elif kl == 'category':
-                d['category'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'number':
-                d['number'] = v[0]
-            elif kl == 'sub-category':
-                d['sub_category'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter accounts. All possible keys are: blocked, '
-                               'category, display-name, last-modified-date-time, number, sub-category, id'.format(k))
-        return d
-
-
-class AddAgedAccountsPayable(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddAgedAccountsPayable, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'aged-as-of-date':
-                d['aged_as_of_date'] = v[0]
-            elif kl == 'balance-due':
-                d['balance_due'] = v[0]
-            elif kl == 'currency-code':
-                d['currency_code'] = v[0]
-            elif kl == 'current-amount':
-                d['current_amount'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-            elif kl == 'period1-amount':
-                d['period1_amount'] = v[0]
-            elif kl == 'period2-amount':
-                d['period2_amount'] = v[0]
-            elif kl == 'period3-amount':
-                d['period3_amount'] = v[0]
-            elif kl == 'period-length-filter':
-                d['period_length_filter'] = v[0]
-            elif kl == 'vendor-number':
-                d['vendor_number'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter aged_accounts_payable. All possible keys '
-                               'are: aged-as-of-date, balance-due, currency-code, current-amount, name, '
-                               'period1-amount, period2-amount, period3-amount, period-length-filter, vendor-number, '
-                               'id'.format(k))
-        return d
-
-
-class AddAgedAccountsReceivable(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddAgedAccountsReceivable, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'aged-as-of-date':
-                d['aged_as_of_date'] = v[0]
-            elif kl == 'balance-due':
-                d['balance_due'] = v[0]
-            elif kl == 'currency-code':
-                d['currency_code'] = v[0]
-            elif kl == 'current-amount':
-                d['current_amount'] = v[0]
-            elif kl == 'customer-number':
-                d['customer_number'] = v[0]
-            elif kl == 'name':
-                d['name'] = v[0]
-            elif kl == 'period1-amount':
-                d['period1_amount'] = v[0]
-            elif kl == 'period2-amount':
-                d['period2_amount'] = v[0]
-            elif kl == 'period3-amount':
-                d['period3_amount'] = v[0]
-            elif kl == 'period-length-filter':
-                d['period_length_filter'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter aged_accounts_receivable. All possible '
-                               'keys are: aged-as-of-date, balance-due, currency-code, current-amount, '
-                               'customer-number, name, period1-amount, period2-amount, period3-amount, '
-                               'period-length-filter, id'.format(k))
-        return d
-
-
-class AddCountriesRegions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCountriesRegions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'address-format':
-                d['address_format'] = v[0]
-            elif kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter countries_regions. All possible keys are: '
-                               'address-format, code, display-name, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddCurrencies(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddCurrencies, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'amount-decimal-places':
-                d['amount_decimal_places'] = v[0]
-            elif kl == 'amount-rounding-precision':
-                d['amount_rounding_precision'] = v[0]
-            elif kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'symbol':
-                d['symbol'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter currencies. All possible keys are: '
-                               'amount-decimal-places, amount-rounding-precision, code, display-name, '
-                               'last-modified-date-time, symbol, id'.format(k))
-        return d
-
-
-class AddDimensions(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddDimensions, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'dimension-values':
-                d['dimension_values'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter dimensions. All possible keys are: code, '
-                               'display-name, last-modified-date-time, dimension-values, id'.format(k))
-        return d
-
-
-class AddFinancialsDimensionValues(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddFinancialsDimensionValues, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter dimension_values. All possible keys are: '
-                               'code, display-name, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddItemCategories(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddItemCategories, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter item_categories. All possible keys are: '
-                               'code, display-name, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddPaymentMethods(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddPaymentMethods, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter payment_methods. All possible keys are: '
-                               'code, display-name, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddPaymentTerms(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddPaymentTerms, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'calculate-discount-on-credit-memos':
-                d['calculate_discount_on_credit_memos'] = v[0]
-            elif kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'discount-date-calculation':
-                d['discount_date_calculation'] = v[0]
-            elif kl == 'discount-percent':
-                d['discount_percent'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'due-date-calculation':
-                d['due_date_calculation'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter payment_terms. All possible keys are: '
-                               'calculate-discount-on-credit-memos, code, discount-date-calculation, discount-percent, '
-                               'display-name, due-date-calculation, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddFinancialsPicture(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddFinancialsPicture, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'content':
-                d['content'] = v[0]
-            elif kl == 'content-type':
-                d['content_type'] = v[0]
-            elif kl == 'height':
-                d['height'] = v[0]
-            elif kl == 'width':
-                d['width'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter picture. All possible keys are: content, '
-                               'content-type, height, width, id'.format(k))
-        return d
-
-
-class AddShipmentMethods(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddShipmentMethods, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter shipment_methods. All possible keys are: '
-                               'code, display-name, last-modified-date-time, id'.format(k))
-        return d
-
-
-class AddTaxAreas(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddTaxAreas, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'tax-type':
-                d['tax_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter tax_areas. All possible keys are: code, '
-                               'display-name, last-modified-date-time, tax-type, id'.format(k))
-        return d
-
-
-class AddTaxGroups(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddTaxGroups, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'tax-type':
-                d['tax_type'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter tax_groups. All possible keys are: code, '
-                               'display-name, last-modified-date-time, tax-type, id'.format(k))
-        return d
-
-
-class AddUnitsOfMeasure(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddUnitsOfMeasure, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'code':
-                d['code'] = v[0]
-            elif kl == 'display-name':
-                d['display_name'] = v[0]
-            elif kl == 'international-standard-code':
-                d['international_standard_code'] = v[0]
-            elif kl == 'last-modified-date-time':
-                d['last_modified_date_time'] = v[0]
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter units_of_measure. All possible keys are: '
-                               'code, display-name, international-standard-code, last-modified-date-time, id'.format(k))
-        return d
-
-
 class AddAccount(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
@@ -689,10 +158,10 @@ class AddPaymentTerm(argparse.Action):
         return d
 
 
-class AddFinancialsCompaniesPicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateCustomerPaymentPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCompaniesPicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateCustomerPaymentPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -753,10 +222,10 @@ class AddShipmentMethod(argparse.Action):
         return d
 
 
-class AddFinancialsCompaniesDimensionValues(argparse._AppendAction):
+class AddDimensionValues(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsCompaniesDimensionValues, self).__call__(parser, namespace, action, option_string)
+        super(AddDimensionValues, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -784,10 +253,10 @@ class AddFinancialsCompaniesDimensionValues(argparse._AppendAction):
         return d
 
 
-class AddFinancialsFinancialCompanyCreateEmployeePicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateEmployeePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsFinancialCompanyCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateEmployeePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -848,10 +317,10 @@ class AddItemCategory(argparse.Action):
         return d
 
 
-class AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreateItemPicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreateItemPicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -881,10 +350,10 @@ class AddFinancialsFinancialCompanyCreateSaleCreditMemoLinePicture(argparse._App
         return d
 
 
-class AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture(argparse._AppendAction):
+class AddFinancialsFinancialscompanyCreatePurchaseInvoicePicture(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddFinancialsFinancialCompanyCreatePurchaseInvoicePicture, self).__call__(parser, namespace, action, option_string)
+        super(AddFinancialsFinancialscompanyCreatePurchaseInvoicePicture, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

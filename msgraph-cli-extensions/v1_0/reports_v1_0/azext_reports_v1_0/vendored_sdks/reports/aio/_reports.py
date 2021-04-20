@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,24 +16,24 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import ReportsConfiguration
-from .operations import AuditLogAuditLogRootOperations
-from .operations import AuditLogOperations
-from .operations import ReportReportRootOperations
-from .operations import ReportOperations
+from .operations import auditlogsauditlogrootOperations
+from .operations import auditlogsOperations
+from .operations import reportsreportrootOperations
+from .operations import reportsOperations
 from .. import models
 
 
 class Reports(object):
     """Reports.
 
-    :ivar audit_log_audit_log_root: AuditLogAuditLogRootOperations operations
-    :vartype audit_log_audit_log_root: reports.aio.operations.AuditLogAuditLogRootOperations
-    :ivar audit_log: AuditLogOperations operations
-    :vartype audit_log: reports.aio.operations.AuditLogOperations
-    :ivar report_report_root: ReportReportRootOperations operations
-    :vartype report_report_root: reports.aio.operations.ReportReportRootOperations
-    :ivar report: ReportOperations operations
-    :vartype report: reports.aio.operations.ReportOperations
+    :ivar auditlogsauditlogroot: auditlogsauditlogrootOperations operations
+    :vartype auditlogsauditlogroot: reports.aio.operations.auditlogsauditlogrootOperations
+    :ivar auditlogs: auditlogsOperations operations
+    :vartype auditlogs: reports.aio.operations.auditlogsOperations
+    :ivar reportsreportroot: reportsreportrootOperations operations
+    :vartype reportsreportroot: reports.aio.operations.reportsreportrootOperations
+    :ivar reports: reportsOperations operations
+    :vartype reports: reports.aio.operations.reportsOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -63,20 +63,20 @@ class Reports(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = ReportsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.audit_log_audit_log_root = AuditLogAuditLogRootOperations(
+        self.auditlogsauditlogroot = auditlogsauditlogrootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.audit_log = AuditLogOperations(
+        self.auditlogs = auditlogsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.report_report_root = ReportReportRootOperations(
+        self.reportsreportroot = reportsreportrootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.report = ReportOperations(
+        self.reports = reportsOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

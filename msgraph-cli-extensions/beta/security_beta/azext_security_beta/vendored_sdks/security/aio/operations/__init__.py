@@ -6,16 +6,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._security_security_operations import SecuritySecurityOperations
-from ._security_operations import SecurityOperations
-from ._security_alert_operations import SecurityAlertOperations
-from ._security_security_action_operations import SecuritySecurityActionOperations
-from ._security_ti_indicator_operations import SecurityTIIndicatorOperations
+from ._securitysecurity_operations import securitysecurityOperations
+from ._security_operations import securityOperations
+from ._securityalerts_operations import securityalertsOperations
+from ._securitysecurityactions_operations import securitysecurityactionsOperations
+from ._securitytiindicators_operations import securitytiindicatorsOperations
 
 __all__ = [
-    'SecuritySecurityOperations',
-    'SecurityOperations',
-    'SecurityAlertOperations',
-    'SecuritySecurityActionOperations',
-    'SecurityTIIndicatorOperations',
+    'securitysecurityOperations',
+    'securityOperations',
+    'securityalertsOperations',
+    'securitysecurityactionsOperations',
+    'securitytiindicatorsOperations',
 ]

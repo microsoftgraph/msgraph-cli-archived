@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfAlert(msrest.serialization.Model):
+class collectionofalert(msrest.serialization.Model):
     """Collection of alert.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphAlert]
+    :type value: list[~security.models.microsoftgraphalert]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphAlert]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphalert]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,27 +32,27 @@ class CollectionOfAlert(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfAlert, self).__init__(**kwargs)
+        super(collectionofalert, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSecureScore(msrest.serialization.Model):
+class collectionofsecurescore(msrest.serialization.Model):
     """Collection of secureScore.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphSecureScore]
+    :type value: list[~security.models.microsoftgraphsecurescore]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSecureScore]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsecurescore]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -60,27 +60,27 @@ class CollectionOfSecureScore(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSecureScore, self).__init__(**kwargs)
+        super(collectionofsecurescore, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class CollectionOfSecureScoreControlProfile(msrest.serialization.Model):
+class collectionofsecurescorecontrolprofile(msrest.serialization.Model):
     """Collection of secureScoreControlProfile.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~security.models.MicrosoftGraphSecureScoreControlProfile]
+    :type value: list[~security.models.microsoftgraphsecurescorecontrolprofile]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSecureScoreControlProfile]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphsecurescorecontrolprofile]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -88,13 +88,13 @@ class CollectionOfSecureScoreControlProfile(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSecureScoreControlProfile, self).__init__(**kwargs)
+        super(collectionofsecurescorecontrolprofile, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -113,12 +113,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphAlert(MicrosoftGraphEntity):
+class microsoftgraphalert(microsoftgraphentity):
     """alert.
 
     :param id: Read-only.
@@ -145,7 +145,7 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
     :type closed_date_time: ~datetime.datetime
     :param cloud_app_states: Security-related stateful information generated by the provider about
      the cloud application/s related to this alert.
-    :type cloud_app_states: list[~security.models.MicrosoftGraphCloudAppSecurityState]
+    :type cloud_app_states: list[~security.models.microsoftgraphcloudappsecuritystate]
     :param comments: Customer-provided comments on alert (for customer alert management) (supports
      update).
     :type comments: list[str]
@@ -168,15 +168,15 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
     :type event_date_time: ~datetime.datetime
     :param feedback:  Possible values include: "unknown", "truePositive", "falsePositive",
      "benignPositive", "unknownFutureValue".
-    :type feedback: str or ~security.models.MicrosoftGraphAlertFeedback
+    :type feedback: str or ~security.models.Microsoftgraphalertfeedback
     :param file_states: Security-related stateful information generated by the provider about the
      file(s) related to this alert.
-    :type file_states: list[~security.models.MicrosoftGraphFileSecurityState]
+    :type file_states: list[~security.models.microsoftgraphfilesecuritystate]
     :param history_states:
-    :type history_states: list[~security.models.MicrosoftGraphAlertHistoryState]
+    :type history_states: list[~security.models.microsoftgraphalerthistorystate]
     :param host_states: Security-related stateful information generated by the provider about the
      host(s) related to this alert.
-    :type host_states: list[~security.models.MicrosoftGraphHostSecurityState]
+    :type host_states: list[~security.models.microsoftgraphhostsecuritystate]
     :param incident_ids: IDs of incidents related to current alert.
     :type incident_ids: list[str]
     :param last_modified_date_time: Time at which the alert entity was last modified. The Timestamp
@@ -184,31 +184,31 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
      example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type last_modified_date_time: ~datetime.datetime
     :param malware_states: Threat Intelligence pertaining to malware related to this alert.
-    :type malware_states: list[~security.models.MicrosoftGraphMalwareState]
+    :type malware_states: list[~security.models.microsoftgraphmalwarestate]
     :param network_connections: Security-related stateful information generated by the provider
      about the network connection(s) related to this alert.
-    :type network_connections: list[~security.models.MicrosoftGraphNetworkConnection]
+    :type network_connections: list[~security.models.microsoftgraphnetworkconnection]
     :param processes: Security-related stateful information generated by the provider about the
      process or processes related to this alert.
-    :type processes: list[~security.models.MicrosoftGraphProcess]
+    :type processes: list[~security.models.microsoftgraphprocess]
     :param recommended_actions: Vendor/provider recommended action(s) to take as a result of the
      alert (for example, isolate machine, enforce2FA, reimage host).
     :type recommended_actions: list[str]
     :param registry_key_states: Security-related stateful information generated by the provider
      about the registry keys related to this alert.
-    :type registry_key_states: list[~security.models.MicrosoftGraphRegistryKeyState]
+    :type registry_key_states: list[~security.models.microsoftgraphregistrykeystate]
     :param security_resources: Resources related to current alert. For example, for some alerts
      this can have the Azure Resource value.
-    :type security_resources: list[~security.models.MicrosoftGraphSecurityResource]
+    :type security_resources: list[~security.models.microsoftgraphsecurityresource]
     :param severity:  Possible values include: "unknown", "informational", "low", "medium", "high",
      "unknownFutureValue".
-    :type severity: str or ~security.models.MicrosoftGraphAlertSeverity
+    :type severity: str or ~security.models.Microsoftgraphalertseverity
     :param source_materials: Hyperlinks (URIs) to the source material related to the alert, for
      example, provider's user interface for alerts or log search, etc.
     :type source_materials: list[str]
     :param status:  Possible values include: "unknown", "newAlert", "inProgress", "resolved",
      "dismissed", "unknownFutureValue".
-    :type status: str or ~security.models.MicrosoftGraphAlertStatus
+    :type status: str or ~security.models.Microsoftgraphalertstatus
     :param tags: A set of tags. User-definable labels that can be applied to an alert and can serve
      as filter conditions (for example 'HVA', 'SAW', etc.) (supports update).
     :type tags: list[str]
@@ -218,15 +218,15 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
      alert (properties appearing in the alert). Alerts might contain information about multiple
      users, hosts, files, ip addresses. This field indicates which properties triggered the alert
      generation.
-    :type triggers: list[~security.models.MicrosoftGraphAlertTrigger]
+    :type triggers: list[~security.models.microsoftgraphalerttrigger]
     :param user_states: Security-related stateful information generated by the provider about the
      user accounts related to this alert.
-    :type user_states: list[~security.models.MicrosoftGraphUserSecurityState]
+    :type user_states: list[~security.models.microsoftgraphusersecuritystate]
     :param vendor_information: securityVendorInformation.
-    :type vendor_information: ~security.models.MicrosoftGraphSecurityVendorInformation
+    :type vendor_information: ~security.models.microsoftgraphsecurityvendorinformation
     :param vulnerability_states: Threat intelligence pertaining to one or more vulnerabilities
      related to this alert.
-    :type vulnerability_states: list[~security.models.MicrosoftGraphVulnerabilityState]
+    :type vulnerability_states: list[~security.models.microsoftgraphvulnerabilitystate]
     """
 
     _validation = {
@@ -242,7 +242,7 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
         'azure_tenant_id': {'key': 'azureTenantId', 'type': 'str'},
         'category': {'key': 'category', 'type': 'str'},
         'closed_date_time': {'key': 'closedDateTime', 'type': 'iso-8601'},
-        'cloud_app_states': {'key': 'cloudAppStates', 'type': '[MicrosoftGraphCloudAppSecurityState]'},
+        'cloud_app_states': {'key': 'cloudAppStates', 'type': '[microsoftgraphcloudappsecuritystate]'},
         'comments': {'key': 'comments', 'type': '[str]'},
         'confidence': {'key': 'confidence', 'type': 'int'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
@@ -250,33 +250,33 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
         'detection_ids': {'key': 'detectionIds', 'type': '[str]'},
         'event_date_time': {'key': 'eventDateTime', 'type': 'iso-8601'},
         'feedback': {'key': 'feedback', 'type': 'str'},
-        'file_states': {'key': 'fileStates', 'type': '[MicrosoftGraphFileSecurityState]'},
-        'history_states': {'key': 'historyStates', 'type': '[MicrosoftGraphAlertHistoryState]'},
-        'host_states': {'key': 'hostStates', 'type': '[MicrosoftGraphHostSecurityState]'},
+        'file_states': {'key': 'fileStates', 'type': '[microsoftgraphfilesecuritystate]'},
+        'history_states': {'key': 'historyStates', 'type': '[microsoftgraphalerthistorystate]'},
+        'host_states': {'key': 'hostStates', 'type': '[microsoftgraphhostsecuritystate]'},
         'incident_ids': {'key': 'incidentIds', 'type': '[str]'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
-        'malware_states': {'key': 'malwareStates', 'type': '[MicrosoftGraphMalwareState]'},
-        'network_connections': {'key': 'networkConnections', 'type': '[MicrosoftGraphNetworkConnection]'},
-        'processes': {'key': 'processes', 'type': '[MicrosoftGraphProcess]'},
+        'malware_states': {'key': 'malwareStates', 'type': '[microsoftgraphmalwarestate]'},
+        'network_connections': {'key': 'networkConnections', 'type': '[microsoftgraphnetworkconnection]'},
+        'processes': {'key': 'processes', 'type': '[microsoftgraphprocess]'},
         'recommended_actions': {'key': 'recommendedActions', 'type': '[str]'},
-        'registry_key_states': {'key': 'registryKeyStates', 'type': '[MicrosoftGraphRegistryKeyState]'},
-        'security_resources': {'key': 'securityResources', 'type': '[MicrosoftGraphSecurityResource]'},
+        'registry_key_states': {'key': 'registryKeyStates', 'type': '[microsoftgraphregistrykeystate]'},
+        'security_resources': {'key': 'securityResources', 'type': '[microsoftgraphsecurityresource]'},
         'severity': {'key': 'severity', 'type': 'str'},
         'source_materials': {'key': 'sourceMaterials', 'type': '[str]'},
         'status': {'key': 'status', 'type': 'str'},
         'tags': {'key': 'tags', 'type': '[str]'},
         'title': {'key': 'title', 'type': 'str'},
-        'triggers': {'key': 'triggers', 'type': '[MicrosoftGraphAlertTrigger]'},
-        'user_states': {'key': 'userStates', 'type': '[MicrosoftGraphUserSecurityState]'},
-        'vendor_information': {'key': 'vendorInformation', 'type': 'MicrosoftGraphSecurityVendorInformation'},
-        'vulnerability_states': {'key': 'vulnerabilityStates', 'type': '[MicrosoftGraphVulnerabilityState]'},
+        'triggers': {'key': 'triggers', 'type': '[microsoftgraphalerttrigger]'},
+        'user_states': {'key': 'userStates', 'type': '[microsoftgraphusersecuritystate]'},
+        'vendor_information': {'key': 'vendorInformation', 'type': 'microsoftgraphsecurityvendorinformation'},
+        'vulnerability_states': {'key': 'vulnerabilityStates', 'type': '[microsoftgraphvulnerabilitystate]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAlert, self).__init__(**kwargs)
+        super(microsoftgraphalert, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.activity_group_name = kwargs.get('activity_group_name', None)
         self.assigned_to = kwargs.get('assigned_to', None)
@@ -314,7 +314,7 @@ class MicrosoftGraphAlert(MicrosoftGraphEntity):
         self.vulnerability_states = kwargs.get('vulnerability_states', None)
 
 
-class MicrosoftGraphAlertHistoryState(msrest.serialization.Model):
+class microsoftgraphalerthistorystate(msrest.serialization.Model):
     """alertHistoryState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -328,10 +328,10 @@ class MicrosoftGraphAlertHistoryState(msrest.serialization.Model):
     :type comments: list[str]
     :param feedback:  Possible values include: "unknown", "truePositive", "falsePositive",
      "benignPositive", "unknownFutureValue".
-    :type feedback: str or ~security.models.MicrosoftGraphAlertFeedback
+    :type feedback: str or ~security.models.Microsoftgraphalertfeedback
     :param status:  Possible values include: "unknown", "newAlert", "inProgress", "resolved",
      "dismissed", "unknownFutureValue".
-    :type status: str or ~security.models.MicrosoftGraphAlertStatus
+    :type status: str or ~security.models.Microsoftgraphalertstatus
     :param updated_date_time:
     :type updated_date_time: ~datetime.datetime
     :param user:
@@ -353,7 +353,7 @@ class MicrosoftGraphAlertHistoryState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAlertHistoryState, self).__init__(**kwargs)
+        super(microsoftgraphalerthistorystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.app_id = kwargs.get('app_id', None)
         self.assigned_to = kwargs.get('assigned_to', None)
@@ -364,7 +364,7 @@ class MicrosoftGraphAlertHistoryState(msrest.serialization.Model):
         self.user = kwargs.get('user', None)
 
 
-class MicrosoftGraphAlertTrigger(msrest.serialization.Model):
+class microsoftgraphalerttrigger(msrest.serialization.Model):
     """alertTrigger.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -390,14 +390,14 @@ class MicrosoftGraphAlertTrigger(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAlertTrigger, self).__init__(**kwargs)
+        super(microsoftgraphalerttrigger, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.type = kwargs.get('type', None)
         self.value = kwargs.get('value', None)
 
 
-class MicrosoftGraphAverageComparativeScore(msrest.serialization.Model):
+class microsoftgraphaveragecomparativescore(msrest.serialization.Model):
     """averageComparativeScore.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -419,13 +419,13 @@ class MicrosoftGraphAverageComparativeScore(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphAverageComparativeScore, self).__init__(**kwargs)
+        super(microsoftgraphaveragecomparativescore, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.average_score = kwargs.get('average_score', None)
         self.basis = kwargs.get('basis', None)
 
 
-class MicrosoftGraphCertificationControl(msrest.serialization.Model):
+class microsoftgraphcertificationcontrol(msrest.serialization.Model):
     """certificationControl.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -447,13 +447,13 @@ class MicrosoftGraphCertificationControl(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphCertificationControl, self).__init__(**kwargs)
+        super(microsoftgraphcertificationcontrol, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.url = kwargs.get('url', None)
 
 
-class MicrosoftGraphCloudAppSecurityState(msrest.serialization.Model):
+class microsoftgraphcloudappsecuritystate(msrest.serialization.Model):
     """cloudAppSecurityState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -481,14 +481,14 @@ class MicrosoftGraphCloudAppSecurityState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphCloudAppSecurityState, self).__init__(**kwargs)
+        super(microsoftgraphcloudappsecuritystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.destination_service_ip = kwargs.get('destination_service_ip', None)
         self.destination_service_name = kwargs.get('destination_service_name', None)
         self.risk_score = kwargs.get('risk_score', None)
 
 
-class MicrosoftGraphComplianceInformation(msrest.serialization.Model):
+class microsoftgraphcomplianceinformation(msrest.serialization.Model):
     """complianceInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -496,7 +496,7 @@ class MicrosoftGraphComplianceInformation(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param certification_controls: Collection of the certification controls associated with
      certification.
-    :type certification_controls: list[~security.models.MicrosoftGraphCertificationControl]
+    :type certification_controls: list[~security.models.microsoftgraphcertificationcontrol]
     :param certification_name: Compliance certification name (for example, ISO 27018:2014, GDPR,
      FedRAMP, NIST 800-171).
     :type certification_name: str
@@ -504,7 +504,7 @@ class MicrosoftGraphComplianceInformation(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'certification_controls': {'key': 'certificationControls', 'type': '[MicrosoftGraphCertificationControl]'},
+        'certification_controls': {'key': 'certificationControls', 'type': '[microsoftgraphcertificationcontrol]'},
         'certification_name': {'key': 'certificationName', 'type': 'str'},
     }
 
@@ -512,13 +512,13 @@ class MicrosoftGraphComplianceInformation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphComplianceInformation, self).__init__(**kwargs)
+        super(microsoftgraphcomplianceinformation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.certification_controls = kwargs.get('certification_controls', None)
         self.certification_name = kwargs.get('certification_name', None)
 
 
-class MicrosoftGraphControlScore(msrest.serialization.Model):
+class microsoftgraphcontrolscore(msrest.serialization.Model):
     """controlScore.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -548,7 +548,7 @@ class MicrosoftGraphControlScore(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphControlScore, self).__init__(**kwargs)
+        super(microsoftgraphcontrolscore, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.control_category = kwargs.get('control_category', None)
         self.control_name = kwargs.get('control_name', None)
@@ -556,7 +556,7 @@ class MicrosoftGraphControlScore(msrest.serialization.Model):
         self.score = kwargs.get('score', None)
 
 
-class MicrosoftGraphFileHash(msrest.serialization.Model):
+class microsoftgraphfilehash(msrest.serialization.Model):
     """fileHash.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -564,7 +564,7 @@ class MicrosoftGraphFileHash(msrest.serialization.Model):
     :type additional_properties: dict[str, object]
     :param hash_type:  Possible values include: "unknown", "sha1", "sha256", "md5",
      "authenticodeHash256", "lsHash", "ctph", "unknownFutureValue".
-    :type hash_type: str or ~security.models.MicrosoftGraphFileHashType
+    :type hash_type: str or ~security.models.Microsoftgraphfilehashtype
     :param hash_value: Value of the file hash.
     :type hash_value: str
     """
@@ -579,20 +579,20 @@ class MicrosoftGraphFileHash(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphFileHash, self).__init__(**kwargs)
+        super(microsoftgraphfilehash, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.hash_type = kwargs.get('hash_type', None)
         self.hash_value = kwargs.get('hash_value', None)
 
 
-class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
+class microsoftgraphfilesecuritystate(msrest.serialization.Model):
     """fileSecurityState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param file_hash: fileHash.
-    :type file_hash: ~security.models.MicrosoftGraphFileHash
+    :type file_hash: ~security.models.microsoftgraphfilehash
     :param name: File name (without path).
     :type name: str
     :param path: Full file path of the file/imageFile.
@@ -604,7 +604,7 @@ class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'file_hash': {'key': 'fileHash', 'type': 'MicrosoftGraphFileHash'},
+        'file_hash': {'key': 'fileHash', 'type': 'microsoftgraphfilehash'},
         'name': {'key': 'name', 'type': 'str'},
         'path': {'key': 'path', 'type': 'str'},
         'risk_score': {'key': 'riskScore', 'type': 'str'},
@@ -614,7 +614,7 @@ class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphFileSecurityState, self).__init__(**kwargs)
+        super(microsoftgraphfilesecuritystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.file_hash = kwargs.get('file_hash', None)
         self.name = kwargs.get('name', None)
@@ -622,7 +622,7 @@ class MicrosoftGraphFileSecurityState(msrest.serialization.Model):
         self.risk_score = kwargs.get('risk_score', None)
 
 
-class MicrosoftGraphHostSecurityState(msrest.serialization.Model):
+class microsoftgraphhostsecuritystate(msrest.serialization.Model):
     """hostSecurityState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -669,7 +669,7 @@ class MicrosoftGraphHostSecurityState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphHostSecurityState, self).__init__(**kwargs)
+        super(microsoftgraphhostsecuritystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.fqdn = kwargs.get('fqdn', None)
         self.is_azure_ad_joined = kwargs.get('is_azure_ad_joined', None)
@@ -682,7 +682,7 @@ class MicrosoftGraphHostSecurityState(msrest.serialization.Model):
         self.risk_score = kwargs.get('risk_score', None)
 
 
-class MicrosoftGraphMalwareState(msrest.serialization.Model):
+class microsoftgraphmalwarestate(msrest.serialization.Model):
     """malwareState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -714,7 +714,7 @@ class MicrosoftGraphMalwareState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphMalwareState, self).__init__(**kwargs)
+        super(microsoftgraphmalwarestate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.category = kwargs.get('category', None)
         self.family = kwargs.get('family', None)
@@ -723,7 +723,7 @@ class MicrosoftGraphMalwareState(msrest.serialization.Model):
         self.was_running = kwargs.get('was_running', None)
 
 
-class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
+class microsoftgraphnetworkconnection(msrest.serialization.Model):
     """networkConnection.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -747,7 +747,7 @@ class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
     :type destination_url: str
     :param direction:  Possible values include: "unknown", "inbound", "outbound",
      "unknownFutureValue".
-    :type direction: str or ~security.models.MicrosoftGraphConnectionDirection
+    :type direction: str or ~security.models.Microsoftgraphconnectiondirection
     :param domain_registered_date_time: Date when the destination domain was registered. The
      Timestamp type represents date and time information using ISO 8601 format and is always in UTC
      time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
@@ -767,7 +767,7 @@ class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
      "tcp", "pup", "udp", "idp", "ipv6", "ipv6RoutingHeader", "ipv6FragmentHeader",
      "ipSecEncapsulatingSecurityPayload", "ipSecAuthenticationHeader", "icmpV6", "ipv6NoNextHeader",
      "ipv6DestinationOptions", "nd", "raw", "ipx", "spx", "spxII", "unknownFutureValue".
-    :type protocol: str or ~security.models.MicrosoftGraphSecurityNetworkProtocol
+    :type protocol: str or ~security.models.Microsoftgraphsecuritynetworkprotocol
     :param risk_score: Provider generated/calculated risk score of the network connection.
      Recommended value range of 0-1, which equates to a percentage.
     :type risk_score: str
@@ -780,7 +780,7 @@ class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
     :type source_port: str
     :param status:  Possible values include: "unknown", "attempted", "succeeded", "blocked",
      "failed", "unknownFutureValue".
-    :type status: str or ~security.models.MicrosoftGraphConnectionStatus
+    :type status: str or ~security.models.Microsoftgraphconnectionstatus
     :param url_parameters: Parameters (suffix) of the destination URL.
     :type url_parameters: str
     """
@@ -813,7 +813,7 @@ class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphNetworkConnection, self).__init__(**kwargs)
+        super(microsoftgraphnetworkconnection, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.application_name = kwargs.get('application_name', None)
         self.destination_address = kwargs.get('destination_address', None)
@@ -837,7 +837,7 @@ class MicrosoftGraphNetworkConnection(msrest.serialization.Model):
         self.url_parameters = kwargs.get('url_parameters', None)
 
 
-class MicrosoftGraphProcess(msrest.serialization.Model):
+class microsoftgraphprocess(msrest.serialization.Model):
     """process.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -853,10 +853,10 @@ class MicrosoftGraphProcess(msrest.serialization.Model):
      midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'.
     :type created_date_time: ~datetime.datetime
     :param file_hash: fileHash.
-    :type file_hash: ~security.models.MicrosoftGraphFileHash
+    :type file_hash: ~security.models.microsoftgraphfilehash
     :param integrity_level:  Possible values include: "unknown", "untrusted", "low", "medium",
      "high", "system", "unknownFutureValue".
-    :type integrity_level: str or ~security.models.MicrosoftGraphProcessIntegrityLevel
+    :type integrity_level: str or ~security.models.Microsoftgraphprocessintegritylevel
     :param is_elevated: True if the process is elevated.
     :type is_elevated: bool
     :param name: The name of the process' Image file.
@@ -885,7 +885,7 @@ class MicrosoftGraphProcess(msrest.serialization.Model):
         'account_name': {'key': 'accountName', 'type': 'str'},
         'command_line': {'key': 'commandLine', 'type': 'str'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
-        'file_hash': {'key': 'fileHash', 'type': 'MicrosoftGraphFileHash'},
+        'file_hash': {'key': 'fileHash', 'type': 'microsoftgraphfilehash'},
         'integrity_level': {'key': 'integrityLevel', 'type': 'str'},
         'is_elevated': {'key': 'isElevated', 'type': 'bool'},
         'name': {'key': 'name', 'type': 'str'},
@@ -900,7 +900,7 @@ class MicrosoftGraphProcess(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphProcess, self).__init__(**kwargs)
+        super(microsoftgraphprocess, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.account_name = kwargs.get('account_name', None)
         self.command_line = kwargs.get('command_line', None)
@@ -916,7 +916,7 @@ class MicrosoftGraphProcess(msrest.serialization.Model):
         self.process_id = kwargs.get('process_id', None)
 
 
-class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
+class microsoftgraphregistrykeystate(msrest.serialization.Model):
     """registryKeyState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -925,7 +925,7 @@ class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
     :param hive:  Possible values include: "unknown", "currentConfig", "currentUser",
      "localMachineSam", "localMachineSecurity", "localMachineSoftware", "localMachineSystem",
      "usersDefault", "unknownFutureValue".
-    :type hive: str or ~security.models.MicrosoftGraphRegistryHive
+    :type hive: str or ~security.models.Microsoftgraphregistryhive
     :param key: Current (i.e. changed) registry key (excludes HIVE).
     :type key: str
     :param old_key: Previous (i.e. before changed) registry key (excludes HIVE).
@@ -936,7 +936,7 @@ class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
     :type old_value_name: str
     :param operation:  Possible values include: "unknown", "create", "modify", "delete",
      "unknownFutureValue".
-    :type operation: str or ~security.models.MicrosoftGraphRegistryOperation
+    :type operation: str or ~security.models.Microsoftgraphregistryoperation
     :param process_id: Process ID (PID) of the process that modified the registry key (process
      details will appear in the alert 'processes' collection).
     :type process_id: int
@@ -947,7 +947,7 @@ class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
     :param value_type:  Possible values include: "unknown", "binary", "dword", "dwordLittleEndian",
      "dwordBigEndian", "expandSz", "link", "multiSz", "none", "qword", "qwordlittleEndian", "sz",
      "unknownFutureValue".
-    :type value_type: str or ~security.models.MicrosoftGraphRegistryValueType
+    :type value_type: str or ~security.models.Microsoftgraphregistryvaluetype
     """
 
     _validation = {
@@ -972,7 +972,7 @@ class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphRegistryKeyState, self).__init__(**kwargs)
+        super(microsoftgraphregistrykeystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.hive = kwargs.get('hive', None)
         self.key = kwargs.get('key', None)
@@ -986,7 +986,7 @@ class MicrosoftGraphRegistryKeyState(msrest.serialization.Model):
         self.value_type = kwargs.get('value_type', None)
 
 
-class MicrosoftGraphSecureScore(MicrosoftGraphEntity):
+class microsoftgraphsecurescore(microsoftgraphentity):
     """secureScore.
 
     :param id: Read-only.
@@ -999,11 +999,11 @@ class MicrosoftGraphSecureScore(MicrosoftGraphEntity):
     :param average_comparative_scores: Average score by different scopes (for example, average by
      industry, average by seating) and control category (Identity, Data, Device, Apps,
      Infrastructure) within the scope.
-    :type average_comparative_scores: list[~security.models.MicrosoftGraphAverageComparativeScore]
+    :type average_comparative_scores: list[~security.models.microsoftgraphaveragecomparativescore]
     :param azure_tenant_id: GUID string for tenant ID.
     :type azure_tenant_id: str
     :param control_scores: Contains tenant scores for a set of controls.
-    :type control_scores: list[~security.models.MicrosoftGraphControlScore]
+    :type control_scores: list[~security.models.microsoftgraphcontrolscore]
     :param created_date_time: The date when the entity is created.
     :type created_date_time: ~datetime.datetime
     :param current_score: Tenant current attained score on specified date.
@@ -1016,7 +1016,7 @@ class MicrosoftGraphSecureScore(MicrosoftGraphEntity):
     :param max_score: Tenant maximum possible score on specified date.
     :type max_score: float
     :param vendor_information: securityVendorInformation.
-    :type vendor_information: ~security.models.MicrosoftGraphSecurityVendorInformation
+    :type vendor_information: ~security.models.microsoftgraphsecurityvendorinformation
     """
 
     _validation = {
@@ -1028,22 +1028,22 @@ class MicrosoftGraphSecureScore(MicrosoftGraphEntity):
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
         'active_user_count': {'key': 'activeUserCount', 'type': 'int'},
-        'average_comparative_scores': {'key': 'averageComparativeScores', 'type': '[MicrosoftGraphAverageComparativeScore]'},
+        'average_comparative_scores': {'key': 'averageComparativeScores', 'type': '[microsoftgraphaveragecomparativescore]'},
         'azure_tenant_id': {'key': 'azureTenantId', 'type': 'str'},
-        'control_scores': {'key': 'controlScores', 'type': '[MicrosoftGraphControlScore]'},
+        'control_scores': {'key': 'controlScores', 'type': '[microsoftgraphcontrolscore]'},
         'created_date_time': {'key': 'createdDateTime', 'type': 'iso-8601'},
         'current_score': {'key': 'currentScore', 'type': 'float'},
         'enabled_services': {'key': 'enabledServices', 'type': '[str]'},
         'licensed_user_count': {'key': 'licensedUserCount', 'type': 'int'},
         'max_score': {'key': 'maxScore', 'type': 'float'},
-        'vendor_information': {'key': 'vendorInformation', 'type': 'MicrosoftGraphSecurityVendorInformation'},
+        'vendor_information': {'key': 'vendorInformation', 'type': 'microsoftgraphsecurityvendorinformation'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecureScore, self).__init__(**kwargs)
+        super(microsoftgraphsecurescore, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.active_user_count = kwargs.get('active_user_count', None)
         self.average_comparative_scores = kwargs.get('average_comparative_scores', None)
@@ -1057,7 +1057,7 @@ class MicrosoftGraphSecureScore(MicrosoftGraphEntity):
         self.vendor_information = kwargs.get('vendor_information', None)
 
 
-class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
+class microsoftgraphsecurescorecontrolprofile(microsoftgraphentity):
     """secureScoreControlProfile.
 
     :param id: Read-only.
@@ -1072,12 +1072,12 @@ class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
     :param azure_tenant_id: GUID string for tenant ID.
     :type azure_tenant_id: str
     :param compliance_information:
-    :type compliance_information: list[~security.models.MicrosoftGraphComplianceInformation]
+    :type compliance_information: list[~security.models.microsoftgraphcomplianceinformation]
     :param control_category: Control action category (Identity, Data, Device, Apps,
      Infrastructure).
     :type control_category: str
     :param control_state_updates:
-    :type control_state_updates: list[~security.models.MicrosoftGraphSecureScoreControlStateUpdate]
+    :type control_state_updates: list[~security.models.microsoftgraphsecurescorecontrolstateupdate]
     :param deprecated: Flag to indicate if a control is depreciated.
     :type deprecated: bool
     :param implementation_cost: Resource cost of implemmentating control (low, moderate, high).
@@ -1105,7 +1105,7 @@ class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
     :param user_impact:
     :type user_impact: str
     :param vendor_information: securityVendorInformation.
-    :type vendor_information: ~security.models.MicrosoftGraphSecurityVendorInformation
+    :type vendor_information: ~security.models.microsoftgraphsecurityvendorinformation
     """
 
     _validation = {
@@ -1118,9 +1118,9 @@ class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
         'action_type': {'key': 'actionType', 'type': 'str'},
         'action_url': {'key': 'actionUrl', 'type': 'str'},
         'azure_tenant_id': {'key': 'azureTenantId', 'type': 'str'},
-        'compliance_information': {'key': 'complianceInformation', 'type': '[MicrosoftGraphComplianceInformation]'},
+        'compliance_information': {'key': 'complianceInformation', 'type': '[microsoftgraphcomplianceinformation]'},
         'control_category': {'key': 'controlCategory', 'type': 'str'},
-        'control_state_updates': {'key': 'controlStateUpdates', 'type': '[MicrosoftGraphSecureScoreControlStateUpdate]'},
+        'control_state_updates': {'key': 'controlStateUpdates', 'type': '[microsoftgraphsecurescorecontrolstateupdate]'},
         'deprecated': {'key': 'deprecated', 'type': 'bool'},
         'implementation_cost': {'key': 'implementationCost', 'type': 'str'},
         'last_modified_date_time': {'key': 'lastModifiedDateTime', 'type': 'iso-8601'},
@@ -1133,14 +1133,14 @@ class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
         'tier': {'key': 'tier', 'type': 'str'},
         'title': {'key': 'title', 'type': 'str'},
         'user_impact': {'key': 'userImpact', 'type': 'str'},
-        'vendor_information': {'key': 'vendorInformation', 'type': 'MicrosoftGraphSecurityVendorInformation'},
+        'vendor_information': {'key': 'vendorInformation', 'type': 'microsoftgraphsecurityvendorinformation'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecureScoreControlProfile, self).__init__(**kwargs)
+        super(microsoftgraphsecurescorecontrolprofile, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.action_type = kwargs.get('action_type', None)
         self.action_url = kwargs.get('action_url', None)
@@ -1163,7 +1163,7 @@ class MicrosoftGraphSecureScoreControlProfile(MicrosoftGraphEntity):
         self.vendor_information = kwargs.get('vendor_information', None)
 
 
-class MicrosoftGraphSecureScoreControlStateUpdate(msrest.serialization.Model):
+class microsoftgraphsecurescorecontrolstateupdate(msrest.serialization.Model):
     """secureScoreControlStateUpdate.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1195,7 +1195,7 @@ class MicrosoftGraphSecureScoreControlStateUpdate(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecureScoreControlStateUpdate, self).__init__(**kwargs)
+        super(microsoftgraphsecurescorecontrolstateupdate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.assigned_to = kwargs.get('assigned_to', None)
         self.comment = kwargs.get('comment', None)
@@ -1204,7 +1204,7 @@ class MicrosoftGraphSecureScoreControlStateUpdate(msrest.serialization.Model):
         self.updated_date_time = kwargs.get('updated_date_time', None)
 
 
-class MicrosoftGraphSecurity(MicrosoftGraphEntity):
+class microsoftgraphsecurity(microsoftgraphentity):
     """security.
 
     :param id: Read-only.
@@ -1213,34 +1213,34 @@ class MicrosoftGraphSecurity(MicrosoftGraphEntity):
      collection.
     :type additional_properties: dict[str, object]
     :param alerts: Read-only. Nullable.
-    :type alerts: list[~security.models.MicrosoftGraphAlert]
+    :type alerts: list[~security.models.microsoftgraphalert]
     :param secure_score_control_profiles:
     :type secure_score_control_profiles:
-     list[~security.models.MicrosoftGraphSecureScoreControlProfile]
+     list[~security.models.microsoftgraphsecurescorecontrolprofile]
     :param secure_scores:
-    :type secure_scores: list[~security.models.MicrosoftGraphSecureScore]
+    :type secure_scores: list[~security.models.microsoftgraphsecurescore]
     """
 
     _attribute_map = {
         'id': {'key': 'id', 'type': 'str'},
         'additional_properties': {'key': '', 'type': '{object}'},
-        'alerts': {'key': 'alerts', 'type': '[MicrosoftGraphAlert]'},
-        'secure_score_control_profiles': {'key': 'secureScoreControlProfiles', 'type': '[MicrosoftGraphSecureScoreControlProfile]'},
-        'secure_scores': {'key': 'secureScores', 'type': '[MicrosoftGraphSecureScore]'},
+        'alerts': {'key': 'alerts', 'type': '[microsoftgraphalert]'},
+        'secure_score_control_profiles': {'key': 'secureScoreControlProfiles', 'type': '[microsoftgraphsecurescorecontrolprofile]'},
+        'secure_scores': {'key': 'secureScores', 'type': '[microsoftgraphsecurescore]'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecurity, self).__init__(**kwargs)
+        super(microsoftgraphsecurity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.alerts = kwargs.get('alerts', None)
         self.secure_score_control_profiles = kwargs.get('secure_score_control_profiles', None)
         self.secure_scores = kwargs.get('secure_scores', None)
 
 
-class MicrosoftGraphSecurityResource(msrest.serialization.Model):
+class microsoftgraphsecurityresource(msrest.serialization.Model):
     """securityResource.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1250,7 +1250,7 @@ class MicrosoftGraphSecurityResource(msrest.serialization.Model):
     :type resource: str
     :param resource_type:  Possible values include: "unknown", "attacked", "related",
      "unknownFutureValue".
-    :type resource_type: str or ~security.models.MicrosoftGraphSecurityResourceType
+    :type resource_type: str or ~security.models.Microsoftgraphsecurityresourcetype
     """
 
     _attribute_map = {
@@ -1263,13 +1263,13 @@ class MicrosoftGraphSecurityResource(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecurityResource, self).__init__(**kwargs)
+        super(microsoftgraphsecurityresource, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.resource = kwargs.get('resource', None)
         self.resource_type = kwargs.get('resource_type', None)
 
 
-class MicrosoftGraphSecurityVendorInformation(msrest.serialization.Model):
+class microsoftgraphsecurityvendorinformation(msrest.serialization.Model):
     """securityVendorInformation.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1300,7 +1300,7 @@ class MicrosoftGraphSecurityVendorInformation(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSecurityVendorInformation, self).__init__(**kwargs)
+        super(microsoftgraphsecurityvendorinformation, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.provider = kwargs.get('provider', None)
         self.provider_version = kwargs.get('provider_version', None)
@@ -1308,7 +1308,7 @@ class MicrosoftGraphSecurityVendorInformation(msrest.serialization.Model):
         self.vendor = kwargs.get('vendor', None)
 
 
-class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
+class microsoftgraphusersecuritystate(msrest.serialization.Model):
     """userSecurityState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1325,7 +1325,7 @@ class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
     :type domain_name: str
     :param email_role:  Possible values include: "unknown", "sender", "recipient",
      "unknownFutureValue".
-    :type email_role: str or ~security.models.MicrosoftGraphEmailRole
+    :type email_role: str or ~security.models.Microsoftgraphemailrole
     :param is_vpn: Indicates whether the user logged on through a VPN.
     :type is_vpn: bool
     :param logon_date_time: Time at which the sign-in occurred. The Timestamp type represents date
@@ -1341,7 +1341,7 @@ class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
     :type logon_location: str
     :param logon_type:  Possible values include: "unknown", "interactive", "remoteInteractive",
      "network", "batch", "service", "unknownFutureValue".
-    :type logon_type: str or ~security.models.MicrosoftGraphLogonType
+    :type logon_type: str or ~security.models.Microsoftgraphlogontype
     :param on_premises_security_identifier: Active Directory (on-premises) Security Identifier
      (SID) of the user.
     :type on_premises_security_identifier: str
@@ -1350,7 +1350,7 @@ class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
     :type risk_score: str
     :param user_account_type:  Possible values include: "unknown", "standard", "power",
      "administrator", "unknownFutureValue".
-    :type user_account_type: str or ~security.models.MicrosoftGraphUserAccountSecurityType
+    :type user_account_type: str or ~security.models.Microsoftgraphuseraccountsecuritytype
     :param user_principal_name: User sign-in name - internet format: (user account name)@(user
      account DNS domain name).
     :type user_principal_name: str
@@ -1378,7 +1378,7 @@ class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphUserSecurityState, self).__init__(**kwargs)
+        super(microsoftgraphusersecuritystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.aad_user_id = kwargs.get('aad_user_id', None)
         self.account_name = kwargs.get('account_name', None)
@@ -1396,7 +1396,7 @@ class MicrosoftGraphUserSecurityState(msrest.serialization.Model):
         self.user_principal_name = kwargs.get('user_principal_name', None)
 
 
-class MicrosoftGraphVulnerabilityState(msrest.serialization.Model):
+class microsoftgraphvulnerabilitystate(msrest.serialization.Model):
     """vulnerabilityState.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -1423,15 +1423,15 @@ class MicrosoftGraphVulnerabilityState(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphVulnerabilityState, self).__init__(**kwargs)
+        super(microsoftgraphvulnerabilitystate, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.cve = kwargs.get('cve', None)
         self.severity = kwargs.get('severity', None)
         self.was_running = kwargs.get('was_running', None)
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1439,7 +1439,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~security.models.OdataErrorMain
+    :type error: ~security.models.odataerrormain
     """
 
     _validation = {
@@ -1448,20 +1448,20 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1492,15 +1492,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -1514,7 +1514,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~security.models.OdataErrorDetail]
+    :type details: list[~security.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -1529,7 +1529,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -1537,7 +1537,7 @@ class OdataErrorMain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

@@ -14,33 +14,6 @@ from collections import defaultdict
 from knack.util import CLIError
 
 
-class AddServices(argparse._AppendAction):
-    def __call__(self, parser, namespace, values, option_string=None):
-        action = self.get_action(values, option_string)
-        super(AddServices, self).__call__(parser, namespace, action, option_string)
-
-    def get_action(self, values, option_string):  # pylint: disable=no-self-use
-        try:
-            properties = defaultdict(list)
-            for (k, v) in (x.split('=', 1) for x in values):
-                properties[k].append(v)
-            properties = dict(properties)
-        except ValueError:
-            raise CLIError('usage error: {} [KEY=VALUE ...]'.format(option_string))
-        d = {}
-        for k in properties:
-            kl = k.lower()
-            v = properties[k]
-            if kl == 'endpoints':
-                d['endpoints'] = v
-            elif kl == 'id':
-                d['id'] = v[0]
-            else:
-                raise CLIError('Unsupported Key {} is provided for parameter services. All possible keys are: '
-                               'endpoints, id'.format(k))
-        return d
-
-
 class AddLocation(argparse.Action):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)

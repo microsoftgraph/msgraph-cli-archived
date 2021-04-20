@@ -18,33 +18,33 @@ def cf_cloudcommunications_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_communication_cloud_communication(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_cloud_communication
+def cf_communicationscloudcommunication(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationscloudcommunications
 
 
 def cf_communication(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication
+    return cf_cloudcommunications_beta_cl(cli_ctx).communications
 
 
-def cf_communication_call_record(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_record
+def cf_communicationscallrecord(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationscallrecords
 
 
-def cf_communication_call_record_session(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_record_session
+def cf_communicationscallrecordssession(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationscallrecordssessions
 
 
-def cf_communication_call(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call
+def cf_communicationscall(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationscalls
 
 
-def cf_communication_call_participant(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_call_participant
+def cf_communicationscallsparticipant(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationscallsparticipants
 
 
-def cf_communication_online_meeting(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).communication_online_meeting
+def cf_communicationsonlinemeeting(cli_ctx, *_):
+    return cf_cloudcommunications_beta_cl(cli_ctx).communicationsonlinemeetings
 
 
 def cf_user(cli_ctx, *_):
-    return cf_cloudcommunications_beta_cl(cli_ctx).user
+    return cf_cloudcommunications_beta_cl(cli_ctx).users

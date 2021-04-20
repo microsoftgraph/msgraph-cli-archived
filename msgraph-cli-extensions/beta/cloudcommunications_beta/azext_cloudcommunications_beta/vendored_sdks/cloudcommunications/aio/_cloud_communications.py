@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,36 +16,36 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import CloudCommunicationsConfiguration
-from .operations import CommunicationCloudCommunicationOperations
-from .operations import CommunicationOperations
-from .operations import CommunicationCallRecordOperations
-from .operations import CommunicationCallRecordSessionOperations
-from .operations import CommunicationCallOperations
-from .operations import CommunicationCallParticipantOperations
-from .operations import CommunicationOnlineMeetingOperations
-from .operations import UserOperations
+from .operations import communicationscloudcommunicationsOperations
+from .operations import communicationsOperations
+from .operations import communicationscallrecordsOperations
+from .operations import communicationscallrecordssessionsOperations
+from .operations import communicationscallsOperations
+from .operations import communicationscallsparticipantsOperations
+from .operations import communicationsonlinemeetingsOperations
+from .operations import usersOperations
 from .. import models
 
 
 class CloudCommunications(object):
     """CloudCommunications.
 
-    :ivar communication_cloud_communication: CommunicationCloudCommunicationOperations operations
-    :vartype communication_cloud_communication: cloud_communications.aio.operations.CommunicationCloudCommunicationOperations
-    :ivar communication: CommunicationOperations operations
-    :vartype communication: cloud_communications.aio.operations.CommunicationOperations
-    :ivar communication_call_record: CommunicationCallRecordOperations operations
-    :vartype communication_call_record: cloud_communications.aio.operations.CommunicationCallRecordOperations
-    :ivar communication_call_record_session: CommunicationCallRecordSessionOperations operations
-    :vartype communication_call_record_session: cloud_communications.aio.operations.CommunicationCallRecordSessionOperations
-    :ivar communication_call: CommunicationCallOperations operations
-    :vartype communication_call: cloud_communications.aio.operations.CommunicationCallOperations
-    :ivar communication_call_participant: CommunicationCallParticipantOperations operations
-    :vartype communication_call_participant: cloud_communications.aio.operations.CommunicationCallParticipantOperations
-    :ivar communication_online_meeting: CommunicationOnlineMeetingOperations operations
-    :vartype communication_online_meeting: cloud_communications.aio.operations.CommunicationOnlineMeetingOperations
-    :ivar user: UserOperations operations
-    :vartype user: cloud_communications.aio.operations.UserOperations
+    :ivar communicationscloudcommunications: communicationscloudcommunicationsOperations operations
+    :vartype communicationscloudcommunications: cloud_communications.aio.operations.communicationscloudcommunicationsOperations
+    :ivar communications: communicationsOperations operations
+    :vartype communications: cloud_communications.aio.operations.communicationsOperations
+    :ivar communicationscallrecords: communicationscallrecordsOperations operations
+    :vartype communicationscallrecords: cloud_communications.aio.operations.communicationscallrecordsOperations
+    :ivar communicationscallrecordssessions: communicationscallrecordssessionsOperations operations
+    :vartype communicationscallrecordssessions: cloud_communications.aio.operations.communicationscallrecordssessionsOperations
+    :ivar communicationscalls: communicationscallsOperations operations
+    :vartype communicationscalls: cloud_communications.aio.operations.communicationscallsOperations
+    :ivar communicationscallsparticipants: communicationscallsparticipantsOperations operations
+    :vartype communicationscallsparticipants: cloud_communications.aio.operations.communicationscallsparticipantsOperations
+    :ivar communicationsonlinemeetings: communicationsonlinemeetingsOperations operations
+    :vartype communicationsonlinemeetings: cloud_communications.aio.operations.communicationsonlinemeetingsOperations
+    :ivar users: usersOperations operations
+    :vartype users: cloud_communications.aio.operations.usersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -75,28 +75,28 @@ class CloudCommunications(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = CloudCommunicationsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.communication_cloud_communication = CommunicationCloudCommunicationOperations(
+        self.communicationscloudcommunications = communicationscloudcommunicationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication = CommunicationOperations(
+        self.communications = communicationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication_call_record = CommunicationCallRecordOperations(
+        self.communicationscallrecords = communicationscallrecordsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication_call_record_session = CommunicationCallRecordSessionOperations(
+        self.communicationscallrecordssessions = communicationscallrecordssessionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication_call = CommunicationCallOperations(
+        self.communicationscalls = communicationscallsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication_call_participant = CommunicationCallParticipantOperations(
+        self.communicationscallsparticipants = communicationscallsparticipantsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.communication_online_meeting = CommunicationOnlineMeetingOperations(
+        self.communicationsonlinemeetings = communicationsonlinemeetingsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

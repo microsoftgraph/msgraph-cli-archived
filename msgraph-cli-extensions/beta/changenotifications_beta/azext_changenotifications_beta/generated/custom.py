@@ -10,14 +10,7 @@
 # pylint: disable=too-many-lines
 
 
-def changenotifications_subscription_subscription_delete(client,
-                                                         subscription_id,
-                                                         if_match=None):
-    return client.delete_subscription(subscription_id=subscription_id,
-                                      if_match=if_match)
-
-
-def changenotifications_subscription_subscription_create_subscription(client,
+def changenotifications_subscriptionssubscription_create_subscription(client,
                                                                       id_=None,
                                                                       application_id=None,
                                                                       change_type=None,
@@ -32,23 +25,32 @@ def changenotifications_subscription_subscription_create_subscription(client,
                                                                       lifecycle_notification_url=None,
                                                                       notification_url=None,
                                                                       resource=None):
-    return client.create_subscription(id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
+    return client.create_subscription(body=body)
 
 
-def changenotifications_subscription_subscription_list_subscription(client,
+def changenotifications_subscriptionssubscription_delete_subscription(client,
+                                                                      subscription_id,
+                                                                      if_match=None):
+    return client.delete_subscription(subscription_id=subscription_id,
+                                      if_match=if_match)
+
+
+def changenotifications_subscriptionssubscription_list_subscription(client,
                                                                     orderby=None,
                                                                     select=None,
                                                                     expand=None):
@@ -57,7 +59,7 @@ def changenotifications_subscription_subscription_list_subscription(client,
                                     expand=expand)
 
 
-def changenotifications_subscription_subscription_show_subscription(client,
+def changenotifications_subscriptionssubscription_show_subscription(client,
                                                                     subscription_id,
                                                                     select=None,
                                                                     expand=None):
@@ -66,7 +68,7 @@ def changenotifications_subscription_subscription_show_subscription(client,
                                    expand=expand)
 
 
-def changenotifications_subscription_subscription_update_subscription(client,
+def changenotifications_subscriptionssubscription_update_subscription(client,
                                                                       subscription_id,
                                                                       id_=None,
                                                                       application_id=None,
@@ -82,18 +84,20 @@ def changenotifications_subscription_subscription_update_subscription(client,
                                                                       lifecycle_notification_url=None,
                                                                       notification_url=None,
                                                                       resource=None):
+    body = {}
+    body['id'] = id_
+    body['application_id'] = application_id
+    body['change_type'] = change_type
+    body['client_state'] = client_state
+    body['creator_id'] = creator_id
+    body['encryption_certificate'] = encryption_certificate
+    body['encryption_certificate_id'] = encryption_certificate_id
+    body['expiration_date_time'] = expiration_date_time
+    body['include_properties'] = include_properties
+    body['include_resource_data'] = include_resource_data
+    body['latest_supported_tls_version'] = latest_supported_tls_version
+    body['lifecycle_notification_url'] = lifecycle_notification_url
+    body['notification_url'] = notification_url
+    body['resource'] = resource
     return client.update_subscription(subscription_id=subscription_id,
-                                      id=id_,
-                                      application_id=application_id,
-                                      change_type=change_type,
-                                      client_state=client_state,
-                                      creator_id=creator_id,
-                                      encryption_certificate=encryption_certificate,
-                                      encryption_certificate_id=encryption_certificate_id,
-                                      expiration_date_time=expiration_date_time,
-                                      include_properties=include_properties,
-                                      include_resource_data=include_resource_data,
-                                      latest_supported_tls_version=latest_supported_tls_version,
-                                      lifecycle_notification_url=lifecycle_notification_url,
-                                      notification_url=notification_url,
-                                      resource=resource)
+                                      body=body)

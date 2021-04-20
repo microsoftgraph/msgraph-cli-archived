@@ -9,6 +9,6 @@ az extension add --name personalcontacts_beta
 
 ### Included Features ###
 #### personalcontacts user ####
-#### personalcontacts user-contact-folder ####
-#### personalcontacts user-contact-folder-contact ####
-#### personalcontacts user-contact ####
+#### personalcontacts userscontactfolder ####
+#### personalcontacts userscontactfolderscontact ####
+#### personalcontacts userscontact ####

@@ -7,19 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
-
-
-def security_security_create(client,
-                             id_=None,
-                             alerts=None,
-                             secure_score_control_profiles=None,
-                             secure_scores=None):
-    return client.update_security(id=id_,
-                                  alerts=alerts,
-                                  secure_score_control_profiles=secure_score_control_profiles,
-                                  secure_scores=secure_scores)
 
 
 def security_security_show_security(client,
@@ -29,92 +17,22 @@ def security_security_show_security(client,
                                expand=expand)
 
 
-def security_security_delete(client,
-                             alert_id=None,
-                             if_match=None,
-                             secure_score_control_profile_id=None,
-                             secure_score_id=None):
-    if alert_id is not None:
-        return client.delete_alert(alert_id=alert_id,
-                                   if_match=if_match)
-    elif secure_score_control_profile_id is not None:
-        return client.delete_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                          if_match=if_match)
-    return client.delete_secure_score(secure_score_id=secure_score_id,
-                                      if_match=if_match)
+def security_security_update_security(client,
+                                      id_=None,
+                                      alerts=None,
+                                      secure_score_control_profiles=None,
+                                      secure_scores=None):
+    body = {}
+    body['id'] = id_
+    body['alerts'] = alerts
+    body['secure_score_control_profiles'] = secure_score_control_profiles
+    body['secure_scores'] = secure_scores
+    return client.update_security(body=body)
 
 
 def security_security_create_alert(client,
-                                   id_=None,
-                                   activity_group_name=None,
-                                   assigned_to=None,
-                                   azure_subscription_id=None,
-                                   azure_tenant_id=None,
-                                   category=None,
-                                   closed_date_time=None,
-                                   cloud_app_states=None,
-                                   comments=None,
-                                   confidence=None,
-                                   created_date_time=None,
-                                   description=None,
-                                   detection_ids=None,
-                                   event_date_time=None,
-                                   feedback=None,
-                                   file_states=None,
-                                   history_states=None,
-                                   host_states=None,
-                                   incident_ids=None,
-                                   last_modified_date_time=None,
-                                   malware_states=None,
-                                   network_connections=None,
-                                   processes=None,
-                                   recommended_actions=None,
-                                   registry_key_states=None,
-                                   security_resources=None,
-                                   severity=None,
-                                   source_materials=None,
-                                   status=None,
-                                   tags=None,
-                                   title=None,
-                                   triggers=None,
-                                   user_states=None,
-                                   vendor_information=None,
-                                   vulnerability_states=None):
-    return client.create_alert(id=id_,
-                               activity_group_name=activity_group_name,
-                               assigned_to=assigned_to,
-                               azure_subscription_id=azure_subscription_id,
-                               azure_tenant_id=azure_tenant_id,
-                               category=category,
-                               closed_date_time=closed_date_time,
-                               cloud_app_states=cloud_app_states,
-                               comments=comments,
-                               confidence=confidence,
-                               created_date_time=created_date_time,
-                               description=description,
-                               detection_ids=detection_ids,
-                               event_date_time=event_date_time,
-                               feedback=feedback,
-                               file_states=file_states,
-                               history_states=history_states,
-                               host_states=host_states,
-                               incident_ids=incident_ids,
-                               last_modified_date_time=last_modified_date_time,
-                               malware_states=malware_states,
-                               network_connections=network_connections,
-                               processes=processes,
-                               recommended_actions=recommended_actions,
-                               registry_key_states=registry_key_states,
-                               security_resources=security_resources,
-                               severity=severity,
-                               source_materials=source_materials,
-                               status=status,
-                               tags=tags,
-                               title=title,
-                               triggers=triggers,
-                               user_states=user_states,
-                               vendor_information=vendor_information,
-                               vulnerability_states=vulnerability_states)
+                                   body):
+    return client.create_alerts(body=body)
 
 
 def security_security_create_secure_score(client,
@@ -129,17 +47,19 @@ def security_security_create_secure_score(client,
                                           licensed_user_count=None,
                                           max_score=None,
                                           vendor_information=None):
-    return client.create_secure_score(id=id_,
-                                      active_user_count=active_user_count,
-                                      average_comparative_scores=average_comparative_scores,
-                                      azure_tenant_id=azure_tenant_id,
-                                      control_scores=control_scores,
-                                      created_date_time=created_date_time,
-                                      current_score=current_score,
-                                      enabled_services=enabled_services,
-                                      licensed_user_count=licensed_user_count,
-                                      max_score=max_score,
-                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['active_user_count'] = active_user_count
+    body['average_comparative_scores'] = average_comparative_scores
+    body['azure_tenant_id'] = azure_tenant_id
+    body['control_scores'] = control_scores
+    body['created_date_time'] = created_date_time
+    body['current_score'] = current_score
+    body['enabled_services'] = enabled_services
+    body['licensed_user_count'] = licensed_user_count
+    body['max_score'] = max_score
+    body['vendor_information'] = vendor_information
+    return client.create_secure_scores(body=body)
 
 
 def security_security_create_secure_score_control_profile(client,
@@ -163,155 +83,110 @@ def security_security_create_secure_score_control_profile(client,
                                                           title=None,
                                                           user_impact=None,
                                                           vendor_information=None):
-    return client.create_secure_score_control_profile(id=id_,
-                                                      action_type=action_type,
-                                                      action_url=action_url,
-                                                      azure_tenant_id=azure_tenant_id,
-                                                      compliance_information=compliance_information,
-                                                      control_category=control_category,
-                                                      control_state_updates=control_state_updates,
-                                                      deprecated=deprecated,
-                                                      implementation_cost=implementation_cost,
-                                                      last_modified_date_time=last_modified_date_time,
-                                                      max_score=max_score,
-                                                      rank=rank,
-                                                      remediation=remediation,
-                                                      remediation_impact=remediation_impact,
-                                                      service=service,
-                                                      threats=threats,
-                                                      tier=tier,
-                                                      title=title,
-                                                      user_impact=user_impact,
-                                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['action_type'] = action_type
+    body['action_url'] = action_url
+    body['azure_tenant_id'] = azure_tenant_id
+    body['compliance_information'] = compliance_information
+    body['control_category'] = control_category
+    body['control_state_updates'] = control_state_updates
+    body['deprecated'] = deprecated
+    body['implementation_cost'] = implementation_cost
+    body['last_modified_date_time'] = last_modified_date_time
+    body['max_score'] = max_score
+    body['rank'] = rank
+    body['remediation'] = remediation
+    body['remediation_impact'] = remediation_impact
+    body['service'] = service
+    body['threats'] = threats
+    body['tier'] = tier
+    body['title'] = title
+    body['user_impact'] = user_impact
+    body['vendor_information'] = vendor_information
+    return client.create_secure_score_control_profiles(body=body)
+
+
+def security_security_delete_alert(client,
+                                   alert_id,
+                                   if_match=None):
+    return client.delete_alerts(alert_id=alert_id,
+                                if_match=if_match)
+
+
+def security_security_delete_secure_score(client,
+                                          secure_score_id,
+                                          if_match=None):
+    return client.delete_secure_scores(secure_score_id=secure_score_id,
+                                       if_match=if_match)
+
+
+def security_security_delete_secure_score_control_profile(client,
+                                                          secure_score_control_profile_id,
+                                                          if_match=None):
+    return client.delete_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                       if_match=if_match)
 
 
 def security_security_list_alert(client,
                                  orderby=None,
                                  select=None,
                                  expand=None):
-    return client.list_alert(orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_alerts(orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
 def security_security_list_secure_score(client,
                                         orderby=None,
                                         select=None,
                                         expand=None):
-    return client.list_secure_score(orderby=orderby,
-                                    select=select,
-                                    expand=expand)
+    return client.list_secure_scores(orderby=orderby,
+                                     select=select,
+                                     expand=expand)
 
 
 def security_security_list_secure_score_control_profile(client,
                                                         orderby=None,
                                                         select=None,
                                                         expand=None):
-    return client.list_secure_score_control_profile(orderby=orderby,
-                                                    select=select,
-                                                    expand=expand)
+    return client.list_secure_score_control_profiles(orderby=orderby,
+                                                     select=select,
+                                                     expand=expand)
 
 
 def security_security_show_alert(client,
                                  alert_id,
                                  select=None,
                                  expand=None):
-    return client.get_alert(alert_id=alert_id,
-                            select=select,
-                            expand=expand)
+    return client.get_alerts(alert_id=alert_id,
+                             select=select,
+                             expand=expand)
 
 
 def security_security_show_secure_score(client,
                                         secure_score_id,
                                         select=None,
                                         expand=None):
-    return client.get_secure_score(secure_score_id=secure_score_id,
-                                   select=select,
-                                   expand=expand)
+    return client.get_secure_scores(secure_score_id=secure_score_id,
+                                    select=select,
+                                    expand=expand)
 
 
 def security_security_show_secure_score_control_profile(client,
                                                         secure_score_control_profile_id,
                                                         select=None,
                                                         expand=None):
-    return client.get_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                   select=select,
-                                                   expand=expand)
+    return client.get_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                    select=select,
+                                                    expand=expand)
 
 
 def security_security_update_alert(client,
                                    alert_id,
-                                   id_=None,
-                                   activity_group_name=None,
-                                   assigned_to=None,
-                                   azure_subscription_id=None,
-                                   azure_tenant_id=None,
-                                   category=None,
-                                   closed_date_time=None,
-                                   cloud_app_states=None,
-                                   comments=None,
-                                   confidence=None,
-                                   created_date_time=None,
-                                   description=None,
-                                   detection_ids=None,
-                                   event_date_time=None,
-                                   feedback=None,
-                                   file_states=None,
-                                   history_states=None,
-                                   host_states=None,
-                                   incident_ids=None,
-                                   last_modified_date_time=None,
-                                   malware_states=None,
-                                   network_connections=None,
-                                   processes=None,
-                                   recommended_actions=None,
-                                   registry_key_states=None,
-                                   security_resources=None,
-                                   severity=None,
-                                   source_materials=None,
-                                   status=None,
-                                   tags=None,
-                                   title=None,
-                                   triggers=None,
-                                   user_states=None,
-                                   vendor_information=None,
-                                   vulnerability_states=None):
-    return client.update_alert(alert_id=alert_id,
-                               id=id_,
-                               activity_group_name=activity_group_name,
-                               assigned_to=assigned_to,
-                               azure_subscription_id=azure_subscription_id,
-                               azure_tenant_id=azure_tenant_id,
-                               category=category,
-                               closed_date_time=closed_date_time,
-                               cloud_app_states=cloud_app_states,
-                               comments=comments,
-                               confidence=confidence,
-                               created_date_time=created_date_time,
-                               description=description,
-                               detection_ids=detection_ids,
-                               event_date_time=event_date_time,
-                               feedback=feedback,
-                               file_states=file_states,
-                               history_states=history_states,
-                               host_states=host_states,
-                               incident_ids=incident_ids,
-                               last_modified_date_time=last_modified_date_time,
-                               malware_states=malware_states,
-                               network_connections=network_connections,
-                               processes=processes,
-                               recommended_actions=recommended_actions,
-                               registry_key_states=registry_key_states,
-                               security_resources=security_resources,
-                               severity=severity,
-                               source_materials=source_materials,
-                               status=status,
-                               tags=tags,
-                               title=title,
-                               triggers=triggers,
-                               user_states=user_states,
-                               vendor_information=vendor_information,
-                               vulnerability_states=vulnerability_states)
+                                   body):
+    return client.update_alerts(alert_id=alert_id,
+                                body=body)
 
 
 def security_security_update_secure_score(client,
@@ -327,18 +202,20 @@ def security_security_update_secure_score(client,
                                           licensed_user_count=None,
                                           max_score=None,
                                           vendor_information=None):
-    return client.update_secure_score(secure_score_id=secure_score_id,
-                                      id=id_,
-                                      active_user_count=active_user_count,
-                                      average_comparative_scores=average_comparative_scores,
-                                      azure_tenant_id=azure_tenant_id,
-                                      control_scores=control_scores,
-                                      created_date_time=created_date_time,
-                                      current_score=current_score,
-                                      enabled_services=enabled_services,
-                                      licensed_user_count=licensed_user_count,
-                                      max_score=max_score,
-                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['active_user_count'] = active_user_count
+    body['average_comparative_scores'] = average_comparative_scores
+    body['azure_tenant_id'] = azure_tenant_id
+    body['control_scores'] = control_scores
+    body['created_date_time'] = created_date_time
+    body['current_score'] = current_score
+    body['enabled_services'] = enabled_services
+    body['licensed_user_count'] = licensed_user_count
+    body['max_score'] = max_score
+    body['vendor_information'] = vendor_information
+    return client.update_secure_scores(secure_score_id=secure_score_id,
+                                       body=body)
 
 
 def security_security_update_secure_score_control_profile(client,
@@ -363,24 +240,26 @@ def security_security_update_secure_score_control_profile(client,
                                                           title=None,
                                                           user_impact=None,
                                                           vendor_information=None):
-    return client.update_secure_score_control_profile(secure_score_control_profile_id=secure_score_control_profile_id,
-                                                      id=id_,
-                                                      action_type=action_type,
-                                                      action_url=action_url,
-                                                      azure_tenant_id=azure_tenant_id,
-                                                      compliance_information=compliance_information,
-                                                      control_category=control_category,
-                                                      control_state_updates=control_state_updates,
-                                                      deprecated=deprecated,
-                                                      implementation_cost=implementation_cost,
-                                                      last_modified_date_time=last_modified_date_time,
-                                                      max_score=max_score,
-                                                      rank=rank,
-                                                      remediation=remediation,
-                                                      remediation_impact=remediation_impact,
-                                                      service=service,
-                                                      threats=threats,
-                                                      tier=tier,
-                                                      title=title,
-                                                      user_impact=user_impact,
-                                                      vendor_information=vendor_information)
+    body = {}
+    body['id'] = id_
+    body['action_type'] = action_type
+    body['action_url'] = action_url
+    body['azure_tenant_id'] = azure_tenant_id
+    body['compliance_information'] = compliance_information
+    body['control_category'] = control_category
+    body['control_state_updates'] = control_state_updates
+    body['deprecated'] = deprecated
+    body['implementation_cost'] = implementation_cost
+    body['last_modified_date_time'] = last_modified_date_time
+    body['max_score'] = max_score
+    body['rank'] = rank
+    body['remediation'] = remediation
+    body['remediation_impact'] = remediation_impact
+    body['service'] = service
+    body['threats'] = threats
+    body['tier'] = tier
+    body['title'] = title
+    body['user_impact'] = user_impact
+    body['vendor_information'] = vendor_information
+    return client.update_secure_score_control_profiles(secure_score_control_profile_id=secure_score_control_profile_id,
+                                                       body=body)

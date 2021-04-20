@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,30 +18,30 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import ApplicationsConfiguration
-from .operations import ApplicationApplicationOperations
-from .operations import ApplicationOperations
-from .operations import GroupOperations
-from .operations import ServicePrincipalServicePrincipalOperations
-from .operations import ServicePrincipalOperations
-from .operations import UserOperations
+from .operations import applicationsapplicationOperations
+from .operations import applicationsOperations
+from .operations import groupsOperations
+from .operations import serviceprincipalsserviceprincipalOperations
+from .operations import serviceprincipalsOperations
+from .operations import usersOperations
 from . import models
 
 
 class Applications(object):
     """Applications.
 
-    :ivar application_application: ApplicationApplicationOperations operations
-    :vartype application_application: applications.operations.ApplicationApplicationOperations
-    :ivar application: ApplicationOperations operations
-    :vartype application: applications.operations.ApplicationOperations
-    :ivar group: GroupOperations operations
-    :vartype group: applications.operations.GroupOperations
-    :ivar service_principal_service_principal: ServicePrincipalServicePrincipalOperations operations
-    :vartype service_principal_service_principal: applications.operations.ServicePrincipalServicePrincipalOperations
-    :ivar service_principal: ServicePrincipalOperations operations
-    :vartype service_principal: applications.operations.ServicePrincipalOperations
-    :ivar user: UserOperations operations
-    :vartype user: applications.operations.UserOperations
+    :ivar applicationsapplication: applicationsapplicationOperations operations
+    :vartype applicationsapplication: applications.operations.applicationsapplicationOperations
+    :ivar applications: applicationsOperations operations
+    :vartype applications: applications.operations.applicationsOperations
+    :ivar groups: groupsOperations operations
+    :vartype groups: applications.operations.groupsOperations
+    :ivar serviceprincipalsserviceprincipal: serviceprincipalsserviceprincipalOperations operations
+    :vartype serviceprincipalsserviceprincipal: applications.operations.serviceprincipalsserviceprincipalOperations
+    :ivar serviceprincipals: serviceprincipalsOperations operations
+    :vartype serviceprincipals: applications.operations.serviceprincipalsOperations
+    :ivar users: usersOperations operations
+    :vartype users: applications.operations.usersOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -72,24 +72,24 @@ class Applications(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = ApplicationsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.application_application = ApplicationApplicationOperations(
+        self.applicationsapplication = applicationsapplicationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.application = ApplicationOperations(
+        self.applications = applicationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group = GroupOperations(
+        self.groups = groupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal_service_principal = ServicePrincipalServicePrincipalOperations(
+        self.serviceprincipalsserviceprincipal = serviceprincipalsserviceprincipalOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.service_principal = ServicePrincipalOperations(
+        self.serviceprincipals = serviceprincipalsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

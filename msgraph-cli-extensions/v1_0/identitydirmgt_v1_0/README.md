@@ -8,22 +8,22 @@ az extension add --name identitydirmgt_v1_0
 ```
 
 ### Included Features ###
-#### identitydirmgt contact-org-contact ####
+#### identitydirmgt contactsorgcontact ####
 #### identitydirmgt contact ####
-#### identitydirmgt contract-contract ####
+#### identitydirmgt contractscontract ####
 #### identitydirmgt contract ####
-#### identitydirmgt device-device ####
+#### identitydirmgt devicesdevice ####
 #### identitydirmgt device ####
-#### identitydirmgt directory-directory ####
 #### identitydirmgt directory ####
-#### identitydirmgt directory-administrative-unit ####
-#### identitydirmgt directory-role-directory-role ####
-#### identitydirmgt directory-role ####
-#### identitydirmgt directory-role-template-directory-role-template ####
-#### identitydirmgt directory-role-template ####
-#### identitydirmgt domain-domain ####
+#### identitydirmgt directory ####
+#### identitydirmgt directoryadministrativeunit ####
+#### identitydirmgt directoryrolesdirectoryrole ####
+#### identitydirmgt directoryrole ####
+#### identitydirmgt directoryroletemplatesdirectoryroletemplate ####
+#### identitydirmgt directoryroletemplate ####
+#### identitydirmgt domainsdomain ####
 #### identitydirmgt domain ####
-#### identitydirmgt organization-organization ####
 #### identitydirmgt organization ####
-#### identitydirmgt subscribed-sku-subscribed-sku ####
+#### identitydirmgt organization ####
+#### identitydirmgt subscribedskussubscribedsku ####
 #### identitydirmgt user ####

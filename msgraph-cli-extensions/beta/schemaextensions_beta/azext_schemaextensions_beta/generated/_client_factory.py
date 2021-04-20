@@ -18,5 +18,5 @@ def cf_schemaextensions_beta_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_schema_extension_schema_extension(cli_ctx, *_):
-    return cf_schemaextensions_beta_cl(cli_ctx).schema_extension_schema_extension
+def cf_schemaextensionsschemaextension(cli_ctx, *_):
+    return cf_schemaextensions_beta_cl(cli_ctx).schemaextensionsschemaextension

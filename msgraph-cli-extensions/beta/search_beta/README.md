@@ -8,7 +8,7 @@ az extension add --name search_beta
 ```
 
 ### Included Features ###
-#### search external-external ####
 #### search external ####
-#### search search-entity ####
+#### search external ####
+#### search searchentity ####
 #### search search ####

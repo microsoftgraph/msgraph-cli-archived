@@ -12,17 +12,22 @@
 from knack.help_files import helps
 
 
-helps['reports audit-log-audit-log-root'] = """
+helps['reports_beta'] = '''
     type: group
-    short-summary: Manage audit log audit log root with reports_beta
+    short-summary: Manage Reports
+'''
+
+helps['reports auditlogsauditlogroot'] = """
+    type: group
+    short-summary: Manage auditlogsauditlogroot with reports_beta
 """
 
-helps['reports audit-log-audit-log-root show-audit-log-root'] = """
+helps['reports auditlogsauditlogroot show-audit-log-root'] = """
     type: command
     short-summary: "Get auditLogs."
 """
 
-helps['reports audit-log-audit-log-root update-audit-log-root'] = """
+helps['reports auditlogsauditlogroot update-audit-log-root'] = """
     type: command
     short-summary: "Update auditLogs."
     parameters:
@@ -74,19 +79,12 @@ information from the sign-in activity.
             Multiple actions can be specified by using more than one --restricted-sign-ins argument.
 """
 
-helps['reports audit-log'] = """
+helps['reports auditlog'] = """
     type: group
-    short-summary: Manage audit log with reports_beta
+    short-summary: Manage auditlog with reports_beta
 """
 
-helps['reports audit-log delete'] = """
-    type: command
-    short-summary: "Delete navigation property directoryAudits for auditLogs And Delete navigation property \
-directoryProvisioning for auditLogs And Delete navigation property provisioning for auditLogs And Delete navigation \
-property restrictedSignIns for auditLogs And Delete navigation property signIns for auditLogs."
-"""
-
-helps['reports audit-log create-directory-audit'] = """
+helps['reports auditlog create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs."
     parameters:
@@ -99,23 +97,6 @@ helps['reports audit-log create-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -139,65 +120,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['reports audit-log create-directory-provisioning'] = """
+helps['reports auditlog create-directory-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to directoryProvisioning for auditLogs."
-    parameters:
-      - name: --initiated-by
-        short-summary: "initiator"
-        long-summary: |
-            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
-
-      - name: --modified-properties
-        long-summary: |
-            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
-
-            display-name: Indicates the property name of the target attribute that was changed.
-            new-value: Indicates the updated value for the propery.
-            old-value: Indicates the previous value (before the update) for the property.
-
-            Multiple actions can be specified by using more than one --modified-properties argument.
-      - name: --service-principal
-        short-summary: "provisioningServicePrincipal"
-        long-summary: |
-            Usage: --service-principal display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
-helps['reports audit-log create-provisioning'] = """
+helps['reports auditlog create-provisioning'] = """
     type: command
     short-summary: "Create new navigation property to provisioning for auditLogs."
-    parameters:
-      - name: --initiated-by
-        short-summary: "initiator"
-        long-summary: |
-            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
-
-      - name: --modified-properties
-        long-summary: |
-            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
-
-            display-name: Indicates the property name of the target attribute that was changed.
-            new-value: Indicates the updated value for the propery.
-            old-value: Indicates the previous value (before the update) for the property.
-
-            Multiple actions can be specified by using more than one --modified-properties argument.
-      - name: --service-principal
-        short-summary: "provisioningServicePrincipal"
-        long-summary: |
-            Usage: --service-principal display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
-helps['reports audit-log create-restricted-sign-in'] = """
+helps['reports auditlog create-restricted-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to restrictedSignIns for auditLogs."
     parameters:
@@ -280,140 +213,87 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log create-sign-in'] = """
+helps['reports auditlog create-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to signIns for auditLogs."
-    parameters:
-      - name: --applied-conditional-access-policies
-        long-summary: |
-            Usage: --applied-conditional-access-policies conditions-not-satisfied=XX conditions-satisfied=XX \
-display-name=XX enforced-grant-controls=XX enforced-session-controls=XX id=XX result=XX
-
-            display-name: Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
-            enforced-grant-controls: Refers to the grant controls enforced by the conditional access policy (example: \
-'Require multi-factor authentication').
-            enforced-session-controls: Refers to the session controls enforced by the conditional access policy \
-(example: 'Require app enforced controls').
-            id: Unique GUID of the conditional access policy.
-
-            Multiple actions can be specified by using more than one --applied-conditional-access-policies argument.
-      - name: --authentication-details
-        long-summary: |
-            Usage: --authentication-details authentication-method=XX authentication-method-detail=XX \
-authentication-step-date-time=XX authentication-step-requirement=XX authentication-step-result-detail=XX succeeded=XX
-
-
-            Multiple actions can be specified by using more than one --authentication-details argument.
-      - name: --authentication-processing-details
-        long-summary: |
-            Usage: --authentication-processing-details key=XX value=XX
-
-            key: Key for the key-value pair.
-            value: Value for the key-value pair.
-
-            Multiple actions can be specified by using more than one --authentication-processing-details argument.
-      - name: --authentication-requirement-policies
-        long-summary: |
-            Usage: --authentication-requirement-policies detail=XX requirement-provider=XX
-
-
-            Multiple actions can be specified by using more than one --authentication-requirement-policies argument.
-      - name: --device-detail
-        short-summary: "deviceDetail"
-        long-summary: |
-            Usage: --device-detail browser=XX browser-id=XX device-id=XX display-name=XX is-compliant=XX is-managed=XX \
-operating-system=XX trust-type=XX
-
-            browser: Indicates the browser information of the used for signing in.
-            device-id: Refers to the UniqueID of the device used for signing in.
-            display-name: Refers to the name of the device used for signing in.
-            is-compliant: Indicates whether the device is compliant.
-            is-managed: Indicates whether the device is managed.
-            operating-system: Indicates the operating system name and version used for signing in.
-            trust-type: Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, \
-Domain Joined.
-      - name: --mfa-detail
-        short-summary: "mfaDetail"
-        long-summary: |
-            Usage: --mfa-detail auth-detail=XX auth-method=XX
-
-      - name: --network-location-details
-        long-summary: |
-            Usage: --network-location-details network-names=XX network-type=XX
-
-
-            Multiple actions can be specified by using more than one --network-location-details argument.
-      - name: --status
-        short-summary: "signInStatus"
-        long-summary: |
-            Usage: --status additional-details=XX error-code=XX failure-reason=XX
-
-            additional-details: Provides additional details on the sign-in activity
-            error-code: Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list \
-of error codes and messages.
-            failure-reason: Provides the error message or the reason for failure for the corresponding sign-in \
-activity. Check out the list of error codes and messages.
-      - name: --geo-coordinates
-        short-summary: "geoCoordinates"
-        long-summary: |
-            Usage: --geo-coordinates altitude=XX latitude=XX longitude=XX
-
-            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-            latitude: Optional. The latitude, in decimal, for the item. Read-only.
-            longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log list-directory-audit'] = """
+helps['reports auditlog delete-directory-audit'] = """
+    type: command
+    short-summary: "Delete navigation property directoryAudits for auditLogs."
+"""
+
+helps['reports auditlog delete-directory-provisioning'] = """
+    type: command
+    short-summary: "Delete navigation property directoryProvisioning for auditLogs."
+"""
+
+helps['reports auditlog delete-provisioning'] = """
+    type: command
+    short-summary: "Delete navigation property provisioning for auditLogs."
+"""
+
+helps['reports auditlog delete-restricted-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property restrictedSignIns for auditLogs."
+"""
+
+helps['reports auditlog delete-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property signIns for auditLogs."
+"""
+
+helps['reports auditlog list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports audit-log list-directory-provisioning'] = """
+helps['reports auditlog list-directory-provisioning'] = """
     type: command
     short-summary: "Get directoryProvisioning from auditLogs."
 """
 
-helps['reports audit-log list-provisioning'] = """
+helps['reports auditlog list-provisioning'] = """
     type: command
     short-summary: "Get provisioning from auditLogs."
 """
 
-helps['reports audit-log list-restricted-sign-in'] = """
+helps['reports auditlog list-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports audit-log list-sign-in'] = """
+helps['reports auditlog list-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports audit-log show-directory-audit'] = """
+helps['reports auditlog show-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports audit-log show-directory-provisioning'] = """
+helps['reports auditlog show-directory-provisioning'] = """
     type: command
     short-summary: "Get directoryProvisioning from auditLogs."
 """
 
-helps['reports audit-log show-provisioning'] = """
+helps['reports auditlog show-provisioning'] = """
     type: command
     short-summary: "Get provisioning from auditLogs."
 """
 
-helps['reports audit-log show-restricted-sign-in'] = """
+helps['reports auditlog show-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports audit-log show-sign-in'] = """
+helps['reports auditlog show-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports audit-log update-directory-audit'] = """
+helps['reports auditlog update-directory-audit'] = """
     type: command
     short-summary: "Update the navigation property directoryAudits in auditLogs."
     parameters:
@@ -426,23 +306,6 @@ helps['reports audit-log update-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -466,65 +329,17 @@ associated with the user won't show up as having changed when using delta.
             id: Unique identifier for the identity.
 """
 
-helps['reports audit-log update-directory-provisioning'] = """
+helps['reports auditlog update-directory-provisioning'] = """
     type: command
     short-summary: "Update the navigation property directoryProvisioning in auditLogs."
-    parameters:
-      - name: --initiated-by
-        short-summary: "initiator"
-        long-summary: |
-            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
-
-      - name: --modified-properties
-        long-summary: |
-            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
-
-            display-name: Indicates the property name of the target attribute that was changed.
-            new-value: Indicates the updated value for the propery.
-            old-value: Indicates the previous value (before the update) for the property.
-
-            Multiple actions can be specified by using more than one --modified-properties argument.
-      - name: --service-principal
-        short-summary: "provisioningServicePrincipal"
-        long-summary: |
-            Usage: --service-principal display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
-helps['reports audit-log update-provisioning'] = """
+helps['reports auditlog update-provisioning'] = """
     type: command
     short-summary: "Update the navigation property provisioning in auditLogs."
-    parameters:
-      - name: --initiated-by
-        short-summary: "initiator"
-        long-summary: |
-            Usage: --initiated-by display-name=XX id=XX initiator-type=XX
-
-      - name: --modified-properties
-        long-summary: |
-            Usage: --modified-properties display-name=XX new-value=XX old-value=XX
-
-            display-name: Indicates the property name of the target attribute that was changed.
-            new-value: Indicates the updated value for the propery.
-            old-value: Indicates the previous value (before the update) for the property.
-
-            Multiple actions can be specified by using more than one --modified-properties argument.
-      - name: --service-principal
-        short-summary: "provisioningServicePrincipal"
-        long-summary: |
-            Usage: --service-principal display-name=XX id=XX
-
-            display-name: The identity's display name. Note that this may not always be available or up to date. For \
-example, if a user changes their display name, the API may show the new value in a future response, but the items \
-associated with the user won't show up as having changed when using delta.
-            id: Unique identifier for the identity.
 """
 
-helps['reports audit-log update-restricted-sign-in'] = """
+helps['reports auditlog update-restricted-sign-in'] = """
     type: command
     short-summary: "Update the navigation property restrictedSignIns in auditLogs."
     parameters:
@@ -607,100 +422,22 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log update-sign-in'] = """
+helps['reports auditlog update-sign-in'] = """
     type: command
     short-summary: "Update the navigation property signIns in auditLogs."
-    parameters:
-      - name: --applied-conditional-access-policies
-        long-summary: |
-            Usage: --applied-conditional-access-policies conditions-not-satisfied=XX conditions-satisfied=XX \
-display-name=XX enforced-grant-controls=XX enforced-session-controls=XX id=XX result=XX
-
-            display-name: Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
-            enforced-grant-controls: Refers to the grant controls enforced by the conditional access policy (example: \
-'Require multi-factor authentication').
-            enforced-session-controls: Refers to the session controls enforced by the conditional access policy \
-(example: 'Require app enforced controls').
-            id: Unique GUID of the conditional access policy.
-
-            Multiple actions can be specified by using more than one --applied-conditional-access-policies argument.
-      - name: --authentication-details
-        long-summary: |
-            Usage: --authentication-details authentication-method=XX authentication-method-detail=XX \
-authentication-step-date-time=XX authentication-step-requirement=XX authentication-step-result-detail=XX succeeded=XX
-
-
-            Multiple actions can be specified by using more than one --authentication-details argument.
-      - name: --authentication-processing-details
-        long-summary: |
-            Usage: --authentication-processing-details key=XX value=XX
-
-            key: Key for the key-value pair.
-            value: Value for the key-value pair.
-
-            Multiple actions can be specified by using more than one --authentication-processing-details argument.
-      - name: --authentication-requirement-policies
-        long-summary: |
-            Usage: --authentication-requirement-policies detail=XX requirement-provider=XX
-
-
-            Multiple actions can be specified by using more than one --authentication-requirement-policies argument.
-      - name: --device-detail
-        short-summary: "deviceDetail"
-        long-summary: |
-            Usage: --device-detail browser=XX browser-id=XX device-id=XX display-name=XX is-compliant=XX is-managed=XX \
-operating-system=XX trust-type=XX
-
-            browser: Indicates the browser information of the used for signing in.
-            device-id: Refers to the UniqueID of the device used for signing in.
-            display-name: Refers to the name of the device used for signing in.
-            is-compliant: Indicates whether the device is compliant.
-            is-managed: Indicates whether the device is managed.
-            operating-system: Indicates the operating system name and version used for signing in.
-            trust-type: Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, \
-Domain Joined.
-      - name: --mfa-detail
-        short-summary: "mfaDetail"
-        long-summary: |
-            Usage: --mfa-detail auth-detail=XX auth-method=XX
-
-      - name: --network-location-details
-        long-summary: |
-            Usage: --network-location-details network-names=XX network-type=XX
-
-
-            Multiple actions can be specified by using more than one --network-location-details argument.
-      - name: --status
-        short-summary: "signInStatus"
-        long-summary: |
-            Usage: --status additional-details=XX error-code=XX failure-reason=XX
-
-            additional-details: Provides additional details on the sign-in activity
-            error-code: Provides the 5-6digit error code that's generated during a sign-in failure. Check out the list \
-of error codes and messages.
-            failure-reason: Provides the error message or the reason for failure for the corresponding sign-in \
-activity. Check out the list of error codes and messages.
-      - name: --geo-coordinates
-        short-summary: "geoCoordinates"
-        long-summary: |
-            Usage: --geo-coordinates altitude=XX latitude=XX longitude=XX
-
-            altitude: Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-            latitude: Optional. The latitude, in decimal, for the item. Read-only.
-            longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports report-root'] = """
+helps['reports reportsreportroot'] = """
     type: group
-    short-summary: Manage report report root with reports_beta
+    short-summary: Manage reportsreportroot with reports_beta
 """
 
-helps['reports report-root show-report-root'] = """
+helps['reports reportsreportroot show-report-root'] = """
     type: command
     short-summary: "Get reports."
 """
 
-helps['reports report-root update-report-root'] = """
+helps['reports reportsreportroot update-report-root'] = """
     type: command
     short-summary: "Update reports."
     parameters:
@@ -761,15 +498,6 @@ helps['reports report'] = """
     short-summary: Manage report with reports_beta
 """
 
-helps['reports report delete'] = """
-    type: command
-    short-summary: "Delete navigation property applicationSignInDetailedSummary for reports And Delete navigation \
-property credentialUserRegistrationDetails for reports And Delete navigation property dailyPrintUsageSummariesByPrinter\
- for reports And Delete navigation property dailyPrintUsageSummariesByUser for reports And Delete navigation property \
-monthlyPrintUsageSummariesByPrinter for reports And Delete navigation property monthlyPrintUsageSummariesByUser for \
-reports And Delete navigation property userCredentialUsageDetails for reports."
-"""
-
 helps['reports report create-application-sign-in-detailed-summary'] = """
     type: command
     short-summary: "Create new navigation property to applicationSignInDetailedSummary for reports."
@@ -814,6 +542,33 @@ helps['reports report create-monthly-print-usage-summary-by-user'] = """
 helps['reports report create-user-credential-usage-detail'] = """
     type: command
     short-summary: "Create new navigation property to userCredentialUsageDetails for reports."
+"""
+
+helps['reports report delete-application-sign-in-detailed-summary'] = """
+    type: command
+    short-summary: "Delete navigation property applicationSignInDetailedSummary for reports."
+"""
+
+helps['reports report delete-credential-user-registration-detail'] = """
+    type: command
+    short-summary: "Delete navigation property credentialUserRegistrationDetails for reports."
+"""
+
+helps['reports report delete-daily-print-usage-summary'] = """
+    type: command
+    short-summary: "Delete navigation property dailyPrintUsageSummariesByPrinter for reports And Delete navigation \
+property dailyPrintUsageSummariesByUser for reports."
+"""
+
+helps['reports report delete-monthly-print-usage-summary'] = """
+    type: command
+    short-summary: "Delete navigation property monthlyPrintUsageSummariesByPrinter for reports And Delete navigation \
+property monthlyPrintUsageSummariesByUser for reports."
+"""
+
+helps['reports report delete-user-credential-usage-detail'] = """
+    type: command
+    short-summary: "Delete navigation property userCredentialUsageDetails for reports."
 """
 
 helps['reports report device-configuration-device-activity'] = """

@@ -9,36 +9,40 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_schemaextensions_v1_0.generated._client_factory import cf_schemaextensionsschemaextension
+
+
+schemaextensions_v1_0_schemaextensionsschemaextension = CliCommandType(
+    operations_tmpl='azext_schemaextensions_v1_0.vendored_sdks.schemaextensions.operations._schemaextensionsschemaextension_operations#schemaextensionsschemaextensionOperations.{}',
+    client_factory=cf_schemaextensionsschemaextension,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_schemaextensions_v1_0.generated._client_factory import cf_schema_extension_schema_extension
-
-    schemaextensions_v1_0_schema_extension_schema_extension = CliCommandType(
-        operations_tmpl='azext_schemaextensions_v1_0.vendored_sdks.schemaextensions.operations._schema_extension_schema_extension_operations#SchemaExtensionSchemaExtensionOperations.{}',
-        client_factory=cf_schema_extension_schema_extension,
-    )
     with self.command_group(
-        'schemaextensions schema-extension-schema-extension',
-        schemaextensions_v1_0_schema_extension_schema_extension,
-        client_factory=cf_schema_extension_schema_extension,
+        'schemaextensions schemaextensionsschemaextension',
+        schemaextensions_v1_0_schemaextensionsschemaextension,
+        client_factory=cf_schemaextensionsschemaextension,
     ) as g:
-        g.custom_command('delete', 'schemaextensions_schema_extension_schema_extension_delete', confirmation=True)
         g.custom_command(
-            'create-schema-extension', 'schemaextensions_schema_extension_schema_extension_create_schema_extension'
+            'create-schema-extension', 'schemaextensions_schemaextensionsschemaextension_create_schema_extension'
         )
         g.custom_command(
-            'list-schema-extension', 'schemaextensions_schema_extension_schema_extension_list_schema_extension'
+            'delete-schema-extension', 'schemaextensions_schemaextensionsschemaextension_delete_schema_extension'
         )
         g.custom_command(
-            'show-schema-extension', 'schemaextensions_schema_extension_schema_extension_show_schema_extension'
+            'list-schema-extension', 'schemaextensions_schemaextensionsschemaextension_list_schema_extension'
         )
         g.custom_command(
-            'update-schema-extension', 'schemaextensions_schema_extension_schema_extension_update_schema_extension'
+            'show-schema-extension', 'schemaextensions_schemaextensionsschemaextension_show_schema_extension'
+        )
+        g.custom_command(
+            'update-schema-extension', 'schemaextensions_schemaextensionsschemaextension_update_schema_extension'
         )
 
     with self.command_group('schemaextensions_v1_0', is_experimental=True):

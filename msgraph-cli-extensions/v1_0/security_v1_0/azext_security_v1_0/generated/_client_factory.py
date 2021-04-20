@@ -18,8 +18,8 @@ def cf_security_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_security_security(cli_ctx, *_):
-    return cf_security_v1_0_cl(cli_ctx).security_security
+def cf_security(cli_ctx, *_):
+    return cf_security_v1_0_cl(cli_ctx).securitysecurity
 
 
 def cf_security(cli_ctx, *_):

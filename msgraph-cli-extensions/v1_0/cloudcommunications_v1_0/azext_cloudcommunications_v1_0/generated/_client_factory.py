@@ -19,4 +19,4 @@ def cf_cloudcommunications_v1_0_cl(cli_ctx, *_):
 
 
 def cf_user(cli_ctx, *_):
-    return cf_cloudcommunications_v1_0_cl(cli_ctx).user
+    return cf_cloudcommunications_v1_0_cl(cli_ctx).users

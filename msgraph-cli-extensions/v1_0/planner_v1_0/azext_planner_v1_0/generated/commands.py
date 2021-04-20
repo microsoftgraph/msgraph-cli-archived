@@ -9,168 +9,310 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_planner_v1_0.generated._client_factory import (
+    cf_group,
+    cf_groupsplanner,
+    cf_groupsplannerplan,
+    cf_groupsplannerplansbucket,
+    cf_groupsplannerplansbucketstask,
+    cf_groupsplannerplanstask,
+    cf_planner,
+    cf_planner,
+    cf_plannerbucket,
+    cf_plannerbucketstask,
+    cf_plannerplan,
+    cf_plannerplansbucket,
+    cf_plannerplansbucketstask,
+    cf_plannerplanstask,
+    cf_plannertask,
+    cf_user,
+    cf_usersplanner,
+    cf_usersplannerplan,
+    cf_usersplannerplansbucket,
+    cf_usersplannerplansbucketstask,
+    cf_usersplannerplanstask,
+    cf_usersplannertask,
+)
+
+
+planner_v1_0_group = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groups_operations#groupsOperations.{}',
+    client_factory=cf_group,
+)
+
+
+planner_v1_0_groupsplanner = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._groupsplanner_operations#groupsplannerOperations.{}'
+    ),
+    client_factory=cf_groupsplanner,
+)
+
+
+planner_v1_0_groupsplannerplan = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groupsplannerplans_operations#groupsplannerplansOperations.{}',
+    client_factory=cf_groupsplannerplan,
+)
+
+
+planner_v1_0_groupsplannerplansbucket = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groupsplannerplansbuckets_operations#groupsplannerplansbucketsOperations.{}',
+    client_factory=cf_groupsplannerplansbucket,
+)
+
+
+planner_v1_0_groupsplannerplansbucketstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groupsplannerplansbucketstasks_operations#groupsplannerplansbucketstasksOperations.{}',
+    client_factory=cf_groupsplannerplansbucketstask,
+)
+
+
+planner_v1_0_groupsplannerplanstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._groupsplannerplanstasks_operations#groupsplannerplanstasksOperations.{}',
+    client_factory=cf_groupsplannerplanstask,
+)
+
+
+planner_v1_0_planner = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._plannerplanner_operations#plannerplannerOperations.{}'
+    ),
+    client_factory=cf_planner,
+)
+
+
+planner_v1_0_planner = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_operations#plannerOperations.{}',
+    client_factory=cf_planner,
+)
+
+
+planner_v1_0_plannerbucket = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._plannerbuckets_operations#plannerbucketsOperations.{}'
+    ),
+    client_factory=cf_plannerbucket,
+)
+
+
+planner_v1_0_plannerbucketstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._plannerbucketstasks_operations#plannerbucketstasksOperations.{}',
+    client_factory=cf_plannerbucketstask,
+)
+
+
+planner_v1_0_plannerplan = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._plannerplans_operations#plannerplansOperations.{}'
+    ),
+    client_factory=cf_plannerplan,
+)
+
+
+planner_v1_0_plannerplansbucket = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._plannerplansbuckets_operations#plannerplansbucketsOperations.{}',
+    client_factory=cf_plannerplansbucket,
+)
+
+
+planner_v1_0_plannerplansbucketstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._plannerplansbucketstasks_operations#plannerplansbucketstasksOperations.{}',
+    client_factory=cf_plannerplansbucketstask,
+)
+
+
+planner_v1_0_plannerplanstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._plannerplanstasks_operations#plannerplanstasksOperations.{}',
+    client_factory=cf_plannerplanstask,
+)
+
+
+planner_v1_0_plannertask = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._plannertasks_operations#plannertasksOperations.{}'
+    ),
+    client_factory=cf_plannertask,
+)
+
+
+planner_v1_0_user = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._users_operations#usersOperations.{}',
+    client_factory=cf_user,
+)
+
+
+planner_v1_0_usersplanner = CliCommandType(
+    operations_tmpl=(
+        'azext_planner_v1_0.vendored_sdks.planner.operations._usersplanner_operations#usersplannerOperations.{}'
+    ),
+    client_factory=cf_usersplanner,
+)
+
+
+planner_v1_0_usersplannerplan = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._usersplannerplans_operations#usersplannerplansOperations.{}',
+    client_factory=cf_usersplannerplan,
+)
+
+
+planner_v1_0_usersplannerplansbucket = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._usersplannerplansbuckets_operations#usersplannerplansbucketsOperations.{}',
+    client_factory=cf_usersplannerplansbucket,
+)
+
+
+planner_v1_0_usersplannerplansbucketstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._usersplannerplansbucketstasks_operations#usersplannerplansbucketstasksOperations.{}',
+    client_factory=cf_usersplannerplansbucketstask,
+)
+
+
+planner_v1_0_usersplannerplanstask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._usersplannerplanstasks_operations#usersplannerplanstasksOperations.{}',
+    client_factory=cf_usersplannerplanstask,
+)
+
+
+planner_v1_0_usersplannertask = CliCommandType(
+    operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._usersplannertasks_operations#usersplannertasksOperations.{}',
+    client_factory=cf_usersplannertask,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_planner_v1_0.generated._client_factory import cf_group
-
-    planner_v1_0_group = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_operations#GroupOperations.{}',
-        client_factory=cf_group,
-    )
     with self.command_group('planner group', planner_v1_0_group, client_factory=cf_group) as g:
-        g.custom_command('delete', 'planner_group_delete', confirmation=True)
+        g.custom_command('delete-planner', 'planner_group_delete_planner')
         g.custom_command('show-planner', 'planner_group_show_planner')
         g.custom_command('update-planner', 'planner_group_update_planner')
 
-    from azext_planner_v1_0.generated._client_factory import cf_group_planner
+    with self.command_group('planner groupsplanner', planner_v1_0_groupsplanner, client_factory=cf_groupsplanner) as g:
+        g.custom_command('create-plan', 'planner_groupsplanner_create_plan')
+        g.custom_command('delete-plan', 'planner_groupsplanner_delete_plan')
+        g.custom_command('list-plan', 'planner_groupsplanner_list_plan')
+        g.custom_command('show-plan', 'planner_groupsplanner_show_plan')
+        g.custom_command('update-plan', 'planner_groupsplanner_update_plan')
 
-    planner_v1_0_group_planner = CliCommandType(
-        operations_tmpl=(
-            'azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_operations#GroupPlannerOperations.{}'
-        ),
-        client_factory=cf_group_planner,
-    )
-    with self.command_group('planner group-planner', planner_v1_0_group_planner, client_factory=cf_group_planner) as g:
-        g.custom_command('delete', 'planner_group_planner_delete', confirmation=True)
-        g.custom_command('create-plan', 'planner_group_planner_create_plan')
-        g.custom_command('list-plan', 'planner_group_planner_list_plan')
-        g.custom_command('show-plan', 'planner_group_planner_show_plan')
-        g.custom_command('update-plan', 'planner_group_planner_update_plan')
-
-    from azext_planner_v1_0.generated._client_factory import cf_group_planner_plan
-
-    planner_v1_0_group_planner_plan = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_operations#GroupPlannerPlanOperations.{}',
-        client_factory=cf_group_planner_plan,
-    )
     with self.command_group(
-        'planner group-planner-plan', planner_v1_0_group_planner_plan, client_factory=cf_group_planner_plan
+        'planner groupsplannerplan', planner_v1_0_groupsplannerplan, client_factory=cf_groupsplannerplan
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_delete', confirmation=True)
-        g.custom_command('create-bucket', 'planner_group_planner_plan_create_bucket')
-        g.custom_command('create-task', 'planner_group_planner_plan_create_task')
-        g.custom_command('list-bucket', 'planner_group_planner_plan_list_bucket')
-        g.custom_command('list-task', 'planner_group_planner_plan_list_task')
-        g.custom_command('show-bucket', 'planner_group_planner_plan_show_bucket')
-        g.custom_command('show-detail', 'planner_group_planner_plan_show_detail')
-        g.custom_command('show-task', 'planner_group_planner_plan_show_task')
-        g.custom_command('update-bucket', 'planner_group_planner_plan_update_bucket')
-        g.custom_command('update-detail', 'planner_group_planner_plan_update_detail')
-        g.custom_command('update-task', 'planner_group_planner_plan_update_task')
+        g.custom_command('create-bucket', 'planner_groupsplannerplan_create_bucket')
+        g.custom_command('create-task', 'planner_groupsplannerplan_create_task')
+        g.custom_command('delete-bucket', 'planner_groupsplannerplan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_groupsplannerplan_delete_detail')
+        g.custom_command('delete-task', 'planner_groupsplannerplan_delete_task')
+        g.custom_command('list-bucket', 'planner_groupsplannerplan_list_bucket')
+        g.custom_command('list-task', 'planner_groupsplannerplan_list_task')
+        g.custom_command('show-bucket', 'planner_groupsplannerplan_show_bucket')
+        g.custom_command('show-detail', 'planner_groupsplannerplan_show_detail')
+        g.custom_command('show-task', 'planner_groupsplannerplan_show_task')
+        g.custom_command('update-bucket', 'planner_groupsplannerplan_update_bucket')
+        g.custom_command('update-detail', 'planner_groupsplannerplan_update_detail')
+        g.custom_command('update-task', 'planner_groupsplannerplan_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_group_planner_plan_bucket
-
-    planner_v1_0_group_planner_plan_bucket = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_bucket_operations#GroupPlannerPlanBucketOperations.{}',
-        client_factory=cf_group_planner_plan_bucket,
-    )
     with self.command_group(
-        'planner group-planner-plan-bucket',
-        planner_v1_0_group_planner_plan_bucket,
-        client_factory=cf_group_planner_plan_bucket,
+        'planner groupsplannerplansbucket',
+        planner_v1_0_groupsplannerplansbucket,
+        client_factory=cf_groupsplannerplansbucket,
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_bucket_delete', confirmation=True)
-        g.custom_command('create-task', 'planner_group_planner_plan_bucket_create_task')
-        g.custom_command('list-task', 'planner_group_planner_plan_bucket_list_task')
-        g.custom_command('show-task', 'planner_group_planner_plan_bucket_show_task')
-        g.custom_command('update-task', 'planner_group_planner_plan_bucket_update_task')
+        g.custom_command('create-task', 'planner_groupsplannerplansbucket_create_task')
+        g.custom_command('delete-task', 'planner_groupsplannerplansbucket_delete_task')
+        g.custom_command('list-task', 'planner_groupsplannerplansbucket_list_task')
+        g.custom_command('show-task', 'planner_groupsplannerplansbucket_show_task')
+        g.custom_command('update-task', 'planner_groupsplannerplansbucket_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_group_planner_plan_bucket_task
-
-    planner_v1_0_group_planner_plan_bucket_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_bucket_task_operations#GroupPlannerPlanBucketTaskOperations.{}',
-        client_factory=cf_group_planner_plan_bucket_task,
-    )
     with self.command_group(
-        'planner group-planner-plan-bucket-task',
-        planner_v1_0_group_planner_plan_bucket_task,
-        client_factory=cf_group_planner_plan_bucket_task,
+        'planner groupsplannerplansbucketstask',
+        planner_v1_0_groupsplannerplansbucketstask,
+        client_factory=cf_groupsplannerplansbucketstask,
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_groupsplannerplansbucketstask_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_groupsplannerplansbucketstask_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format',
+            'planner_groupsplannerplansbucketstask_delete_progress_task_board_format',
+        )
         g.custom_command(
             'show-assigned-to-task-board-format',
-            'planner_group_planner_plan_bucket_task_show_assigned_to_task_board_format',
+            'planner_groupsplannerplansbucketstask_show_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_show_bucket_task_board_format'
+            'show-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_show_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_group_planner_plan_bucket_task_show_detail')
+        g.custom_command('show-detail', 'planner_groupsplannerplansbucketstask_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_group_planner_plan_bucket_task_show_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_groupsplannerplansbucketstask_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_group_planner_plan_bucket_task_update_assigned_to_task_board_format',
+            'planner_groupsplannerplansbucketstask_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_group_planner_plan_bucket_task_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_groupsplannerplansbucketstask_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_group_planner_plan_bucket_task_update_detail')
+        g.custom_command('update-detail', 'planner_groupsplannerplansbucketstask_update_detail')
         g.custom_command(
             'update-progress-task-board-format',
-            'planner_group_planner_plan_bucket_task_update_progress_task_board_format',
+            'planner_groupsplannerplansbucketstask_update_progress_task_board_format',
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_group_planner_plan_task
-
-    planner_v1_0_group_planner_plan_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._group_planner_plan_task_operations#GroupPlannerPlanTaskOperations.{}',
-        client_factory=cf_group_planner_plan_task,
-    )
     with self.command_group(
-        'planner group-planner-plan-task',
-        planner_v1_0_group_planner_plan_task,
-        client_factory=cf_group_planner_plan_task,
+        'planner groupsplannerplanstask', planner_v1_0_groupsplannerplanstask, client_factory=cf_groupsplannerplanstask
     ) as g:
-        g.custom_command('delete', 'planner_group_planner_plan_task_delete', confirmation=True)
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_group_planner_plan_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format',
+            'planner_groupsplannerplanstask_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_group_planner_plan_task_show_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_groupsplannerplanstask_delete_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_group_planner_plan_task_show_detail')
+        g.custom_command('delete-detail', 'planner_groupsplannerplanstask_delete_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_group_planner_plan_task_show_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_groupsplannerplanstask_delete_progress_task_board_format'
+        )
+        g.custom_command(
+            'show-assigned-to-task-board-format', 'planner_groupsplannerplanstask_show_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'show-bucket-task-board-format', 'planner_groupsplannerplanstask_show_bucket_task_board_format'
+        )
+        g.custom_command('show-detail', 'planner_groupsplannerplanstask_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_groupsplannerplanstask_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_group_planner_plan_task_update_assigned_to_task_board_format',
+            'planner_groupsplannerplanstask_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_group_planner_plan_task_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_groupsplannerplanstask_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_group_planner_plan_task_update_detail')
+        g.custom_command('update-detail', 'planner_groupsplannerplanstask_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_group_planner_plan_task_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_groupsplannerplanstask_update_progress_task_board_format'
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_planner
-
-    planner_v1_0_planner_planner = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_planner_operations#PlannerPlannerOperations.{}',
-        client_factory=cf_planner_planner,
-    )
-    with self.command_group('planner planner', planner_v1_0_planner_planner, client_factory=cf_planner_planner) as g:
-        g.custom_command('create', 'planner_planner_create')
-        g.custom_command('show-planner', 'planner_planner_show_planner')
-
-    from azext_planner_v1_0.generated._client_factory import cf_planner
-
-    planner_v1_0_planner = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_operations#PlannerOperations.{}',
-        client_factory=cf_planner,
-    )
     with self.command_group('planner planner', planner_v1_0_planner, client_factory=cf_planner) as g:
-        g.custom_command('delete', 'planner_planner_delete', confirmation=True)
+        g.custom_command('show-planner', 'planner_planner_show_planner')
+        g.custom_command('update-planner', 'planner_planner_update_planner')
+
+    with self.command_group('planner planner', planner_v1_0_planner, client_factory=cf_planner) as g:
         g.custom_command('create-bucket', 'planner_planner_create_bucket')
         g.custom_command('create-plan', 'planner_planner_create_plan')
         g.custom_command('create-task', 'planner_planner_create_task')
+        g.custom_command('delete-bucket', 'planner_planner_delete_bucket')
+        g.custom_command('delete-plan', 'planner_planner_delete_plan')
+        g.custom_command('delete-task', 'planner_planner_delete_task')
         g.custom_command('list-bucket', 'planner_planner_list_bucket')
         g.custom_command('list-plan', 'planner_planner_list_plan')
         g.custom_command('list-task', 'planner_planner_list_task')
@@ -181,329 +323,293 @@ def load_command_table(self, _):
         g.custom_command('update-plan', 'planner_planner_update_plan')
         g.custom_command('update-task', 'planner_planner_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_bucket
+    with self.command_group('planner plannerbucket', planner_v1_0_plannerbucket, client_factory=cf_plannerbucket) as g:
+        g.custom_command('create-task', 'planner_plannerbucket_create_task')
+        g.custom_command('delete-task', 'planner_plannerbucket_delete_task')
+        g.custom_command('list-task', 'planner_plannerbucket_list_task')
+        g.custom_command('show-task', 'planner_plannerbucket_show_task')
+        g.custom_command('update-task', 'planner_plannerbucket_update_task')
 
-    planner_v1_0_planner_bucket = CliCommandType(
-        operations_tmpl=(
-            'azext_planner_v1_0.vendored_sdks.planner.operations._planner_bucket_operations#PlannerBucketOperations.{}'
-        ),
-        client_factory=cf_planner_bucket,
-    )
     with self.command_group(
-        'planner planner-bucket', planner_v1_0_planner_bucket, client_factory=cf_planner_bucket
+        'planner plannerbucketstask', planner_v1_0_plannerbucketstask, client_factory=cf_plannerbucketstask
     ) as g:
-        g.custom_command('delete', 'planner_planner_bucket_delete', confirmation=True)
-        g.custom_command('create-task', 'planner_planner_bucket_create_task')
-        g.custom_command('list-task', 'planner_planner_bucket_list_task')
-        g.custom_command('show-task', 'planner_planner_bucket_show_task')
-        g.custom_command('update-task', 'planner_planner_bucket_update_task')
+        g.custom_command(
+            'delete-assigned-to-task-board-format', 'planner_plannerbucketstask_delete_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_plannerbucketstask_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_plannerbucketstask_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format', 'planner_plannerbucketstask_delete_progress_task_board_format'
+        )
+        g.custom_command(
+            'show-assigned-to-task-board-format', 'planner_plannerbucketstask_show_assigned_to_task_board_format'
+        )
+        g.custom_command('show-bucket-task-board-format', 'planner_plannerbucketstask_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_plannerbucketstask_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_plannerbucketstask_show_progress_task_board_format'
+        )
+        g.custom_command(
+            'update-assigned-to-task-board-format', 'planner_plannerbucketstask_update_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'update-bucket-task-board-format', 'planner_plannerbucketstask_update_bucket_task_board_format'
+        )
+        g.custom_command('update-detail', 'planner_plannerbucketstask_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_plannerbucketstask_update_progress_task_board_format'
+        )
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_bucket_task
+    with self.command_group('planner plannerplan', planner_v1_0_plannerplan, client_factory=cf_plannerplan) as g:
+        g.custom_command('create-bucket', 'planner_plannerplan_create_bucket')
+        g.custom_command('create-task', 'planner_plannerplan_create_task')
+        g.custom_command('delete-bucket', 'planner_plannerplan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_plannerplan_delete_detail')
+        g.custom_command('delete-task', 'planner_plannerplan_delete_task')
+        g.custom_command('list-bucket', 'planner_plannerplan_list_bucket')
+        g.custom_command('list-task', 'planner_plannerplan_list_task')
+        g.custom_command('show-bucket', 'planner_plannerplan_show_bucket')
+        g.custom_command('show-detail', 'planner_plannerplan_show_detail')
+        g.custom_command('show-task', 'planner_plannerplan_show_task')
+        g.custom_command('update-bucket', 'planner_plannerplan_update_bucket')
+        g.custom_command('update-detail', 'planner_plannerplan_update_detail')
+        g.custom_command('update-task', 'planner_plannerplan_update_task')
 
-    planner_v1_0_planner_bucket_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_bucket_task_operations#PlannerBucketTaskOperations.{}',
-        client_factory=cf_planner_bucket_task,
-    )
     with self.command_group(
-        'planner planner-bucket-task', planner_v1_0_planner_bucket_task, client_factory=cf_planner_bucket_task
+        'planner plannerplansbucket', planner_v1_0_plannerplansbucket, client_factory=cf_plannerplansbucket
     ) as g:
-        g.custom_command('delete', 'planner_planner_bucket_task_delete', confirmation=True)
-        g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_planner_bucket_task_show_assigned_to_task_board_format'
-        )
-        g.custom_command('show-bucket-task-board-format', 'planner_planner_bucket_task_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_planner_bucket_task_show_detail')
-        g.custom_command(
-            'show-progress-task-board-format', 'planner_planner_bucket_task_show_progress_task_board_format'
-        )
-        g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_planner_bucket_task_update_assigned_to_task_board_format'
-        )
-        g.custom_command(
-            'update-bucket-task-board-format', 'planner_planner_bucket_task_update_bucket_task_board_format'
-        )
-        g.custom_command('update-detail', 'planner_planner_bucket_task_update_detail')
-        g.custom_command(
-            'update-progress-task-board-format', 'planner_planner_bucket_task_update_progress_task_board_format'
-        )
+        g.custom_command('create-task', 'planner_plannerplansbucket_create_task')
+        g.custom_command('delete-task', 'planner_plannerplansbucket_delete_task')
+        g.custom_command('list-task', 'planner_plannerplansbucket_list_task')
+        g.custom_command('show-task', 'planner_plannerplansbucket_show_task')
+        g.custom_command('update-task', 'planner_plannerplansbucket_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_plan
-
-    planner_v1_0_planner_plan = CliCommandType(
-        operations_tmpl=(
-            'azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_operations#PlannerPlanOperations.{}'
-        ),
-        client_factory=cf_planner_plan,
-    )
-    with self.command_group('planner planner-plan', planner_v1_0_planner_plan, client_factory=cf_planner_plan) as g:
-        g.custom_command('delete', 'planner_planner_plan_delete', confirmation=True)
-        g.custom_command('create-bucket', 'planner_planner_plan_create_bucket')
-        g.custom_command('create-task', 'planner_planner_plan_create_task')
-        g.custom_command('list-bucket', 'planner_planner_plan_list_bucket')
-        g.custom_command('list-task', 'planner_planner_plan_list_task')
-        g.custom_command('show-bucket', 'planner_planner_plan_show_bucket')
-        g.custom_command('show-detail', 'planner_planner_plan_show_detail')
-        g.custom_command('show-task', 'planner_planner_plan_show_task')
-        g.custom_command('update-bucket', 'planner_planner_plan_update_bucket')
-        g.custom_command('update-detail', 'planner_planner_plan_update_detail')
-        g.custom_command('update-task', 'planner_planner_plan_update_task')
-
-    from azext_planner_v1_0.generated._client_factory import cf_planner_plan_bucket
-
-    planner_v1_0_planner_plan_bucket = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_bucket_operations#PlannerPlanBucketOperations.{}',
-        client_factory=cf_planner_plan_bucket,
-    )
     with self.command_group(
-        'planner planner-plan-bucket', planner_v1_0_planner_plan_bucket, client_factory=cf_planner_plan_bucket
+        'planner plannerplansbucketstask',
+        planner_v1_0_plannerplansbucketstask,
+        client_factory=cf_plannerplansbucketstask,
     ) as g:
-        g.custom_command('delete', 'planner_planner_plan_bucket_delete', confirmation=True)
-        g.custom_command('create-task', 'planner_planner_plan_bucket_create_task')
-        g.custom_command('list-task', 'planner_planner_plan_bucket_list_task')
-        g.custom_command('show-task', 'planner_planner_plan_bucket_show_task')
-        g.custom_command('update-task', 'planner_planner_plan_bucket_update_task')
-
-    from azext_planner_v1_0.generated._client_factory import cf_planner_plan_bucket_task
-
-    planner_v1_0_planner_plan_bucket_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_bucket_task_operations#PlannerPlanBucketTaskOperations.{}',
-        client_factory=cf_planner_plan_bucket_task,
-    )
-    with self.command_group(
-        'planner planner-plan-bucket-task',
-        planner_v1_0_planner_plan_bucket_task,
-        client_factory=cf_planner_plan_bucket_task,
-    ) as g:
-        g.custom_command('delete', 'planner_planner_plan_bucket_task_delete', confirmation=True)
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_planner_plan_bucket_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format',
+            'planner_plannerplansbucketstask_delete_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_planner_plan_bucket_task_show_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_plannerplansbucketstask_delete_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_planner_plan_bucket_task_show_detail')
+        g.custom_command('delete-detail', 'planner_plannerplansbucketstask_delete_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_planner_plan_bucket_task_show_progress_task_board_format'
+            'delete-progress-task-board-format', 'planner_plannerplansbucketstask_delete_progress_task_board_format'
+        )
+        g.custom_command(
+            'show-assigned-to-task-board-format', 'planner_plannerplansbucketstask_show_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'show-bucket-task-board-format', 'planner_plannerplansbucketstask_show_bucket_task_board_format'
+        )
+        g.custom_command('show-detail', 'planner_plannerplansbucketstask_show_detail')
+        g.custom_command(
+            'show-progress-task-board-format', 'planner_plannerplansbucketstask_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_planner_plan_bucket_task_update_assigned_to_task_board_format',
+            'planner_plannerplansbucketstask_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_planner_plan_bucket_task_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_plannerplansbucketstask_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_planner_plan_bucket_task_update_detail')
+        g.custom_command('update-detail', 'planner_plannerplansbucketstask_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_planner_plan_bucket_task_update_progress_task_board_format'
+            'update-progress-task-board-format', 'planner_plannerplansbucketstask_update_progress_task_board_format'
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_plan_task
-
-    planner_v1_0_planner_plan_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._planner_plan_task_operations#PlannerPlanTaskOperations.{}',
-        client_factory=cf_planner_plan_task,
-    )
     with self.command_group(
-        'planner planner-plan-task', planner_v1_0_planner_plan_task, client_factory=cf_planner_plan_task
+        'planner plannerplanstask', planner_v1_0_plannerplanstask, client_factory=cf_plannerplanstask
     ) as g:
-        g.custom_command('delete', 'planner_planner_plan_task_delete', confirmation=True)
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_planner_plan_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_plannerplanstask_delete_assigned_to_task_board_format'
         )
-        g.custom_command('show-bucket-task-board-format', 'planner_planner_plan_task_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_planner_plan_task_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_planner_plan_task_show_progress_task_board_format')
+        g.custom_command('delete-bucket-task-board-format', 'planner_plannerplanstask_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_plannerplanstask_delete_detail')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_planner_plan_task_update_assigned_to_task_board_format'
+            'delete-progress-task-board-format', 'planner_plannerplanstask_delete_progress_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_planner_plan_task_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_planner_plan_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_planner_plan_task_update_progress_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_plannerplanstask_show_assigned_to_task_board_format'
+        )
+        g.custom_command('show-bucket-task-board-format', 'planner_plannerplanstask_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_plannerplanstask_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_plannerplanstask_show_progress_task_board_format')
+        g.custom_command(
+            'update-assigned-to-task-board-format', 'planner_plannerplanstask_update_assigned_to_task_board_format'
+        )
+        g.custom_command('update-bucket-task-board-format', 'planner_plannerplanstask_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_plannerplanstask_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_plannerplanstask_update_progress_task_board_format'
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_planner_task
-
-    planner_v1_0_planner_task = CliCommandType(
-        operations_tmpl=(
-            'azext_planner_v1_0.vendored_sdks.planner.operations._planner_task_operations#PlannerTaskOperations.{}'
-        ),
-        client_factory=cf_planner_task,
-    )
-    with self.command_group('planner planner-task', planner_v1_0_planner_task, client_factory=cf_planner_task) as g:
-        g.custom_command('delete', 'planner_planner_task_delete', confirmation=True)
+    with self.command_group('planner plannertask', planner_v1_0_plannertask, client_factory=cf_plannertask) as g:
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_planner_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_plannertask_delete_assigned_to_task_board_format'
         )
-        g.custom_command('show-bucket-task-board-format', 'planner_planner_task_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_planner_task_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_planner_task_show_progress_task_board_format')
+        g.custom_command('delete-bucket-task-board-format', 'planner_plannertask_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_plannertask_delete_detail')
+        g.custom_command('delete-progress-task-board-format', 'planner_plannertask_delete_progress_task_board_format')
+        g.custom_command('show-assigned-to-task-board-format', 'planner_plannertask_show_assigned_to_task_board_format')
+        g.custom_command('show-bucket-task-board-format', 'planner_plannertask_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_plannertask_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_plannertask_show_progress_task_board_format')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_planner_task_update_assigned_to_task_board_format'
+            'update-assigned-to-task-board-format', 'planner_plannertask_update_assigned_to_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_planner_task_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_planner_task_update_detail')
-        g.custom_command('update-progress-task-board-format', 'planner_planner_task_update_progress_task_board_format')
+        g.custom_command('update-bucket-task-board-format', 'planner_plannertask_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_plannertask_update_detail')
+        g.custom_command('update-progress-task-board-format', 'planner_plannertask_update_progress_task_board_format')
 
-    from azext_planner_v1_0.generated._client_factory import cf_user
-
-    planner_v1_0_user = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_operations#UserOperations.{}',
-        client_factory=cf_user,
-    )
     with self.command_group('planner user', planner_v1_0_user, client_factory=cf_user) as g:
-        g.custom_command('delete', 'planner_user_delete', confirmation=True)
+        g.custom_command('delete-planner', 'planner_user_delete_planner')
         g.custom_command('show-planner', 'planner_user_show_planner')
         g.custom_command('update-planner', 'planner_user_update_planner')
 
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner
+    with self.command_group('planner usersplanner', planner_v1_0_usersplanner, client_factory=cf_usersplanner) as g:
+        g.custom_command('create-plan', 'planner_usersplanner_create_plan')
+        g.custom_command('create-task', 'planner_usersplanner_create_task')
+        g.custom_command('delete-plan', 'planner_usersplanner_delete_plan')
+        g.custom_command('delete-task', 'planner_usersplanner_delete_task')
+        g.custom_command('list-plan', 'planner_usersplanner_list_plan')
+        g.custom_command('list-task', 'planner_usersplanner_list_task')
+        g.custom_command('show-plan', 'planner_usersplanner_show_plan')
+        g.custom_command('show-task', 'planner_usersplanner_show_task')
+        g.custom_command('update-plan', 'planner_usersplanner_update_plan')
+        g.custom_command('update-task', 'planner_usersplanner_update_task')
 
-    planner_v1_0_user_planner = CliCommandType(
-        operations_tmpl=(
-            'azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_operations#UserPlannerOperations.{}'
-        ),
-        client_factory=cf_user_planner,
-    )
-    with self.command_group('planner user-planner', planner_v1_0_user_planner, client_factory=cf_user_planner) as g:
-        g.custom_command('delete', 'planner_user_planner_delete', confirmation=True)
-        g.custom_command('create-plan', 'planner_user_planner_create_plan')
-        g.custom_command('create-task', 'planner_user_planner_create_task')
-        g.custom_command('list-plan', 'planner_user_planner_list_plan')
-        g.custom_command('list-task', 'planner_user_planner_list_task')
-        g.custom_command('show-plan', 'planner_user_planner_show_plan')
-        g.custom_command('show-task', 'planner_user_planner_show_task')
-        g.custom_command('update-plan', 'planner_user_planner_update_plan')
-        g.custom_command('update-task', 'planner_user_planner_update_task')
-
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner_plan
-
-    planner_v1_0_user_planner_plan = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_operations#UserPlannerPlanOperations.{}',
-        client_factory=cf_user_planner_plan,
-    )
     with self.command_group(
-        'planner user-planner-plan', planner_v1_0_user_planner_plan, client_factory=cf_user_planner_plan
+        'planner usersplannerplan', planner_v1_0_usersplannerplan, client_factory=cf_usersplannerplan
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_delete', confirmation=True)
-        g.custom_command('create-bucket', 'planner_user_planner_plan_create_bucket')
-        g.custom_command('create-task', 'planner_user_planner_plan_create_task')
-        g.custom_command('list-bucket', 'planner_user_planner_plan_list_bucket')
-        g.custom_command('list-task', 'planner_user_planner_plan_list_task')
-        g.custom_command('show-bucket', 'planner_user_planner_plan_show_bucket')
-        g.custom_command('show-detail', 'planner_user_planner_plan_show_detail')
-        g.custom_command('show-task', 'planner_user_planner_plan_show_task')
-        g.custom_command('update-bucket', 'planner_user_planner_plan_update_bucket')
-        g.custom_command('update-detail', 'planner_user_planner_plan_update_detail')
-        g.custom_command('update-task', 'planner_user_planner_plan_update_task')
+        g.custom_command('create-bucket', 'planner_usersplannerplan_create_bucket')
+        g.custom_command('create-task', 'planner_usersplannerplan_create_task')
+        g.custom_command('delete-bucket', 'planner_usersplannerplan_delete_bucket')
+        g.custom_command('delete-detail', 'planner_usersplannerplan_delete_detail')
+        g.custom_command('delete-task', 'planner_usersplannerplan_delete_task')
+        g.custom_command('list-bucket', 'planner_usersplannerplan_list_bucket')
+        g.custom_command('list-task', 'planner_usersplannerplan_list_task')
+        g.custom_command('show-bucket', 'planner_usersplannerplan_show_bucket')
+        g.custom_command('show-detail', 'planner_usersplannerplan_show_detail')
+        g.custom_command('show-task', 'planner_usersplannerplan_show_task')
+        g.custom_command('update-bucket', 'planner_usersplannerplan_update_bucket')
+        g.custom_command('update-detail', 'planner_usersplannerplan_update_detail')
+        g.custom_command('update-task', 'planner_usersplannerplan_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner_plan_bucket
-
-    planner_v1_0_user_planner_plan_bucket = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_bucket_operations#UserPlannerPlanBucketOperations.{}',
-        client_factory=cf_user_planner_plan_bucket,
-    )
     with self.command_group(
-        'planner user-planner-plan-bucket',
-        planner_v1_0_user_planner_plan_bucket,
-        client_factory=cf_user_planner_plan_bucket,
+        'planner usersplannerplansbucket',
+        planner_v1_0_usersplannerplansbucket,
+        client_factory=cf_usersplannerplansbucket,
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_bucket_delete', confirmation=True)
-        g.custom_command('create-task', 'planner_user_planner_plan_bucket_create_task')
-        g.custom_command('list-task', 'planner_user_planner_plan_bucket_list_task')
-        g.custom_command('show-task', 'planner_user_planner_plan_bucket_show_task')
-        g.custom_command('update-task', 'planner_user_planner_plan_bucket_update_task')
+        g.custom_command('create-task', 'planner_usersplannerplansbucket_create_task')
+        g.custom_command('delete-task', 'planner_usersplannerplansbucket_delete_task')
+        g.custom_command('list-task', 'planner_usersplannerplansbucket_list_task')
+        g.custom_command('show-task', 'planner_usersplannerplansbucket_show_task')
+        g.custom_command('update-task', 'planner_usersplannerplansbucket_update_task')
 
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner_plan_bucket_task
-
-    planner_v1_0_user_planner_plan_bucket_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_bucket_task_operations#UserPlannerPlanBucketTaskOperations.{}',
-        client_factory=cf_user_planner_plan_bucket_task,
-    )
     with self.command_group(
-        'planner user-planner-plan-bucket-task',
-        planner_v1_0_user_planner_plan_bucket_task,
-        client_factory=cf_user_planner_plan_bucket_task,
+        'planner usersplannerplansbucketstask',
+        planner_v1_0_usersplannerplansbucketstask,
+        client_factory=cf_usersplannerplansbucketstask,
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_bucket_task_delete', confirmation=True)
+        g.custom_command(
+            'delete-assigned-to-task-board-format',
+            'planner_usersplannerplansbucketstask_delete_assigned_to_task_board_format',
+        )
+        g.custom_command(
+            'delete-bucket-task-board-format', 'planner_usersplannerplansbucketstask_delete_bucket_task_board_format'
+        )
+        g.custom_command('delete-detail', 'planner_usersplannerplansbucketstask_delete_detail')
+        g.custom_command(
+            'delete-progress-task-board-format',
+            'planner_usersplannerplansbucketstask_delete_progress_task_board_format',
+        )
         g.custom_command(
             'show-assigned-to-task-board-format',
-            'planner_user_planner_plan_bucket_task_show_assigned_to_task_board_format',
+            'planner_usersplannerplansbucketstask_show_assigned_to_task_board_format',
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_show_bucket_task_board_format'
+            'show-bucket-task-board-format', 'planner_usersplannerplansbucketstask_show_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_user_planner_plan_bucket_task_show_detail')
+        g.custom_command('show-detail', 'planner_usersplannerplansbucketstask_show_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_user_planner_plan_bucket_task_show_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_usersplannerplansbucketstask_show_progress_task_board_format'
         )
         g.custom_command(
             'update-assigned-to-task-board-format',
-            'planner_user_planner_plan_bucket_task_update_assigned_to_task_board_format',
+            'planner_usersplannerplansbucketstask_update_assigned_to_task_board_format',
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_user_planner_plan_bucket_task_update_bucket_task_board_format'
+            'update-bucket-task-board-format', 'planner_usersplannerplansbucketstask_update_bucket_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_user_planner_plan_bucket_task_update_detail')
+        g.custom_command('update-detail', 'planner_usersplannerplansbucketstask_update_detail')
         g.custom_command(
             'update-progress-task-board-format',
-            'planner_user_planner_plan_bucket_task_update_progress_task_board_format',
+            'planner_usersplannerplansbucketstask_update_progress_task_board_format',
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner_plan_task
-
-    planner_v1_0_user_planner_plan_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_plan_task_operations#UserPlannerPlanTaskOperations.{}',
-        client_factory=cf_user_planner_plan_task,
-    )
     with self.command_group(
-        'planner user-planner-plan-task', planner_v1_0_user_planner_plan_task, client_factory=cf_user_planner_plan_task
+        'planner usersplannerplanstask', planner_v1_0_usersplannerplanstask, client_factory=cf_usersplannerplanstask
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_plan_task_delete', confirmation=True)
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_user_planner_plan_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_usersplannerplanstask_delete_assigned_to_task_board_format'
         )
         g.custom_command(
-            'show-bucket-task-board-format', 'planner_user_planner_plan_task_show_bucket_task_board_format'
+            'delete-bucket-task-board-format', 'planner_usersplannerplanstask_delete_bucket_task_board_format'
         )
-        g.custom_command('show-detail', 'planner_user_planner_plan_task_show_detail')
+        g.custom_command('delete-detail', 'planner_usersplannerplanstask_delete_detail')
         g.custom_command(
-            'show-progress-task-board-format', 'planner_user_planner_plan_task_show_progress_task_board_format'
-        )
-        g.custom_command(
-            'update-assigned-to-task-board-format',
-            'planner_user_planner_plan_task_update_assigned_to_task_board_format',
+            'delete-progress-task-board-format', 'planner_usersplannerplanstask_delete_progress_task_board_format'
         )
         g.custom_command(
-            'update-bucket-task-board-format', 'planner_user_planner_plan_task_update_bucket_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_usersplannerplanstask_show_assigned_to_task_board_format'
         )
-        g.custom_command('update-detail', 'planner_user_planner_plan_task_update_detail')
+        g.custom_command('show-bucket-task-board-format', 'planner_usersplannerplanstask_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_usersplannerplanstask_show_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_user_planner_plan_task_update_progress_task_board_format'
+            'show-progress-task-board-format', 'planner_usersplannerplanstask_show_progress_task_board_format'
+        )
+        g.custom_command(
+            'update-assigned-to-task-board-format', 'planner_usersplannerplanstask_update_assigned_to_task_board_format'
+        )
+        g.custom_command(
+            'update-bucket-task-board-format', 'planner_usersplannerplanstask_update_bucket_task_board_format'
+        )
+        g.custom_command('update-detail', 'planner_usersplannerplanstask_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_usersplannerplanstask_update_progress_task_board_format'
         )
 
-    from azext_planner_v1_0.generated._client_factory import cf_user_planner_task
-
-    planner_v1_0_user_planner_task = CliCommandType(
-        operations_tmpl='azext_planner_v1_0.vendored_sdks.planner.operations._user_planner_task_operations#UserPlannerTaskOperations.{}',
-        client_factory=cf_user_planner_task,
-    )
     with self.command_group(
-        'planner user-planner-task', planner_v1_0_user_planner_task, client_factory=cf_user_planner_task
+        'planner usersplannertask', planner_v1_0_usersplannertask, client_factory=cf_usersplannertask
     ) as g:
-        g.custom_command('delete', 'planner_user_planner_task_delete', confirmation=True)
         g.custom_command(
-            'show-assigned-to-task-board-format', 'planner_user_planner_task_show_assigned_to_task_board_format'
+            'delete-assigned-to-task-board-format', 'planner_usersplannertask_delete_assigned_to_task_board_format'
         )
-        g.custom_command('show-bucket-task-board-format', 'planner_user_planner_task_show_bucket_task_board_format')
-        g.custom_command('show-detail', 'planner_user_planner_task_show_detail')
-        g.custom_command('show-progress-task-board-format', 'planner_user_planner_task_show_progress_task_board_format')
+        g.custom_command('delete-bucket-task-board-format', 'planner_usersplannertask_delete_bucket_task_board_format')
+        g.custom_command('delete-detail', 'planner_usersplannertask_delete_detail')
         g.custom_command(
-            'update-assigned-to-task-board-format', 'planner_user_planner_task_update_assigned_to_task_board_format'
+            'delete-progress-task-board-format', 'planner_usersplannertask_delete_progress_task_board_format'
         )
-        g.custom_command('update-bucket-task-board-format', 'planner_user_planner_task_update_bucket_task_board_format')
-        g.custom_command('update-detail', 'planner_user_planner_task_update_detail')
         g.custom_command(
-            'update-progress-task-board-format', 'planner_user_planner_task_update_progress_task_board_format'
+            'show-assigned-to-task-board-format', 'planner_usersplannertask_show_assigned_to_task_board_format'
+        )
+        g.custom_command('show-bucket-task-board-format', 'planner_usersplannertask_show_bucket_task_board_format')
+        g.custom_command('show-detail', 'planner_usersplannertask_show_detail')
+        g.custom_command('show-progress-task-board-format', 'planner_usersplannertask_show_progress_task_board_format')
+        g.custom_command(
+            'update-assigned-to-task-board-format', 'planner_usersplannertask_update_assigned_to_task_board_format'
+        )
+        g.custom_command('update-bucket-task-board-format', 'planner_usersplannertask_update_bucket_task_board_format')
+        g.custom_command('update-detail', 'planner_usersplannertask_update_detail')
+        g.custom_command(
+            'update-progress-task-board-format', 'planner_usersplannertask_update_progress_task_board_format'
         )
 
     with self.command_group('planner_v1_0', is_experimental=True):

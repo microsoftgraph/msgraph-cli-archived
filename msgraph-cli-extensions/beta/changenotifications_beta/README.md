@@ -8,4 +8,4 @@ az extension add --name changenotifications_beta
 ```
 
 ### Included Features ###
-#### changenotifications subscription-subscription ####
+#### changenotifications subscriptionssubscription ####
