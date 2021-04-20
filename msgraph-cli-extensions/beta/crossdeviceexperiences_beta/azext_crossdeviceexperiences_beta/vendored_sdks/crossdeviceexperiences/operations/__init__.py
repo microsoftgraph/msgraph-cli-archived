@@ -6,12 +6,12 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._user_operations import UserOperations
-from ._user_activity_operations import UserActivityOperations
-from ._user_activity_history_item_operations import UserActivityHistoryItemOperations
+from ._users_operations import usersOperations
+from ._usersactivities_operations import usersactivitiesOperations
+from ._usersactivitieshistoryitems_operations import usersactivitieshistoryitemsOperations
 
 __all__ = [
-    'UserOperations',
-    'UserActivityOperations',
-    'UserActivityHistoryItemOperations',
+    'usersOperations',
+    'usersactivitiesOperations',
+    'usersactivitieshistoryitemsOperations',
 ]

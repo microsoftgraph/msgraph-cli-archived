@@ -9,7 +9,7 @@ az extension add --name mail_v1_0
 
 ### Included Features ###
 #### mail user ####
-#### mail user-inference-classification ####
-#### mail user-mail-folder ####
-#### mail user-mail-folder-message ####
-#### mail user-message ####
+#### mail usersinferenceclassification ####
+#### mail usersmailfolder ####
+#### mail usersmailfoldersmessage ####
+#### mail usersmessage ####

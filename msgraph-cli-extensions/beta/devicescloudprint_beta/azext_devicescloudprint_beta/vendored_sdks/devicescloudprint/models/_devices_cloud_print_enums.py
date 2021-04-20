@@ -34,8 +34,8 @@ class Enum100(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum101(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_BY = "createdBy"
-    DISPLAY_NAME = "displayName"
+    CREATEDBY = "createdBy"
+    DISPLAYNAME = "displayName"
     TASKS = "tasks"
 
 class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -46,16 +46,16 @@ class Enum102(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum103(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    PARENT_URL = "parentUrl"
-    PARENT_URL_DESC = "parentUrl desc"
+    IDDESC = "id desc"
+    PARENTURL = "parentUrl"
+    PARENTURLDESC = "parentUrl desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
+    STATUSDESC = "status desc"
 
 class Enum104(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    PARENT_URL = "parentUrl"
+    PARENTURL = "parentUrl"
     STATUS = "status"
     DEFINITION = "definition"
     TRIGGER = "trigger"
@@ -69,7 +69,7 @@ class Enum105(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum106(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    PARENT_URL = "parentUrl"
+    PARENTURL = "parentUrl"
     STATUS = "status"
     DEFINITION = "definition"
     TRIGGER = "trigger"
@@ -83,8 +83,8 @@ class Enum107(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum108(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_BY = "createdBy"
-    DISPLAY_NAME = "displayName"
+    CREATEDBY = "createdBy"
+    DISPLAYNAME = "displayName"
     TASKS = "tasks"
 
 class Enum109(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -106,343 +106,343 @@ class Enum111(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum28(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APP_VERSION = "appVersion"
-    DEVICE_HEALTH = "deviceHealth"
-    DISPLAY_NAME = "displayName"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
+    APPVERSION = "appVersion"
+    DEVICEHEALTH = "deviceHealth"
+    DISPLAYNAME = "displayName"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
     LOCATION = "location"
     NAME = "name"
-    OPERATING_SYSTEM = "operatingSystem"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    OPERATINGSYSTEM = "operatingSystem"
+    REGISTEREDDATETIME = "registeredDateTime"
 
 class Enum29(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    IDDESC = "id desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
+    STATUSDESC = "status desc"
 
 class Enum30(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     STATUS = "status"
 
 class Enum31(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_DATE_TIME = "createdDateTime"
+    CREATEDDATETIME = "createdDateTime"
     STATUS = "status"
 
 class Enum32(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CAPABILITIES = "capabilities"
-    CAPABILITIES_DESC = "capabilities desc"
+    CAPABILITIESDESC = "capabilities desc"
     DEFAULTS = "defaults"
-    DEFAULTS_DESC = "defaults desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
-    IS_ACCEPTING_JOBS_DESC = "isAcceptingJobs desc"
+    DEFAULTSDESC = "defaults desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
+    ISACCEPTINGJOBSDESC = "isAcceptingJobs desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     MANUFACTURER = "manufacturer"
-    MANUFACTURER_DESC = "manufacturer desc"
+    MANUFACTURERDESC = "manufacturer desc"
     MODEL = "model"
-    MODEL_DESC = "model desc"
+    MODELDESC = "model desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    ACCEPTING_JOBS = "acceptingJobs"
-    ACCEPTING_JOBS_DESC = "acceptingJobs desc"
-    IS_SHARED = "isShared"
-    IS_SHARED_DESC = "isShared desc"
-    REGISTERED_DATE_TIME = "registeredDateTime"
-    REGISTERED_DATE_TIME_DESC = "registeredDateTime desc"
+    STATUSDESC = "status desc"
+    ACCEPTINGJOBS = "acceptingJobs"
+    ACCEPTINGJOBSDESC = "acceptingJobs desc"
+    ISSHARED = "isShared"
+    ISSHAREDDESC = "isShared desc"
+    REGISTEREDDATETIME = "registeredDateTime"
+    REGISTEREDDATETIMEDESC = "registeredDateTime desc"
 
 class Enum33(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ACCEPTING_JOBS = "acceptingJobs"
-    IS_SHARED = "isShared"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    ACCEPTINGJOBS = "acceptingJobs"
+    ISSHARED = "isShared"
+    REGISTEREDDATETIME = "registeredDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum34(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum35(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ACCEPTING_JOBS = "acceptingJobs"
-    IS_SHARED = "isShared"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    ACCEPTINGJOBS = "acceptingJobs"
+    ISSHARED = "isShared"
+    REGISTEREDDATETIME = "registeredDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum36(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum37(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
 
 class Enum38(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum39(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum40(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IP_ADDRESS = "ipAddress"
-    IP_ADDRESS_DESC = "ipAddress desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    IPADDRESS = "ipAddress"
+    IPADDRESSDESC = "ipAddress desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
 
 class Enum41(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum42(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum43(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    APP_VERSION = "appVersion"
-    APP_VERSION_DESC = "appVersion desc"
-    DEVICE_HEALTH = "deviceHealth"
-    DEVICE_HEALTH_DESC = "deviceHealth desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
-    FULLY_QUALIFIED_DOMAIN_NAME_DESC = "fullyQualifiedDomainName desc"
+    IDDESC = "id desc"
+    APPVERSION = "appVersion"
+    APPVERSIONDESC = "appVersion desc"
+    DEVICEHEALTH = "deviceHealth"
+    DEVICEHEALTHDESC = "deviceHealth desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
+    FULLYQUALIFIEDDOMAINNAMEDESC = "fullyQualifiedDomainName desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     NAME = "name"
-    NAME_DESC = "name desc"
-    OPERATING_SYSTEM = "operatingSystem"
-    OPERATING_SYSTEM_DESC = "operatingSystem desc"
-    REGISTERED_DATE_TIME = "registeredDateTime"
-    REGISTERED_DATE_TIME_DESC = "registeredDateTime desc"
+    NAMEDESC = "name desc"
+    OPERATINGSYSTEM = "operatingSystem"
+    OPERATINGSYSTEMDESC = "operatingSystem desc"
+    REGISTEREDDATETIME = "registeredDateTime"
+    REGISTEREDDATETIMEDESC = "registeredDateTime desc"
 
 class Enum44(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APP_VERSION = "appVersion"
-    DEVICE_HEALTH = "deviceHealth"
-    DISPLAY_NAME = "displayName"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
+    APPVERSION = "appVersion"
+    DEVICEHEALTH = "deviceHealth"
+    DISPLAYNAME = "displayName"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
     LOCATION = "location"
     NAME = "name"
-    OPERATING_SYSTEM = "operatingSystem"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    OPERATINGSYSTEM = "operatingSystem"
+    REGISTEREDDATETIME = "registeredDateTime"
 
 class Enum45(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    APP_VERSION = "appVersion"
-    APP_VERSION_DESC = "appVersion desc"
-    DEVICE_HEALTH = "deviceHealth"
-    DEVICE_HEALTH_DESC = "deviceHealth desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
-    FULLY_QUALIFIED_DOMAIN_NAME_DESC = "fullyQualifiedDomainName desc"
+    IDDESC = "id desc"
+    APPVERSION = "appVersion"
+    APPVERSIONDESC = "appVersion desc"
+    DEVICEHEALTH = "deviceHealth"
+    DEVICEHEALTHDESC = "deviceHealth desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
+    FULLYQUALIFIEDDOMAINNAMEDESC = "fullyQualifiedDomainName desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     NAME = "name"
-    NAME_DESC = "name desc"
-    OPERATING_SYSTEM = "operatingSystem"
-    OPERATING_SYSTEM_DESC = "operatingSystem desc"
-    REGISTERED_DATE_TIME = "registeredDateTime"
-    REGISTERED_DATE_TIME_DESC = "registeredDateTime desc"
+    NAMEDESC = "name desc"
+    OPERATINGSYSTEM = "operatingSystem"
+    OPERATINGSYSTEMDESC = "operatingSystem desc"
+    REGISTEREDDATETIME = "registeredDateTime"
+    REGISTEREDDATETIMEDESC = "registeredDateTime desc"
 
 class Enum46(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum47(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum48(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CAPABILITIES = "capabilities"
-    CAPABILITIES_DESC = "capabilities desc"
+    CAPABILITIESDESC = "capabilities desc"
     DEFAULTS = "defaults"
-    DEFAULTS_DESC = "defaults desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
-    IS_ACCEPTING_JOBS_DESC = "isAcceptingJobs desc"
+    DEFAULTSDESC = "defaults desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
+    ISACCEPTINGJOBSDESC = "isAcceptingJobs desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     MANUFACTURER = "manufacturer"
-    MANUFACTURER_DESC = "manufacturer desc"
+    MANUFACTURERDESC = "manufacturer desc"
     MODEL = "model"
-    MODEL_DESC = "model desc"
+    MODELDESC = "model desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    ALLOW_ALL_USERS_DESC = "allowAllUsers desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    STATUSDESC = "status desc"
+    ALLOWALLUSERS = "allowAllUsers"
+    ALLOWALLUSERSDESC = "allowAllUsers desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
 
 class Enum49(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum50(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum51(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CAPABILITIES = "capabilities"
-    CAPABILITIES_DESC = "capabilities desc"
+    CAPABILITIESDESC = "capabilities desc"
     DEFAULTS = "defaults"
-    DEFAULTS_DESC = "defaults desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
-    IS_ACCEPTING_JOBS_DESC = "isAcceptingJobs desc"
+    DEFAULTSDESC = "defaults desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
+    ISACCEPTINGJOBSDESC = "isAcceptingJobs desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     MANUFACTURER = "manufacturer"
-    MANUFACTURER_DESC = "manufacturer desc"
+    MANUFACTURERDESC = "manufacturer desc"
     MODEL = "model"
-    MODEL_DESC = "model desc"
+    MODELDESC = "model desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    ALLOW_ALL_USERS_DESC = "allowAllUsers desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    STATUSDESC = "status desc"
+    ALLOWALLUSERS = "allowAllUsers"
+    ALLOWALLUSERSDESC = "allowAllUsers desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
 
 class Enum52(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     EVENT = "event"
-    EVENT_DESC = "event desc"
+    EVENTDESC = "event desc"
 
 class Enum53(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -469,8 +469,8 @@ class Enum56(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum57(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_BY = "createdBy"
-    DISPLAY_NAME = "displayName"
+    CREATEDBY = "createdBy"
+    DISPLAYNAME = "displayName"
     TASKS = "tasks"
 
 class Enum58(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -481,55 +481,55 @@ class Enum58(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum59(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CAPABILITIES = "capabilities"
-    CAPABILITIES_DESC = "capabilities desc"
+    CAPABILITIESDESC = "capabilities desc"
     DEFAULTS = "defaults"
-    DEFAULTS_DESC = "defaults desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
-    IS_ACCEPTING_JOBS_DESC = "isAcceptingJobs desc"
+    DEFAULTSDESC = "defaults desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
+    ISACCEPTINGJOBSDESC = "isAcceptingJobs desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     MANUFACTURER = "manufacturer"
-    MANUFACTURER_DESC = "manufacturer desc"
+    MANUFACTURERDESC = "manufacturer desc"
     MODEL = "model"
-    MODEL_DESC = "model desc"
+    MODELDESC = "model desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    ALLOW_ALL_USERS_DESC = "allowAllUsers desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    STATUSDESC = "status desc"
+    ALLOWALLUSERS = "allowAllUsers"
+    ALLOWALLUSERSDESC = "allowAllUsers desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
 
 class Enum60(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum61(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum62(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -537,157 +537,157 @@ class Enum62(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum63(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum64(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
 
 class Enum65(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum66(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum67(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IP_ADDRESS = "ipAddress"
-    IP_ADDRESS_DESC = "ipAddress desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    IPADDRESS = "ipAddress"
+    IPADDRESSDESC = "ipAddress desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
 
 class Enum68(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum69(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum70(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ACCEPTING_JOBS = "acceptingJobs"
-    IS_SHARED = "isShared"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    ACCEPTINGJOBS = "acceptingJobs"
+    ISSHARED = "isShared"
+    REGISTEREDDATETIME = "registeredDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum71(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum72(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum73(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
-    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
-    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    APPLICATIONSIGNINDETAILEDSUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIALUSERREGISTRATIONDETAILS = "credentialUserRegistrationDetails"
+    USERCREDENTIALUSAGEDETAILS = "userCredentialUsageDetails"
+    DAILYPRINTUSAGESUMMARIESBYPRINTER = "dailyPrintUsageSummariesByPrinter"
+    DAILYPRINTUSAGESUMMARIESBYUSER = "dailyPrintUsageSummariesByUser"
+    MONTHLYPRINTUSAGESUMMARIESBYPRINTER = "monthlyPrintUsageSummariesByPrinter"
+    MONTHLYPRINTUSAGESUMMARIESBYUSER = "monthlyPrintUsageSummariesByUser"
 
 class Enum74(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
-    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
-    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    APPLICATIONSIGNINDETAILEDSUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIALUSERREGISTRATIONDETAILS = "credentialUserRegistrationDetails"
+    USERCREDENTIALUSAGEDETAILS = "userCredentialUsageDetails"
+    DAILYPRINTUSAGESUMMARIESBYPRINTER = "dailyPrintUsageSummariesByPrinter"
+    DAILYPRINTUSAGESUMMARIESBYUSER = "dailyPrintUsageSummariesByUser"
+    MONTHLYPRINTUSAGESUMMARIESBYPRINTER = "monthlyPrintUsageSummariesByPrinter"
+    MONTHLYPRINTUSAGESUMMARIESBYUSER = "monthlyPrintUsageSummariesByUser"
 
 class Enum75(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
-    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
-    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    APPLICATIONSIGNINDETAILEDSUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIALUSERREGISTRATIONDETAILS = "credentialUserRegistrationDetails"
+    USERCREDENTIALUSAGEDETAILS = "userCredentialUsageDetails"
+    DAILYPRINTUSAGESUMMARIESBYPRINTER = "dailyPrintUsageSummariesByPrinter"
+    DAILYPRINTUSAGESUMMARIESBYUSER = "dailyPrintUsageSummariesByUser"
+    MONTHLYPRINTUSAGESUMMARIESBYPRINTER = "monthlyPrintUsageSummariesByPrinter"
+    MONTHLYPRINTUSAGESUMMARIESBYUSER = "monthlyPrintUsageSummariesByUser"
 
 class Enum76(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
-    APPLICATION_SIGN_IN_DETAILED_SUMMARY = "applicationSignInDetailedSummary"
-    CREDENTIAL_USER_REGISTRATION_DETAILS = "credentialUserRegistrationDetails"
-    USER_CREDENTIAL_USAGE_DETAILS = "userCredentialUsageDetails"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "dailyPrintUsageSummariesByPrinter"
-    DAILY_PRINT_USAGE_SUMMARIES_BY_USER = "dailyPrintUsageSummariesByUser"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_PRINTER = "monthlyPrintUsageSummariesByPrinter"
-    MONTHLY_PRINT_USAGE_SUMMARIES_BY_USER = "monthlyPrintUsageSummariesByUser"
+    APPLICATIONSIGNINDETAILEDSUMMARY = "applicationSignInDetailedSummary"
+    CREDENTIALUSERREGISTRATIONDETAILS = "credentialUserRegistrationDetails"
+    USERCREDENTIALUSAGEDETAILS = "userCredentialUsageDetails"
+    DAILYPRINTUSAGESUMMARIESBYPRINTER = "dailyPrintUsageSummariesByPrinter"
+    DAILYPRINTUSAGESUMMARIESBYUSER = "dailyPrintUsageSummariesByUser"
+    MONTHLYPRINTUSAGESUMMARIESBYPRINTER = "monthlyPrintUsageSummariesByPrinter"
+    MONTHLYPRINTUSAGESUMMARIESBYUSER = "monthlyPrintUsageSummariesByUser"
 
 class Enum77(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
 
 class Enum78(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
@@ -712,76 +712,76 @@ class Enum81(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 class Enum82(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
     URI = "uri"
-    URI_DESC = "uri desc"
+    URIDESC = "uri desc"
 
 class Enum83(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     URI = "uri"
 
 class Enum84(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
     URI = "uri"
 
 class Enum85(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
+    IDDESC = "id desc"
     CAPABILITIES = "capabilities"
-    CAPABILITIES_DESC = "capabilities desc"
+    CAPABILITIESDESC = "capabilities desc"
     DEFAULTS = "defaults"
-    DEFAULTS_DESC = "defaults desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
-    IS_ACCEPTING_JOBS_DESC = "isAcceptingJobs desc"
+    DEFAULTSDESC = "defaults desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
+    ISACCEPTINGJOBSDESC = "isAcceptingJobs desc"
     LOCATION = "location"
-    LOCATION_DESC = "location desc"
+    LOCATIONDESC = "location desc"
     MANUFACTURER = "manufacturer"
-    MANUFACTURER_DESC = "manufacturer desc"
+    MANUFACTURERDESC = "manufacturer desc"
     MODEL = "model"
-    MODEL_DESC = "model desc"
+    MODELDESC = "model desc"
     NAME = "name"
-    NAME_DESC = "name desc"
+    NAMEDESC = "name desc"
     STATUS = "status"
-    STATUS_DESC = "status desc"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    ALLOW_ALL_USERS_DESC = "allowAllUsers desc"
-    CREATED_DATE_TIME = "createdDateTime"
-    CREATED_DATE_TIME_DESC = "createdDateTime desc"
+    STATUSDESC = "status desc"
+    ALLOWALLUSERS = "allowAllUsers"
+    ALLOWALLUSERSDESC = "allowAllUsers desc"
+    CREATEDDATETIME = "createdDateTime"
+    CREATEDDATETIMEDESC = "createdDateTime desc"
 
 class Enum86(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum87(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
@@ -789,304 +789,304 @@ class Enum88(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ALLOW_ALL_USERS = "allowAllUsers"
-    CREATED_DATE_TIME = "createdDateTime"
+    ALLOWALLUSERS = "allowAllUsers"
+    CREATEDDATETIME = "createdDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum89(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     PRINTER = "printer"
 
 class Enum90(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
 
 class Enum91(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum92(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
+    DISPLAYNAME = "displayName"
 
 class Enum93(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    IP_ADDRESS = "ipAddress"
-    IP_ADDRESS_DESC = "ipAddress desc"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
-    USER_PRINCIPAL_NAME_DESC = "userPrincipalName desc"
+    IDDESC = "id desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    IPADDRESS = "ipAddress"
+    IPADDRESSDESC = "ipAddress desc"
+    USERPRINCIPALNAME = "userPrincipalName"
+    USERPRINCIPALNAMEDESC = "userPrincipalName desc"
 
 class Enum94(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum95(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    DISPLAY_NAME = "displayName"
-    IP_ADDRESS = "ipAddress"
-    USER_PRINCIPAL_NAME = "userPrincipalName"
+    DISPLAYNAME = "displayName"
+    IPADDRESS = "ipAddress"
+    USERPRINCIPALNAME = "userPrincipalName"
 
 class Enum96(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
     CAPABILITIES = "capabilities"
     DEFAULTS = "defaults"
-    DISPLAY_NAME = "displayName"
-    IS_ACCEPTING_JOBS = "isAcceptingJobs"
+    DISPLAYNAME = "displayName"
+    ISACCEPTINGJOBS = "isAcceptingJobs"
     LOCATION = "location"
     MANUFACTURER = "manufacturer"
     MODEL = "model"
     NAME = "name"
     STATUS = "status"
-    ACCEPTING_JOBS = "acceptingJobs"
-    IS_SHARED = "isShared"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    ACCEPTINGJOBS = "acceptingJobs"
+    ISSHARED = "isShared"
+    REGISTEREDDATETIME = "registeredDateTime"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum97(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     JOBS = "jobs"
-    ALLOWED_GROUPS = "allowedGroups"
-    ALLOWED_USERS = "allowedUsers"
+    ALLOWEDGROUPS = "allowedGroups"
+    ALLOWEDUSERS = "allowedUsers"
     CONNECTORS = "connectors"
     SHARE = "share"
     SHARES = "shares"
-    TASK_TRIGGERS = "taskTriggers"
+    TASKTRIGGERS = "taskTriggers"
 
 class Enum98(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    ID_DESC = "id desc"
-    CREATED_BY = "createdBy"
-    CREATED_BY_DESC = "createdBy desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
+    IDDESC = "id desc"
+    CREATEDBY = "createdBy"
+    CREATEDBYDESC = "createdBy desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
 
 class Enum99(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    CREATED_BY = "createdBy"
-    DISPLAY_NAME = "displayName"
+    CREATEDBY = "createdBy"
+    DISPLAYNAME = "displayName"
     TASKS = "tasks"
 
-class Get0ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get0itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     SETTINGS = "settings"
     CONNECTORS = "connectors"
     OPERATIONS = "operations"
     PRINTERS = "printers"
-    PRINTER_SHARES = "printerShares"
+    PRINTERSHARES = "printerShares"
     REPORTS = "reports"
     SERVICES = "services"
     SHARES = "shares"
-    TASK_DEFINITIONS = "taskDefinitions"
+    TASKDEFINITIONS = "taskDefinitions"
 
-class Get1ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get1itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ASTERISK = "*"
     CONNECTORS = "connectors"
     OPERATIONS = "operations"
     PRINTERS = "printers"
-    PRINTER_SHARES = "printerShares"
+    PRINTERSHARES = "printerShares"
     REPORTS = "reports"
     SERVICES = "services"
     SHARES = "shares"
-    TASK_DEFINITIONS = "taskDefinitions"
+    TASKDEFINITIONS = "taskDefinitions"
 
-class Get5ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    ID = "id"
-    ID_DESC = "id desc"
-    APP_VERSION = "appVersion"
-    APP_VERSION_DESC = "appVersion desc"
-    DEVICE_HEALTH = "deviceHealth"
-    DEVICE_HEALTH_DESC = "deviceHealth desc"
-    DISPLAY_NAME = "displayName"
-    DISPLAY_NAME_DESC = "displayName desc"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
-    FULLY_QUALIFIED_DOMAIN_NAME_DESC = "fullyQualifiedDomainName desc"
-    LOCATION = "location"
-    LOCATION_DESC = "location desc"
-    NAME = "name"
-    NAME_DESC = "name desc"
-    OPERATING_SYSTEM = "operatingSystem"
-    OPERATING_SYSTEM_DESC = "operatingSystem desc"
-    REGISTERED_DATE_TIME = "registeredDateTime"
-    REGISTERED_DATE_TIME_DESC = "registeredDateTime desc"
-
-class Get6ItemsItem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Get5itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     ID = "id"
-    APP_VERSION = "appVersion"
-    DEVICE_HEALTH = "deviceHealth"
-    DISPLAY_NAME = "displayName"
-    FULLY_QUALIFIED_DOMAIN_NAME = "fullyQualifiedDomainName"
+    IDDESC = "id desc"
+    APPVERSION = "appVersion"
+    APPVERSIONDESC = "appVersion desc"
+    DEVICEHEALTH = "deviceHealth"
+    DEVICEHEALTHDESC = "deviceHealth desc"
+    DISPLAYNAME = "displayName"
+    DISPLAYNAMEDESC = "displayName desc"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
+    FULLYQUALIFIEDDOMAINNAMEDESC = "fullyQualifiedDomainName desc"
+    LOCATION = "location"
+    LOCATIONDESC = "location desc"
+    NAME = "name"
+    NAMEDESC = "name desc"
+    OPERATINGSYSTEM = "operatingSystem"
+    OPERATINGSYSTEMDESC = "operatingSystem desc"
+    REGISTEREDDATETIME = "registeredDateTime"
+    REGISTEREDDATETIMEDESC = "registeredDateTime desc"
+
+class Get6itemsitem(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    ID = "id"
+    APPVERSION = "appVersion"
+    DEVICEHEALTH = "deviceHealth"
+    DISPLAYNAME = "displayName"
+    FULLYQUALIFIEDDOMAINNAME = "fullyQualifiedDomainName"
     LOCATION = "location"
     NAME = "name"
-    OPERATING_SYSTEM = "operatingSystem"
-    REGISTERED_DATE_TIME = "registeredDateTime"
+    OPERATINGSYSTEM = "operatingSystem"
+    REGISTEREDDATETIME = "registeredDateTime"
 
-class MicrosoftGraphFeatureType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphfeaturetype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     REGISTRATION = "registration"
     RESET = "reset"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintColorConfiguration(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintcolorconfiguration(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    BLACK_AND_WHITE = "blackAndWhite"
+    BLACKANDWHITE = "blackAndWhite"
     GRAYSCALE = "grayscale"
     COLOR = "color"
     AUTO = "auto"
 
-class MicrosoftGraphPrintColorMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintcolormode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    BLACK_AND_WHITE = "blackAndWhite"
+    BLACKANDWHITE = "blackAndWhite"
     GRAYSCALE = "grayscale"
     COLOR = "color"
     AUTO = "auto"
 
-class MicrosoftGraphPrintDuplexConfiguration(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintduplexconfiguration(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    TWO_SIDED_LONG_EDGE = "twoSidedLongEdge"
-    TWO_SIDED_SHORT_EDGE = "twoSidedShortEdge"
-    ONE_SIDED = "oneSided"
+    TWOSIDEDLONGEDGE = "twoSidedLongEdge"
+    TWOSIDEDSHORTEDGE = "twoSidedShortEdge"
+    ONESIDED = "oneSided"
 
-class MicrosoftGraphPrintDuplexMode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintduplexmode(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    FLIP_ON_LONG_EDGE = "flipOnLongEdge"
-    FLIP_ON_SHORT_EDGE = "flipOnShortEdge"
-    ONE_SIDED = "oneSided"
+    FLIPONLONGEDGE = "flipOnLongEdge"
+    FLIPONSHORTEDGE = "flipOnShortEdge"
+    ONESIDED = "oneSided"
 
-class MicrosoftGraphPrinterFeedDirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinterfeeddirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    LONG_EDGE_FIRST = "longEdgeFirst"
-    SHORT_EDGE_FIRST = "shortEdgeFirst"
+    LONGEDGEFIRST = "longEdgeFirst"
+    SHORTEDGEFIRST = "shortEdgeFirst"
 
-class MicrosoftGraphPrinterFeedOrientation(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinterfeedorientation(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    LONG_EDGE_FIRST = "longEdgeFirst"
-    SHORT_EDGE_FIRST = "shortEdgeFirst"
+    LONGEDGEFIRST = "longEdgeFirst"
+    SHORTEDGEFIRST = "shortEdgeFirst"
 
-class MicrosoftGraphPrinterProcessingState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinterprocessingstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     IDLE = "idle"
     PROCESSING = "processing"
     STOPPED = "stopped"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrinterProcessingStateDetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    PAUSED = "paused"
-    DISCONNECTED = "disconnected"
-    MEDIA_JAM = "mediaJam"
-    MEDIA_NEEDED = "mediaNeeded"
-    MEDIA_LOW = "mediaLow"
-    MEDIA_EMPTY = "mediaEmpty"
-    COVER_OPEN = "coverOpen"
-    INTERLOCK_OPEN = "interlockOpen"
-    QUEUE_FULL = "queueFull"
-    OUTPUT_TRAY_MISSING = "outputTrayMissing"
-    OUTPUT_AREA_FULL = "outputAreaFull"
-    MARKER_SUPPLY_LOW = "markerSupplyLow"
-    MARKER_SUPPLY_EMPTY = "markerSupplyEmpty"
-    INPUT_TRAY_MISSING = "inputTrayMissing"
-    OUTPUT_ALMOST_FULL = "outputAlmostFull"
-    MARKER_WASTE_ALMOST_FULL = "markerWasteAlmostFull"
-    MARKER_WASTE_FULL = "markerWasteFull"
-    FUSER_OVER_TEMP = "fuserOverTemp"
-    FUSER_UNDER_TEMP = "fuserUnderTemp"
-    OTHER = "other"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
-
-class MicrosoftGraphPrinterProcessingStateReason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinterprocessingstatedetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PAUSED = "paused"
     DISCONNECTED = "disconnected"
-    MEDIA_JAM = "mediaJam"
-    MEDIA_NEEDED = "mediaNeeded"
-    MEDIA_LOW = "mediaLow"
-    MEDIA_EMPTY = "mediaEmpty"
-    COVER_OPEN = "coverOpen"
-    INTERLOCK_OPEN = "interlockOpen"
-    QUEUE_FULL = "queueFull"
-    OUTPUT_TRAY_MISSING = "outputTrayMissing"
-    OUTPUT_AREA_FULL = "outputAreaFull"
-    MARKER_SUPPLY_LOW = "markerSupplyLow"
-    MARKER_SUPPLY_EMPTY = "markerSupplyEmpty"
-    INPUT_TRAY_MISSING = "inputTrayMissing"
-    OUTPUT_ALMOST_FULL = "outputAlmostFull"
-    MARKER_WASTE_ALMOST_FULL = "markerWasteAlmostFull"
-    MARKER_WASTE_FULL = "markerWasteFull"
-    FUSER_OVER_TEMP = "fuserOverTemp"
-    FUSER_UNDER_TEMP = "fuserUnderTemp"
+    MEDIAJAM = "mediaJam"
+    MEDIANEEDED = "mediaNeeded"
+    MEDIALOW = "mediaLow"
+    MEDIAEMPTY = "mediaEmpty"
+    COVEROPEN = "coverOpen"
+    INTERLOCKOPEN = "interlockOpen"
+    QUEUEFULL = "queueFull"
+    OUTPUTTRAYMISSING = "outputTrayMissing"
+    OUTPUTAREAFULL = "outputAreaFull"
+    MARKERSUPPLYLOW = "markerSupplyLow"
+    MARKERSUPPLYEMPTY = "markerSupplyEmpty"
+    INPUTTRAYMISSING = "inputTrayMissing"
+    OUTPUTALMOSTFULL = "outputAlmostFull"
+    MARKERWASTEALMOSTFULL = "markerWasteAlmostFull"
+    MARKERWASTEFULL = "markerWasteFull"
+    FUSEROVERTEMP = "fuserOverTemp"
+    FUSERUNDERTEMP = "fuserUnderTemp"
     OTHER = "other"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintEvent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinterprocessingstatereason(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    JOB_STARTED = "jobStarted"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    PAUSED = "paused"
+    DISCONNECTED = "disconnected"
+    MEDIAJAM = "mediaJam"
+    MEDIANEEDED = "mediaNeeded"
+    MEDIALOW = "mediaLow"
+    MEDIAEMPTY = "mediaEmpty"
+    COVEROPEN = "coverOpen"
+    INTERLOCKOPEN = "interlockOpen"
+    QUEUEFULL = "queueFull"
+    OUTPUTTRAYMISSING = "outputTrayMissing"
+    OUTPUTAREAFULL = "outputAreaFull"
+    MARKERSUPPLYLOW = "markerSupplyLow"
+    MARKERSUPPLYEMPTY = "markerSupplyEmpty"
+    INPUTTRAYMISSING = "inputTrayMissing"
+    OUTPUTALMOSTFULL = "outputAlmostFull"
+    MARKERWASTEALMOSTFULL = "markerWasteAlmostFull"
+    MARKERWASTEFULL = "markerWasteFull"
+    FUSEROVERTEMP = "fuserOverTemp"
+    FUSERUNDERTEMP = "fuserUnderTemp"
+    OTHER = "other"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintFinishing(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintevent(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    JOBSTARTED = "jobStarted"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+
+class Microsoftgraphprintfinishing(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     NONE = "none"
     STAPLE = "staple"
     PUNCH = "punch"
     COVER = "cover"
     BIND = "bind"
-    SADDLE_STITCH = "saddleStitch"
-    STITCH_EDGE = "stitchEdge"
-    STAPLE_TOP_LEFT = "stapleTopLeft"
-    STAPLE_BOTTOM_LEFT = "stapleBottomLeft"
-    STAPLE_TOP_RIGHT = "stapleTopRight"
-    STAPLE_BOTTOM_RIGHT = "stapleBottomRight"
-    STITCH_LEFT_EDGE = "stitchLeftEdge"
-    STITCH_TOP_EDGE = "stitchTopEdge"
-    STITCH_RIGHT_EDGE = "stitchRightEdge"
-    STITCH_BOTTOM_EDGE = "stitchBottomEdge"
-    STAPLE_DUAL_LEFT = "stapleDualLeft"
-    STAPLE_DUAL_TOP = "stapleDualTop"
-    STAPLE_DUAL_RIGHT = "stapleDualRight"
-    STAPLE_DUAL_BOTTOM = "stapleDualBottom"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    SADDLESTITCH = "saddleStitch"
+    STITCHEDGE = "stitchEdge"
+    STAPLETOPLEFT = "stapleTopLeft"
+    STAPLEBOTTOMLEFT = "stapleBottomLeft"
+    STAPLETOPRIGHT = "stapleTopRight"
+    STAPLEBOTTOMRIGHT = "stapleBottomRight"
+    STITCHLEFTEDGE = "stitchLeftEdge"
+    STITCHTOPEDGE = "stitchTopEdge"
+    STITCHRIGHTEDGE = "stitchRightEdge"
+    STITCHBOTTOMEDGE = "stitchBottomEdge"
+    STAPLEDUALLEFT = "stapleDualLeft"
+    STAPLEDUALTOP = "stapleDualTop"
+    STAPLEDUALRIGHT = "stapleDualRight"
+    STAPLEDUALBOTTOM = "stapleDualBottom"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintJobProcessingState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintjobprocessingstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     UNKNOWN = "unknown"
     PENDING = "pending"
@@ -1097,117 +1097,117 @@ class MicrosoftGraphPrintJobProcessingState(with_metaclass(_CaseInsensitiveEnumM
     CANCELED = "canceled"
     ABORTED = "aborted"
 
-class MicrosoftGraphPrintJobStateDetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintjobstatedetail(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    UPLOAD_PENDING = "uploadPending"
+    UPLOADPENDING = "uploadPending"
     TRANSFORMING = "transforming"
-    COMPLETED_SUCCESSFULLY = "completedSuccessfully"
-    COMPLETED_WITH_WARNINGS = "completedWithWarnings"
-    COMPLETED_WITH_ERRORS = "completedWithErrors"
-    RELEASE_WAIT = "releaseWait"
+    COMPLETEDSUCCESSFULLY = "completedSuccessfully"
+    COMPLETEDWITHWARNINGS = "completedWithWarnings"
+    COMPLETEDWITHERRORS = "completedWithErrors"
+    RELEASEWAIT = "releaseWait"
     INTERPRETING = "interpreting"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintMediaType(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintmediatype(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     STATIONERY = "stationery"
     TRANSPARENCY = "transparency"
     ENVELOPE = "envelope"
-    ENVELOPE_PLAIN = "envelopePlain"
+    ENVELOPEPLAIN = "envelopePlain"
     CONTINUOUS = "continuous"
     SCREEN = "screen"
-    SCREEN_PAGED = "screenPaged"
-    CONTINUOUS_LONG = "continuousLong"
-    CONTINUOUS_SHORT = "continuousShort"
-    ENVELOPE_WINDOW = "envelopeWindow"
-    MULTI_PART_FORM = "multiPartForm"
-    MULTI_LAYER = "multiLayer"
+    SCREENPAGED = "screenPaged"
+    CONTINUOUSLONG = "continuousLong"
+    CONTINUOUSSHORT = "continuousShort"
+    ENVELOPEWINDOW = "envelopeWindow"
+    MULTIPARTFORM = "multiPartForm"
+    MULTILAYER = "multiLayer"
     LABELS = "labels"
 
-class MicrosoftGraphPrintMultipageLayout(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintmultipagelayout(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    CLOCKWISE_FROM_TOP_LEFT = "clockwiseFromTopLeft"
-    COUNTERCLOCKWISE_FROM_TOP_LEFT = "counterclockwiseFromTopLeft"
-    COUNTERCLOCKWISE_FROM_TOP_RIGHT = "counterclockwiseFromTopRight"
-    CLOCKWISE_FROM_TOP_RIGHT = "clockwiseFromTopRight"
-    COUNTERCLOCKWISE_FROM_BOTTOM_LEFT = "counterclockwiseFromBottomLeft"
-    CLOCKWISE_FROM_BOTTOM_LEFT = "clockwiseFromBottomLeft"
-    COUNTERCLOCKWISE_FROM_BOTTOM_RIGHT = "counterclockwiseFromBottomRight"
-    CLOCKWISE_FROM_BOTTOM_RIGHT = "clockwiseFromBottomRight"
+    CLOCKWISEFROMTOPLEFT = "clockwiseFromTopLeft"
+    COUNTERCLOCKWISEFROMTOPLEFT = "counterclockwiseFromTopLeft"
+    COUNTERCLOCKWISEFROMTOPRIGHT = "counterclockwiseFromTopRight"
+    CLOCKWISEFROMTOPRIGHT = "clockwiseFromTopRight"
+    COUNTERCLOCKWISEFROMBOTTOMLEFT = "counterclockwiseFromBottomLeft"
+    CLOCKWISEFROMBOTTOMLEFT = "clockwiseFromBottomLeft"
+    COUNTERCLOCKWISEFROMBOTTOMRIGHT = "counterclockwiseFromBottomRight"
+    CLOCKWISEFROMBOTTOMRIGHT = "clockwiseFromBottomRight"
 
-class MicrosoftGraphPrintOperationProcessingState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintoperationprocessingstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    NOT_STARTED = "notStarted"
+    NOTSTARTED = "notStarted"
     RUNNING = "running"
     SUCCEEDED = "succeeded"
     FAILED = "failed"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintOrientation(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintorientation(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PORTRAIT = "portrait"
     LANDSCAPE = "landscape"
-    REVERSE_LANDSCAPE = "reverseLandscape"
-    REVERSE_PORTRAIT = "reversePortrait"
+    REVERSELANDSCAPE = "reverseLandscape"
+    REVERSEPORTRAIT = "reversePortrait"
 
-class MicrosoftGraphPrintPresentationDirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintpresentationdirection(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
-    CLOCKWISE_FROM_TOP_LEFT = "clockwiseFromTopLeft"
-    COUNTER_CLOCKWISE_FROM_TOP_LEFT = "counterClockwiseFromTopLeft"
-    COUNTER_CLOCKWISE_FROM_TOP_RIGHT = "counterClockwiseFromTopRight"
-    CLOCKWISE_FROM_TOP_RIGHT = "clockwiseFromTopRight"
-    COUNTER_CLOCKWISE_FROM_BOTTOM_LEFT = "counterClockwiseFromBottomLeft"
-    CLOCKWISE_FROM_BOTTOM_LEFT = "clockwiseFromBottomLeft"
-    COUNTER_CLOCKWISE_FROM_BOTTOM_RIGHT = "counterClockwiseFromBottomRight"
-    CLOCKWISE_FROM_BOTTOM_RIGHT = "clockwiseFromBottomRight"
+    CLOCKWISEFROMTOPLEFT = "clockwiseFromTopLeft"
+    COUNTERCLOCKWISEFROMTOPLEFT = "counterClockwiseFromTopLeft"
+    COUNTERCLOCKWISEFROMTOPRIGHT = "counterClockwiseFromTopRight"
+    CLOCKWISEFROMTOPRIGHT = "clockwiseFromTopRight"
+    COUNTERCLOCKWISEFROMBOTTOMLEFT = "counterClockwiseFromBottomLeft"
+    CLOCKWISEFROMBOTTOMLEFT = "clockwiseFromBottomLeft"
+    COUNTERCLOCKWISEFROMBOTTOMRIGHT = "counterClockwiseFromBottomRight"
+    CLOCKWISEFROMBOTTOMRIGHT = "clockwiseFromBottomRight"
 
-class MicrosoftGraphPrintQuality(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintquality(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintScaling(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprintscaling(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     AUTO = "auto"
-    SHRINK_TO_FIT = "shrinkToFit"
+    SHRINKTOFIT = "shrinkToFit"
     FILL = "fill"
     FIT = "fit"
     NONE = "none"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphPrintTaskProcessingState(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphprinttaskprocessingstate(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     PENDING = "pending"
     PROCESSING = "processing"
     COMPLETED = "completed"
     ABORTED = "aborted"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
 
-class MicrosoftGraphRegistrationAuthMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
-
-    EMAIL = "email"
-    MOBILE_PHONE = "mobilePhone"
-    OFFICE_PHONE = "officePhone"
-    SECURITY_QUESTION = "securityQuestion"
-    APP_NOTIFICATION = "appNotification"
-    APP_CODE = "appCode"
-    ALTERNATE_MOBILE_PHONE = "alternateMobilePhone"
-    FIDO = "fido"
-    APP_PASSWORD = "appPassword"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
-
-class MicrosoftGraphUsageAuthMethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+class Microsoftgraphregistrationauthmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
 
     EMAIL = "email"
-    MOBILE_SMS = "mobileSMS"
-    MOBILE_CALL = "mobileCall"
-    OFFICE_PHONE = "officePhone"
-    SECURITY_QUESTION = "securityQuestion"
-    APP_NOTIFICATION = "appNotification"
-    APP_CODE = "appCode"
-    ALTERNATE_MOBILE_CALL = "alternateMobileCall"
+    MOBILEPHONE = "mobilePhone"
+    OFFICEPHONE = "officePhone"
+    SECURITYQUESTION = "securityQuestion"
+    APPNOTIFICATION = "appNotification"
+    APPCODE = "appCode"
+    ALTERNATEMOBILEPHONE = "alternateMobilePhone"
     FIDO = "fido"
-    APP_PASSWORD = "appPassword"
-    UNKNOWN_FUTURE_VALUE = "unknownFutureValue"
+    APPPASSWORD = "appPassword"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"
+
+class Microsoftgraphusageauthmethod(with_metaclass(_CaseInsensitiveEnumMeta, str, Enum)):
+
+    EMAIL = "email"
+    MOBILESMS = "mobileSMS"
+    MOBILECALL = "mobileCall"
+    OFFICEPHONE = "officePhone"
+    SECURITYQUESTION = "securityQuestion"
+    APPNOTIFICATION = "appNotification"
+    APPCODE = "appCode"
+    ALTERNATEMOBILECALL = "alternateMobileCall"
+    FIDO = "fido"
+    APPPASSWORD = "appPassword"
+    UNKNOWNFUTUREVALUE = "unknownFutureValue"

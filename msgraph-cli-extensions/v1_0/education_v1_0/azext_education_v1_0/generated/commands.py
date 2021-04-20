@@ -9,38 +9,78 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_education_v1_0.generated._client_factory import (
+    cf_educationroot,
+    cf_education,
+    cf_educationclass,
+    cf_educationme,
+    cf_educationschool,
+    cf_educationuser,
+)
+
+
+education_v1_0_educationroot = CliCommandType(
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._educationeducationroot_operations#educationeducationrootOperations.{}',
+    client_factory=cf_educationroot,
+)
+
+
+education_v1_0_education = CliCommandType(
+    operations_tmpl=(
+        'azext_education_v1_0.vendored_sdks.education.operations._education_operations#educationOperations.{}'
+    ),
+    client_factory=cf_education,
+)
+
+
+education_v1_0_educationclass = CliCommandType(
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._educationclasses_operations#educationclassesOperations.{}',
+    client_factory=cf_educationclass,
+)
+
+
+education_v1_0_educationme = CliCommandType(
+    operations_tmpl=(
+        'azext_education_v1_0.vendored_sdks.education.operations._educationme_operations#educationmeOperations.{}'
+    ),
+    client_factory=cf_educationme,
+)
+
+
+education_v1_0_educationschool = CliCommandType(
+    operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._educationschools_operations#educationschoolsOperations.{}',
+    client_factory=cf_educationschool,
+)
+
+
+education_v1_0_educationuser = CliCommandType(
+    operations_tmpl=(
+        'azext_education_v1_0.vendored_sdks.education.operations._educationusers_operations#educationusersOperations.{}'
+    ),
+    client_factory=cf_educationuser,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_education_v1_0.generated._client_factory import cf_education_education_root
-
-    education_v1_0_education_education_root = CliCommandType(
-        operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_education_root_operations#EducationEducationRootOperations.{}',
-        client_factory=cf_education_education_root,
-    )
     with self.command_group(
-        'education education-root', education_v1_0_education_education_root, client_factory=cf_education_education_root
+        'education educationroot', education_v1_0_educationroot, client_factory=cf_educationroot
     ) as g:
-        g.custom_command('show-education-root', 'education_education_root_show_education_root')
-        g.custom_command('update-education-root', 'education_education_root_update_education_root')
+        g.custom_command('show-education-root', 'education_educationroot_show_education_root')
+        g.custom_command('update-education-root', 'education_educationroot_update_education_root')
 
-    from azext_education_v1_0.generated._client_factory import cf_education
-
-    education_v1_0_education = CliCommandType(
-        operations_tmpl=(
-            'azext_education_v1_0.vendored_sdks.education.operations._education_operations#EducationOperations.{}'
-        ),
-        client_factory=cf_education,
-    )
     with self.command_group('education education', education_v1_0_education, client_factory=cf_education) as g:
-        g.custom_command('delete', 'education_education_delete', confirmation=True)
         g.custom_command('create-class', 'education_education_create_class')
         g.custom_command('create-school', 'education_education_create_school')
         g.custom_command('create-user', 'education_education_create_user')
+        g.custom_command('delete-class', 'education_education_delete_class')
+        g.custom_command('delete-me', 'education_education_delete_me')
+        g.custom_command('delete-school', 'education_education_delete_school')
+        g.custom_command('delete-user', 'education_education_delete_user')
         g.custom_command('list-class', 'education_education_list_class')
         g.custom_command('list-school', 'education_education_list_school')
         g.custom_command('list-user', 'education_education_list_user')
@@ -53,84 +93,58 @@ def load_command_table(self, _):
         g.custom_command('update-school', 'education_education_update_school')
         g.custom_command('update-user', 'education_education_update_user')
 
-    from azext_education_v1_0.generated._client_factory import cf_education_class
-
-    education_v1_0_education_class = CliCommandType(
-        operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_class_operations#EducationClassOperations.{}',
-        client_factory=cf_education_class,
-    )
     with self.command_group(
-        'education education-class', education_v1_0_education_class, client_factory=cf_education_class
+        'education educationclass', education_v1_0_educationclass, client_factory=cf_educationclass
     ) as g:
-        g.custom_command('delete', 'education_education_class_delete', confirmation=True)
-        g.custom_command('create-ref-member', 'education_education_class_create_ref_member')
-        g.custom_command('create-ref-school', 'education_education_class_create_ref_school')
-        g.custom_command('create-ref-teacher', 'education_education_class_create_ref_teacher')
-        g.custom_command('list-member', 'education_education_class_list_member')
-        g.custom_command('list-ref-member', 'education_education_class_list_ref_member')
-        g.custom_command('list-ref-school', 'education_education_class_list_ref_school')
-        g.custom_command('list-ref-teacher', 'education_education_class_list_ref_teacher')
-        g.custom_command('list-school', 'education_education_class_list_school')
-        g.custom_command('list-teacher', 'education_education_class_list_teacher')
-        g.custom_command('set-ref-group', 'education_education_class_set_ref_group')
-        g.custom_command('show-group', 'education_education_class_show_group')
-        g.custom_command('show-ref-group', 'education_education_class_show_ref_group')
+        g.custom_command('create-ref-member', 'education_educationclass_create_ref_member')
+        g.custom_command('create-ref-school', 'education_educationclass_create_ref_school')
+        g.custom_command('create-ref-teacher', 'education_educationclass_create_ref_teacher')
+        g.custom_command('delete-ref-group', 'education_educationclass_delete_ref_group')
+        g.custom_command('list-member', 'education_educationclass_list_member')
+        g.custom_command('list-ref-member', 'education_educationclass_list_ref_member')
+        g.custom_command('list-ref-school', 'education_educationclass_list_ref_school')
+        g.custom_command('list-ref-teacher', 'education_educationclass_list_ref_teacher')
+        g.custom_command('list-school', 'education_educationclass_list_school')
+        g.custom_command('list-teacher', 'education_educationclass_list_teacher')
+        g.custom_command('set-ref-group', 'education_educationclass_set_ref_group')
+        g.custom_command('show-group', 'education_educationclass_show_group')
+        g.custom_command('show-ref-group', 'education_educationclass_show_ref_group')
 
-    from azext_education_v1_0.generated._client_factory import cf_education_me
+    with self.command_group('education educationme', education_v1_0_educationme, client_factory=cf_educationme) as g:
+        g.custom_command('create-ref-class', 'education_educationme_create_ref_class')
+        g.custom_command('create-ref-school', 'education_educationme_create_ref_school')
+        g.custom_command('delete-ref-user', 'education_educationme_delete_ref_user')
+        g.custom_command('list-class', 'education_educationme_list_class')
+        g.custom_command('list-ref-class', 'education_educationme_list_ref_class')
+        g.custom_command('list-ref-school', 'education_educationme_list_ref_school')
+        g.custom_command('list-school', 'education_educationme_list_school')
+        g.custom_command('set-ref-user', 'education_educationme_set_ref_user')
+        g.custom_command('show-ref-user', 'education_educationme_show_ref_user')
+        g.custom_command('show-user', 'education_educationme_show_user')
 
-    education_v1_0_education_me = CliCommandType(
-        operations_tmpl=(
-            'azext_education_v1_0.vendored_sdks.education.operations._education_me_operations#EducationMeOperations.{}'
-        ),
-        client_factory=cf_education_me,
-    )
-    with self.command_group('education education-me', education_v1_0_education_me, client_factory=cf_education_me) as g:
-        g.custom_command('delete', 'education_education_me_delete', confirmation=True)
-        g.custom_command('create-ref-class', 'education_education_me_create_ref_class')
-        g.custom_command('create-ref-school', 'education_education_me_create_ref_school')
-        g.custom_command('list-class', 'education_education_me_list_class')
-        g.custom_command('list-ref-class', 'education_education_me_list_ref_class')
-        g.custom_command('list-ref-school', 'education_education_me_list_ref_school')
-        g.custom_command('list-school', 'education_education_me_list_school')
-        g.custom_command('set-ref-user', 'education_education_me_set_ref_user')
-        g.custom_command('show-ref-user', 'education_education_me_show_ref_user')
-        g.custom_command('show-user', 'education_education_me_show_user')
-
-    from azext_education_v1_0.generated._client_factory import cf_education_school
-
-    education_v1_0_education_school = CliCommandType(
-        operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_school_operations#EducationSchoolOperations.{}',
-        client_factory=cf_education_school,
-    )
     with self.command_group(
-        'education education-school', education_v1_0_education_school, client_factory=cf_education_school
+        'education educationschool', education_v1_0_educationschool, client_factory=cf_educationschool
     ) as g:
-        g.custom_command('create-ref-class', 'education_education_school_create_ref_class')
-        g.custom_command('create-ref-user', 'education_education_school_create_ref_user')
-        g.custom_command('list-class', 'education_education_school_list_class')
-        g.custom_command('list-ref-class', 'education_education_school_list_ref_class')
-        g.custom_command('list-ref-user', 'education_education_school_list_ref_user')
-        g.custom_command('list-user', 'education_education_school_list_user')
+        g.custom_command('create-ref-class', 'education_educationschool_create_ref_class')
+        g.custom_command('create-ref-user', 'education_educationschool_create_ref_user')
+        g.custom_command('list-class', 'education_educationschool_list_class')
+        g.custom_command('list-ref-class', 'education_educationschool_list_ref_class')
+        g.custom_command('list-ref-user', 'education_educationschool_list_ref_user')
+        g.custom_command('list-user', 'education_educationschool_list_user')
 
-    from azext_education_v1_0.generated._client_factory import cf_education_user
-
-    education_v1_0_education_user = CliCommandType(
-        operations_tmpl='azext_education_v1_0.vendored_sdks.education.operations._education_user_operations#EducationUserOperations.{}',
-        client_factory=cf_education_user,
-    )
     with self.command_group(
-        'education education-user', education_v1_0_education_user, client_factory=cf_education_user
+        'education educationuser', education_v1_0_educationuser, client_factory=cf_educationuser
     ) as g:
-        g.custom_command('delete', 'education_education_user_delete', confirmation=True)
-        g.custom_command('create-ref-class', 'education_education_user_create_ref_class')
-        g.custom_command('create-ref-school', 'education_education_user_create_ref_school')
-        g.custom_command('list-class', 'education_education_user_list_class')
-        g.custom_command('list-ref-class', 'education_education_user_list_ref_class')
-        g.custom_command('list-ref-school', 'education_education_user_list_ref_school')
-        g.custom_command('list-school', 'education_education_user_list_school')
-        g.custom_command('set-ref-user', 'education_education_user_set_ref_user')
-        g.custom_command('show-ref-user', 'education_education_user_show_ref_user')
-        g.custom_command('show-user', 'education_education_user_show_user')
+        g.custom_command('create-ref-class', 'education_educationuser_create_ref_class')
+        g.custom_command('create-ref-school', 'education_educationuser_create_ref_school')
+        g.custom_command('delete-ref-user', 'education_educationuser_delete_ref_user')
+        g.custom_command('list-class', 'education_educationuser_list_class')
+        g.custom_command('list-ref-class', 'education_educationuser_list_ref_class')
+        g.custom_command('list-ref-school', 'education_educationuser_list_ref_school')
+        g.custom_command('list-school', 'education_educationuser_list_school')
+        g.custom_command('set-ref-user', 'education_educationuser_set_ref_user')
+        g.custom_command('show-ref-user', 'education_educationuser_show_ref_user')
+        g.custom_command('show-user', 'education_educationuser_show_user')
 
     with self.command_group('education_v1_0', is_experimental=True):
         pass

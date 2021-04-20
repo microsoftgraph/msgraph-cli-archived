@@ -6,16 +6,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._user_operations import UserOperations
-from ._user_insight_operations import UserInsightOperations
-from ._user_insight_shared_operations import UserInsightSharedOperations
-from ._user_insight_trending_operations import UserInsightTrendingOperations
-from ._user_insight_used_operations import UserInsightUsedOperations
+from ._users_operations import usersOperations
+from ._usersinsights_operations import usersinsightsOperations
+from ._usersinsightsshared_operations import usersinsightssharedOperations
+from ._usersinsightstrending_operations import usersinsightstrendingOperations
+from ._usersinsightsused_operations import usersinsightsusedOperations
 
 __all__ = [
-    'UserOperations',
-    'UserInsightOperations',
-    'UserInsightSharedOperations',
-    'UserInsightTrendingOperations',
-    'UserInsightUsedOperations',
+    'usersOperations',
+    'usersinsightsOperations',
+    'usersinsightssharedOperations',
+    'usersinsightstrendingOperations',
+    'usersinsightsusedOperations',
 ]

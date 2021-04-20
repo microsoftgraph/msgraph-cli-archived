@@ -12,14 +12,14 @@
 from knack.help_files import helps
 
 
+helps['cloudcommunications_v1_0'] = '''
+    type: group
+    short-summary: Manage Cloud Communications
+'''
+
 helps['cloudcommunications user'] = """
     type: group
     short-summary: Manage user with cloudcommunications_v1_0
-"""
-
-helps['cloudcommunications user delete'] = """
-    type: command
-    short-summary: "Delete navigation property onlineMeetings for users."
 """
 
 helps['cloudcommunications user create-online-meeting'] = """
@@ -48,6 +48,11 @@ helps['cloudcommunications user create-online-meeting'] = """
             Usage: --join-information content=XX content-type=XX
 
             content: The content of the item.
+"""
+
+helps['cloudcommunications user delete-online-meeting'] = """
+    type: command
+    short-summary: "Delete navigation property onlineMeetings for users."
 """
 
 helps['cloudcommunications user list-online-meeting'] = """

@@ -23,20 +23,16 @@ from azext_devicescorpmgt_v1_0.action import (
     AddManagedAppStatuses,
     AddMdmWindowsInformationProtectionPolicies,
     AddWindowsInformationProtectionPolicies,
-    AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCustomSettings,
     AddAppliedPolicies,
     AddIntendedPolicies,
     AddOperations,
     AddLargeCover,
     AddDeviceappmanagementDeviceStates,
     AddInstallSummary,
-    AddUserStateSummary,
     AddDataRecoveryCertificate,
     AddEnterpriseInternalProxyServers,
-    AddEnterpriseIpRanges,
     AddEnterpriseNetworkDomainNames,
     AddEnterpriseProtectedDomainNames,
-    AddEnterpriseProxiedDomains,
     AddEnterpriseProxyServers,
     AddExemptApps,
     AddNeutralDomainResources,
@@ -49,24 +45,18 @@ from azext_devicescorpmgt_v1_0.action import (
     AddDeviceStatusSummary,
     AddUserStatuses,
     AddUserStatusSummary,
-    AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationCustomSettings,
-    AddDeviceappmanagementManagedebooksDeviceStates,
-    AddConfigurationManagerClientEnabledFeatures,
-    AddDeviceActionResults,
-    AddDeviceHealthAttestationState,
-    AddDeviceCategory,
-    AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates,
-    AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates
+    AddCustomSettings,
+    AddDeviceappmanagementManagedebooksDeviceStates
 )
 
 
 def load_arguments(self, _):
 
-    with self.argument_context('devicescorpmgt device-app-management-device-app-management show-device-app-management') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdeviceappmanagement show-device-app-management') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-device-app-management update-device-app-management') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdeviceappmanagement update-device-app-management') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('is_enabled_for_microsoft_store_for_business', arg_type=get_three_state_flag(), help='Whether the '
                    'account is enabled for syncing applications from the Microsoft Store for Business.')
@@ -108,312 +98,19 @@ def load_arguments(self, _):
                    nargs='+', help='Windows information protection for apps running on devices which are not MDM '
                    'enrolled.')
 
-    with self.argument_context('devicescorpmgt device-app-management delete') as c:
-        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
-        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
-        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
-        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
-        c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
-                   'mdmWindowsInformationProtectionPolicy')
-        c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
-        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfiguration')
-        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
-        c.argument('targeted_managed_app_configuration_id', type=str,
-                   help='key: id of targetedManagedAppConfiguration')
-        c.argument('vpp_token_id', type=str, help='key: id of vppToken')
-        c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
-                   'windowsInformationProtectionPolicy')
+    with self.argument_context('devicescorpmgt deviceappmanagement create-android-managed-app-protection') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-android-managed-app-protection') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
-                   'inclusion groups or not.')
-        c.argument('assignments', type=validate_file_or_dict, help='Navigation property to list of inclusion and '
-                   'exclusion groups to which the policy is deployed. Expected value: json-string/@json-file.')
-        c.argument('custom_browser_display_name', type=str, help='Friendly name of the preferred custom browser to '
-                   'open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired '
-                   'should be true.')
-        c.argument('custom_browser_package_id', type=str, help='Unique identifier of the preferred custom browser to '
-                   'open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired '
-                   'should be true.')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('disable_app_encryption_if_device_encryption_is_enabled', arg_type=get_three_state_flag(),
-                   help='When this setting is enabled, app level encryption is disabled if device level encryption is '
-                   'enabled')
-        c.argument('encrypt_app_data', arg_type=get_three_state_flag(), help='Indicates whether application data for '
-                   'managed apps should be encrypted')
-        c.argument('minimum_required_patch_version', type=str, help='Define the oldest required Android security patch '
-                   'level a user can have to gain secure access to the app.')
-        c.argument('minimum_warning_patch_version', type=str, help='Define the oldest recommended Android security '
-                   'patch level a user can have for secure access to the app.')
-        c.argument('screen_capture_blocked', arg_type=get_three_state_flag(), help='Indicates whether a managed user '
-                   'can take screen captures of managed apps')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
+    with self.argument_context('devicescorpmgt deviceappmanagement create-default-managed-app-protection') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-default-managed-app-protection') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('app_data_encryption_type', arg_type=get_enum_type(['useDeviceSettings', 'afterDeviceRestart',
-                                                                       'whenDeviceLockedExceptOpenFiles',
-                                                                       'whenDeviceLocked']), help='')
-        c.argument('custom_settings',
-                   action=AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCustomSettings,
-                   nargs='+', help='A set of string key and string value pairs to be sent to the affected users, '
-                   'unalterned by this service')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('disable_app_encryption_if_device_encryption_is_enabled', arg_type=get_three_state_flag(),
-                   help='When this setting is enabled, app level encryption is disabled if device level encryption is '
-                   'enabled. (Android only)')
-        c.argument('encrypt_app_data', arg_type=get_three_state_flag(), help='Indicates whether managed-app data '
-                   'should be encrypted. (Android only)')
-        c.argument('face_id_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the FaceID is '
-                   'allowed in place of a pin if PinRequired is set to True. (iOS Only)')
-        c.argument('minimum_required_patch_version', type=str, help='Define the oldest required Android security patch '
-                   'level a user can have to gain secure access to the app. (Android only)')
-        c.argument('minimum_required_sdk_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data. (iOS Only)')
-        c.argument('minimum_warning_patch_version', type=str, help='Define the oldest recommended Android security '
-                   'patch level a user can have for secure access to the app. (Android only)')
-        c.argument('screen_capture_blocked', arg_type=get_three_state_flag(), help='Indicates whether screen capture '
-                   'is blocked. (Android only)')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
+    with self.argument_context('devicescorpmgt deviceappmanagement create-io-managed-app-protection') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-io-managed-app-protection') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
-                   'inclusion groups or not.')
-        c.argument('assignments', type=validate_file_or_dict, help='Navigation property to list of inclusion and '
-                   'exclusion groups to which the policy is deployed. Expected value: json-string/@json-file.')
-        c.argument('app_data_encryption_type', arg_type=get_enum_type(['useDeviceSettings', 'afterDeviceRestart',
-                                                                       'whenDeviceLockedExceptOpenFiles',
-                                                                       'whenDeviceLocked']), help='')
-        c.argument('custom_browser_protocol', type=str, help='A custom browser protocol to open weblink on iOS. When '
-                   'this property is configured, ManagedBrowserToOpenLinksRequired should be true.')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('face_id_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the FaceID is '
-                   'allowed in place of a pin if PinRequired is set to True.')
-        c.argument('minimum_required_sdk_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
-
-    with self.argument_context('devicescorpmgt device-app-management create-managed-app-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-managed-app-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
         c.argument('description', type=str, help='The policy\'s description.')
@@ -421,7 +118,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-managed-app-registration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-managed-app-registration') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. Expected '
                    'value: json-string/@json-file.')
@@ -445,12 +142,12 @@ def load_arguments(self, _):
         c.argument('operations', action=AddOperations, nargs='+', help='Zero or more long running operations triggered '
                    'on the app registration.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-managed-app-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-managed-app-statuses') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Friendly name of the status report.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-managed-e-book') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-managed-e-book') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time when the eBook file was created.')
         c.argument('description', type=str, help='Description.')
@@ -468,10 +165,10 @@ def load_arguments(self, _):
                    'installation states for this eBook.')
         c.argument('install_summary', action=AddInstallSummary, nargs='+', help='Contains properties for the '
                    'installation summary of a book for a device.')
-        c.argument('user_state_summary', action=AddUserStateSummary, nargs='+', help='The list of installation states '
-                   'for this eBook.')
+        c.argument('user_state_summary', type=validate_file_or_dict, help='The list of installation states for this '
+                   'eBook. Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-mdm-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-mdm-window-information-protection-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
         c.argument('description', type=str, help='The policy\'s description.')
@@ -492,10 +189,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -505,12 +202,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -551,7 +248,7 @@ def load_arguments(self, _):
         c.argument('protected_app_locker_files', action=AddProtectedAppLockerFiles, nargs='+', help='Another way to '
                    'input protected apps through xml files')
 
-    with self.argument_context('devicescorpmgt device-app-management create-mobile-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-mobile-app') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the app was created.')
         c.argument('description', type=str, help='The description of the app.')
@@ -572,12 +269,12 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('categories', action=AddCategories, nargs='+', help='The list of categories for this app.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-mobile-app-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-mobile-app-category') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the app category.')
         c.argument('last_modified_date_time', help='The date and time the mobileAppCategory was last modified.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-mobile-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-mobile-app-configuration') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='DateTime the object was created.')
         c.argument('description', type=str, help='Admin provided description of the Device Configuration.')
@@ -596,17 +293,15 @@ def load_arguments(self, _):
         c.argument('user_status_summary', action=AddUserStatusSummary, nargs='+', help='Contains properties, inherited '
                    'properties and actions for an MDM mobile app configuration user status summary.')
 
-    with self.argument_context('devicescorpmgt device-app-management create-targeted-managed-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-targeted-managed-app-configuration') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
         c.argument('description', type=str, help='The policy\'s description.')
         c.argument('display_name', type=str, help='Policy display name.')
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
-        c.argument('custom_settings',
-                   action=AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationCustomSettings,
-                   nargs='+', help='A set of string key and string value pairs to be sent to apps for users to whom '
-                   'the configuration is scoped, unalterned by this service')
+        c.argument('custom_settings', action=AddCustomSettings, nargs='+', help='A set of string key and string value '
+                   'pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service')
         c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
         c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
                    'inclusion groups or not.')
@@ -625,7 +320,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
                    'entity.', arg_group='Deployment Summary')
 
-    with self.argument_context('devicescorpmgt device-app-management create-vpp-token') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-vpp-token') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('apple_id', type=str, help='The apple Id associated with the given Apple Volume Purchase Program '
                    'Token.')
@@ -648,7 +343,7 @@ def load_arguments(self, _):
                    'Volume Purchase Program.')
         c.argument('vpp_token_account_type', arg_type=get_enum_type(['business', 'education']), help='')
 
-    with self.argument_context('devicescorpmgt device-app-management create-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement create-window-information-protection-policy') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
         c.argument('description', type=str, help='The policy\'s description.')
@@ -669,10 +364,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -682,12 +377,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -761,438 +456,226 @@ def load_arguments(self, _):
         c.argument('windows_hello_for_business_blocked', arg_type=get_three_state_flag(), help='Boolean value that '
                    'sets Windows Hello for Business as a method for signing into Windows.')
 
-    with self.argument_context('devicescorpmgt device-app-management list-android-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-android-managed-app-protection') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-default-managed-app-protection') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-io-managed-app-protection') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-managed-app-policy') as c:
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-managed-app-registration') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-managed-app-statuses') as c:
+        c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-managed-e-book') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-mdm-window-information-protection-policy') as c:
+        c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
+                   'mdmWindowsInformationProtectionPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-mobile-app') as c:
+        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-mobile-app-category') as c:
+        c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-mobile-app-configuration') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-targeted-managed-app-configuration') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-vpp-token') as c:
+        c.argument('vpp_token_id', type=str, help='key: id of vppToken')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement delete-window-information-protection-policy') as c:
+        c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
+                   'windowsInformationProtectionPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagement list-android-managed-app-protection') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-default-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-default-managed-app-protection') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-io-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-io-managed-app-protection') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-managed-app-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-managed-app-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-managed-app-registration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-managed-app-registration') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-managed-app-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-managed-app-statuses') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-managed-e-book') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-managed-e-book') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-mdm-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-mdm-window-information-protection-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-mobile-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-mobile-app') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-mobile-app-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-mobile-app-category') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-mobile-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-mobile-app-configuration') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-targeted-managed-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-targeted-managed-app-configuration') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-vpp-token') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-vpp-token') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management list-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement list-window-information-protection-policy') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-android-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-android-managed-app-protection') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-default-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-default-managed-app-protection') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-io-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-io-managed-app-protection') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-managed-app-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-managed-app-policy') as c:
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-managed-app-registration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-managed-app-registration') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-managed-app-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-managed-app-statuses') as c:
         c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-managed-e-book') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-managed-e-book') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-mdm-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-mdm-window-information-protection-policy') as c:
         c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
                    'mdmWindowsInformationProtectionPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-mobile-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-mobile-app') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-mobile-app-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-mobile-app-category') as c:
         c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-mobile-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-mobile-app-configuration') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-targeted-managed-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-targeted-managed-app-configuration') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-vpp-token') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-vpp-token') as c:
         c.argument('vpp_token_id', type=str, help='key: id of vppToken')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management show-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement show-window-information-protection-policy') as c:
         c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
                    'windowsInformationProtectionPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management update-android-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-android-managed-app-protection') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
-                   'inclusion groups or not.')
-        c.argument('assignments', type=validate_file_or_dict, help='Navigation property to list of inclusion and '
-                   'exclusion groups to which the policy is deployed. Expected value: json-string/@json-file.')
-        c.argument('custom_browser_display_name', type=str, help='Friendly name of the preferred custom browser to '
-                   'open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired '
-                   'should be true.')
-        c.argument('custom_browser_package_id', type=str, help='Unique identifier of the preferred custom browser to '
-                   'open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired '
-                   'should be true.')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('disable_app_encryption_if_device_encryption_is_enabled', arg_type=get_three_state_flag(),
-                   help='When this setting is enabled, app level encryption is disabled if device level encryption is '
-                   'enabled')
-        c.argument('encrypt_app_data', arg_type=get_three_state_flag(), help='Indicates whether application data for '
-                   'managed apps should be encrypted')
-        c.argument('minimum_required_patch_version', type=str, help='Define the oldest required Android security patch '
-                   'level a user can have to gain secure access to the app.')
-        c.argument('minimum_warning_patch_version', type=str, help='Define the oldest recommended Android security '
-                   'patch level a user can have for secure access to the app.')
-        c.argument('screen_capture_blocked', arg_type=get_three_state_flag(), help='Indicates whether a managed user '
-                   'can take screen captures of managed apps')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-default-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-default-managed-app-protection') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('app_data_encryption_type', arg_type=get_enum_type(['useDeviceSettings', 'afterDeviceRestart',
-                                                                       'whenDeviceLockedExceptOpenFiles',
-                                                                       'whenDeviceLocked']), help='')
-        c.argument('custom_settings',
-                   action=AddDevicescorpmgtDeviceAppManagementCreateDefaultManagedAppProtectionCustomSettings,
-                   nargs='+', help='A set of string key and string value pairs to be sent to the affected users, '
-                   'unalterned by this service')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('disable_app_encryption_if_device_encryption_is_enabled', arg_type=get_three_state_flag(),
-                   help='When this setting is enabled, app level encryption is disabled if device level encryption is '
-                   'enabled. (Android only)')
-        c.argument('encrypt_app_data', arg_type=get_three_state_flag(), help='Indicates whether managed-app data '
-                   'should be encrypted. (Android only)')
-        c.argument('face_id_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the FaceID is '
-                   'allowed in place of a pin if PinRequired is set to True. (iOS Only)')
-        c.argument('minimum_required_patch_version', type=str, help='Define the oldest required Android security patch '
-                   'level a user can have to gain secure access to the app. (Android only)')
-        c.argument('minimum_required_sdk_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data. (iOS Only)')
-        c.argument('minimum_warning_patch_version', type=str, help='Define the oldest recommended Android security '
-                   'patch level a user can have for secure access to the app. (Android only)')
-        c.argument('screen_capture_blocked', arg_type=get_three_state_flag(), help='Indicates whether screen capture '
-                   'is blocked. (Android only)')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-io-managed-app-protection') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-io-managed-app-protection') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('created_date_time', help='The date and time the policy was created.')
-        c.argument('description', type=str, help='The policy\'s description.')
-        c.argument('display_name', type=str, help='Policy display name.')
-        c.argument('last_modified_date_time', help='Last time the policy was modified.')
-        c.argument('version', type=str, help='Version of the entity.')
-        c.argument('allowed_data_storage_locations', nargs='+', help='Data storage locations where a user may store '
-                   'managed data.')
-        c.argument('allowed_inbound_data_transfer_sources', arg_type=get_enum_type(['allApps', 'managedApps', 'none']),
-                   help='')
-        c.argument('allowed_outbound_clipboard_sharing_level', arg_type=get_enum_type(['allApps',
-                                                                                       'managedAppsWithPasteIn',
-                                                                                       'managedApps', 'blocked']),
-                   help='')
-        c.argument('allowed_outbound_data_transfer_destinations', arg_type=get_enum_type(['allApps', 'managedApps',
-                                                                                          'none']), help='')
-        c.argument('contact_sync_blocked', arg_type=get_three_state_flag(), help='Indicates whether contacts can be '
-                   'synced to the user\'s device.')
-        c.argument('data_backup_blocked', arg_type=get_three_state_flag(), help='Indicates whether the backup of a '
-                   'managed app\'s data is blocked.')
-        c.argument('device_compliance_required', arg_type=get_three_state_flag(), help='Indicates whether device '
-                   'compliance is required.')
-        c.argument('disable_app_pin_if_device_pin_is_set', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'use of the app pin is required if the device pin is set.')
-        c.argument('fingerprint_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the '
-                   'fingerprint reader is allowed in place of a pin if PinRequired is set to True.')
-        c.argument('managed_browser', arg_type=get_enum_type(['notConfigured', 'microsoftEdge']), help='')
-        c.argument('managed_browser_to_open_links_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'internet links should be opened in the managed browser app, or any custom browser specified by '
-                   'CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)')
-        c.argument('maximum_pin_retries', type=int, help='Maximum number of incorrect pin retry attempts before the '
-                   'managed app is either blocked or wiped.')
-        c.argument('minimum_pin_length', type=int, help='Minimum pin length required for an app-level pin if '
-                   'PinRequired is set to True')
-        c.argument('minimum_required_app_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_required_os_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('minimum_warning_app_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app.')
-        c.argument('minimum_warning_os_version', type=str, help='Versions less than the specified version will result '
-                   'in warning message on the managed app from accessing company data.')
-        c.argument('organizational_credentials_required', arg_type=get_three_state_flag(), help='Indicates whether '
-                   'organizational credentials are required for app use.')
-        c.argument('period_before_pin_reset', help='TimePeriod before the all-level pin must be reset if PinRequired '
-                   'is set to True.')
-        c.argument('period_offline_before_access_check', help='The period after which access is checked when the '
-                   'device is not connected to the internet.')
-        c.argument('period_offline_before_wipe_is_enforced', help='The amount of time an app is allowed to remain '
-                   'disconnected from the internet before all managed data it is wiped.')
-        c.argument('period_online_before_access_check', help='The period after which access is checked when the device '
-                   'is connected to the internet.')
-        c.argument('pin_character_set', arg_type=get_enum_type(['numeric', 'alphanumericAndSymbol']), help='')
-        c.argument('pin_required', arg_type=get_three_state_flag(), help='Indicates whether an app-level pin is '
-                   'required.')
-        c.argument('print_blocked', arg_type=get_three_state_flag(), help='Indicates whether printing is allowed from '
-                   'managed apps.')
-        c.argument('save_as_blocked', arg_type=get_three_state_flag(), help='Indicates whether users may use the '
-                   '\'Save As\' menu item to save a copy of protected files.')
-        c.argument('simple_pin_blocked', arg_type=get_three_state_flag(), help='Indicates whether simplePin is '
-                   'blocked.')
-        c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
-                   'inclusion groups or not.')
-        c.argument('assignments', type=validate_file_or_dict, help='Navigation property to list of inclusion and '
-                   'exclusion groups to which the policy is deployed. Expected value: json-string/@json-file.')
-        c.argument('app_data_encryption_type', arg_type=get_enum_type(['useDeviceSettings', 'afterDeviceRestart',
-                                                                       'whenDeviceLockedExceptOpenFiles',
-                                                                       'whenDeviceLocked']), help='')
-        c.argument('custom_browser_protocol', type=str, help='A custom browser protocol to open weblink on iOS. When '
-                   'this property is configured, ManagedBrowserToOpenLinksRequired should be true.')
-        c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
-        c.argument('face_id_blocked', arg_type=get_three_state_flag(), help='Indicates whether use of the FaceID is '
-                   'allowed in place of a pin if PinRequired is set to True.')
-        c.argument('minimum_required_sdk_version', type=str, help='Versions less than the specified version will block '
-                   'the managed app from accessing company data.')
-        c.argument('apps', type=validate_file_or_dict, help='List of apps to which the policy is deployed. Expected '
-                   'value: json-string/@json-file.')
-        c.argument('microsoft_graph_entity_id', type=str, help='Read-only.', arg_group='Deployment Summary')
-        c.argument('configuration_deployed_user_count', type=int, help='Not yet documented', arg_group='Deployment '
-                   'Summary')
-        c.argument('configuration_deployment_summary_per_app', type=validate_file_or_dict, help='Not yet documented '
-                   'Expected value: json-string/@json-file.', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_display_name', type=str, help='Not yet '
-                   'documented', arg_group='Deployment Summary')
-        c.argument('last_refresh_time', help='Not yet documented', arg_group='Deployment Summary')
-        c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
-                   'entity.', arg_group='Deployment Summary')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-managed-app-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-managed-app-policy') as c:
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
@@ -1201,7 +684,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-managed-app-registration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-managed-app-registration') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. Expected '
@@ -1226,13 +709,13 @@ def load_arguments(self, _):
         c.argument('operations', action=AddOperations, nargs='+', help='Zero or more long running operations triggered '
                    'on the app registration.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-managed-app-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-managed-app-statuses') as c:
         c.argument('managed_app_status_id', type=str, help='key: id of managedAppStatus')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='Friendly name of the status report.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-managed-e-book') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-managed-e-book') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time when the eBook file was created.')
@@ -1251,10 +734,10 @@ def load_arguments(self, _):
                    'installation states for this eBook.')
         c.argument('install_summary', action=AddInstallSummary, nargs='+', help='Contains properties for the '
                    'installation summary of a book for a device.')
-        c.argument('user_state_summary', action=AddUserStateSummary, nargs='+', help='The list of installation states '
-                   'for this eBook.')
+        c.argument('user_state_summary', type=validate_file_or_dict, help='The list of installation states for this '
+                   'eBook. Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-mdm-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-mdm-window-information-protection-policy') as c:
         c.argument('mdm_windows_information_protection_policy_id', type=str, help='key: id of '
                    'mdmWindowsInformationProtectionPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1277,10 +760,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -1290,12 +773,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -1336,7 +819,7 @@ def load_arguments(self, _):
         c.argument('protected_app_locker_files', action=AddProtectedAppLockerFiles, nargs='+', help='Another way to '
                    'input protected apps through xml files')
 
-    with self.argument_context('devicescorpmgt device-app-management update-mobile-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-mobile-app') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the app was created.')
@@ -1358,13 +841,13 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('categories', action=AddCategories, nargs='+', help='The list of categories for this app.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-mobile-app-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-mobile-app-category') as c:
         c.argument('mobile_app_category_id', type=str, help='key: id of mobileAppCategory')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The name of the app category.')
         c.argument('last_modified_date_time', help='The date and time the mobileAppCategory was last modified.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-mobile-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-mobile-app-configuration') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1385,7 +868,7 @@ def load_arguments(self, _):
         c.argument('user_status_summary', action=AddUserStatusSummary, nargs='+', help='Contains properties, inherited '
                    'properties and actions for an MDM mobile app configuration user status summary.')
 
-    with self.argument_context('devicescorpmgt device-app-management update-targeted-managed-app-configuration') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-targeted-managed-app-configuration') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1394,10 +877,8 @@ def load_arguments(self, _):
         c.argument('display_name', type=str, help='Policy display name.')
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
-        c.argument('custom_settings',
-                   action=AddDevicescorpmgtDeviceAppManagementCreateTargetedManagedAppConfigurationCustomSettings,
-                   nargs='+', help='A set of string key and string value pairs to be sent to apps for users to whom '
-                   'the configuration is scoped, unalterned by this service')
+        c.argument('custom_settings', action=AddCustomSettings, nargs='+', help='A set of string key and string value '
+                   'pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service')
         c.argument('deployed_app_count', type=int, help='Count of apps to which the current policy is deployed.')
         c.argument('is_assigned', arg_type=get_three_state_flag(), help='Indicates if the policy is deployed to any '
                    'inclusion groups or not.')
@@ -1416,7 +897,7 @@ def load_arguments(self, _):
         c.argument('microsoft_graph_managed_app_policy_deployment_summary_version', type=str, help='Version of the '
                    'entity.', arg_group='Deployment Summary')
 
-    with self.argument_context('devicescorpmgt device-app-management update-vpp-token') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-vpp-token') as c:
         c.argument('vpp_token_id', type=str, help='key: id of vppToken')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('apple_id', type=str, help='The apple Id associated with the given Apple Volume Purchase Program '
@@ -1440,7 +921,7 @@ def load_arguments(self, _):
                    'Volume Purchase Program.')
         c.argument('vpp_token_account_type', arg_type=get_enum_type(['business', 'education']), help='')
 
-    with self.argument_context('devicescorpmgt device-app-management update-window-information-protection-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagement update-window-information-protection-policy') as c:
         c.argument('windows_information_protection_policy_id', type=str, help='key: id of '
                    'windowsInformationProtectionPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1463,10 +944,10 @@ def load_arguments(self, _):
                    'by the admin to connect to specific resources on the Internet. They are considered to be '
                    'enterprise network locations. The proxies are only leveraged in configuring the '
                    'EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies')
-        c.argument('enterprise_ip_ranges', action=AddEnterpriseIpRanges, nargs='+', help='Sets the enterprise IP '
-                   'ranges that define the computers in the enterprise network. Data that comes from those computers '
-                   'will be considered part of the enterprise and protected. These locations will be considered a safe '
-                   'destination for enterprise data to be shared to')
+        c.argument('enterprise_ip_ranges', type=validate_file_or_dict, help='Sets the enterprise IP ranges that define '
+                   'the computers in the enterprise network. Data that comes from those computers will be considered '
+                   'part of the enterprise and protected. These locations will be considered a safe destination for '
+                   'enterprise data to be shared to Expected value: json-string/@json-file.')
         c.argument('enterprise_ip_ranges_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value that '
                    'tells the client to accept the configured list and not to use heuristics to attempt to find other '
                    'subnets. Default is false')
@@ -1476,12 +957,12 @@ def load_arguments(self, _):
                    'considered a safe destination for enterprise data to be shared to')
         c.argument('enterprise_protected_domain_names', action=AddEnterpriseProtectedDomainNames, nargs='+',
                    help='List of enterprise domains to be protected')
-        c.argument('enterprise_proxied_domains', action=AddEnterpriseProxiedDomains, nargs='+', help='Contains a list '
-                   'of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these '
-                   'resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to '
-                   'the cloud resource will be routed through the enterprise network via the denoted proxy server (on '
-                   'Port 80). A proxy server used for this purpose must also be configured using the '
-                   'EnterpriseInternalProxyServers policy')
+        c.argument('enterprise_proxied_domains', type=validate_file_or_dict, help='Contains a list of Enterprise '
+                   'resource domains hosted in the cloud that need to be protected. Connections to these resources are '
+                   'considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud '
+                   'resource will be routed through the enterprise network via the denoted proxy server (on Port 80). '
+                   'A proxy server used for this purpose must also be configured using the '
+                   'EnterpriseInternalProxyServers policy Expected value: json-string/@json-file.')
         c.argument('enterprise_proxy_servers', action=AddEnterpriseProxyServers, nargs='+', help='This is a list of '
                    'proxy servers. Any server not on this list is considered non-enterprise')
         c.argument('enterprise_proxy_servers_are_authoritative', arg_type=get_three_state_flag(), help='Boolean value '
@@ -1555,36 +1036,40 @@ def load_arguments(self, _):
         c.argument('windows_hello_for_business_blocked', arg_type=get_three_state_flag(), help='Boolean value that '
                    'sets Windows Hello for Business as a method for signing into Windows.')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection delete') as c:
-        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection create-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection create-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection list-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection delete-app') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection delete-deployment-summary') as c:
+        c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection list-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection show-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection show-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection show-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection show-deployment-summary') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection update-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection update-app') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1592,7 +1077,7 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-android-managed-app-protection update-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementandroidmanagedappprotection update-deployment-summary') as c:
         c.argument('android_managed_app_protection_id', type=str, help='key: id of androidManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration_deployed_user_count', type=int, help='Not yet documented')
@@ -1602,36 +1087,40 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection delete') as c:
-        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection create-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection create-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection list-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection delete-app') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection delete-deployment-summary') as c:
+        c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection list-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection show-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection show-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection show-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection show-deployment-summary') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection update-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection update-app') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1639,7 +1128,7 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-default-managed-app-protection update-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementdefaultmanagedappprotection update-deployment-summary') as c:
         c.argument('default_managed_app_protection_id', type=str, help='key: id of defaultManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration_deployed_user_count', type=int, help='Not yet documented')
@@ -1649,36 +1138,40 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection delete') as c:
-        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection create-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection create-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('mobile_app_identifier', type=validate_file_or_dict, help='The identifier for a mobile app. '
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection list-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection delete-app') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection delete-deployment-summary') as c:
+        c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection list-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection show-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection show-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection show-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection show-deployment-summary') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection update-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection update-app') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1686,7 +1179,7 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-io-managed-app-protection update-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementiosmanagedappprotection update-deployment-summary') as c:
         c.argument('ios_managed_app_protection_id', type=str, help='key: id of iosManagedAppProtection')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('configuration_deployed_user_count', type=int, help='Not yet documented')
@@ -1696,17 +1189,11 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-policy target-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedapppolicy target-app') as c:
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration delete') as c:
-        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
-        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
-
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration create-applied-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration create-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
@@ -1715,7 +1202,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration create-intended-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration create-intended-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('created_date_time', help='The date and time the policy was created.')
@@ -1724,7 +1211,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration create-operation') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration create-operation') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('display_name', type=str, help='The operation name.')
@@ -1732,43 +1219,58 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='The current state of the operation')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration list-applied-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration delete-applied-policy') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration delete-intended-policy') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration delete-operation') as c:
+        c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
+        c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration list-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration list-intended-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration list-intended-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration list-operation') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration list-operation') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration show-applied-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration show-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration show-intended-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration show-intended-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration show-operation') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration show-operation') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration update-applied-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration update-applied-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1778,7 +1280,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration update-intended-policy') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration update-intended-policy') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1788,7 +1290,7 @@ def load_arguments(self, _):
         c.argument('last_modified_date_time', help='Last time the policy was modified.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration update-operation') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistration update-operation') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_operation_id', type=str, help='key: id of managedAppOperation')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1797,29 +1299,22 @@ def load_arguments(self, _):
         c.argument('state', type=str, help='The current state of the operation')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration-applied-policy target-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistrationsappliedpolicy target-app') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-app-registration-intended-policy target-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedappregistrationsintendedpolicy target-app') as c:
         c.argument('managed_app_registration_id', type=str, help='key: id of managedAppRegistration')
         c.argument('managed_app_policy_id', type=str, help='key: id of managedAppPolicy')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book delete') as c:
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
-        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
-
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book assign') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook assign') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('managed_e_book_assignments', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book create-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook create-assignment') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('install_intent', arg_type=get_enum_type(['available', 'required', 'uninstall',
@@ -1827,7 +1322,7 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book create-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook create-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('device_id', type=str, help='Device Id.')
@@ -1840,7 +1335,7 @@ def load_arguments(self, _):
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book create-user-state-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook create-user-state-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('failed_device_count', type=int, help='Failed Device Count.')
@@ -1850,48 +1345,67 @@ def load_arguments(self, _):
         c.argument('device_states', action=AddDeviceappmanagementManagedebooksDeviceStates, nargs='+', help='The '
                    'install state of the eBook.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book list-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook delete-assignment') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook delete-device-state') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook delete-install-summary') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook delete-user-state-summary') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook list-assignment') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book list-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook list-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book list-user-state-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook list-user-state-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book show-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook show-assignment') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book show-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook show-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book show-install-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook show-install-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book show-user-state-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook show-user-state-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book update-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook update-assignment') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('managed_e_book_assignment_id', type=str, help='key: id of managedEBookAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1900,7 +1414,7 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book update-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook update-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1914,7 +1428,7 @@ def load_arguments(self, _):
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book update-install-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook update-install-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('failed_device_count', type=int, help='Number of Devices that have failed to install this book.')
@@ -1928,7 +1442,7 @@ def load_arguments(self, _):
                    'installed.')
         c.argument('not_installed_user_count', type=int, help='Number of Users that did not install this book.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book update-user-state-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebook update-user-state-summary') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1939,13 +1453,7 @@ def load_arguments(self, _):
         c.argument('device_states', action=AddDeviceappmanagementManagedebooksDeviceStates, nargs='+', help='The '
                    'install state of the eBook.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary delete') as c:
-        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
-        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
-        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary create-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary create-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -1959,21 +1467,27 @@ def load_arguments(self, _):
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary list-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary delete-device-state') as c:
+        c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
+        c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
+        c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary list-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary show-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary show-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-managed-e-book-user-state-summary update-device-state') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmanagedebooksuserstatesummary update-device-state') as c:
         c.argument('managed_e_book_id', type=str, help='key: id of managedEBook')
         c.argument('user_install_state_summary_id', type=str, help='key: id of userInstallStateSummary')
         c.argument('device_install_state_id', type=str, help='key: id of deviceInstallState')
@@ -1988,30 +1502,19 @@ def load_arguments(self, _):
         c.argument('os_version', type=str, help='OS Version.')
         c.argument('user_name', type=str, help='Device User Name.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration delete') as c:
-        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfiguration')
-        c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationAssignment')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationDeviceStatus')
-        c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
-                   'managedDeviceMobileAppConfigurationUserStatus')
-
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration assign') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration assign') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('assignments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration create-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration create-assignment') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration create-device-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration create-device-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2025,7 +1528,7 @@ def load_arguments(self, _):
         c.argument('user_name', type=str, help='The User Name that is being reported')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration create-user-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration create-user-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2036,28 +1539,59 @@ def load_arguments(self, _):
         c.argument('user_display_name', type=str, help='User name of the DevicePolicyStatus.')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration list-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration delete-assignment') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration delete-device-status-summary') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration delete-device-statuses') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationDeviceStatus')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration delete-user-status-summary') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration delete-user-statuses') as c:
+        c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfiguration')
+        c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
+                   'managedDeviceMobileAppConfigurationUserStatus')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration list-assignment') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration list-device-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration list-device-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration list-user-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration list-user-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration show-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration show-assignment') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
@@ -2065,13 +1599,13 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration show-device-status-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration show-device-status-summary') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration show-device-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration show-device-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
@@ -2079,13 +1613,13 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration show-user-status-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration show-user-status-summary') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration show-user-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration show-user-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
@@ -2093,7 +1627,7 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration update-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration update-assignment') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_assignment_id', type=str, help='key: id of '
@@ -2102,7 +1636,7 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration update-device-status-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration update-device-status-summary') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2114,7 +1648,7 @@ def load_arguments(self, _):
         c.argument('pending_count', type=int, help='Number of pending devices')
         c.argument('success_count', type=int, help='Number of succeeded devices')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration update-device-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration update-device-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_device_status_id', type=str, help='key: id of '
@@ -2130,7 +1664,7 @@ def load_arguments(self, _):
         c.argument('user_name', type=str, help='The User Name that is being reported')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration update-user-status-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration update-user-status-summary') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2142,7 +1676,7 @@ def load_arguments(self, _):
         c.argument('pending_count', type=int, help='Number of pending Users')
         c.argument('success_count', type=int, help='Number of succeeded Users')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app-configuration update-user-statuses') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileappconfiguration update-user-statuses') as c:
         c.argument('managed_device_mobile_app_configuration_id', type=str, help='key: id of '
                    'managedDeviceMobileAppConfiguration')
         c.argument('managed_device_mobile_app_configuration_user_status_id', type=str, help='key: id of '
@@ -2155,17 +1689,12 @@ def load_arguments(self, _):
         c.argument('user_display_name', type=str, help='User name of the DevicePolicyStatus.')
         c.argument('user_principal_name', type=str, help='UserPrincipalName.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app delete') as c:
-        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
-        c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
-        c.argument('if_match', type=str, help='ETag')
-
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app assign') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp assign') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('mobile_app_assignments', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app create-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp create-assignment') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('intent', arg_type=get_enum_type(['available', 'required', 'uninstall',
@@ -2175,34 +1704,39 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app create-ref-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp create-ref-category') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app list-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp delete-assignment') as c:
+        c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
+        c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp list-assignment') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app list-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp list-category') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app list-ref-category') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp list-ref-category') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('orderby', nargs='+', help='Order items by property values')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app show-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp show-assignment') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-mobile-app update-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementmobileapp update-assignment') as c:
         c.argument('mobile_app_id', type=str, help='key: id of mobileApp')
         c.argument('mobile_app_assignment_id', type=str, help='key: id of mobileAppAssignment')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2213,20 +1747,12 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration delete') as c:
-        c.argument('targeted_managed_app_configuration_id', type=str,
-                   help='key: id of targetedManagedAppConfiguration')
-        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
-                   'targetedManagedAppPolicyAssignment')
-
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration assign') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration assign') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('assignments', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration create-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration create-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2234,35 +1760,53 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration create-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration create-assignment') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration list-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration delete-app') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration delete-assignment') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
+                   'targetedManagedAppPolicyAssignment')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration delete-deployment-summary') as c:
+        c.argument('targeted_managed_app_configuration_id', type=str,
+                   help='key: id of targetedManagedAppConfiguration')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration list-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration list-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration list-assignment') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration show-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration show-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration show-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration show-assignment') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
@@ -2270,18 +1814,18 @@ def load_arguments(self, _):
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration show-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration show-deployment-summary') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration target-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration target-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('apps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration update-app') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration update-app') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('managed_mobile_app_id', type=str, help='key: id of managedMobileApp')
@@ -2290,7 +1834,7 @@ def load_arguments(self, _):
                    'Expected value: json-string/@json-file.')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration update-assignment') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration update-assignment') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('targeted_managed_app_policy_assignment_id', type=str, help='key: id of '
@@ -2299,7 +1843,7 @@ def load_arguments(self, _):
         c.argument('target', type=validate_file_or_dict, help='Base type for assignment targets. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt device-app-management-targeted-managed-app-configuration update-deployment-summary') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementtargetedmanagedappconfiguration update-deployment-summary') as c:
         c.argument('targeted_managed_app_configuration_id', type=str,
                    help='key: id of targetedManagedAppConfiguration')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -2310,15 +1854,8 @@ def load_arguments(self, _):
         c.argument('last_refresh_time', help='Not yet documented')
         c.argument('version', type=str, help='Version of the entity.')
 
-    with self.argument_context('devicescorpmgt device-app-management-vpp-token sync-license') as c:
+    with self.argument_context('devicescorpmgt deviceappmanagementvpptoken sync-license') as c:
         c.argument('vpp_token_id', type=str, help='key: id of vppToken')
-
-    with self.argument_context('devicescorpmgt user delete') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('device_management_troubleshooting_event_id', type=str, help='key: id of '
-                   'deviceManagementTroubleshootingEvent')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
 
     with self.argument_context('devicescorpmgt user create-device-management-troubleshooting-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2328,107 +1865,24 @@ def load_arguments(self, _):
 
     with self.argument_context('devicescorpmgt user create-managed-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activation_lock_bypass_code', type=str, help='Code that allows the Activation Lock on a device to '
-                   'be bypassed.')
-        c.argument('android_security_patch_level', type=str, help='Android security patch level')
-        c.argument('azure_ad_device_id', type=str, help='The unique identifier for the Azure Active Directory device. '
-                   'Read only.')
-        c.argument('azure_ad_registered', arg_type=get_three_state_flag(), help='Whether the device is Azure Active '
-                   'Directory registered.')
-        c.argument('compliance_grace_period_expiration_date_time', help='The DateTime when device compliance grace '
-                   'period expires')
-        c.argument('compliance_state', arg_type=get_enum_type(['unknown', 'compliant', 'noncompliant', 'conflict',
-                                                               'error', 'inGracePeriod', 'configManager']), help='')
-        c.argument('configuration_manager_client_enabled_features',
-                   action=AddConfigurationManagerClientEnabledFeatures, nargs='+', help='configuration Manager client '
-                   'enabled features')
-        c.argument('device_action_results', action=AddDeviceActionResults, nargs='+', help='List of ComplexType '
-                   'deviceActionResult objects.')
-        c.argument('device_category_display_name', type=str, help='Device category display name')
-        c.argument('device_enrollment_type', arg_type=get_enum_type(['unknown', 'userEnrollment',
-                                                                     'deviceEnrollmentManager', 'appleBulkWithUser',
-                                                                     'appleBulkWithoutUser', 'windowsAzureADJoin',
-                                                                     'windowsBulkUserless', 'windowsAutoEnrollment',
-                                                                     'windowsBulkAzureDomainJoin',
-                                                                     'windowsCoManagement']), help='')
-        c.argument('device_health_attestation_state', action=AddDeviceHealthAttestationState, nargs='+',
-                   help='deviceHealthAttestationState')
-        c.argument('device_name', type=str, help='Name of the device')
-        c.argument('device_registration_state', arg_type=get_enum_type(['notRegistered', 'registered', 'revoked',
-                                                                        'keyConflict', 'approvalPending',
-                                                                        'certificateReset',
-                                                                        'notRegisteredPendingEnrollment', 'unknown']),
-                   help='')
-        c.argument('eas_activated', arg_type=get_three_state_flag(), help='Whether the device is Exchange ActiveSync '
-                   'activated.')
-        c.argument('eas_activation_date_time', help='Exchange ActivationSync activation time of the device.')
-        c.argument('eas_device_id', type=str, help='Exchange ActiveSync Id of the device.')
-        c.argument('email_address', type=str, help='Email(s) for the user associated with the device')
-        c.argument('enrolled_date_time', help='Enrollment time of the device.')
-        c.argument('exchange_access_state', arg_type=get_enum_type(['none', 'unknown', 'allowed', 'blocked',
-                                                                    'quarantined']), help='')
-        c.argument('exchange_access_state_reason', arg_type=get_enum_type(['none', 'unknown', 'exchangeGlobalRule',
-                                                                           'exchangeIndividualRule',
-                                                                           'exchangeDeviceRule', 'exchangeUpgrade',
-                                                                           'exchangeMailboxPolicy', 'other',
-                                                                           'compliant', 'notCompliant', 'notEnrolled',
-                                                                           'unknownLocation', 'mfaRequired',
-                                                                           'azureADBlockDueToAccessPolicy',
-                                                                           'compromisedPassword',
-                                                                           'deviceNotKnownWithManagedApp']), help='')
-        c.argument('exchange_last_successful_sync_date_time', help='Last time the device contacted Exchange.')
-        c.argument('free_storage_space_in_bytes', type=int, help='Free Storage in Bytes')
-        c.argument('imei', type=str, help='IMEI')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Device encryption status')
-        c.argument('is_supervised', arg_type=get_three_state_flag(), help='Device supervised status')
-        c.argument('jail_broken', type=str, help='whether the device is jail broken or rooted.')
-        c.argument('last_sync_date_time', help='The date and time that the device last completed a successful sync '
-                   'with Intune.')
-        c.argument('managed_device_name', type=str, help='Automatically generated name to identify a device. Can be '
-                   'overwritten to a user friendly name.')
-        c.argument('managed_device_owner_type', arg_type=get_enum_type(['unknown', 'company', 'personal']), help='')
-        c.argument('management_agent', arg_type=get_enum_type(['eas', 'mdm', 'easMdm', 'intuneClient',
-                                                               'easIntuneClient', 'configurationManagerClient',
-                                                               'configurationManagerClientMdm',
-                                                               'configurationManagerClientMdmEas', 'unknown', 'jamf',
-                                                               'googleCloudDevicePolicyController']), help='')
-        c.argument('manufacturer', type=str, help='Manufacturer of the device')
-        c.argument('meid', type=str, help='MEID')
-        c.argument('model', type=str, help='Model of the device')
-        c.argument('operating_system', type=str, help='Operating system of the device. Windows, iOS, etc.')
-        c.argument('os_version', type=str, help='Operating system version of the device.')
-        c.argument('partner_reported_threat_state', arg_type=get_enum_type(['unknown', 'activated', 'deactivated',
-                                                                            'secured', 'lowSeverity', 'mediumSeverity',
-                                                                            'highSeverity', 'unresponsive',
-                                                                            'compromised', 'misconfigured']), help='')
-        c.argument('phone_number', type=str, help='Phone number of the device')
-        c.argument('remote_assistance_session_error_details', type=str, help='An error string that identifies issues '
-                   'when creating Remote Assistance session objects.')
-        c.argument('remote_assistance_session_url', type=str, help='Url that allows a Remote Assistance session to be '
-                   'established with the device.')
-        c.argument('serial_number', type=str, help='SerialNumber')
-        c.argument('subscriber_carrier', type=str, help='Subscriber Carrier')
-        c.argument('total_storage_space_in_bytes', type=int, help='Total Storage in Bytes')
-        c.argument('user_display_name', type=str, help='User display name')
-        c.argument('microsoft_graph_managed_device_user_id', type=str, help='Unique Identifier for the user associated '
-                   'with the device')
-        c.argument('user_principal_name', type=str, help='Device user principal name')
-        c.argument('wi_fi_mac_address', type=str, help='Wi-Fi MAC')
-        c.argument('device_compliance_policy_states', type=validate_file_or_dict, help='Device compliance policy '
-                   'states for this device. Expected value: json-string/@json-file.')
-        c.argument('device_configuration_states', type=validate_file_or_dict, help='Device configuration states for '
-                   'this device. Expected value: json-string/@json-file.')
-        c.argument('device_category', action=AddDeviceCategory, nargs='+', help='Device categories provides a way to '
-                   'organize your devices. Using device categories, company administrators can define their own '
-                   'categories that make sense to their company. These categories can then be applied to a device in '
-                   'the Intune Azure console or selected by a user during device enrollment. You can filter reports '
-                   'and create dynamic Azure Active Directory device groups based on device categories.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
 
     with self.argument_context('devicescorpmgt user create-ref-managed-app-registration') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('body', type=validate_file_or_dict, help='New navigation property ref value Expected value: '
                    'json-string/@json-file.')
+
+    with self.argument_context('devicescorpmgt user delete-device-management-troubleshooting-event') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('device_management_troubleshooting_event_id', type=str, help='key: id of '
+                   'deviceManagementTroubleshootingEvent')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt user delete-managed-device') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('devicescorpmgt user list-device-management-troubleshooting-event') as c:
         c.argument('user_id', type=str, help='key: id of user')
@@ -2476,184 +1930,96 @@ def load_arguments(self, _):
     with self.argument_context('devicescorpmgt user update-managed-device') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activation_lock_bypass_code', type=str, help='Code that allows the Activation Lock on a device to '
-                   'be bypassed.')
-        c.argument('android_security_patch_level', type=str, help='Android security patch level')
-        c.argument('azure_ad_device_id', type=str, help='The unique identifier for the Azure Active Directory device. '
-                   'Read only.')
-        c.argument('azure_ad_registered', arg_type=get_three_state_flag(), help='Whether the device is Azure Active '
-                   'Directory registered.')
-        c.argument('compliance_grace_period_expiration_date_time', help='The DateTime when device compliance grace '
-                   'period expires')
-        c.argument('compliance_state', arg_type=get_enum_type(['unknown', 'compliant', 'noncompliant', 'conflict',
-                                                               'error', 'inGracePeriod', 'configManager']), help='')
-        c.argument('configuration_manager_client_enabled_features',
-                   action=AddConfigurationManagerClientEnabledFeatures, nargs='+', help='configuration Manager client '
-                   'enabled features')
-        c.argument('device_action_results', action=AddDeviceActionResults, nargs='+', help='List of ComplexType '
-                   'deviceActionResult objects.')
-        c.argument('device_category_display_name', type=str, help='Device category display name')
-        c.argument('device_enrollment_type', arg_type=get_enum_type(['unknown', 'userEnrollment',
-                                                                     'deviceEnrollmentManager', 'appleBulkWithUser',
-                                                                     'appleBulkWithoutUser', 'windowsAzureADJoin',
-                                                                     'windowsBulkUserless', 'windowsAutoEnrollment',
-                                                                     'windowsBulkAzureDomainJoin',
-                                                                     'windowsCoManagement']), help='')
-        c.argument('device_health_attestation_state', action=AddDeviceHealthAttestationState, nargs='+',
-                   help='deviceHealthAttestationState')
-        c.argument('device_name', type=str, help='Name of the device')
-        c.argument('device_registration_state', arg_type=get_enum_type(['notRegistered', 'registered', 'revoked',
-                                                                        'keyConflict', 'approvalPending',
-                                                                        'certificateReset',
-                                                                        'notRegisteredPendingEnrollment', 'unknown']),
-                   help='')
-        c.argument('eas_activated', arg_type=get_three_state_flag(), help='Whether the device is Exchange ActiveSync '
-                   'activated.')
-        c.argument('eas_activation_date_time', help='Exchange ActivationSync activation time of the device.')
-        c.argument('eas_device_id', type=str, help='Exchange ActiveSync Id of the device.')
-        c.argument('email_address', type=str, help='Email(s) for the user associated with the device')
-        c.argument('enrolled_date_time', help='Enrollment time of the device.')
-        c.argument('exchange_access_state', arg_type=get_enum_type(['none', 'unknown', 'allowed', 'blocked',
-                                                                    'quarantined']), help='')
-        c.argument('exchange_access_state_reason', arg_type=get_enum_type(['none', 'unknown', 'exchangeGlobalRule',
-                                                                           'exchangeIndividualRule',
-                                                                           'exchangeDeviceRule', 'exchangeUpgrade',
-                                                                           'exchangeMailboxPolicy', 'other',
-                                                                           'compliant', 'notCompliant', 'notEnrolled',
-                                                                           'unknownLocation', 'mfaRequired',
-                                                                           'azureADBlockDueToAccessPolicy',
-                                                                           'compromisedPassword',
-                                                                           'deviceNotKnownWithManagedApp']), help='')
-        c.argument('exchange_last_successful_sync_date_time', help='Last time the device contacted Exchange.')
-        c.argument('free_storage_space_in_bytes', type=int, help='Free Storage in Bytes')
-        c.argument('imei', type=str, help='IMEI')
-        c.argument('is_encrypted', arg_type=get_three_state_flag(), help='Device encryption status')
-        c.argument('is_supervised', arg_type=get_three_state_flag(), help='Device supervised status')
-        c.argument('jail_broken', type=str, help='whether the device is jail broken or rooted.')
-        c.argument('last_sync_date_time', help='The date and time that the device last completed a successful sync '
-                   'with Intune.')
-        c.argument('managed_device_name', type=str, help='Automatically generated name to identify a device. Can be '
-                   'overwritten to a user friendly name.')
-        c.argument('managed_device_owner_type', arg_type=get_enum_type(['unknown', 'company', 'personal']), help='')
-        c.argument('management_agent', arg_type=get_enum_type(['eas', 'mdm', 'easMdm', 'intuneClient',
-                                                               'easIntuneClient', 'configurationManagerClient',
-                                                               'configurationManagerClientMdm',
-                                                               'configurationManagerClientMdmEas', 'unknown', 'jamf',
-                                                               'googleCloudDevicePolicyController']), help='')
-        c.argument('manufacturer', type=str, help='Manufacturer of the device')
-        c.argument('meid', type=str, help='MEID')
-        c.argument('model', type=str, help='Model of the device')
-        c.argument('operating_system', type=str, help='Operating system of the device. Windows, iOS, etc.')
-        c.argument('os_version', type=str, help='Operating system version of the device.')
-        c.argument('partner_reported_threat_state', arg_type=get_enum_type(['unknown', 'activated', 'deactivated',
-                                                                            'secured', 'lowSeverity', 'mediumSeverity',
-                                                                            'highSeverity', 'unresponsive',
-                                                                            'compromised', 'misconfigured']), help='')
-        c.argument('phone_number', type=str, help='Phone number of the device')
-        c.argument('remote_assistance_session_error_details', type=str, help='An error string that identifies issues '
-                   'when creating Remote Assistance session objects.')
-        c.argument('remote_assistance_session_url', type=str, help='Url that allows a Remote Assistance session to be '
-                   'established with the device.')
-        c.argument('serial_number', type=str, help='SerialNumber')
-        c.argument('subscriber_carrier', type=str, help='Subscriber Carrier')
-        c.argument('total_storage_space_in_bytes', type=int, help='Total Storage in Bytes')
-        c.argument('user_display_name', type=str, help='User display name')
-        c.argument('microsoft_graph_managed_device_user_id', type=str, help='Unique Identifier for the user associated '
-                   'with the device')
-        c.argument('user_principal_name', type=str, help='Device user principal name')
-        c.argument('wi_fi_mac_address', type=str, help='Wi-Fi MAC')
-        c.argument('device_compliance_policy_states', type=validate_file_or_dict, help='Device compliance policy '
-                   'states for this device. Expected value: json-string/@json-file.')
-        c.argument('device_configuration_states', type=validate_file_or_dict, help='Device configuration states for '
-                   'this device. Expected value: json-string/@json-file.')
-        c.argument('device_category', action=AddDeviceCategory, nargs='+', help='Device categories provides a way to '
-                   'organize your devices. Using device categories, company administrators can define their own '
-                   'categories that make sense to their company. These categories can then be applied to a device in '
-                   'the Intune Azure console or selected by a user during device enrollment. You can filter reports '
-                   'and create dynamic Azure Active Directory device groups based on device categories.')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('devicescorpmgt user-managed-device delete') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice create-device-compliance-policy-state') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the policy for this policyBase')
+        c.argument('platform_type', arg_type=get_enum_type(['android', 'iOS', 'macOS', 'windowsPhone81',
+                                                            'windows81AndLater', 'windows10AndLater',
+                                                            'androidWorkProfile', 'all']), help='')
+        c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
+                                                    'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
+        c.argument('version', type=int, help='The version of the policy')
+
+    with self.argument_context('devicescorpmgt usersmanageddevice create-device-configuration-state') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('display_name', type=str, help='The name of the policy for this policyBase')
+        c.argument('platform_type', arg_type=get_enum_type(['android', 'iOS', 'macOS', 'windowsPhone81',
+                                                            'windows81AndLater', 'windows10AndLater',
+                                                            'androidWorkProfile', 'all']), help='')
+        c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
+        c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
+                                                    'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
+        c.argument('version', type=int, help='The version of the policy')
+
+    with self.argument_context('devicescorpmgt usersmanageddevice delete-device-category') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt usersmanageddevice delete-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_compliance_policy_state_id', type=str, help='key: id of deviceCompliancePolicyState')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('devicescorpmgt usersmanageddevice delete-device-configuration-state') as c:
+        c.argument('user_id', type=str, help='key: id of user')
+        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_configuration_state_id', type=str, help='key: id of deviceConfigurationState')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('devicescorpmgt user-managed-device create-device-compliance-policy-state') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('display_name', type=str, help='The name of the policy for this policyBase')
-        c.argument('platform_type', arg_type=get_enum_type(['android', 'iOS', 'macOS', 'windowsPhone81',
-                                                            'windows81AndLater', 'windows10AndLater',
-                                                            'androidWorkProfile', 'all']), help='')
-        c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, nargs='+',
-                   help='')
-        c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
-                                                    'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
-        c.argument('version', type=int, help='The version of the policy')
-
-    with self.argument_context('devicescorpmgt user-managed-device create-device-configuration-state') as c:
-        c.argument('user_id', type=str, help='key: id of user')
-        c.argument('managed_device_id', type=str, help='key: id of managedDevice')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('display_name', type=str, help='The name of the policy for this policyBase')
-        c.argument('platform_type', arg_type=get_enum_type(['android', 'iOS', 'macOS', 'windowsPhone81',
-                                                            'windows81AndLater', 'windows10AndLater',
-                                                            'androidWorkProfile', 'all']), help='')
-        c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, nargs='+',
-                   help='')
-        c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
-                                                    'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
-        c.argument('version', type=int, help='The version of the policy')
-
-    with self.argument_context('devicescorpmgt user-managed-device list-device-compliance-policy-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice list-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt user-managed-device list-device-configuration-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice list-device-configuration-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt user-managed-device show-device-category') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice show-device-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt user-managed-device show-device-compliance-policy-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice show-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_compliance_policy_state_id', type=str, help='key: id of deviceCompliancePolicyState')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt user-managed-device show-device-configuration-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice show-device-configuration-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_configuration_state_id', type=str, help='key: id of deviceConfigurationState')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('devicescorpmgt user-managed-device update-device-category') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice update-device-category') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('description', type=str, help='Optional description for the device category.')
         c.argument('display_name', type=str, help='Display name for the device category.')
 
-    with self.argument_context('devicescorpmgt user-managed-device update-device-compliance-policy-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice update-device-compliance-policy-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_compliance_policy_state_id', type=str, help='key: id of deviceCompliancePolicyState')
@@ -2663,14 +2029,12 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceCompliancePolicyStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')
 
-    with self.argument_context('devicescorpmgt user-managed-device update-device-configuration-state') as c:
+    with self.argument_context('devicescorpmgt usersmanageddevice update-device-configuration-state') as c:
         c.argument('user_id', type=str, help='key: id of user')
         c.argument('managed_device_id', type=str, help='key: id of managedDevice')
         c.argument('device_configuration_state_id', type=str, help='key: id of deviceConfigurationState')
@@ -2680,9 +2044,7 @@ def load_arguments(self, _):
                                                             'windows81AndLater', 'windows10AndLater',
                                                             'androidWorkProfile', 'all']), help='')
         c.argument('setting_count', type=int, help='Count of how many setting a policy holds')
-        c.argument('setting_states',
-                   action=AddDevicescorpmgtUserManagedDeviceCreateDeviceConfigurationStateSettingStates, nargs='+',
-                   help='')
+        c.argument('setting_states', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
         c.argument('state', arg_type=get_enum_type(['unknown', 'notApplicable', 'compliant', 'remediated',
                                                     'nonCompliant', 'error', 'conflict', 'notAssigned']), help='')
         c.argument('version', type=int, help='The version of the policy')

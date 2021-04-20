@@ -7,23 +7,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 # --------------------------------------------------------------------------
-# pylint: disable=line-too-long
 # pylint: disable=too-many-lines
-
-
-def people_user_delete(client,
-                       user_id,
-                       person_id=None,
-                       if_match=None):
-    if user_id is not None and person_id is not None:
-        return client.delete_person(user_id=user_id,
-                                    person_id=person_id,
-                                    if_match=if_match)
-    elif user_id is not None:
-        return client.delete_analytic(user_id=user_id,
-                                      if_match=if_match)
-    return client.delete_profile(user_id=user_id,
-                                 if_match=if_match)
 
 
 def people_user_create_person(client,
@@ -49,28 +33,53 @@ def people_user_create_person(client,
                               user_principal_name=None,
                               websites=None,
                               yomi_company=None):
-    return client.create_person(user_id=user_id,
-                                id=id_,
-                                birthday=birthday,
-                                company_name=company_name,
-                                department=department,
-                                display_name=display_name,
-                                email_addresses=email_addresses,
-                                given_name=given_name,
-                                is_favorite=is_favorite,
-                                mailbox_type=mailbox_type,
-                                office_location=office_location,
-                                person_notes=person_notes,
-                                person_type=person_type,
-                                phones=phones,
-                                postal_addresses=postal_addresses,
-                                profession=profession,
-                                sources=sources,
-                                surname=surname,
-                                title=title,
-                                user_principal_name=user_principal_name,
-                                websites=websites,
-                                yomi_company=yomi_company)
+    body = {}
+    body['id'] = id_
+    body['birthday'] = birthday
+    body['company_name'] = company_name
+    body['department'] = department
+    body['display_name'] = display_name
+    body['email_addresses'] = email_addresses
+    body['given_name'] = given_name
+    body['is_favorite'] = is_favorite
+    body['mailbox_type'] = mailbox_type
+    body['office_location'] = office_location
+    body['person_notes'] = person_notes
+    body['person_type'] = person_type
+    body['phones'] = phones
+    body['postal_addresses'] = postal_addresses
+    body['profession'] = profession
+    body['sources'] = sources
+    body['surname'] = surname
+    body['title'] = title
+    body['user_principal_name'] = user_principal_name
+    body['websites'] = websites
+    body['yomi_company'] = yomi_company
+    return client.create_people(user_id=user_id,
+                                body=body)
+
+
+def people_user_delete_analytic(client,
+                                user_id,
+                                if_match=None):
+    return client.delete_analytics(user_id=user_id,
+                                   if_match=if_match)
+
+
+def people_user_delete_person(client,
+                              user_id,
+                              person_id,
+                              if_match=None):
+    return client.delete_people(user_id=user_id,
+                                person_id=person_id,
+                                if_match=if_match)
+
+
+def people_user_delete_profile(client,
+                               user_id,
+                               if_match=None):
+    return client.delete_profile(user_id=user_id,
+                                 if_match=if_match)
 
 
 def people_user_list_person(client,
@@ -78,7 +87,7 @@ def people_user_list_person(client,
                             orderby=None,
                             select=None,
                             expand=None):
-    return client.list_person(user_id=user_id,
+    return client.list_people(user_id=user_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
@@ -88,9 +97,9 @@ def people_user_show_analytic(client,
                               user_id,
                               select=None,
                               expand=None):
-    return client.get_analytic(user_id=user_id,
-                               select=select,
-                               expand=expand)
+    return client.get_analytics(user_id=user_id,
+                                select=select,
+                                expand=expand)
 
 
 def people_user_show_person(client,
@@ -98,7 +107,7 @@ def people_user_show_person(client,
                             person_id,
                             select=None,
                             expand=None):
-    return client.get_person(user_id=user_id,
+    return client.get_people(user_id=user_id,
                              person_id=person_id,
                              select=select,
                              expand=expand)
@@ -118,10 +127,12 @@ def people_user_update_analytic(client,
                                 id_=None,
                                 settings=None,
                                 activity_statistics=None):
-    return client.update_analytic(user_id=user_id,
-                                  id=id_,
-                                  settings=settings,
-                                  activity_statistics=activity_statistics)
+    body = {}
+    body['id'] = id_
+    body['settings'] = settings
+    body['activity_statistics'] = activity_statistics
+    return client.update_analytics(user_id=user_id,
+                                   body=body)
 
 
 def people_user_update_person(client,
@@ -148,29 +159,31 @@ def people_user_update_person(client,
                               user_principal_name=None,
                               websites=None,
                               yomi_company=None):
-    return client.update_person(user_id=user_id,
+    body = {}
+    body['id'] = id_
+    body['birthday'] = birthday
+    body['company_name'] = company_name
+    body['department'] = department
+    body['display_name'] = display_name
+    body['email_addresses'] = email_addresses
+    body['given_name'] = given_name
+    body['is_favorite'] = is_favorite
+    body['mailbox_type'] = mailbox_type
+    body['office_location'] = office_location
+    body['person_notes'] = person_notes
+    body['person_type'] = person_type
+    body['phones'] = phones
+    body['postal_addresses'] = postal_addresses
+    body['profession'] = profession
+    body['sources'] = sources
+    body['surname'] = surname
+    body['title'] = title
+    body['user_principal_name'] = user_principal_name
+    body['websites'] = websites
+    body['yomi_company'] = yomi_company
+    return client.update_people(user_id=user_id,
                                 person_id=person_id,
-                                id=id_,
-                                birthday=birthday,
-                                company_name=company_name,
-                                department=department,
-                                display_name=display_name,
-                                email_addresses=email_addresses,
-                                given_name=given_name,
-                                is_favorite=is_favorite,
-                                mailbox_type=mailbox_type,
-                                office_location=office_location,
-                                person_notes=person_notes,
-                                person_type=person_type,
-                                phones=phones,
-                                postal_addresses=postal_addresses,
-                                profession=profession,
-                                sources=sources,
-                                surname=surname,
-                                title=title,
-                                user_principal_name=user_principal_name,
-                                websites=websites,
-                                yomi_company=yomi_company)
+                                body=body)
 
 
 def people_user_update_profile(client,
@@ -195,39 +208,32 @@ def people_user_update_profile(client,
                                skills=None,
                                web_accounts=None,
                                websites=None):
+    body = {}
+    body['id'] = id_
+    body['account'] = account
+    body['addresses'] = addresses
+    body['anniversaries'] = anniversaries
+    body['awards'] = awards
+    body['certifications'] = certifications
+    body['educational_activities'] = educational_activities
+    body['emails'] = emails
+    body['interests'] = interests
+    body['languages'] = languages
+    body['names'] = names
+    body['notes'] = notes
+    body['patents'] = patents
+    body['phones'] = phones
+    body['positions'] = positions
+    body['projects'] = projects
+    body['publications'] = publications
+    body['skills'] = skills
+    body['web_accounts'] = web_accounts
+    body['websites'] = websites
     return client.update_profile(user_id=user_id,
-                                 id=id_,
-                                 account=account,
-                                 addresses=addresses,
-                                 anniversaries=anniversaries,
-                                 awards=awards,
-                                 certifications=certifications,
-                                 educational_activities=educational_activities,
-                                 emails=emails,
-                                 interests=interests,
-                                 languages=languages,
-                                 names=names,
-                                 notes=notes,
-                                 patents=patents,
-                                 phones=phones,
-                                 positions=positions,
-                                 projects=projects,
-                                 publications=publications,
-                                 skills=skills,
-                                 web_accounts=web_accounts,
-                                 websites=websites)
+                                 body=body)
 
 
-def people_user_analytic_delete(client,
-                                user_id,
-                                activity_statistics_id,
-                                if_match=None):
-    return client.delete_activity_statistics(user_id=user_id,
-                                             activity_statistics_id=activity_statistics_id,
-                                             if_match=if_match)
-
-
-def people_user_analytic_create_activity_statistics(client,
+def people_usersanalytic_create_activity_statistics(client,
                                                     user_id,
                                                     id_=None,
                                                     activity=None,
@@ -235,16 +241,27 @@ def people_user_analytic_create_activity_statistics(client,
                                                     end_date=None,
                                                     start_date=None,
                                                     time_zone_used=None):
+    body = {}
+    body['id'] = id_
+    body['activity'] = activity
+    body['duration'] = duration
+    body['end_date'] = end_date
+    body['start_date'] = start_date
+    body['time_zone_used'] = time_zone_used
     return client.create_activity_statistics(user_id=user_id,
-                                             id=id_,
-                                             activity=activity,
-                                             duration=duration,
-                                             end_date=end_date,
-                                             start_date=start_date,
-                                             time_zone_used=time_zone_used)
+                                             body=body)
 
 
-def people_user_analytic_list_activity_statistics(client,
+def people_usersanalytic_delete_activity_statistics(client,
+                                                    user_id,
+                                                    activity_statistics_id,
+                                                    if_match=None):
+    return client.delete_activity_statistics(user_id=user_id,
+                                             activity_statistics_id=activity_statistics_id,
+                                             if_match=if_match)
+
+
+def people_usersanalytic_list_activity_statistics(client,
                                                   user_id,
                                                   orderby=None,
                                                   select=None,
@@ -255,7 +272,7 @@ def people_user_analytic_list_activity_statistics(client,
                                            expand=expand)
 
 
-def people_user_analytic_show_activity_statistics(client,
+def people_usersanalytic_show_activity_statistics(client,
                                                   user_id,
                                                   activity_statistics_id,
                                                   select=None,
@@ -266,7 +283,7 @@ def people_user_analytic_show_activity_statistics(client,
                                           expand=expand)
 
 
-def people_user_analytic_update_activity_statistics(client,
+def people_usersanalytic_update_activity_statistics(client,
                                                     user_id,
                                                     activity_statistics_id,
                                                     id_=None,
@@ -275,116 +292,19 @@ def people_user_analytic_update_activity_statistics(client,
                                                     end_date=None,
                                                     start_date=None,
                                                     time_zone_used=None):
+    body = {}
+    body['id'] = id_
+    body['activity'] = activity
+    body['duration'] = duration
+    body['end_date'] = end_date
+    body['start_date'] = start_date
+    body['time_zone_used'] = time_zone_used
     return client.update_activity_statistics(user_id=user_id,
                                              activity_statistics_id=activity_statistics_id,
-                                             id=id_,
-                                             activity=activity,
-                                             duration=duration,
-                                             end_date=end_date,
-                                             start_date=start_date,
-                                             time_zone_used=time_zone_used)
+                                             body=body)
 
 
-def people_user_profile_delete(client,
-                               user_id,
-                               user_account_information_id=None,
-                               if_match=None,
-                               item_address_id=None,
-                               person_anniversary_id=None,
-                               person_award_id=None,
-                               person_certification_id=None,
-                               educational_activity_id=None,
-                               item_email_id=None,
-                               person_interest_id=None,
-                               language_proficiency_id=None,
-                               person_name_id=None,
-                               person_annotation_id=None,
-                               item_patent_id=None,
-                               item_phone_id=None,
-                               work_position_id=None,
-                               project_participation_id=None,
-                               item_publication_id=None,
-                               skill_proficiency_id=None,
-                               web_account_id=None,
-                               person_website_id=None):
-    if user_id is not None and user_account_information_id is not None:
-        return client.delete_account(user_id=user_id,
-                                     user_account_information_id=user_account_information_id,
-                                     if_match=if_match)
-    elif user_id is not None and item_address_id is not None:
-        return client.delete_address(user_id=user_id,
-                                     item_address_id=item_address_id,
-                                     if_match=if_match)
-    elif user_id is not None and person_anniversary_id is not None:
-        return client.delete_anniversary(user_id=user_id,
-                                         person_anniversary_id=person_anniversary_id,
-                                         if_match=if_match)
-    elif user_id is not None and person_award_id is not None:
-        return client.delete_award(user_id=user_id,
-                                   person_award_id=person_award_id,
-                                   if_match=if_match)
-    elif user_id is not None and person_certification_id is not None:
-        return client.delete_certification(user_id=user_id,
-                                           person_certification_id=person_certification_id,
-                                           if_match=if_match)
-    elif user_id is not None and educational_activity_id is not None:
-        return client.delete_educational_activity(user_id=user_id,
-                                                  educational_activity_id=educational_activity_id,
-                                                  if_match=if_match)
-    elif user_id is not None and item_email_id is not None:
-        return client.delete_email(user_id=user_id,
-                                   item_email_id=item_email_id,
-                                   if_match=if_match)
-    elif user_id is not None and person_interest_id is not None:
-        return client.delete_interest(user_id=user_id,
-                                      person_interest_id=person_interest_id,
-                                      if_match=if_match)
-    elif user_id is not None and language_proficiency_id is not None:
-        return client.delete_language(user_id=user_id,
-                                      language_proficiency_id=language_proficiency_id,
-                                      if_match=if_match)
-    elif user_id is not None and person_name_id is not None:
-        return client.delete_name(user_id=user_id,
-                                  person_name_id=person_name_id,
-                                  if_match=if_match)
-    elif user_id is not None and person_annotation_id is not None:
-        return client.delete_note(user_id=user_id,
-                                  person_annotation_id=person_annotation_id,
-                                  if_match=if_match)
-    elif user_id is not None and item_patent_id is not None:
-        return client.delete_patent(user_id=user_id,
-                                    item_patent_id=item_patent_id,
-                                    if_match=if_match)
-    elif user_id is not None and item_phone_id is not None:
-        return client.delete_phone(user_id=user_id,
-                                   item_phone_id=item_phone_id,
-                                   if_match=if_match)
-    elif user_id is not None and work_position_id is not None:
-        return client.delete_position(user_id=user_id,
-                                      work_position_id=work_position_id,
-                                      if_match=if_match)
-    elif user_id is not None and project_participation_id is not None:
-        return client.delete_project(user_id=user_id,
-                                     project_participation_id=project_participation_id,
-                                     if_match=if_match)
-    elif user_id is not None and item_publication_id is not None:
-        return client.delete_publication(user_id=user_id,
-                                         item_publication_id=item_publication_id,
-                                         if_match=if_match)
-    elif user_id is not None and skill_proficiency_id is not None:
-        return client.delete_skill(user_id=user_id,
-                                   skill_proficiency_id=skill_proficiency_id,
-                                   if_match=if_match)
-    elif user_id is not None and web_account_id is not None:
-        return client.delete_web_account(user_id=user_id,
-                                         web_account_id=web_account_id,
-                                         if_match=if_match)
-    return client.delete_website(user_id=user_id,
-                                 person_website_id=person_website_id,
-                                 if_match=if_match)
-
-
-def people_user_profile_create_account(client,
+def people_usersprofile_create_account(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -402,26 +322,30 @@ def people_user_profile_create_account(client,
                                        country_code=None,
                                        preferred_language_tag=None,
                                        user_principal_name=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['age_group'] = age_group
+    body['country_code'] = country_code
+    body['preferred_language_tag'] = preferred_language_tag
+    body['user_principal_name'] = user_principal_name
     return client.create_account(user_id=user_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 age_group=age_group,
-                                 country_code=country_code,
-                                 preferred_language_tag=preferred_language_tag,
-                                 user_principal_name=user_principal_name)
+                                 body=body)
 
 
-def people_user_profile_create_address(client,
+def people_usersprofile_create_address(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -438,25 +362,29 @@ def people_user_profile_create_address(client,
                                        detail=None,
                                        display_name=None,
                                        geo_coordinates=None):
-    return client.create_address(user_id=user_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 detail=detail,
-                                 display_name=display_name,
-                                 geo_coordinates=geo_coordinates)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['detail'] = detail
+    body['display_name'] = display_name
+    body['geo_coordinates'] = geo_coordinates
+    return client.create_addresses(user_id=user_id,
+                                   body=body)
 
 
-def people_user_profile_create_anniversary(client,
+def people_usersprofile_create_anniversary(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -472,24 +400,28 @@ def people_user_profile_create_anniversary(client,
                                            microsoft_graph_identity_user=None,
                                            date=None,
                                            type_=None):
-    return client.create_anniversary(user_id=user_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     date=date,
-                                     type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['date'] = date
+    body['type'] = type_
+    return client.create_anniversaries(user_id=user_id,
+                                       body=body)
 
 
-def people_user_profile_create_award(client,
+def people_usersprofile_create_award(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -509,28 +441,32 @@ def people_user_profile_create_award(client,
                                      issuing_authority=None,
                                      thumbnail_url=None,
                                      web_url=None):
-    return client.create_award(user_id=user_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               description=description,
-                               display_name=display_name,
-                               issued_date=issued_date,
-                               issuing_authority=issuing_authority,
-                               thumbnail_url=thumbnail_url,
-                               web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.create_awards(user_id=user_id,
+                                body=body)
 
 
-def people_user_profile_create_certification(client,
+def people_usersprofile_create_certification(client,
                                              user_id,
                                              id_=None,
                                              allowed_audiences=None,
@@ -554,77 +490,43 @@ def people_user_profile_create_certification(client,
                                              start_date=None,
                                              thumbnail_url=None,
                                              web_url=None):
-    return client.create_certification(user_id=user_id,
-                                       id=id_,
-                                       allowed_audiences=allowed_audiences,
-                                       created_date_time=created_date_time,
-                                       inference=inference,
-                                       last_modified_date_time=last_modified_date_time,
-                                       source=source,
-                                       application=application,
-                                       device=device,
-                                       user=user,
-                                       microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                       microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                       microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                       certification_id=certification_id,
-                                       description=description,
-                                       display_name=display_name,
-                                       end_date=end_date,
-                                       issued_date=issued_date,
-                                       issuing_authority=issuing_authority,
-                                       issuing_company=issuing_company,
-                                       start_date=start_date,
-                                       thumbnail_url=thumbnail_url,
-                                       web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['certification_id'] = certification_id
+    body['description'] = description
+    body['display_name'] = display_name
+    body['end_date'] = end_date
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['issuing_company'] = issuing_company
+    body['start_date'] = start_date
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.create_certifications(user_id=user_id,
+                                        body=body)
 
 
-def people_user_profile_create_educational_activity(client,
+def people_usersprofile_create_educational_activity(client,
                                                     user_id,
-                                                    id_=None,
-                                                    allowed_audiences=None,
-                                                    created_date_time=None,
-                                                    inference=None,
-                                                    last_modified_date_time=None,
-                                                    source=None,
-                                                    application=None,
-                                                    device=None,
-                                                    user=None,
-                                                    microsoft_graph_identity_application=None,
-                                                    microsoft_graph_identity_device=None,
-                                                    microsoft_graph_identity_user=None,
-                                                    completion_month_year=None,
-                                                    end_month_year=None,
-                                                    program=None,
-                                                    start_month_year=None,
-                                                    description=None,
-                                                    display_name=None,
-                                                    location=None,
-                                                    web_url=None):
-    return client.create_educational_activity(user_id=user_id,
-                                              id=id_,
-                                              allowed_audiences=allowed_audiences,
-                                              created_date_time=created_date_time,
-                                              inference=inference,
-                                              last_modified_date_time=last_modified_date_time,
-                                              source=source,
-                                              application=application,
-                                              device=device,
-                                              user=user,
-                                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                              completion_month_year=completion_month_year,
-                                              end_month_year=end_month_year,
-                                              program=program,
-                                              start_month_year=start_month_year,
-                                              description=description,
-                                              display_name=display_name,
-                                              location=location,
-                                              web_url=web_url)
+                                                    body):
+    return client.create_educational_activities(user_id=user_id,
+                                                body=body)
 
 
-def people_user_profile_create_email(client,
+def people_usersprofile_create_email(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -641,25 +543,29 @@ def people_user_profile_create_email(client,
                                      address=None,
                                      display_name=None,
                                      type_=None):
-    return client.create_email(user_id=user_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               address=address,
-                               display_name=display_name,
-                               type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['address'] = address
+    body['display_name'] = display_name
+    body['type'] = type_
+    return client.create_emails(user_id=user_id,
+                                body=body)
 
 
-def people_user_profile_create_interest(client,
+def people_usersprofile_create_interest(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -678,27 +584,31 @@ def people_user_profile_create_interest(client,
                                         description=None,
                                         display_name=None,
                                         web_url=None):
-    return client.create_interest(user_id=user_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  categories=categories,
-                                  collaboration_tags=collaboration_tags,
-                                  description=description,
-                                  display_name=display_name,
-                                  web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['description'] = description
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    return client.create_interests(user_id=user_id,
+                                   body=body)
 
 
-def people_user_profile_create_language(client,
+def people_usersprofile_create_language(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -718,28 +628,32 @@ def people_user_profile_create_language(client,
                                         spoken=None,
                                         tag=None,
                                         written=None):
-    return client.create_language(user_id=user_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  display_name=display_name,
-                                  proficiency=proficiency,
-                                  reading=reading,
-                                  spoken=spoken,
-                                  tag=tag,
-                                  written=written)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['proficiency'] = proficiency
+    body['reading'] = reading
+    body['spoken'] = spoken
+    body['tag'] = tag
+    body['written'] = written
+    return client.create_languages(user_id=user_id,
+                                   body=body)
 
 
-def people_user_profile_create_name(client,
+def people_usersprofile_create_name(client,
                                     user_id,
                                     id_=None,
                                     allowed_audiences=None,
@@ -764,33 +678,37 @@ def people_user_profile_create_name(client,
                                     pronunciation=None,
                                     suffix=None,
                                     title=None):
-    return client.create_name(user_id=user_id,
-                              id=id_,
-                              allowed_audiences=allowed_audiences,
-                              created_date_time=created_date_time,
-                              inference=inference,
-                              last_modified_date_time=last_modified_date_time,
-                              source=source,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              display_name=display_name,
-                              first=first,
-                              initials=initials,
-                              language_tag=language_tag,
-                              last=last,
-                              maiden=maiden,
-                              middle=middle,
-                              nickname=nickname,
-                              pronunciation=pronunciation,
-                              suffix=suffix,
-                              title=title)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['first'] = first
+    body['initials'] = initials
+    body['language_tag'] = language_tag
+    body['last'] = last
+    body['maiden'] = maiden
+    body['middle'] = middle
+    body['nickname'] = nickname
+    body['pronunciation'] = pronunciation
+    body['suffix'] = suffix
+    body['title'] = title
+    return client.create_names(user_id=user_id,
+                               body=body)
 
 
-def people_user_profile_create_note(client,
+def people_usersprofile_create_note(client,
                                     user_id,
                                     id_=None,
                                     allowed_audiences=None,
@@ -806,24 +724,28 @@ def people_user_profile_create_note(client,
                                     microsoft_graph_identity_user=None,
                                     detail=None,
                                     display_name=None):
-    return client.create_note(user_id=user_id,
-                              id=id_,
-                              allowed_audiences=allowed_audiences,
-                              created_date_time=created_date_time,
-                              inference=inference,
-                              last_modified_date_time=last_modified_date_time,
-                              source=source,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              detail=detail,
-                              display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['detail'] = detail
+    body['display_name'] = display_name
+    return client.create_notes(user_id=user_id,
+                               body=body)
 
 
-def people_user_profile_create_patent(client,
+def people_usersprofile_create_patent(client,
                                       user_id,
                                       id_=None,
                                       allowed_audiences=None,
@@ -844,29 +766,33 @@ def people_user_profile_create_patent(client,
                                       issuing_authority=None,
                                       number=None,
                                       web_url=None):
-    return client.create_patent(user_id=user_id,
-                                id=id_,
-                                allowed_audiences=allowed_audiences,
-                                created_date_time=created_date_time,
-                                inference=inference,
-                                last_modified_date_time=last_modified_date_time,
-                                source=source,
-                                application=application,
-                                device=device,
-                                user=user,
-                                microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                description=description,
-                                display_name=display_name,
-                                is_pending=is_pending,
-                                issued_date=issued_date,
-                                issuing_authority=issuing_authority,
-                                number=number,
-                                web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['is_pending'] = is_pending
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['number'] = number
+    body['web_url'] = web_url
+    return client.create_patents(user_id=user_id,
+                                 body=body)
 
 
-def people_user_profile_create_phone(client,
+def people_usersprofile_create_phone(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -883,25 +809,29 @@ def people_user_profile_create_phone(client,
                                      display_name=None,
                                      number=None,
                                      type_=None):
-    return client.create_phone(user_id=user_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               display_name=display_name,
-                               number=number,
-                               type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['number'] = number
+    body['type'] = type_
+    return client.create_phones(user_id=user_id,
+                                body=body)
 
 
-def people_user_profile_create_position(client,
+def people_usersprofile_create_position(client,
                                         user_id,
                                         id_=None,
                                         allowed_audiences=None,
@@ -926,33 +856,38 @@ def people_user_profile_create_position(client,
                                         role=None,
                                         start_month_year=None,
                                         summary=None):
-    return client.create_position(user_id=user_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  categories=categories,
-                                  colleagues=colleagues,
-                                  is_current=is_current,
-                                  manager=manager,
-                                  company=company,
-                                  description=description,
-                                  end_month_year=end_month_year,
-                                  job_title=job_title,
-                                  role=role,
-                                  start_month_year=start_month_year,
-                                  summary=summary)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['colleagues'] = colleagues
+    body['is_current'] = is_current
+    body['manager'] = manager
+    body['detail'] = {}
+    body['detail']['company'] = company
+    body['detail']['description'] = description
+    body['detail']['end_month_year'] = end_month_year
+    body['detail']['job_title'] = job_title
+    body['detail']['role'] = role
+    body['detail']['start_month_year'] = start_month_year
+    body['detail']['summary'] = summary
+    return client.create_positions(user_id=user_id,
+                                   body=body)
 
 
-def people_user_profile_create_project(client,
+def people_usersprofile_create_project(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -984,40 +919,46 @@ def people_user_profile_create_project(client,
                                        office_location=None,
                                        pronunciation=None,
                                        web_url=None):
-    return client.create_project(user_id=user_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 categories=categories,
-                                 collaboration_tags=collaboration_tags,
-                                 colleagues=colleagues,
-                                 display_name=display_name,
-                                 sponsors=sponsors,
-                                 company=company,
-                                 description=description,
-                                 end_month_year=end_month_year,
-                                 job_title=job_title,
-                                 role=role,
-                                 start_month_year=start_month_year,
-                                 summary=summary,
-                                 address=address,
-                                 department=department,
-                                 microsoft_graph_company_detail_display_name=microsoft_graph_company_detail_display_name,
-                                 office_location=office_location,
-                                 pronunciation=pronunciation,
-                                 web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['colleagues'] = colleagues
+    body['display_name'] = display_name
+    body['sponsors'] = sponsors
+    body['detail'] = {}
+    body['detail']['company'] = company
+    body['detail']['description'] = description
+    body['detail']['end_month_year'] = end_month_year
+    body['detail']['job_title'] = job_title
+    body['detail']['role'] = role
+    body['detail']['start_month_year'] = start_month_year
+    body['detail']['summary'] = summary
+    body['client'] = {}
+    body['client']['address'] = address
+    body['client']['department'] = department
+    body['client']['display_name'] = microsoft_graph_company_detail_display_name
+    body['client']['office_location'] = office_location
+    body['client']['pronunciation'] = pronunciation
+    body['client']['web_url'] = web_url
+    return client.create_projects(user_id=user_id,
+                                  body=body)
 
 
-def people_user_profile_create_publication(client,
+def people_usersprofile_create_publication(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -1037,28 +978,32 @@ def people_user_profile_create_publication(client,
                                            publisher=None,
                                            thumbnail_url=None,
                                            web_url=None):
-    return client.create_publication(user_id=user_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     description=description,
-                                     display_name=display_name,
-                                     published_date=published_date,
-                                     publisher=publisher,
-                                     thumbnail_url=thumbnail_url,
-                                     web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['published_date'] = published_date
+    body['publisher'] = publisher
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.create_publications(user_id=user_id,
+                                      body=body)
 
 
-def people_user_profile_create_skill(client,
+def people_usersprofile_create_skill(client,
                                      user_id,
                                      id_=None,
                                      allowed_audiences=None,
@@ -1077,27 +1022,31 @@ def people_user_profile_create_skill(client,
                                      display_name=None,
                                      proficiency=None,
                                      web_url=None):
-    return client.create_skill(user_id=user_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               categories=categories,
-                               collaboration_tags=collaboration_tags,
-                               display_name=display_name,
-                               proficiency=proficiency,
-                               web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['display_name'] = display_name
+    body['proficiency'] = proficiency
+    body['web_url'] = web_url
+    return client.create_skills(user_id=user_id,
+                                body=body)
 
 
-def people_user_profile_create_web_account(client,
+def people_usersprofile_create_web_account(client,
                                            user_id,
                                            id_=None,
                                            allowed_audiences=None,
@@ -1116,27 +1065,31 @@ def people_user_profile_create_web_account(client,
                                            status_message=None,
                                            microsoft_graph_web_account_user_id=None,
                                            web_url=None):
-    return client.create_web_account(user_id=user_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     description=description,
-                                     service=service,
-                                     status_message=status_message,
-                                     microsoft_graph_web_account_user_id=microsoft_graph_web_account_user_id,
-                                     web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['service'] = service
+    body['status_message'] = status_message
+    body['user_id'] = microsoft_graph_web_account_user_id
+    body['web_url'] = web_url
+    return client.create_web_accounts(user_id=user_id,
+                                      body=body)
 
 
-def people_user_profile_create_website(client,
+def people_usersprofile_create_website(client,
                                        user_id,
                                        id_=None,
                                        allowed_audiences=None,
@@ -1154,26 +1107,201 @@ def people_user_profile_create_website(client,
                                        description=None,
                                        display_name=None,
                                        web_url=None):
-    return client.create_website(user_id=user_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 categories=categories,
-                                 description=description,
-                                 display_name=display_name,
-                                 web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['description'] = description
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    return client.create_websites(user_id=user_id,
+                                  body=body)
 
 
-def people_user_profile_list_account(client,
+def people_usersprofile_delete_account(client,
+                                       user_id,
+                                       user_account_information_id,
+                                       if_match=None):
+    return client.delete_account(user_id=user_id,
+                                 user_account_information_id=user_account_information_id,
+                                 if_match=if_match)
+
+
+def people_usersprofile_delete_address(client,
+                                       user_id,
+                                       item_address_id,
+                                       if_match=None):
+    return client.delete_addresses(user_id=user_id,
+                                   item_address_id=item_address_id,
+                                   if_match=if_match)
+
+
+def people_usersprofile_delete_anniversary(client,
+                                           user_id,
+                                           person_anniversary_id,
+                                           if_match=None):
+    return client.delete_anniversaries(user_id=user_id,
+                                       person_anniversary_id=person_anniversary_id,
+                                       if_match=if_match)
+
+
+def people_usersprofile_delete_award(client,
+                                     user_id,
+                                     person_award_id,
+                                     if_match=None):
+    return client.delete_awards(user_id=user_id,
+                                person_award_id=person_award_id,
+                                if_match=if_match)
+
+
+def people_usersprofile_delete_certification(client,
+                                             user_id,
+                                             person_certification_id,
+                                             if_match=None):
+    return client.delete_certifications(user_id=user_id,
+                                        person_certification_id=person_certification_id,
+                                        if_match=if_match)
+
+
+def people_usersprofile_delete_educational_activity(client,
+                                                    user_id,
+                                                    educational_activity_id,
+                                                    if_match=None):
+    return client.delete_educational_activities(user_id=user_id,
+                                                educational_activity_id=educational_activity_id,
+                                                if_match=if_match)
+
+
+def people_usersprofile_delete_email(client,
+                                     user_id,
+                                     item_email_id,
+                                     if_match=None):
+    return client.delete_emails(user_id=user_id,
+                                item_email_id=item_email_id,
+                                if_match=if_match)
+
+
+def people_usersprofile_delete_interest(client,
+                                        user_id,
+                                        person_interest_id,
+                                        if_match=None):
+    return client.delete_interests(user_id=user_id,
+                                   person_interest_id=person_interest_id,
+                                   if_match=if_match)
+
+
+def people_usersprofile_delete_language(client,
+                                        user_id,
+                                        language_proficiency_id,
+                                        if_match=None):
+    return client.delete_languages(user_id=user_id,
+                                   language_proficiency_id=language_proficiency_id,
+                                   if_match=if_match)
+
+
+def people_usersprofile_delete_name(client,
+                                    user_id,
+                                    person_name_id,
+                                    if_match=None):
+    return client.delete_names(user_id=user_id,
+                               person_name_id=person_name_id,
+                               if_match=if_match)
+
+
+def people_usersprofile_delete_note(client,
+                                    user_id,
+                                    person_annotation_id,
+                                    if_match=None):
+    return client.delete_notes(user_id=user_id,
+                               person_annotation_id=person_annotation_id,
+                               if_match=if_match)
+
+
+def people_usersprofile_delete_patent(client,
+                                      user_id,
+                                      item_patent_id,
+                                      if_match=None):
+    return client.delete_patents(user_id=user_id,
+                                 item_patent_id=item_patent_id,
+                                 if_match=if_match)
+
+
+def people_usersprofile_delete_phone(client,
+                                     user_id,
+                                     item_phone_id,
+                                     if_match=None):
+    return client.delete_phones(user_id=user_id,
+                                item_phone_id=item_phone_id,
+                                if_match=if_match)
+
+
+def people_usersprofile_delete_position(client,
+                                        user_id,
+                                        work_position_id,
+                                        if_match=None):
+    return client.delete_positions(user_id=user_id,
+                                   work_position_id=work_position_id,
+                                   if_match=if_match)
+
+
+def people_usersprofile_delete_project(client,
+                                       user_id,
+                                       project_participation_id,
+                                       if_match=None):
+    return client.delete_projects(user_id=user_id,
+                                  project_participation_id=project_participation_id,
+                                  if_match=if_match)
+
+
+def people_usersprofile_delete_publication(client,
+                                           user_id,
+                                           item_publication_id,
+                                           if_match=None):
+    return client.delete_publications(user_id=user_id,
+                                      item_publication_id=item_publication_id,
+                                      if_match=if_match)
+
+
+def people_usersprofile_delete_skill(client,
+                                     user_id,
+                                     skill_proficiency_id,
+                                     if_match=None):
+    return client.delete_skills(user_id=user_id,
+                                skill_proficiency_id=skill_proficiency_id,
+                                if_match=if_match)
+
+
+def people_usersprofile_delete_web_account(client,
+                                           user_id,
+                                           web_account_id,
+                                           if_match=None):
+    return client.delete_web_accounts(user_id=user_id,
+                                      web_account_id=web_account_id,
+                                      if_match=if_match)
+
+
+def people_usersprofile_delete_website(client,
+                                       user_id,
+                                       person_website_id,
+                                       if_match=None):
+    return client.delete_websites(user_id=user_id,
+                                  person_website_id=person_website_id,
+                                  if_match=if_match)
+
+
+def people_usersprofile_list_account(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
@@ -1184,205 +1312,205 @@ def people_user_profile_list_account(client,
                                expand=expand)
 
 
-def people_user_profile_list_address(client,
+def people_usersprofile_list_address(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
                                      expand=None):
-    return client.list_address(user_id=user_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_addresses(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
 
 
-def people_user_profile_list_anniversary(client,
+def people_usersprofile_list_anniversary(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_anniversary(user_id=user_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
-
-
-def people_user_profile_list_award(client,
-                                   user_id,
-                                   orderby=None,
-                                   select=None,
-                                   expand=None):
-    return client.list_award(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def people_user_profile_list_certification(client,
-                                           user_id,
-                                           orderby=None,
-                                           select=None,
-                                           expand=None):
-    return client.list_certification(user_id=user_id,
+    return client.list_anniversaries(user_id=user_id,
                                      orderby=orderby,
                                      select=select,
                                      expand=expand)
 
 
-def people_user_profile_list_educational_activity(client,
-                                                  user_id,
-                                                  orderby=None,
-                                                  select=None,
-                                                  expand=None):
-    return client.list_educational_activity(user_id=user_id,
-                                            orderby=orderby,
-                                            select=select,
-                                            expand=expand)
-
-
-def people_user_profile_list_email(client,
+def people_usersprofile_list_award(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_email(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
-
-
-def people_user_profile_list_interest(client,
-                                      user_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_interest(user_id=user_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def people_user_profile_list_language(client,
-                                      user_id,
-                                      orderby=None,
-                                      select=None,
-                                      expand=None):
-    return client.list_language(user_id=user_id,
-                                orderby=orderby,
-                                select=select,
-                                expand=expand)
-
-
-def people_user_profile_list_name(client,
-                                  user_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_name(user_id=user_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def people_user_profile_list_note(client,
-                                  user_id,
-                                  orderby=None,
-                                  select=None,
-                                  expand=None):
-    return client.list_note(user_id=user_id,
-                            orderby=orderby,
-                            select=select,
-                            expand=expand)
-
-
-def people_user_profile_list_patent(client,
-                                    user_id,
-                                    orderby=None,
-                                    select=None,
-                                    expand=None):
-    return client.list_patent(user_id=user_id,
+    return client.list_awards(user_id=user_id,
                               orderby=orderby,
                               select=select,
                               expand=expand)
 
 
-def people_user_profile_list_phone(client,
+def people_usersprofile_list_certification(client,
+                                           user_id,
+                                           orderby=None,
+                                           select=None,
+                                           expand=None):
+    return client.list_certifications(user_id=user_id,
+                                      orderby=orderby,
+                                      select=select,
+                                      expand=expand)
+
+
+def people_usersprofile_list_educational_activity(client,
+                                                  user_id,
+                                                  orderby=None,
+                                                  select=None,
+                                                  expand=None):
+    return client.list_educational_activities(user_id=user_id,
+                                              orderby=orderby,
+                                              select=select,
+                                              expand=expand)
+
+
+def people_usersprofile_list_email(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_phone(user_id=user_id,
+    return client.list_emails(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
+
+
+def people_usersprofile_list_interest(client,
+                                      user_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_interests(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def people_usersprofile_list_language(client,
+                                      user_id,
+                                      orderby=None,
+                                      select=None,
+                                      expand=None):
+    return client.list_languages(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def people_usersprofile_list_name(client,
+                                  user_id,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_names(user_id=user_id,
                              orderby=orderby,
                              select=select,
                              expand=expand)
 
 
-def people_user_profile_list_position(client,
+def people_usersprofile_list_note(client,
+                                  user_id,
+                                  orderby=None,
+                                  select=None,
+                                  expand=None):
+    return client.list_notes(user_id=user_id,
+                             orderby=orderby,
+                             select=select,
+                             expand=expand)
+
+
+def people_usersprofile_list_patent(client,
+                                    user_id,
+                                    orderby=None,
+                                    select=None,
+                                    expand=None):
+    return client.list_patents(user_id=user_id,
+                               orderby=orderby,
+                               select=select,
+                               expand=expand)
+
+
+def people_usersprofile_list_phone(client,
+                                   user_id,
+                                   orderby=None,
+                                   select=None,
+                                   expand=None):
+    return client.list_phones(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
+
+
+def people_usersprofile_list_position(client,
                                       user_id,
                                       orderby=None,
                                       select=None,
                                       expand=None):
-    return client.list_position(user_id=user_id,
+    return client.list_positions(user_id=user_id,
+                                 orderby=orderby,
+                                 select=select,
+                                 expand=expand)
+
+
+def people_usersprofile_list_project(client,
+                                     user_id,
+                                     orderby=None,
+                                     select=None,
+                                     expand=None):
+    return client.list_projects(user_id=user_id,
                                 orderby=orderby,
                                 select=select,
                                 expand=expand)
 
 
-def people_user_profile_list_project(client,
-                                     user_id,
-                                     orderby=None,
-                                     select=None,
-                                     expand=None):
-    return client.list_project(user_id=user_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
-
-
-def people_user_profile_list_publication(client,
+def people_usersprofile_list_publication(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_publication(user_id=user_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
+    return client.list_publications(user_id=user_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
 
 
-def people_user_profile_list_skill(client,
+def people_usersprofile_list_skill(client,
                                    user_id,
                                    orderby=None,
                                    select=None,
                                    expand=None):
-    return client.list_skill(user_id=user_id,
-                             orderby=orderby,
-                             select=select,
-                             expand=expand)
+    return client.list_skills(user_id=user_id,
+                              orderby=orderby,
+                              select=select,
+                              expand=expand)
 
 
-def people_user_profile_list_web_account(client,
+def people_usersprofile_list_web_account(client,
                                          user_id,
                                          orderby=None,
                                          select=None,
                                          expand=None):
-    return client.list_web_account(user_id=user_id,
-                                   orderby=orderby,
-                                   select=select,
-                                   expand=expand)
+    return client.list_web_accounts(user_id=user_id,
+                                    orderby=orderby,
+                                    select=select,
+                                    expand=expand)
 
 
-def people_user_profile_list_website(client,
+def people_usersprofile_list_website(client,
                                      user_id,
                                      orderby=None,
                                      select=None,
                                      expand=None):
-    return client.list_website(user_id=user_id,
-                               orderby=orderby,
-                               select=select,
-                               expand=expand)
+    return client.list_websites(user_id=user_id,
+                                orderby=orderby,
+                                select=select,
+                                expand=expand)
 
 
-def people_user_profile_show_account(client,
+def people_usersprofile_show_account(client,
                                      user_id,
                                      user_account_information_id,
                                      select=None,
@@ -1393,205 +1521,205 @@ def people_user_profile_show_account(client,
                               expand=expand)
 
 
-def people_user_profile_show_address(client,
+def people_usersprofile_show_address(client,
                                      user_id,
                                      item_address_id,
                                      select=None,
                                      expand=None):
-    return client.get_address(user_id=user_id,
-                              item_address_id=item_address_id,
-                              select=select,
-                              expand=expand)
+    return client.get_addresses(user_id=user_id,
+                                item_address_id=item_address_id,
+                                select=select,
+                                expand=expand)
 
 
-def people_user_profile_show_anniversary(client,
+def people_usersprofile_show_anniversary(client,
                                          user_id,
                                          person_anniversary_id,
                                          select=None,
                                          expand=None):
-    return client.get_anniversary(user_id=user_id,
-                                  person_anniversary_id=person_anniversary_id,
-                                  select=select,
-                                  expand=expand)
-
-
-def people_user_profile_show_award(client,
-                                   user_id,
-                                   person_award_id,
-                                   select=None,
-                                   expand=None):
-    return client.get_award(user_id=user_id,
-                            person_award_id=person_award_id,
-                            select=select,
-                            expand=expand)
-
-
-def people_user_profile_show_certification(client,
-                                           user_id,
-                                           person_certification_id,
-                                           select=None,
-                                           expand=None):
-    return client.get_certification(user_id=user_id,
-                                    person_certification_id=person_certification_id,
+    return client.get_anniversaries(user_id=user_id,
+                                    person_anniversary_id=person_anniversary_id,
                                     select=select,
                                     expand=expand)
 
 
-def people_user_profile_show_educational_activity(client,
-                                                  user_id,
-                                                  educational_activity_id,
-                                                  select=None,
-                                                  expand=None):
-    return client.get_educational_activity(user_id=user_id,
-                                           educational_activity_id=educational_activity_id,
-                                           select=select,
-                                           expand=expand)
-
-
-def people_user_profile_show_email(client,
+def people_usersprofile_show_award(client,
                                    user_id,
-                                   item_email_id,
+                                   person_award_id,
                                    select=None,
                                    expand=None):
-    return client.get_email(user_id=user_id,
-                            item_email_id=item_email_id,
-                            select=select,
-                            expand=expand)
-
-
-def people_user_profile_show_interest(client,
-                                      user_id,
-                                      person_interest_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_interest(user_id=user_id,
-                               person_interest_id=person_interest_id,
-                               select=select,
-                               expand=expand)
-
-
-def people_user_profile_show_language(client,
-                                      user_id,
-                                      language_proficiency_id,
-                                      select=None,
-                                      expand=None):
-    return client.get_language(user_id=user_id,
-                               language_proficiency_id=language_proficiency_id,
-                               select=select,
-                               expand=expand)
-
-
-def people_user_profile_show_name(client,
-                                  user_id,
-                                  person_name_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_name(user_id=user_id,
-                           person_name_id=person_name_id,
-                           select=select,
-                           expand=expand)
-
-
-def people_user_profile_show_note(client,
-                                  user_id,
-                                  person_annotation_id,
-                                  select=None,
-                                  expand=None):
-    return client.get_note(user_id=user_id,
-                           person_annotation_id=person_annotation_id,
-                           select=select,
-                           expand=expand)
-
-
-def people_user_profile_show_patent(client,
-                                    user_id,
-                                    item_patent_id,
-                                    select=None,
-                                    expand=None):
-    return client.get_patent(user_id=user_id,
-                             item_patent_id=item_patent_id,
+    return client.get_awards(user_id=user_id,
+                             person_award_id=person_award_id,
                              select=select,
                              expand=expand)
 
 
-def people_user_profile_show_phone(client,
+def people_usersprofile_show_certification(client,
+                                           user_id,
+                                           person_certification_id,
+                                           select=None,
+                                           expand=None):
+    return client.get_certifications(user_id=user_id,
+                                     person_certification_id=person_certification_id,
+                                     select=select,
+                                     expand=expand)
+
+
+def people_usersprofile_show_educational_activity(client,
+                                                  user_id,
+                                                  educational_activity_id,
+                                                  select=None,
+                                                  expand=None):
+    return client.get_educational_activities(user_id=user_id,
+                                             educational_activity_id=educational_activity_id,
+                                             select=select,
+                                             expand=expand)
+
+
+def people_usersprofile_show_email(client,
+                                   user_id,
+                                   item_email_id,
+                                   select=None,
+                                   expand=None):
+    return client.get_emails(user_id=user_id,
+                             item_email_id=item_email_id,
+                             select=select,
+                             expand=expand)
+
+
+def people_usersprofile_show_interest(client,
+                                      user_id,
+                                      person_interest_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_interests(user_id=user_id,
+                                person_interest_id=person_interest_id,
+                                select=select,
+                                expand=expand)
+
+
+def people_usersprofile_show_language(client,
+                                      user_id,
+                                      language_proficiency_id,
+                                      select=None,
+                                      expand=None):
+    return client.get_languages(user_id=user_id,
+                                language_proficiency_id=language_proficiency_id,
+                                select=select,
+                                expand=expand)
+
+
+def people_usersprofile_show_name(client,
+                                  user_id,
+                                  person_name_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_names(user_id=user_id,
+                            person_name_id=person_name_id,
+                            select=select,
+                            expand=expand)
+
+
+def people_usersprofile_show_note(client,
+                                  user_id,
+                                  person_annotation_id,
+                                  select=None,
+                                  expand=None):
+    return client.get_notes(user_id=user_id,
+                            person_annotation_id=person_annotation_id,
+                            select=select,
+                            expand=expand)
+
+
+def people_usersprofile_show_patent(client,
+                                    user_id,
+                                    item_patent_id,
+                                    select=None,
+                                    expand=None):
+    return client.get_patents(user_id=user_id,
+                              item_patent_id=item_patent_id,
+                              select=select,
+                              expand=expand)
+
+
+def people_usersprofile_show_phone(client,
                                    user_id,
                                    item_phone_id,
                                    select=None,
                                    expand=None):
-    return client.get_phone(user_id=user_id,
-                            item_phone_id=item_phone_id,
-                            select=select,
-                            expand=expand)
+    return client.get_phones(user_id=user_id,
+                             item_phone_id=item_phone_id,
+                             select=select,
+                             expand=expand)
 
 
-def people_user_profile_show_position(client,
+def people_usersprofile_show_position(client,
                                       user_id,
                                       work_position_id,
                                       select=None,
                                       expand=None):
-    return client.get_position(user_id=user_id,
-                               work_position_id=work_position_id,
-                               select=select,
-                               expand=expand)
+    return client.get_positions(user_id=user_id,
+                                work_position_id=work_position_id,
+                                select=select,
+                                expand=expand)
 
 
-def people_user_profile_show_project(client,
+def people_usersprofile_show_project(client,
                                      user_id,
                                      project_participation_id,
                                      select=None,
                                      expand=None):
-    return client.get_project(user_id=user_id,
-                              project_participation_id=project_participation_id,
-                              select=select,
-                              expand=expand)
+    return client.get_projects(user_id=user_id,
+                               project_participation_id=project_participation_id,
+                               select=select,
+                               expand=expand)
 
 
-def people_user_profile_show_publication(client,
+def people_usersprofile_show_publication(client,
                                          user_id,
                                          item_publication_id,
                                          select=None,
                                          expand=None):
-    return client.get_publication(user_id=user_id,
-                                  item_publication_id=item_publication_id,
-                                  select=select,
-                                  expand=expand)
+    return client.get_publications(user_id=user_id,
+                                   item_publication_id=item_publication_id,
+                                   select=select,
+                                   expand=expand)
 
 
-def people_user_profile_show_skill(client,
+def people_usersprofile_show_skill(client,
                                    user_id,
                                    skill_proficiency_id,
                                    select=None,
                                    expand=None):
-    return client.get_skill(user_id=user_id,
-                            skill_proficiency_id=skill_proficiency_id,
-                            select=select,
-                            expand=expand)
+    return client.get_skills(user_id=user_id,
+                             skill_proficiency_id=skill_proficiency_id,
+                             select=select,
+                             expand=expand)
 
 
-def people_user_profile_show_web_account(client,
+def people_usersprofile_show_web_account(client,
                                          user_id,
                                          web_account_id,
                                          select=None,
                                          expand=None):
-    return client.get_web_account(user_id=user_id,
-                                  web_account_id=web_account_id,
-                                  select=select,
-                                  expand=expand)
+    return client.get_web_accounts(user_id=user_id,
+                                   web_account_id=web_account_id,
+                                   select=select,
+                                   expand=expand)
 
 
-def people_user_profile_show_website(client,
+def people_usersprofile_show_website(client,
                                      user_id,
                                      person_website_id,
                                      select=None,
                                      expand=None):
-    return client.get_website(user_id=user_id,
-                              person_website_id=person_website_id,
-                              select=select,
-                              expand=expand)
+    return client.get_websites(user_id=user_id,
+                               person_website_id=person_website_id,
+                               select=select,
+                               expand=expand)
 
 
-def people_user_profile_update_account(client,
+def people_usersprofile_update_account(client,
                                        user_id,
                                        user_account_information_id,
                                        id_=None,
@@ -1610,27 +1738,31 @@ def people_user_profile_update_account(client,
                                        country_code=None,
                                        preferred_language_tag=None,
                                        user_principal_name=None):
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['age_group'] = age_group
+    body['country_code'] = country_code
+    body['preferred_language_tag'] = preferred_language_tag
+    body['user_principal_name'] = user_principal_name
     return client.update_account(user_id=user_id,
                                  user_account_information_id=user_account_information_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 age_group=age_group,
-                                 country_code=country_code,
-                                 preferred_language_tag=preferred_language_tag,
-                                 user_principal_name=user_principal_name)
+                                 body=body)
 
 
-def people_user_profile_update_address(client,
+def people_usersprofile_update_address(client,
                                        user_id,
                                        item_address_id,
                                        id_=None,
@@ -1648,26 +1780,30 @@ def people_user_profile_update_address(client,
                                        detail=None,
                                        display_name=None,
                                        geo_coordinates=None):
-    return client.update_address(user_id=user_id,
-                                 item_address_id=item_address_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 detail=detail,
-                                 display_name=display_name,
-                                 geo_coordinates=geo_coordinates)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['detail'] = detail
+    body['display_name'] = display_name
+    body['geo_coordinates'] = geo_coordinates
+    return client.update_addresses(user_id=user_id,
+                                   item_address_id=item_address_id,
+                                   body=body)
 
 
-def people_user_profile_update_anniversary(client,
+def people_usersprofile_update_anniversary(client,
                                            user_id,
                                            person_anniversary_id,
                                            id_=None,
@@ -1684,25 +1820,29 @@ def people_user_profile_update_anniversary(client,
                                            microsoft_graph_identity_user=None,
                                            date=None,
                                            type_=None):
-    return client.update_anniversary(user_id=user_id,
-                                     person_anniversary_id=person_anniversary_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     date=date,
-                                     type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['date'] = date
+    body['type'] = type_
+    return client.update_anniversaries(user_id=user_id,
+                                       person_anniversary_id=person_anniversary_id,
+                                       body=body)
 
 
-def people_user_profile_update_award(client,
+def people_usersprofile_update_award(client,
                                      user_id,
                                      person_award_id,
                                      id_=None,
@@ -1723,29 +1863,33 @@ def people_user_profile_update_award(client,
                                      issuing_authority=None,
                                      thumbnail_url=None,
                                      web_url=None):
-    return client.update_award(user_id=user_id,
-                               person_award_id=person_award_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               description=description,
-                               display_name=display_name,
-                               issued_date=issued_date,
-                               issuing_authority=issuing_authority,
-                               thumbnail_url=thumbnail_url,
-                               web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.update_awards(user_id=user_id,
+                                person_award_id=person_award_id,
+                                body=body)
 
 
-def people_user_profile_update_certification(client,
+def people_usersprofile_update_certification(client,
                                              user_id,
                                              person_certification_id,
                                              id_=None,
@@ -1770,80 +1914,46 @@ def people_user_profile_update_certification(client,
                                              start_date=None,
                                              thumbnail_url=None,
                                              web_url=None):
-    return client.update_certification(user_id=user_id,
-                                       person_certification_id=person_certification_id,
-                                       id=id_,
-                                       allowed_audiences=allowed_audiences,
-                                       created_date_time=created_date_time,
-                                       inference=inference,
-                                       last_modified_date_time=last_modified_date_time,
-                                       source=source,
-                                       application=application,
-                                       device=device,
-                                       user=user,
-                                       microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                       microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                       microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                       certification_id=certification_id,
-                                       description=description,
-                                       display_name=display_name,
-                                       end_date=end_date,
-                                       issued_date=issued_date,
-                                       issuing_authority=issuing_authority,
-                                       issuing_company=issuing_company,
-                                       start_date=start_date,
-                                       thumbnail_url=thumbnail_url,
-                                       web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['certification_id'] = certification_id
+    body['description'] = description
+    body['display_name'] = display_name
+    body['end_date'] = end_date
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['issuing_company'] = issuing_company
+    body['start_date'] = start_date
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.update_certifications(user_id=user_id,
+                                        person_certification_id=person_certification_id,
+                                        body=body)
 
 
-def people_user_profile_update_educational_activity(client,
+def people_usersprofile_update_educational_activity(client,
                                                     user_id,
                                                     educational_activity_id,
-                                                    id_=None,
-                                                    allowed_audiences=None,
-                                                    created_date_time=None,
-                                                    inference=None,
-                                                    last_modified_date_time=None,
-                                                    source=None,
-                                                    application=None,
-                                                    device=None,
-                                                    user=None,
-                                                    microsoft_graph_identity_application=None,
-                                                    microsoft_graph_identity_device=None,
-                                                    microsoft_graph_identity_user=None,
-                                                    completion_month_year=None,
-                                                    end_month_year=None,
-                                                    program=None,
-                                                    start_month_year=None,
-                                                    description=None,
-                                                    display_name=None,
-                                                    location=None,
-                                                    web_url=None):
-    return client.update_educational_activity(user_id=user_id,
-                                              educational_activity_id=educational_activity_id,
-                                              id=id_,
-                                              allowed_audiences=allowed_audiences,
-                                              created_date_time=created_date_time,
-                                              inference=inference,
-                                              last_modified_date_time=last_modified_date_time,
-                                              source=source,
-                                              application=application,
-                                              device=device,
-                                              user=user,
-                                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                              completion_month_year=completion_month_year,
-                                              end_month_year=end_month_year,
-                                              program=program,
-                                              start_month_year=start_month_year,
-                                              description=description,
-                                              display_name=display_name,
-                                              location=location,
-                                              web_url=web_url)
+                                                    body):
+    return client.update_educational_activities(user_id=user_id,
+                                                educational_activity_id=educational_activity_id,
+                                                body=body)
 
 
-def people_user_profile_update_email(client,
+def people_usersprofile_update_email(client,
                                      user_id,
                                      item_email_id,
                                      id_=None,
@@ -1861,26 +1971,30 @@ def people_user_profile_update_email(client,
                                      address=None,
                                      display_name=None,
                                      type_=None):
-    return client.update_email(user_id=user_id,
-                               item_email_id=item_email_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               address=address,
-                               display_name=display_name,
-                               type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['address'] = address
+    body['display_name'] = display_name
+    body['type'] = type_
+    return client.update_emails(user_id=user_id,
+                                item_email_id=item_email_id,
+                                body=body)
 
 
-def people_user_profile_update_interest(client,
+def people_usersprofile_update_interest(client,
                                         user_id,
                                         person_interest_id,
                                         id_=None,
@@ -1900,28 +2014,32 @@ def people_user_profile_update_interest(client,
                                         description=None,
                                         display_name=None,
                                         web_url=None):
-    return client.update_interest(user_id=user_id,
-                                  person_interest_id=person_interest_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  categories=categories,
-                                  collaboration_tags=collaboration_tags,
-                                  description=description,
-                                  display_name=display_name,
-                                  web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['description'] = description
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    return client.update_interests(user_id=user_id,
+                                   person_interest_id=person_interest_id,
+                                   body=body)
 
 
-def people_user_profile_update_language(client,
+def people_usersprofile_update_language(client,
                                         user_id,
                                         language_proficiency_id,
                                         id_=None,
@@ -1942,29 +2060,33 @@ def people_user_profile_update_language(client,
                                         spoken=None,
                                         tag=None,
                                         written=None):
-    return client.update_language(user_id=user_id,
-                                  language_proficiency_id=language_proficiency_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  display_name=display_name,
-                                  proficiency=proficiency,
-                                  reading=reading,
-                                  spoken=spoken,
-                                  tag=tag,
-                                  written=written)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['proficiency'] = proficiency
+    body['reading'] = reading
+    body['spoken'] = spoken
+    body['tag'] = tag
+    body['written'] = written
+    return client.update_languages(user_id=user_id,
+                                   language_proficiency_id=language_proficiency_id,
+                                   body=body)
 
 
-def people_user_profile_update_name(client,
+def people_usersprofile_update_name(client,
                                     user_id,
                                     person_name_id,
                                     id_=None,
@@ -1990,34 +2112,38 @@ def people_user_profile_update_name(client,
                                     pronunciation=None,
                                     suffix=None,
                                     title=None):
-    return client.update_name(user_id=user_id,
-                              person_name_id=person_name_id,
-                              id=id_,
-                              allowed_audiences=allowed_audiences,
-                              created_date_time=created_date_time,
-                              inference=inference,
-                              last_modified_date_time=last_modified_date_time,
-                              source=source,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              display_name=display_name,
-                              first=first,
-                              initials=initials,
-                              language_tag=language_tag,
-                              last=last,
-                              maiden=maiden,
-                              middle=middle,
-                              nickname=nickname,
-                              pronunciation=pronunciation,
-                              suffix=suffix,
-                              title=title)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['first'] = first
+    body['initials'] = initials
+    body['language_tag'] = language_tag
+    body['last'] = last
+    body['maiden'] = maiden
+    body['middle'] = middle
+    body['nickname'] = nickname
+    body['pronunciation'] = pronunciation
+    body['suffix'] = suffix
+    body['title'] = title
+    return client.update_names(user_id=user_id,
+                               person_name_id=person_name_id,
+                               body=body)
 
 
-def people_user_profile_update_note(client,
+def people_usersprofile_update_note(client,
                                     user_id,
                                     person_annotation_id,
                                     id_=None,
@@ -2034,25 +2160,29 @@ def people_user_profile_update_note(client,
                                     microsoft_graph_identity_user=None,
                                     detail=None,
                                     display_name=None):
-    return client.update_note(user_id=user_id,
-                              person_annotation_id=person_annotation_id,
-                              id=id_,
-                              allowed_audiences=allowed_audiences,
-                              created_date_time=created_date_time,
-                              inference=inference,
-                              last_modified_date_time=last_modified_date_time,
-                              source=source,
-                              application=application,
-                              device=device,
-                              user=user,
-                              microsoft_graph_identity_application=microsoft_graph_identity_application,
-                              microsoft_graph_identity_device=microsoft_graph_identity_device,
-                              microsoft_graph_identity_user=microsoft_graph_identity_user,
-                              detail=detail,
-                              display_name=display_name)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['detail'] = detail
+    body['display_name'] = display_name
+    return client.update_notes(user_id=user_id,
+                               person_annotation_id=person_annotation_id,
+                               body=body)
 
 
-def people_user_profile_update_patent(client,
+def people_usersprofile_update_patent(client,
                                       user_id,
                                       item_patent_id,
                                       id_=None,
@@ -2074,30 +2204,34 @@ def people_user_profile_update_patent(client,
                                       issuing_authority=None,
                                       number=None,
                                       web_url=None):
-    return client.update_patent(user_id=user_id,
-                                item_patent_id=item_patent_id,
-                                id=id_,
-                                allowed_audiences=allowed_audiences,
-                                created_date_time=created_date_time,
-                                inference=inference,
-                                last_modified_date_time=last_modified_date_time,
-                                source=source,
-                                application=application,
-                                device=device,
-                                user=user,
-                                microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                description=description,
-                                display_name=display_name,
-                                is_pending=is_pending,
-                                issued_date=issued_date,
-                                issuing_authority=issuing_authority,
-                                number=number,
-                                web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['is_pending'] = is_pending
+    body['issued_date'] = issued_date
+    body['issuing_authority'] = issuing_authority
+    body['number'] = number
+    body['web_url'] = web_url
+    return client.update_patents(user_id=user_id,
+                                 item_patent_id=item_patent_id,
+                                 body=body)
 
 
-def people_user_profile_update_phone(client,
+def people_usersprofile_update_phone(client,
                                      user_id,
                                      item_phone_id,
                                      id_=None,
@@ -2115,26 +2249,30 @@ def people_user_profile_update_phone(client,
                                      display_name=None,
                                      number=None,
                                      type_=None):
-    return client.update_phone(user_id=user_id,
-                               item_phone_id=item_phone_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               display_name=display_name,
-                               number=number,
-                               type=type_)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['display_name'] = display_name
+    body['number'] = number
+    body['type'] = type_
+    return client.update_phones(user_id=user_id,
+                                item_phone_id=item_phone_id,
+                                body=body)
 
 
-def people_user_profile_update_position(client,
+def people_usersprofile_update_position(client,
                                         user_id,
                                         work_position_id,
                                         id_=None,
@@ -2160,34 +2298,39 @@ def people_user_profile_update_position(client,
                                         role=None,
                                         start_month_year=None,
                                         summary=None):
-    return client.update_position(user_id=user_id,
-                                  work_position_id=work_position_id,
-                                  id=id_,
-                                  allowed_audiences=allowed_audiences,
-                                  created_date_time=created_date_time,
-                                  inference=inference,
-                                  last_modified_date_time=last_modified_date_time,
-                                  source=source,
-                                  application=application,
-                                  device=device,
-                                  user=user,
-                                  microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                  microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                  microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                  categories=categories,
-                                  colleagues=colleagues,
-                                  is_current=is_current,
-                                  manager=manager,
-                                  company=company,
-                                  description=description,
-                                  end_month_year=end_month_year,
-                                  job_title=job_title,
-                                  role=role,
-                                  start_month_year=start_month_year,
-                                  summary=summary)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['colleagues'] = colleagues
+    body['is_current'] = is_current
+    body['manager'] = manager
+    body['detail'] = {}
+    body['detail']['company'] = company
+    body['detail']['description'] = description
+    body['detail']['end_month_year'] = end_month_year
+    body['detail']['job_title'] = job_title
+    body['detail']['role'] = role
+    body['detail']['start_month_year'] = start_month_year
+    body['detail']['summary'] = summary
+    return client.update_positions(user_id=user_id,
+                                   work_position_id=work_position_id,
+                                   body=body)
 
 
-def people_user_profile_update_project(client,
+def people_usersprofile_update_project(client,
                                        user_id,
                                        project_participation_id,
                                        id_=None,
@@ -2220,41 +2363,47 @@ def people_user_profile_update_project(client,
                                        office_location=None,
                                        pronunciation=None,
                                        web_url=None):
-    return client.update_project(user_id=user_id,
-                                 project_participation_id=project_participation_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 categories=categories,
-                                 collaboration_tags=collaboration_tags,
-                                 colleagues=colleagues,
-                                 display_name=display_name,
-                                 sponsors=sponsors,
-                                 company=company,
-                                 description=description,
-                                 end_month_year=end_month_year,
-                                 job_title=job_title,
-                                 role=role,
-                                 start_month_year=start_month_year,
-                                 summary=summary,
-                                 address=address,
-                                 department=department,
-                                 microsoft_graph_company_detail_display_name=microsoft_graph_company_detail_display_name,
-                                 office_location=office_location,
-                                 pronunciation=pronunciation,
-                                 web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['colleagues'] = colleagues
+    body['display_name'] = display_name
+    body['sponsors'] = sponsors
+    body['detail'] = {}
+    body['detail']['company'] = company
+    body['detail']['description'] = description
+    body['detail']['end_month_year'] = end_month_year
+    body['detail']['job_title'] = job_title
+    body['detail']['role'] = role
+    body['detail']['start_month_year'] = start_month_year
+    body['detail']['summary'] = summary
+    body['client'] = {}
+    body['client']['address'] = address
+    body['client']['department'] = department
+    body['client']['display_name'] = microsoft_graph_company_detail_display_name
+    body['client']['office_location'] = office_location
+    body['client']['pronunciation'] = pronunciation
+    body['client']['web_url'] = web_url
+    return client.update_projects(user_id=user_id,
+                                  project_participation_id=project_participation_id,
+                                  body=body)
 
 
-def people_user_profile_update_publication(client,
+def people_usersprofile_update_publication(client,
                                            user_id,
                                            item_publication_id,
                                            id_=None,
@@ -2275,29 +2424,33 @@ def people_user_profile_update_publication(client,
                                            publisher=None,
                                            thumbnail_url=None,
                                            web_url=None):
-    return client.update_publication(user_id=user_id,
-                                     item_publication_id=item_publication_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     description=description,
-                                     display_name=display_name,
-                                     published_date=published_date,
-                                     publisher=publisher,
-                                     thumbnail_url=thumbnail_url,
-                                     web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['display_name'] = display_name
+    body['published_date'] = published_date
+    body['publisher'] = publisher
+    body['thumbnail_url'] = thumbnail_url
+    body['web_url'] = web_url
+    return client.update_publications(user_id=user_id,
+                                      item_publication_id=item_publication_id,
+                                      body=body)
 
 
-def people_user_profile_update_skill(client,
+def people_usersprofile_update_skill(client,
                                      user_id,
                                      skill_proficiency_id,
                                      id_=None,
@@ -2317,28 +2470,32 @@ def people_user_profile_update_skill(client,
                                      display_name=None,
                                      proficiency=None,
                                      web_url=None):
-    return client.update_skill(user_id=user_id,
-                               skill_proficiency_id=skill_proficiency_id,
-                               id=id_,
-                               allowed_audiences=allowed_audiences,
-                               created_date_time=created_date_time,
-                               inference=inference,
-                               last_modified_date_time=last_modified_date_time,
-                               source=source,
-                               application=application,
-                               device=device,
-                               user=user,
-                               microsoft_graph_identity_application=microsoft_graph_identity_application,
-                               microsoft_graph_identity_device=microsoft_graph_identity_device,
-                               microsoft_graph_identity_user=microsoft_graph_identity_user,
-                               categories=categories,
-                               collaboration_tags=collaboration_tags,
-                               display_name=display_name,
-                               proficiency=proficiency,
-                               web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['collaboration_tags'] = collaboration_tags
+    body['display_name'] = display_name
+    body['proficiency'] = proficiency
+    body['web_url'] = web_url
+    return client.update_skills(user_id=user_id,
+                                skill_proficiency_id=skill_proficiency_id,
+                                body=body)
 
 
-def people_user_profile_update_web_account(client,
+def people_usersprofile_update_web_account(client,
                                            user_id,
                                            web_account_id,
                                            id_=None,
@@ -2358,28 +2515,32 @@ def people_user_profile_update_web_account(client,
                                            status_message=None,
                                            microsoft_graph_web_account_user_id=None,
                                            web_url=None):
-    return client.update_web_account(user_id=user_id,
-                                     web_account_id=web_account_id,
-                                     id=id_,
-                                     allowed_audiences=allowed_audiences,
-                                     created_date_time=created_date_time,
-                                     inference=inference,
-                                     last_modified_date_time=last_modified_date_time,
-                                     source=source,
-                                     application=application,
-                                     device=device,
-                                     user=user,
-                                     microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                     microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                     microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                     description=description,
-                                     service=service,
-                                     status_message=status_message,
-                                     microsoft_graph_web_account_user_id=microsoft_graph_web_account_user_id,
-                                     web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['description'] = description
+    body['service'] = service
+    body['status_message'] = status_message
+    body['user_id'] = microsoft_graph_web_account_user_id
+    body['web_url'] = web_url
+    return client.update_web_accounts(user_id=user_id,
+                                      web_account_id=web_account_id,
+                                      body=body)
 
 
-def people_user_profile_update_website(client,
+def people_usersprofile_update_website(client,
                                        user_id,
                                        person_website_id,
                                        id_=None,
@@ -2398,21 +2559,25 @@ def people_user_profile_update_website(client,
                                        description=None,
                                        display_name=None,
                                        web_url=None):
-    return client.update_website(user_id=user_id,
-                                 person_website_id=person_website_id,
-                                 id=id_,
-                                 allowed_audiences=allowed_audiences,
-                                 created_date_time=created_date_time,
-                                 inference=inference,
-                                 last_modified_date_time=last_modified_date_time,
-                                 source=source,
-                                 application=application,
-                                 device=device,
-                                 user=user,
-                                 microsoft_graph_identity_application=microsoft_graph_identity_application,
-                                 microsoft_graph_identity_device=microsoft_graph_identity_device,
-                                 microsoft_graph_identity_user=microsoft_graph_identity_user,
-                                 categories=categories,
-                                 description=description,
-                                 display_name=display_name,
-                                 web_url=web_url)
+    body = {}
+    body['id'] = id_
+    body['allowed_audiences'] = allowed_audiences
+    body['created_date_time'] = created_date_time
+    body['inference'] = inference
+    body['last_modified_date_time'] = last_modified_date_time
+    body['source'] = source
+    body['last_modified_by'] = {}
+    body['last_modified_by']['application'] = application
+    body['last_modified_by']['device'] = device
+    body['last_modified_by']['user'] = user
+    body['created_by'] = {}
+    body['created_by']['application'] = microsoft_graph_identity_application
+    body['created_by']['device'] = microsoft_graph_identity_device
+    body['created_by']['user'] = microsoft_graph_identity_user
+    body['categories'] = categories
+    body['description'] = description
+    body['display_name'] = display_name
+    body['web_url'] = web_url
+    return client.update_websites(user_id=user_id,
+                                  person_website_id=person_website_id,
+                                  body=body)

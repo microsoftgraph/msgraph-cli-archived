@@ -12,17 +12,17 @@
 from knack.help_files import helps
 
 
-helps['schemaextensions schema-extension-schema-extension'] = """
+helps['schemaextensions_v1_0'] = '''
     type: group
-    short-summary: Manage schema extension schema extension with schemaextensions_v1_0
+    short-summary: Manage Schema Extensions
+'''
+
+helps['schemaextensions schemaextensionsschemaextension'] = """
+    type: group
+    short-summary: Manage schemaextensionsschemaextension with schemaextensions_v1_0
 """
 
-helps['schemaextensions schema-extension-schema-extension delete'] = """
-    type: command
-    short-summary: "Delete entity from schemaExtensions."
-"""
-
-helps['schemaextensions schema-extension-schema-extension create-schema-extension'] = """
+helps['schemaextensions schemaextensionsschemaextension create-schema-extension'] = """
     type: command
     short-summary: "Add new entity to schemaExtensions."
     parameters:
@@ -38,17 +38,22 @@ Boolean, DateTime, Integer or String.  See the table below for more details.
             Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['schemaextensions schema-extension-schema-extension list-schema-extension'] = """
+helps['schemaextensions schemaextensionsschemaextension delete-schema-extension'] = """
+    type: command
+    short-summary: "Delete entity from schemaExtensions."
+"""
+
+helps['schemaextensions schemaextensionsschemaextension list-schema-extension'] = """
     type: command
     short-summary: "Get entities from schemaExtensions."
 """
 
-helps['schemaextensions schema-extension-schema-extension show-schema-extension'] = """
+helps['schemaextensions schemaextensionsschemaextension show-schema-extension'] = """
     type: command
     short-summary: "Get entity from schemaExtensions by key."
 """
 
-helps['schemaextensions schema-extension-schema-extension update-schema-extension'] = """
+helps['schemaextensions schemaextensionsschemaextension update-schema-extension'] = """
     type: command
     short-summary: "Update entity in schemaExtensions."
     parameters:

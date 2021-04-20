@@ -12,17 +12,22 @@
 from knack.help_files import helps
 
 
-helps['search external-external'] = """
+helps['search_beta'] = '''
     type: group
-    short-summary: Manage external external with search_beta
+    short-summary: Manage Search
+'''
+
+helps['search external'] = """
+    type: group
+    short-summary: Manage external with search_beta
 """
 
-helps['search external-external show-external'] = """
+helps['search external show-external'] = """
     type: command
     short-summary: "Get external."
 """
 
-helps['search external-external update-external'] = """
+helps['search external update-external'] = """
     type: command
     short-summary: "Update external."
 """
@@ -30,11 +35,6 @@ helps['search external-external update-external'] = """
 helps['search external'] = """
     type: group
     short-summary: Manage external with search_beta
-"""
-
-helps['search external delete'] = """
-    type: command
-    short-summary: "Delete navigation property connections for external."
 """
 
 helps['search external create-connection'] = """
@@ -46,13 +46,6 @@ helps['search external create-connection'] = """
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
-        long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
       - name: --properties
         long-summary: |
             Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
@@ -60,6 +53,11 @@ is-searchable=XX labels=XX name=XX type=XX
 
 
             Multiple actions can be specified by using more than one --properties argument.
+"""
+
+helps['search external delete-connection'] = """
+    type: command
+    short-summary: "Delete navigation property connections for external."
 """
 
 helps['search external list-connection'] = """
@@ -81,13 +79,6 @@ helps['search external update-connection'] = """
         long-summary: |
             Usage: --configuration authorized-apps=XX
 
-      - name: --groups
-        long-summary: |
-            Usage: --groups description=XX display-name=XX members=XX id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --groups argument.
       - name: --properties
         long-summary: |
             Usage: --properties aliases=XX is-content=XX is-queryable=XX is-refinable=XX is-retrievable=XX \
@@ -97,17 +88,17 @@ is-searchable=XX labels=XX name=XX type=XX
             Multiple actions can be specified by using more than one --properties argument.
 """
 
-helps['search search-entity'] = """
+helps['search searchentity'] = """
     type: group
-    short-summary: Manage search search entity with search_beta
+    short-summary: Manage searchentity with search_beta
 """
 
-helps['search search-entity show-search-entity'] = """
+helps['search searchentity show-search-entity'] = """
     type: command
     short-summary: "Get search."
 """
 
-helps['search search-entity update-search-entity'] = """
+helps['search searchentity update-search-entity'] = """
     type: command
     short-summary: "Update search."
 """

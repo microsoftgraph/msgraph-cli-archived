@@ -6,18 +6,18 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._education_education_root_operations import EducationEducationRootOperations
-from ._education_operations import EducationOperations
-from ._education_class_operations import EducationClassOperations
-from ._education_me_operations import EducationMeOperations
-from ._education_school_operations import EducationSchoolOperations
-from ._education_user_operations import EducationUserOperations
+from ._educationeducationroot_operations import educationeducationrootOperations
+from ._education_operations import educationOperations
+from ._educationclasses_operations import educationclassesOperations
+from ._educationme_operations import educationmeOperations
+from ._educationschools_operations import educationschoolsOperations
+from ._educationusers_operations import educationusersOperations
 
 __all__ = [
-    'EducationEducationRootOperations',
-    'EducationOperations',
-    'EducationClassOperations',
-    'EducationMeOperations',
-    'EducationSchoolOperations',
-    'EducationUserOperations',
+    'educationeducationrootOperations',
+    'educationOperations',
+    'educationclassesOperations',
+    'educationmeOperations',
+    'educationschoolsOperations',
+    'educationusersOperations',
 ]

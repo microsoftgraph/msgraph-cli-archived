@@ -8,11 +8,11 @@ az extension add --name cloudcommunications_beta
 ```
 
 ### Included Features ###
-#### cloudcommunications communication-cloud-communication ####
+#### cloudcommunications communicationscloudcommunication ####
 #### cloudcommunications communication ####
-#### cloudcommunications communication-call-record ####
-#### cloudcommunications communication-call-record-session ####
-#### cloudcommunications communication-call ####
-#### cloudcommunications communication-call-participant ####
-#### cloudcommunications communication-online-meeting ####
+#### cloudcommunications communicationscallrecord ####
+#### cloudcommunications communicationscallrecordssession ####
+#### cloudcommunications communicationscall ####
+#### cloudcommunications communicationscallsparticipant ####
+#### cloudcommunications communicationsonlinemeeting ####
 #### cloudcommunications user ####

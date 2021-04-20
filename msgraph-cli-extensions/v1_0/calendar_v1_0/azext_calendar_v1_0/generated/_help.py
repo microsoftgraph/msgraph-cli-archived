@@ -12,303 +12,39 @@
 from knack.help_files import helps
 
 
+helps['calendar_v1_0'] = '''
+    type: group
+    short-summary: Manage Calendar
+'''
+
 helps['calendar group'] = """
     type: group
     short-summary: Manage group with calendar_v1_0
 """
 
-helps['calendar group delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarView for groups And Delete navigation property events for \
-groups And Delete navigation property calendar for groups."
-"""
-
 helps['calendar group create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
 helps['calendar group create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
+"""
 
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
+helps['calendar group delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
 
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
+helps['calendar group delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
 
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
+helps['calendar group delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
 """
 
 helps['calendar group list-calendar-view'] = """
@@ -372,304 +108,19 @@ Nullable."
 helps['calendar group update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
 helps['calendar group update-event'] = """
     type: command
     short-summary: "Update the navigation property events in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar'] = """
+helps['calendar groupscalendar'] = """
     type: group
-    short-summary: Manage group calendar with calendar_v1_0
+    short-summary: Manage groupscalendar with calendar_v1_0
 """
 
-helps['calendar group-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
-"""
-
-helps['calendar group-calendar create-calendar-permission'] = """
+helps['calendar groupscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for groups."
     parameters:
@@ -682,355 +133,102 @@ helps['calendar group-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-calendar create-calendar-view'] = """
+helps['calendar groupscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar create-event'] = """
+helps['calendar groupscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar create-multi-value-extended-property'] = """
+helps['calendar groupscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar create-single-value-extended-property'] = """
+helps['calendar groupscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar list-calendar-permission'] = """
+helps['calendar groupscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar groupscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar groupscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar groupscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-calendar list-calendar-view'] = """
+helps['calendar groupscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-calendar list-event'] = """
+helps['calendar groupscalendar list-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-calendar list-multi-value-extended-property'] = """
+helps['calendar groupscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar list-single-value-extended-property'] = """
+helps['calendar groupscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar show-calendar-permission'] = """
+helps['calendar groupscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-calendar show-calendar-view'] = """
+helps['calendar groupscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-calendar show-event'] = """
+helps['calendar groupscalendar show-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-calendar show-multi-value-extended-property'] = """
+helps['calendar groupscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar show-single-value-extended-property'] = """
+helps['calendar groupscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar update-calendar-permission'] = """
+helps['calendar groupscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in groups."
     parameters:
@@ -1043,542 +241,147 @@ helps['calendar group-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-calendar update-calendar-view'] = """
+helps['calendar groupscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar update-event'] = """
+helps['calendar groupscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar update-multi-value-extended-property'] = """
+helps['calendar groupscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar update-single-value-extended-property'] = """
+helps['calendar groupscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view'] = """
+helps['calendar groupscalendarview'] = """
     type: group
-    short-summary: Manage group calendar calendar view with calendar_v1_0
+    short-summary: Manage groupscalendarview with calendar_v1_0
 """
 
-helps['calendar group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
-helps['calendar group-calendar-view create-attachment'] = """
+helps['calendar groupscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
 """
 
-helps['calendar group-calendar-view create-extension'] = """
+helps['calendar groupscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for groups."
 """
 
-helps['calendar group-calendar-view create-instance'] = """
+helps['calendar groupscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view create-multi-value-extended-property'] = """
+helps['calendar groupscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view create-single-value-extended-property'] = """
+helps['calendar groupscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view list-attachment'] = """
+helps['calendar groupscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar groupscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar groupscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar groupscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar groupscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-view list-extension'] = """
+helps['calendar groupscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-view list-instance'] = """
+helps['calendar groupscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-view list-multi-value-extended-property'] = """
+helps['calendar groupscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view list-single-value-extended-property'] = """
+helps['calendar groupscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view show-attachment'] = """
+helps['calendar groupscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-view show-calendar'] = """
+helps['calendar groupscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from groups."
 """
 
-helps['calendar group-calendar-view show-extension'] = """
+helps['calendar groupscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-view show-instance'] = """
+helps['calendar groupscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-view show-multi-value-extended-property'] = """
+helps['calendar groupscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view show-single-value-extended-property'] = """
+helps['calendar groupscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view update-attachment'] = """
+helps['calendar groupscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in groups."
 """
 
-helps['calendar group-calendar-view update-calendar'] = """
+helps['calendar groupscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in groups."
     parameters:
@@ -1611,403 +414,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar group-calendar-view update-extension'] = """
+helps['calendar groupscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in groups."
 """
 
-helps['calendar group-calendar-view update-instance'] = """
+helps['calendar groupscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view update-multi-value-extended-property'] = """
+helps['calendar groupscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view update-single-value-extended-property'] = """
+helps['calendar groupscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-event'] = """
+helps['calendar groupscalendarevent'] = """
     type: group
-    short-summary: Manage group calendar event with calendar_v1_0
+    short-summary: Manage groupscalendarevent with calendar_v1_0
 """
 
-helps['calendar group-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
-helps['calendar group-calendar-event create-attachment'] = """
+helps['calendar groupscalendarevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
 """
 
-helps['calendar group-calendar-event create-extension'] = """
+helps['calendar groupscalendarevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for groups."
 """
 
-helps['calendar group-calendar-event create-instance'] = """
+helps['calendar groupscalendarevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-event create-multi-value-extended-property'] = """
+helps['calendar groupscalendarevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-event create-single-value-extended-property'] = """
+helps['calendar groupscalendarevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-event list-attachment'] = """
+helps['calendar groupscalendarevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar groupscalendarevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar groupscalendarevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar groupscalendarevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar groupscalendarevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-event list-extension'] = """
+helps['calendar groupscalendarevent list-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-event list-instance'] = """
+helps['calendar groupscalendarevent list-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-event list-multi-value-extended-property'] = """
+helps['calendar groupscalendarevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-event list-single-value-extended-property'] = """
+helps['calendar groupscalendarevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-event show-attachment'] = """
+helps['calendar groupscalendarevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-event show-calendar'] = """
+helps['calendar groupscalendarevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from groups."
 """
 
-helps['calendar group-calendar-event show-extension'] = """
+helps['calendar groupscalendarevent show-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-event show-instance'] = """
+helps['calendar groupscalendarevent show-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-event show-multi-value-extended-property'] = """
+helps['calendar groupscalendarevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-event show-single-value-extended-property'] = """
+helps['calendar groupscalendarevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-event update-attachment'] = """
+helps['calendar groupscalendarevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in groups."
 """
 
-helps['calendar group-calendar-event update-calendar'] = """
+helps['calendar groupscalendarevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in groups."
     parameters:
@@ -2040,403 +587,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar group-calendar-event update-extension'] = """
+helps['calendar groupscalendarevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in groups."
 """
 
-helps['calendar group-calendar-event update-instance'] = """
+helps['calendar groupscalendarevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-event update-multi-value-extended-property'] = """
+helps['calendar groupscalendarevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-event update-single-value-extended-property'] = """
+helps['calendar groupscalendarevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view'] = """
+helps['calendar groupscalendarview'] = """
     type: group
-    short-summary: Manage group calendar view with calendar_v1_0
+    short-summary: Manage groupscalendarview with calendar_v1_0
 """
 
-helps['calendar group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
-helps['calendar group-calendar-view create-attachment'] = """
+helps['calendar groupscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
 """
 
-helps['calendar group-calendar-view create-extension'] = """
+helps['calendar groupscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for groups."
 """
 
-helps['calendar group-calendar-view create-instance'] = """
+helps['calendar groupscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view create-multi-value-extended-property'] = """
+helps['calendar groupscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view create-single-value-extended-property'] = """
+helps['calendar groupscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view list-attachment'] = """
+helps['calendar groupscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar groupscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar groupscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar groupscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar groupscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-view list-extension'] = """
+helps['calendar groupscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-view list-instance'] = """
+helps['calendar groupscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-view list-multi-value-extended-property'] = """
+helps['calendar groupscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view list-single-value-extended-property'] = """
+helps['calendar groupscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view show-attachment'] = """
+helps['calendar groupscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-calendar-view show-calendar'] = """
+helps['calendar groupscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from groups."
 """
 
-helps['calendar group-calendar-view show-extension'] = """
+helps['calendar groupscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-calendar-view show-instance'] = """
+helps['calendar groupscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-calendar-view show-multi-value-extended-property'] = """
+helps['calendar groupscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view show-single-value-extended-property'] = """
+helps['calendar groupscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view update-attachment'] = """
+helps['calendar groupscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in groups."
 """
 
-helps['calendar group-calendar-view update-calendar'] = """
+helps['calendar groupscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in groups."
     parameters:
@@ -2469,178 +760,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar group-calendar-view update-extension'] = """
+helps['calendar groupscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in groups."
 """
 
-helps['calendar group-calendar-view update-instance'] = """
+helps['calendar groupscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view update-multi-value-extended-property'] = """
+helps['calendar groupscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view update-single-value-extended-property'] = """
+helps['calendar groupscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view-calendar'] = """
+helps['calendar groupscalendarviewcalendar'] = """
     type: group
-    short-summary: Manage group calendar view calendar with calendar_v1_0
+    short-summary: Manage groupscalendarviewcalendar with calendar_v1_0
 """
 
-helps['calendar group-calendar-view-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
-"""
-
-helps['calendar group-calendar-view-calendar create-calendar-permission'] = """
+helps['calendar groupscalendarviewcalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for groups."
     parameters:
@@ -2653,355 +798,102 @@ helps['calendar group-calendar-view-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-calendar-view-calendar create-calendar-view'] = """
+helps['calendar groupscalendarviewcalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view-calendar create-event'] = """
+helps['calendar groupscalendarviewcalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view-calendar create-multi-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view-calendar create-single-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-calendar-view-calendar list-calendar-permission'] = """
+helps['calendar groupscalendarviewcalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar groupscalendarviewcalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar groupscalendarviewcalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar groupscalendarviewcalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarviewcalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupscalendarviewcalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-calendar-view-calendar list-calendar-view'] = """
+helps['calendar groupscalendarviewcalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-calendar-view-calendar list-event'] = """
+helps['calendar groupscalendarviewcalendar list-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-calendar-view-calendar list-multi-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view-calendar list-single-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view-calendar show-calendar-permission'] = """
+helps['calendar groupscalendarviewcalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-calendar-view-calendar show-calendar-view'] = """
+helps['calendar groupscalendarviewcalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-calendar-view-calendar show-event'] = """
+helps['calendar groupscalendarviewcalendar show-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-calendar-view-calendar show-multi-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view-calendar show-single-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-calendar-view-calendar update-calendar-permission'] = """
+helps['calendar groupscalendarviewcalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in groups."
     parameters:
@@ -3014,542 +906,147 @@ helps['calendar group-calendar-view-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-calendar-view-calendar update-calendar-view'] = """
+helps['calendar groupscalendarviewcalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view-calendar update-event'] = """
+helps['calendar groupscalendarviewcalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-calendar-view-calendar update-multi-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-calendar-view-calendar update-single-value-extended-property'] = """
+helps['calendar groupscalendarviewcalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-event'] = """
+helps['calendar groupsevent'] = """
     type: group
-    short-summary: Manage group event with calendar_v1_0
+    short-summary: Manage groupsevent with calendar_v1_0
 """
 
-helps['calendar group-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for groups And Delete navigation property extensions for \
-groups And Delete navigation property instances for groups And Delete navigation property multiValueExtendedProperties \
-for groups And Delete navigation property singleValueExtendedProperties for groups And Delete navigation property \
-calendar for groups."
-"""
-
-helps['calendar group-event create-attachment'] = """
+helps['calendar groupsevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for groups."
 """
 
-helps['calendar group-event create-extension'] = """
+helps['calendar groupsevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for groups."
 """
 
-helps['calendar group-event create-instance'] = """
+helps['calendar groupsevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event create-multi-value-extended-property'] = """
+helps['calendar groupsevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-event create-single-value-extended-property'] = """
+helps['calendar groupsevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-event list-attachment'] = """
+helps['calendar groupsevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for groups."
+"""
+
+helps['calendar groupsevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for groups."
+"""
+
+helps['calendar groupsevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for groups."
+"""
+
+helps['calendar groupsevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for groups."
+"""
+
+helps['calendar groupsevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupsevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupsevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-event list-extension'] = """
+helps['calendar groupsevent list-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-event list-instance'] = """
+helps['calendar groupsevent list-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-event list-multi-value-extended-property'] = """
+helps['calendar groupsevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-event list-single-value-extended-property'] = """
+helps['calendar groupsevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-event show-attachment'] = """
+helps['calendar groupsevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from groups."
 """
 
-helps['calendar group-event show-calendar'] = """
+helps['calendar groupsevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from groups."
 """
 
-helps['calendar group-event show-extension'] = """
+helps['calendar groupsevent show-extension'] = """
     type: command
     short-summary: "Get extensions from groups."
 """
 
-helps['calendar group-event show-instance'] = """
+helps['calendar groupsevent show-instance'] = """
     type: command
     short-summary: "Get instances from groups."
 """
 
-helps['calendar group-event show-multi-value-extended-property'] = """
+helps['calendar groupsevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-event show-single-value-extended-property'] = """
+helps['calendar groupsevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-event update-attachment'] = """
+helps['calendar groupsevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in groups."
 """
 
-helps['calendar group-event update-calendar'] = """
+helps['calendar groupsevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in groups."
     parameters:
@@ -3582,178 +1079,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar group-event update-extension'] = """
+helps['calendar groupsevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in groups."
 """
 
-helps['calendar group-event update-instance'] = """
+helps['calendar groupsevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event update-multi-value-extended-property'] = """
+helps['calendar groupsevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-event update-single-value-extended-property'] = """
+helps['calendar groupsevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar group-event-calendar'] = """
+helps['calendar groupseventscalendar'] = """
     type: group
-    short-summary: Manage group event calendar with calendar_v1_0
+    short-summary: Manage groupseventscalendar with calendar_v1_0
 """
 
-helps['calendar group-event-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for groups And Delete navigation property \
-calendarView for groups And Delete navigation property events for groups And Delete navigation property \
-multiValueExtendedProperties for groups And Delete navigation property singleValueExtendedProperties for groups."
-"""
-
-helps['calendar group-event-calendar create-calendar-permission'] = """
+helps['calendar groupseventscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for groups."
     parameters:
@@ -3766,355 +1117,102 @@ helps['calendar group-event-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-event-calendar create-calendar-view'] = """
+helps['calendar groupseventscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event-calendar create-event'] = """
+helps['calendar groupseventscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event-calendar create-multi-value-extended-property'] = """
+helps['calendar groupseventscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for groups."
 """
 
-helps['calendar group-event-calendar create-single-value-extended-property'] = """
+helps['calendar groupseventscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for groups."
 """
 
-helps['calendar group-event-calendar list-calendar-permission'] = """
+helps['calendar groupseventscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for groups."
+"""
+
+helps['calendar groupseventscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for groups."
+"""
+
+helps['calendar groupseventscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for groups."
+"""
+
+helps['calendar groupseventscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for groups."
+"""
+
+helps['calendar groupseventscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for groups."
+"""
+
+helps['calendar groupseventscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-event-calendar list-calendar-view'] = """
+helps['calendar groupseventscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-event-calendar list-event'] = """
+helps['calendar groupseventscalendar list-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-event-calendar list-multi-value-extended-property'] = """
+helps['calendar groupseventscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-event-calendar list-single-value-extended-property'] = """
+helps['calendar groupseventscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-event-calendar show-calendar-permission'] = """
+helps['calendar groupseventscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from groups."
 """
 
-helps['calendar group-event-calendar show-calendar-view'] = """
+helps['calendar groupseventscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from groups."
 """
 
-helps['calendar group-event-calendar show-event'] = """
+helps['calendar groupseventscalendar show-event'] = """
     type: command
     short-summary: "Get events from groups."
 """
 
-helps['calendar group-event-calendar show-multi-value-extended-property'] = """
+helps['calendar groupseventscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from groups."
 """
 
-helps['calendar group-event-calendar show-single-value-extended-property'] = """
+helps['calendar groupseventscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from groups."
 """
 
-helps['calendar group-event-calendar update-calendar-permission'] = """
+helps['calendar groupseventscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in groups."
     parameters:
@@ -4127,315 +1225,32 @@ helps['calendar group-event-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar group-event-calendar update-calendar-view'] = """
+helps['calendar groupseventscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event-calendar update-event'] = """
+helps['calendar groupseventscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in groups."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar group-event-calendar update-multi-value-extended-property'] = """
+helps['calendar groupseventscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in groups."
 """
 
-helps['calendar group-event-calendar update-single-value-extended-property'] = """
+helps['calendar groupseventscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in groups."
 """
 
-helps['calendar place-place'] = """
+helps['calendar placesplace'] = """
     type: group
-    short-summary: Manage place place with calendar_v1_0
+    short-summary: Manage placesplace with calendar_v1_0
 """
 
-helps['calendar place-place delete'] = """
-    type: command
-    short-summary: "Delete entity from places."
-"""
-
-helps['calendar place-place create-place'] = """
+helps['calendar placesplace create-place'] = """
     type: command
     short-summary: "Add new entity to places."
     parameters:
@@ -4462,17 +1277,22 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
             longitude: The longitude of the location.
 """
 
-helps['calendar place-place list-place'] = """
+helps['calendar placesplace delete-place'] = """
+    type: command
+    short-summary: "Delete entity from places."
+"""
+
+helps['calendar placesplace list-place'] = """
     type: command
     short-summary: "Get entities from places."
 """
 
-helps['calendar place-place show-place'] = """
+helps['calendar placesplace show-place'] = """
     type: command
     short-summary: "Get entity from places by key."
 """
 
-helps['calendar place-place update-place'] = """
+helps['calendar placesplace update-place'] = """
     type: command
     short-summary: "Update entity in places."
     parameters:
@@ -4502,13 +1322,6 @@ meters, such as the latitude and longitude are accurate to within 50 meters.
 helps['calendar user'] = """
     type: group
     short-summary: Manage user with calendar_v1_0
-"""
-
-helps['calendar user delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarGroups for users And Delete navigation property calendars for \
-users And Delete navigation property calendarView for users And Delete navigation property events for users And Delete \
-navigation property calendar for users."
 """
 
 helps['calendar user create-calendar'] = """
@@ -4552,289 +1365,31 @@ helps['calendar user create-calendar-group'] = """
 helps['calendar user create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
 helps['calendar user create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
+"""
 
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
+helps['calendar user delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendars for users And Delete navigation property calendar for users."
+"""
 
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
+helps['calendar user delete-calendar-group'] = """
+    type: command
+    short-summary: "Delete navigation property calendarGroups for users."
+"""
 
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
+helps['calendar user delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
 
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
+helps['calendar user delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
 """
 
 helps['calendar user list-calendar'] = """
@@ -4946,304 +1501,19 @@ helps['calendar user update-calendar-group'] = """
 helps['calendar user update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
 helps['calendar user update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar'] = """
+helps['calendar userscalendar'] = """
     type: group
-    short-summary: Manage user calendar with calendar_v1_0
+    short-summary: Manage userscalendar with calendar_v1_0
 """
 
-helps['calendar user-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
-helps['calendar user-calendar create-calendar-permission'] = """
+helps['calendar userscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
     parameters:
@@ -5256,355 +1526,102 @@ helps['calendar user-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar create-calendar-view'] = """
+helps['calendar userscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar create-event'] = """
+helps['calendar userscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar create-multi-value-extended-property'] = """
+helps['calendar userscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar create-single-value-extended-property'] = """
+helps['calendar userscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar list-calendar-permission'] = """
+helps['calendar userscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar userscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar userscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar userscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar list-calendar-view'] = """
+helps['calendar userscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar list-event'] = """
+helps['calendar userscalendar list-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar list-multi-value-extended-property'] = """
+helps['calendar userscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar list-single-value-extended-property'] = """
+helps['calendar userscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar show-calendar-permission'] = """
+helps['calendar userscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar show-calendar-view'] = """
+helps['calendar userscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar show-event'] = """
+helps['calendar userscalendar show-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar show-multi-value-extended-property'] = """
+helps['calendar userscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar show-single-value-extended-property'] = """
+helps['calendar userscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar update-calendar-permission'] = """
+helps['calendar userscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in users."
     parameters:
@@ -5617,542 +1634,147 @@ helps['calendar user-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar update-calendar-view'] = """
+helps['calendar userscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar update-event'] = """
+helps['calendar userscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar update-multi-value-extended-property'] = """
+helps['calendar userscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar update-single-value-extended-property'] = """
+helps['calendar userscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view'] = """
+helps['calendar userscalendarview'] = """
     type: group
-    short-summary: Manage user calendar calendar view with calendar_v1_0
+    short-summary: Manage userscalendarview with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-view create-attachment'] = """
+helps['calendar userscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-view create-extension'] = """
+helps['calendar userscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-view create-instance'] = """
+helps['calendar userscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view create-multi-value-extended-property'] = """
+helps['calendar userscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view create-single-value-extended-property'] = """
+helps['calendar userscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view list-attachment'] = """
+helps['calendar userscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view list-extension'] = """
+helps['calendar userscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view list-instance'] = """
+helps['calendar userscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view list-multi-value-extended-property'] = """
+helps['calendar userscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view list-single-value-extended-property'] = """
+helps['calendar userscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-attachment'] = """
+helps['calendar userscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view show-calendar'] = """
+helps['calendar userscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-view show-extension'] = """
+helps['calendar userscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view show-instance'] = """
+helps['calendar userscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view show-multi-value-extended-property'] = """
+helps['calendar userscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-single-value-extended-property'] = """
+helps['calendar userscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view update-attachment'] = """
+helps['calendar userscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-view update-calendar'] = """
+helps['calendar userscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -6185,403 +1807,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-view update-extension'] = """
+helps['calendar userscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-view update-instance'] = """
+helps['calendar userscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view update-multi-value-extended-property'] = """
+helps['calendar userscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view update-single-value-extended-property'] = """
+helps['calendar userscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-event'] = """
+helps['calendar userscalendarevent'] = """
     type: group
-    short-summary: Manage user calendar event with calendar_v1_0
+    short-summary: Manage userscalendarevent with calendar_v1_0
 """
 
-helps['calendar user-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-event create-attachment'] = """
+helps['calendar userscalendarevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-event create-extension'] = """
+helps['calendar userscalendarevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-event create-instance'] = """
+helps['calendar userscalendarevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-event create-multi-value-extended-property'] = """
+helps['calendar userscalendarevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-event create-single-value-extended-property'] = """
+helps['calendar userscalendarevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-event list-attachment'] = """
+helps['calendar userscalendarevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendarevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendarevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendarevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendarevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-event list-extension'] = """
+helps['calendar userscalendarevent list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-event list-instance'] = """
+helps['calendar userscalendarevent list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-event list-multi-value-extended-property'] = """
+helps['calendar userscalendarevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event list-single-value-extended-property'] = """
+helps['calendar userscalendarevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event show-attachment'] = """
+helps['calendar userscalendarevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-event show-calendar'] = """
+helps['calendar userscalendarevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-event show-extension'] = """
+helps['calendar userscalendarevent show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-event show-instance'] = """
+helps['calendar userscalendarevent show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-event show-multi-value-extended-property'] = """
+helps['calendar userscalendarevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event show-single-value-extended-property'] = """
+helps['calendar userscalendarevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event update-attachment'] = """
+helps['calendar userscalendarevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-event update-calendar'] = """
+helps['calendar userscalendarevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -6614,176 +1980,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-event update-extension'] = """
+helps['calendar userscalendarevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-event update-instance'] = """
+helps['calendar userscalendarevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-event update-multi-value-extended-property'] = """
+helps['calendar userscalendarevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-event update-single-value-extended-property'] = """
+helps['calendar userscalendarevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group'] = """
+helps['calendar userscalendargroup'] = """
     type: group
-    short-summary: Manage user calendar group with calendar_v1_0
+    short-summary: Manage userscalendargroup with calendar_v1_0
 """
 
-helps['calendar user-calendar-group delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendars for users."
-"""
-
-helps['calendar user-calendar-group create-calendar'] = """
+helps['calendar userscalendargroup create-calendar'] = """
     type: command
     short-summary: "Create new navigation property to calendars for users."
     parameters:
@@ -6816,17 +2038,22 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-group list-calendar'] = """
+helps['calendar userscalendargroup delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendars for users."
+"""
+
+helps['calendar userscalendargroup list-calendar'] = """
     type: command
     short-summary: "Get calendars from users."
 """
 
-helps['calendar user-calendar-group show-calendar'] = """
+helps['calendar userscalendargroup show-calendar'] = """
     type: command
     short-summary: "Get calendars from users."
 """
 
-helps['calendar user-calendar-group update-calendar'] = """
+helps['calendar userscalendargroup update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendars in users."
     parameters:
@@ -6859,19 +2086,12 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-group-calendar'] = """
+helps['calendar userscalendargroupscalendar'] = """
     type: group
-    short-summary: Manage user calendar group calendar with calendar_v1_0
+    short-summary: Manage userscalendargroupscalendar with calendar_v1_0
 """
 
-helps['calendar user-calendar-group-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
-helps['calendar user-calendar-group-calendar create-calendar-permission'] = """
+helps['calendar userscalendargroupscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
     parameters:
@@ -6884,355 +2104,102 @@ helps['calendar user-calendar-group-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar-group-calendar create-calendar-view'] = """
+helps['calendar userscalendargroupscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar create-event'] = """
+helps['calendar userscalendargroupscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar create-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar create-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar list-calendar-permission'] = """
+helps['calendar userscalendargroupscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar userscalendargroupscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar userscalendargroupscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar userscalendargroupscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar-group-calendar list-calendar-view'] = """
+helps['calendar userscalendargroupscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar-group-calendar list-event'] = """
+helps['calendar userscalendargroupscalendar list-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar-group-calendar list-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar list-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar show-calendar-permission'] = """
+helps['calendar userscalendargroupscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar-group-calendar show-calendar-view'] = """
+helps['calendar userscalendargroupscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar-group-calendar show-event'] = """
+helps['calendar userscalendargroupscalendar show-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar-group-calendar show-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar show-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar update-calendar-permission'] = """
+helps['calendar userscalendargroupscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in users."
     parameters:
@@ -7245,542 +2212,147 @@ helps['calendar user-calendar-group-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar-group-calendar update-calendar-view'] = """
+helps['calendar userscalendargroupscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar update-event'] = """
+helps['calendar userscalendargroupscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar update-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group-calendar update-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group-calendar-view'] = """
+helps['calendar userscalendargroupscalendarscalendarview'] = """
     type: group
-    short-summary: Manage user calendar group calendar calendar view with calendar_v1_0
+    short-summary: Manage userscalendargroupscalendarscalendarview with calendar_v1_0
 """
 
-helps['calendar user-calendar-group-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-group-calendar-view create-attachment'] = """
+helps['calendar userscalendargroupscalendarscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-group-calendar-view create-extension'] = """
+helps['calendar userscalendargroupscalendarscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-group-calendar-view create-instance'] = """
+helps['calendar userscalendargroupscalendarscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar-view create-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar-view create-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar-view list-attachment'] = """
+helps['calendar userscalendargroupscalendarscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendarscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-group-calendar-view list-extension'] = """
+helps['calendar userscalendargroupscalendarscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-group-calendar-view list-instance'] = """
+helps['calendar userscalendargroupscalendarscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-group-calendar-view list-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-view list-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-attachment'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-calendar'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-extension'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-instance'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-view show-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-view update-attachment'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-group-calendar-view update-calendar'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -7813,403 +2385,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-group-calendar-view update-extension'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-group-calendar-view update-instance'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar-view update-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group-calendar-view update-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group-calendar-event'] = """
+helps['calendar userscalendargroupscalendarsevent'] = """
     type: group
-    short-summary: Manage user calendar group calendar event with calendar_v1_0
+    short-summary: Manage userscalendargroupscalendarsevent with calendar_v1_0
 """
 
-helps['calendar user-calendar-group-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-group-calendar-event create-attachment'] = """
+helps['calendar userscalendargroupscalendarsevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-group-calendar-event create-extension'] = """
+helps['calendar userscalendargroupscalendarsevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-group-calendar-event create-instance'] = """
+helps['calendar userscalendargroupscalendarsevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar-event create-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar-event create-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-group-calendar-event list-attachment'] = """
+helps['calendar userscalendargroupscalendarsevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendargroupscalendarsevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-group-calendar-event list-extension'] = """
+helps['calendar userscalendargroupscalendarsevent list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-group-calendar-event list-instance'] = """
+helps['calendar userscalendargroupscalendarsevent list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-group-calendar-event list-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-event list-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-attachment'] = """
+helps['calendar userscalendargroupscalendarsevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-calendar'] = """
+helps['calendar userscalendargroupscalendarsevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-extension'] = """
+helps['calendar userscalendargroupscalendarsevent show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-instance'] = """
+helps['calendar userscalendargroupscalendarsevent show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-event show-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-group-calendar-event update-attachment'] = """
+helps['calendar userscalendargroupscalendarsevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-group-calendar-event update-calendar'] = """
+helps['calendar userscalendargroupscalendarsevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -8242,178 +2558,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-group-calendar-event update-extension'] = """
+helps['calendar userscalendargroupscalendarsevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-group-calendar-event update-instance'] = """
+helps['calendar userscalendargroupscalendarsevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-group-calendar-event update-multi-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-group-calendar-event update-single-value-extended-property'] = """
+helps['calendar userscalendargroupscalendarsevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar'] = """
+helps['calendar userscalendar'] = """
     type: group
-    short-summary: Manage user calendar with calendar_v1_0
+    short-summary: Manage userscalendar with calendar_v1_0
 """
 
-helps['calendar user-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
-helps['calendar user-calendar create-calendar-permission'] = """
+helps['calendar userscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
     parameters:
@@ -8426,355 +2596,102 @@ helps['calendar user-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar create-calendar-view'] = """
+helps['calendar userscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar create-event'] = """
+helps['calendar userscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar create-multi-value-extended-property'] = """
+helps['calendar userscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar create-single-value-extended-property'] = """
+helps['calendar userscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar list-calendar-permission'] = """
+helps['calendar userscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar userscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar userscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar userscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar list-calendar-view'] = """
+helps['calendar userscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar list-event'] = """
+helps['calendar userscalendar list-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar list-multi-value-extended-property'] = """
+helps['calendar userscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar list-single-value-extended-property'] = """
+helps['calendar userscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar show-calendar-permission'] = """
+helps['calendar userscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar show-calendar-view'] = """
+helps['calendar userscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar show-event'] = """
+helps['calendar userscalendar show-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar show-multi-value-extended-property'] = """
+helps['calendar userscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar show-single-value-extended-property'] = """
+helps['calendar userscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar update-calendar-permission'] = """
+helps['calendar userscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in users."
     parameters:
@@ -8787,542 +2704,147 @@ helps['calendar user-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar update-calendar-view'] = """
+helps['calendar userscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar update-event'] = """
+helps['calendar userscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar update-multi-value-extended-property'] = """
+helps['calendar userscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar update-single-value-extended-property'] = """
+helps['calendar userscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view'] = """
+helps['calendar userscalendarscalendarview'] = """
     type: group
-    short-summary: Manage user calendar calendar view with calendar_v1_0
+    short-summary: Manage userscalendarscalendarview with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-view create-attachment'] = """
+helps['calendar userscalendarscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-view create-extension'] = """
+helps['calendar userscalendarscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-view create-instance'] = """
+helps['calendar userscalendarscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view create-multi-value-extended-property'] = """
+helps['calendar userscalendarscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view create-single-value-extended-property'] = """
+helps['calendar userscalendarscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view list-attachment'] = """
+helps['calendar userscalendarscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendarscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendarscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendarscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendarscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view list-extension'] = """
+helps['calendar userscalendarscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view list-instance'] = """
+helps['calendar userscalendarscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view list-multi-value-extended-property'] = """
+helps['calendar userscalendarscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view list-single-value-extended-property'] = """
+helps['calendar userscalendarscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-attachment'] = """
+helps['calendar userscalendarscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view show-calendar'] = """
+helps['calendar userscalendarscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-view show-extension'] = """
+helps['calendar userscalendarscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view show-instance'] = """
+helps['calendar userscalendarscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view show-multi-value-extended-property'] = """
+helps['calendar userscalendarscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-single-value-extended-property'] = """
+helps['calendar userscalendarscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view update-attachment'] = """
+helps['calendar userscalendarscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-view update-calendar'] = """
+helps['calendar userscalendarscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -9355,403 +2877,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-view update-extension'] = """
+helps['calendar userscalendarscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-view update-instance'] = """
+helps['calendar userscalendarscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view update-multi-value-extended-property'] = """
+helps['calendar userscalendarscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view update-single-value-extended-property'] = """
+helps['calendar userscalendarscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-event'] = """
+helps['calendar userscalendarsevent'] = """
     type: group
-    short-summary: Manage user calendar event with calendar_v1_0
+    short-summary: Manage userscalendarsevent with calendar_v1_0
 """
 
-helps['calendar user-calendar-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-event create-attachment'] = """
+helps['calendar userscalendarsevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-event create-extension'] = """
+helps['calendar userscalendarsevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-event create-instance'] = """
+helps['calendar userscalendarsevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-event create-multi-value-extended-property'] = """
+helps['calendar userscalendarsevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-event create-single-value-extended-property'] = """
+helps['calendar userscalendarsevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-event list-attachment'] = """
+helps['calendar userscalendarsevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendarsevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendarsevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendarsevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendarsevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarsevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarsevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-event list-extension'] = """
+helps['calendar userscalendarsevent list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-event list-instance'] = """
+helps['calendar userscalendarsevent list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-event list-multi-value-extended-property'] = """
+helps['calendar userscalendarsevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event list-single-value-extended-property'] = """
+helps['calendar userscalendarsevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event show-attachment'] = """
+helps['calendar userscalendarsevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-event show-calendar'] = """
+helps['calendar userscalendarsevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-event show-extension'] = """
+helps['calendar userscalendarsevent show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-event show-instance'] = """
+helps['calendar userscalendarsevent show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-event show-multi-value-extended-property'] = """
+helps['calendar userscalendarsevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event show-single-value-extended-property'] = """
+helps['calendar userscalendarsevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-event update-attachment'] = """
+helps['calendar userscalendarsevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-event update-calendar'] = """
+helps['calendar userscalendarsevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -9784,403 +3050,147 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-event update-extension'] = """
+helps['calendar userscalendarsevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-event update-instance'] = """
+helps['calendar userscalendarsevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-event update-multi-value-extended-property'] = """
+helps['calendar userscalendarsevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-event update-single-value-extended-property'] = """
+helps['calendar userscalendarsevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view'] = """
+helps['calendar userscalendarview'] = """
     type: group
-    short-summary: Manage user calendar view with calendar_v1_0
+    short-summary: Manage userscalendarview with calendar_v1_0
 """
 
-helps['calendar user-calendar-view delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-calendar-view create-attachment'] = """
+helps['calendar userscalendarview create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-calendar-view create-extension'] = """
+helps['calendar userscalendarview create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-calendar-view create-instance'] = """
+helps['calendar userscalendarview create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view create-multi-value-extended-property'] = """
+helps['calendar userscalendarview create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view create-single-value-extended-property'] = """
+helps['calendar userscalendarview create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view list-attachment'] = """
+helps['calendar userscalendarview delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar userscalendarview delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar userscalendarview delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar userscalendarview delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar userscalendarview delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarview delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarview list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view list-extension'] = """
+helps['calendar userscalendarview list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view list-instance'] = """
+helps['calendar userscalendarview list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view list-multi-value-extended-property'] = """
+helps['calendar userscalendarview list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view list-single-value-extended-property'] = """
+helps['calendar userscalendarview list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-attachment'] = """
+helps['calendar userscalendarview show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-calendar-view show-calendar'] = """
+helps['calendar userscalendarview show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-calendar-view show-extension'] = """
+helps['calendar userscalendarview show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-calendar-view show-instance'] = """
+helps['calendar userscalendarview show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-calendar-view show-multi-value-extended-property'] = """
+helps['calendar userscalendarview show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view show-single-value-extended-property'] = """
+helps['calendar userscalendarview show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view update-attachment'] = """
+helps['calendar userscalendarview update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-calendar-view update-calendar'] = """
+helps['calendar userscalendarview update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -10213,178 +3223,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-calendar-view update-extension'] = """
+helps['calendar userscalendarview update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-calendar-view update-instance'] = """
+helps['calendar userscalendarview update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view update-multi-value-extended-property'] = """
+helps['calendar userscalendarview update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view update-single-value-extended-property'] = """
+helps['calendar userscalendarview update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view-calendar'] = """
+helps['calendar userscalendarviewcalendar'] = """
     type: group
-    short-summary: Manage user calendar view calendar with calendar_v1_0
+    short-summary: Manage userscalendarviewcalendar with calendar_v1_0
 """
 
-helps['calendar user-calendar-view-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
-helps['calendar user-calendar-view-calendar create-calendar-permission'] = """
+helps['calendar userscalendarviewcalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
     parameters:
@@ -10397,355 +3261,102 @@ helps['calendar user-calendar-view-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar-view-calendar create-calendar-view'] = """
+helps['calendar userscalendarviewcalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view-calendar create-event'] = """
+helps['calendar userscalendarviewcalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view-calendar create-multi-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view-calendar create-single-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-calendar-view-calendar list-calendar-permission'] = """
+helps['calendar userscalendarviewcalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar userscalendarviewcalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar userscalendarviewcalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar userscalendarviewcalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarviewcalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userscalendarviewcalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar-view-calendar list-calendar-view'] = """
+helps['calendar userscalendarviewcalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar-view-calendar list-event'] = """
+helps['calendar userscalendarviewcalendar list-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar-view-calendar list-multi-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view-calendar list-single-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view-calendar show-calendar-permission'] = """
+helps['calendar userscalendarviewcalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-calendar-view-calendar show-calendar-view'] = """
+helps['calendar userscalendarviewcalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-calendar-view-calendar show-event'] = """
+helps['calendar userscalendarviewcalendar show-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-calendar-view-calendar show-multi-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view-calendar show-single-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-calendar-view-calendar update-calendar-permission'] = """
+helps['calendar userscalendarviewcalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in users."
     parameters:
@@ -10758,542 +3369,147 @@ helps['calendar user-calendar-view-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-calendar-view-calendar update-calendar-view'] = """
+helps['calendar userscalendarviewcalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view-calendar update-event'] = """
+helps['calendar userscalendarviewcalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-calendar-view-calendar update-multi-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-calendar-view-calendar update-single-value-extended-property'] = """
+helps['calendar userscalendarviewcalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-event'] = """
+helps['calendar usersevent'] = """
     type: group
-    short-summary: Manage user event with calendar_v1_0
+    short-summary: Manage usersevent with calendar_v1_0
 """
 
-helps['calendar user-event delete'] = """
-    type: command
-    short-summary: "Delete navigation property attachments for users And Delete navigation property extensions for \
-users And Delete navigation property instances for users And Delete navigation property multiValueExtendedProperties \
-for users And Delete navigation property singleValueExtendedProperties for users And Delete navigation property \
-calendar for users."
-"""
-
-helps['calendar user-event create-attachment'] = """
+helps['calendar usersevent create-attachment'] = """
     type: command
     short-summary: "Create new navigation property to attachments for users."
 """
 
-helps['calendar user-event create-extension'] = """
+helps['calendar usersevent create-extension'] = """
     type: command
     short-summary: "Create new navigation property to extensions for users."
 """
 
-helps['calendar user-event create-instance'] = """
+helps['calendar usersevent create-instance'] = """
     type: command
     short-summary: "Create new navigation property to instances for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event create-multi-value-extended-property'] = """
+helps['calendar usersevent create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-event create-single-value-extended-property'] = """
+helps['calendar usersevent create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-event list-attachment'] = """
+helps['calendar usersevent delete-attachment'] = """
+    type: command
+    short-summary: "Delete navigation property attachments for users."
+"""
+
+helps['calendar usersevent delete-calendar'] = """
+    type: command
+    short-summary: "Delete navigation property calendar for users."
+"""
+
+helps['calendar usersevent delete-extension'] = """
+    type: command
+    short-summary: "Delete navigation property extensions for users."
+"""
+
+helps['calendar usersevent delete-instance'] = """
+    type: command
+    short-summary: "Delete navigation property instances for users."
+"""
+
+helps['calendar usersevent delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar usersevent delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar usersevent list-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-event list-extension'] = """
+helps['calendar usersevent list-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-event list-instance'] = """
+helps['calendar usersevent list-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-event list-multi-value-extended-property'] = """
+helps['calendar usersevent list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-event list-single-value-extended-property'] = """
+helps['calendar usersevent list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-event show-attachment'] = """
+helps['calendar usersevent show-attachment'] = """
     type: command
     short-summary: "Get attachments from users."
 """
 
-helps['calendar user-event show-calendar'] = """
+helps['calendar usersevent show-calendar'] = """
     type: command
     short-summary: "Get calendar from users."
 """
 
-helps['calendar user-event show-extension'] = """
+helps['calendar usersevent show-extension'] = """
     type: command
     short-summary: "Get extensions from users."
 """
 
-helps['calendar user-event show-instance'] = """
+helps['calendar usersevent show-instance'] = """
     type: command
     short-summary: "Get instances from users."
 """
 
-helps['calendar user-event show-multi-value-extended-property'] = """
+helps['calendar usersevent show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-event show-single-value-extended-property'] = """
+helps['calendar usersevent show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-event update-attachment'] = """
+helps['calendar usersevent update-attachment'] = """
     type: command
     short-summary: "Update the navigation property attachments in users."
 """
 
-helps['calendar user-event update-calendar'] = """
+helps['calendar usersevent update-calendar'] = """
     type: command
     short-summary: "Update the navigation property calendar in users."
     parameters:
@@ -11326,178 +3542,32 @@ Nullable."
             Multiple actions can be specified by using more than one --single-value-extended-properties argument.
 """
 
-helps['calendar user-event update-extension'] = """
+helps['calendar usersevent update-extension'] = """
     type: command
     short-summary: "Update the navigation property extensions in users."
 """
 
-helps['calendar user-event update-instance'] = """
+helps['calendar usersevent update-instance'] = """
     type: command
     short-summary: "Update the navigation property instances in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event update-multi-value-extended-property'] = """
+helps['calendar usersevent update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-event update-single-value-extended-property'] = """
+helps['calendar usersevent update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """
 
-helps['calendar user-event-calendar'] = """
+helps['calendar userseventscalendar'] = """
     type: group
-    short-summary: Manage user event calendar with calendar_v1_0
+    short-summary: Manage userseventscalendar with calendar_v1_0
 """
 
-helps['calendar user-event-calendar delete'] = """
-    type: command
-    short-summary: "Delete navigation property calendarPermissions for users And Delete navigation property \
-calendarView for users And Delete navigation property events for users And Delete navigation property \
-multiValueExtendedProperties for users And Delete navigation property singleValueExtendedProperties for users."
-"""
-
-helps['calendar user-event-calendar create-calendar-permission'] = """
+helps['calendar userseventscalendar create-calendar-permission'] = """
     type: command
     short-summary: "Create new navigation property to calendarPermissions for users."
     parameters:
@@ -11510,355 +3580,102 @@ helps['calendar user-event-calendar create-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-event-calendar create-calendar-view'] = """
+helps['calendar userseventscalendar create-calendar-view'] = """
     type: command
     short-summary: "Create new navigation property to calendarView for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event-calendar create-event'] = """
+helps['calendar userseventscalendar create-event'] = """
     type: command
     short-summary: "Create new navigation property to events for users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event-calendar create-multi-value-extended-property'] = """
+helps['calendar userseventscalendar create-multi-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to multiValueExtendedProperties for users."
 """
 
-helps['calendar user-event-calendar create-single-value-extended-property'] = """
+helps['calendar userseventscalendar create-single-value-extended-property'] = """
     type: command
     short-summary: "Create new navigation property to singleValueExtendedProperties for users."
 """
 
-helps['calendar user-event-calendar list-calendar-permission'] = """
+helps['calendar userseventscalendar delete-calendar-permission'] = """
+    type: command
+    short-summary: "Delete navigation property calendarPermissions for users."
+"""
+
+helps['calendar userseventscalendar delete-calendar-view'] = """
+    type: command
+    short-summary: "Delete navigation property calendarView for users."
+"""
+
+helps['calendar userseventscalendar delete-event'] = """
+    type: command
+    short-summary: "Delete navigation property events for users."
+"""
+
+helps['calendar userseventscalendar delete-multi-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property multiValueExtendedProperties for users."
+"""
+
+helps['calendar userseventscalendar delete-single-value-extended-property'] = """
+    type: command
+    short-summary: "Delete navigation property singleValueExtendedProperties for users."
+"""
+
+helps['calendar userseventscalendar list-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-event-calendar list-calendar-view'] = """
+helps['calendar userseventscalendar list-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-event-calendar list-event'] = """
+helps['calendar userseventscalendar list-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-event-calendar list-multi-value-extended-property'] = """
+helps['calendar userseventscalendar list-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-event-calendar list-single-value-extended-property'] = """
+helps['calendar userseventscalendar list-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-event-calendar show-calendar-permission'] = """
+helps['calendar userseventscalendar show-calendar-permission'] = """
     type: command
     short-summary: "Get calendarPermissions from users."
 """
 
-helps['calendar user-event-calendar show-calendar-view'] = """
+helps['calendar userseventscalendar show-calendar-view'] = """
     type: command
     short-summary: "Get calendarView from users."
 """
 
-helps['calendar user-event-calendar show-event'] = """
+helps['calendar userseventscalendar show-event'] = """
     type: command
     short-summary: "Get events from users."
 """
 
-helps['calendar user-event-calendar show-multi-value-extended-property'] = """
+helps['calendar userseventscalendar show-multi-value-extended-property'] = """
     type: command
     short-summary: "Get multiValueExtendedProperties from users."
 """
 
-helps['calendar user-event-calendar show-single-value-extended-property'] = """
+helps['calendar userseventscalendar show-single-value-extended-property'] = """
     type: command
     short-summary: "Get singleValueExtendedProperties from users."
 """
 
-helps['calendar user-event-calendar update-calendar-permission'] = """
+helps['calendar userseventscalendar update-calendar-permission'] = """
     type: command
     short-summary: "Update the navigation property calendarPermissions in users."
     parameters:
@@ -11871,300 +3688,22 @@ helps['calendar user-event-calendar update-calendar-permission'] = """
             name: The display name of the person or entity.
 """
 
-helps['calendar user-event-calendar update-calendar-view'] = """
+helps['calendar userseventscalendar update-calendar-view'] = """
     type: command
     short-summary: "Update the navigation property calendarView in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event-calendar update-event'] = """
+helps['calendar userseventscalendar update-event'] = """
     type: command
     short-summary: "Update the navigation property events in users."
-    parameters:
-      - name: --body
-        short-summary: "itemBody"
-        long-summary: |
-            Usage: --body content=XX content-type=XX
-
-            content: The content of the item.
-      - name: --end
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --end date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --response-status
-        short-summary: "responseStatus"
-        long-summary: |
-            Usage: --response-status response=XX time=XX
-
-            time: The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. \
-For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-      - name: --start
-        short-summary: "dateTimeTimeZone"
-        long-summary: |
-            Usage: --start date-time=XX time-zone=XX
-
-            date-time: A single point of time in a combined date and time representation ({date}T{time}; for example, \
-2017-08-29T04:00:00.0000000).
-            time-zone: Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible \
-values.
-      - name: --attachments
-        short-summary: "The collection of fileAttachment and itemAttachment attachments for the event. Navigation \
-property. Read-only. Nullable."
-        long-summary: |
-            Usage: --attachments content-type=XX is-inline=XX last-modified-date-time=XX name=XX size=XX id=XX
-
-            content-type: The MIME type.
-            is-inline: true if the attachment is an inline attachment; otherwise, false.
-            last-modified-date-time: The Timestamp type represents date and time information using ISO 8601 format and \
-is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '2014-01-01T00:00:00Z'
-            name: The attachment's file name.
-            size: The length of the attachment in bytes.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --attachments argument.
-      - name: --extensions
-        short-summary: "The collection of open extensions defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --extensions id=XX
-
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --extensions argument.
-      - name: --multi-value-extended-properties
-        short-summary: "The collection of multi-value extended properties defined for the event. Read-only. Nullable."
-        long-summary: |
-            Usage: --multi-value-extended-properties value=XX id=XX
-
-            value: A collection of property values.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --multi-value-extended-properties argument.
-      - name: --single-value-extended-properties
-        short-summary: "The collection of single-value extended properties defined for the event. Read-only. \
-Nullable."
-        long-summary: |
-            Usage: --single-value-extended-properties value=XX id=XX
-
-            value: A property value.
-            id: Read-only.
-
-            Multiple actions can be specified by using more than one --single-value-extended-properties argument.
-      - name: --pattern
-        short-summary: "recurrencePattern"
-        long-summary: |
-            Usage: --pattern day-of-month=XX days-of-week=XX first-day-of-week=XX index=XX interval=XX month=XX \
-type=XX
-
-            day-of-month: The day of the month on which the event occurs. Required if type is absoluteMonthly or \
-absoluteYearly.
-            days-of-week: A collection of the days of the week on which the event occurs. The possible values are: \
-sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and \
-daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type \
-is weekly, relativeMonthly, or relativeYearly.
-            interval: The number of units between occurrences, where units can be in days, weeks, months, or years, \
-depending on the type. Required.
-            month: The month in which the event occurs.  This is a number from 1 to 12.
-      - name: --range
-        short-summary: "recurrenceRange"
-        long-summary: |
-            Usage: --range end-date=XX number-of-occurrences=XX recurrence-time-zone=XX start-date=XX type=XX
-
-            end-date: The date to stop applying the recurrence pattern. Depending on the recurrence pattern of the \
-event, the last occurrence of the meeting may not be this date. Required if type is endDate.
-            number-of-occurrences: The number of times to repeat the event. Required and must be positive if type is \
-numbered.
-            recurrence-time-zone: Time zone for the startDate and endDate properties. Optional. If not specified, the \
-time zone of the event is used.
-            start-date: The date to start applying the recurrence pattern. The first occurrence of the meeting may be \
-this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of \
-the recurring event. Required.
-      - name: --email-address
-        short-summary: "emailAddress"
-        long-summary: |
-            Usage: --email-address address=XX name=XX
-
-            address: The email address of the person or entity.
-            name: The display name of the person or entity.
-      - name: --phones
-        short-summary: "All of the phone numbers associated with this conference."
-        long-summary: |
-            Usage: --phones language=XX number=XX region=XX type=XX
-
-            number: The phone number.
-
-            Multiple actions can be specified by using more than one --phones argument.
-      - name: --address
-        short-summary: "physicalAddress"
-        long-summary: |
-            Usage: --address city=XX country-or-region=XX postal-code=XX state=XX street=XX
-
-            city: The city.
-            country-or-region: The country or region. It's a free-format string value, for example, 'United States'.
-            postal-code: The postal code.
-            state: The state.
-            street: The street.
-      - name: --coordinates
-        short-summary: "outlookGeoCoordinates"
-        long-summary: |
-            Usage: --coordinates accuracy=XX altitude=XX altitude-accuracy=XX latitude=XX longitude=XX
-
-            accuracy: The accuracy of the latitude and longitude. As an example, the accuracy can be measured in \
-meters, such as the latitude and longitude are accurate to within 50 meters.
-            altitude: The altitude of the location.
-            altitude-accuracy: The accuracy of the altitude.
-            latitude: The latitude of the location.
-            longitude: The longitude of the location.
 """
 
-helps['calendar user-event-calendar update-multi-value-extended-property'] = """
+helps['calendar userseventscalendar update-multi-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property multiValueExtendedProperties in users."
 """
 
-helps['calendar user-event-calendar update-single-value-extended-property'] = """
+helps['calendar userseventscalendar update-single-value-extended-property'] = """
     type: command
     short-summary: "Update the navigation property singleValueExtendedProperties in users."
 """

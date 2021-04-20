@@ -15,8 +15,8 @@
 ### <a name="CommandsInusers">Commands in `az cloudcommunications user` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az cloudcommunications user delete](#usersDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParametersusersDeleteOnlineMeetings)|Not Found|
 |[az cloudcommunications user create-online-meeting](#usersCreateOnlineMeetings)|CreateOnlineMeetings|[Parameters](#ParametersusersCreateOnlineMeetings)|Not Found|
+|[az cloudcommunications user delete-online-meeting](#usersDeleteOnlineMeetings)|DeleteOnlineMeetings|[Parameters](#ParametersusersDeleteOnlineMeetings)|Not Found|
 |[az cloudcommunications user list-online-meeting](#usersListOnlineMeetings)|ListOnlineMeetings|[Parameters](#ParametersusersListOnlineMeetings)|Not Found|
 |[az cloudcommunications user show-online-meeting](#usersGetOnlineMeetings)|GetOnlineMeetings|[Parameters](#ParametersusersGetOnlineMeetings)|Not Found|
 |[az cloudcommunications user update-online-meeting](#usersUpdateOnlineMeetings)|UpdateOnlineMeetings|[Parameters](#ParametersusersUpdateOnlineMeetings)|Not Found|
@@ -25,15 +25,6 @@
 ## COMMAND DETAILS
 
 ### group `az cloudcommunications user`
-#### <a name="usersDeleteOnlineMeetings">Command `az cloudcommunications user delete`</a>
-
-##### <a name="ParametersusersDeleteOnlineMeetings">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-id**|string|key: id of user|user_id|user-id|
-|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
 #### <a name="usersCreateOnlineMeetings">Command `az cloudcommunications user create-online-meeting`</a>
 
 ##### <a name="ParametersusersCreateOnlineMeetings">Parameters</a> 
@@ -53,6 +44,15 @@
 |**--video-teleconference-id**|string|The video teleconferencing ID. Read-only.|video_teleconference_id|videoTeleconferenceId|
 |**--attendees**|array||attendees|attendees|
 |**--organizer**|object|meetingParticipantInfo|organizer|organizer|
+
+#### <a name="usersDeleteOnlineMeetings">Command `az cloudcommunications user delete-online-meeting`</a>
+
+##### <a name="ParametersusersDeleteOnlineMeetings">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-id**|string|key: id of user|user_id|user-id|
+|**--online-meeting-id**|string|key: id of onlineMeeting|online_meeting_id|onlineMeeting-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="usersListOnlineMeetings">Command `az cloudcommunications user list-online-meeting`</a>
 

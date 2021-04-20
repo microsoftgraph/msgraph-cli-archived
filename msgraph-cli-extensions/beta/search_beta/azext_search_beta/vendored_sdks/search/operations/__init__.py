@@ -6,14 +6,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._external_external_operations import ExternalExternalOperations
-from ._external_operations import ExternalOperations
-from ._search_search_entity_operations import SearchSearchEntityOperations
-from ._search_operations import SearchOperations
+from ._externalexternal_operations import externalexternalOperations
+from ._external_operations import externalOperations
+from ._searchsearchentity_operations import searchsearchentityOperations
+from ._search_operations import searchOperations
 
 __all__ = [
-    'ExternalExternalOperations',
-    'ExternalOperations',
-    'SearchSearchEntityOperations',
-    'SearchOperations',
+    'externalexternalOperations',
+    'externalOperations',
+    'searchsearchentityOperations',
+    'searchOperations',
 ]

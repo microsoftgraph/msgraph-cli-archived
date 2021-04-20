@@ -9,57 +9,50 @@
 ### <a name="CommandGroups">Command groups in `az reports_beta` extension </a>
 |CLI Command Group|Group Swagger name|Commands|
 |---------|------------|--------|
-|az reports audit-log-audit-log-root|auditLogs.auditLogRoot|[commands](#CommandsInauditLogs.auditLogRoot)|
-|az reports audit-log|auditLogs|[commands](#CommandsInauditLogs)|
-|az reports report-root|reports.reportRoot|[commands](#CommandsInreports.reportRoot)|
+|az reports auditlogsauditlogroot|auditLogs.auditLogRoot|[commands](#CommandsInauditLogs.auditLogRoot)|
+|az reports auditlog|auditLogs|[commands](#CommandsInauditLogs)|
+|az reports reportsreportroot|reports.reportRoot|[commands](#CommandsInreports.reportRoot)|
 |az reports report|reports|[commands](#CommandsInreports)|
 
 ## COMMANDS
-### <a name="CommandsInauditLogs">Commands in `az reports audit-log` group</a>
+### <a name="CommandsInauditLogs">Commands in `az reports auditlog` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteDirectoryProvisioning)|DeleteDirectoryProvisioning|[Parameters](#ParametersauditLogsDeleteDirectoryProvisioning)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteProvisioning)|DeleteProvisioning|[Parameters](#ParametersauditLogsDeleteProvisioning)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
-|[az reports audit-log delete](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
-|[az reports audit-log create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
-|[az reports audit-log create-directory-provisioning](#auditLogsCreateDirectoryProvisioning)|CreateDirectoryProvisioning|[Parameters](#ParametersauditLogsCreateDirectoryProvisioning)|Not Found|
-|[az reports audit-log create-provisioning](#auditLogsCreateProvisioning)|CreateProvisioning|[Parameters](#ParametersauditLogsCreateProvisioning)|Not Found|
-|[az reports audit-log create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
-|[az reports audit-log create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
-|[az reports audit-log list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
-|[az reports audit-log list-directory-provisioning](#auditLogsListDirectoryProvisioning)|ListDirectoryProvisioning|[Parameters](#ParametersauditLogsListDirectoryProvisioning)|Not Found|
-|[az reports audit-log list-provisioning](#auditLogsListProvisioning)|ListProvisioning|[Parameters](#ParametersauditLogsListProvisioning)|Not Found|
-|[az reports audit-log list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
-|[az reports audit-log list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
-|[az reports audit-log show-directory-audit](#auditLogsGetDirectoryAudits)|GetDirectoryAudits|[Parameters](#ParametersauditLogsGetDirectoryAudits)|Not Found|
-|[az reports audit-log show-directory-provisioning](#auditLogsGetDirectoryProvisioning)|GetDirectoryProvisioning|[Parameters](#ParametersauditLogsGetDirectoryProvisioning)|Not Found|
-|[az reports audit-log show-provisioning](#auditLogsGetProvisioning)|GetProvisioning|[Parameters](#ParametersauditLogsGetProvisioning)|Not Found|
-|[az reports audit-log show-restricted-sign-in](#auditLogsGetRestrictedSignIns)|GetRestrictedSignIns|[Parameters](#ParametersauditLogsGetRestrictedSignIns)|Not Found|
-|[az reports audit-log show-sign-in](#auditLogsGetSignIns)|GetSignIns|[Parameters](#ParametersauditLogsGetSignIns)|Not Found|
-|[az reports audit-log update-directory-audit](#auditLogsUpdateDirectoryAudits)|UpdateDirectoryAudits|[Parameters](#ParametersauditLogsUpdateDirectoryAudits)|Not Found|
-|[az reports audit-log update-directory-provisioning](#auditLogsUpdateDirectoryProvisioning)|UpdateDirectoryProvisioning|[Parameters](#ParametersauditLogsUpdateDirectoryProvisioning)|Not Found|
-|[az reports audit-log update-provisioning](#auditLogsUpdateProvisioning)|UpdateProvisioning|[Parameters](#ParametersauditLogsUpdateProvisioning)|Not Found|
-|[az reports audit-log update-restricted-sign-in](#auditLogsUpdateRestrictedSignIns)|UpdateRestrictedSignIns|[Parameters](#ParametersauditLogsUpdateRestrictedSignIns)|Not Found|
-|[az reports audit-log update-sign-in](#auditLogsUpdateSignIns)|UpdateSignIns|[Parameters](#ParametersauditLogsUpdateSignIns)|Not Found|
+|[az reports auditlog create-directory-audit](#auditLogsCreateDirectoryAudits)|CreateDirectoryAudits|[Parameters](#ParametersauditLogsCreateDirectoryAudits)|Not Found|
+|[az reports auditlog create-directory-provisioning](#auditLogsCreateDirectoryProvisioning)|CreateDirectoryProvisioning|[Parameters](#ParametersauditLogsCreateDirectoryProvisioning)|Not Found|
+|[az reports auditlog create-provisioning](#auditLogsCreateProvisioning)|CreateProvisioning|[Parameters](#ParametersauditLogsCreateProvisioning)|Not Found|
+|[az reports auditlog create-restricted-sign-in](#auditLogsCreateRestrictedSignIns)|CreateRestrictedSignIns|[Parameters](#ParametersauditLogsCreateRestrictedSignIns)|Not Found|
+|[az reports auditlog create-sign-in](#auditLogsCreateSignIns)|CreateSignIns|[Parameters](#ParametersauditLogsCreateSignIns)|Not Found|
+|[az reports auditlog delete-directory-audit](#auditLogsDeleteDirectoryAudits)|DeleteDirectoryAudits|[Parameters](#ParametersauditLogsDeleteDirectoryAudits)|Not Found|
+|[az reports auditlog delete-directory-provisioning](#auditLogsDeleteDirectoryProvisioning)|DeleteDirectoryProvisioning|[Parameters](#ParametersauditLogsDeleteDirectoryProvisioning)|Not Found|
+|[az reports auditlog delete-provisioning](#auditLogsDeleteProvisioning)|DeleteProvisioning|[Parameters](#ParametersauditLogsDeleteProvisioning)|Not Found|
+|[az reports auditlog delete-restricted-sign-in](#auditLogsDeleteRestrictedSignIns)|DeleteRestrictedSignIns|[Parameters](#ParametersauditLogsDeleteRestrictedSignIns)|Not Found|
+|[az reports auditlog delete-sign-in](#auditLogsDeleteSignIns)|DeleteSignIns|[Parameters](#ParametersauditLogsDeleteSignIns)|Not Found|
+|[az reports auditlog list-directory-audit](#auditLogsListDirectoryAudits)|ListDirectoryAudits|[Parameters](#ParametersauditLogsListDirectoryAudits)|Not Found|
+|[az reports auditlog list-directory-provisioning](#auditLogsListDirectoryProvisioning)|ListDirectoryProvisioning|[Parameters](#ParametersauditLogsListDirectoryProvisioning)|Not Found|
+|[az reports auditlog list-provisioning](#auditLogsListProvisioning)|ListProvisioning|[Parameters](#ParametersauditLogsListProvisioning)|Not Found|
+|[az reports auditlog list-restricted-sign-in](#auditLogsListRestrictedSignIns)|ListRestrictedSignIns|[Parameters](#ParametersauditLogsListRestrictedSignIns)|Not Found|
+|[az reports auditlog list-sign-in](#auditLogsListSignIns)|ListSignIns|[Parameters](#ParametersauditLogsListSignIns)|Not Found|
+|[az reports auditlog show-directory-audit](#auditLogsGetDirectoryAudits)|GetDirectoryAudits|[Parameters](#ParametersauditLogsGetDirectoryAudits)|Not Found|
+|[az reports auditlog show-directory-provisioning](#auditLogsGetDirectoryProvisioning)|GetDirectoryProvisioning|[Parameters](#ParametersauditLogsGetDirectoryProvisioning)|Not Found|
+|[az reports auditlog show-provisioning](#auditLogsGetProvisioning)|GetProvisioning|[Parameters](#ParametersauditLogsGetProvisioning)|Not Found|
+|[az reports auditlog show-restricted-sign-in](#auditLogsGetRestrictedSignIns)|GetRestrictedSignIns|[Parameters](#ParametersauditLogsGetRestrictedSignIns)|Not Found|
+|[az reports auditlog show-sign-in](#auditLogsGetSignIns)|GetSignIns|[Parameters](#ParametersauditLogsGetSignIns)|Not Found|
+|[az reports auditlog update-directory-audit](#auditLogsUpdateDirectoryAudits)|UpdateDirectoryAudits|[Parameters](#ParametersauditLogsUpdateDirectoryAudits)|Not Found|
+|[az reports auditlog update-directory-provisioning](#auditLogsUpdateDirectoryProvisioning)|UpdateDirectoryProvisioning|[Parameters](#ParametersauditLogsUpdateDirectoryProvisioning)|Not Found|
+|[az reports auditlog update-provisioning](#auditLogsUpdateProvisioning)|UpdateProvisioning|[Parameters](#ParametersauditLogsUpdateProvisioning)|Not Found|
+|[az reports auditlog update-restricted-sign-in](#auditLogsUpdateRestrictedSignIns)|UpdateRestrictedSignIns|[Parameters](#ParametersauditLogsUpdateRestrictedSignIns)|Not Found|
+|[az reports auditlog update-sign-in](#auditLogsUpdateSignIns)|UpdateSignIns|[Parameters](#ParametersauditLogsUpdateSignIns)|Not Found|
 
-### <a name="CommandsInauditLogs.auditLogRoot">Commands in `az reports audit-log-audit-log-root` group</a>
+### <a name="CommandsInauditLogs.auditLogRoot">Commands in `az reports auditlogsauditlogroot` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports audit-log-audit-log-root show-audit-log-root](#auditLogs.auditLogRootGetAuditLogRoot)|GetAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootGetAuditLogRoot)|Not Found|
-|[az reports audit-log-audit-log-root update-audit-log-root](#auditLogs.auditLogRootUpdateAuditLogRoot)|UpdateAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootUpdateAuditLogRoot)|Not Found|
+|[az reports auditlogsauditlogroot show-audit-log-root](#auditLogs.auditLogRootGetAuditLogRoot)|GetAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootGetAuditLogRoot)|Not Found|
+|[az reports auditlogsauditlogroot update-audit-log-root](#auditLogs.auditLogRootUpdateAuditLogRoot)|UpdateAuditLogRoot|[Parameters](#ParametersauditLogs.auditLogRootUpdateAuditLogRoot)|Not Found|
 
 ### <a name="CommandsInreports">Commands in `az reports report` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports report delete](#reportsDeleteApplicationSignInDetailedSummary)|DeleteApplicationSignInDetailedSummary|[Parameters](#ParametersreportsDeleteApplicationSignInDetailedSummary)|Not Found|
-|[az reports report delete](#reportsDeleteCredentialUserRegistrationDetails)|DeleteCredentialUserRegistrationDetails|[Parameters](#ParametersreportsDeleteCredentialUserRegistrationDetails)|Not Found|
-|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByPrinter)|DeleteDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByPrinter)|Not Found|
-|[az reports report delete](#reportsDeleteDailyPrintUsageSummariesByUser)|DeleteDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByUser)|Not Found|
-|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByPrinter)|DeleteMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter)|Not Found|
-|[az reports report delete](#reportsDeleteMonthlyPrintUsageSummariesByUser)|DeleteMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByUser)|Not Found|
-|[az reports report delete](#reportsDeleteUserCredentialUsageDetails)|DeleteUserCredentialUsageDetails|[Parameters](#ParametersreportsDeleteUserCredentialUsageDetails)|Not Found|
 |[az reports report create-application-sign-in-detailed-summary](#reportsCreateApplicationSignInDetailedSummary)|CreateApplicationSignInDetailedSummary|[Parameters](#ParametersreportsCreateApplicationSignInDetailedSummary)|Not Found|
 |[az reports report create-credential-user-registration-detail](#reportsCreateCredentialUserRegistrationDetails)|CreateCredentialUserRegistrationDetails|[Parameters](#ParametersreportsCreateCredentialUserRegistrationDetails)|Not Found|
 |[az reports report create-daily-print-usage-summary-by-printer](#reportsCreateDailyPrintUsageSummariesByPrinter)|CreateDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateDailyPrintUsageSummariesByPrinter)|Not Found|
@@ -67,6 +60,13 @@
 |[az reports report create-monthly-print-usage-summary-by-printer](#reportsCreateMonthlyPrintUsageSummariesByPrinter)|CreateMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByPrinter)|Not Found|
 |[az reports report create-monthly-print-usage-summary-by-user](#reportsCreateMonthlyPrintUsageSummariesByUser)|CreateMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsCreateMonthlyPrintUsageSummariesByUser)|Not Found|
 |[az reports report create-user-credential-usage-detail](#reportsCreateUserCredentialUsageDetails)|CreateUserCredentialUsageDetails|[Parameters](#ParametersreportsCreateUserCredentialUsageDetails)|Not Found|
+|[az reports report delete-application-sign-in-detailed-summary](#reportsDeleteApplicationSignInDetailedSummary)|DeleteApplicationSignInDetailedSummary|[Parameters](#ParametersreportsDeleteApplicationSignInDetailedSummary)|Not Found|
+|[az reports report delete-credential-user-registration-detail](#reportsDeleteCredentialUserRegistrationDetails)|DeleteCredentialUserRegistrationDetails|[Parameters](#ParametersreportsDeleteCredentialUserRegistrationDetails)|Not Found|
+|[az reports report delete-daily-print-usage-summary](#reportsDeleteDailyPrintUsageSummariesByPrinter)|DeleteDailyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete-daily-print-usage-summary](#reportsDeleteDailyPrintUsageSummariesByUser)|DeleteDailyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteDailyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete-monthly-print-usage-summary](#reportsDeleteMonthlyPrintUsageSummariesByPrinter)|DeleteMonthlyPrintUsageSummariesByPrinter|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter)|Not Found|
+|[az reports report delete-monthly-print-usage-summary](#reportsDeleteMonthlyPrintUsageSummariesByUser)|DeleteMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsDeleteMonthlyPrintUsageSummariesByUser)|Not Found|
+|[az reports report delete-user-credential-usage-detail](#reportsDeleteUserCredentialUsageDetails)|DeleteUserCredentialUsageDetails|[Parameters](#ParametersreportsDeleteUserCredentialUsageDetails)|Not Found|
 |[az reports report device-configuration-device-activity](#reportsdeviceConfigurationDeviceActivity)|deviceConfigurationDeviceActivity|[Parameters](#ParametersreportsdeviceConfigurationDeviceActivity)|Not Found|
 |[az reports report device-configuration-user-activity](#reportsdeviceConfigurationUserActivity)|deviceConfigurationUserActivity|[Parameters](#ParametersreportsdeviceConfigurationUserActivity)|Not Found|
 |[az reports report list-application-sign-in-detailed-summary](#reportsListApplicationSignInDetailedSummary)|ListApplicationSignInDetailedSummary|[Parameters](#ParametersreportsListApplicationSignInDetailedSummary)|Not Found|
@@ -193,51 +193,17 @@
 |[az reports report update-monthly-print-usage-summary-by-user](#reportsUpdateMonthlyPrintUsageSummariesByUser)|UpdateMonthlyPrintUsageSummariesByUser|[Parameters](#ParametersreportsUpdateMonthlyPrintUsageSummariesByUser)|Not Found|
 |[az reports report update-user-credential-usage-detail](#reportsUpdateUserCredentialUsageDetails)|UpdateUserCredentialUsageDetails|[Parameters](#ParametersreportsUpdateUserCredentialUsageDetails)|Not Found|
 
-### <a name="CommandsInreports.reportRoot">Commands in `az reports report-root` group</a>
+### <a name="CommandsInreports.reportRoot">Commands in `az reports reportsreportroot` group</a>
 |CLI Command|Operation Swagger name|Parameters|Examples|
 |---------|------------|--------|-----------|
-|[az reports report-root show-report-root](#reports.reportRootGetReportRoot)|GetReportRoot|[Parameters](#Parametersreports.reportRootGetReportRoot)|Not Found|
-|[az reports report-root update-report-root](#reports.reportRootUpdateReportRoot)|UpdateReportRoot|[Parameters](#Parametersreports.reportRootUpdateReportRoot)|Not Found|
+|[az reports reportsreportroot show-report-root](#reports.reportRootGetReportRoot)|GetReportRoot|[Parameters](#Parametersreports.reportRootGetReportRoot)|Not Found|
+|[az reports reportsreportroot update-report-root](#reports.reportRootUpdateReportRoot)|UpdateReportRoot|[Parameters](#Parametersreports.reportRootUpdateReportRoot)|Not Found|
 
 
 ## COMMAND DETAILS
 
-### group `az reports audit-log`
-#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="auditLogsDeleteDirectoryProvisioning">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteDirectoryProvisioning">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-
-#### <a name="auditLogsDeleteProvisioning">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteProvisioning">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
-
-#### <a name="auditLogsDeleteSignIns">Command `az reports audit-log delete`</a>
-
-##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
-
-#### <a name="auditLogsCreateDirectoryAudits">Command `az reports audit-log create-directory-audit`</a>
+### group `az reports auditlog`
+#### <a name="auditLogsCreateDirectoryAudits">Command `az reports auditlog create-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsCreateDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -256,73 +222,21 @@
 |**--app**|object|appIdentity|app|app|
 |**--user**|object|userIdentity|user|user|
 
-#### <a name="auditLogsCreateDirectoryProvisioning">Command `az reports audit-log create-directory-provisioning`</a>
+#### <a name="auditLogsCreateDirectoryProvisioning">Command `az reports auditlog create-directory-provisioning`</a>
 
 ##### <a name="ParametersauditLogsCreateDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--details**|dictionary|detailsInfo|details|details|
-|**--display-name**|string||display_name|displayName|
-|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--identity-type**|string||identity_type|identityType|
-|**--status**|choice||status|status|
-|**--details1**|dictionary|detailsInfo|details1|details|
-|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--id1**|string||id1|id|
-|**--details2**|dictionary|detailsInfo|details2|details|
-|**--display-name1**|string||display_name1|displayName|
-|**--id2**|string||id2|id|
-|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--body**|object|New navigation property|body|body|
 
-#### <a name="auditLogsCreateProvisioning">Command `az reports audit-log create-provisioning`</a>
+#### <a name="auditLogsCreateProvisioning">Command `az reports auditlog create-provisioning`</a>
 
 ##### <a name="ParametersauditLogsCreateProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--details**|dictionary|detailsInfo|details|details|
-|**--display-name**|string||display_name|displayName|
-|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--identity-type**|string||identity_type|identityType|
-|**--status**|choice||status|status|
-|**--details1**|dictionary|detailsInfo|details1|details|
-|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--id1**|string||id1|id|
-|**--details2**|dictionary|detailsInfo|details2|details|
-|**--display-name1**|string||display_name1|displayName|
-|**--id2**|string||id2|id|
-|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--body**|object|New navigation property|body|body|
 
-#### <a name="auditLogsCreateRestrictedSignIns">Command `az reports audit-log create-restricted-sign-in`</a>
+#### <a name="auditLogsCreateRestrictedSignIns">Command `az reports auditlog create-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsCreateRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -373,57 +287,54 @@
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 |**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-#### <a name="auditLogsCreateSignIns">Command `az reports audit-log create-sign-in`</a>
+#### <a name="auditLogsCreateSignIns">Command `az reports auditlog create-sign-in`</a>
 
 ##### <a name="ParametersauditLogsCreateSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
-|**--id**|string|Read-only.|id|id|
-|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
-|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
-|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
-|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
-|**--authentication-details**|array||authentication_details|authenticationDetails|
-|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
-|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
-|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
-|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
-|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
-|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
-|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
-|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
-|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
-|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
-|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
-|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
-|**--network-location-details**|array||network_location_details|networkLocationDetails|
-|**--original-request-id**|string||original_request_id|originalRequestId|
-|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
-|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
-|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
-|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
-|**--risk-detail**|choice||risk_detail|riskDetail|
-|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
-|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
-|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
-|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
-|**--risk-state**|choice||risk_state|riskState|
-|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
-|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
-|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
-|**--status**|object|signInStatus|status|status|
-|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
-|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
-|**--user-agent**|string||user_agent|userAgent|
-|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
-|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
-|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--body**|object|New navigation property|body|body|
 
-#### <a name="auditLogsListDirectoryAudits">Command `az reports audit-log list-directory-audit`</a>
+#### <a name="auditLogsDeleteDirectoryAudits">Command `az reports auditlog delete-directory-audit`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryAudits">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--directory-audit-id**|string|key: id of directoryAudit|directory_audit_id|directoryAudit-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteDirectoryProvisioning">Command `az reports auditlog delete-directory-provisioning`</a>
+
+##### <a name="ParametersauditLogsDeleteDirectoryProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteProvisioning">Command `az reports auditlog delete-provisioning`</a>
+
+##### <a name="ParametersauditLogsDeleteProvisioning">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteRestrictedSignIns">Command `az reports auditlog delete-restricted-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteRestrictedSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--restricted-sign-in-id**|string|key: id of restrictedSignIn|restricted_sign_in_id|restrictedSignIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsDeleteSignIns">Command `az reports auditlog delete-sign-in`</a>
+
+##### <a name="ParametersauditLogsDeleteSignIns">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="auditLogsListDirectoryAudits">Command `az reports auditlog list-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsListDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -432,7 +343,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListDirectoryProvisioning">Command `az reports audit-log list-directory-provisioning`</a>
+#### <a name="auditLogsListDirectoryProvisioning">Command `az reports auditlog list-directory-provisioning`</a>
 
 ##### <a name="ParametersauditLogsListDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -441,7 +352,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListProvisioning">Command `az reports audit-log list-provisioning`</a>
+#### <a name="auditLogsListProvisioning">Command `az reports auditlog list-provisioning`</a>
 
 ##### <a name="ParametersauditLogsListProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -450,7 +361,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListRestrictedSignIns">Command `az reports audit-log list-restricted-sign-in`</a>
+#### <a name="auditLogsListRestrictedSignIns">Command `az reports auditlog list-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsListRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -459,7 +370,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsListSignIns">Command `az reports audit-log list-sign-in`</a>
+#### <a name="auditLogsListSignIns">Command `az reports auditlog list-sign-in`</a>
 
 ##### <a name="ParametersauditLogsListSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -468,7 +379,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetDirectoryAudits">Command `az reports audit-log show-directory-audit`</a>
+#### <a name="auditLogsGetDirectoryAudits">Command `az reports auditlog show-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsGetDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -477,7 +388,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetDirectoryProvisioning">Command `az reports audit-log show-directory-provisioning`</a>
+#### <a name="auditLogsGetDirectoryProvisioning">Command `az reports auditlog show-directory-provisioning`</a>
 
 ##### <a name="ParametersauditLogsGetDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -486,7 +397,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetProvisioning">Command `az reports audit-log show-provisioning`</a>
+#### <a name="auditLogsGetProvisioning">Command `az reports auditlog show-provisioning`</a>
 
 ##### <a name="ParametersauditLogsGetProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -495,7 +406,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetRestrictedSignIns">Command `az reports audit-log show-restricted-sign-in`</a>
+#### <a name="auditLogsGetRestrictedSignIns">Command `az reports auditlog show-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsGetRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -504,7 +415,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsGetSignIns">Command `az reports audit-log show-sign-in`</a>
+#### <a name="auditLogsGetSignIns">Command `az reports auditlog show-sign-in`</a>
 
 ##### <a name="ParametersauditLogsGetSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -513,7 +424,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogsUpdateDirectoryAudits">Command `az reports audit-log update-directory-audit`</a>
+#### <a name="auditLogsUpdateDirectoryAudits">Command `az reports auditlog update-directory-audit`</a>
 
 ##### <a name="ParametersauditLogsUpdateDirectoryAudits">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -533,75 +444,23 @@
 |**--app**|object|appIdentity|app|app|
 |**--user**|object|userIdentity|user|user|
 
-#### <a name="auditLogsUpdateDirectoryProvisioning">Command `az reports audit-log update-directory-provisioning`</a>
+#### <a name="auditLogsUpdateDirectoryProvisioning">Command `az reports auditlog update-directory-provisioning`</a>
 
 ##### <a name="ParametersauditLogsUpdateDirectoryProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--details**|dictionary|detailsInfo|details|details|
-|**--display-name**|string||display_name|displayName|
-|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--identity-type**|string||identity_type|identityType|
-|**--status**|choice||status|status|
-|**--details1**|dictionary|detailsInfo|details1|details|
-|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--id1**|string||id1|id|
-|**--details2**|dictionary|detailsInfo|details2|details|
-|**--display-name1**|string||display_name1|displayName|
-|**--id2**|string||id2|id|
-|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--body**|object|New navigation property values|body|body|
 
-#### <a name="auditLogsUpdateProvisioning">Command `az reports audit-log update-provisioning`</a>
+#### <a name="auditLogsUpdateProvisioning">Command `az reports auditlog update-provisioning`</a>
 
 ##### <a name="ParametersauditLogsUpdateProvisioning">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--provisioning-object-summary-id**|string|key: id of provisioningObjectSummary|provisioning_object_summary_id|provisioningObjectSummary-id|
-|**--id**|string|Read-only.|id|id|
-|**--action**|string||action|action|
-|**--activity-date-time**|date-time||activity_date_time|activityDateTime|
-|**--change-id**|string||change_id|changeId|
-|**--cycle-id**|string||cycle_id|cycleId|
-|**--duration-in-milliseconds**|integer||duration_in_milliseconds|durationInMilliseconds|
-|**--initiated-by**|object|initiator|initiated_by|initiatedBy|
-|**--job-id**|string||job_id|jobId|
-|**--modified-properties**|array||modified_properties|modifiedProperties|
-|**--provisioning-steps**|array||provisioning_steps|provisioningSteps|
-|**--service-principal**|object|provisioningServicePrincipal|service_principal|servicePrincipal|
-|**--tenant-id**|string||tenant_id|tenantId|
-|**--details**|dictionary|detailsInfo|details|details|
-|**--display-name**|string||display_name|displayName|
-|**--microsoft-graph-provisioning-system-details-id**|string||microsoft_graph_provisioning_system_details_id|id|
-|**--microsoft-graph-details-info-details**|dictionary|detailsInfo|microsoft_graph_details_info_details|details|
-|**--microsoft-graph-provisioned-identity-display-name**|string||microsoft_graph_provisioned_identity_display_name|displayName|
-|**--microsoft-graph-provisioned-identity-id**|string||microsoft_graph_provisioned_identity_id|id|
-|**--identity-type**|string||identity_type|identityType|
-|**--status**|choice||status|status|
-|**--details1**|dictionary|detailsInfo|details1|details|
-|**--microsoft-graph-provisioning-system-details-display-name**|string||microsoft_graph_provisioning_system_details_display_name|displayName|
-|**--id1**|string||id1|id|
-|**--details2**|dictionary|detailsInfo|details2|details|
-|**--display-name1**|string||display_name1|displayName|
-|**--id2**|string||id2|id|
-|**--microsoft-graph-provisioned-identity-type**|string||microsoft_graph_provisioned_identity_type|identityType|
+|**--body**|object|New navigation property values|body|body|
 
-#### <a name="auditLogsUpdateRestrictedSignIns">Command `az reports audit-log update-restricted-sign-in`</a>
+#### <a name="auditLogsUpdateRestrictedSignIns">Command `az reports auditlog update-restricted-sign-in`</a>
 
 ##### <a name="ParametersauditLogsUpdateRestrictedSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -653,59 +512,16 @@
 |**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
 |**--target-tenant-id**|uuid||target_tenant_id|targetTenantId|
 
-#### <a name="auditLogsUpdateSignIns">Command `az reports audit-log update-sign-in`</a>
+#### <a name="auditLogsUpdateSignIns">Command `az reports auditlog update-sign-in`</a>
 
 ##### <a name="ParametersauditLogsUpdateSignIns">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
 |------|----|-----------|----------|------------|
 |**--sign-in-id**|string|key: id of signIn|sign_in_id|signIn-id|
-|**--id**|string|Read-only.|id|id|
-|**--alternate-sign-in-name**|string||alternate_sign_in_name|alternateSignInName|
-|**--app-display-name**|string|App name displayed in the Azure Portal.|app_display_name|appDisplayName|
-|**--app-id**|string|Unique GUID representing the app ID in the Azure Active Directory.|app_id|appId|
-|**--applied-conditional-access-policies**|array||applied_conditional_access_policies|appliedConditionalAccessPolicies|
-|**--authentication-details**|array||authentication_details|authenticationDetails|
-|**--authentication-methods-used**|array||authentication_methods_used|authenticationMethodsUsed|
-|**--authentication-processing-details**|array||authentication_processing_details|authenticationProcessingDetails|
-|**--authentication-requirement**|string||authentication_requirement|authenticationRequirement|
-|**--authentication-requirement-policies**|array||authentication_requirement_policies|authenticationRequirementPolicies|
-|**--client-app-used**|string|Identifies the legacy client used for sign-in activity.  Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.|client_app_used|clientAppUsed|
-|**--conditional-access-status**|choice||conditional_access_status|conditionalAccessStatus|
-|**--correlation-id**|string|The request ID sent from the client when the sign-in is initiated; used to troubleshoot sign-in activity.|correlation_id|correlationId|
-|**--created-date-time**|date-time|Date and time (UTC) the sign-in was initiated. Example: midnight on Jan 1, 2014 is reported as '2014-01-01T00:00:00Z'.|created_date_time|createdDateTime|
-|**--device-detail**|object|deviceDetail|device_detail|deviceDetail|
-|**--ip-address**|string|IP address of the client used to sign in.|ip_address|ipAddress|
-|**--is-interactive**|boolean|Indicates if a sign-in is interactive or not.|is_interactive|isInteractive|
-|**--mfa-detail**|object|mfaDetail|mfa_detail|mfaDetail|
-|**--network-location-details**|array||network_location_details|networkLocationDetails|
-|**--original-request-id**|string||original_request_id|originalRequestId|
-|**--processing-time-in-milliseconds**|integer||processing_time_in_milliseconds|processingTimeInMilliseconds|
-|**--resource-display-name**|string|Name of the resource the user signed into.|resource_display_name|resourceDisplayName|
-|**--resource-id**|string|ID of the resource that the user signed into.|resource_id|resourceId|
-|**--resource-tenant-id**|string||resource_tenant_id|resourceTenantId|
-|**--risk-detail**|choice||risk_detail|riskDetail|
-|**--risk-event-types**|array|Risk event types associated with the sign-in. The possible values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, and unknownFutureValue.|risk_event_types|riskEventTypes|
-|**--risk-event-types-v2**|array|The list of risk event types associated with the sign-in. Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,  generic, or unknownFutureValue.|risk_event_types_v2|riskEventTypes_v2|
-|**--risk-level-aggregated**|choice||risk_level_aggregated|riskLevelAggregated|
-|**--risk-level-during-sign-in**|choice||risk_level_during_sign_in|riskLevelDuringSignIn|
-|**--risk-state**|choice||risk_state|riskState|
-|**--service-principal-id**|string||service_principal_id|servicePrincipalId|
-|**--service-principal-name**|string||service_principal_name|servicePrincipalName|
-|**--sign-in-event-types**|array||sign_in_event_types|signInEventTypes|
-|**--status**|object|signInStatus|status|status|
-|**--token-issuer-name**|string||token_issuer_name|tokenIssuerName|
-|**--token-issuer-type**|choice||token_issuer_type|tokenIssuerType|
-|**--user-agent**|string||user_agent|userAgent|
-|**--user-display-name**|string|Display name of the user that initiated the sign-in.|user_display_name|userDisplayName|
-|**--user-id**|string|ID of the user that initiated the sign-in.|user_id|userId|
-|**--user-principal-name**|string|User principal name of the user that initiated the sign-in.|user_principal_name|userPrincipalName|
-|**--city**|string|Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|city|city|
-|**--country-or-region**|string|Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.|country_or_region|countryOrRegion|
-|**--geo-coordinates**|object|geoCoordinates|geo_coordinates|geoCoordinates|
-|**--state**|string|Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.|state|state|
+|**--body**|object|New navigation property values|body|body|
 
-### group `az reports audit-log-audit-log-root`
-#### <a name="auditLogs.auditLogRootGetAuditLogRoot">Command `az reports audit-log-audit-log-root show-audit-log-root`</a>
+### group `az reports auditlogsauditlogroot`
+#### <a name="auditLogs.auditLogRootGetAuditLogRoot">Command `az reports auditlogsauditlogroot show-audit-log-root`</a>
 
 ##### <a name="ParametersauditLogs.auditLogRootGetAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -713,7 +529,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="auditLogs.auditLogRootUpdateAuditLogRoot">Command `az reports audit-log-audit-log-root update-audit-log-root`</a>
+#### <a name="auditLogs.auditLogRootUpdateAuditLogRoot">Command `az reports auditlogsauditlogroot update-audit-log-root`</a>
 
 ##### <a name="ParametersauditLogs.auditLogRootUpdateAuditLogRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -726,52 +542,6 @@
 |**--sign-ins**|array|Read-only. Nullable.|sign_ins|signIns|
 
 ### group `az reports report`
-#### <a name="reportsDeleteApplicationSignInDetailedSummary">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteApplicationSignInDetailedSummary">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
-|**--if-match**|string|ETag|if_match|If-Match|
-
-#### <a name="reportsDeleteCredentialUserRegistrationDetails">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteCredentialUserRegistrationDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
-
-#### <a name="reportsDeleteDailyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
-
-#### <a name="reportsDeleteDailyPrintUsageSummariesByUser">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
-
-#### <a name="reportsDeleteMonthlyPrintUsageSummariesByPrinter">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="reportsDeleteMonthlyPrintUsageSummariesByUser">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByUser">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-#### <a name="reportsDeleteUserCredentialUsageDetails">Command `az reports report delete`</a>
-
-##### <a name="ParametersreportsDeleteUserCredentialUsageDetails">Parameters</a> 
-|Option|Type|Description|Path (SDK)|Swagger name|
-|------|----|-----------|----------|------------|
-|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
-
 #### <a name="reportsCreateApplicationSignInDetailedSummary">Command `az reports report create-application-sign-in-detailed-summary`</a>
 
 ##### <a name="ParametersreportsCreateApplicationSignInDetailedSummary">Parameters</a> 
@@ -859,6 +629,60 @@
 |**--is-success**|boolean||is_success|isSuccess|
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
+
+#### <a name="reportsDeleteApplicationSignInDetailedSummary">Command `az reports report delete-application-sign-in-detailed-summary`</a>
+
+##### <a name="ParametersreportsDeleteApplicationSignInDetailedSummary">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--application-sign-in-detailed-summary-id**|string|key: id of applicationSignInDetailedSummary|application_sign_in_detailed_summary_id|applicationSignInDetailedSummary-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteCredentialUserRegistrationDetails">Command `az reports report delete-credential-user-registration-detail`</a>
+
+##### <a name="ParametersreportsDeleteCredentialUserRegistrationDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--credential-user-registration-details-id**|string|key: id of credentialUserRegistrationDetails|credential_user_registration_details_id|credentialUserRegistrationDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteDailyPrintUsageSummariesByPrinter">Command `az reports report delete-daily-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteDailyPrintUsageSummariesByUser">Command `az reports report delete-daily-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteDailyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByPrinter">Command `az reports report delete-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByPrinter">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-printer-id**|string|key: id of PrintUsageSummaryByPrinter|print_usage_summary_by_printer_id|PrintUsageSummaryByPrinter-id|
+|**--if-match**|string|ETag|if_match|If-Match|
+
+#### <a name="reportsDeleteMonthlyPrintUsageSummariesByUser">Command `az reports report delete-monthly-print-usage-summary`</a>
+
+##### <a name="ParametersreportsDeleteMonthlyPrintUsageSummariesByUser">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--print-usage-summary-by-user-id**|string|key: id of PrintUsageSummaryByUser|print_usage_summary_by_user_id|PrintUsageSummaryByUser-id|
+
+#### <a name="reportsDeleteUserCredentialUsageDetails">Command `az reports report delete-user-credential-usage-detail`</a>
+
+##### <a name="ParametersreportsDeleteUserCredentialUsageDetails">Parameters</a> 
+|Option|Type|Description|Path (SDK)|Swagger name|
+|------|----|-----------|----------|------------|
+|**--user-credential-usage-details-id**|string|key: id of userCredentialUsageDetails|user_credential_usage_details_id|userCredentialUsageDetails-id|
+|**--if-match**|string|ETag|if_match|If-Match|
 
 #### <a name="reportsdeviceConfigurationDeviceActivity">Command `az reports report device-configuration-device-activity`</a>
 
@@ -1786,8 +1610,8 @@
 |**--user-display-name**|string||user_display_name|userDisplayName|
 |**--user-principal-name**|string||user_principal_name|userPrincipalName|
 
-### group `az reports report-root`
-#### <a name="reports.reportRootGetReportRoot">Command `az reports report-root show-report-root`</a>
+### group `az reports reportsreportroot`
+#### <a name="reports.reportRootGetReportRoot">Command `az reports reportsreportroot show-report-root`</a>
 
 ##### <a name="Parametersreports.reportRootGetReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|
@@ -1795,7 +1619,7 @@
 |**--select**|array|Select properties to be returned|select|$select|
 |**--expand**|array|Expand related entities|expand|$expand|
 
-#### <a name="reports.reportRootUpdateReportRoot">Command `az reports report-root update-report-root`</a>
+#### <a name="reports.reportRootUpdateReportRoot">Command `az reports reportsreportroot update-report-root`</a>
 
 ##### <a name="Parametersreports.reportRootUpdateReportRoot">Parameters</a> 
 |Option|Type|Description|Path (SDK)|Swagger name|

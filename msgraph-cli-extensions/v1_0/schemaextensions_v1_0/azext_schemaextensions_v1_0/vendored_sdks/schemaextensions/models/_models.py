@@ -10,21 +10,21 @@ from azure.core.exceptions import HttpResponseError
 import msrest.serialization
 
 
-class CollectionOfSchemaExtension(msrest.serialization.Model):
+class collectionofschemaextension(msrest.serialization.Model):
     """Collection of schemaExtension.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
      collection.
     :type additional_properties: dict[str, object]
     :param value:
-    :type value: list[~schema_extensions.models.MicrosoftGraphSchemaExtension]
+    :type value: list[~schema_extensions.models.microsoftgraphschemaextension]
     :param odata_next_link:
     :type odata_next_link: str
     """
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'value': {'key': 'value', 'type': '[MicrosoftGraphSchemaExtension]'},
+        'value': {'key': 'value', 'type': '[microsoftgraphschemaextension]'},
         'odata_next_link': {'key': '@odata\\.nextLink', 'type': 'str'},
     }
 
@@ -32,13 +32,13 @@ class CollectionOfSchemaExtension(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(CollectionOfSchemaExtension, self).__init__(**kwargs)
+        super(collectionofschemaextension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.value = kwargs.get('value', None)
         self.odata_next_link = kwargs.get('odata_next_link', None)
 
 
-class MicrosoftGraphEntity(msrest.serialization.Model):
+class microsoftgraphentity(msrest.serialization.Model):
     """entity.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -57,12 +57,12 @@ class MicrosoftGraphEntity(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphEntity, self).__init__(**kwargs)
+        super(microsoftgraphentity, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.id = kwargs.get('id', None)
 
 
-class MicrosoftGraphExtensionSchemaProperty(msrest.serialization.Model):
+class microsoftgraphextensionschemaproperty(msrest.serialization.Model):
     """extensionSchemaProperty.
 
     :param additional_properties: Unmatched properties from the message are deserialized to this
@@ -85,13 +85,13 @@ class MicrosoftGraphExtensionSchemaProperty(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphExtensionSchemaProperty, self).__init__(**kwargs)
+        super(microsoftgraphextensionschemaproperty, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.name = kwargs.get('name', None)
         self.type = kwargs.get('type', None)
 
 
-class MicrosoftGraphSchemaExtension(MicrosoftGraphEntity):
+class microsoftgraphschemaextension(microsoftgraphentity):
     """schemaExtension.
 
     :param id: Read-only.
@@ -108,7 +108,7 @@ class MicrosoftGraphSchemaExtension(MicrosoftGraphEntity):
     :type owner: str
     :param properties: The collection of property names and types that make up the schema extension
      definition.
-    :type properties: list[~schema_extensions.models.MicrosoftGraphExtensionSchemaProperty]
+    :type properties: list[~schema_extensions.models.microsoftgraphextensionschemaproperty]
     :param status: The lifecycle state of the schema extension. Possible states are InDevelopment,
      Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions
      provides more information on the possible state transitions and behaviors.
@@ -124,7 +124,7 @@ class MicrosoftGraphSchemaExtension(MicrosoftGraphEntity):
         'additional_properties': {'key': '', 'type': '{object}'},
         'description': {'key': 'description', 'type': 'str'},
         'owner': {'key': 'owner', 'type': 'str'},
-        'properties': {'key': 'properties', 'type': '[MicrosoftGraphExtensionSchemaProperty]'},
+        'properties': {'key': 'properties', 'type': '[microsoftgraphextensionschemaproperty]'},
         'status': {'key': 'status', 'type': 'str'},
         'target_types': {'key': 'targetTypes', 'type': '[str]'},
     }
@@ -133,7 +133,7 @@ class MicrosoftGraphSchemaExtension(MicrosoftGraphEntity):
         self,
         **kwargs
     ):
-        super(MicrosoftGraphSchemaExtension, self).__init__(**kwargs)
+        super(microsoftgraphschemaextension, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.description = kwargs.get('description', None)
         self.owner = kwargs.get('owner', None)
@@ -142,8 +142,8 @@ class MicrosoftGraphSchemaExtension(MicrosoftGraphEntity):
         self.target_types = kwargs.get('target_types', None)
 
 
-class OdataError(msrest.serialization.Model):
-    """OdataError.
+class odataerror(msrest.serialization.Model):
+    """odataerror.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -151,7 +151,7 @@ class OdataError(msrest.serialization.Model):
      collection.
     :type additional_properties: dict[str, object]
     :param error: Required.
-    :type error: ~schema_extensions.models.OdataErrorMain
+    :type error: ~schema_extensions.models.odataerrormain
     """
 
     _validation = {
@@ -160,20 +160,20 @@ class OdataError(msrest.serialization.Model):
 
     _attribute_map = {
         'additional_properties': {'key': '', 'type': '{object}'},
-        'error': {'key': 'error', 'type': 'OdataErrorMain'},
+        'error': {'key': 'error', 'type': 'odataerrormain'},
     }
 
     def __init__(
         self,
         **kwargs
     ):
-        super(OdataError, self).__init__(**kwargs)
+        super(odataerror, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.error = kwargs['error']
 
 
-class OdataErrorDetail(msrest.serialization.Model):
-    """OdataErrorDetail.
+class odataerrordetail(msrest.serialization.Model):
+    """odataerrordetail.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -204,15 +204,15 @@ class OdataErrorDetail(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorDetail, self).__init__(**kwargs)
+        super(odataerrordetail, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']
         self.target = kwargs.get('target', None)
 
 
-class OdataErrorMain(msrest.serialization.Model):
-    """OdataErrorMain.
+class odataerrormain(msrest.serialization.Model):
+    """odataerrormain.
 
     All required parameters must be populated in order to send to Azure.
 
@@ -226,7 +226,7 @@ class OdataErrorMain(msrest.serialization.Model):
     :param target:
     :type target: str
     :param details:
-    :type details: list[~schema_extensions.models.OdataErrorDetail]
+    :type details: list[~schema_extensions.models.odataerrordetail]
     :param innererror: The structure of this object is service-specific.
     :type innererror: dict[str, object]
     """
@@ -241,7 +241,7 @@ class OdataErrorMain(msrest.serialization.Model):
         'code': {'key': 'code', 'type': 'str'},
         'message': {'key': 'message', 'type': 'str'},
         'target': {'key': 'target', 'type': 'str'},
-        'details': {'key': 'details', 'type': '[OdataErrorDetail]'},
+        'details': {'key': 'details', 'type': '[odataerrordetail]'},
         'innererror': {'key': 'innererror', 'type': '{object}'},
     }
 
@@ -249,7 +249,7 @@ class OdataErrorMain(msrest.serialization.Model):
         self,
         **kwargs
     ):
-        super(OdataErrorMain, self).__init__(**kwargs)
+        super(odataerrormain, self).__init__(**kwargs)
         self.additional_properties = kwargs.get('additional_properties', None)
         self.code = kwargs['code']
         self.message = kwargs['message']

@@ -6,54 +6,54 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._group_operations import GroupOperations
-from ._group_calendar_operations import GroupCalendarOperations
-from ._group_calendar_calendar_view_operations import GroupCalendarCalendarViewOperations
-from ._group_calendar_event_operations import GroupCalendarEventOperations
-from ._group_calendar_view_operations import GroupCalendarViewOperations
-from ._group_calendar_view_calendar_operations import GroupCalendarViewCalendarOperations
-from ._group_event_operations import GroupEventOperations
-from ._group_event_calendar_operations import GroupEventCalendarOperations
-from ._place_place_operations import PlacePlaceOperations
-from ._user_operations import UserOperations
-from ._user_calendar_operations import UserCalendarOperations
-from ._user_calendar_calendar_view_operations import UserCalendarCalendarViewOperations
-from ._user_calendar_event_operations import UserCalendarEventOperations
-from ._user_calendar_group_operations import UserCalendarGroupOperations
-from ._user_calendar_group_calendar_operations import UserCalendarGroupCalendarOperations
-from ._user_calendar_group_calendar_calendar_view_operations import UserCalendarGroupCalendarCalendarViewOperations
-from ._user_calendar_group_calendar_event_operations import UserCalendarGroupCalendarEventOperations
-from ._user_calendar_operations import UserCalendarOperations
-from ._user_calendar_calendar_view_operations import UserCalendarCalendarViewOperations
-from ._user_calendar_event_operations import UserCalendarEventOperations
-from ._user_calendar_view_operations import UserCalendarViewOperations
-from ._user_calendar_view_calendar_operations import UserCalendarViewCalendarOperations
-from ._user_event_operations import UserEventOperations
-from ._user_event_calendar_operations import UserEventCalendarOperations
+from ._groups_operations import groupsOperations
+from ._groupscalendar_operations import groupscalendarOperations
+from ._groupscalendarcalendarview_operations import groupscalendarcalendarviewOperations
+from ._groupscalendarevents_operations import groupscalendareventsOperations
+from ._groupscalendarview_operations import groupscalendarviewOperations
+from ._groupscalendarviewcalendar_operations import groupscalendarviewcalendarOperations
+from ._groupsevents_operations import groupseventsOperations
+from ._groupseventscalendar_operations import groupseventscalendarOperations
+from ._placesplace_operations import placesplaceOperations
+from ._users_operations import usersOperations
+from ._userscalendar_operations import userscalendarOperations
+from ._userscalendarcalendarview_operations import userscalendarcalendarviewOperations
+from ._userscalendarevents_operations import userscalendareventsOperations
+from ._userscalendargroups_operations import userscalendargroupsOperations
+from ._userscalendargroupscalendars_operations import userscalendargroupscalendarsOperations
+from ._userscalendargroupscalendarscalendarview_operations import userscalendargroupscalendarscalendarviewOperations
+from ._userscalendargroupscalendarsevents_operations import userscalendargroupscalendarseventsOperations
+from ._userscalendars_operations import userscalendarsOperations
+from ._userscalendarscalendarview_operations import userscalendarscalendarviewOperations
+from ._userscalendarsevents_operations import userscalendarseventsOperations
+from ._userscalendarview_operations import userscalendarviewOperations
+from ._userscalendarviewcalendar_operations import userscalendarviewcalendarOperations
+from ._usersevents_operations import userseventsOperations
+from ._userseventscalendar_operations import userseventscalendarOperations
 
 __all__ = [
-    'GroupOperations',
-    'GroupCalendarOperations',
-    'GroupCalendarCalendarViewOperations',
-    'GroupCalendarEventOperations',
-    'GroupCalendarViewOperations',
-    'GroupCalendarViewCalendarOperations',
-    'GroupEventOperations',
-    'GroupEventCalendarOperations',
-    'PlacePlaceOperations',
-    'UserOperations',
-    'UserCalendarOperations',
-    'UserCalendarCalendarViewOperations',
-    'UserCalendarEventOperations',
-    'UserCalendarGroupOperations',
-    'UserCalendarGroupCalendarOperations',
-    'UserCalendarGroupCalendarCalendarViewOperations',
-    'UserCalendarGroupCalendarEventOperations',
-    'UserCalendarOperations',
-    'UserCalendarCalendarViewOperations',
-    'UserCalendarEventOperations',
-    'UserCalendarViewOperations',
-    'UserCalendarViewCalendarOperations',
-    'UserEventOperations',
-    'UserEventCalendarOperations',
+    'groupsOperations',
+    'groupscalendarOperations',
+    'groupscalendarcalendarviewOperations',
+    'groupscalendareventsOperations',
+    'groupscalendarviewOperations',
+    'groupscalendarviewcalendarOperations',
+    'groupseventsOperations',
+    'groupseventscalendarOperations',
+    'placesplaceOperations',
+    'usersOperations',
+    'userscalendarOperations',
+    'userscalendarcalendarviewOperations',
+    'userscalendareventsOperations',
+    'userscalendargroupsOperations',
+    'userscalendargroupscalendarsOperations',
+    'userscalendargroupscalendarscalendarviewOperations',
+    'userscalendargroupscalendarseventsOperations',
+    'userscalendarsOperations',
+    'userscalendarscalendarviewOperations',
+    'userscalendarseventsOperations',
+    'userscalendarviewOperations',
+    'userscalendarviewcalendarOperations',
+    'userseventsOperations',
+    'userseventscalendarOperations',
 ]

@@ -12,17 +12,22 @@
 from knack.help_files import helps
 
 
-helps['reports audit-log-audit-log-root'] = """
+helps['reports_v1_0'] = '''
     type: group
-    short-summary: Manage audit log audit log root with reports_v1_0
+    short-summary: Manage Reports
+'''
+
+helps['reports auditlogsauditlogroot'] = """
+    type: group
+    short-summary: Manage auditlogsauditlogroot with reports_v1_0
 """
 
-helps['reports audit-log-audit-log-root show-audit-log-root'] = """
+helps['reports auditlogsauditlogroot show-audit-log-root'] = """
     type: command
     short-summary: "Get auditLogs."
 """
 
-helps['reports audit-log-audit-log-root update-audit-log-root'] = """
+helps['reports auditlogsauditlogroot update-audit-log-root'] = """
     type: command
     short-summary: "Update auditLogs."
     parameters:
@@ -70,18 +75,12 @@ information from the sign-in activity.
             Multiple actions can be specified by using more than one --restricted-sign-ins argument.
 """
 
-helps['reports audit-log'] = """
+helps['reports auditlog'] = """
     type: group
-    short-summary: Manage audit log with reports_v1_0
+    short-summary: Manage auditlog with reports_v1_0
 """
 
-helps['reports audit-log delete'] = """
-    type: command
-    short-summary: "Delete navigation property directoryAudits for auditLogs And Delete navigation property \
-restrictedSignIns for auditLogs And Delete navigation property signIns for auditLogs."
-"""
-
-helps['reports audit-log create-directory-audit'] = """
+helps['reports auditlog create-directory-audit'] = """
     type: command
     short-summary: "Create new navigation property to directoryAudits for auditLogs."
     parameters:
@@ -94,23 +93,6 @@ helps['reports audit-log create-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -132,7 +114,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports audit-log create-restricted-sign-in'] = """
+helps['reports auditlog create-restricted-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to restrictedSignIns for auditLogs."
     parameters:
@@ -183,7 +165,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log create-sign-in'] = """
+helps['reports auditlog create-sign-in'] = """
     type: command
     short-summary: "Create new navigation property to signIns for auditLogs."
     parameters:
@@ -234,37 +216,52 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log list-directory-audit'] = """
+helps['reports auditlog delete-directory-audit'] = """
+    type: command
+    short-summary: "Delete navigation property directoryAudits for auditLogs."
+"""
+
+helps['reports auditlog delete-restricted-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property restrictedSignIns for auditLogs."
+"""
+
+helps['reports auditlog delete-sign-in'] = """
+    type: command
+    short-summary: "Delete navigation property signIns for auditLogs."
+"""
+
+helps['reports auditlog list-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports audit-log list-restricted-sign-in'] = """
+helps['reports auditlog list-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports audit-log list-sign-in'] = """
+helps['reports auditlog list-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports audit-log show-directory-audit'] = """
+helps['reports auditlog show-directory-audit'] = """
     type: command
     short-summary: "Get directoryAudits from auditLogs."
 """
 
-helps['reports audit-log show-restricted-sign-in'] = """
+helps['reports auditlog show-restricted-sign-in'] = """
     type: command
     short-summary: "Get restrictedSignIns from auditLogs."
 """
 
-helps['reports audit-log show-sign-in'] = """
+helps['reports auditlog show-sign-in'] = """
     type: command
     short-summary: "Get signIns from auditLogs."
 """
 
-helps['reports audit-log update-directory-audit'] = """
+helps['reports auditlog update-directory-audit'] = """
     type: command
     short-summary: "Update the navigation property directoryAudits in auditLogs."
     parameters:
@@ -277,23 +274,6 @@ helps['reports audit-log update-directory-audit'] = """
             value: Value for the key-value pair.
 
             Multiple actions can be specified by using more than one --additional-details argument.
-      - name: --target-resources
-        short-summary: "Indicates information on which resource was changed due to the activity. Target Resource Type \
-can be User, Device, Directory, App, Role, Group, Policy or Other."
-        long-summary: |
-            Usage: --target-resources display-name=XX group-type=XX id=XX modified-properties=XX type=XX \
-user-principal-name=XX
-
-            display-name: Indicates the visible name defined for the resource. Typically specified when the resource \
-is created.
-            id: Indicates the unique ID of the resource.
-            modified-properties: Indicates name, old value and new value of each attribute that changed. Property \
-values depend on the operation type.
-            type: Describes the resource type.  Example values include Application, Group, ServicePrincipal, and User.
-            user-principal-name: When type is set to User, this includes the user name that initiated the action; null \
-for other types.
-
-            Multiple actions can be specified by using more than one --target-resources argument.
       - name: --app
         short-summary: "appIdentity"
         long-summary: |
@@ -315,7 +295,7 @@ for the corresponding App.
             user-principal-name: The userPrincipalName attribute of the user.
 """
 
-helps['reports audit-log update-restricted-sign-in'] = """
+helps['reports auditlog update-restricted-sign-in'] = """
     type: command
     short-summary: "Update the navigation property restrictedSignIns in auditLogs."
     parameters:
@@ -366,7 +346,7 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports audit-log update-sign-in'] = """
+helps['reports auditlog update-sign-in'] = """
     type: command
     short-summary: "Update the navigation property signIns in auditLogs."
     parameters:
@@ -417,17 +397,17 @@ activity. Check out the list of error codes and messages.
             longitude: Optional. The longitude, in decimal, for the item. Read-only.
 """
 
-helps['reports report-root'] = """
+helps['reports reportsreportroot'] = """
     type: group
-    short-summary: Manage report report root with reports_v1_0
+    short-summary: Manage reportsreportroot with reports_v1_0
 """
 
-helps['reports report-root show-report-root'] = """
+helps['reports reportsreportroot show-report-root'] = """
     type: command
     short-summary: "Get reports."
 """
 
-helps['reports report-root update-report-root'] = """
+helps['reports reportsreportroot update-report-root'] = """
     type: command
     short-summary: "Update reports."
 """

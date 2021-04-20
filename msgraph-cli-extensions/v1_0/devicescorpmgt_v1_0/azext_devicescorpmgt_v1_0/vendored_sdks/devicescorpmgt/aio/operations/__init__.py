@@ -6,40 +6,40 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._device_app_management_device_app_management_operations import DeviceAppManagementDeviceAppManagementOperations
-from ._device_app_management_operations import DeviceAppManagementOperations
-from ._device_app_management_android_managed_app_protection_operations import DeviceAppManagementAndroidManagedAppProtectionOperations
-from ._device_app_management_default_managed_app_protection_operations import DeviceAppManagementDefaultManagedAppProtectionOperations
-from ._device_app_management_io_managed_app_protection_operations import DeviceAppManagementIoManagedAppProtectionOperations
-from ._device_app_management_managed_app_policy_operations import DeviceAppManagementManagedAppPolicyOperations
-from ._device_app_management_managed_app_registration_operations import DeviceAppManagementManagedAppRegistrationOperations
-from ._device_app_management_managed_app_registration_applied_policy_operations import DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations
-from ._device_app_management_managed_app_registration_intended_policy_operations import DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations
-from ._device_app_management_managed_ebook_operations import DeviceAppManagementManagedEBookOperations
-from ._device_app_management_managed_ebook_user_state_summary_operations import DeviceAppManagementManagedEBookUserStateSummaryOperations
-from ._device_app_management_mobile_app_configuration_operations import DeviceAppManagementMobileAppConfigurationOperations
-from ._device_app_management_mobile_app_operations import DeviceAppManagementMobileAppOperations
-from ._device_app_management_targeted_managed_app_configuration_operations import DeviceAppManagementTargetedManagedAppConfigurationOperations
-from ._device_app_management_vpp_token_operations import DeviceAppManagementVppTokenOperations
-from ._user_operations import UserOperations
-from ._user_managed_device_operations import UserManagedDeviceOperations
+from ._deviceappmanagementdeviceappmanagement_operations import deviceappmanagementdeviceappmanagementOperations
+from ._deviceappmanagement_operations import deviceappmanagementOperations
+from ._deviceappmanagementandroidmanagedappprotections_operations import deviceappmanagementandroidmanagedappprotectionsOperations
+from ._deviceappmanagementdefaultmanagedappprotections_operations import deviceappmanagementdefaultmanagedappprotectionsOperations
+from ._deviceappmanagementiosmanagedappprotections_operations import deviceappmanagementiosmanagedappprotectionsOperations
+from ._deviceappmanagementmanagedapppolicies_operations import deviceappmanagementmanagedapppoliciesOperations
+from ._deviceappmanagementmanagedappregistrations_operations import deviceappmanagementmanagedappregistrationsOperations
+from ._deviceappmanagementmanagedappregistrationsappliedpolicies_operations import deviceappmanagementmanagedappregistrationsappliedpoliciesOperations
+from ._deviceappmanagementmanagedappregistrationsintendedpolicies_operations import deviceappmanagementmanagedappregistrationsintendedpoliciesOperations
+from ._deviceappmanagementmanagedebooks_operations import deviceappmanagementmanagedebooksOperations
+from ._deviceappmanagementmanagedebooksuserstatesummary_operations import deviceappmanagementmanagedebooksuserstatesummaryOperations
+from ._deviceappmanagementmobileappconfigurations_operations import deviceappmanagementmobileappconfigurationsOperations
+from ._deviceappmanagementmobileapps_operations import deviceappmanagementmobileappsOperations
+from ._deviceappmanagementtargetedmanagedappconfigurations_operations import deviceappmanagementtargetedmanagedappconfigurationsOperations
+from ._deviceappmanagementvpptokens_operations import deviceappmanagementvpptokensOperations
+from ._users_operations import usersOperations
+from ._usersmanageddevices_operations import usersmanageddevicesOperations
 
 __all__ = [
-    'DeviceAppManagementDeviceAppManagementOperations',
-    'DeviceAppManagementOperations',
-    'DeviceAppManagementAndroidManagedAppProtectionOperations',
-    'DeviceAppManagementDefaultManagedAppProtectionOperations',
-    'DeviceAppManagementIoManagedAppProtectionOperations',
-    'DeviceAppManagementManagedAppPolicyOperations',
-    'DeviceAppManagementManagedAppRegistrationOperations',
-    'DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations',
-    'DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations',
-    'DeviceAppManagementManagedEBookOperations',
-    'DeviceAppManagementManagedEBookUserStateSummaryOperations',
-    'DeviceAppManagementMobileAppConfigurationOperations',
-    'DeviceAppManagementMobileAppOperations',
-    'DeviceAppManagementTargetedManagedAppConfigurationOperations',
-    'DeviceAppManagementVppTokenOperations',
-    'UserOperations',
-    'UserManagedDeviceOperations',
+    'deviceappmanagementdeviceappmanagementOperations',
+    'deviceappmanagementOperations',
+    'deviceappmanagementandroidmanagedappprotectionsOperations',
+    'deviceappmanagementdefaultmanagedappprotectionsOperations',
+    'deviceappmanagementiosmanagedappprotectionsOperations',
+    'deviceappmanagementmanagedapppoliciesOperations',
+    'deviceappmanagementmanagedappregistrationsOperations',
+    'deviceappmanagementmanagedappregistrationsappliedpoliciesOperations',
+    'deviceappmanagementmanagedappregistrationsintendedpoliciesOperations',
+    'deviceappmanagementmanagedebooksOperations',
+    'deviceappmanagementmanagedebooksuserstatesummaryOperations',
+    'deviceappmanagementmobileappconfigurationsOperations',
+    'deviceappmanagementmobileappsOperations',
+    'deviceappmanagementtargetedmanagedappconfigurationsOperations',
+    'deviceappmanagementvpptokensOperations',
+    'usersOperations',
+    'usersmanageddevicesOperations',
 ]

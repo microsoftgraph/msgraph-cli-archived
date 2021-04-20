@@ -7,65 +7,65 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfBookingAppointment
-    from ._models_py3 import CollectionOfBookingAppointment0
-    from ._models_py3 import CollectionOfBookingBusiness
-    from ._models_py3 import CollectionOfBookingCurrency
-    from ._models_py3 import CollectionOfBookingCustomer
-    from ._models_py3 import CollectionOfBookingService
-    from ._models_py3 import CollectionOfBookingStaffMember
-    from ._models_py3 import MicrosoftGraphBookingAppointment
-    from ._models_py3 import MicrosoftGraphBookingBusiness
-    from ._models_py3 import MicrosoftGraphBookingCurrency
-    from ._models_py3 import MicrosoftGraphBookingCustomer
-    from ._models_py3 import MicrosoftGraphBookingNamedEntity
-    from ._models_py3 import MicrosoftGraphBookingPerson
-    from ._models_py3 import MicrosoftGraphBookingReminder
-    from ._models_py3 import MicrosoftGraphBookingSchedulingPolicy
-    from ._models_py3 import MicrosoftGraphBookingService
-    from ._models_py3 import MicrosoftGraphBookingStaffMember
-    from ._models_py3 import MicrosoftGraphBookingWorkHours
-    from ._models_py3 import MicrosoftGraphBookingWorkTimeSlot
-    from ._models_py3 import MicrosoftGraphDateTimeZone
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphLocation
-    from ._models_py3 import MicrosoftGraphOutlookGeoCoordinates
-    from ._models_py3 import MicrosoftGraphPhysicalAddress
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
-    from ._models_py3 import Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
-    from ._models_py3 import Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import collectionofbookingappointment
+    from ._models_py3 import collectionofbookingappointment0
+    from ._models_py3 import collectionofbookingbusiness
+    from ._models_py3 import collectionofbookingcurrency
+    from ._models_py3 import collectionofbookingcustomer
+    from ._models_py3 import collectionofbookingservice
+    from ._models_py3 import collectionofbookingstaffmember
+    from ._models_py3 import microsoftgraphbookingappointment
+    from ._models_py3 import microsoftgraphbookingbusiness
+    from ._models_py3 import microsoftgraphbookingcurrency
+    from ._models_py3 import microsoftgraphbookingcustomer
+    from ._models_py3 import microsoftgraphbookingnamedentity
+    from ._models_py3 import microsoftgraphbookingperson
+    from ._models_py3 import microsoftgraphbookingreminder
+    from ._models_py3 import microsoftgraphbookingschedulingpolicy
+    from ._models_py3 import microsoftgraphbookingservice
+    from ._models_py3 import microsoftgraphbookingstaffmember
+    from ._models_py3 import microsoftgraphbookingworkhours
+    from ._models_py3 import microsoftgraphbookingworktimeslot
+    from ._models_py3 import microsoftgraphdatetimezone
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgraphlocation
+    from ._models_py3 import microsoftgraphoutlookgeocoordinates
+    from ._models_py3 import microsoftgraphphysicaladdress
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
+    from ._models_py3 import paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema
+    from ._models_py3 import paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfBookingAppointment  # type: ignore
-    from ._models import CollectionOfBookingAppointment0  # type: ignore
-    from ._models import CollectionOfBookingBusiness  # type: ignore
-    from ._models import CollectionOfBookingCurrency  # type: ignore
-    from ._models import CollectionOfBookingCustomer  # type: ignore
-    from ._models import CollectionOfBookingService  # type: ignore
-    from ._models import CollectionOfBookingStaffMember  # type: ignore
-    from ._models import MicrosoftGraphBookingAppointment  # type: ignore
-    from ._models import MicrosoftGraphBookingBusiness  # type: ignore
-    from ._models import MicrosoftGraphBookingCurrency  # type: ignore
-    from ._models import MicrosoftGraphBookingCustomer  # type: ignore
-    from ._models import MicrosoftGraphBookingNamedEntity  # type: ignore
-    from ._models import MicrosoftGraphBookingPerson  # type: ignore
-    from ._models import MicrosoftGraphBookingReminder  # type: ignore
-    from ._models import MicrosoftGraphBookingSchedulingPolicy  # type: ignore
-    from ._models import MicrosoftGraphBookingService  # type: ignore
-    from ._models import MicrosoftGraphBookingStaffMember  # type: ignore
-    from ._models import MicrosoftGraphBookingWorkHours  # type: ignore
-    from ._models import MicrosoftGraphBookingWorkTimeSlot  # type: ignore
-    from ._models import MicrosoftGraphDateTimeZone  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphLocation  # type: ignore
-    from ._models import MicrosoftGraphOutlookGeoCoordinates  # type: ignore
-    from ._models import MicrosoftGraphPhysicalAddress  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
-    from ._models import Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema  # type: ignore
-    from ._models import Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import collectionofbookingappointment  # type: ignore
+    from ._models import collectionofbookingappointment0  # type: ignore
+    from ._models import collectionofbookingbusiness  # type: ignore
+    from ._models import collectionofbookingcurrency  # type: ignore
+    from ._models import collectionofbookingcustomer  # type: ignore
+    from ._models import collectionofbookingservice  # type: ignore
+    from ._models import collectionofbookingstaffmember  # type: ignore
+    from ._models import microsoftgraphbookingappointment  # type: ignore
+    from ._models import microsoftgraphbookingbusiness  # type: ignore
+    from ._models import microsoftgraphbookingcurrency  # type: ignore
+    from ._models import microsoftgraphbookingcustomer  # type: ignore
+    from ._models import microsoftgraphbookingnamedentity  # type: ignore
+    from ._models import microsoftgraphbookingperson  # type: ignore
+    from ._models import microsoftgraphbookingreminder  # type: ignore
+    from ._models import microsoftgraphbookingschedulingpolicy  # type: ignore
+    from ._models import microsoftgraphbookingservice  # type: ignore
+    from ._models import microsoftgraphbookingstaffmember  # type: ignore
+    from ._models import microsoftgraphbookingworkhours  # type: ignore
+    from ._models import microsoftgraphbookingworktimeslot  # type: ignore
+    from ._models import microsoftgraphdatetimezone  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgraphlocation  # type: ignore
+    from ._models import microsoftgraphoutlookgeocoordinates  # type: ignore
+    from ._models import microsoftgraphphysicaladdress  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
+    from ._models import paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema  # type: ignore
+    from ._models import paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema  # type: ignore
 
 from ._bookings_enums import (
     Enum13,
@@ -84,53 +84,53 @@ from ._bookings_enums import (
     Enum28,
     Enum29,
     Enum30,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get4ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    Get9ItemsItem,
-    MicrosoftGraphBookingInvoiceStatus,
-    MicrosoftGraphBookingPriceType,
-    MicrosoftGraphBookingReminderRecipients,
-    MicrosoftGraphBookingStaffRole,
-    MicrosoftGraphDayOfWeek,
-    MicrosoftGraphLocationType,
-    MicrosoftGraphLocationUniqueIdType,
-    MicrosoftGraphPhysicalAddressType,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get4itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Get9itemsitem,
+    Microsoftgraphbookinginvoicestatus,
+    Microsoftgraphbookingpricetype,
+    Microsoftgraphbookingreminderrecipients,
+    Microsoftgraphbookingstaffrole,
+    Microsoftgraphdayofweek,
+    Microsoftgraphlocationtype,
+    Microsoftgraphlocationuniqueidtype,
+    Microsoftgraphphysicaladdresstype,
 )
 
 __all__ = [
-    'CollectionOfBookingAppointment',
-    'CollectionOfBookingAppointment0',
-    'CollectionOfBookingBusiness',
-    'CollectionOfBookingCurrency',
-    'CollectionOfBookingCustomer',
-    'CollectionOfBookingService',
-    'CollectionOfBookingStaffMember',
-    'MicrosoftGraphBookingAppointment',
-    'MicrosoftGraphBookingBusiness',
-    'MicrosoftGraphBookingCurrency',
-    'MicrosoftGraphBookingCustomer',
-    'MicrosoftGraphBookingNamedEntity',
-    'MicrosoftGraphBookingPerson',
-    'MicrosoftGraphBookingReminder',
-    'MicrosoftGraphBookingSchedulingPolicy',
-    'MicrosoftGraphBookingService',
-    'MicrosoftGraphBookingStaffMember',
-    'MicrosoftGraphBookingWorkHours',
-    'MicrosoftGraphBookingWorkTimeSlot',
-    'MicrosoftGraphDateTimeZone',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphLocation',
-    'MicrosoftGraphOutlookGeoCoordinates',
-    'MicrosoftGraphPhysicalAddress',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Paths1Bomg32BookingbusinessesBookingbusinessIdCalendarviewBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema',
-    'Paths1K88Cl0BookingbusinessesBookingbusinessIdAppointmentsBookingappointmentIdMicrosoftGraphCancelPostRequestbodyContentApplicationJsonSchema',
+    'collectionofbookingappointment',
+    'collectionofbookingappointment0',
+    'collectionofbookingbusiness',
+    'collectionofbookingcurrency',
+    'collectionofbookingcustomer',
+    'collectionofbookingservice',
+    'collectionofbookingstaffmember',
+    'microsoftgraphbookingappointment',
+    'microsoftgraphbookingbusiness',
+    'microsoftgraphbookingcurrency',
+    'microsoftgraphbookingcustomer',
+    'microsoftgraphbookingnamedentity',
+    'microsoftgraphbookingperson',
+    'microsoftgraphbookingreminder',
+    'microsoftgraphbookingschedulingpolicy',
+    'microsoftgraphbookingservice',
+    'microsoftgraphbookingstaffmember',
+    'microsoftgraphbookingworkhours',
+    'microsoftgraphbookingworktimeslot',
+    'microsoftgraphdatetimezone',
+    'microsoftgraphentity',
+    'microsoftgraphlocation',
+    'microsoftgraphoutlookgeocoordinates',
+    'microsoftgraphphysicaladdress',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'paths1bomg32bookingbusinessesbookingbusinessidcalendarviewbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema',
+    'paths1k88cl0bookingbusinessesbookingbusinessidappointmentsbookingappointmentidmicrosoftgraphcancelpostrequestbodycontentapplicationjsonschema',
     'Enum13',
     'Enum14',
     'Enum15',
@@ -147,19 +147,19 @@ __all__ = [
     'Enum28',
     'Enum29',
     'Enum30',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get4ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'Get9ItemsItem',
-    'MicrosoftGraphBookingInvoiceStatus',
-    'MicrosoftGraphBookingPriceType',
-    'MicrosoftGraphBookingReminderRecipients',
-    'MicrosoftGraphBookingStaffRole',
-    'MicrosoftGraphDayOfWeek',
-    'MicrosoftGraphLocationType',
-    'MicrosoftGraphLocationUniqueIdType',
-    'MicrosoftGraphPhysicalAddressType',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get4itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Get9itemsitem',
+    'Microsoftgraphbookinginvoicestatus',
+    'Microsoftgraphbookingpricetype',
+    'Microsoftgraphbookingreminderrecipients',
+    'Microsoftgraphbookingstaffrole',
+    'Microsoftgraphdayofweek',
+    'Microsoftgraphlocationtype',
+    'Microsoftgraphlocationuniqueidtype',
+    'Microsoftgraphphysicaladdresstype',
 ]

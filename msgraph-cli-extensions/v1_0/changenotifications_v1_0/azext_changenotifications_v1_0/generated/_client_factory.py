@@ -18,5 +18,5 @@ def cf_changenotifications_v1_0_cl(cli_ctx, *_):
                                    base_url_bound=False)
 
 
-def cf_subscription_subscription(cli_ctx, *_):
-    return cf_changenotifications_v1_0_cl(cli_ctx).subscription_subscription
+def cf_subscriptionssubscription(cli_ctx, *_):
+    return cf_changenotifications_v1_0_cl(cli_ctx).subscriptionssubscription

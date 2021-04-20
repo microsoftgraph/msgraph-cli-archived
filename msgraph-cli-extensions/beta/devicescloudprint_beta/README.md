@@ -8,15 +8,15 @@ az extension add --name devicescloudprint_beta
 ```
 
 ### Included Features ###
-#### devicescloudprint print-print ####
 #### devicescloudprint print ####
-#### devicescloudprint print-printer ####
-#### devicescloudprint print-printer-task-trigger ####
-#### devicescloudprint print-printer-share ####
-#### devicescloudprint print-printer-share-printer ####
-#### devicescloudprint print-report ####
-#### devicescloudprint print-service ####
-#### devicescloudprint print-share ####
-#### devicescloudprint print-share-printer ####
-#### devicescloudprint print-task-definition ####
-#### devicescloudprint print-task-definition-task ####
+#### devicescloudprint print ####
+#### devicescloudprint printprinter ####
+#### devicescloudprint printprinterstasktrigger ####
+#### devicescloudprint printprintershare ####
+#### devicescloudprint printprintersharesprinter ####
+#### devicescloudprint printreport ####
+#### devicescloudprint printservice ####
+#### devicescloudprint printshare ####
+#### devicescloudprint printsharesprinter ####
+#### devicescloudprint printtaskdefinition ####
+#### devicescloudprint printtaskdefinitionstask ####

@@ -6,50 +6,50 @@
 # Changes may cause incorrect behavior and will be lost if the code is regenerated.
 # --------------------------------------------------------------------------
 
-from ._group_operations import GroupOperations
-from ._group_planner_operations import GroupPlannerOperations
-from ._group_planner_plan_operations import GroupPlannerPlanOperations
-from ._group_planner_plan_bucket_operations import GroupPlannerPlanBucketOperations
-from ._group_planner_plan_bucket_task_operations import GroupPlannerPlanBucketTaskOperations
-from ._group_planner_plan_task_operations import GroupPlannerPlanTaskOperations
-from ._planner_planner_operations import PlannerPlannerOperations
-from ._planner_operations import PlannerOperations
-from ._planner_bucket_operations import PlannerBucketOperations
-from ._planner_bucket_task_operations import PlannerBucketTaskOperations
-from ._planner_plan_operations import PlannerPlanOperations
-from ._planner_plan_bucket_operations import PlannerPlanBucketOperations
-from ._planner_plan_bucket_task_operations import PlannerPlanBucketTaskOperations
-from ._planner_plan_task_operations import PlannerPlanTaskOperations
-from ._planner_task_operations import PlannerTaskOperations
-from ._user_operations import UserOperations
-from ._user_planner_operations import UserPlannerOperations
-from ._user_planner_plan_operations import UserPlannerPlanOperations
-from ._user_planner_plan_bucket_operations import UserPlannerPlanBucketOperations
-from ._user_planner_plan_bucket_task_operations import UserPlannerPlanBucketTaskOperations
-from ._user_planner_plan_task_operations import UserPlannerPlanTaskOperations
-from ._user_planner_task_operations import UserPlannerTaskOperations
+from ._groups_operations import groupsOperations
+from ._groupsplanner_operations import groupsplannerOperations
+from ._groupsplannerplans_operations import groupsplannerplansOperations
+from ._groupsplannerplansbuckets_operations import groupsplannerplansbucketsOperations
+from ._groupsplannerplansbucketstasks_operations import groupsplannerplansbucketstasksOperations
+from ._groupsplannerplanstasks_operations import groupsplannerplanstasksOperations
+from ._plannerplanner_operations import plannerplannerOperations
+from ._planner_operations import plannerOperations
+from ._plannerbuckets_operations import plannerbucketsOperations
+from ._plannerbucketstasks_operations import plannerbucketstasksOperations
+from ._plannerplans_operations import plannerplansOperations
+from ._plannerplansbuckets_operations import plannerplansbucketsOperations
+from ._plannerplansbucketstasks_operations import plannerplansbucketstasksOperations
+from ._plannerplanstasks_operations import plannerplanstasksOperations
+from ._plannertasks_operations import plannertasksOperations
+from ._users_operations import usersOperations
+from ._usersplanner_operations import usersplannerOperations
+from ._usersplannerplans_operations import usersplannerplansOperations
+from ._usersplannerplansbuckets_operations import usersplannerplansbucketsOperations
+from ._usersplannerplansbucketstasks_operations import usersplannerplansbucketstasksOperations
+from ._usersplannerplanstasks_operations import usersplannerplanstasksOperations
+from ._usersplannertasks_operations import usersplannertasksOperations
 
 __all__ = [
-    'GroupOperations',
-    'GroupPlannerOperations',
-    'GroupPlannerPlanOperations',
-    'GroupPlannerPlanBucketOperations',
-    'GroupPlannerPlanBucketTaskOperations',
-    'GroupPlannerPlanTaskOperations',
-    'PlannerPlannerOperations',
-    'PlannerOperations',
-    'PlannerBucketOperations',
-    'PlannerBucketTaskOperations',
-    'PlannerPlanOperations',
-    'PlannerPlanBucketOperations',
-    'PlannerPlanBucketTaskOperations',
-    'PlannerPlanTaskOperations',
-    'PlannerTaskOperations',
-    'UserOperations',
-    'UserPlannerOperations',
-    'UserPlannerPlanOperations',
-    'UserPlannerPlanBucketOperations',
-    'UserPlannerPlanBucketTaskOperations',
-    'UserPlannerPlanTaskOperations',
-    'UserPlannerTaskOperations',
+    'groupsOperations',
+    'groupsplannerOperations',
+    'groupsplannerplansOperations',
+    'groupsplannerplansbucketsOperations',
+    'groupsplannerplansbucketstasksOperations',
+    'groupsplannerplanstasksOperations',
+    'plannerplannerOperations',
+    'plannerOperations',
+    'plannerbucketsOperations',
+    'plannerbucketstasksOperations',
+    'plannerplansOperations',
+    'plannerplansbucketsOperations',
+    'plannerplansbucketstasksOperations',
+    'plannerplanstasksOperations',
+    'plannertasksOperations',
+    'usersOperations',
+    'usersplannerOperations',
+    'usersplannerplansOperations',
+    'usersplannerplansbucketsOperations',
+    'usersplannerplansbucketstasksOperations',
+    'usersplannerplanstasksOperations',
+    'usersplannertasksOperations',
 ]

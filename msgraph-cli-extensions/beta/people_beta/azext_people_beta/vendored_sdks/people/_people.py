@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,21 +18,21 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import PeopleConfiguration
-from .operations import UserOperations
-from .operations import UserAnalyticOperations
-from .operations import UserProfileOperations
+from .operations import usersOperations
+from .operations import usersanalyticsOperations
+from .operations import usersprofileOperations
 from . import models
 
 
 class People(object):
     """People.
 
-    :ivar user: UserOperations operations
-    :vartype user: people.operations.UserOperations
-    :ivar user_analytic: UserAnalyticOperations operations
-    :vartype user_analytic: people.operations.UserAnalyticOperations
-    :ivar user_profile: UserProfileOperations operations
-    :vartype user_profile: people.operations.UserProfileOperations
+    :ivar users: usersOperations operations
+    :vartype users: people.operations.usersOperations
+    :ivar usersanalytics: usersanalyticsOperations operations
+    :vartype usersanalytics: people.operations.usersanalyticsOperations
+    :ivar usersprofile: usersprofileOperations operations
+    :vartype usersprofile: people.operations.usersprofileOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -63,18 +63,18 @@ class People(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/beta'
         self._config = PeopleConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_analytic = UserAnalyticOperations(
+        self.usersanalytics = usersanalyticsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_profile = UserProfileOperations(
+        self.usersprofile = usersprofileOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

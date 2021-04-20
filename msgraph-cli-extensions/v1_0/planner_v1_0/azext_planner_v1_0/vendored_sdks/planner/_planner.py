@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,78 +18,78 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import PlannerConfiguration
-from .operations import GroupOperations
-from .operations import GroupPlannerOperations
-from .operations import GroupPlannerPlanOperations
-from .operations import GroupPlannerPlanBucketOperations
-from .operations import GroupPlannerPlanBucketTaskOperations
-from .operations import GroupPlannerPlanTaskOperations
-from .operations import PlannerPlannerOperations
-from .operations import PlannerOperations
-from .operations import PlannerBucketOperations
-from .operations import PlannerBucketTaskOperations
-from .operations import PlannerPlanOperations
-from .operations import PlannerPlanBucketOperations
-from .operations import PlannerPlanBucketTaskOperations
-from .operations import PlannerPlanTaskOperations
-from .operations import PlannerTaskOperations
-from .operations import UserOperations
-from .operations import UserPlannerOperations
-from .operations import UserPlannerPlanOperations
-from .operations import UserPlannerPlanBucketOperations
-from .operations import UserPlannerPlanBucketTaskOperations
-from .operations import UserPlannerPlanTaskOperations
-from .operations import UserPlannerTaskOperations
+from .operations import groupsOperations
+from .operations import groupsplannerOperations
+from .operations import groupsplannerplansOperations
+from .operations import groupsplannerplansbucketsOperations
+from .operations import groupsplannerplansbucketstasksOperations
+from .operations import groupsplannerplanstasksOperations
+from .operations import plannerplannerOperations
+from .operations import plannerOperations
+from .operations import plannerbucketsOperations
+from .operations import plannerbucketstasksOperations
+from .operations import plannerplansOperations
+from .operations import plannerplansbucketsOperations
+from .operations import plannerplansbucketstasksOperations
+from .operations import plannerplanstasksOperations
+from .operations import plannertasksOperations
+from .operations import usersOperations
+from .operations import usersplannerOperations
+from .operations import usersplannerplansOperations
+from .operations import usersplannerplansbucketsOperations
+from .operations import usersplannerplansbucketstasksOperations
+from .operations import usersplannerplanstasksOperations
+from .operations import usersplannertasksOperations
 from . import models
 
 
 class Planner(object):
     """Planner.
 
-    :ivar group: GroupOperations operations
-    :vartype group: planner.operations.GroupOperations
-    :ivar group_planner: GroupPlannerOperations operations
-    :vartype group_planner: planner.operations.GroupPlannerOperations
-    :ivar group_planner_plan: GroupPlannerPlanOperations operations
-    :vartype group_planner_plan: planner.operations.GroupPlannerPlanOperations
-    :ivar group_planner_plan_bucket: GroupPlannerPlanBucketOperations operations
-    :vartype group_planner_plan_bucket: planner.operations.GroupPlannerPlanBucketOperations
-    :ivar group_planner_plan_bucket_task: GroupPlannerPlanBucketTaskOperations operations
-    :vartype group_planner_plan_bucket_task: planner.operations.GroupPlannerPlanBucketTaskOperations
-    :ivar group_planner_plan_task: GroupPlannerPlanTaskOperations operations
-    :vartype group_planner_plan_task: planner.operations.GroupPlannerPlanTaskOperations
-    :ivar planner_planner: PlannerPlannerOperations operations
-    :vartype planner_planner: planner.operations.PlannerPlannerOperations
-    :ivar planner: PlannerOperations operations
-    :vartype planner: planner.operations.PlannerOperations
-    :ivar planner_bucket: PlannerBucketOperations operations
-    :vartype planner_bucket: planner.operations.PlannerBucketOperations
-    :ivar planner_bucket_task: PlannerBucketTaskOperations operations
-    :vartype planner_bucket_task: planner.operations.PlannerBucketTaskOperations
-    :ivar planner_plan: PlannerPlanOperations operations
-    :vartype planner_plan: planner.operations.PlannerPlanOperations
-    :ivar planner_plan_bucket: PlannerPlanBucketOperations operations
-    :vartype planner_plan_bucket: planner.operations.PlannerPlanBucketOperations
-    :ivar planner_plan_bucket_task: PlannerPlanBucketTaskOperations operations
-    :vartype planner_plan_bucket_task: planner.operations.PlannerPlanBucketTaskOperations
-    :ivar planner_plan_task: PlannerPlanTaskOperations operations
-    :vartype planner_plan_task: planner.operations.PlannerPlanTaskOperations
-    :ivar planner_task: PlannerTaskOperations operations
-    :vartype planner_task: planner.operations.PlannerTaskOperations
-    :ivar user: UserOperations operations
-    :vartype user: planner.operations.UserOperations
-    :ivar user_planner: UserPlannerOperations operations
-    :vartype user_planner: planner.operations.UserPlannerOperations
-    :ivar user_planner_plan: UserPlannerPlanOperations operations
-    :vartype user_planner_plan: planner.operations.UserPlannerPlanOperations
-    :ivar user_planner_plan_bucket: UserPlannerPlanBucketOperations operations
-    :vartype user_planner_plan_bucket: planner.operations.UserPlannerPlanBucketOperations
-    :ivar user_planner_plan_bucket_task: UserPlannerPlanBucketTaskOperations operations
-    :vartype user_planner_plan_bucket_task: planner.operations.UserPlannerPlanBucketTaskOperations
-    :ivar user_planner_plan_task: UserPlannerPlanTaskOperations operations
-    :vartype user_planner_plan_task: planner.operations.UserPlannerPlanTaskOperations
-    :ivar user_planner_task: UserPlannerTaskOperations operations
-    :vartype user_planner_task: planner.operations.UserPlannerTaskOperations
+    :ivar groups: groupsOperations operations
+    :vartype groups: planner.operations.groupsOperations
+    :ivar groupsplanner: groupsplannerOperations operations
+    :vartype groupsplanner: planner.operations.groupsplannerOperations
+    :ivar groupsplannerplans: groupsplannerplansOperations operations
+    :vartype groupsplannerplans: planner.operations.groupsplannerplansOperations
+    :ivar groupsplannerplansbuckets: groupsplannerplansbucketsOperations operations
+    :vartype groupsplannerplansbuckets: planner.operations.groupsplannerplansbucketsOperations
+    :ivar groupsplannerplansbucketstasks: groupsplannerplansbucketstasksOperations operations
+    :vartype groupsplannerplansbucketstasks: planner.operations.groupsplannerplansbucketstasksOperations
+    :ivar groupsplannerplanstasks: groupsplannerplanstasksOperations operations
+    :vartype groupsplannerplanstasks: planner.operations.groupsplannerplanstasksOperations
+    :ivar plannerplanner: plannerplannerOperations operations
+    :vartype plannerplanner: planner.operations.plannerplannerOperations
+    :ivar planner: plannerOperations operations
+    :vartype planner: planner.operations.plannerOperations
+    :ivar plannerbuckets: plannerbucketsOperations operations
+    :vartype plannerbuckets: planner.operations.plannerbucketsOperations
+    :ivar plannerbucketstasks: plannerbucketstasksOperations operations
+    :vartype plannerbucketstasks: planner.operations.plannerbucketstasksOperations
+    :ivar plannerplans: plannerplansOperations operations
+    :vartype plannerplans: planner.operations.plannerplansOperations
+    :ivar plannerplansbuckets: plannerplansbucketsOperations operations
+    :vartype plannerplansbuckets: planner.operations.plannerplansbucketsOperations
+    :ivar plannerplansbucketstasks: plannerplansbucketstasksOperations operations
+    :vartype plannerplansbucketstasks: planner.operations.plannerplansbucketstasksOperations
+    :ivar plannerplanstasks: plannerplanstasksOperations operations
+    :vartype plannerplanstasks: planner.operations.plannerplanstasksOperations
+    :ivar plannertasks: plannertasksOperations operations
+    :vartype plannertasks: planner.operations.plannertasksOperations
+    :ivar users: usersOperations operations
+    :vartype users: planner.operations.usersOperations
+    :ivar usersplanner: usersplannerOperations operations
+    :vartype usersplanner: planner.operations.usersplannerOperations
+    :ivar usersplannerplans: usersplannerplansOperations operations
+    :vartype usersplannerplans: planner.operations.usersplannerplansOperations
+    :ivar usersplannerplansbuckets: usersplannerplansbucketsOperations operations
+    :vartype usersplannerplansbuckets: planner.operations.usersplannerplansbucketsOperations
+    :ivar usersplannerplansbucketstasks: usersplannerplansbucketstasksOperations operations
+    :vartype usersplannerplansbucketstasks: planner.operations.usersplannerplansbucketstasksOperations
+    :ivar usersplannerplanstasks: usersplannerplanstasksOperations operations
+    :vartype usersplannerplanstasks: planner.operations.usersplannerplanstasksOperations
+    :ivar usersplannertasks: usersplannertasksOperations operations
+    :vartype usersplannertasks: planner.operations.usersplannertasksOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -120,56 +120,56 @@ class Planner(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = PlannerConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.group = GroupOperations(
+        self.groups = groupsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_planner = GroupPlannerOperations(
+        self.groupsplanner = groupsplannerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_planner_plan = GroupPlannerPlanOperations(
+        self.groupsplannerplans = groupsplannerplansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_planner_plan_bucket = GroupPlannerPlanBucketOperations(
+        self.groupsplannerplansbuckets = groupsplannerplansbucketsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_planner_plan_bucket_task = GroupPlannerPlanBucketTaskOperations(
+        self.groupsplannerplansbucketstasks = groupsplannerplansbucketstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.group_planner_plan_task = GroupPlannerPlanTaskOperations(
+        self.groupsplannerplanstasks = groupsplannerplanstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_planner = PlannerPlannerOperations(
+        self.plannerplanner = plannerplannerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner = PlannerOperations(
+        self.planner = plannerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_bucket = PlannerBucketOperations(
+        self.plannerbuckets = plannerbucketsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_bucket_task = PlannerBucketTaskOperations(
+        self.plannerbucketstasks = plannerbucketstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_plan = PlannerPlanOperations(
+        self.plannerplans = plannerplansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_plan_bucket = PlannerPlanBucketOperations(
+        self.plannerplansbuckets = plannerplansbucketsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_plan_bucket_task = PlannerPlanBucketTaskOperations(
+        self.plannerplansbucketstasks = plannerplansbucketstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_plan_task = PlannerPlanTaskOperations(
+        self.plannerplanstasks = plannerplanstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.planner_task = PlannerTaskOperations(
+        self.plannertasks = plannertasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner = UserPlannerOperations(
+        self.usersplanner = usersplannerOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner_plan = UserPlannerPlanOperations(
+        self.usersplannerplans = usersplannerplansOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner_plan_bucket = UserPlannerPlanBucketOperations(
+        self.usersplannerplansbuckets = usersplannerplansbucketsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner_plan_bucket_task = UserPlannerPlanBucketTaskOperations(
+        self.usersplannerplansbucketstasks = usersplannerplansbucketstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner_plan_task = UserPlannerPlanTaskOperations(
+        self.usersplannerplanstasks = usersplannerplanstasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_planner_task = UserPlannerTaskOperations(
+        self.usersplannertasks = usersplannertasksOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

@@ -8,7 +8,7 @@
 
 from typing import TYPE_CHECKING
 
-from azure.mgmt.core import ARMPipelineClient
+from azure.core import PipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -18,63 +18,63 @@ if TYPE_CHECKING:
     from azure.core.credentials import TokenCredential
 
 from ._configuration import DevicesCorporateManagementConfiguration
-from .operations import DeviceAppManagementDeviceAppManagementOperations
-from .operations import DeviceAppManagementOperations
-from .operations import DeviceAppManagementAndroidManagedAppProtectionOperations
-from .operations import DeviceAppManagementDefaultManagedAppProtectionOperations
-from .operations import DeviceAppManagementIoManagedAppProtectionOperations
-from .operations import DeviceAppManagementManagedAppPolicyOperations
-from .operations import DeviceAppManagementManagedAppRegistrationOperations
-from .operations import DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations
-from .operations import DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations
-from .operations import DeviceAppManagementManagedEBookOperations
-from .operations import DeviceAppManagementManagedEBookUserStateSummaryOperations
-from .operations import DeviceAppManagementMobileAppConfigurationOperations
-from .operations import DeviceAppManagementMobileAppOperations
-from .operations import DeviceAppManagementTargetedManagedAppConfigurationOperations
-from .operations import DeviceAppManagementVppTokenOperations
-from .operations import UserOperations
-from .operations import UserManagedDeviceOperations
+from .operations import deviceappmanagementdeviceappmanagementOperations
+from .operations import deviceappmanagementOperations
+from .operations import deviceappmanagementandroidmanagedappprotectionsOperations
+from .operations import deviceappmanagementdefaultmanagedappprotectionsOperations
+from .operations import deviceappmanagementiosmanagedappprotectionsOperations
+from .operations import deviceappmanagementmanagedapppoliciesOperations
+from .operations import deviceappmanagementmanagedappregistrationsOperations
+from .operations import deviceappmanagementmanagedappregistrationsappliedpoliciesOperations
+from .operations import deviceappmanagementmanagedappregistrationsintendedpoliciesOperations
+from .operations import deviceappmanagementmanagedebooksOperations
+from .operations import deviceappmanagementmanagedebooksuserstatesummaryOperations
+from .operations import deviceappmanagementmobileappconfigurationsOperations
+from .operations import deviceappmanagementmobileappsOperations
+from .operations import deviceappmanagementtargetedmanagedappconfigurationsOperations
+from .operations import deviceappmanagementvpptokensOperations
+from .operations import usersOperations
+from .operations import usersmanageddevicesOperations
 from . import models
 
 
 class DevicesCorporateManagement(object):
     """DevicesCorporateManagement.
 
-    :ivar device_app_management_device_app_management: DeviceAppManagementDeviceAppManagementOperations operations
-    :vartype device_app_management_device_app_management: devices_corporate_management.operations.DeviceAppManagementDeviceAppManagementOperations
-    :ivar device_app_management: DeviceAppManagementOperations operations
-    :vartype device_app_management: devices_corporate_management.operations.DeviceAppManagementOperations
-    :ivar device_app_management_android_managed_app_protection: DeviceAppManagementAndroidManagedAppProtectionOperations operations
-    :vartype device_app_management_android_managed_app_protection: devices_corporate_management.operations.DeviceAppManagementAndroidManagedAppProtectionOperations
-    :ivar device_app_management_default_managed_app_protection: DeviceAppManagementDefaultManagedAppProtectionOperations operations
-    :vartype device_app_management_default_managed_app_protection: devices_corporate_management.operations.DeviceAppManagementDefaultManagedAppProtectionOperations
-    :ivar device_app_management_io_managed_app_protection: DeviceAppManagementIoManagedAppProtectionOperations operations
-    :vartype device_app_management_io_managed_app_protection: devices_corporate_management.operations.DeviceAppManagementIoManagedAppProtectionOperations
-    :ivar device_app_management_managed_app_policy: DeviceAppManagementManagedAppPolicyOperations operations
-    :vartype device_app_management_managed_app_policy: devices_corporate_management.operations.DeviceAppManagementManagedAppPolicyOperations
-    :ivar device_app_management_managed_app_registration: DeviceAppManagementManagedAppRegistrationOperations operations
-    :vartype device_app_management_managed_app_registration: devices_corporate_management.operations.DeviceAppManagementManagedAppRegistrationOperations
-    :ivar device_app_management_managed_app_registration_applied_policy: DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations operations
-    :vartype device_app_management_managed_app_registration_applied_policy: devices_corporate_management.operations.DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations
-    :ivar device_app_management_managed_app_registration_intended_policy: DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations operations
-    :vartype device_app_management_managed_app_registration_intended_policy: devices_corporate_management.operations.DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations
-    :ivar device_app_management_managed_ebook: DeviceAppManagementManagedEBookOperations operations
-    :vartype device_app_management_managed_ebook: devices_corporate_management.operations.DeviceAppManagementManagedEBookOperations
-    :ivar device_app_management_managed_ebook_user_state_summary: DeviceAppManagementManagedEBookUserStateSummaryOperations operations
-    :vartype device_app_management_managed_ebook_user_state_summary: devices_corporate_management.operations.DeviceAppManagementManagedEBookUserStateSummaryOperations
-    :ivar device_app_management_mobile_app_configuration: DeviceAppManagementMobileAppConfigurationOperations operations
-    :vartype device_app_management_mobile_app_configuration: devices_corporate_management.operations.DeviceAppManagementMobileAppConfigurationOperations
-    :ivar device_app_management_mobile_app: DeviceAppManagementMobileAppOperations operations
-    :vartype device_app_management_mobile_app: devices_corporate_management.operations.DeviceAppManagementMobileAppOperations
-    :ivar device_app_management_targeted_managed_app_configuration: DeviceAppManagementTargetedManagedAppConfigurationOperations operations
-    :vartype device_app_management_targeted_managed_app_configuration: devices_corporate_management.operations.DeviceAppManagementTargetedManagedAppConfigurationOperations
-    :ivar device_app_management_vpp_token: DeviceAppManagementVppTokenOperations operations
-    :vartype device_app_management_vpp_token: devices_corporate_management.operations.DeviceAppManagementVppTokenOperations
-    :ivar user: UserOperations operations
-    :vartype user: devices_corporate_management.operations.UserOperations
-    :ivar user_managed_device: UserManagedDeviceOperations operations
-    :vartype user_managed_device: devices_corporate_management.operations.UserManagedDeviceOperations
+    :ivar deviceappmanagementdeviceappmanagement: deviceappmanagementdeviceappmanagementOperations operations
+    :vartype deviceappmanagementdeviceappmanagement: devices_corporate_management.operations.deviceappmanagementdeviceappmanagementOperations
+    :ivar deviceappmanagement: deviceappmanagementOperations operations
+    :vartype deviceappmanagement: devices_corporate_management.operations.deviceappmanagementOperations
+    :ivar deviceappmanagementandroidmanagedappprotections: deviceappmanagementandroidmanagedappprotectionsOperations operations
+    :vartype deviceappmanagementandroidmanagedappprotections: devices_corporate_management.operations.deviceappmanagementandroidmanagedappprotectionsOperations
+    :ivar deviceappmanagementdefaultmanagedappprotections: deviceappmanagementdefaultmanagedappprotectionsOperations operations
+    :vartype deviceappmanagementdefaultmanagedappprotections: devices_corporate_management.operations.deviceappmanagementdefaultmanagedappprotectionsOperations
+    :ivar deviceappmanagementiosmanagedappprotections: deviceappmanagementiosmanagedappprotectionsOperations operations
+    :vartype deviceappmanagementiosmanagedappprotections: devices_corporate_management.operations.deviceappmanagementiosmanagedappprotectionsOperations
+    :ivar deviceappmanagementmanagedapppolicies: deviceappmanagementmanagedapppoliciesOperations operations
+    :vartype deviceappmanagementmanagedapppolicies: devices_corporate_management.operations.deviceappmanagementmanagedapppoliciesOperations
+    :ivar deviceappmanagementmanagedappregistrations: deviceappmanagementmanagedappregistrationsOperations operations
+    :vartype deviceappmanagementmanagedappregistrations: devices_corporate_management.operations.deviceappmanagementmanagedappregistrationsOperations
+    :ivar deviceappmanagementmanagedappregistrationsappliedpolicies: deviceappmanagementmanagedappregistrationsappliedpoliciesOperations operations
+    :vartype deviceappmanagementmanagedappregistrationsappliedpolicies: devices_corporate_management.operations.deviceappmanagementmanagedappregistrationsappliedpoliciesOperations
+    :ivar deviceappmanagementmanagedappregistrationsintendedpolicies: deviceappmanagementmanagedappregistrationsintendedpoliciesOperations operations
+    :vartype deviceappmanagementmanagedappregistrationsintendedpolicies: devices_corporate_management.operations.deviceappmanagementmanagedappregistrationsintendedpoliciesOperations
+    :ivar deviceappmanagementmanagedebooks: deviceappmanagementmanagedebooksOperations operations
+    :vartype deviceappmanagementmanagedebooks: devices_corporate_management.operations.deviceappmanagementmanagedebooksOperations
+    :ivar deviceappmanagementmanagedebooksuserstatesummary: deviceappmanagementmanagedebooksuserstatesummaryOperations operations
+    :vartype deviceappmanagementmanagedebooksuserstatesummary: devices_corporate_management.operations.deviceappmanagementmanagedebooksuserstatesummaryOperations
+    :ivar deviceappmanagementmobileappconfigurations: deviceappmanagementmobileappconfigurationsOperations operations
+    :vartype deviceappmanagementmobileappconfigurations: devices_corporate_management.operations.deviceappmanagementmobileappconfigurationsOperations
+    :ivar deviceappmanagementmobileapps: deviceappmanagementmobileappsOperations operations
+    :vartype deviceappmanagementmobileapps: devices_corporate_management.operations.deviceappmanagementmobileappsOperations
+    :ivar deviceappmanagementtargetedmanagedappconfigurations: deviceappmanagementtargetedmanagedappconfigurationsOperations operations
+    :vartype deviceappmanagementtargetedmanagedappconfigurations: devices_corporate_management.operations.deviceappmanagementtargetedmanagedappconfigurationsOperations
+    :ivar deviceappmanagementvpptokens: deviceappmanagementvpptokensOperations operations
+    :vartype deviceappmanagementvpptokens: devices_corporate_management.operations.deviceappmanagementvpptokensOperations
+    :ivar users: usersOperations operations
+    :vartype users: devices_corporate_management.operations.usersOperations
+    :ivar usersmanageddevices: usersmanageddevicesOperations operations
+    :vartype usersmanageddevices: devices_corporate_management.operations.usersmanageddevicesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials.TokenCredential
     :param top: Show only the first n items.
@@ -105,46 +105,46 @@ class DevicesCorporateManagement(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = DevicesCorporateManagementConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = ARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = PipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.device_app_management_device_app_management = DeviceAppManagementDeviceAppManagementOperations(
+        self.deviceappmanagementdeviceappmanagement = deviceappmanagementdeviceappmanagementOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management = DeviceAppManagementOperations(
+        self.deviceappmanagement = deviceappmanagementOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_android_managed_app_protection = DeviceAppManagementAndroidManagedAppProtectionOperations(
+        self.deviceappmanagementandroidmanagedappprotections = deviceappmanagementandroidmanagedappprotectionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_default_managed_app_protection = DeviceAppManagementDefaultManagedAppProtectionOperations(
+        self.deviceappmanagementdefaultmanagedappprotections = deviceappmanagementdefaultmanagedappprotectionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_io_managed_app_protection = DeviceAppManagementIoManagedAppProtectionOperations(
+        self.deviceappmanagementiosmanagedappprotections = deviceappmanagementiosmanagedappprotectionsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_app_policy = DeviceAppManagementManagedAppPolicyOperations(
+        self.deviceappmanagementmanagedapppolicies = deviceappmanagementmanagedapppoliciesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_app_registration = DeviceAppManagementManagedAppRegistrationOperations(
+        self.deviceappmanagementmanagedappregistrations = deviceappmanagementmanagedappregistrationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_app_registration_applied_policy = DeviceAppManagementManagedAppRegistrationAppliedPolicyOperations(
+        self.deviceappmanagementmanagedappregistrationsappliedpolicies = deviceappmanagementmanagedappregistrationsappliedpoliciesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_app_registration_intended_policy = DeviceAppManagementManagedAppRegistrationIntendedPolicyOperations(
+        self.deviceappmanagementmanagedappregistrationsintendedpolicies = deviceappmanagementmanagedappregistrationsintendedpoliciesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_ebook = DeviceAppManagementManagedEBookOperations(
+        self.deviceappmanagementmanagedebooks = deviceappmanagementmanagedebooksOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_managed_ebook_user_state_summary = DeviceAppManagementManagedEBookUserStateSummaryOperations(
+        self.deviceappmanagementmanagedebooksuserstatesummary = deviceappmanagementmanagedebooksuserstatesummaryOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_mobile_app_configuration = DeviceAppManagementMobileAppConfigurationOperations(
+        self.deviceappmanagementmobileappconfigurations = deviceappmanagementmobileappconfigurationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_mobile_app = DeviceAppManagementMobileAppOperations(
+        self.deviceappmanagementmobileapps = deviceappmanagementmobileappsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_targeted_managed_app_configuration = DeviceAppManagementTargetedManagedAppConfigurationOperations(
+        self.deviceappmanagementtargetedmanagedappconfigurations = deviceappmanagementtargetedmanagedappconfigurationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.device_app_management_vpp_token = DeviceAppManagementVppTokenOperations(
+        self.deviceappmanagementvpptokens = deviceappmanagementvpptokensOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user = UserOperations(
+        self.users = usersOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.user_managed_device = UserManagedDeviceOperations(
+        self.usersmanageddevices = usersmanageddevicesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     def close(self):

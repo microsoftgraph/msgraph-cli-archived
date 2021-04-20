@@ -9,29 +9,31 @@
 # --------------------------------------------------------------------------
 # pylint: disable=too-many-statements
 # pylint: disable=too-many-locals
+# pylint: disable=bad-continuation
 # pylint: disable=line-too-long
 
 from msgraph.cli.core.commands import CliCommandType
+from azext_changenotifications_beta.generated._client_factory import cf_subscriptionssubscription
+
+
+changenotifications_beta_subscriptionssubscription = CliCommandType(
+    operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscriptionssubscription_operations#subscriptionssubscriptionOperations.{}',
+    client_factory=cf_subscriptionssubscription,
+)
 
 
 def load_command_table(self, _):
 
-    from azext_changenotifications_beta.generated._client_factory import cf_subscription_subscription
-
-    changenotifications_beta_subscription_subscription = CliCommandType(
-        operations_tmpl='azext_changenotifications_beta.vendored_sdks.changenotifications.operations._subscription_subscription_operations#SubscriptionSubscriptionOperations.{}',
-        client_factory=cf_subscription_subscription,
-    )
     with self.command_group(
-        'changenotifications subscription-subscription',
-        changenotifications_beta_subscription_subscription,
-        client_factory=cf_subscription_subscription,
+        'changenotifications subscriptionssubscription',
+        changenotifications_beta_subscriptionssubscription,
+        client_factory=cf_subscriptionssubscription,
     ) as g:
-        g.custom_command('delete', 'changenotifications_subscription_subscription_delete', confirmation=True)
-        g.custom_command('create-subscription', 'changenotifications_subscription_subscription_create_subscription')
-        g.custom_command('list-subscription', 'changenotifications_subscription_subscription_list_subscription')
-        g.custom_command('show-subscription', 'changenotifications_subscription_subscription_show_subscription')
-        g.custom_command('update-subscription', 'changenotifications_subscription_subscription_update_subscription')
+        g.custom_command('create-subscription', 'changenotifications_subscriptionssubscription_create_subscription')
+        g.custom_command('delete-subscription', 'changenotifications_subscriptionssubscription_delete_subscription')
+        g.custom_command('list-subscription', 'changenotifications_subscriptionssubscription_list_subscription')
+        g.custom_command('show-subscription', 'changenotifications_subscriptionssubscription_show_subscription')
+        g.custom_command('update-subscription', 'changenotifications_subscriptionssubscription_update_subscription')
 
     with self.command_group('changenotifications_beta', is_experimental=True):
         pass

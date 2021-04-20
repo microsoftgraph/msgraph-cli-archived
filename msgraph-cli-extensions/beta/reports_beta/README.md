@@ -8,7 +8,7 @@ az extension add --name reports_beta
 ```
 
 ### Included Features ###
-#### reports audit-log-audit-log-root ####
-#### reports audit-log ####
-#### reports report-root ####
+#### reports auditlogsauditlogroot ####
+#### reports auditlog ####
+#### reports reportsreportroot ####
 #### reports report ####

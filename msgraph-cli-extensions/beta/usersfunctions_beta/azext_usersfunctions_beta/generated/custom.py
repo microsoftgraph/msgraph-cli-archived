@@ -10,230 +10,230 @@
 # pylint: disable=too-many-lines
 
 
-def usersfunctions_user_activity_recent(client,
+def usersfunctions_usersactivity_recent(client,
                                         user_id):
     return client.recent(user_id=user_id)
 
 
-def usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing_role(client,
-                                                                                      user_id,
-                                                                                      event_id,
-                                                                                      user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+def usersfunctions_userscalendarviewcalendar_allowed_calendar_sharing_role(client,
+                                                                           user_id,
+                                                                           event_id,
+                                                                           user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_calendar_view_exception_occurrence_delta(client,
-                                                                          user_id,
-                                                                          event_id):
-    return client.delta(user_id=user_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_calendar_calendar_view_instance_delta(client,
+def usersfunctions_userscalendarviewexceptionoccurrence_delta(client,
                                                               user_id,
                                                               event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_calendar_view_delta(client,
-                                                     user_id):
-    return client.delta(user_id=user_id)
-
-
-def usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role(client,
-                                                                              user_id,
-                                                                              event_id,
-                                                                              user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
-
-
-def usersfunctions_user_calendar_event_exception_occurrence_delta(client,
-                                                                  user_id,
-                                                                  event_id):
+def usersfunctions_userscalendarviewinstance_delta(client,
+                                                   user_id,
+                                                   event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_event_instance_delta(client,
-                                                      user_id,
-                                                      event_id):
+def usersfunctions_userscalendarview_delta(client,
+                                           user_id):
+    return client.delta(user_id=user_id)
+
+
+def usersfunctions_userscalendareventscalendar_allowed_calendar_sharing_role(client,
+                                                                             user_id,
+                                                                             event_id,
+                                                                             user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
+
+
+def usersfunctions_userscalendareventsexceptionoccurrence_delta(client,
+                                                                user_id,
+                                                                event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_event_delta(client,
-                                             user_id):
+def usersfunctions_userscalendareventsinstance_delta(client,
+                                                     user_id,
+                                                     event_id):
+    return client.delta(user_id=user_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userscalendarevent_delta(client,
+                                            user_id):
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_calendar_allowed_calendar_sharing_role(client,
+def usersfunctions_userscalendar_allowed_calendar_sharing_role(client,
                                                                user_id,
                                                                user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_group_calendar_calendar_view_calendar_allowed_calendar_sharing_role(client,
-                                                                                                     user_id,
-                                                                                                     calendar_group_id,
-                                                                                                     calendar_id,
-                                                                                                     event_id,
-                                                                                                     user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+def usersfunctions_userscalendargroupscalendarscalendarviewcalendar_allowed_calendar_sharing_role(client,
+                                                                                                  user_id,
+                                                                                                  calendar_group_id,
+                                                                                                  calendar_id,
+                                                                                                  event_id,
+                                                                                                  user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_group_calendar_calendar_view_exception_occurrence_delta(client,
-                                                                                         user_id,
-                                                                                         calendar_group_id,
-                                                                                         calendar_id,
-                                                                                         event_id):
+def usersfunctions_userscalendargroupscalendarscalendarviewexceptionoccurrence_delta(client,
+                                                                                     user_id,
+                                                                                     calendar_group_id,
+                                                                                     calendar_id,
+                                                                                     event_id):
     return client.delta(user_id=user_id,
                         calendar_group_id=calendar_group_id,
                         calendar_id=calendar_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_group_calendar_calendar_view_instance_delta(client,
-                                                                             user_id,
-                                                                             calendar_group_id,
-                                                                             calendar_id,
-                                                                             event_id):
-    return client.delta(user_id=user_id,
-                        calendar_group_id=calendar_group_id,
-                        calendar_id=calendar_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_calendar_group_calendar_calendar_view_delta(client,
-                                                                    user_id,
-                                                                    calendar_group_id,
-                                                                    calendar_id):
-    return client.delta(user_id=user_id,
-                        calendar_group_id=calendar_group_id,
-                        calendar_id=calendar_id)
-
-
-def usersfunctions_user_calendar_group_calendar_event_calendar_allowed_calendar_sharing_role(client,
-                                                                                             user_id,
-                                                                                             calendar_group_id,
-                                                                                             calendar_id,
-                                                                                             event_id,
-                                                                                             user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
-
-
-def usersfunctions_user_calendar_group_calendar_event_exception_occurrence_delta(client,
-                                                                                 user_id,
-                                                                                 calendar_group_id,
-                                                                                 calendar_id,
-                                                                                 event_id):
-    return client.delta(user_id=user_id,
-                        calendar_group_id=calendar_group_id,
-                        calendar_id=calendar_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_calendar_group_calendar_event_instance_delta(client,
-                                                                     user_id,
-                                                                     calendar_group_id,
-                                                                     calendar_id,
-                                                                     event_id):
-    return client.delta(user_id=user_id,
-                        calendar_group_id=calendar_group_id,
-                        calendar_id=calendar_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_calendar_group_calendar_event_delta(client,
-                                                            user_id,
-                                                            calendar_group_id,
-                                                            calendar_id):
-    return client.delta(user_id=user_id,
-                        calendar_group_id=calendar_group_id,
-                        calendar_id=calendar_id)
-
-
-def usersfunctions_user_calendar_group_calendar_allowed_calendar_sharing_role(client,
-                                                                              user_id,
-                                                                              calendar_group_id,
-                                                                              calendar_id,
-                                                                              user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_group_id=calendar_group_id,
-                                                calendar_id=calendar_id,
-                                                user=user)
-
-
-def usersfunctions_user_calendar_calendar_view_calendar_allowed_calendar_sharing_role(client,
-                                                                                      user_id,
-                                                                                      calendar_id,
-                                                                                      event_id,
-                                                                                      user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
-
-
-def usersfunctions_user_calendar_calendar_view_exception_occurrence_delta(client,
+def usersfunctions_userscalendargroupscalendarscalendarviewinstance_delta(client,
                                                                           user_id,
+                                                                          calendar_group_id,
                                                                           calendar_id,
                                                                           event_id):
     return client.delta(user_id=user_id,
+                        calendar_group_id=calendar_group_id,
                         calendar_id=calendar_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_calendar_view_instance_delta(client,
-                                                              user_id,
-                                                              calendar_id,
-                                                              event_id):
+def usersfunctions_userscalendargroupscalendarscalendarview_delta(client,
+                                                                  user_id,
+                                                                  calendar_group_id,
+                                                                  calendar_id):
+    return client.delta(user_id=user_id,
+                        calendar_group_id=calendar_group_id,
+                        calendar_id=calendar_id)
+
+
+def usersfunctions_userscalendargroupscalendarseventscalendar_allowed_calendar_sharing_role(client,
+                                                                                            user_id,
+                                                                                            calendar_group_id,
+                                                                                            calendar_id,
+                                                                                            event_id,
+                                                                                            user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
+
+
+def usersfunctions_userscalendargroupscalendarseventsexceptionoccurrence_delta(client,
+                                                                               user_id,
+                                                                               calendar_group_id,
+                                                                               calendar_id,
+                                                                               event_id):
+    return client.delta(user_id=user_id,
+                        calendar_group_id=calendar_group_id,
+                        calendar_id=calendar_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userscalendargroupscalendarseventsinstance_delta(client,
+                                                                    user_id,
+                                                                    calendar_group_id,
+                                                                    calendar_id,
+                                                                    event_id):
+    return client.delta(user_id=user_id,
+                        calendar_group_id=calendar_group_id,
+                        calendar_id=calendar_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userscalendargroupscalendarsevent_delta(client,
+                                                           user_id,
+                                                           calendar_group_id,
+                                                           calendar_id):
+    return client.delta(user_id=user_id,
+                        calendar_group_id=calendar_group_id,
+                        calendar_id=calendar_id)
+
+
+def usersfunctions_userscalendargroupscalendar_allowed_calendar_sharing_role(client,
+                                                                             user_id,
+                                                                             calendar_group_id,
+                                                                             calendar_id,
+                                                                             user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_group_id=calendar_group_id,
+                                                 calendar_id=calendar_id,
+                                                 user=user)
+
+
+def usersfunctions_userscalendarscalendarviewcalendar_allowed_calendar_sharing_role(client,
+                                                                                    user_id,
+                                                                                    calendar_id,
+                                                                                    event_id,
+                                                                                    user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
+
+
+def usersfunctions_userscalendarscalendarviewexceptionoccurrence_delta(client,
+                                                                       user_id,
+                                                                       calendar_id,
+                                                                       event_id):
     return client.delta(user_id=user_id,
                         calendar_id=calendar_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_calendar_view_delta(client,
-                                                     user_id,
-                                                     calendar_id):
+def usersfunctions_userscalendarscalendarviewinstance_delta(client,
+                                                            user_id,
+                                                            calendar_id,
+                                                            event_id):
+    return client.delta(user_id=user_id,
+                        calendar_id=calendar_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userscalendarscalendarview_delta(client,
+                                                    user_id,
+                                                    calendar_id):
     return client.delta(user_id=user_id,
                         calendar_id=calendar_id)
 
 
-def usersfunctions_user_calendar_event_calendar_allowed_calendar_sharing_role(client,
+def usersfunctions_userscalendarseventscalendar_allowed_calendar_sharing_role(client,
                                                                               user_id,
                                                                               calendar_id,
                                                                               event_id,
                                                                               user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                event_id=event_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_event_exception_occurrence_delta(client,
-                                                                  user_id,
-                                                                  calendar_id,
-                                                                  event_id):
+def usersfunctions_userscalendarseventsexceptionoccurrence_delta(client,
+                                                                 user_id,
+                                                                 calendar_id,
+                                                                 event_id):
     return client.delta(user_id=user_id,
                         calendar_id=calendar_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_event_instance_delta(client,
+def usersfunctions_userscalendarseventsinstance_delta(client,
                                                       user_id,
                                                       calendar_id,
                                                       event_id):
@@ -242,169 +242,169 @@ def usersfunctions_user_calendar_event_instance_delta(client,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_event_delta(client,
+def usersfunctions_userscalendarsevent_delta(client,
                                              user_id,
                                              calendar_id):
     return client.delta(user_id=user_id,
                         calendar_id=calendar_id)
 
 
-def usersfunctions_user_calendar_allowed_calendar_sharing_role(client,
+def usersfunctions_userscalendar_allowed_calendar_sharing_role(client,
                                                                user_id,
                                                                calendar_id,
                                                                user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                calendar_id=calendar_id,
-                                                user=user)
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 calendar_id=calendar_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_view_calendar_calendar_view_delta(client,
-                                                                   user_id,
-                                                                   event_id):
+def usersfunctions_userscalendarviewcalendarview_delta(client,
+                                                       user_id,
+                                                       event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_view_calendar_event_delta(client,
-                                                           user_id,
-                                                           event_id):
+def usersfunctions_userscalendarviewcalendarevent_delta(client,
+                                                        user_id,
+                                                        event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_view_calendar_allowed_calendar_sharing_role(client,
-                                                                             user_id,
-                                                                             event_id,
-                                                                             user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+def usersfunctions_userscalendarviewcalendar_allowed_calendar_sharing_role(client,
+                                                                           user_id,
+                                                                           event_id,
+                                                                           user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
 
 
-def usersfunctions_user_calendar_view_exception_occurrence_delta(client,
-                                                                 user_id,
-                                                                 event_id):
+def usersfunctions_userscalendarviewexceptionoccurrence_delta(client,
+                                                              user_id,
+                                                              event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_calendar_view_instance_delta(client,
-                                                     user_id,
-                                                     event_id):
-    return client.delta(user_id=user_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_calendar_view_delta(client,
-                                            user_id):
-    return client.delta(user_id=user_id)
-
-
-def usersfunctions_user_contact_folder_child_folder_delta(client,
-                                                          user_id,
-                                                          contact_folder_id):
-    return client.delta(user_id=user_id,
-                        contact_folder_id=contact_folder_id)
-
-
-def usersfunctions_user_contact_folder_contact_delta(client,
-                                                     user_id,
-                                                     contact_folder_id):
-    return client.delta(user_id=user_id,
-                        contact_folder_id=contact_folder_id)
-
-
-def usersfunctions_user_contact_folder_delta(client,
-                                             user_id):
-    return client.delta(user_id=user_id)
-
-
-def usersfunctions_user_contact_delta(client,
-                                      user_id):
-    return client.delta(user_id=user_id)
-
-
-def usersfunctions_user_event_calendar_calendar_view_delta(client,
-                                                           user_id,
-                                                           event_id):
-    return client.delta(user_id=user_id,
-                        event_id=event_id)
-
-
-def usersfunctions_user_event_calendar_event_delta(client,
+def usersfunctions_userscalendarviewinstance_delta(client,
                                                    user_id,
                                                    event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_event_calendar_allowed_calendar_sharing_role(client,
-                                                                     user_id,
-                                                                     event_id,
-                                                                     user):
-    return client.allowed_calendar_sharing_role(user_id=user_id,
-                                                event_id=event_id,
-                                                user=user)
+def usersfunctions_userscalendarview_delta(client,
+                                           user_id):
+    return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_event_exception_occurrence_delta(client,
-                                                         user_id,
-                                                         event_id):
+def usersfunctions_userscontactfolderschildfolder_delta(client,
+                                                        user_id,
+                                                        contact_folder_id):
+    return client.delta(user_id=user_id,
+                        contact_folder_id=contact_folder_id)
+
+
+def usersfunctions_userscontactfolderscontact_delta(client,
+                                                    user_id,
+                                                    contact_folder_id):
+    return client.delta(user_id=user_id,
+                        contact_folder_id=contact_folder_id)
+
+
+def usersfunctions_userscontactfolder_delta(client,
+                                            user_id):
+    return client.delta(user_id=user_id)
+
+
+def usersfunctions_userscontact_delta(client,
+                                      user_id):
+    return client.delta(user_id=user_id)
+
+
+def usersfunctions_userseventscalendarview_delta(client,
+                                                 user_id,
+                                                 event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_event_instance_delta(client,
+def usersfunctions_userseventscalendarevent_delta(client,
+                                                  user_id,
+                                                  event_id):
+    return client.delta(user_id=user_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userseventscalendar_allowed_calendar_sharing_role(client,
+                                                                     user_id,
+                                                                     event_id,
+                                                                     user):
+    return client.allowed_calendar_sharing_roles(user_id=user_id,
+                                                 event_id=event_id,
+                                                 user=user)
+
+
+def usersfunctions_userseventsexceptionoccurrence_delta(client,
+                                                        user_id,
+                                                        event_id):
+    return client.delta(user_id=user_id,
+                        event_id=event_id)
+
+
+def usersfunctions_userseventsinstance_delta(client,
                                              user_id,
                                              event_id):
     return client.delta(user_id=user_id,
                         event_id=event_id)
 
 
-def usersfunctions_user_event_delta(client,
+def usersfunctions_usersevent_delta(client,
                                     user_id):
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_mail_folder_child_folder_delta(client,
-                                                       user_id,
-                                                       mail_folder_id):
+def usersfunctions_usersmailfolderschildfolder_delta(client,
+                                                     user_id,
+                                                     mail_folder_id):
     return client.delta(user_id=user_id,
                         mail_folder_id=mail_folder_id)
 
 
-def usersfunctions_user_mail_folder_message_delta(client,
-                                                  user_id,
-                                                  mail_folder_id):
+def usersfunctions_usersmailfoldersmessage_delta(client,
+                                                 user_id,
+                                                 mail_folder_id):
     return client.delta(user_id=user_id,
                         mail_folder_id=mail_folder_id)
 
 
-def usersfunctions_user_mail_folder_delta(client,
-                                          user_id):
+def usersfunctions_usersmailfolder_delta(client,
+                                         user_id):
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_managed_app_registration_show_user_id_with_flagged_app_registration(client,
-                                                                                            user_id):
-    return client.get_user_id_with_flagged_app_registration(user_id=user_id)
+def usersfunctions_usersmanagedappregistration_show_user_id_with_flagged_app_registration(client,
+                                                                                          user_id):
+    return client.get_user_ids_with_flagged_app_registration(user_id=user_id)
 
 
-def usersfunctions_user_managed_device_show_file_vault_key(client,
-                                                           user_id,
-                                                           managed_device_id):
+def usersfunctions_usersmanageddevice_show_file_vault_key(client,
+                                                          user_id,
+                                                          managed_device_id):
     return client.get_file_vault_key(user_id=user_id,
                                      managed_device_id=managed_device_id)
 
 
-def usersfunctions_user_managed_device_show_non_compliant_setting(client,
-                                                                  user_id,
-                                                                  managed_device_id):
-    return client.get_non_compliant_setting(user_id=user_id,
-                                            managed_device_id=managed_device_id)
+def usersfunctions_usersmanageddevice_show_non_compliant_setting(client,
+                                                                 user_id,
+                                                                 managed_device_id):
+    return client.get_non_compliant_settings(user_id=user_id,
+                                             managed_device_id=managed_device_id)
 
 
-def usersfunctions_user_message_delta(client,
+def usersfunctions_usersmessage_delta(client,
                                       user_id):
     return client.delta(user_id=user_id)
 
@@ -430,18 +430,18 @@ def usersfunctions_user_export_device_and_app_management_data623_c(client,
 def usersfunctions_user_find_room_ac49(client,
                                        user_id,
                                        room_list):
-    return client.find_room_ac49(user_id=user_id,
-                                 room_list=room_list)
+    return client.find_rooms_ac49(user_id=user_id,
+                                  room_list=room_list)
 
 
 def usersfunctions_user_find_room_d266(client,
                                        user_id):
-    return client.find_room_d266(user_id=user_id)
+    return client.find_rooms_d266(user_id=user_id)
 
 
 def usersfunctions_user_find_room_list(client,
                                        user_id):
-    return client.find_room_list(user_id=user_id)
+    return client.find_room_lists(user_id=user_id)
 
 
 def usersfunctions_user_is_managed_app_user_blocked(client,
@@ -460,16 +460,16 @@ def usersfunctions_user_reminder_view(client,
 
 def usersfunctions_user_show_effective_device_enrollment_configuration(client,
                                                                        user_id):
-    return client.get_effective_device_enrollment_configuration(user_id=user_id)
+    return client.get_effective_device_enrollment_configurations(user_id=user_id)
 
 
 def usersfunctions_user_show_logged_on_managed_device(client,
                                                       user_id):
-    return client.get_logged_on_managed_device(user_id=user_id)
+    return client.get_logged_on_managed_devices(user_id=user_id)
 
 
 def usersfunctions_user_show_managed_app_blocked_user(client):
-    return client.get_managed_app_blocked_user()
+    return client.get_managed_app_blocked_users()
 
 
 def usersfunctions_user_show_managed_app_diagnostic_statuses(client,
@@ -479,25 +479,25 @@ def usersfunctions_user_show_managed_app_diagnostic_statuses(client,
 
 def usersfunctions_user_show_managed_app_policy(client,
                                                 user_id):
-    return client.get_managed_app_policy(user_id=user_id)
+    return client.get_managed_app_policies(user_id=user_id)
 
 
 def usersfunctions_user_show_managed_device_with_app_failure(client,
                                                              user_id):
-    return client.get_managed_device_with_app_failure(user_id=user_id)
+    return client.get_managed_devices_with_app_failures(user_id=user_id)
 
 
 def usersfunctions_user_show_managed_device_with_failed_or_pending_app(client,
                                                                        user_id):
-    return client.get_managed_device_with_failed_or_pending_app(user_id=user_id)
+    return client.get_managed_devices_with_failed_or_pending_apps(user_id=user_id)
 
 
-def usersfunctions_user_onenote_notebook_section_group_section_page_preview(client,
-                                                                            user_id,
-                                                                            notebook_id,
-                                                                            section_group_id,
-                                                                            onenote_section_id,
-                                                                            onenote_page_id):
+def usersfunctions_usersonenotenotebookssectiongroupssectionspage_preview(client,
+                                                                          user_id,
+                                                                          notebook_id,
+                                                                          section_group_id,
+                                                                          onenote_section_id,
+                                                                          onenote_page_id):
     return client.preview(user_id=user_id,
                           notebook_id=notebook_id,
                           section_group_id=section_group_id,
@@ -505,39 +505,39 @@ def usersfunctions_user_onenote_notebook_section_group_section_page_preview(clie
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_notebook_section_page_preview(client,
-                                                              user_id,
-                                                              notebook_id,
-                                                              onenote_section_id,
-                                                              onenote_page_id):
+def usersfunctions_usersonenotenotebookssectionspage_preview(client,
+                                                             user_id,
+                                                             notebook_id,
+                                                             onenote_section_id,
+                                                             onenote_page_id):
     return client.preview(user_id=user_id,
                           notebook_id=notebook_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_notebook_show_recent_notebook(client,
-                                                              user_id,
-                                                              include_personal_notebooks):
+def usersfunctions_usersonenotenotebook_show_recent_notebook(client,
+                                                             user_id,
+                                                             include_personal_notebooks):
     if include_personal_notebooks is None:
         include_personal_notebooks = False
-    return client.get_recent_notebook(user_id=user_id,
-                                      include_personal_notebooks=include_personal_notebooks)
+    return client.get_recent_notebooks(user_id=user_id,
+                                       include_personal_notebooks=include_personal_notebooks)
 
 
-def usersfunctions_user_onenote_page_preview(client,
-                                             user_id,
-                                             onenote_page_id):
+def usersfunctions_usersonenotepage_preview(client,
+                                            user_id,
+                                            onenote_page_id):
     return client.preview(user_id=user_id,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_page_parent_notebook_section_group_section_page_preview(client,
-                                                                                        user_id,
-                                                                                        onenote_page_id,
-                                                                                        section_group_id,
-                                                                                        onenote_section_id,
-                                                                                        onenote_page_id1):
+def usersfunctions_usersonenotepagesparentnotebooksectiongroupssectionspage_preview(client,
+                                                                                    user_id,
+                                                                                    onenote_page_id,
+                                                                                    section_group_id,
+                                                                                    onenote_section_id,
+                                                                                    onenote_page_id1):
     return client.preview(user_id=user_id,
                           onenote_page_id=onenote_page_id,
                           section_group_id=section_group_id,
@@ -545,86 +545,86 @@ def usersfunctions_user_onenote_page_parent_notebook_section_group_section_page_
                           onenote_page_id1=onenote_page_id1)
 
 
-def usersfunctions_user_onenote_page_parent_notebook_section_page_preview(client,
-                                                                          user_id,
-                                                                          onenote_page_id,
-                                                                          onenote_section_id,
-                                                                          onenote_page_id1):
+def usersfunctions_usersonenotepagesparentnotebooksectionspage_preview(client,
+                                                                       user_id,
+                                                                       onenote_page_id,
+                                                                       onenote_section_id,
+                                                                       onenote_page_id1):
     return client.preview(user_id=user_id,
                           onenote_page_id=onenote_page_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id1=onenote_page_id1)
 
 
-def usersfunctions_user_onenote_page_parent_section_page_preview(client,
+def usersfunctions_usersonenotepagesparentsectionpage_preview(client,
+                                                              user_id,
+                                                              onenote_page_id,
+                                                              onenote_page_id1):
+    return client.preview(user_id=user_id,
+                          onenote_page_id=onenote_page_id,
+                          onenote_page_id1=onenote_page_id1)
+
+
+def usersfunctions_usersonenotesectiongroupsparentnotebooksectionspage_preview(client,
+                                                                               user_id,
+                                                                               section_group_id,
+                                                                               onenote_section_id,
+                                                                               onenote_page_id):
+    return client.preview(user_id=user_id,
+                          section_group_id=section_group_id,
+                          onenote_section_id=onenote_section_id,
+                          onenote_page_id=onenote_page_id)
+
+
+def usersfunctions_usersonenotesectiongroupssectionspage_preview(client,
                                                                  user_id,
-                                                                 onenote_page_id,
-                                                                 onenote_page_id1):
-    return client.preview(user_id=user_id,
-                          onenote_page_id=onenote_page_id,
-                          onenote_page_id1=onenote_page_id1)
-
-
-def usersfunctions_user_onenote_section_group_parent_notebook_section_page_preview(client,
-                                                                                   user_id,
-                                                                                   section_group_id,
-                                                                                   onenote_section_id,
-                                                                                   onenote_page_id):
+                                                                 section_group_id,
+                                                                 onenote_section_id,
+                                                                 onenote_page_id):
     return client.preview(user_id=user_id,
                           section_group_id=section_group_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_onenote_section_group_section_page_preview(client,
-                                                                   user_id,
-                                                                   section_group_id,
-                                                                   onenote_section_id,
-                                                                   onenote_page_id):
-    return client.preview(user_id=user_id,
-                          section_group_id=section_group_id,
-                          onenote_section_id=onenote_section_id,
-                          onenote_page_id=onenote_page_id)
-
-
-def usersfunctions_user_onenote_section_page_preview(client,
-                                                     user_id,
-                                                     onenote_section_id,
-                                                     onenote_page_id):
+def usersfunctions_usersonenotesectionspage_preview(client,
+                                                    user_id,
+                                                    onenote_section_id,
+                                                    onenote_page_id):
     return client.preview(user_id=user_id,
                           onenote_section_id=onenote_section_id,
                           onenote_page_id=onenote_page_id)
 
 
-def usersfunctions_user_outlook_supported_language(client,
+def usersfunctions_usersoutlook_supported_language(client,
                                                    user_id):
-    return client.supported_language(user_id=user_id)
+    return client.supported_languages(user_id=user_id)
 
 
-def usersfunctions_user_outlook_supported_time_zone_ee48(client,
+def usersfunctions_usersoutlook_supported_time_zone_ee48(client,
                                                          user_id):
-    return client.supported_time_zone_ee48(user_id=user_id)
+    return client.supported_time_zones_ee48(user_id=user_id)
 
 
-def usersfunctions_user_outlook_supported_time_zones51_c6(client,
+def usersfunctions_usersoutlook_supported_time_zones51_c6(client,
                                                           user_id,
                                                           time_zone_standard):
     return client.supported_time_zones51_c6(user_id=user_id,
                                             time_zone_standard=time_zone_standard)
 
 
-def usersfunctions_user_planner_all_delta(client,
-                                          user_id):
+def usersfunctions_usersplannerall_delta(client,
+                                         user_id):
     return client.delta(user_id=user_id)
 
 
-def usersfunctions_user_todo_list_task_delta(client,
-                                             user_id,
-                                             todo_task_list_id):
+def usersfunctions_userstodoliststask_delta(client,
+                                            user_id,
+                                            todo_task_list_id):
     return client.delta(user_id=user_id,
                         todo_task_list_id=todo_task_list_id)
 
 
-def usersfunctions_user_todo_list_delta(client,
-                                        user_id):
+def usersfunctions_userstodolist_delta(client,
+                                       user_id):
     return client.delta(user_id=user_id)

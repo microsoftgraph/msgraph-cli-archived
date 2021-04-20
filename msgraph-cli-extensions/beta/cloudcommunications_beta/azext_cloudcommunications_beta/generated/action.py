@@ -487,10 +487,10 @@ class AddMediaQualityList(argparse._AppendAction):
         return d
 
 
-class AddCloudcommunicationsCommunicationCallPlayPromptPrompts(argparse._AppendAction):
+class AddCloudcommunicationsCommunicationscallPlayPromptPrompts(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCloudcommunicationsCommunicationCallPlayPromptPrompts, self).__call__(parser, namespace, action, option_string)
+        super(AddCloudcommunicationsCommunicationscallPlayPromptPrompts, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:
@@ -507,10 +507,10 @@ class AddCloudcommunicationsCommunicationCallPlayPromptPrompts(argparse._AppendA
         return d
 
 
-class AddCloudcommunicationsCommunicationCallRecordPrompts(argparse._AppendAction):
+class AddCloudcommunicationsCommunicationscallRecordPrompts(argparse._AppendAction):
     def __call__(self, parser, namespace, values, option_string=None):
         action = self.get_action(values, option_string)
-        super(AddCloudcommunicationsCommunicationCallRecordPrompts, self).__call__(parser, namespace, action, option_string)
+        super(AddCloudcommunicationsCommunicationscallRecordPrompts, self).__call__(parser, namespace, action, option_string)
 
     def get_action(self, values, option_string):  # pylint: disable=no-self-use
         try:

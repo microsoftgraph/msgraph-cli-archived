@@ -8,7 +8,7 @@
 
 from typing import Any, Optional, TYPE_CHECKING
 
-from azure.mgmt.core import AsyncARMPipelineClient
+from azure.core import AsyncPipelineClient
 from msrest import Deserializer, Serializer
 
 if TYPE_CHECKING:
@@ -16,57 +16,57 @@ if TYPE_CHECKING:
     from azure.core.credentials_async import AsyncTokenCredential
 
 from ._configuration import IdentitySignInsConfiguration
-from .operations import DataPolicyOperationDataPolicyOperationOperations
-from .operations import IdentityOperations
-from .operations import IdentityConditionalAccessOperations
-from .operations import IdentityProviderIdentityProviderOperations
-from .operations import InformationProtectionInformationProtectionOperations
-from .operations import InformationProtectionOperations
-from .operations import InformationProtectionThreatAssessmentRequestOperations
-from .operations import InvitationInvitationOperations
-from .operations import InvitationOperations
-from .operations import Oauth2PermissionGrantOAuth2PermissionGrantOperations
-from .operations import Oauth2PermissionGrantOperations
-from .operations import OrganizationOperations
-from .operations import PolicyPolicyRootOperations
-from .operations import PolicyOperations
-from .operations import PolicyPermissionGrantPolicyOperations
+from .operations import datapolicyoperationsdatapolicyoperationOperations
+from .operations import identityOperations
+from .operations import identityconditionalaccessOperations
+from .operations import identityprovidersidentityproviderOperations
+from .operations import informationprotectioninformationprotectionOperations
+from .operations import informationprotectionOperations
+from .operations import informationprotectionthreatassessmentrequestsOperations
+from .operations import invitationsinvitationOperations
+from .operations import invitationsOperations
+from .operations import oauth2permissiongrantsoauth2permissiongrantOperations
+from .operations import oauth2permissiongrantsOperations
+from .operations import organizationOperations
+from .operations import policiespolicyrootOperations
+from .operations import policiesOperations
+from .operations import policiespermissiongrantpoliciesOperations
 from .. import models
 
 
 class IdentitySignIns(object):
     """IdentitySignIns.
 
-    :ivar data_policy_operation_data_policy_operation: DataPolicyOperationDataPolicyOperationOperations operations
-    :vartype data_policy_operation_data_policy_operation: identity_sign_ins.aio.operations.DataPolicyOperationDataPolicyOperationOperations
-    :ivar identity: IdentityOperations operations
-    :vartype identity: identity_sign_ins.aio.operations.IdentityOperations
-    :ivar identity_conditional_access: IdentityConditionalAccessOperations operations
-    :vartype identity_conditional_access: identity_sign_ins.aio.operations.IdentityConditionalAccessOperations
-    :ivar identity_provider_identity_provider: IdentityProviderIdentityProviderOperations operations
-    :vartype identity_provider_identity_provider: identity_sign_ins.aio.operations.IdentityProviderIdentityProviderOperations
-    :ivar information_protection_information_protection: InformationProtectionInformationProtectionOperations operations
-    :vartype information_protection_information_protection: identity_sign_ins.aio.operations.InformationProtectionInformationProtectionOperations
-    :ivar information_protection: InformationProtectionOperations operations
-    :vartype information_protection: identity_sign_ins.aio.operations.InformationProtectionOperations
-    :ivar information_protection_threat_assessment_request: InformationProtectionThreatAssessmentRequestOperations operations
-    :vartype information_protection_threat_assessment_request: identity_sign_ins.aio.operations.InformationProtectionThreatAssessmentRequestOperations
-    :ivar invitation_invitation: InvitationInvitationOperations operations
-    :vartype invitation_invitation: identity_sign_ins.aio.operations.InvitationInvitationOperations
-    :ivar invitation: InvitationOperations operations
-    :vartype invitation: identity_sign_ins.aio.operations.InvitationOperations
-    :ivar oauth2_permission_grant_oauth2_permission_grant: Oauth2PermissionGrantOAuth2PermissionGrantOperations operations
-    :vartype oauth2_permission_grant_oauth2_permission_grant: identity_sign_ins.aio.operations.Oauth2PermissionGrantOAuth2PermissionGrantOperations
-    :ivar oauth2_permission_grant: Oauth2PermissionGrantOperations operations
-    :vartype oauth2_permission_grant: identity_sign_ins.aio.operations.Oauth2PermissionGrantOperations
-    :ivar organization: OrganizationOperations operations
-    :vartype organization: identity_sign_ins.aio.operations.OrganizationOperations
-    :ivar policy_policy_root: PolicyPolicyRootOperations operations
-    :vartype policy_policy_root: identity_sign_ins.aio.operations.PolicyPolicyRootOperations
-    :ivar policy: PolicyOperations operations
-    :vartype policy: identity_sign_ins.aio.operations.PolicyOperations
-    :ivar policy_permission_grant_policy: PolicyPermissionGrantPolicyOperations operations
-    :vartype policy_permission_grant_policy: identity_sign_ins.aio.operations.PolicyPermissionGrantPolicyOperations
+    :ivar datapolicyoperationsdatapolicyoperation: datapolicyoperationsdatapolicyoperationOperations operations
+    :vartype datapolicyoperationsdatapolicyoperation: identity_sign_ins.aio.operations.datapolicyoperationsdatapolicyoperationOperations
+    :ivar identity: identityOperations operations
+    :vartype identity: identity_sign_ins.aio.operations.identityOperations
+    :ivar identityconditionalaccess: identityconditionalaccessOperations operations
+    :vartype identityconditionalaccess: identity_sign_ins.aio.operations.identityconditionalaccessOperations
+    :ivar identityprovidersidentityprovider: identityprovidersidentityproviderOperations operations
+    :vartype identityprovidersidentityprovider: identity_sign_ins.aio.operations.identityprovidersidentityproviderOperations
+    :ivar informationprotectioninformationprotection: informationprotectioninformationprotectionOperations operations
+    :vartype informationprotectioninformationprotection: identity_sign_ins.aio.operations.informationprotectioninformationprotectionOperations
+    :ivar informationprotection: informationprotectionOperations operations
+    :vartype informationprotection: identity_sign_ins.aio.operations.informationprotectionOperations
+    :ivar informationprotectionthreatassessmentrequests: informationprotectionthreatassessmentrequestsOperations operations
+    :vartype informationprotectionthreatassessmentrequests: identity_sign_ins.aio.operations.informationprotectionthreatassessmentrequestsOperations
+    :ivar invitationsinvitation: invitationsinvitationOperations operations
+    :vartype invitationsinvitation: identity_sign_ins.aio.operations.invitationsinvitationOperations
+    :ivar invitations: invitationsOperations operations
+    :vartype invitations: identity_sign_ins.aio.operations.invitationsOperations
+    :ivar oauth2permissiongrantsoauth2permissiongrant: oauth2permissiongrantsoauth2permissiongrantOperations operations
+    :vartype oauth2permissiongrantsoauth2permissiongrant: identity_sign_ins.aio.operations.oauth2permissiongrantsoauth2permissiongrantOperations
+    :ivar oauth2permissiongrants: oauth2permissiongrantsOperations operations
+    :vartype oauth2permissiongrants: identity_sign_ins.aio.operations.oauth2permissiongrantsOperations
+    :ivar organization: organizationOperations operations
+    :vartype organization: identity_sign_ins.aio.operations.organizationOperations
+    :ivar policiespolicyroot: policiespolicyrootOperations operations
+    :vartype policiespolicyroot: identity_sign_ins.aio.operations.policiespolicyrootOperations
+    :ivar policies: policiesOperations operations
+    :vartype policies: identity_sign_ins.aio.operations.policiesOperations
+    :ivar policiespermissiongrantpolicies: policiespermissiongrantpoliciesOperations operations
+    :vartype policiespermissiongrantpolicies: identity_sign_ins.aio.operations.policiespermissiongrantpoliciesOperations
     :param credential: Credential needed for the client to connect to Azure.
     :type credential: ~azure.core.credentials_async.AsyncTokenCredential
     :param top: Show only the first n items.
@@ -96,42 +96,42 @@ class IdentitySignIns(object):
         if not base_url:
             base_url = 'https://graph.microsoft.com/v1.0'
         self._config = IdentitySignInsConfiguration(credential, top, skip, search, filter, count, **kwargs)
-        self._client = AsyncARMPipelineClient(base_url=base_url, config=self._config, **kwargs)
+        self._client = AsyncPipelineClient(base_url=base_url, config=self._config, **kwargs)
 
         client_models = {k: v for k, v in models.__dict__.items() if isinstance(v, type)}
         self._serialize = Serializer(client_models)
         self._serialize.client_side_validation = False
         self._deserialize = Deserializer(client_models)
 
-        self.data_policy_operation_data_policy_operation = DataPolicyOperationDataPolicyOperationOperations(
+        self.datapolicyoperationsdatapolicyoperation = datapolicyoperationsdatapolicyoperationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.identity = IdentityOperations(
+        self.identity = identityOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.identity_conditional_access = IdentityConditionalAccessOperations(
+        self.identityconditionalaccess = identityconditionalaccessOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.identity_provider_identity_provider = IdentityProviderIdentityProviderOperations(
+        self.identityprovidersidentityprovider = identityprovidersidentityproviderOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.information_protection_information_protection = InformationProtectionInformationProtectionOperations(
+        self.informationprotectioninformationprotection = informationprotectioninformationprotectionOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.information_protection = InformationProtectionOperations(
+        self.informationprotection = informationprotectionOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.information_protection_threat_assessment_request = InformationProtectionThreatAssessmentRequestOperations(
+        self.informationprotectionthreatassessmentrequests = informationprotectionthreatassessmentrequestsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.invitation_invitation = InvitationInvitationOperations(
+        self.invitationsinvitation = invitationsinvitationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.invitation = InvitationOperations(
+        self.invitations = invitationsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.oauth2_permission_grant_oauth2_permission_grant = Oauth2PermissionGrantOAuth2PermissionGrantOperations(
+        self.oauth2permissiongrantsoauth2permissiongrant = oauth2permissiongrantsoauth2permissiongrantOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.oauth2_permission_grant = Oauth2PermissionGrantOperations(
+        self.oauth2permissiongrants = oauth2permissiongrantsOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.organization = OrganizationOperations(
+        self.organization = organizationOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.policy_policy_root = PolicyPolicyRootOperations(
+        self.policiespolicyroot = policiespolicyrootOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.policy = PolicyOperations(
+        self.policies = policiesOperations(
             self._client, self._config, self._serialize, self._deserialize)
-        self.policy_permission_grant_policy = PolicyPermissionGrantPolicyOperations(
+        self.policiespermissiongrantpolicies = policiespermissiongrantpoliciesOperations(
             self._client, self._config, self._serialize, self._deserialize)
 
     async def close(self) -> None:

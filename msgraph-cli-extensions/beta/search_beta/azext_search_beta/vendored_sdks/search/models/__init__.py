@@ -7,140 +7,140 @@
 # --------------------------------------------------------------------------
 
 try:
-    from ._models_py3 import CollectionOfExternalConnection
-    from ._models_py3 import MicrosoftGraphAcl
-    from ._models_py3 import MicrosoftGraphAggregationOption
-    from ._models_py3 import MicrosoftGraphBucketAggregationDefinition
-    from ._models_py3 import MicrosoftGraphBucketAggregationRange
-    from ._models_py3 import MicrosoftGraphConfiguration
-    from ._models_py3 import MicrosoftGraphConnectionOperation
-    from ._models_py3 import MicrosoftGraphEntity
-    from ._models_py3 import MicrosoftGraphErrorDetail
-    from ._models_py3 import MicrosoftGraphExternal
-    from ._models_py3 import MicrosoftGraphExternalConnection
-    from ._models_py3 import MicrosoftGraphExternalGroup
-    from ._models_py3 import MicrosoftGraphExternalGroupMember
-    from ._models_py3 import MicrosoftGraphExternalItem
-    from ._models_py3 import MicrosoftGraphExternalItemContent
-    from ._models_py3 import MicrosoftGraphInnerErrorDetail
-    from ._models_py3 import MicrosoftGraphProperty
-    from ._models_py3 import MicrosoftGraphSchema
-    from ._models_py3 import MicrosoftGraphSearchAggregation
-    from ._models_py3 import MicrosoftGraphSearchBucket
-    from ._models_py3 import MicrosoftGraphSearchEntity
-    from ._models_py3 import MicrosoftGraphSearchHit
-    from ._models_py3 import MicrosoftGraphSearchHitsContainer
-    from ._models_py3 import MicrosoftGraphSearchQuery
-    from ._models_py3 import MicrosoftGraphSearchQueryString
-    from ._models_py3 import MicrosoftGraphSearchRequest
-    from ._models_py3 import MicrosoftGraphSearchResponse
-    from ._models_py3 import MicrosoftGraphSortProperty
-    from ._models_py3 import OdataError
-    from ._models_py3 import OdataErrorDetail
-    from ._models_py3 import OdataErrorMain
-    from ._models_py3 import Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema
+    from ._models_py3 import collectionofexternalconnection
+    from ._models_py3 import microsoftgraphacl
+    from ._models_py3 import microsoftgraphaggregationoption
+    from ._models_py3 import microsoftgraphbucketaggregationdefinition
+    from ._models_py3 import microsoftgraphbucketaggregationrange
+    from ._models_py3 import microsoftgraphconfiguration
+    from ._models_py3 import microsoftgraphconnectionoperation
+    from ._models_py3 import microsoftgraphentity
+    from ._models_py3 import microsoftgrapherrordetail
+    from ._models_py3 import microsoftgraphexternal
+    from ._models_py3 import microsoftgraphexternalconnection
+    from ._models_py3 import microsoftgraphexternalgroup
+    from ._models_py3 import microsoftgraphexternalgroupmember
+    from ._models_py3 import microsoftgraphexternalitem
+    from ._models_py3 import microsoftgraphexternalitemcontent
+    from ._models_py3 import microsoftgraphinnererrordetail
+    from ._models_py3 import microsoftgraphproperty
+    from ._models_py3 import microsoftgraphschema
+    from ._models_py3 import microsoftgraphsearchaggregation
+    from ._models_py3 import microsoftgraphsearchbucket
+    from ._models_py3 import microsoftgraphsearchentity
+    from ._models_py3 import microsoftgraphsearchhit
+    from ._models_py3 import microsoftgraphsearchhitscontainer
+    from ._models_py3 import microsoftgraphsearchquery
+    from ._models_py3 import microsoftgraphsearchquerystring
+    from ._models_py3 import microsoftgraphsearchrequest
+    from ._models_py3 import microsoftgraphsearchresponse
+    from ._models_py3 import microsoftgraphsortproperty
+    from ._models_py3 import odataerror
+    from ._models_py3 import odataerrordetail
+    from ._models_py3 import odataerrormain
+    from ._models_py3 import paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema
 except (SyntaxError, ImportError):
-    from ._models import CollectionOfExternalConnection  # type: ignore
-    from ._models import MicrosoftGraphAcl  # type: ignore
-    from ._models import MicrosoftGraphAggregationOption  # type: ignore
-    from ._models import MicrosoftGraphBucketAggregationDefinition  # type: ignore
-    from ._models import MicrosoftGraphBucketAggregationRange  # type: ignore
-    from ._models import MicrosoftGraphConfiguration  # type: ignore
-    from ._models import MicrosoftGraphConnectionOperation  # type: ignore
-    from ._models import MicrosoftGraphEntity  # type: ignore
-    from ._models import MicrosoftGraphErrorDetail  # type: ignore
-    from ._models import MicrosoftGraphExternal  # type: ignore
-    from ._models import MicrosoftGraphExternalConnection  # type: ignore
-    from ._models import MicrosoftGraphExternalGroup  # type: ignore
-    from ._models import MicrosoftGraphExternalGroupMember  # type: ignore
-    from ._models import MicrosoftGraphExternalItem  # type: ignore
-    from ._models import MicrosoftGraphExternalItemContent  # type: ignore
-    from ._models import MicrosoftGraphInnerErrorDetail  # type: ignore
-    from ._models import MicrosoftGraphProperty  # type: ignore
-    from ._models import MicrosoftGraphSchema  # type: ignore
-    from ._models import MicrosoftGraphSearchAggregation  # type: ignore
-    from ._models import MicrosoftGraphSearchBucket  # type: ignore
-    from ._models import MicrosoftGraphSearchEntity  # type: ignore
-    from ._models import MicrosoftGraphSearchHit  # type: ignore
-    from ._models import MicrosoftGraphSearchHitsContainer  # type: ignore
-    from ._models import MicrosoftGraphSearchQuery  # type: ignore
-    from ._models import MicrosoftGraphSearchQueryString  # type: ignore
-    from ._models import MicrosoftGraphSearchRequest  # type: ignore
-    from ._models import MicrosoftGraphSearchResponse  # type: ignore
-    from ._models import MicrosoftGraphSortProperty  # type: ignore
-    from ._models import OdataError  # type: ignore
-    from ._models import OdataErrorDetail  # type: ignore
-    from ._models import OdataErrorMain  # type: ignore
-    from ._models import Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema  # type: ignore
+    from ._models import collectionofexternalconnection  # type: ignore
+    from ._models import microsoftgraphacl  # type: ignore
+    from ._models import microsoftgraphaggregationoption  # type: ignore
+    from ._models import microsoftgraphbucketaggregationdefinition  # type: ignore
+    from ._models import microsoftgraphbucketaggregationrange  # type: ignore
+    from ._models import microsoftgraphconfiguration  # type: ignore
+    from ._models import microsoftgraphconnectionoperation  # type: ignore
+    from ._models import microsoftgraphentity  # type: ignore
+    from ._models import microsoftgrapherrordetail  # type: ignore
+    from ._models import microsoftgraphexternal  # type: ignore
+    from ._models import microsoftgraphexternalconnection  # type: ignore
+    from ._models import microsoftgraphexternalgroup  # type: ignore
+    from ._models import microsoftgraphexternalgroupmember  # type: ignore
+    from ._models import microsoftgraphexternalitem  # type: ignore
+    from ._models import microsoftgraphexternalitemcontent  # type: ignore
+    from ._models import microsoftgraphinnererrordetail  # type: ignore
+    from ._models import microsoftgraphproperty  # type: ignore
+    from ._models import microsoftgraphschema  # type: ignore
+    from ._models import microsoftgraphsearchaggregation  # type: ignore
+    from ._models import microsoftgraphsearchbucket  # type: ignore
+    from ._models import microsoftgraphsearchentity  # type: ignore
+    from ._models import microsoftgraphsearchhit  # type: ignore
+    from ._models import microsoftgraphsearchhitscontainer  # type: ignore
+    from ._models import microsoftgraphsearchquery  # type: ignore
+    from ._models import microsoftgraphsearchquerystring  # type: ignore
+    from ._models import microsoftgraphsearchrequest  # type: ignore
+    from ._models import microsoftgraphsearchresponse  # type: ignore
+    from ._models import microsoftgraphsortproperty  # type: ignore
+    from ._models import odataerror  # type: ignore
+    from ._models import odataerrordetail  # type: ignore
+    from ._models import odataerrormain  # type: ignore
+    from ._models import paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema  # type: ignore
 
 from ._search_enums import (
     Enum13,
-    Get1ItemsItem,
-    Get2ItemsItem,
-    Get5ItemsItem,
-    Get6ItemsItem,
-    Get7ItemsItem,
-    MicrosoftGraphAccessType,
-    MicrosoftGraphAclType,
-    MicrosoftGraphBucketAggregationSortProperty,
-    MicrosoftGraphConnectionOperationStatus,
-    MicrosoftGraphConnectionState,
-    MicrosoftGraphEntityType,
-    MicrosoftGraphExternalGroupMemberType,
-    MicrosoftGraphExternalItemContentType,
-    MicrosoftGraphIdentitySourceType,
-    MicrosoftGraphLabel,
-    MicrosoftGraphPropertyType,
+    Get1itemsitem,
+    Get2itemsitem,
+    Get5itemsitem,
+    Get6itemsitem,
+    Get7itemsitem,
+    Microsoftgraphaccesstype,
+    Microsoftgraphacltype,
+    Microsoftgraphbucketaggregationsortproperty,
+    Microsoftgraphconnectionoperationstatus,
+    Microsoftgraphconnectionstate,
+    Microsoftgraphentitytype,
+    Microsoftgraphexternalgroupmembertype,
+    Microsoftgraphexternalitemcontenttype,
+    Microsoftgraphidentitysourcetype,
+    Microsoftgraphlabel,
+    Microsoftgraphpropertytype,
 )
 
 __all__ = [
-    'CollectionOfExternalConnection',
-    'MicrosoftGraphAcl',
-    'MicrosoftGraphAggregationOption',
-    'MicrosoftGraphBucketAggregationDefinition',
-    'MicrosoftGraphBucketAggregationRange',
-    'MicrosoftGraphConfiguration',
-    'MicrosoftGraphConnectionOperation',
-    'MicrosoftGraphEntity',
-    'MicrosoftGraphErrorDetail',
-    'MicrosoftGraphExternal',
-    'MicrosoftGraphExternalConnection',
-    'MicrosoftGraphExternalGroup',
-    'MicrosoftGraphExternalGroupMember',
-    'MicrosoftGraphExternalItem',
-    'MicrosoftGraphExternalItemContent',
-    'MicrosoftGraphInnerErrorDetail',
-    'MicrosoftGraphProperty',
-    'MicrosoftGraphSchema',
-    'MicrosoftGraphSearchAggregation',
-    'MicrosoftGraphSearchBucket',
-    'MicrosoftGraphSearchEntity',
-    'MicrosoftGraphSearchHit',
-    'MicrosoftGraphSearchHitsContainer',
-    'MicrosoftGraphSearchQuery',
-    'MicrosoftGraphSearchQueryString',
-    'MicrosoftGraphSearchRequest',
-    'MicrosoftGraphSearchResponse',
-    'MicrosoftGraphSortProperty',
-    'OdataError',
-    'OdataErrorDetail',
-    'OdataErrorMain',
-    'Paths1Kd2XrlSearchMicrosoftGraphQueryPostRequestbodyContentApplicationJsonSchema',
+    'collectionofexternalconnection',
+    'microsoftgraphacl',
+    'microsoftgraphaggregationoption',
+    'microsoftgraphbucketaggregationdefinition',
+    'microsoftgraphbucketaggregationrange',
+    'microsoftgraphconfiguration',
+    'microsoftgraphconnectionoperation',
+    'microsoftgraphentity',
+    'microsoftgrapherrordetail',
+    'microsoftgraphexternal',
+    'microsoftgraphexternalconnection',
+    'microsoftgraphexternalgroup',
+    'microsoftgraphexternalgroupmember',
+    'microsoftgraphexternalitem',
+    'microsoftgraphexternalitemcontent',
+    'microsoftgraphinnererrordetail',
+    'microsoftgraphproperty',
+    'microsoftgraphschema',
+    'microsoftgraphsearchaggregation',
+    'microsoftgraphsearchbucket',
+    'microsoftgraphsearchentity',
+    'microsoftgraphsearchhit',
+    'microsoftgraphsearchhitscontainer',
+    'microsoftgraphsearchquery',
+    'microsoftgraphsearchquerystring',
+    'microsoftgraphsearchrequest',
+    'microsoftgraphsearchresponse',
+    'microsoftgraphsortproperty',
+    'odataerror',
+    'odataerrordetail',
+    'odataerrormain',
+    'paths1kd2xrlsearchmicrosoftgraphquerypostrequestbodycontentapplicationjsonschema',
     'Enum13',
-    'Get1ItemsItem',
-    'Get2ItemsItem',
-    'Get5ItemsItem',
-    'Get6ItemsItem',
-    'Get7ItemsItem',
-    'MicrosoftGraphAccessType',
-    'MicrosoftGraphAclType',
-    'MicrosoftGraphBucketAggregationSortProperty',
-    'MicrosoftGraphConnectionOperationStatus',
-    'MicrosoftGraphConnectionState',
-    'MicrosoftGraphEntityType',
-    'MicrosoftGraphExternalGroupMemberType',
-    'MicrosoftGraphExternalItemContentType',
-    'MicrosoftGraphIdentitySourceType',
-    'MicrosoftGraphLabel',
-    'MicrosoftGraphPropertyType',
+    'Get1itemsitem',
+    'Get2itemsitem',
+    'Get5itemsitem',
+    'Get6itemsitem',
+    'Get7itemsitem',
+    'Microsoftgraphaccesstype',
+    'Microsoftgraphacltype',
+    'Microsoftgraphbucketaggregationsortproperty',
+    'Microsoftgraphconnectionoperationstatus',
+    'Microsoftgraphconnectionstate',
+    'Microsoftgraphentitytype',
+    'Microsoftgraphexternalgroupmembertype',
+    'Microsoftgraphexternalitemcontenttype',
+    'Microsoftgraphidentitysourcetype',
+    'Microsoftgraphlabel',
+    'Microsoftgraphpropertytype',
 ]

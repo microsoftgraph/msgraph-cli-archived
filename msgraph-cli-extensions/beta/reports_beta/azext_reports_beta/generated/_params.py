@@ -18,12 +18,8 @@ from msgraph.cli.core.commands.validators import validate_file_or_dict
 from azext_reports_beta.action import (
     AddRestrictedSignIns,
     AddAdditionalDetails,
-    AddTargetResources,
     AddApp,
     AddUser,
-    AddInitiatedBy,
-    AddModifiedProperties,
-    AddServicePrincipal,
     AddAppliedConditionalAccessPolicies,
     AddAuthenticationDetails,
     AddAuthenticationProcessingDetails,
@@ -44,11 +40,11 @@ from azext_reports_beta.action import (
 
 def load_arguments(self, _):
 
-    with self.argument_context('reports audit-log-audit-log-root show-audit-log-root') as c:
+    with self.argument_context('reports auditlogsauditlogroot show-audit-log-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log-audit-log-root update-audit-log-root') as c:
+    with self.argument_context('reports auditlogsauditlogroot update-audit-log-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('directory_audits', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
@@ -59,317 +55,193 @@ def load_arguments(self, _):
         c.argument('sign_ins', type=validate_file_or_dict, help='Read-only. Nullable. Expected value: '
                    'json-string/@json-file.')
 
-    with self.argument_context('reports audit-log delete') as c:
+    with self.argument_context('reports auditlog create-directory-audit') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
+                   'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
+                   '\'2014-01-01T00:00:00Z\'')
+        c.argument('activity_display_name', type=str, help='Indicates the activity name or the operation name '
+                   '(examples: \'Create User\' and \'Add member to group\'). For full list, see Azure AD activity '
+                   'list.')
+        c.argument('additional_details', action=AddAdditionalDetails, nargs='+', help='Indicates additional details on '
+                   'the activity.')
+        c.argument('category', type=str, help='Indicates which resource category that\'s targeted by the activity. '
+                   '(For example: User Management, Group Management etc..)')
+        c.argument('correlation_id', type=str, help='Indicates a unique ID that helps correlate activities that span '
+                   'across various services. Can be used to trace logs across services.')
+        c.argument('logged_by_service', type=str, help='Indicates information on which service initiated the activity '
+                   '(For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft '
+                   'Identity Manager, Privileged Identity Management.')
+        c.argument('operation_type', type=str, help='')
+        c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
+        c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
+        c.argument('target_resources', type=validate_file_or_dict, help='Indicates information on which resource was '
+                   'changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, '
+                   'Group, Policy or Other. Expected value: json-string/@json-file.')
+        c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
+        c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
+
+    with self.argument_context('reports auditlog create-directory-provisioning') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('reports auditlog create-provisioning') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('reports auditlog create-restricted-sign-in') as c:
+        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
+        c.argument('alternate_sign_in_name', type=str, help='')
+        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
+        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
+        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='+',
+                   help='')
+        c.argument('authentication_details', action=AddAuthenticationDetails, nargs='+', help='')
+        c.argument('authentication_methods_used', nargs='+', help='')
+        c.argument('authentication_processing_details', action=AddAuthenticationProcessingDetails, nargs='+', help='')
+        c.argument('authentication_requirement', type=str, help='')
+        c.argument('authentication_requirement_policies', action=AddAuthenticationRequirementPolicies, nargs='+',
+                   help='')
+        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
+                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
+        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied',
+                                                                        'unknownFutureValue']), help='')
+        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
+                   'initiated; used to troubleshoot sign-in activity.')
+        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
+                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
+        c.argument('device_detail', action=AddDeviceDetail, nargs='+', help='deviceDetail')
+        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
+        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
+                   'not.')
+        c.argument('mfa_detail', action=AddMfaDetail, nargs='+', help='mfaDetail')
+        c.argument('network_location_details', action=AddNetworkLocationDetails, nargs='+', help='')
+        c.argument('original_request_id', type=str, help='')
+        c.argument('processing_time_in_milliseconds', type=int, help='')
+        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
+        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
+        c.argument('resource_tenant_id', type=str, help='')
+        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword',
+                                                          'userPerformedSecuredPasswordChange',
+                                                          'userPerformedSecuredPasswordReset',
+                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe',
+                                                          'userPassedMFADrivenByRiskBasedPolicy',
+                                                          'adminDismissedAllRiskForUser',
+                                                          'adminConfirmedSigninCompromised', 'hidden',
+                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
+                   help='')
+        c.argument('risk_event_types', nargs='+', help='Risk event types associated with the sign-in. The possible '
+                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, and unknownFutureValue.')
+        c.argument('risk_event_types_v2', nargs='+', help='The list of risk event types associated with the sign-in. '
+                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
+                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
+                   '  generic, or unknownFutureValue.')
+        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
+                                                                    'unknownFutureValue']), help='')
+        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
+                                                                        'unknownFutureValue']), help='')
+        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
+                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
+        c.argument('service_principal_id', type=str, help='')
+        c.argument('service_principal_name', type=str, help='')
+        c.argument('sign_in_event_types', nargs='+', help='')
+        c.argument('status', action=AddStatus, nargs='+', help='signInStatus')
+        c.argument('token_issuer_name', type=str, help='')
+        c.argument('token_issuer_type', arg_type=get_enum_type(['AzureAD', 'ADFederationServices',
+                                                                'UnknownFutureValue']), help='')
+        c.argument('user_agent', type=str, help='')
+        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
+        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
+        c.argument('user_principal_name', type=str,
+                   help='User principal name of the user that initiated the sign-in.')
+        c.argument('city', type=str, help='Provides the city where the sign-in originated. This is calculated using '
+                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
+        c.argument('country_or_region', type=str, help='Provides the country code info (2 letter code) where the '
+                   'sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
+                   'activity.', arg_group='Location')
+        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates',
+                   arg_group='Location')
+        c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
+                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
+        c.argument('target_tenant_id', help='')
+
+    with self.argument_context('reports auditlog create-sign-in') as c:
+        c.argument('body', type=validate_file_or_dict, help='New navigation property Expected value: '
+                   'json-string/@json-file.')
+
+    with self.argument_context('reports auditlog delete-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports auditlog delete-directory-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports auditlog delete-provisioning') as c:
+        c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports auditlog delete-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports auditlog delete-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
+        c.argument('if_match', type=str, help='ETag')
 
-    with self.argument_context('reports audit-log create-directory-audit') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
-                   'type is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: '
-                   '\'2014-01-01T00:00:00Z\'')
-        c.argument('activity_display_name', type=str, help='Indicates the activity name or the operation name '
-                   '(examples: \'Create User\' and \'Add member to group\'). For full list, see Azure AD activity '
-                   'list.')
-        c.argument('additional_details', action=AddAdditionalDetails, nargs='+', help='Indicates additional details on '
-                   'the activity.')
-        c.argument('category', type=str, help='Indicates which resource category that\'s targeted by the activity. '
-                   '(For example: User Management, Group Management etc..)')
-        c.argument('correlation_id', type=str, help='Indicates a unique ID that helps correlate activities that span '
-                   'across various services. Can be used to trace logs across services.')
-        c.argument('logged_by_service', type=str, help='Indicates information on which service initiated the activity '
-                   '(For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft '
-                   'Identity Manager, Privileged Identity Management.')
-        c.argument('operation_type', type=str, help='')
-        c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
-        c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
-        c.argument('target_resources', action=AddTargetResources, nargs='+', help='Indicates information on which '
-                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
-                   'App, Role, Group, Policy or Other.')
-        c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
-        c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
-
-    with self.argument_context('reports audit-log create-directory-provisioning') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action', type=str, help='')
-        c.argument('activity_date_time', help='')
-        c.argument('change_id', type=str, help='')
-        c.argument('cycle_id', type=str, help='')
-        c.argument('duration_in_milliseconds', type=int, help='')
-        c.argument('initiated_by', action=AddInitiatedBy, nargs='+', help='initiator')
-        c.argument('job_id', type=str, help='')
-        c.argument('modified_properties', action=AddModifiedProperties, nargs='+', help='')
-        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('service_principal', action=AddServicePrincipal, nargs='+', help='provisioningServicePrincipal')
-        c.argument('tenant_id', type=str, help='')
-        c.argument('details', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Target System')
-        c.argument('display_name', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_provisioning_system_details_id', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_details_info_details', type=validate_file_or_dict, help='detailsInfo Expected '
-                   'value: json-string/@json-file.', arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_display_name', type=str, help='',
-                   arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_id', type=str, help='', arg_group='Target Identity')
-        c.argument('identity_type', type=str, help='', arg_group='Target Identity')
-        c.argument('status', arg_type=get_enum_type(['success', 'failure', 'skipped', 'unknownFutureValue']), help='',
-                   arg_group='Status Info')
-        c.argument('details1', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source System')
-        c.argument('microsoft_graph_provisioning_system_details_display_name', type=str, help='', arg_group='Source '
-                   'System')
-        c.argument('id1', type=str, help='', arg_group='Source System')
-        c.argument('details2', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source Identity')
-        c.argument('display_name1', type=str, help='', arg_group='Source Identity')
-        c.argument('id2', type=str, help='', arg_group='Source Identity')
-        c.argument('microsoft_graph_provisioned_identity_type', type=str, help='', arg_group='Source Identity')
-
-    with self.argument_context('reports audit-log create-provisioning') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action', type=str, help='')
-        c.argument('activity_date_time', help='')
-        c.argument('change_id', type=str, help='')
-        c.argument('cycle_id', type=str, help='')
-        c.argument('duration_in_milliseconds', type=int, help='')
-        c.argument('initiated_by', action=AddInitiatedBy, nargs='+', help='initiator')
-        c.argument('job_id', type=str, help='')
-        c.argument('modified_properties', action=AddModifiedProperties, nargs='+', help='')
-        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('service_principal', action=AddServicePrincipal, nargs='+', help='provisioningServicePrincipal')
-        c.argument('tenant_id', type=str, help='')
-        c.argument('details', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Target System')
-        c.argument('display_name', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_provisioning_system_details_id', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_details_info_details', type=validate_file_or_dict, help='detailsInfo Expected '
-                   'value: json-string/@json-file.', arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_display_name', type=str, help='',
-                   arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_id', type=str, help='', arg_group='Target Identity')
-        c.argument('identity_type', type=str, help='', arg_group='Target Identity')
-        c.argument('status', arg_type=get_enum_type(['success', 'failure', 'skipped', 'unknownFutureValue']), help='',
-                   arg_group='Status Info')
-        c.argument('details1', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source System')
-        c.argument('microsoft_graph_provisioning_system_details_display_name', type=str, help='', arg_group='Source '
-                   'System')
-        c.argument('id1', type=str, help='', arg_group='Source System')
-        c.argument('details2', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source Identity')
-        c.argument('display_name1', type=str, help='', arg_group='Source Identity')
-        c.argument('id2', type=str, help='', arg_group='Source Identity')
-        c.argument('microsoft_graph_provisioned_identity_type', type=str, help='', arg_group='Source Identity')
-
-    with self.argument_context('reports audit-log create-restricted-sign-in') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('alternate_sign_in_name', type=str, help='')
-        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
-        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
-        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='+',
-                   help='')
-        c.argument('authentication_details', action=AddAuthenticationDetails, nargs='+', help='')
-        c.argument('authentication_methods_used', nargs='+', help='')
-        c.argument('authentication_processing_details', action=AddAuthenticationProcessingDetails, nargs='+', help='')
-        c.argument('authentication_requirement', type=str, help='')
-        c.argument('authentication_requirement_policies', action=AddAuthenticationRequirementPolicies, nargs='+',
-                   help='')
-        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
-                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
-        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
-                   'initiated; used to troubleshoot sign-in activity.')
-        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
-                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
-        c.argument('device_detail', action=AddDeviceDetail, nargs='+', help='deviceDetail')
-        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
-        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
-                   'not.')
-        c.argument('mfa_detail', action=AddMfaDetail, nargs='+', help='mfaDetail')
-        c.argument('network_location_details', action=AddNetworkLocationDetails, nargs='+', help='')
-        c.argument('original_request_id', type=str, help='')
-        c.argument('processing_time_in_milliseconds', type=int, help='')
-        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
-        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
-        c.argument('resource_tenant_id', type=str, help='')
-        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword',
-                                                          'userPerformedSecuredPasswordChange',
-                                                          'userPerformedSecuredPasswordReset',
-                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe',
-                                                          'userPassedMFADrivenByRiskBasedPolicy',
-                                                          'adminDismissedAllRiskForUser',
-                                                          'adminConfirmedSigninCompromised', 'hidden',
-                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
-                   help='')
-        c.argument('risk_event_types', nargs='+', help='Risk event types associated with the sign-in. The possible '
-                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, and unknownFutureValue.')
-        c.argument('risk_event_types_v2', nargs='+', help='The list of risk event types associated with the sign-in. '
-                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, or unknownFutureValue.')
-        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                    'unknownFutureValue']), help='')
-        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
-                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
-        c.argument('service_principal_id', type=str, help='')
-        c.argument('service_principal_name', type=str, help='')
-        c.argument('sign_in_event_types', nargs='+', help='')
-        c.argument('status', action=AddStatus, nargs='+', help='signInStatus')
-        c.argument('token_issuer_name', type=str, help='')
-        c.argument('token_issuer_type', arg_type=get_enum_type(['AzureAD', 'ADFederationServices',
-                                                                'UnknownFutureValue']), help='')
-        c.argument('user_agent', type=str, help='')
-        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
-        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
-        c.argument('user_principal_name', type=str,
-                   help='User principal name of the user that initiated the sign-in.')
-        c.argument('city', type=str, help='Provides the city where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
-        c.argument('country_or_region', type=str, help='Provides the country code info (2 letter code) where the '
-                   'sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
-                   'activity.', arg_group='Location')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates',
-                   arg_group='Location')
-        c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
-        c.argument('target_tenant_id', help='')
-
-    with self.argument_context('reports audit-log create-sign-in') as c:
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('alternate_sign_in_name', type=str, help='')
-        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
-        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
-        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='+',
-                   help='')
-        c.argument('authentication_details', action=AddAuthenticationDetails, nargs='+', help='')
-        c.argument('authentication_methods_used', nargs='+', help='')
-        c.argument('authentication_processing_details', action=AddAuthenticationProcessingDetails, nargs='+', help='')
-        c.argument('authentication_requirement', type=str, help='')
-        c.argument('authentication_requirement_policies', action=AddAuthenticationRequirementPolicies, nargs='+',
-                   help='')
-        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
-                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
-        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
-                   'initiated; used to troubleshoot sign-in activity.')
-        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
-                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
-        c.argument('device_detail', action=AddDeviceDetail, nargs='+', help='deviceDetail')
-        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
-        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
-                   'not.')
-        c.argument('mfa_detail', action=AddMfaDetail, nargs='+', help='mfaDetail')
-        c.argument('network_location_details', action=AddNetworkLocationDetails, nargs='+', help='')
-        c.argument('original_request_id', type=str, help='')
-        c.argument('processing_time_in_milliseconds', type=int, help='')
-        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
-        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
-        c.argument('resource_tenant_id', type=str, help='')
-        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword',
-                                                          'userPerformedSecuredPasswordChange',
-                                                          'userPerformedSecuredPasswordReset',
-                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe',
-                                                          'userPassedMFADrivenByRiskBasedPolicy',
-                                                          'adminDismissedAllRiskForUser',
-                                                          'adminConfirmedSigninCompromised', 'hidden',
-                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
-                   help='')
-        c.argument('risk_event_types', nargs='+', help='Risk event types associated with the sign-in. The possible '
-                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, and unknownFutureValue.')
-        c.argument('risk_event_types_v2', nargs='+', help='The list of risk event types associated with the sign-in. '
-                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, or unknownFutureValue.')
-        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                    'unknownFutureValue']), help='')
-        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
-                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
-        c.argument('service_principal_id', type=str, help='')
-        c.argument('service_principal_name', type=str, help='')
-        c.argument('sign_in_event_types', nargs='+', help='')
-        c.argument('status', action=AddStatus, nargs='+', help='signInStatus')
-        c.argument('token_issuer_name', type=str, help='')
-        c.argument('token_issuer_type', arg_type=get_enum_type(['AzureAD', 'ADFederationServices',
-                                                                'UnknownFutureValue']), help='')
-        c.argument('user_agent', type=str, help='')
-        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
-        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
-        c.argument('user_principal_name', type=str,
-                   help='User principal name of the user that initiated the sign-in.')
-        c.argument('city', type=str, help='Provides the city where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
-        c.argument('country_or_region', type=str, help='Provides the country code info (2 letter code) where the '
-                   'sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
-                   'activity.', arg_group='Location')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates',
-                   arg_group='Location')
-        c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
-
-    with self.argument_context('reports audit-log list-directory-audit') as c:
+    with self.argument_context('reports auditlog list-directory-audit') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log list-directory-provisioning') as c:
+    with self.argument_context('reports auditlog list-directory-provisioning') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log list-provisioning') as c:
+    with self.argument_context('reports auditlog list-provisioning') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log list-restricted-sign-in') as c:
+    with self.argument_context('reports auditlog list-restricted-sign-in') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log list-sign-in') as c:
+    with self.argument_context('reports auditlog list-sign-in') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log show-directory-audit') as c:
+    with self.argument_context('reports auditlog show-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log show-directory-provisioning') as c:
+    with self.argument_context('reports auditlog show-directory-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log show-provisioning') as c:
+    with self.argument_context('reports auditlog show-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log show-restricted-sign-in') as c:
+    with self.argument_context('reports auditlog show-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log show-sign-in') as c:
+    with self.argument_context('reports auditlog show-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports audit-log update-directory-audit') as c:
+    with self.argument_context('reports auditlog update-directory-audit') as c:
         c.argument('directory_audit_id', type=str, help='key: id of directoryAudit')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('activity_date_time', help='Indicates the date and time the activity was performed. The Timestamp '
@@ -390,87 +262,23 @@ def load_arguments(self, _):
         c.argument('operation_type', type=str, help='')
         c.argument('result', arg_type=get_enum_type(['success', 'failure', 'timeout', 'unknownFutureValue']), help='')
         c.argument('result_reason', type=str, help='Describes cause of \'failure\' or \'timeout\' results.')
-        c.argument('target_resources', action=AddTargetResources, nargs='+', help='Indicates information on which '
-                   'resource was changed due to the activity. Target Resource Type can be User, Device, Directory, '
-                   'App, Role, Group, Policy or Other.')
+        c.argument('target_resources', type=validate_file_or_dict, help='Indicates information on which resource was '
+                   'changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, '
+                   'Group, Policy or Other. Expected value: json-string/@json-file.')
         c.argument('app', action=AddApp, nargs='+', help='appIdentity', arg_group='Initiated By')
         c.argument('user', action=AddUser, nargs='+', help='userIdentity', arg_group='Initiated By')
 
-    with self.argument_context('reports audit-log update-directory-provisioning') as c:
+    with self.argument_context('reports auditlog update-directory-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action', type=str, help='')
-        c.argument('activity_date_time', help='')
-        c.argument('change_id', type=str, help='')
-        c.argument('cycle_id', type=str, help='')
-        c.argument('duration_in_milliseconds', type=int, help='')
-        c.argument('initiated_by', action=AddInitiatedBy, nargs='+', help='initiator')
-        c.argument('job_id', type=str, help='')
-        c.argument('modified_properties', action=AddModifiedProperties, nargs='+', help='')
-        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('service_principal', action=AddServicePrincipal, nargs='+', help='provisioningServicePrincipal')
-        c.argument('tenant_id', type=str, help='')
-        c.argument('details', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Target System')
-        c.argument('display_name', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_provisioning_system_details_id', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_details_info_details', type=validate_file_or_dict, help='detailsInfo Expected '
-                   'value: json-string/@json-file.', arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_display_name', type=str, help='',
-                   arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_id', type=str, help='', arg_group='Target Identity')
-        c.argument('identity_type', type=str, help='', arg_group='Target Identity')
-        c.argument('status', arg_type=get_enum_type(['success', 'failure', 'skipped', 'unknownFutureValue']), help='',
-                   arg_group='Status Info')
-        c.argument('details1', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source System')
-        c.argument('microsoft_graph_provisioning_system_details_display_name', type=str, help='', arg_group='Source '
-                   'System')
-        c.argument('id1', type=str, help='', arg_group='Source System')
-        c.argument('details2', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source Identity')
-        c.argument('display_name1', type=str, help='', arg_group='Source Identity')
-        c.argument('id2', type=str, help='', arg_group='Source Identity')
-        c.argument('microsoft_graph_provisioned_identity_type', type=str, help='', arg_group='Source Identity')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('reports audit-log update-provisioning') as c:
+    with self.argument_context('reports auditlog update-provisioning') as c:
         c.argument('provisioning_object_summary_id', type=str, help='key: id of provisioningObjectSummary')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('action', type=str, help='')
-        c.argument('activity_date_time', help='')
-        c.argument('change_id', type=str, help='')
-        c.argument('cycle_id', type=str, help='')
-        c.argument('duration_in_milliseconds', type=int, help='')
-        c.argument('initiated_by', action=AddInitiatedBy, nargs='+', help='initiator')
-        c.argument('job_id', type=str, help='')
-        c.argument('modified_properties', action=AddModifiedProperties, nargs='+', help='')
-        c.argument('provisioning_steps', type=validate_file_or_dict, help=' Expected value: json-string/@json-file.')
-        c.argument('service_principal', action=AddServicePrincipal, nargs='+', help='provisioningServicePrincipal')
-        c.argument('tenant_id', type=str, help='')
-        c.argument('details', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Target System')
-        c.argument('display_name', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_provisioning_system_details_id', type=str, help='', arg_group='Target System')
-        c.argument('microsoft_graph_details_info_details', type=validate_file_or_dict, help='detailsInfo Expected '
-                   'value: json-string/@json-file.', arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_display_name', type=str, help='',
-                   arg_group='Target Identity')
-        c.argument('microsoft_graph_provisioned_identity_id', type=str, help='', arg_group='Target Identity')
-        c.argument('identity_type', type=str, help='', arg_group='Target Identity')
-        c.argument('status', arg_type=get_enum_type(['success', 'failure', 'skipped', 'unknownFutureValue']), help='',
-                   arg_group='Status Info')
-        c.argument('details1', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source System')
-        c.argument('microsoft_graph_provisioning_system_details_display_name', type=str, help='', arg_group='Source '
-                   'System')
-        c.argument('id1', type=str, help='', arg_group='Source System')
-        c.argument('details2', type=validate_file_or_dict, help='detailsInfo Expected value: json-string/@json-file.',
-                   arg_group='Source Identity')
-        c.argument('display_name1', type=str, help='', arg_group='Source Identity')
-        c.argument('id2', type=str, help='', arg_group='Source Identity')
-        c.argument('microsoft_graph_provisioned_identity_type', type=str, help='', arg_group='Source Identity')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('reports audit-log update-restricted-sign-in') as c:
+    with self.argument_context('reports auditlog update-restricted-sign-in') as c:
         c.argument('restricted_sign_in_id', type=str, help='key: id of restrictedSignIn')
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('alternate_sign_in_name', type=str, help='')
@@ -549,89 +357,16 @@ def load_arguments(self, _):
                    'latitude/longitude information from the sign-in activity.', arg_group='Location')
         c.argument('target_tenant_id', help='')
 
-    with self.argument_context('reports audit-log update-sign-in') as c:
+    with self.argument_context('reports auditlog update-sign-in') as c:
         c.argument('sign_in_id', type=str, help='key: id of signIn')
-        c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
-        c.argument('alternate_sign_in_name', type=str, help='')
-        c.argument('app_display_name', type=str, help='App name displayed in the Azure Portal.')
-        c.argument('app_id', type=str, help='Unique GUID representing the app ID in the Azure Active Directory.')
-        c.argument('applied_conditional_access_policies', action=AddAppliedConditionalAccessPolicies, nargs='+',
-                   help='')
-        c.argument('authentication_details', action=AddAuthenticationDetails, nargs='+', help='')
-        c.argument('authentication_methods_used', nargs='+', help='')
-        c.argument('authentication_processing_details', action=AddAuthenticationProcessingDetails, nargs='+', help='')
-        c.argument('authentication_requirement', type=str, help='')
-        c.argument('authentication_requirement_policies', action=AddAuthenticationRequirementPolicies, nargs='+',
-                   help='')
-        c.argument('client_app_used', type=str, help='Identifies the legacy client used for sign-in activity.  '
-                   'Includes Browser, Exchange Active Sync, modern clients, IMAP, MAPI, SMTP, and POP.')
-        c.argument('conditional_access_status', arg_type=get_enum_type(['success', 'failure', 'notApplied',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('correlation_id', type=str, help='The request ID sent from the client when the sign-in is '
-                   'initiated; used to troubleshoot sign-in activity.')
-        c.argument('created_date_time', help='Date and time (UTC) the sign-in was initiated. Example: midnight on Jan '
-                   '1, 2014 is reported as \'2014-01-01T00:00:00Z\'.')
-        c.argument('device_detail', action=AddDeviceDetail, nargs='+', help='deviceDetail')
-        c.argument('ip_address', type=str, help='IP address of the client used to sign in.')
-        c.argument('is_interactive', arg_type=get_three_state_flag(), help='Indicates if a sign-in is interactive or '
-                   'not.')
-        c.argument('mfa_detail', action=AddMfaDetail, nargs='+', help='mfaDetail')
-        c.argument('network_location_details', action=AddNetworkLocationDetails, nargs='+', help='')
-        c.argument('original_request_id', type=str, help='')
-        c.argument('processing_time_in_milliseconds', type=int, help='')
-        c.argument('resource_display_name', type=str, help='Name of the resource the user signed into.')
-        c.argument('resource_id', type=str, help='ID of the resource that the user signed into.')
-        c.argument('resource_tenant_id', type=str, help='')
-        c.argument('risk_detail', arg_type=get_enum_type(['none', 'adminGeneratedTemporaryPassword',
-                                                          'userPerformedSecuredPasswordChange',
-                                                          'userPerformedSecuredPasswordReset',
-                                                          'adminConfirmedSigninSafe', 'aiConfirmedSigninSafe',
-                                                          'userPassedMFADrivenByRiskBasedPolicy',
-                                                          'adminDismissedAllRiskForUser',
-                                                          'adminConfirmedSigninCompromised', 'hidden',
-                                                          'adminConfirmedUserCompromised', 'unknownFutureValue']),
-                   help='')
-        c.argument('risk_event_types', nargs='+', help='Risk event types associated with the sign-in. The possible '
-                   'values are: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, and unknownFutureValue.')
-        c.argument('risk_event_types_v2', nargs='+', help='The list of risk event types associated with the sign-in. '
-                   'Possible values: unlikelyTravel, anonymizedIPAddress, maliciousIPAddress, unfamiliarFeatures, '
-                   'malwareInfectedIPAddress, suspiciousIPAddress, leakedCredentials, investigationsThreatIntelligence,'
-                   '  generic, or unknownFutureValue.')
-        c.argument('risk_level_aggregated', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                    'unknownFutureValue']), help='')
-        c.argument('risk_level_during_sign_in', arg_type=get_enum_type(['low', 'medium', 'high', 'hidden', 'none',
-                                                                        'unknownFutureValue']), help='')
-        c.argument('risk_state', arg_type=get_enum_type(['none', 'confirmedSafe', 'remediated', 'dismissed', 'atRisk',
-                                                         'confirmedCompromised', 'unknownFutureValue']), help='')
-        c.argument('service_principal_id', type=str, help='')
-        c.argument('service_principal_name', type=str, help='')
-        c.argument('sign_in_event_types', nargs='+', help='')
-        c.argument('status', action=AddStatus, nargs='+', help='signInStatus')
-        c.argument('token_issuer_name', type=str, help='')
-        c.argument('token_issuer_type', arg_type=get_enum_type(['AzureAD', 'ADFederationServices',
-                                                                'UnknownFutureValue']), help='')
-        c.argument('user_agent', type=str, help='')
-        c.argument('user_display_name', type=str, help='Display name of the user that initiated the sign-in.')
-        c.argument('user_id', type=str, help='ID of the user that initiated the sign-in.')
-        c.argument('user_principal_name', type=str,
-                   help='User principal name of the user that initiated the sign-in.')
-        c.argument('city', type=str, help='Provides the city where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
-        c.argument('country_or_region', type=str, help='Provides the country code info (2 letter code) where the '
-                   'sign-in originated.  This is calculated using latitude/longitude information from the sign-in '
-                   'activity.', arg_group='Location')
-        c.argument('geo_coordinates', action=AddGeoCoordinates, nargs='+', help='geoCoordinates',
-                   arg_group='Location')
-        c.argument('state', type=str, help='Provides the State where the sign-in originated. This is calculated using '
-                   'latitude/longitude information from the sign-in activity.', arg_group='Location')
+        c.argument('body', type=validate_file_or_dict, help='New navigation property values Expected value: '
+                   'json-string/@json-file.')
 
-    with self.argument_context('reports report-root show-report-root') as c:
+    with self.argument_context('reports reportsreportroot show-report-root') as c:
         c.argument('select', nargs='+', help='Select properties to be returned')
         c.argument('expand', nargs='+', help='Expand related entities')
 
-    with self.argument_context('reports report-root update-report-root') as c:
+    with self.argument_context('reports reportsreportroot update-report-root') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
         c.argument('application_sign_in_detailed_summary', type=validate_file_or_dict, help=' Expected value: '
                    'json-string/@json-file.')
@@ -646,16 +381,6 @@ def load_arguments(self, _):
                    nargs='+', help='')
         c.argument('monthly_print_usage_summaries_by_user', action=AddMonthlyPrintUsageSummariesByUser, nargs='+',
                    help='')
-
-    with self.argument_context('reports report delete') as c:
-        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: id of '
-                   'applicationSignInDetailedSummary')
-        c.argument('if_match', type=str, help='ETag')
-        c.argument('credential_user_registration_details_id', type=str, help='key: id of '
-                   'credentialUserRegistrationDetails')
-        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
-        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
-        c.argument('user_credential_usage_details_id', type=str, help='key: id of userCredentialUsageDetails')
 
     with self.argument_context('reports report create-application-sign-in-detailed-summary') as c:
         c.argument('id_', options_list=['--id'], type=str, help='Read-only.')
@@ -719,6 +444,30 @@ def load_arguments(self, _):
         c.argument('is_success', arg_type=get_three_state_flag(), help='')
         c.argument('user_display_name', type=str, help='')
         c.argument('user_principal_name', type=str, help='')
+
+    with self.argument_context('reports report delete-application-sign-in-detailed-summary') as c:
+        c.argument('application_sign_in_detailed_summary_id', type=str, help='key: id of '
+                   'applicationSignInDetailedSummary')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports report delete-credential-user-registration-detail') as c:
+        c.argument('credential_user_registration_details_id', type=str, help='key: id of '
+                   'credentialUserRegistrationDetails')
+        c.argument('if_match', type=str, help='ETag')
+
+    with self.argument_context('reports report delete-daily-print-usage-summary') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
+
+    with self.argument_context('reports report delete-monthly-print-usage-summary') as c:
+        c.argument('print_usage_summary_by_printer_id', type=str, help='key: id of PrintUsageSummaryByPrinter')
+        c.argument('if_match', type=str, help='ETag')
+        c.argument('print_usage_summary_by_user_id', type=str, help='key: id of PrintUsageSummaryByUser')
+
+    with self.argument_context('reports report delete-user-credential-usage-detail') as c:
+        c.argument('user_credential_usage_details_id', type=str, help='key: id of userCredentialUsageDetails')
+        c.argument('if_match', type=str, help='ETag')
 
     with self.argument_context('reports report list-application-sign-in-detailed-summary') as c:
         c.argument('orderby', nargs='+', help='Order items by property values')
